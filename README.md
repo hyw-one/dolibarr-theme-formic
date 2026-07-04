@@ -54,4 +54,6 @@ The theme includes an iForm dark skin layer behind the official switch. It keeps
 - Dark mode with `THEME_DARKMODEENABLED=1` and `THEME_DARKMODEENABLED=2`.
 - Dark desktop checks for third-party list, invoice list, invoice card, and third-party card.
 - Dark mobile invoice list check at 390 x 844.
+- Dark refinement pass for top menu selected tabs, card tabs, status badges, and left-menu separators.
+- Light refinement check for top menu selected tabs, status badges, and left-menu separators.
 - Mobile 390 x 844 checks from the Eldy-based rebuild pass.

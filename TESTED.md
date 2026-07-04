@@ -32,6 +32,8 @@ This pass finalizes the Eldy-based iForm theme under the theme id `iform-dolibar
 - Dark desktop checks passed for third-party list, invoice list, invoice card, and third-party card.
 - Dark mobile invoice list check passed at 390 x 844.
 - Dark page samples reported `color-scheme: dark`, iForm dark root variables, and 0 sampled light backgrounds.
+- Dark refinement checks passed for single-layer top-menu selected state, 1px status badges, single-layer invoice status pills, and subdued left-menu separators.
+- Light refinement checks passed for the same top-menu, badge, and left-menu separator rules.
 
 ## QA Artifacts
 
