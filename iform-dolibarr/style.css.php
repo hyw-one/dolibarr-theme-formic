@@ -2076,6 +2076,15 @@ li.select2-selection__choice,
 	box-shadow: none !important;
 }
 
+.badgeneutral,
+span.badgeneutral {
+	background: rgba(169, 179, 192, 0.14) !important;
+	border: 1px solid rgba(169, 179, 192, 0.28) !important;
+	box-shadow: none !important;
+	color: #c8d0d9 !important;
+	line-height: 1.15;
+}
+
 .statusref,
 .statusrefsupplier,
 .statusdoc {

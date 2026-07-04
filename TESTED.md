@@ -307,3 +307,10 @@ Tooling caveat: for both CKEditor's chrome and the ACE gutter, `preview_screensh
 - Root-caused this to Dolibarr's native `.btnTitle:hover, a.btnTitle:hover { border: 1px solid #bbb; }` rule from `btn.inc.php`, which was still eligible for non-selected title buttons.
 - Added a dark-mode `.btnTitle:hover` / `.btnTitle:focus` override so these buttons use the neutral dark hover surface, `var(--iform-line)` border, no shadow, and dark-mode accent text instead of the native bright border.
 - Synced the theme into the active `127.0.0.1:18090` test checkout and verified the invoice card title buttons load with dark borders (`rgb(58, 64, 72)`) and the served dark stylesheet contains the later hover override after the native `#bbb` rule. Verified the icon itself keeps its neutral view-mode color rather than being forced to the button text color.
+
+## Dark Neutral Badge Pass 42
+
+- User reported two remaining neutral badge misses: the agenda month "today" date pill and the invoice type "标准" pill both stayed light in dark mode.
+- Root-caused both to Dolibarr's `span.badgeneutral` rule from `badges.inc.php`, which uses `#e4e4e4` background and `#666` text and was not covered by the existing `.badge-status` / `.statusref` dark-mode rules.
+- Added a scoped dark-mode `.badgeneutral` override with a neutral dark translucent background, soft muted border, muted light text, and no shadow while leaving semantic status badges on their existing colored paths.
+- Synced the theme into the active `127.0.0.1:18090` test checkout and verified both pages with forced dark mode: invoice "标准" and agenda "04" badges compute to `rgba(169, 179, 192, 0.14)` background, `rgba(169, 179, 192, 0.28)` border, and `rgb(200, 208, 217)` text.
