@@ -22,7 +22,7 @@
  */
 
 /**
- *		\file       htdocs/theme/iform/manifest.json.php
+ *		\file       htdocs/theme/iform-dolibarr/manifest.json.php
  *		\brief      File for The Web App (PWA)
  */
 
