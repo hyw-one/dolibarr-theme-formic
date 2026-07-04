@@ -503,6 +503,18 @@ a:active,
 	color: #b45309 !important;
 }
 
+#mainbody img.ui-datepicker-trigger,
+#mainbody img[src$="/object_calendarday.png"] {
+	background: transparent !important;
+	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect x='2.5' y='3.5' width='11' height='10' rx='1.5' fill='none' stroke='%230969da' stroke-width='1.5'/%3E%3Cpath d='M5 2v3M11 2v3M3 6.5h10' stroke='%230969da' stroke-width='1.5' stroke-linecap='round'/%3E%3Cpath d='M5 8.5h2v2H5zM9 8.5h2v2H9z' fill='%230969da' opacity='.86'/%3E%3C/svg%3E") !important;
+	filter: none !important;
+	height: 14px !important;
+	object-fit: contain !important;
+	opacity: 0.9;
+	vertical-align: middle;
+	width: 14px !important;
+}
+
 #mainbody .fa-globe-americas,
 #mainbody .fa-map,
 #mainbody .fa-map-marked,
@@ -737,6 +749,83 @@ textarea:focus,
 #mainbody .button:disabled:focus,
 #mainbody .buttonDelete:disabled:focus {
 	box-shadow: none !important;
+}
+
+#mainbody .dropdown-content a:is(.butAction,.butActionDelete,.butActionRefused),
+#mainbody .dropdown-content .butAction,
+#mainbody .dropdown-content .butActionDelete,
+#mainbody .dropdown-content .butActionRefused {
+	background: transparent !important;
+	border: 0 !important;
+	border-bottom: 1px solid var(--iform-line-soft) !important;
+	border-radius: 0 !important;
+	box-shadow: none !important;
+	color: var(--iform-text) !important;
+	margin-left: 0 !important;
+	margin-right: 0 !important;
+}
+
+#mainbody .dropdown-content .butAction:hover,
+#mainbody .dropdown-content .butAction:focus {
+	background: var(--iform-neutral-hover-bg) !important;
+	border-bottom-color: var(--iform-line) !important;
+	color: var(--iform-accent) !important;
+	text-decoration: none !important;
+}
+
+#mainbody .dropdown-content .butActionDelete,
+#mainbody .dropdown-content .butActionDelete:link,
+#mainbody .dropdown-content .butActionDelete:visited {
+	color: var(--iform-danger) !important;
+}
+
+#mainbody .dropdown-content .butActionDelete:hover,
+#mainbody .dropdown-content .butActionDelete:focus {
+	background: var(--iform-danger-bg) !important;
+	border-bottom-color: #ff8182 !important;
+	color: #a40e26 !important;
+	text-decoration: none !important;
+}
+
+#mainbody .dropdown-content .butActionRefused,
+#mainbody .dropdown-content .butActionRefused:hover,
+#mainbody .dropdown-content .butActionRefused:focus {
+	background: transparent !important;
+	border-bottom-color: var(--iform-line-soft) !important;
+	color: var(--iform-muted) !important;
+	cursor: not-allowed !important;
+}
+
+#mainbody dl.dropdown dd .multichoicedoc > ul.ulselectedfields.open {
+	background: var(--iform-surface) !important;
+	border: 1px solid var(--iform-line) !important;
+	box-shadow: 0 8px 18px rgba(31, 35, 40, 0.12) !important;
+	color: var(--iform-text) !important;
+	max-height: none !important;
+	overflow: visible !important;
+	z-index: 1000 !important;
+}
+
+#mainbody dl.dropdown dd .multichoicedoc > ul.ulselectedfields.open > li {
+	color: var(--iform-text) !important;
+}
+
+#mainbody dl.dropdown dd .multichoicedoc > ul.ulselectedfields.open > li:hover:not(.liinputsearch) {
+	background: var(--iform-neutral-hover-bg) !important;
+	color: var(--iform-accent) !important;
+}
+
+#mainbody dl.dropdown dd .multichoicedoc > ul.ulselectedfields.open a {
+	color: var(--iform-accent) !important;
+	text-decoration: none !important;
+}
+
+#mainbody .box:has(dl.dropdown dd .multichoicedoc > ul.ulselectedfields.open),
+#mainbody .boxtable:has(dl.dropdown dd .multichoicedoc > ul.ulselectedfields.open),
+#mainbody .info-box:has(dl.dropdown dd .multichoicedoc > ul.ulselectedfields.open),
+#mainbody .div-table-responsive:has(dl.dropdown dd .multichoicedoc > ul.ulselectedfields.open),
+#mainbody .div-table-responsive-no-min:has(dl.dropdown dd .multichoicedoc > ul.ulselectedfields.open) {
+	overflow: visible !important;
 }
 
 .button,
@@ -977,6 +1066,7 @@ hr,
 
 #id-left,
 #id-right,
+#id-container,
 #id-left .vmenu,
 #id-left .blockvmenusearch,
 #id-left .blockvmenubookmarks,
@@ -988,6 +1078,10 @@ hr,
 	background: var(--colorbackvmenu1) !important;
 	border-color: var(--iform-line-soft) !important;
 	color: var(--iform-text) !important;
+}
+
+#id-container {
+	min-height: calc(100vh - 51px);
 }
 
 #id-left .blockvmenu,
@@ -1105,6 +1199,22 @@ div.ui-tooltip.mytooltip-hover-tooltip {
 	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.45) !important;
 }
 
+#mainbody dl.dropdown dd .multichoicedoc > ul.ulselectedfields.open {
+	background: var(--iform-surface) !important;
+	border-color: var(--iform-line) !important;
+	box-shadow: 0 14px 28px rgba(0, 0, 0, 0.56) !important;
+	color: var(--iform-text) !important;
+}
+
+#mainbody dl.dropdown dd .multichoicedoc > ul.ulselectedfields.open > li:hover:not(.liinputsearch) {
+	background: var(--iform-neutral-hover-bg) !important;
+	color: var(--iform-accent-hover) !important;
+}
+
+#mainbody .dropdown-holder.open .dropdown-content::before {
+	border-color: transparent transparent var(--iform-surface) transparent !important;
+}
+
 .box {
 	box-shadow: none !important;
 }
@@ -1168,6 +1278,7 @@ div.ui-tooltip.mytooltip-hover-tooltip {
 .fichethirdleft,
 .fichetwothirdright,
 .fichehalfright .ficheaddleft,
+.divsection,
 .tabBar,
 .tabBarWithBottom,
 .tabBarNoBottom,
@@ -1181,6 +1292,13 @@ div.ui-tooltip.mytooltip-hover-tooltip {
 .tabBarWithBottom,
 .tabBarNoBottom {
 	box-shadow: none !important;
+}
+
+#mainbody .divsection,
+#mainbody .divsection.wordbreak {
+	background: var(--iform-surface) !important;
+	border-color: var(--iform-line) !important;
+	color: var(--iform-text) !important;
 }
 
 .tab,
@@ -1310,6 +1428,13 @@ div.liste_titre_bydiv_nothingafter {
 	border-color: var(--iform-line-soft) !important;
 }
 
+#mainbody .fichehalfleft table.noborder.centpercent,
+#mainbody .fichehalfright table.noborder.centpercent,
+#mainbody .boxhalfleft table.noborder.centpercent,
+#mainbody .boxhalfright table.noborder.centpercent {
+	border-color: var(--iform-line) !important;
+}
+
 tr.oddeven,
 tr.pair,
 tr.impair,
@@ -1362,6 +1487,102 @@ div.tableforcontact form.tagtr:last-of-type div.tagtd,
 .paginate_active,
 table.jPicker {
 	border-color: var(--iform-line-soft) !important;
+}
+
+#mainbody .navmode .btnTitle .pictoactionview {
+	color: var(--iform-muted) !important;
+}
+
+#mainbody .navmode .btnTitle:hover .pictoactionview,
+#mainbody .navmode .btnTitle:focus .pictoactionview,
+#mainbody .navmode .btnTitleSelected .pictoactionview {
+	color: var(--iform-accent-hover) !important;
+}
+
+#mainbody .sectioncalendarbymonth,
+#mainbody table.cal_month {
+	background: var(--iform-surface) !important;
+	color: var(--iform-text) !important;
+}
+
+#mainbody table.cal_month tr,
+#mainbody table.noborder.cal_month tr {
+	background: var(--iform-surface) !important;
+	border-color: var(--iform-line-soft) !important;
+	border-top-color: var(--iform-line-soft) !important;
+}
+
+#mainbody table.cal_month td,
+#mainbody table.cal_month th,
+#mainbody table.cal_month .tagtd,
+#mainbody table.cal_month .tdfordaytitle {
+	border-color: var(--iform-line-soft) !important;
+	color: var(--iform-text) !important;
+}
+
+#mainbody table.cal_month .tdfordaytitle {
+	background: var(--iform-surface-alt) !important;
+}
+
+#mainbody table.cal_month .cal_current_month,
+#mainbody table.cal_month .cal_current_month_right,
+#mainbody table.cal_month .cal_current_month_oneday,
+#mainbody table.cal_month .cal_current_month_peruserleft,
+#mainbody table.cal_month .cal_current_month_peruserleft.cal_impair {
+	background: var(--iform-surface) !important;
+	border-color: var(--iform-line-soft) !important;
+	color: var(--iform-text) !important;
+}
+
+#mainbody table.cal_month .cal_other_month,
+#mainbody table.cal_month .cal_other_month_right,
+#mainbody table.cal_month .cal_other_month_peruserleft,
+#mainbody table.cal_month .cal_past_month,
+#mainbody table.cal_month td.cal_other_month {
+	background: var(--iform-neutral-bg) !important;
+	border-color: var(--iform-line-soft) !important;
+	color: var(--iform-muted) !important;
+	opacity: 1 !important;
+}
+
+#mainbody table.cal_month .cal_today,
+#mainbody table.cal_month .cal_today_peruser,
+#mainbody table.cal_month .cal_today_peruser_peruserleft,
+#mainbody table.cal_month .cal_today_peruser_impair {
+	background: rgba(78, 163, 255, 0.12) !important;
+	border-color: rgba(78, 163, 255, 0.38) !important;
+	color: var(--iform-text) !important;
+}
+
+#mainbody table.cal_month .dayevent,
+#mainbody table.cal_month .agendacell,
+#mainbody table.cal_month .tagtr,
+#mainbody table.cal_month .tagtd {
+	background: transparent !important;
+}
+
+#mainbody div.event {
+	box-shadow: none !important;
+}
+
+#mainbody table.cal_event {
+	background: var(--iform-surface-alt) !important;
+	border: 1px solid var(--iform-line) !important;
+	box-shadow: none !important;
+	filter: none !important;
+}
+
+#mainbody table.cal_event td,
+#mainbody table.cal_event .cal_event,
+#mainbody table.cal_event a.cal_event_title,
+#mainbody table.cal_event a:link,
+#mainbody table.cal_event a:visited,
+#mainbody table.cal_event a:active {
+	color: var(--iform-text) !important;
+}
+
+#mainbody table.cal_event a.cal_event_title:hover {
+	color: var(--iform-accent-hover) !important;
 }
 
 input:not([type="image"]):not([type="checkbox"]):not([type="radio"]),
@@ -1499,6 +1720,51 @@ li.select2-selection__choice,
 	color: var(--iform-muted) !important;
 }
 
+#mainbody .dropdown-content a:is(.butAction,.butActionDelete,.butActionRefused),
+#mainbody .dropdown-content .butAction,
+#mainbody .dropdown-content .butActionDelete,
+#mainbody .dropdown-content .butActionRefused {
+	background: transparent !important;
+	border: 0 !important;
+	border-bottom: 1px solid var(--iform-line-soft) !important;
+	border-radius: 0 !important;
+	box-shadow: none !important;
+	color: var(--iform-text) !important;
+	margin-left: 0 !important;
+	margin-right: 0 !important;
+}
+
+#mainbody .dropdown-content .butAction:hover,
+#mainbody .dropdown-content .butAction:focus {
+	background: var(--iform-neutral-hover-bg) !important;
+	border-bottom-color: var(--iform-line) !important;
+	color: var(--iform-accent-hover) !important;
+	text-decoration: none !important;
+}
+
+#mainbody .dropdown-content .butActionDelete,
+#mainbody .dropdown-content .butActionDelete:link,
+#mainbody .dropdown-content .butActionDelete:visited {
+	color: var(--iform-danger) !important;
+}
+
+#mainbody .dropdown-content .butActionDelete:hover,
+#mainbody .dropdown-content .butActionDelete:focus {
+	background: var(--iform-danger-hover-bg) !important;
+	border-bottom-color: #8f3e49 !important;
+	color: #ffb4b4 !important;
+	text-decoration: none !important;
+}
+
+#mainbody .dropdown-content .butActionRefused,
+#mainbody .dropdown-content .butActionRefused:hover,
+#mainbody .dropdown-content .butActionRefused:focus {
+	background: transparent !important;
+	border-bottom-color: var(--iform-line-soft) !important;
+	color: var(--iform-muted) !important;
+	cursor: not-allowed !important;
+}
+
 .btnTitle,
 .button,
 .buttonDelete,
@@ -1506,6 +1772,25 @@ li.select2-selection__choice,
 .butActionRefused,
 .butActionDelete {
 	box-shadow: none !important;
+}
+
+#mainbody a.btnTitle:hover,
+#mainbody a.btnTitle:focus,
+#mainbody .btnTitle:hover,
+#mainbody .btnTitle:focus {
+	background: var(--iform-neutral-hover-bg) !important;
+	border-color: var(--iform-line) !important;
+	box-shadow: none !important;
+	color: var(--iform-accent-hover) !important;
+}
+
+#mainbody a.btnTitle.btnTitleSelected,
+#mainbody a.btnTitle.btnTitleSelected:hover,
+#mainbody .btnTitle.btnTitleSelected,
+#mainbody .btnTitle.btnTitleSelected:hover {
+	background: var(--iform-surface-alt) !important;
+	border-color: var(--iform-line) !important;
+	color: var(--iform-muted) !important;
 }
 
 .spannature,
@@ -1729,8 +2014,14 @@ li.select2-selection__choice,
 
 #mainbody img.ui-datepicker-trigger,
 #mainbody img[src$="/object_calendarday.png"] {
-	filter: brightness(0) saturate(100%) invert(57%) sepia(93%) saturate(1816%) hue-rotate(190deg) brightness(101%) contrast(101%) !important;
+	background: transparent !important;
+	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect x='2.5' y='3.5' width='11' height='10' rx='1.5' fill='none' stroke='%2378b7ff' stroke-width='1.5'/%3E%3Cpath d='M5 2v3M11 2v3M3 6.5h10' stroke='%2378b7ff' stroke-width='1.5' stroke-linecap='round'/%3E%3Cpath d='M5 8.5h2v2H5zM9 8.5h2v2H9z' fill='%2378b7ff' opacity='.9'/%3E%3C/svg%3E") !important;
+	filter: none !important;
+	height: 14px !important;
+	object-fit: contain !important;
 	opacity: 0.95;
+	vertical-align: middle;
+	width: 14px !important;
 }
 
 #mainbody img[src$="/edit_add.png"] {
@@ -2019,23 +2310,31 @@ div.pagination .disabled a {
 .messageerr,
 .error {
 	background: var(--iform-danger-bg) !important;
+	border-color: rgba(255, 139, 139, 0.3) !important;
+	border-left-color: #ff8b8b !important;
 	color: #ffb4b4 !important;
 }
 
 .messageok,
 .ok {
 	background: rgba(61, 180, 111, 0.14) !important;
+	border-color: rgba(61, 180, 111, 0.28) !important;
+	border-left-color: #3db46f !important;
 	color: #83e5a1 !important;
 }
 
 .warning,
 .messagewarning {
 	background: rgba(214, 164, 62, 0.16) !important;
+	border-color: rgba(214, 164, 62, 0.3) !important;
+	border-left-color: #d6a43e !important;
 	color: #ffd38a !important;
 }
 
 .info {
 	background: var(--iform-accent-soft) !important;
+	border-color: rgba(78, 163, 255, 0.28) !important;
+	border-left-color: var(--iform-accent) !important;
 	color: var(--iform-accent-hover) !important;
 }
 
@@ -2097,12 +2396,90 @@ table.jPicker {
 }
 <?php
 	print "}\n";
-}
-?>
+	}
+	?>
 
-@media only screen and (max-width: 767px) {
-	table.table-fiche-title .titre,
-	table.table-fiche-title div.titre,
+	/* Final action/menu dropdown override: menu rows must not inherit primary button fills. */
+	body#mainbody .dropdown-holder.open > .dropdown-content,
+	body#mainbody .tabsAction .dropdown.open > .dropdown-menu,
+	body#mainbody .tabsActionNoBottom .dropdown.open > .dropdown-menu,
+	body#mainbody .tabBar .dropdown.open > .dropdown-menu {
+		background-color: var(--iform-surface) !important;
+		background-image: none !important;
+		border: 1px solid var(--iform-line) !important;
+		box-shadow: 0 8px 18px rgba(31, 35, 40, 0.12) !important;
+		color: var(--iform-text) !important;
+	}
+
+	body#mainbody .dropdown-holder.open > .dropdown-content::before {
+		border-color: transparent transparent var(--iform-surface) transparent !important;
+	}
+
+	body#mainbody .dropdown-holder > .dropdown-content > a.butAction,
+	body#mainbody .dropdown-holder > .dropdown-content > a.butAction:link,
+	body#mainbody .dropdown-holder > .dropdown-content > a.butAction:visited,
+	body#mainbody .dropdown-holder > .dropdown-content > span.butAction,
+	body#mainbody .dropdown-holder > .dropdown-content > a.butActionRefused,
+	body#mainbody .dropdown-holder > .dropdown-content > span.butActionRefused,
+	body#mainbody .tabsAction .dropdown-menu > .dropdown-item,
+	body#mainbody .tabsActionNoBottom .dropdown-menu > .dropdown-item,
+	body#mainbody .tabBar .dropdown-menu > .dropdown-item {
+		background-color: transparent !important;
+		background-image: none !important;
+		border: 0 !important;
+		border-bottom: 1px solid var(--iform-line-soft) !important;
+		border-radius: 0 !important;
+		box-sizing: border-box !important;
+		box-shadow: none !important;
+		color: var(--iform-text) !important;
+		display: block !important;
+		margin: 0 !important;
+		min-width: 0 !important;
+		text-align: left !important;
+		width: 100% !important;
+	}
+
+	body#mainbody .dropdown-holder > .dropdown-content > a.butAction:hover,
+	body#mainbody .dropdown-holder > .dropdown-content > a.butAction:focus,
+	body#mainbody .tabsAction .dropdown-menu > .dropdown-item:hover,
+	body#mainbody .tabsAction .dropdown-menu > .dropdown-item:focus,
+	body#mainbody .tabsActionNoBottom .dropdown-menu > .dropdown-item:hover,
+	body#mainbody .tabsActionNoBottom .dropdown-menu > .dropdown-item:focus,
+	body#mainbody .tabBar .dropdown-menu > .dropdown-item:hover,
+	body#mainbody .tabBar .dropdown-menu > .dropdown-item:focus {
+		background-color: var(--iform-neutral-hover-bg) !important;
+		background-image: none !important;
+		border-bottom-color: var(--iform-line) !important;
+		box-shadow: none !important;
+		color: var(--iform-accent) !important;
+		text-decoration: none !important;
+	}
+
+	body#mainbody .dropdown-holder > .dropdown-content > a.butActionDelete,
+	body#mainbody .dropdown-holder > .dropdown-content > a.butActionDelete:link,
+	body#mainbody .dropdown-holder > .dropdown-content > a.butActionDelete:visited {
+		color: var(--iform-danger) !important;
+	}
+
+	body#mainbody .dropdown-holder > .dropdown-content > a.butActionDelete:hover,
+	body#mainbody .dropdown-holder > .dropdown-content > a.butActionDelete:focus {
+		background-color: var(--iform-danger-bg) !important;
+		background-image: none !important;
+		border-bottom-color: #ff8182 !important;
+		color: var(--iform-danger) !important;
+	}
+
+	body#mainbody .dropdown-holder > .dropdown-content > a.butActionRefused,
+	body#mainbody .dropdown-holder > .dropdown-content > span.butActionRefused,
+	body#mainbody .dropdown-holder > .dropdown-content > a.butActionRefused:hover,
+	body#mainbody .dropdown-holder > .dropdown-content > span.butActionRefused:hover {
+		color: var(--iform-muted) !important;
+		cursor: not-allowed !important;
+	}
+
+	@media only screen and (max-width: 767px) {
+		table.table-fiche-title .titre,
+		table.table-fiche-title div.titre,
 	table.table-fiche-title td.col-title {
 		word-break: keep-all;
 		overflow-wrap: normal;

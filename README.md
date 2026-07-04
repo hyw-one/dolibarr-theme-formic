@@ -57,3 +57,4 @@ The theme includes an iForm dark skin layer behind the official switch. It keeps
 - Dark refinement pass for top menu selected tabs, card tabs, status badges, and left-menu separators.
 - Light refinement check for top menu selected tabs, status badges, and left-menu separators.
 - Mobile 390 x 844 checks from the Eldy-based rebuild pass.
+- Dark chrome pass: flattened card/admin tabs to a single underline (no boxed double border), removed the mismatched surface-color layer behind `.fiche`/`.tabBar` page wrappers so it blends with the page background, adapted `.side-nav`'s hardcoded light border/shadow, and reworked dark-mode button variables (title buttons, disabled/refused state, destructive buttons) to use the theme's own dark palette instead of the legacy ad hoc colors.
