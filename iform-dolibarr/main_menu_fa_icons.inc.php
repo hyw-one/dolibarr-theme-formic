@@ -18,7 +18,7 @@
  */
 
 /**
- *		\file       htdocs/theme/iform/global.inc.php
+ *		\file       htdocs/theme/iform-dolibarr/global.inc.php
  *		\brief      File for CSS style sheet Eldy
  */
 if (!defined('ISLOADEDBYSTEELSHEET')) {

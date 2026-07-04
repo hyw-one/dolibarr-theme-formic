@@ -18,7 +18,7 @@
  */
 
 /**
- *		\file       htdocs/theme/iform/flag-sprite.inc.php
+ *		\file       htdocs/theme/iform-dolibarr/flag-sprite.inc.php
  *		\brief      File for CSS style sheet Eldy
  */
 if (!defined('ISLOADEDBYSTEELSHEET')) {
