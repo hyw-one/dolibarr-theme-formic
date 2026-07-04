@@ -41,7 +41,7 @@ Dolibarr 23 has an official dark-mode switch through `THEME_DARKMODEENABLED`:
 - `1`: follow the browser or operating-system preference.
 - `2`: always use the theme's dark mode.
 
-The copied Eldy source keeps Dolibarr's official dark-mode hooks, but this iForm skin layer is currently tuned as a light palette. A dedicated iForm dark palette should be added as a separate tested pass before enabling dark mode for production users.
+The theme includes an iForm dark skin layer behind the official switch. It keeps Eldy's structure and adapts the iForm visual layer for dark backgrounds, navigation, side menu, list headers, rows, forms, select2 controls, tabs, cards, status badges, action buttons, destructive buttons, dialogs, tooltips, scrollbars, and jNotify toasts.
 
 ## Checked
 
@@ -51,4 +51,7 @@ The copied Eldy source keeps Dolibarr's official dark-mode hooks, but this iForm
 - Third-party card with destructive action.
 - Document generation button.
 - Long jNotify toast.
+- Dark mode with `THEME_DARKMODEENABLED=1` and `THEME_DARKMODEENABLED=2`.
+- Dark desktop checks for third-party list, invoice list, invoice card, and third-party card.
+- Dark mobile invoice list check at 390 x 844.
 - Mobile 390 x 844 checks from the Eldy-based rebuild pass.

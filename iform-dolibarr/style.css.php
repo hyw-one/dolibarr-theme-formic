@@ -715,6 +715,658 @@ div.jnotify-background,
 	padding: 12px 14px;
 }
 
+<?php
+if (getDolGlobalInt('THEME_DARKMODEENABLED')) {
+	print "/* iForm dark skin layer */\n";
+	if (getDolGlobalInt('THEME_DARKMODEENABLED') != 2) {
+		print "@media (prefers-color-scheme: dark) {";
+	} else {
+		print "@media not print {";
+	}
+?>
+:root {
+	color-scheme: dark;
+	--iform-accent: #4ea3ff;
+	--iform-accent-hover: #78b7ff;
+	--iform-accent-soft: rgba(78, 163, 255, 0.16);
+	--iform-line: #3a4048;
+	--iform-line-soft: #2c3238;
+	--iform-bg: #151719;
+	--iform-surface: #1c1f22;
+	--iform-surface-alt: #24282d;
+	--iform-text: #edf2f7;
+	--iform-muted: #a9b3c0;
+	--iform-danger: #ff8b8b;
+	--iform-danger-bg: #3a1f24;
+	--iform-danger-hover-bg: #4a252b;
+	--iform-neutral-bg: #202429;
+	--iform-neutral-hover-bg: #2a3037;
+	--iform-refused-bg: #202429;
+	--iform-focus-ring: rgba(78, 163, 255, 0.28);
+	--colorbackhmenu1: #1c1f22;
+	--colorbackvmenu1: #181b1f;
+	--colorbacktitle1: #24282d;
+	--colorbacktabcard1: #1c1f22;
+	--colorbacktabactive: #24282d;
+	--colorbacklineimpair1: #1c1f22;
+	--colorbacklineimpair2: #1c1f22;
+	--colorbacklinepair1: #1c1f22;
+	--colorbacklinepair2: #202429;
+	--colorbacklinepairhover: #263141;
+	--colorbacklinepairchecked: #183a5e;
+	--colorbacklinebreak: #252a30;
+	--colorbackbody: #151719;
+	--colorbackmobilemenu: #181b1f;
+	--colorbackgrey: #202429;
+	--colortexttitlenotab: #edf2f7;
+	--colortexttitlenotab2: #edf2f7;
+	--colortexttitle: rgba(237, 242, 247, 0.95);
+	--colortexttitlelink: rgba(78, 163, 255, 0.95);
+	--colortext: #edf2f7;
+	--colortextlink: #4ea3ff;
+	--colortextbackhmenu: #edf2f7;
+	--colortextbackvmenu: #edf2f7;
+	--colortopbordertitle1: #3a4048;
+	--inputbackgroundcolor: #202429;
+	--inputbackgroundcolordisabled: #181b1f;
+	--inputcolordisabled: #7f8a96;
+	--inputbordercolor: #3a4048;
+	--tooltipbgcolor: rgba(28, 31, 34, 0.98);
+	--tooltipfontcolor: #edf2f7;
+	--oddevencolor: #edf2f7;
+	--colorboxstatsborder: #3a4048;
+	--colorboxiconbg: #202429;
+	--fieldrequiredcolor: #ff8b8b;
+	--refidnocolor: #edf2f7;
+	--tableforfieldcolor: #a9b3c0;
+}
+
+html,
+body,
+#mainbody {
+	background: var(--iform-bg) !important;
+	color: var(--iform-text);
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active,
+.classlink,
+.nowraponall a,
+.linkobject,
+.linkobject:visited {
+	color: var(--iform-accent);
+}
+
+hr,
+.opacitymedium {
+	border-color: var(--iform-line-soft);
+}
+
+#id-top,
+.tmenu,
+.tmenuimage,
+.login_block,
+.inline-block.login_block {
+	background: var(--iform-surface) !important;
+	border-color: var(--iform-line-soft) !important;
+	color: var(--iform-text) !important;
+}
+
+#id-top {
+	box-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
+}
+
+#id-top a,
+#id-top span,
+#id-top .fas,
+#id-top .far,
+#id-top .fa,
+.login_block,
+.login_block a {
+	color: var(--iform-text) !important;
+}
+
+#id-top li.tmenusel div.tmenucenter,
+#id-top li.tmenu:hover div.tmenucenter {
+	background: var(--iform-accent-soft) !important;
+}
+
+#id-top li.tmenusel,
+#id-top li.tmenusel a,
+#id-top li.tmenusel span,
+#id-top li.tmenusel .fas,
+#id-top li.tmenusel .far,
+#id-top li.tmenusel .fa,
+#id-top li.tmenu:hover a,
+#id-top li.tmenu:hover span,
+#id-top li.tmenu:hover .fas,
+#id-top li.tmenu:hover .far,
+#id-top li.tmenu:hover .fa {
+	color: var(--iform-accent-hover) !important;
+}
+
+#id-left,
+#id-right,
+#id-left .vmenu,
+#id-left .blockvmenusearch,
+#id-left .blockvmenubookmarks,
+#id-left .menu_contenu,
+#id-left .menu_titre,
+#id-left .vmenu_titre,
+.vmenu_titre,
+.menu_titre {
+	background: var(--colorbackvmenu1) !important;
+	border-color: var(--iform-line-soft) !important;
+	color: var(--iform-text) !important;
+}
+
+#id-left a,
+.vmenu a,
+.menu_contenu a {
+	color: var(--iform-muted) !important;
+}
+
+#id-left a:hover,
+.vmenu a:hover,
+.menu_contenu a:hover {
+	color: var(--iform-accent-hover) !important;
+}
+
+.fiche,
+.fichecenter,
+.fichehalfleft,
+.fichehalfright,
+.ficheaddleft,
+.ficheaddright,
+.fichethirdleft,
+.fichetwothirdright,
+.fichehalfright .ficheaddleft,
+.tabBar,
+.tabBarWithBottom,
+.tabBarNoBottom,
+.tabBar .tabBar,
+.div-table-responsive,
+.div-table-responsive-no-min,
+.box,
+.box-flex-item,
+.info-box,
+.boxstats,
+.tableforfield,
+.tableforfieldcreate,
+.tableforfieldedit,
+.ui-widget-content,
+.ui-dialog,
+.ui-dialog-content,
+.ui-dialog-titlebar,
+.dropdown-menu,
+.dropdown-body,
+.user-body,
+.bookmark-body,
+.quickadd-body,
+.select2-dropdown,
+.select2-drop,
+.ui-tooltip.mytooltip,
+.mytooltip {
+	background: var(--iform-surface) !important;
+	border-color: var(--iform-line) !important;
+	color: var(--iform-text) !important;
+}
+
+.tabBar,
+.tabBarWithBottom,
+.tabBarNoBottom {
+	box-shadow: none !important;
+}
+
+.tab,
+.tabactive,
+.tabunactive,
+.tabBar .tabsElem a,
+.tabs .tabsElem a {
+	background: var(--iform-surface-alt) !important;
+	border-color: var(--iform-line) !important;
+	color: var(--iform-muted) !important;
+}
+
+.tabactive,
+.tabBar .tabsElem.tabsElemActive a,
+.tabs .tabsElem.tabsElemActive a {
+	color: var(--iform-accent-hover) !important;
+	border-bottom-color: var(--iform-accent) !important;
+}
+
+.titre,
+.titre.inline-block,
+.titre:first-letter,
+.table-fiche-title .titre,
+.table-fiche-title .col-title,
+.refid,
+.refidno,
+.refidno a,
+.titlefield,
+.titlefieldcreate,
+.titlefieldmiddle,
+.titlefieldmiddle2,
+.nobold,
+.wordbreak,
+.liste_total,
+.amount,
+.opacityhigh {
+	color: var(--iform-text) !important;
+}
+
+.secondary,
+.opacitymedium,
+.opacitymediumonly,
+.opacitymediumonlyonhover,
+.opacitymediumcolor,
+.notopnoleftnoright,
+.small,
+.smallpaddingimp,
+.tableforfield td:first-child,
+.tableforfield div.tagtd:first-child,
+.trforfield td:first-child {
+	color: var(--iform-muted) !important;
+}
+
+table.border,
+table.noborder,
+table.liste,
+.border,
+.noborder,
+.liste,
+.tableforfield,
+.tagtable,
+.paymenttable,
+.margintable {
+	background: var(--iform-surface) !important;
+	border-color: var(--iform-line-soft) !important;
+	color: var(--iform-text) !important;
+}
+
+.liste_titre,
+tr.liste_titre,
+tr.liste_titre_sel,
+.liste_titre_sel,
+table.border tr.liste_titre,
+table.noborder tr.liste_titre,
+table.liste tr.liste_titre,
+div.liste_titre,
+div.liste_titre_bydiv,
+table.dataTable thead tr {
+	background: var(--iform-surface-alt) !important;
+	border-color: var(--iform-line) !important;
+	color: var(--iform-text) !important;
+}
+
+.liste_titre a,
+.liste_titre td a,
+.liste_titre th a,
+tr.liste_titre th a,
+tr.liste_titre td a {
+	color: var(--iform-accent-hover) !important;
+}
+
+tr.oddeven,
+tr.pair,
+tr.impair,
+.oddeven,
+.pair,
+.impair,
+.tagtr.oddeven,
+.tagtr.pair,
+.tagtr.impair,
+.noborder > tbody > tr:nth-child(even):not(.liste_titre):not(.nooddeven):not(.liste_total),
+.liste > tbody > tr:nth-child(even):not(.liste_titre):not(.nooddeven):not(.liste_total),
+.noborder > tbody > tr:nth-child(odd):not(.liste_titre):not(.nooddeven):not(.liste_total),
+.liste > tbody > tr:nth-child(odd):not(.liste_titre):not(.nooddeven):not(.liste_total) {
+	background: var(--iform-surface) !important;
+	color: var(--iform-text) !important;
+}
+
+tr.oddeven:hover,
+tr.pair:hover,
+tr.impair:hover,
+.oddeven:hover,
+.pair:hover,
+.impair:hover,
+.tagtr.oddeven:hover,
+.tagtr.pair:hover,
+.tagtr.impair:hover {
+	background: var(--iform-neutral-hover-bg) !important;
+}
+
+td,
+th,
+div.tagtd,
+.liste td,
+.liste th,
+.noborder td,
+.noborder th,
+.border td,
+.border th {
+	border-color: var(--iform-line-soft) !important;
+	color: inherit;
+}
+
+input:not([type="image"]):not([type="checkbox"]):not([type="radio"]),
+textarea,
+select,
+.select2-container--default .select2-selection--single,
+.select2-container--default .select2-selection--multiple,
+.select2-choice,
+.select2-choices,
+.select2-search input,
+.select2-search__field {
+	background: var(--inputbackgroundcolor) !important;
+	border-color: var(--inputbordercolor) !important;
+	color: var(--iform-text) !important;
+}
+
+input::placeholder,
+textarea::placeholder,
+.select2-container--default .select2-selection--single .select2-selection__placeholder,
+.select2-default {
+	color: var(--iform-muted) !important;
+	opacity: 1;
+}
+
+input:disabled,
+textarea:disabled,
+select:disabled,
+.select2-container--default.select2-container--disabled .select2-selection--single,
+.select2-container--default.select2-container--disabled .select2-selection--multiple {
+	background: var(--inputbackgroundcolordisabled) !important;
+	color: var(--inputcolordisabled) !important;
+}
+
+input:focus:not(.noborderfocus):not(.inputsearch_dropdownselectedfields):not(.button):not(.buttonwebsite):not(.buttonreset):not(.select2-search__field):not(#top-bookmark-search-input):not(.search_component_input):not(.input-nobottom),
+select:focus,
+textarea:focus,
+.select2-container--open [aria-expanded="false"].select2-selection--single,
+.select2-container--focus span.selection span.select2-selection:not(.noborderfocus):not(.massactionselect) {
+	border-color: var(--iform-accent) !important;
+	box-shadow: 0 0 0 2px var(--iform-focus-ring) !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered,
+.select2-container .select2-selection--single .select2-selection__rendered,
+.select2-container .select2-choice > .select2-chosen,
+.select2-results__option,
+.select2-results,
+.select2-results .select2-no-results,
+.select2-results .select2-searching,
+.select2-results .select2-ajax-error,
+.select2-results .select2-selection-limit {
+	color: var(--iform-text) !important;
+	background: var(--iform-surface) !important;
+}
+
+.select2-container--default .select2-results__option--highlighted[aria-selected],
+.select2-container--default .select2-results__option--highlighted[aria-selected] span,
+.select2-results .select2-highlighted,
+.select2-results .select2-highlighted span {
+	background: var(--iform-accent-soft) !important;
+	color: var(--iform-accent-hover) !important;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice,
+li.select2-selection__choice,
+.select2-container-multi .select2-choices .select2-search-choice {
+	background: var(--iform-neutral-bg) !important;
+	border-color: var(--iform-line) !important;
+	color: var(--iform-text) !important;
+}
+
+#mainbody .butAction:not(.butActionDelete):not(.butActionRefused),
+#mainbody .butAction:not(.butActionDelete):not(.butActionRefused):link,
+#mainbody .butAction:not(.butActionDelete):not(.butActionRefused):visited,
+#mainbody input.button:not(.buttonDelete):not(.bordertransp):not(.buttonpayment):not(:disabled),
+#mainbody button.button:not(.buttonDelete):not(.bordertransp):not(.buttonpayment):not(:disabled),
+#mainbody a.button:not(.buttonDelete):not(.bordertransp):not(.buttonpayment),
+#mainbody input.button.buttongen:not(:disabled),
+#mainbody button.button.buttongen:not(:disabled),
+#mainbody input.buttongen:not(:disabled),
+#mainbody button.buttongen:not(:disabled) {
+	background: var(--iform-accent) !important;
+	border-color: var(--iform-accent) !important;
+	color: #08111b !important;
+}
+
+#mainbody .butAction:not(.butActionDelete):not(.butActionRefused):hover,
+#mainbody input.button:not(.buttonDelete):not(.bordertransp):not(.buttonpayment):not(:disabled):hover,
+#mainbody button.button:not(.buttonDelete):not(.bordertransp):not(.buttonpayment):not(:disabled):hover,
+#mainbody a.button:not(.buttonDelete):not(.bordertransp):not(.buttonpayment):hover,
+#mainbody input.button.buttongen:not(:disabled):hover,
+#mainbody button.button.buttongen:not(:disabled):hover,
+#mainbody input.buttongen:not(:disabled):hover,
+#mainbody button.buttongen:not(:disabled):hover {
+	background: var(--iform-accent-hover) !important;
+	border-color: var(--iform-accent-hover) !important;
+	color: #08111b !important;
+}
+
+#mainbody .butActionDelete,
+#mainbody .butActionDelete:link,
+#mainbody .butActionDelete:visited,
+#mainbody .butActionDelete:hover,
+#mainbody .butActionDelete:active,
+#mainbody .buttonDelete {
+	background: var(--iform-danger-bg) !important;
+	border-color: #6e3038 !important;
+	color: var(--iform-danger) !important;
+}
+
+#mainbody .butActionDelete:hover,
+#mainbody .buttonDelete:hover:not(:disabled) {
+	background: var(--iform-danger-hover-bg) !important;
+	border-color: #8f3e49 !important;
+	color: #ffb4b4 !important;
+}
+
+#mainbody .butActionRefused,
+#mainbody .butActionRefused:link,
+#mainbody .butActionRefused:visited,
+#mainbody .butActionRefused:hover,
+#mainbody .butActionRefused:active,
+#mainbody .butActionNewRefused,
+#mainbody .buttonRefused,
+#mainbody .button:disabled,
+#mainbody .buttonDelete:disabled,
+#mainbody .button.disabled,
+#mainbody .buttonDelete.disabled {
+	background: var(--iform-refused-bg) !important;
+	border-color: var(--iform-line) !important;
+	color: var(--iform-muted) !important;
+}
+
+.btnTitle,
+.button,
+.buttonDelete,
+.butAction,
+.butActionRefused,
+.butActionDelete {
+	box-shadow: none !important;
+}
+
+.badge-status,
+.badge,
+.status,
+.statusref,
+.statusrefsupplier,
+.statusdoc,
+.badge.badge-status {
+	border-color: rgba(78, 163, 255, 0.35) !important;
+}
+
+.statusref,
+.statusrefsupplier,
+.statusdoc,
+.badge-status.badge-status0,
+.badge-status.badge-status1,
+.badge-status.badge-status2,
+.badge-status.badge-status3,
+.badge-status.badge-status4,
+.badge-status.badge-status5,
+.badge-status.badge-status6,
+.badge-status.badge-status7,
+.badge-status.badge-status8,
+.badge-status.badge-status9 {
+	background: rgba(78, 163, 255, 0.12) !important;
+	color: var(--iform-accent-hover) !important;
+}
+
+.badge-status.badge-status0,
+.badge-status0 {
+	background: rgba(169, 179, 192, 0.14) !important;
+	border-color: rgba(169, 179, 192, 0.35) !important;
+	color: #c8d0d9 !important;
+}
+
+.badge-status.badge-status1,
+.badge-status.badge-status2,
+.badge-status.badge-status4,
+.badge-status1,
+.badge-status2,
+.badge-status4 {
+	background: rgba(61, 180, 111, 0.14) !important;
+	border-color: rgba(61, 180, 111, 0.38) !important;
+	color: #83e5a1 !important;
+}
+
+.badge-status.badge-status3,
+.badge-status.badge-status5,
+.badge-status.badge-status6,
+.badge-status3,
+.badge-status5,
+.badge-status6 {
+	background: rgba(214, 164, 62, 0.16) !important;
+	border-color: rgba(214, 164, 62, 0.38) !important;
+	color: #ffd38a !important;
+}
+
+.badge-status.badge-status7,
+.badge-status.badge-status8,
+.badge-status.badge-status9,
+.badge-status.badge-status10,
+.badge-status7,
+.badge-status8,
+.badge-status9,
+.badge-status10 {
+	background: rgba(255, 139, 139, 0.14) !important;
+	border-color: rgba(255, 139, 139, 0.38) !important;
+	color: #ffb4b4 !important;
+}
+
+.jnotify-container .jnotify-notification {
+	background: var(--iform-surface) !important;
+	border-color: var(--iform-line) !important;
+	box-shadow: 0 14px 34px rgba(0, 0, 0, 0.42);
+}
+
+.jnotify-background,
+div.jnotify-background,
+.jnotify-container .jnotify-background {
+	background: var(--iform-surface) !important;
+}
+
+.jnotify-container .jnotify-notification .jnotify-message,
+.jnotify-container .jnotify-close {
+	color: var(--iform-text) !important;
+}
+
+.ui-widget-header,
+.ui-state-default,
+.ui-state-active,
+.ui-datepicker,
+.ui-datepicker-header,
+.ui-menu,
+.ui-autocomplete {
+	background: var(--iform-surface-alt) !important;
+	border-color: var(--iform-line) !important;
+	color: var(--iform-text) !important;
+}
+
+.ui-state-hover,
+.ui-menu .ui-menu-item-wrapper.ui-state-active,
+.ui-autocomplete .ui-menu-item-wrapper.ui-state-active {
+	background: var(--iform-neutral-hover-bg) !important;
+	color: var(--iform-accent-hover) !important;
+}
+
+.warning,
+.error,
+.ok,
+.info,
+.messagedebug,
+.messagewarning,
+.messageerr,
+.messageok {
+	border-color: var(--iform-line) !important;
+	color: var(--iform-text) !important;
+}
+
+.messageerr,
+.error {
+	background: var(--iform-danger-bg) !important;
+	color: #ffb4b4 !important;
+}
+
+.messageok,
+.ok {
+	background: rgba(61, 180, 111, 0.14) !important;
+	color: #83e5a1 !important;
+}
+
+.warning,
+.messagewarning {
+	background: rgba(214, 164, 62, 0.16) !important;
+	color: #ffd38a !important;
+}
+
+.info {
+	background: var(--iform-accent-soft) !important;
+	color: var(--iform-accent-hover) !important;
+}
+
+img,
+.photowithmargin,
+.photo,
+.photowithmargin {
+	border-color: var(--iform-line) !important;
+}
+
+.dropzone,
+.attachedfiles,
+.documentpreview,
+.ecmfile,
+.drag,
+.dragHandle {
+	background: var(--iform-surface-alt) !important;
+	border-color: var(--iform-line) !important;
+	color: var(--iform-text) !important;
+}
+
+::-webkit-scrollbar {
+	background: var(--iform-bg);
+}
+
+::-webkit-scrollbar-thumb {
+	background: #3a4048;
+	border: 2px solid var(--iform-bg);
+	border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #4a525c;
+}
+<?php
+	print "}\n";
+}
+?>
+
 @media only screen and (max-width: 767px) {
 	table.table-fiche-title .titre,
 	table.table-fiche-title div.titre,
