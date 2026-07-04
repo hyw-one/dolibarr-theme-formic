@@ -250,3 +250,60 @@ Tooling caveat: for both CKEditor's chrome and the ACE gutter, `preview_screensh
 - Added explicit `#id-top a.tmenuimage` icon exceptions after both light and dark semantic icon rules so top-menu icons do not inherit content-area colors such as bank/contract/module semantic colors.
 - Verified on `/user/card.php?id=1` in both forced dark and forced light modes: top-menu icons compute to neutral menu colors while menu labels still compute to the expected selected/default colors.
 - PHP syntax check and `git diff --check` passed for `style.css.php` / `TESTED.md`.
+
+## Dark Component Border/Icon Refinement Pass 35
+
+- User reported five remaining dark-mode misses: date-filter calendar icons disappeared into blue blocks, selected view-mode buttons had a bright outline, warning/info boxes kept a grey left stripe, admin security content boxes used bright white borders, and stats/chart cards had a bright outer border.
+- Replaced the dark-mode calendar PNG filter with a transparent inline SVG calendar via `content: url(...)`, because `object_calendarday.png` is an opaque RGB bitmap and filtering it paints the whole icon box.
+- Added scoped dark-mode rules for selected `btnTitle` view-mode buttons, `.divsection` content boxes, and stats/chart `table.noborder.centpercent` containers so their borders use iForm dark line colors instead of native light borders.
+- Gave `.info`, `.warning` / `.messagewarning`, `.ok` / `.messageok`, and `.error` / `.messageerr` semantic dark-mode border colors, including matching left-stripe colors for blue, amber, green, and red message boxes.
+- Synced the theme into the active `127.0.0.1:18090` Dolibarr test checkout and verified computed styles on the affected pages: customer invoice list calendar icons, module administration view buttons and info box, SMS warning box, admin security `.divsection` blocks, and product stats/chart cards.
+- PHP syntax check and `git diff --check` passed for `style.css.php` / `TESTED.md`.
+
+## Action Dropdown and Calendar Icon Pass 36
+
+- User clarified that action dropdown menus should not reuse the primary button color, and asked for the new calendar icon to apply in light mode as well with mode-appropriate colors.
+- Added a base light-mode `object_calendarday.png` / `.ui-datepicker-trigger` replacement using the same transparent inline SVG calendar as dark mode, colored with the light accent blue.
+- Added scoped action-dropdown exceptions for `.dropdown-content .butAction` / delete / refused items so menu rows use transparent/menu backgrounds, subtle separators, and neutral hover treatment instead of primary button fills.
+- Added the same action-dropdown exceptions inside the dark layer so later dark button rules cannot re-promote dropdown rows back into blue buttons, and recolored the dropdown arrow triangle to the dark menu panel color.
+- Synced the theme into the active `127.0.0.1:18090` test checkout, verified light and dark calendar icons by computed `content` colors (`#0969da` / `#78b7ff`), and verified the loaded CSSOM contains the action-dropdown overrides after the native dropdown/button rules.
+- PHP syntax check and `git diff --check` passed for `style.css.php` / `TESTED.md`.
+
+## Action Dropdown Final Override Pass 37
+
+- User showed the commercial action dropdown was still blue in light mode. The previous pass verified only CSS rule presence and missed the real opened menu state.
+- Added a final post-dark-layer override for action/menu dropdowns so `.dropdown-holder > .dropdown-content > .butAction` and scoped `.tabsAction` / `.tabsActionNoBottom` / `.tabBar` `.dropdown-menu > .dropdown-item` rows cannot inherit primary button fills.
+- Verified a real opened dropdown on `/commande/card.php?id=1`: in light mode menu rows compute to transparent backgrounds, normal text color, and soft separators; in dark mode the same menu computes to the dark surface with dark separators and light text.
+- PHP syntax check and `git diff --check` passed for `style.css.php` / `TESTED.md`.
+
+## Top Create Dropdown Box Model Pass 38
+
+- User reported that the top order "Create" action menu separators and hover highlight overflowed the menu panel.
+- Configured the local test database to expose the real order action menu: enabled contract/shipping constants, inserted a test order line for order `1`, and marked the order validated so the top `Create` dropdown renders on `/commande/card.php?id=1`.
+- Measured the opened menu directly. The enabled `<a class="butAction">` row was still `box-sizing: content-box`, so its 300px width plus horizontal padding overflowed the 300px menu content area by about 20px.
+- Added `box-sizing: border-box` and `min-width: 0` to the final action/menu dropdown row override so separators and hover backgrounds stay inside the panel.
+- Re-verified the real opened top `Create` dropdown in dark and light modes: every row computes to `box-sizing: border-box` and sits inside the menu (`deltaRight: -1px`) with contained separators.
+- PHP syntax check and `git diff --check` passed for `style.css.php` / `TESTED.md`.
+
+## Document Download Dropdown Pass 39
+
+- User reported the row-level PDF/download dropdown from recent documents/orders/invoices still had a bright halo in dark mode, could be clipped near card edges, and showed a white hover background.
+- Root-caused on `/compta/index.php`: this is Dolibarr's native `dl.dropdown dd .multichoicedoc > ul.ulselectedfields.open`, not the top action-menu `.dropdown-menu` / `.dropdown-content` covered in previous passes. The native rule kept `box-shadow: 1px 1px 10px #aaa`, `overflow: auto`, and `.dropdown dd ul li:hover { background: #eee; }`.
+- Added scoped document-dropdown overrides: menu surface/border/shadow now uses iForm theme tokens, `max-height` and `overflow` no longer clip the two-row document menu, and hover uses the neutral menu hover color instead of white.
+- Added scoped parent `:has(...)` overflow exceptions for box/table-responsive containers containing an opened document dropdown so menus near card bottoms can paint outside the card instead of being cut off by the nearest card wrapper.
+- Synced the theme into the active `127.0.0.1:18090` test checkout and verified the real opened menu in dark mode computes to `rgb(28, 31, 34)`, border `rgb(58, 64, 72)`, black shadow `rgba(0, 0, 0, 0.56) 0px 14px 28px`, `overflow: visible`, and `z-index: 1000`. Verified light mode still computes to white surface, light border, and a subtle light shadow.
+
+## Agenda Month Dark Surface Pass 40
+
+- User reported that the bottom exposed grey on the agenda month page did not match the upper page grey, and that the agenda calendar still had incomplete dark-mode adaptation.
+- Root-caused the grey mismatch to `#id-right` ending at content height while the surrounding `#id-container` retained the darker body background below the calendar.
+- Added `#id-container` to the dark shell surface and gave it a viewport-height minimum so the lower exposed page area uses the same dark surface as the content region.
+- Added scoped dark-mode rules for agenda month tables: current-month cells, other-month cells, today cells, row borders, day-title cells, event cards, and view-mode icons now use iForm dark surfaces, muted text, accent selected state, and soft dark separators instead of native white/grey calendar styling.
+- Synced the theme into the active `127.0.0.1:18090` test checkout and verified `/comm/action/index.php?mainmenu=agenda&leftmenu=agenda&mode=show_month&THEME_DARKMODEENABLED=2`: `#id-container` computes to `rgb(24, 27, 31)`, current cells to `rgb(28, 31, 34)`, other-month cells to `rgb(32, 36, 41)`, event cards to `rgb(36, 40, 45)`, and selected view-mode icons to `rgb(120, 183, 255)`.
+
+## Dark Title Button Hover Pass 41
+
+- User reported that the hover state on invoice card title/view buttons still showed a border that was too white in dark mode.
+- Root-caused this to Dolibarr's native `.btnTitle:hover, a.btnTitle:hover { border: 1px solid #bbb; }` rule from `btn.inc.php`, which was still eligible for non-selected title buttons.
+- Added a dark-mode `.btnTitle:hover` / `.btnTitle:focus` override so these buttons use the neutral dark hover surface, `var(--iform-line)` border, no shadow, and dark-mode accent text instead of the native bright border.
+- Synced the theme into the active `127.0.0.1:18090` test checkout and verified the invoice card title buttons load with dark borders (`rgb(58, 64, 72)`) and the served dark stylesheet contains the later hover override after the native `#bbb` rule. Verified the icon itself keeps its neutral view-mode color rather than being forced to the button text color.

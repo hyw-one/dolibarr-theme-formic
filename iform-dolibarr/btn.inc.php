@@ -69,15 +69,25 @@ if (getDolGlobalString('THEME_DARKMODEENABLED')) {
 	print "
       :root {
 
-            --btncolortext: ;
-            --btncolorbg: rgb(26,27,27);
-            --btncolorborderhover: #ffffff;
-            --btncolorborder: #2b2c2e;
-            --butactiondeletebg: rgb(252,84,91);
-			--butactionbg: rgb(173,140,79);
-			--textbutaction: rgb(255,255,255);
+            --btncolortext: var(--iform-text, #edf2f7);
+            --btncolorbg: var(--iform-surface, #1c1f22);
+            --btncolorborderhover: var(--iform-accent, #4ea3ff);
+            --btncolorborder: var(--iform-line, #3a4048);
+            --butactiondeletebg: var(--iform-danger-bg, #3a1f24);
+			--butactionbg: var(--iform-accent-soft, rgba(78, 163, 255, 0.16));
+			--textbutaction: var(--iform-accent-hover, #78b7ff);
 
-      }\n";
+      }
+
+      .btnTitle.refused, a.btnTitle.refused, .btnTitle.refused:hover, a.btnTitle.refused:hover {
+            background: var(--iform-refused-bg, #202429) !important;
+            color: var(--iform-muted, #a9b3c0) !important;
+      }
+
+      .butActionDelete, .butActionDelete:link, .butActionDelete:visited, .butActionDelete:hover, .butActionDelete:active, .buttonDelete {
+            color: var(--iform-danger, #ff8b8b) !important;
+      }
+      \n";
 	print "}";
 }
 ?>
