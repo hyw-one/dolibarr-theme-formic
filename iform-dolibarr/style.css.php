@@ -500,7 +500,19 @@ a:active,
 #id-top li.tmenusel div.tmenucenter,
 #id-top li.tmenu:hover div.tmenucenter {
 	background: #eef6ff;
+	border: 1px solid #d8e9ff;
 	border-radius: 5px;
+	box-shadow: inset 0 -2px 0 rgba(9, 105, 218, 0.18);
+	box-sizing: border-box;
+}
+
+#id-top li.tmenusel a.tmenuimage,
+#id-top li.tmenusel a.tmenulabel,
+#id-top li.tmenu:hover a.tmenuimage,
+#id-top li.tmenu:hover a.tmenulabel {
+	background: transparent !important;
+	border: 0 !important;
+	box-shadow: none !important;
 }
 
 #id-top li.tmenusel,
@@ -515,6 +527,14 @@ a:active,
 #id-left {
 	border-right: 1px solid var(--iform-line);
 	box-shadow: none;
+}
+
+#id-left .blockvmenu {
+	border-bottom: 1px solid var(--iform-line-soft) !important;
+}
+
+#id-left hr {
+	border-top-color: var(--iform-line-soft) !important;
 }
 
 .menu_titre,
@@ -682,6 +702,15 @@ table.liste,
 	border-radius: 999px;
 }
 
+.badge.badge-status,
+.badge-status {
+	border-width: 1px !important;
+	border-style: solid !important;
+	box-shadow: none !important;
+	line-height: 1.15;
+	padding: 3px 8px 2px !important;
+}
+
 .jnotify-container {
 	right: 16px !important;
 	left: auto !important;
@@ -830,7 +859,20 @@ hr,
 
 #id-top li.tmenusel div.tmenucenter,
 #id-top li.tmenu:hover div.tmenucenter {
-	background: var(--iform-accent-soft) !important;
+	background: rgba(78, 163, 255, 0.11) !important;
+	border: 1px solid rgba(78, 163, 255, 0.22) !important;
+	border-radius: 6px !important;
+	box-shadow: inset 0 -2px 0 rgba(78, 163, 255, 0.32) !important;
+	box-sizing: border-box;
+}
+
+#id-top li.tmenusel a.tmenuimage,
+#id-top li.tmenusel a.tmenulabel,
+#id-top li.tmenu:hover a.tmenuimage,
+#id-top li.tmenu:hover a.tmenulabel {
+	background: transparent !important;
+	border: 0 !important;
+	box-shadow: none !important;
 }
 
 #id-top li.tmenusel,
@@ -860,6 +902,26 @@ hr,
 	background: var(--colorbackvmenu1) !important;
 	border-color: var(--iform-line-soft) !important;
 	color: var(--iform-text) !important;
+}
+
+#id-left .blockvmenu,
+#id-left .blockvmenupair,
+#id-left .blockvmenuimpair,
+#id-left .blockvmenufirst,
+#id-left .blockvmenulast {
+	border-bottom: 1px solid rgba(80, 90, 102, 0.5) !important;
+	border-top: 0 !important;
+}
+
+#id-left hr {
+	border: 0 !important;
+	border-top: 1px solid rgba(80, 90, 102, 0.5) !important;
+}
+
+#id-left .menu_titre,
+#id-left .menu_contenu,
+#id-left .vmenu_titre {
+	border-color: rgba(80, 90, 102, 0.5) !important;
 }
 
 #id-left a,
@@ -925,16 +987,26 @@ hr,
 .tabunactive,
 .tabBar .tabsElem a,
 .tabs .tabsElem a {
-	background: var(--iform-surface-alt) !important;
-	border-color: var(--iform-line) !important;
+	background: var(--iform-surface) !important;
+	border: 1px solid var(--iform-line-soft) !important;
 	color: var(--iform-muted) !important;
+	box-shadow: none !important;
 }
 
 .tabactive,
 .tabBar .tabsElem.tabsElemActive a,
 .tabs .tabsElem.tabsElemActive a {
+	background: rgba(78, 163, 255, 0.1) !important;
 	color: var(--iform-accent-hover) !important;
-	border-bottom-color: var(--iform-accent) !important;
+	border-color: rgba(78, 163, 255, 0.24) !important;
+	box-shadow: inset 0 -2px 0 rgba(78, 163, 255, 0.32) !important;
+}
+
+div.tabsElem a.tabactive::before,
+div.tabsElem a.tabunactive::before {
+	background: transparent !important;
+	border: 0 !important;
+	box-shadow: none !important;
 }
 
 .titre,
@@ -1199,6 +1271,8 @@ li.select2-selection__choice,
 .statusdoc,
 .badge.badge-status {
 	border-color: rgba(78, 163, 255, 0.35) !important;
+	border-width: 1px !important;
+	box-shadow: none !important;
 }
 
 .statusref,
@@ -1221,7 +1295,7 @@ li.select2-selection__choice,
 .badge-status.badge-status0,
 .badge-status0 {
 	background: rgba(169, 179, 192, 0.14) !important;
-	border-color: rgba(169, 179, 192, 0.35) !important;
+	border-color: rgba(169, 179, 192, 0.28) !important;
 	color: #c8d0d9 !important;
 }
 
@@ -1232,7 +1306,7 @@ li.select2-selection__choice,
 .badge-status2,
 .badge-status4 {
 	background: rgba(61, 180, 111, 0.14) !important;
-	border-color: rgba(61, 180, 111, 0.38) !important;
+	border-color: rgba(61, 180, 111, 0.3) !important;
 	color: #83e5a1 !important;
 }
 
@@ -1243,7 +1317,7 @@ li.select2-selection__choice,
 .badge-status5,
 .badge-status6 {
 	background: rgba(214, 164, 62, 0.16) !important;
-	border-color: rgba(214, 164, 62, 0.38) !important;
+	border-color: rgba(214, 164, 62, 0.3) !important;
 	color: #ffd38a !important;
 }
 
@@ -1256,8 +1330,34 @@ li.select2-selection__choice,
 .badge-status9,
 .badge-status10 {
 	background: rgba(255, 139, 139, 0.14) !important;
-	border-color: rgba(255, 139, 139, 0.38) !important;
+	border-color: rgba(255, 139, 139, 0.3) !important;
 	color: #ffb4b4 !important;
+}
+
+div.statusref:has(.badge-status),
+div.statusdoc:has(.badge-status),
+div.statusrefsupplier:has(.badge-status) {
+	background: transparent !important;
+	border: 0 !important;
+	border-radius: 0 !important;
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+}
+
+div.statusref.statusrefbis,
+div.statusdoc.statusrefbis,
+div.statusrefsupplier.statusrefbis {
+	background: rgba(78, 163, 255, 0.08) !important;
+	border: 1px solid rgba(78, 163, 255, 0.18) !important;
+	border-radius: 999px !important;
+	color: var(--iform-muted) !important;
+	padding: 2px 9px !important;
+}
+
+div.statusref.statusrefbis .opacitymedium,
+div.statusdoc.statusrefbis .opacitymedium,
+div.statusrefsupplier.statusrefbis .opacitymedium {
+	color: var(--iform-muted) !important;
 }
 
 .jnotify-container .jnotify-notification {
