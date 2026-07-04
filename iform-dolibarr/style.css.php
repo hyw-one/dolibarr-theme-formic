@@ -466,6 +466,9 @@ require __DIR__.'/global.inc.php';
 	--iform-neutral-hover-bg: #f6f8fa;
 	--iform-refused-bg: #f6f8fa;
 	--iform-focus-ring: rgba(31, 35, 40, 0.12);
+	--iform-status-success-bg: #1a7f37;
+	--iform-status-success-border: rgba(255, 255, 255, 0);
+	--iform-status-success-text: #ffffff;
 	--inputbordercolor: rgba(208, 215, 222, 0.95);
 	--colorboxstatsborder: #d0d7de;
 	--colorboxiconbg: #f6f8fa;
@@ -864,6 +867,14 @@ table.liste,
 	padding: 3px 8px 2px !important;
 }
 
+.badge-status.badge-status6[data-status-element="facture"][data-status="2"],
+.badge-status.badge-status6[data-status-element="invoice_supplier"][data-status="2"],
+.badge-status.badge-status6[data-status-element="commande"][data-status="3"] {
+	background: var(--iform-status-success-bg) !important;
+	border-color: var(--iform-status-success-border) !important;
+	color: var(--iform-status-success-text) !important;
+}
+
 /* Some embedded linked-object tables render the status badge in label-less (tooltip-only) mode; without any text a badge with pill padding collapses into a thin flat bar instead of reading as a status dot. */
 .badge:empty,
 .badge-status:empty,
@@ -942,6 +953,9 @@ if (getDolGlobalInt('THEME_DARKMODEENABLED')) {
 	--iform-neutral-hover-bg: #2a3037;
 	--iform-refused-bg: #202429;
 	--iform-focus-ring: rgba(78, 163, 255, 0.28);
+	--iform-status-success-bg: rgba(61, 180, 111, 0.14);
+	--iform-status-success-border: rgba(61, 180, 111, 0.3);
+	--iform-status-success-text: #83e5a1;
 	--colorbackhmenu1: #1c1f22;
 	--colorbackvmenu1: #181b1f;
 	--colorbacktitle1: #24282d;
@@ -2131,6 +2145,14 @@ span.badge-status4b {
 	background: rgba(61, 180, 111, 0.14) !important;
 	border-color: rgba(61, 180, 111, 0.3) !important;
 	color: #83e5a1 !important;
+}
+
+.badge-status.badge-status6[data-status-element="facture"][data-status="2"],
+.badge-status.badge-status6[data-status-element="invoice_supplier"][data-status="2"],
+.badge-status.badge-status6[data-status-element="commande"][data-status="3"] {
+	background: var(--iform-status-success-bg) !important;
+	border-color: var(--iform-status-success-border) !important;
+	color: var(--iform-status-success-text) !important;
 }
 
 .badge-status.badge-status8,
