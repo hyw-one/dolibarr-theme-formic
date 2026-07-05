@@ -3,6 +3,7 @@
 
 	var aceRefreshTimer = null;
 	var chartRefreshTimer = null;
+	var takeposUrlRefreshTimer = null;
 
 	function parseRgb(color) {
 		var value = String(color || '').trim();
@@ -293,26 +294,138 @@
 		aceRefreshTimer = setTimeout(applyAceTheme, 0);
 	}
 
+	function isTakeposPage() {
+		return !!(document.body && document.body.classList.contains('bodytakepos'));
+	}
+
+	function inheritedThemeParams() {
+		var source = new URLSearchParams(window.location.search);
+		var colors = currentColors();
+		var params = {
+			theme: source.get('theme') || 'formora'
+		};
+
+		if (source.has('THEME_DARKMODEENABLED')) {
+			params.THEME_DARKMODEENABLED = source.get('THEME_DARKMODEENABLED');
+		} else if (colors.dark) {
+			params.THEME_DARKMODEENABLED = '2';
+		}
+
+		['dol_resetcache', 'dol_nocache'].forEach(function (name) {
+			if (source.has(name)) {
+				params[name] = source.get(name);
+			}
+		});
+
+		return params;
+	}
+
+	function shouldPatchTakeposUrl(url) {
+		return url.origin === window.location.origin && (
+			url.pathname.indexOf('/takepos/') !== -1 ||
+			url.pathname.indexOf('/societe/') !== -1 ||
+			url.pathname.indexOf('/contact/') !== -1 ||
+			url.pathname.indexOf('/compta/facture/') !== -1 ||
+			url.pathname.indexOf('/compta/cashcontrol/') !== -1
+		);
+	}
+
+	function appendTakeposThemeParams(href) {
+		if (!href || typeof href !== 'string' || href.charAt(0) === '#') {
+			return href;
+		}
+
+		try {
+			var url = new URL(href, window.location.href);
+			if (!shouldPatchTakeposUrl(url)) {
+				return href;
+			}
+
+			var params = inheritedThemeParams();
+			Object.keys(params).forEach(function (name) {
+				if (!url.searchParams.has(name)) {
+					url.searchParams.set(name, params[name]);
+				}
+			});
+
+			return url.href;
+		} catch (e) {
+			return href;
+		}
+	}
+
+	function patchTakeposColorbox() {
+		if (!isTakeposPage() || !window.jQuery || !window.jQuery.colorbox || window.jQuery.colorbox.__formoraThemePatch) {
+			return;
+		}
+
+		var $ = window.jQuery;
+		var originalColorbox = $.colorbox;
+		var patchedColorbox = function (settings) {
+			if (settings && typeof settings === 'object' && settings.iframe && settings.href) {
+				settings.href = appendTakeposThemeParams(settings.href);
+			}
+			return originalColorbox.apply(this, arguments);
+		};
+
+		Object.keys(originalColorbox).forEach(function (key) {
+			patchedColorbox[key] = originalColorbox[key];
+		});
+		patchedColorbox.__formoraThemePatch = true;
+		patchedColorbox.__formoraOriginal = originalColorbox;
+
+		$.colorbox = patchedColorbox;
+		if ($.fn && $.fn.colorbox === originalColorbox) {
+			$.fn.colorbox = patchedColorbox;
+		}
+	}
+
+	function refreshTakeposIframeUrls() {
+		if (!isTakeposPage()) {
+			return;
+		}
+
+		patchTakeposColorbox();
+		document.querySelectorAll('iframe.cboxIframe, #cboxLoadedContent iframe').forEach(function (iframe) {
+			var src = iframe.getAttribute('src');
+			var patchedSrc = appendTakeposThemeParams(src);
+			if (patchedSrc && patchedSrc !== src) {
+				iframe.setAttribute('src', patchedSrc);
+			}
+		});
+	}
+
+	function scheduleTakeposThemeUrls() {
+		clearTimeout(takeposUrlRefreshTimer);
+		takeposUrlRefreshTimer = setTimeout(refreshTakeposIframeUrls, 0);
+	}
+
 	applyChartTheme();
 	applyAceTheme();
+	refreshTakeposIframeUrls();
 
 	if (document.readyState === 'loading') {
 		document.addEventListener('DOMContentLoaded', scheduleAceTheme);
 		document.addEventListener('DOMContentLoaded', scheduleChartTheme);
+		document.addEventListener('DOMContentLoaded', scheduleTakeposThemeUrls);
 	} else {
 		scheduleAceTheme();
 		scheduleChartTheme();
+		scheduleTakeposThemeUrls();
 	}
 
 	window.addEventListener('load', scheduleAceTheme);
 	window.addEventListener('load', scheduleChartTheme);
+	window.addEventListener('load', scheduleTakeposThemeUrls);
 	setTimeout(scheduleAceTheme, 300);
 	setTimeout(scheduleAceTheme, 1000);
+	setTimeout(scheduleTakeposThemeUrls, 300);
 
 	if (window.MutationObserver) {
 		new MutationObserver(function () {
 			scheduleAceTheme();
 			scheduleChartTheme();
+			scheduleTakeposThemeUrls();
 		}).observe(document.documentElement, {
 			childList: true,
 			subtree: true
