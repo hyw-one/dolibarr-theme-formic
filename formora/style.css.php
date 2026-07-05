@@ -7451,6 +7451,31 @@ table.jPicker {
 				width: 0 !important;
 			}
 
+			body#mainbody.bodyforlist:not(.poslist) > .select2-container.limit.select2-container--open {
+				max-width: 75px !important;
+				width: 75px !important;
+			}
+
+			body#mainbody.bodyforlist:not(.poslist) > .select2-container.limit.select2-container--open .select2-dropdown {
+				box-sizing: border-box !important;
+				max-width: 75px !important;
+				min-width: 75px !important;
+				padding-left: 0 !important;
+				padding-right: 0 !important;
+				width: 75px !important;
+			}
+
+			body#mainbody.bodyforlist:not(.poslist) > .select2-container.limit.select2-container--open .select2-search--dropdown {
+				display: none !important;
+			}
+
+			body#mainbody.bodyforlist:not(.poslist) > .select2-container.limit.select2-container--open .select2-results__options,
+			body#mainbody.bodyforlist:not(.poslist) > .select2-container.limit.select2-container--open .select2-results__option {
+				box-sizing: border-box !important;
+				max-width: 100% !important;
+				width: 100% !important;
+			}
+
 			table.table-fiche-title .titre,
 			table.table-fiche-title div.titre,
 			table.table-fiche-title td.col-title {
