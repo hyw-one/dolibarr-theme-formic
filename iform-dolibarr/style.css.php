@@ -464,6 +464,15 @@ require __DIR__.'/global.inc.php';
 	--iform-danger: #d70015;
 	--iform-danger-bg: #fff1f1;
 	--iform-danger-hover-bg: #ffe1e4;
+	--iform-toast-success-bg: #f0fbf3;
+	--iform-toast-success-border: rgba(36, 138, 61, 0.28);
+	--iform-toast-success-text: #1a7f37;
+	--iform-toast-warning-bg: #fff8e6;
+	--iform-toast-warning-border: rgba(178, 106, 0, 0.32);
+	--iform-toast-warning-text: #9a6700;
+	--iform-toast-error-bg: #fff1f1;
+	--iform-toast-error-border: rgba(215, 0, 21, 0.32);
+	--iform-toast-error-text: #d70015;
 	--iform-neutral-bg: #fbfbfd;
 	--iform-neutral-hover-bg: #f2f2f4;
 	--iform-refused-bg: #f5f5f7;
@@ -724,7 +733,7 @@ a:active,
 	width: 16px !important;
 }
 
-body#mainbody :is(.fa-search, .fa-redo, .fa-sync, .fa-refresh, .fa-bars, .fa-stream, .fa-list, .fa-th-list, .fa-th, .fa-grip-horizontal, .fa-table, .fa-arrows-alt, .fa-expand-arrows-alt, .fa-plus-circle, .fa-plus, .fa-pencil-alt, .fa-edit, .fa-trash, .fa-times, .fa-remove, .fa-download, .fa-search-plus, .fa-eye, .fa-binoculars, .fa-calendar, .fa-calendar-alt, .fa-calendar-day, .fa-calendar-week, .fa-caret-up, .fa-caret-down, .fa-info-circle, .fa-question, .fa-exclamation-triangle, .fa-check, .fa-print)::before {
+body#mainbody :is(.fa-search, .fa-redo, .fa-sync, .fa-refresh, .fa-bars, .fa-stream, .fa-list, .fa-th-list, .fa-th, .fa-grip-horizontal, .fa-table, .fa-arrows-alt, .fa-expand-arrows-alt, .fa-plus-circle, .fa-plus, .fa-pencil-alt, .fa-edit, .fa-trash, .fa-times, .fa-remove, .fa-download, .fa-search-plus, .fa-eye, .fa-binoculars, .fa-calendar, .fa-calendar-alt, .fa-calendar-day, .fa-calendar-week, .fa-caret-up, .fa-caret-down, .fa-caret-left, .fa-caret-right, .fa-info-circle, .fa-question, .fa-exclamation-triangle, .fa-check, .fa-print)::before {
 	background-color: currentColor;
 	content: "" !important;
 	display: inline-block;
@@ -759,8 +768,8 @@ body#mainbody :is(.fa-check) {
 	color: var(--iform-icon-success) !important;
 }
 
-#id-top :is(.fa-search, .fa-redo, .fa-sync, .fa-refresh, .fa-bars, .fa-stream, .fa-list, .fa-th-list, .fa-th, .fa-grip-horizontal, .fa-table, .fa-arrows-alt, .fa-expand-arrows-alt, .fa-plus-circle, .fa-plus, .fa-pencil-alt, .fa-edit, .fa-trash, .fa-times, .fa-remove, .fa-download, .fa-search-plus, .fa-eye, .fa-binoculars, .fa-calendar, .fa-calendar-alt, .fa-calendar-day, .fa-calendar-week, .fa-caret-up, .fa-caret-down, .fa-info-circle, .fa-exclamation-triangle, .fa-check, .fa-print),
-.login_block :is(.fa-search, .fa-redo, .fa-sync, .fa-refresh, .fa-bars, .fa-stream, .fa-list, .fa-th-list, .fa-th, .fa-grip-horizontal, .fa-table, .fa-arrows-alt, .fa-expand-arrows-alt, .fa-plus-circle, .fa-plus, .fa-pencil-alt, .fa-edit, .fa-trash, .fa-times, .fa-remove, .fa-download, .fa-search-plus, .fa-eye, .fa-binoculars, .fa-calendar, .fa-calendar-alt, .fa-calendar-day, .fa-calendar-week, .fa-caret-up, .fa-caret-down, .fa-info-circle, .fa-exclamation-triangle, .fa-check, .fa-print) {
+#id-top :is(.fa-search, .fa-redo, .fa-sync, .fa-refresh, .fa-bars, .fa-stream, .fa-list, .fa-th-list, .fa-th, .fa-grip-horizontal, .fa-table, .fa-arrows-alt, .fa-expand-arrows-alt, .fa-plus-circle, .fa-plus, .fa-pencil-alt, .fa-edit, .fa-trash, .fa-times, .fa-remove, .fa-download, .fa-search-plus, .fa-eye, .fa-binoculars, .fa-calendar, .fa-calendar-alt, .fa-calendar-day, .fa-calendar-week, .fa-caret-up, .fa-caret-down, .fa-caret-left, .fa-caret-right, .fa-info-circle, .fa-exclamation-triangle, .fa-check, .fa-print),
+.login_block :is(.fa-search, .fa-redo, .fa-sync, .fa-refresh, .fa-bars, .fa-stream, .fa-list, .fa-th-list, .fa-th, .fa-grip-horizontal, .fa-table, .fa-arrows-alt, .fa-expand-arrows-alt, .fa-plus-circle, .fa-plus, .fa-pencil-alt, .fa-edit, .fa-trash, .fa-times, .fa-remove, .fa-download, .fa-search-plus, .fa-eye, .fa-binoculars, .fa-calendar, .fa-calendar-alt, .fa-calendar-day, .fa-calendar-week, .fa-caret-up, .fa-caret-down, .fa-caret-left, .fa-caret-right, .fa-info-circle, .fa-exclamation-triangle, .fa-check, .fa-print) {
 	color: inherit !important;
 }
 
@@ -818,6 +827,14 @@ body#mainbody :is(.fa-caret-up)::before {
 
 body#mainbody :is(.fa-caret-down)::before {
 	--iform-symbol-mask: var(--iform-symbol-sort-down);
+}
+
+body#mainbody :is(.fa-caret-left)::before {
+	--iform-symbol-mask: var(--iform-symbol-chevron-left);
+}
+
+body#mainbody :is(.fa-caret-right)::before {
+	--iform-symbol-mask: var(--iform-symbol-chevron-right);
 }
 
 body#mainbody :is(.fa-info-circle)::before {
@@ -2132,6 +2149,7 @@ div.liste_titre_bydiv_nothingafter,
 	width: auto !important;
 	min-width: min(320px, calc(100vw - 32px));
 	max-width: min(520px, calc(100vw - 32px));
+	overflow: visible !important;
 	padding: 10px 0 0 !important;
 }
 
@@ -2147,11 +2165,12 @@ div.liste_titre_bydiv_nothingafter,
 .jnotify-background,
 div.jnotify-background,
 .jnotify-container .jnotify-background {
-	background: var(--iform-surface) !important;
+	background: transparent !important;
 	border: 0 !important;
 	border-radius: 0 !important;
 	box-shadow: none !important;
 	opacity: 1 !important;
+	pointer-events: none !important;
 }
 
 .jnotify-container .jnotify-notification .jnotify-message {
@@ -2183,6 +2202,15 @@ if (getDolGlobalInt('THEME_DARKMODEENABLED')) {
 	--iform-danger: #ff6961;
 	--iform-danger-bg: #3a1f22;
 	--iform-danger-hover-bg: #4a2428;
+	--iform-toast-success-bg: rgba(48, 209, 88, 0.16);
+	--iform-toast-success-border: rgba(48, 209, 88, 0.36);
+	--iform-toast-success-text: #8ff0a4;
+	--iform-toast-warning-bg: rgba(255, 214, 10, 0.16);
+	--iform-toast-warning-border: rgba(255, 214, 10, 0.36);
+	--iform-toast-warning-text: #ffd60a;
+	--iform-toast-error-bg: rgba(255, 105, 97, 0.16);
+	--iform-toast-error-border: rgba(255, 105, 97, 0.42);
+	--iform-toast-error-text: #ff8a82;
 	--iform-neutral-bg: #202124;
 	--iform-neutral-hover-bg: #2c2c2e;
 	--iform-refused-bg: #202124;
@@ -2310,7 +2338,44 @@ hr,
 
 .login_block,
 .inline-block.login_block {
-	border-bottom: 1px solid var(--iform-line-soft) !important;
+	border-bottom: 0 !important;
+}
+
+body#mainbody .login_block.usedropdown {
+	align-items: center !important;
+	display: flex !important;
+	height: 60px !important;
+	justify-content: flex-end !important;
+	line-height: normal !important;
+	top: 0 !important;
+}
+
+body#mainbody .login_block.usedropdown > :is(.login_block_tools, .login_block_other, .login_block_user) {
+	align-items: center !important;
+	display: flex !important;
+	height: 100% !important;
+	line-height: normal !important;
+}
+
+body#mainbody .login_block.usedropdown :is(.atoplogin, .login_block_elem, .login_block_other > .inline-block) {
+	align-items: center !important;
+	display: inline-flex !important;
+	line-height: normal !important;
+}
+
+body#mainbody .login_block.usedropdown #topmenu-quickadd-dropdown,
+body#mainbody .login_block.usedropdown #topmenu-quickadd-dropdown > a.dropdown-toggle {
+	align-items: center !important;
+	display: inline-flex !important;
+	height: 60px !important;
+	line-height: normal !important;
+}
+
+body#mainbody .login_block.usedropdown #topmenu-login-dropdown > a.dropdown-toggle {
+	align-items: center !important;
+	display: inline-flex !important;
+	height: 60px !important;
+	line-height: normal !important;
 }
 
 #id-top a.tmenulabel,
@@ -3776,7 +3841,9 @@ div.statusrefsupplier.statusrefbis .opacitymedium {
 .jnotify-background,
 div.jnotify-background,
 .jnotify-container .jnotify-background {
-	background: var(--iform-surface) !important;
+	background: transparent !important;
+	box-shadow: none !important;
+	pointer-events: none !important;
 }
 
 .jnotify-container .jnotify-notification .jnotify-message,
@@ -3785,7 +3852,7 @@ div.jnotify-background,
 }
 
 .jnotify-container .jnotify-notification-ok .jnotify-background {
-	background: rgba(61, 180, 111, 0.16) !important;
+	background: transparent !important;
 }
 
 .jnotify-container .jnotify-notification-ok .jnotify-message,
@@ -3794,7 +3861,7 @@ div.jnotify-background,
 }
 
 .jnotify-container .jnotify-notification-warning .jnotify-background {
-	background: rgba(214, 164, 62, 0.18) !important;
+	background: transparent !important;
 }
 
 .jnotify-container .jnotify-notification-warning .jnotify-message,
@@ -3803,7 +3870,7 @@ div.jnotify-background,
 }
 
 .jnotify-container .jnotify-notification-error .jnotify-background {
-	background: rgba(255, 139, 139, 0.16) !important;
+	background: transparent !important;
 }
 
 .jnotify-container .jnotify-notification-error .jnotify-message,
@@ -4583,6 +4650,43 @@ table.jPicker {
 		min-height: 0;
 	}
 
+	body#mainbody .select2-container--default .select2-selection--single {
+		align-items: center !important;
+		display: flex !important;
+	}
+
+	body#mainbody .select2-container--default .select2-selection--single .select2-selection__rendered {
+		align-items: center !important;
+		display: flex !important;
+		flex: 1 1 auto !important;
+		height: 100% !important;
+		line-height: normal !important;
+		min-width: 0 !important;
+		padding-bottom: 0 !important;
+		padding-top: 0 !important;
+	}
+
+	body#mainbody .select2-container--default .select2-selection--single .select2-selection__arrow b {
+		background-color: var(--iform-icon-muted) !important;
+		border: 0 !important;
+		display: block !important;
+		height: 14px !important;
+		left: 50% !important;
+		margin: 0 !important;
+		position: absolute !important;
+		top: 50% !important;
+		transform: translate(-50%, -50%) !important;
+		width: 14px !important;
+		-webkit-mask: var(--iform-symbol-sort-down) center / contain no-repeat;
+		mask: var(--iform-symbol-sort-down) center / contain no-repeat;
+	}
+
+	body#mainbody .select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b,
+	body#mainbody .select2-container--default .select2-selection--single[aria-expanded="true"] .select2-selection__arrow b {
+		-webkit-mask-image: var(--iform-symbol-sort-up) !important;
+		mask-image: var(--iform-symbol-sort-up) !important;
+	}
+
 	body#mainbody input:focus:not(.noborderfocus):not(.inputsearch_dropdownselectedfields):not(.button):not(.buttonwebsite):not(.buttonreset):not(.select2-search__field):not(#top-bookmark-search-input):not(.search_component_input):not(.input-nobottom),
 	body#mainbody textarea:focus,
 	body#mainbody select:focus,
@@ -4753,11 +4857,33 @@ table.jPicker {
 	body#mainbody .butActionDelete,
 	body#mainbody .butActionDelete:link,
 	body#mainbody .butActionDelete:visited {
-		background: var(--iform-danger-bg) !important;
+		background: var(--iform-danger) !important;
 		background-image: none !important;
-		border: 1px solid rgba(215, 0, 21, 0.28) !important;
+		border: 1px solid var(--iform-danger) !important;
 		border-radius: var(--iform-radius-sm) !important;
 		box-shadow: none !important;
+		color: #fff !important;
+	}
+
+	body#mainbody .butActionDelete:hover {
+		background: #a40e26 !important;
+		border-color: #a40e26 !important;
+		color: #fff !important;
+	}
+
+	<?php
+	if (getDolGlobalInt('THEME_DARKMODEENABLED')) {
+		if (getDolGlobalInt('THEME_DARKMODEENABLED') != 2) {
+			print "@media (prefers-color-scheme: dark) {";
+		} else {
+			print "@media not print {";
+		}
+	?>
+	body#mainbody .butActionDelete,
+	body#mainbody .butActionDelete:link,
+	body#mainbody .butActionDelete:visited {
+		background: var(--iform-danger-bg) !important;
+		border-color: rgba(255, 69, 58, 0.4) !important;
 		color: var(--iform-danger) !important;
 	}
 
@@ -4766,6 +4892,10 @@ table.jPicker {
 		border-color: var(--iform-danger) !important;
 		color: var(--iform-danger) !important;
 	}
+	<?php
+		print "}\n";
+	}
+	?>
 
 	body#mainbody .butActionRefused,
 	body#mainbody .butActionRefused:link,
@@ -4964,6 +5094,10 @@ table.jPicker {
 		color: var(--tooltipfontcolor, var(--iform-text)) !important;
 	}
 
+	body#mainbody .jnotify-container {
+		overflow: visible !important;
+	}
+
 	body#mainbody .jnotify-container .jnotify-notification {
 		border: 1px solid var(--iform-line) !important;
 		border-radius: var(--iform-radius) !important;
@@ -4974,13 +5108,45 @@ table.jPicker {
 	body#mainbody .jnotify-background,
 	body#mainbody div.jnotify-background,
 	body#mainbody .jnotify-container .jnotify-background {
-		background: var(--iform-elevated) !important;
+		background: transparent !important;
 		border: 0 !important;
+		box-shadow: none !important;
+		pointer-events: none !important;
 	}
 
 	body#mainbody .jnotify-container .jnotify-notification .jnotify-message,
 	body#mainbody .jnotify-container .jnotify-close {
 		color: var(--iform-text) !important;
+	}
+
+	body#mainbody .jnotify-container .jnotify-notification-ok {
+		background: var(--iform-toast-success-bg) !important;
+		border-color: var(--iform-toast-success-border) !important;
+	}
+
+	body#mainbody .jnotify-container .jnotify-notification-ok .jnotify-message,
+	body#mainbody .jnotify-container .jnotify-notification-ok .jnotify-close {
+		color: var(--iform-toast-success-text) !important;
+	}
+
+	body#mainbody .jnotify-container .jnotify-notification-warning {
+		background: var(--iform-toast-warning-bg) !important;
+		border-color: var(--iform-toast-warning-border) !important;
+	}
+
+	body#mainbody .jnotify-container .jnotify-notification-warning .jnotify-message,
+	body#mainbody .jnotify-container .jnotify-notification-warning .jnotify-close {
+		color: var(--iform-toast-warning-text) !important;
+	}
+
+	body#mainbody .jnotify-container .jnotify-notification-error {
+		background: var(--iform-toast-error-bg) !important;
+		border-color: var(--iform-toast-error-border) !important;
+	}
+
+	body#mainbody .jnotify-container .jnotify-notification-error .jnotify-message,
+	body#mainbody .jnotify-container .jnotify-notification-error .jnotify-close {
+		color: var(--iform-toast-error-text) !important;
 	}
 
 	body#mainbody [class*="fa-"],
@@ -5065,6 +5231,37 @@ table.jPicker {
 		color: var(--iform-text) !important;
 	}
 
+	body#mainbody .login_block.usedropdown {
+		align-items: center !important;
+		display: flex !important;
+		height: 60px !important;
+		justify-content: flex-end !important;
+		line-height: normal !important;
+		top: 0 !important;
+	}
+
+	body#mainbody .login_block.usedropdown > :is(.login_block_tools, .login_block_other, .login_block_user) {
+		align-items: center !important;
+		display: flex !important;
+		height: 100% !important;
+		line-height: normal !important;
+	}
+
+	body#mainbody .login_block.usedropdown :is(.atoplogin, .login_block_elem, .login_block_other > .inline-block) {
+		align-items: center !important;
+		display: inline-flex !important;
+		line-height: normal !important;
+	}
+
+	body#mainbody .login_block.usedropdown #topmenu-quickadd-dropdown,
+	body#mainbody .login_block.usedropdown #topmenu-quickadd-dropdown > a.dropdown-toggle,
+	body#mainbody .login_block.usedropdown #topmenu-login-dropdown > a.dropdown-toggle {
+		align-items: center !important;
+		display: inline-flex !important;
+		height: 60px !important;
+		line-height: normal !important;
+	}
+
 	/* Final action/menu dropdown override: menu rows must not inherit primary button fills. */
 	body#mainbody .dropdown-holder.open > .dropdown-content,
 	body#mainbody .tabsAction .dropdown.open > .dropdown-menu,
@@ -5099,8 +5296,11 @@ table.jPicker {
 		box-shadow: none !important;
 		color: var(--iform-text) !important;
 		display: block !important;
+		line-height: 20px !important;
 		margin: 0 !important;
+		min-height: 40px !important;
 		min-width: 0 !important;
+		padding: 10px 12px !important;
 		text-align: left !important;
 		width: 100% !important;
 	}
@@ -5141,6 +5341,46 @@ table.jPicker {
 	body#mainbody .dropdown-holder > .dropdown-content > span.butActionRefused:hover {
 		color: var(--iform-muted) !important;
 		cursor: not-allowed !important;
+	}
+
+	body#mainbody #topmenu-quickadd-dropdown .dropdown-menu .dropdown-item.quickadd-item {
+		background-color: transparent !important;
+		background-image: none !important;
+		border: 0 !important;
+		border-radius: var(--iform-radius-sm) !important;
+		box-shadow: none !important;
+		box-sizing: border-box !important;
+		color: var(--iform-text) !important;
+		display: block !important;
+		margin: 0 !important;
+		padding: 8px 12px !important;
+		text-decoration: none !important;
+		width: 100% !important;
+	}
+
+	body#mainbody #topmenu-quickadd-dropdown .dropdown-menu .dropdown-item.quickadd-item:hover,
+	body#mainbody #topmenu-quickadd-dropdown .dropdown-menu .dropdown-item.quickadd-item:focus {
+		background-color: var(--iform-neutral-hover-bg) !important;
+		background-image: none !important;
+		color: var(--iform-text) !important;
+		text-decoration: none !important;
+	}
+
+	body#mainbody #topmenu-quickadd-dropdown .dropdown-menu .dropdown-item.quickadd-item > span,
+	body#mainbody #topmenu-quickadd-dropdown .dropdown-menu .dropdown-item.quickadd-item:hover > span,
+	body#mainbody #topmenu-quickadd-dropdown .dropdown-menu .dropdown-item.quickadd-item:focus > span {
+		background: transparent !important;
+		border: 0 !important;
+		box-shadow: none !important;
+	}
+
+	body#mainbody #topmenu-quickadd-dropdown .dropdown-menu .dropdown-item.quickadd-item > span::before,
+	body#mainbody #topmenu-quickadd-dropdown .dropdown-menu .dropdown-item.quickadd-item:hover > span::before,
+	body#mainbody #topmenu-quickadd-dropdown .dropdown-menu .dropdown-item.quickadd-item:focus > span::before {
+		background-color: currentColor !important;
+		border: 0 !important;
+		box-shadow: none !important;
+		color: inherit !important;
 	}
 
 	body#mainbody input[name="confirmmassactioninvisible"],
