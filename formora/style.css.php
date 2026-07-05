@@ -4859,6 +4859,15 @@ table.jPicker {
 		width: 100% !important;
 	}
 
+	body#mainbody #id-top :is(li.tmenu, li.tmenusel) div.tmenucenter > a.tmenuimage > .topmenuimage {
+		left: auto !important;
+		margin-left: auto !important;
+		margin-right: auto !important;
+		position: static !important;
+		right: auto !important;
+		transform: none !important;
+	}
+
 	body#mainbody #id-top li.tmenu :is(a, span, div.mainmenu, .mainmenuaspan, .tmenuimage, .tmenulabel),
 	body#mainbody #id-top li.tmenusel :is(a, span, div.mainmenu, .mainmenuaspan, .tmenuimage, .tmenulabel),
 	body#mainbody #id-top li.tmenu:hover :is(a, span, div.mainmenu, .mainmenuaspan, .tmenuimage, .tmenulabel),
