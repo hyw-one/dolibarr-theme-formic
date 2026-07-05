@@ -457,6 +457,7 @@ require __DIR__.'/global.inc.php';
 	--iform-line-soft: #e5e7eb;
 	--iform-bg: #f6f8fa;
 	--iform-surface: #ffffff;
+	--iform-surface-alt: #f6f8fa;
 	--iform-text: #1f2328;
 	--iform-muted: #636e7b;
 	--iform-danger: #cf222e;
@@ -476,6 +477,9 @@ require __DIR__.'/global.inc.php';
 	--iform-icon-warning: #9a6700;
 	--iform-icon-success: #1a7f37;
 	--iform-switch-knob: #ffffff;
+	--iform-module-enabled-glow: rgba(26, 127, 55, 0.16);
+	--iform-module-enabled-glow-soft: rgba(26, 127, 55, 0.05);
+	--infoboxmoduleenabledbgcolor: transparent;
 	--iform-symbol-search: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M8.7 14.2a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11Zm4-1.5 4.1 4.1' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
 	--iform-symbol-refresh: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M16.2 7.2A6.4 6.4 0 0 0 4.1 5.4M3.6 3.1v3.9h3.9M3.8 12.8a6.4 6.4 0 0 0 12.1 1.8m.5 2.3v-3.9h-3.9' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
 	--iform-symbol-list: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5.5 5.2h11M5.5 10h11M5.5 14.8h11M2.8 5.2h.1M2.8 10h.1M2.8 14.8h.1' fill='none' stroke='black' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
@@ -1625,19 +1629,19 @@ textarea:focus,
 #mainbody .butActionDelete:hover,
 #mainbody .butActionDelete:active,
 #mainbody .buttonDelete {
-	background: var(--iform-danger-bg) !important;
+	background: var(--iform-danger) !important;
 	background-image: none !important;
-	border: 1px solid #ff8182 !important;
-	color: var(--iform-danger) !important;
+	border: 1px solid var(--iform-danger) !important;
+	color: #fff !important;
 	box-shadow: none !important;
 }
 
 #mainbody .butActionDelete:hover,
 #mainbody .buttonDelete:hover:not(:disabled) {
-	background: var(--iform-danger-hover-bg) !important;
+	background: #a40e26 !important;
 	background-image: none !important;
-	border-color: #ff8182 !important;
-	color: #a40e26 !important;
+	border-color: #a40e26 !important;
+	color: #fff !important;
 	box-shadow: none !important;
 }
 
@@ -1772,12 +1776,104 @@ textarea:focus,
 	color: var(--iform-muted) !important;
 }
 
+#mainbody .box-flex-container.kanban .box-flex-item.info-box-module,
+#mainbody .box-flex-container.kanban .box-flex-item.info-box-module .info-box,
+#mainbody .box-flex-container.kanban .box-flex-item.info-box-module .info-box-icon,
+#mainbody .box-flex-container.kanban .box-flex-item.info-box-module .info-box-content {
+	box-sizing: border-box;
+}
+
+#mainbody .box-flex-container.kanban .box-flex-item.info-box-module .info-box {
+	background: var(--iform-surface) !important;
+	background-image: none !important;
+	border-color: var(--iform-line) !important;
+	overflow: hidden;
+	position: relative;
+}
+
+#mainbody .box-flex-container.kanban .box-flex-item.info-box-module .info-box-icon {
+	background: var(--iform-surface-alt) !important;
+	background-image: none !important;
+	position: relative;
+	z-index: 1;
+}
+
+#mainbody .box-flex-container.kanban .box-flex-item.info-box-module .info-box-content,
+#mainbody .box-flex-container.kanban .box-flex-item.info-box-module .info-box-module-enabled {
+	background: transparent !important;
+	background-image: none !important;
+	position: relative;
+	z-index: 1;
+}
+
+#mainbody .box-flex-container.kanban .box-flex-item.info-box-module:not(.--disabled) .info-box::after {
+	background: radial-gradient(circle at calc(100% - 42px) calc(100% - 18px), var(--iform-module-enabled-glow) 0%, var(--iform-module-enabled-glow-soft) 38%, transparent 74%);
+	bottom: 0;
+	content: "";
+	pointer-events: none;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 58%;
+	z-index: 0;
+}
+
 table.border,
 table.noborder,
 table.liste,
 .div-table-responsive,
 .div-table-responsive-no-min {
-	border-color: var(--iform-line-soft);
+	border-color: var(--iform-line);
+}
+
+div.liste_titre_bydiv,
+div.liste_titre_bydiv_nothingafter,
+#mainbody .liste_titre.liste_titre_bydiv {
+	border-color: var(--iform-line) !important;
+}
+
+#mainbody .div-table-responsive > table.liste:not(.listwithfilterbefore),
+#mainbody .div-table-responsive-no-min > table.liste:not(.listwithfilterbefore) {
+	border-collapse: separate !important;
+	border-radius: 8px !important;
+	border-spacing: 0 !important;
+	overflow: hidden;
+}
+
+#mainbody .div-table-responsive > table.liste:not(.listwithfilterbefore) > :is(thead, tbody):first-child > tr:first-child > :is(td, th):first-child,
+#mainbody .div-table-responsive-no-min > table.liste:not(.listwithfilterbefore) > :is(thead, tbody):first-child > tr:first-child > :is(td, th):first-child {
+	border-top-left-radius: 8px !important;
+}
+
+#mainbody .div-table-responsive > table.liste:not(.listwithfilterbefore) > :is(thead, tbody):first-child > tr:first-child > :is(td, th):last-child,
+#mainbody .div-table-responsive-no-min > table.liste:not(.listwithfilterbefore) > :is(thead, tbody):first-child > tr:first-child > :is(td, th):last-child {
+	border-top-right-radius: 8px !important;
+}
+
+#mainbody .div-table-responsive > table.liste.listwithfilterbefore,
+#mainbody .div-table-responsive-no-min > table.liste.listwithfilterbefore {
+	border-top-left-radius: 0 !important;
+	border-top-right-radius: 0 !important;
+	overflow: visible;
+}
+
+#mainbody .div-table-responsive > table.liste.listwithfilterbefore > :is(thead, tbody):first-child > tr:first-child > :is(td, th),
+#mainbody .div-table-responsive-no-min > table.liste.listwithfilterbefore > :is(thead, tbody):first-child > tr:first-child > :is(td, th) {
+	border-top-left-radius: 0 !important;
+	border-top-right-radius: 0 !important;
+}
+
+#mainbody table.liste,
+#mainbody table.tagtable.liste,
+#mainbody .div-table-responsive > table.liste,
+#mainbody .div-table-responsive-no-min > table.liste {
+	border-color: var(--iform-line) !important;
+}
+
+#mainbody table.liste :is(tr, td, th),
+#mainbody table.tagtable.liste :is(tr, td, th),
+#mainbody table.liste > :is(thead, tbody, tfoot) > tr > :is(td, th) {
+	border-color: var(--iform-line) !important;
 }
 
 .badge-status,
@@ -1934,6 +2030,8 @@ if (getDolGlobalInt('THEME_DARKMODEENABLED')) {
 	--iform-icon-warning: #ffd38a;
 	--iform-icon-success: #83e5a1;
 	--iform-switch-knob: #1c1f22;
+	--iform-module-enabled-glow: rgba(61, 180, 111, 0.28);
+	--iform-module-enabled-glow-soft: rgba(61, 180, 111, 0.08);
 	--colorbackhmenu1: #1c1f22;
 	--colorbackvmenu1: #181b1f;
 	--colorbacktitle1: #24282d;
@@ -1949,7 +2047,7 @@ if (getDolGlobalInt('THEME_DARKMODEENABLED')) {
 		--colorbackbody: #151719;
 		--colorbackmobilemenu: #181b1f;
 		--colorbackgrey: #202429;
-		--infoboxmoduleenabledbgcolor: linear-gradient(0.4turn, #24282d 0%, #24282d 68%, rgba(61, 180, 111, 0.18) 100%);
+		--infoboxmoduleenabledbgcolor: transparent;
 		--colortexttitlenotab: #edf2f7;
 		--colortexttitlenotab2: #edf2f7;
 		--colortexttitle: rgba(237, 242, 247, 0.95);
@@ -2155,7 +2253,7 @@ hr,
 }
 
 .box-flex-item.info-box-module:not(.--disabled) {
-	border-color: rgba(61, 180, 111, 0.28) !important;
+	border-color: var(--iform-line) !important;
 }
 
 .box-flex-item.info-box-module:not(.--disabled) .info-box-content {
@@ -2419,7 +2517,7 @@ tr.liste_titre td a {
 
 div.liste_titre_bydiv,
 div.liste_titre_bydiv_nothingafter {
-	border-color: var(--iform-line-soft) !important;
+	border-color: var(--iform-line) !important;
 }
 
 #mainbody .fichehalfleft table.noborder.centpercent,
@@ -2469,6 +2567,21 @@ div.tagtd,
 .border th {
 	border-color: var(--iform-line-soft) !important;
 	color: inherit;
+}
+
+#mainbody .div-table-responsive,
+#mainbody .div-table-responsive-no-min,
+#mainbody table.liste,
+#mainbody table.tagtable.liste,
+#mainbody .div-table-responsive > table.liste,
+#mainbody .div-table-responsive-no-min > table.liste {
+	border-color: var(--iform-line) !important;
+}
+
+#mainbody table.liste :is(tr, td, th),
+#mainbody table.tagtable.liste :is(tr, td, th),
+#mainbody table.liste > :is(thead, tbody, tfoot) > tr > :is(td, th) {
+	border-color: var(--iform-line) !important;
 }
 
 .trforbreak td,
