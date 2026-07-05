@@ -6320,10 +6320,24 @@ table.jPicker {
 		width: 260px !important;
 	}
 
+	body#mainbody.bodyforlist:not(.poslist) #id-right .fiche table.table-fiche-title .select2-container:has(#select2-massaction-container) .select2-selection--single {
+		box-sizing: border-box !important;
+		position: relative !important;
+		width: 100% !important;
+	}
+
 	body#mainbody .select2-container:has(#select2-massaction-container) .select2-selection__rendered {
 		overflow: hidden !important;
+		padding-right: 32px !important;
 		text-overflow: ellipsis !important;
 		white-space: nowrap !important;
+	}
+
+	body#mainbody.bodyforlist:not(.poslist) #id-right .fiche table.table-fiche-title .select2-container:has(#select2-massaction-container) .select2-selection__arrow {
+		height: 100% !important;
+		left: auto !important;
+		right: 1px !important;
+		top: 0 !important;
 	}
 
 	body#mainbody .select2-container:has(#select2-massaction-container) .select2-selection__rendered :is(.pictofixedwidth, img, .fa, .fas, .far, .fab) {
