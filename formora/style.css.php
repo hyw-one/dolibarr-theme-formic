@@ -7714,6 +7714,25 @@ table.jPicker {
 			width: 280px !important;
 		}
 
+		@media only screen and (max-width: 929px) {
+			body#mainbody.bodyforlist:not(.poslist) #id-right .fiche table.table-fiche-title .col-right div.pagination,
+			body#mainbody.bodyforlist:not(.poslist) #id-right .fiche table.table-fiche-title .col-right div.pagination > ul {
+				flex-wrap: wrap !important;
+				white-space: normal !important;
+				width: 100% !important;
+			}
+
+			body#mainbody.bodyforlist:not(.poslist) #id-right .fiche table.table-fiche-title .col-right div.pagination > ul > li.paginationafterarrows {
+				flex: 1 1 100% !important;
+				flex-wrap: wrap !important;
+				margin-left: 0 !important;
+				max-width: 100% !important;
+				min-width: 0 !important;
+				white-space: normal !important;
+				width: 100% !important;
+			}
+		}
+
 		@media only screen and (max-width: 767px) {
 			body#mainbody.bodyforlist:not(.poslist) #id-right .fiche table.table-fiche-title {
 				column-gap: 8px !important;
