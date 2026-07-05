@@ -7412,6 +7412,33 @@ table.jPicker {
 		}
 
 		@media only screen and (max-width: 767px) {
+			body#mainbody.bodyforlist:not(.poslist):has(.checkforselect:checked) #id-right .fiche table.table-fiche-title .col-right,
+			body#mainbody.bodyforlist:not(.poslist):not(:has(.checkforselect)):has(#massaction) #id-right .fiche table.table-fiche-title .col-right {
+				display: none !important;
+				min-width: 0 !important;
+				padding: 0 !important;
+				width: 0 !important;
+			}
+
+			body#mainbody.bodyforlist:not(.poslist):has(.checkforselect:checked) #id-right .fiche table.table-fiche-title .col-center:has(#massaction),
+			body#mainbody.bodyforlist:not(.poslist):not(:has(.checkforselect)):has(#massaction) #id-right .fiche table.table-fiche-title .col-center:has(#massaction) {
+				max-width: 184px !important;
+				width: 184px !important;
+			}
+
+			body#mainbody.bodyforlist:not(.poslist):has(.checkforselect:checked) #id-right .fiche table.table-fiche-title .col-center:has(#massaction) > div,
+			body#mainbody.bodyforlist:not(.poslist):not(:has(.checkforselect)):has(#massaction) #id-right .fiche table.table-fiche-title .col-center:has(#massaction) > div {
+				max-width: 184px !important;
+				min-width: 0 !important;
+				width: 184px !important;
+			}
+
+			body#mainbody.bodyforlist:not(.poslist):has(.checkforselect:checked) #id-right .fiche table.table-fiche-title .select2-container:has(#select2-massaction-container),
+			body#mainbody.bodyforlist:not(.poslist):not(:has(.checkforselect)):has(#massaction) #id-right .fiche table.table-fiche-title .select2-container:has(#select2-massaction-container) {
+				max-width: 184px !important;
+				width: 184px !important;
+			}
+
 			table.table-fiche-title .titre,
 			table.table-fiche-title div.titre,
 			table.table-fiche-title td.col-title {
