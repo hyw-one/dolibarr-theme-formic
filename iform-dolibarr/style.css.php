@@ -568,6 +568,14 @@ body {
 	background: var(--iform-bg);
 }
 
+.bodylogin .butActionLogin,
+.bodylogin .butActionLogin:link,
+.bodylogin .butActionLogin:visited,
+.bodylogin .butActionLogin:hover,
+.bodylogin .butActionLogin:active {
+	color: var(--iform-text) !important;
+}
+
 a:link,
 a:visited,
 a:hover,
@@ -1375,6 +1383,7 @@ body#mainbody .fa-toggle-off {
 }
 
 #mainbody .infobox-bank_account,
+#mainbody .fa-dol-bank_account,
 #mainbody .fa-money-check-alt,
 #mainbody .fa-university,
 #mainbody .fa-dollar-sign,
@@ -1383,10 +1392,47 @@ body#mainbody .fa-toggle-off {
 }
 
 #mainbody .infobox-contrat,
+#mainbody .infobox-ticket,
+#mainbody .fa-dol-ticket,
 #mainbody .fa-suitcase,
 #mainbody .fa-ambulance,
 #mainbody .fa-ticket-alt {
 	color: #238b7f !important;
+}
+
+#mainbody .classfortooltip .fa-question-circle,
+#mainbody .fa-question-circle.classfortooltip,
+#mainbody .leaveuserbalance .fa-question-circle {
+	color: #64748b !important;
+}
+
+#mainbody .divsearchfield .fa-square.pictofixedwidth {
+	color: #8f99a7 !important;
+}
+
+body.bodytakepos .topnav a,
+body.bodytakepos .topnav .fa,
+body.bodytakepos .topnav .fas,
+body.bodytakepos .topnav .far,
+body.bodytakepos .topnav .fab {
+	color: #4b5563 !important;
+}
+
+body.bodytakepos .topnav .fa,
+body.bodytakepos .topnav .fas,
+body.bodytakepos .topnav .far,
+body.bodytakepos .topnav .fab {
+	color: inherit !important;
+}
+
+body.bodytakepos .topnav {
+	border-bottom: 1px solid #d0d7de !important;
+}
+
+body.bodytakepos .topnav-left a:hover:not(.nohover),
+body.bodytakepos .topnav .login_block_other a:hover:not(.nohover) {
+	background-color: #e6ebf0 !important;
+	color: #1f2937 !important;
 }
 
 #id-top a.tmenuimage,
@@ -1408,6 +1454,7 @@ body#mainbody .fa-toggle-off {
 
 #id-top a.tmenuimage[class*="fa-"]::before,
 #id-top a.tmenuimage :is(.fa, .fas, .far, .fab)[class*="fa-"]::before {
+	color: inherit !important;
 	height: 20px !important;
 	vertical-align: -0.16em;
 	width: 20px !important;
@@ -1826,6 +1873,14 @@ table.liste,
 	border-color: var(--iform-line);
 }
 
+#mainbody .fichehalfleft table.noborder.centpercent,
+#mainbody .fichehalfright table.noborder.centpercent,
+#mainbody .boxhalfleft table.noborder.centpercent,
+#mainbody .boxhalfright table.noborder.centpercent {
+	border: 1px solid var(--iform-line) !important;
+	border-color: var(--iform-line) !important;
+}
+
 div.liste_titre_bydiv,
 div.liste_titre_bydiv_nothingafter,
 #mainbody .liste_titre.liste_titre_bydiv {
@@ -1971,7 +2026,7 @@ div.liste_titre_bydiv_nothingafter,
 .jnotify-container .jnotify-notification {
 	max-width: min(520px, calc(100vw - 32px));
 	background: var(--iform-surface) !important;
-	border: 1px solid var(--iform-line-soft);
+	border: 1px solid var(--iform-line);
 	border-radius: 6px;
 	box-shadow: 0 10px 24px rgba(31, 35, 40, 0.12);
 	overflow: hidden;
@@ -2076,6 +2131,18 @@ body,
 #mainbody {
 	background: var(--iform-bg) !important;
 	color: var(--iform-text);
+}
+
+.bodylogin .login_table input#username,
+.bodylogin .login_table input#password,
+.bodylogin .login_table input#securitycode {
+	background: transparent !important;
+}
+
+.bodylogin .login_table .tagtable {
+	background: transparent !important;
+	border-color: transparent !important;
+	box-shadow: none !important;
 }
 
 a:link,
@@ -2524,6 +2591,7 @@ div.liste_titre_bydiv_nothingafter {
 #mainbody .fichehalfright table.noborder.centpercent,
 #mainbody .boxhalfleft table.noborder.centpercent,
 #mainbody .boxhalfright table.noborder.centpercent {
+	border: 1px solid var(--iform-line) !important;
 	border-color: var(--iform-line) !important;
 }
 
@@ -3112,10 +3180,31 @@ li.select2-selection__choice,
 #mainbody .infobox-holiday,
 #mainbody .info-box-module .infobox-holiday,
 #mainbody .pictomodule.infobox-holiday,
-#mainbody .pictomodule.fa-umbrella-beach {
+#mainbody .pictomodule.fa-umbrella-beach,
+#mainbody .fa-dol-holiday,
+#mainbody .fa-dol-holiday::before {
 	color: #d6a43e !important;
 }
 
+#mainbody .fa-weather-level0::before {
+	color: #f0d56a !important;
+}
+
+#mainbody .fa-weather-level1::before,
+#mainbody .fa-weather-level2::before {
+	color: #ffd38a !important;
+}
+
+#mainbody .fa-weather-level3::before {
+	color: #ffb86b !important;
+}
+
+#mainbody .fa-weather-level4::before {
+	color: #ff8b8b !important;
+}
+
+#mainbody .infobox-portal,
+#mainbody .infobox-portal::before,
 #mainbody .info-box-module .infobox-portal,
 #mainbody .info-box-module .fa-at,
 #mainbody .info-box-module .fa-share-alt,
@@ -3145,6 +3234,152 @@ li.select2-selection__choice,
 #mainbody .pictowarning,
 #mainbody .fa-exclamation-triangle.pictowarning {
 	color: #ffd38a !important;
+}
+
+#mainbody .info .fa-info-circle,
+#mainbody .messageinfo .fa-info-circle,
+#mainbody .messagedebug .fa-info-circle,
+#mainbody .wordbreak.info .fa-info-circle {
+	color: var(--iform-accent-hover) !important;
+}
+
+#mainbody .a-filter,
+#mainbody .a-mesure {
+	background: var(--iform-accent-soft) !important;
+	border: 1px solid rgba(78, 163, 255, 0.35) !important;
+	box-shadow: none !important;
+	color: var(--iform-accent-hover) !important;
+}
+
+#mainbody .a-filter-disabled,
+#mainbody .a-mesure-disabled {
+	background: var(--iform-surface-alt) !important;
+	border: 1px solid var(--iform-line) !important;
+	box-shadow: none !important;
+	color: var(--iform-muted) !important;
+	opacity: 1 !important;
+}
+
+#mainbody .websitebar {
+	background: var(--iform-surface-alt) !important;
+	border-bottom-color: var(--iform-line) !important;
+	color: var(--iform-text) !important;
+}
+
+#mainbody .websitebar .button,
+#mainbody .websitebar .buttonDelete {
+	background: var(--iform-surface) !important;
+	border-color: var(--iform-line) !important;
+	color: var(--iform-text) !important;
+	box-shadow: none !important;
+}
+
+#mainbody .websitebar .button:hover,
+#mainbody .websitebar .button:focus,
+#mainbody .websitebar .button.bordertransp:hover,
+#mainbody .websitebar .button.bordertransp:focus {
+	background: var(--iform-neutral-hover-bg) !important;
+	border-color: rgba(78, 163, 255, 0.45) !important;
+	color: var(--iform-accent-hover) !important;
+}
+
+#mainbody .websitebar input#previewpageurl,
+#mainbody .websitebar input.bordertransp {
+	background: var(--inputbackgroundcolor) !important;
+	border-color: var(--inputbordercolor) !important;
+	color: var(--iform-text) !important;
+}
+
+#mainbody .websitebar .fa-plus-circle.btnTitle-icon {
+	color: var(--iform-accent-hover) !important;
+}
+
+#mainbody img[src$="/opensurvey/img/calendar-32.png"],
+#mainbody img[src$="/opensurvey/img/chart-32.png"],
+#mainbody img[src$="/img/calendar-32.png"],
+#mainbody img[src$="/img/chart-32.png"] {
+	filter: brightness(0) saturate(100%) invert(69%) sepia(93%) saturate(705%) hue-rotate(180deg) brightness(101%) contrast(101%) !important;
+	opacity: 0.96;
+}
+
+#mainbody div.corps:has(.index_date, .index_sondage),
+#mainbody div.corps:has(.opensurveydescription),
+#mainbody .survey_intro {
+	background: var(--iform-surface) !important;
+	border-color: var(--iform-line) !important;
+	box-shadow: none !important;
+	color: var(--iform-text) !important;
+}
+
+#mainbody .index_date,
+#mainbody .index_sondage {
+	color: var(--iform-text) !important;
+}
+
+body.bodytakepos {
+	background: var(--iform-bg) !important;
+	color: var(--iform-text) !important;
+}
+
+body.bodytakepos .topnav {
+	background: var(--iform-surface) !important;
+	border-bottom: 1px solid var(--iform-line) !important;
+}
+
+body.bodytakepos .topnav a,
+body.bodytakepos .topnav .fa,
+body.bodytakepos .topnav .fas,
+body.bodytakepos .topnav .far,
+body.bodytakepos .topnav .fab {
+	color: var(--iform-text) !important;
+}
+
+body.bodytakepos .topnav .fa,
+body.bodytakepos .topnav .fas,
+body.bodytakepos .topnav .far,
+body.bodytakepos .topnav .fab {
+	color: inherit !important;
+}
+
+body.bodytakepos .topnav-left a:hover:not(.nohover),
+body.bodytakepos .topnav .login_block_other a:hover:not(.nohover) {
+	background: var(--iform-neutral-hover-bg) !important;
+	color: var(--iform-accent-hover) !important;
+}
+
+body.bodytakepos .modal-content {
+	background: var(--iform-surface) !important;
+	border: 1px solid var(--iform-line) !important;
+	box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45) !important;
+	color: var(--iform-text) !important;
+}
+
+body.bodytakepos .wrapper,
+body.bodytakepos .wrapper2 {
+	background: var(--iform-surface) !important;
+	border: 1px solid var(--iform-line) !important;
+	box-shadow: none !important;
+	color: var(--iform-text) !important;
+}
+
+body.bodytakepos .wrapper.divempty,
+body.bodytakepos .wrapper2.divempty {
+	background: var(--iform-surface-alt) !important;
+	border-color: var(--iform-line-soft) !important;
+}
+
+body.bodytakepos .description,
+body.bodytakepos .catwatermark {
+	background: rgba(21, 23, 25, 0.72) !important;
+	color: var(--iform-text) !important;
+}
+
+body.bodytakepos input,
+body.bodytakepos select,
+body.bodytakepos textarea {
+	background: var(--inputbackgroundcolor) !important;
+	border-color: var(--inputbordercolor) !important;
+	color: var(--iform-text) !important;
 }
 
 #mainbody img[src$="/warning.png"],
@@ -3238,6 +3473,11 @@ li.select2-selection__choice,
 #id-top a.tmenuimage .fas,
 #id-top a.tmenuimage .far,
 #id-top a.tmenuimage .fab {
+	color: inherit !important;
+}
+
+#id-top a.tmenuimage[class*="fa-"]::before,
+#id-top a.tmenuimage :is(.fa, .fas, .far, .fab)[class*="fa-"]::before {
 	color: inherit !important;
 }
 
@@ -3483,6 +3723,12 @@ div#ui-datepicker-div,
 .ui-dialog .ui-dialog-buttonpane .ui-button:focus-visible {
 	outline: 0;
 	box-shadow: 0 0 0 2px var(--iform-focus-ring) !important;
+}
+
+.ui-widget-overlay.ui-front,
+.ui-widget-overlay {
+	background: rgba(0, 0, 0, 0.58) !important;
+	opacity: 1 !important;
 }
 
 .divadvancedsearchfieldcompinput,
