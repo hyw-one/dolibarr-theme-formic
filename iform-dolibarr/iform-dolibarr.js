@@ -1,6 +1,7 @@
 (function () {
 	'use strict';
 
+	var aceRefreshTimer = null;
 	var chartRefreshTimer = null;
 
 	function parseRgb(color) {
@@ -263,18 +264,56 @@
 		chartRefreshTimer = setTimeout(applyChartTheme, 0);
 	}
 
+	function applyAceTheme() {
+		var colors = currentColors();
+		var editors = document.querySelectorAll('.ace_editor');
+		if (!colors.dark || !editors.length || !window.ace || typeof window.ace.edit !== 'function') {
+			return;
+		}
+
+		editors.forEach(function (element) {
+			if (!element.id) {
+				return;
+			}
+
+			try {
+				var editor = window.ace.edit(element.id);
+				if (editor && typeof editor.setTheme === 'function' && editor.getTheme && editor.getTheme() !== 'ace/theme/one_dark') {
+					editor.setTheme('ace/theme/one_dark');
+				}
+				element.classList.add('iform-ace-dark');
+			} catch (e) {
+				// ACE may still be initializing; the scheduled retry will pick it up.
+			}
+		});
+	}
+
+	function scheduleAceTheme() {
+		clearTimeout(aceRefreshTimer);
+		aceRefreshTimer = setTimeout(applyAceTheme, 0);
+	}
+
 	applyChartTheme();
+	applyAceTheme();
 
 	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', scheduleAceTheme);
 		document.addEventListener('DOMContentLoaded', scheduleChartTheme);
 	} else {
+		scheduleAceTheme();
 		scheduleChartTheme();
 	}
 
+	window.addEventListener('load', scheduleAceTheme);
 	window.addEventListener('load', scheduleChartTheme);
+	setTimeout(scheduleAceTheme, 300);
+	setTimeout(scheduleAceTheme, 1000);
 
 	if (window.MutationObserver) {
-		new MutationObserver(scheduleChartTheme).observe(document.documentElement, {
+		new MutationObserver(function () {
+			scheduleAceTheme();
+			scheduleChartTheme();
+		}).observe(document.documentElement, {
 			childList: true,
 			subtree: true
 		});
