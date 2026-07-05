@@ -469,6 +469,90 @@ require __DIR__.'/global.inc.php';
 	--iform-status-success-bg: #1a7f37;
 	--iform-status-success-border: rgba(255, 255, 255, 0);
 	--iform-status-success-text: #ffffff;
+	--iform-icon-default: #57606a;
+	--iform-icon-muted: #6e7781;
+	--iform-icon-accent: #0969da;
+	--iform-icon-danger: #cf222e;
+	--iform-icon-warning: #9a6700;
+	--iform-icon-success: #1a7f37;
+	--iform-switch-knob: #ffffff;
+	--iform-symbol-search: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M8.7 14.2a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11Zm4-1.5 4.1 4.1' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-refresh: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M16.2 7.2A6.4 6.4 0 0 0 4.1 5.4M3.6 3.1v3.9h3.9M3.8 12.8a6.4 6.4 0 0 0 12.1 1.8m.5 2.3v-3.9h-3.9' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-list: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5.5 5.2h11M5.5 10h11M5.5 14.8h11M2.8 5.2h.1M2.8 10h.1M2.8 14.8h.1' fill='none' stroke='black' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+	--iform-symbol-grid: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M3.5 3.5h4.2v4.2H3.5zM12.3 3.5h4.2v4.2h-4.2zM3.5 12.3h4.2v4.2H3.5zM12.3 12.3h4.2v4.2h-4.2z' fill='none' stroke='black' stroke-width='1.7' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-plus: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 3.4v13.2M3.4 10h13.2' fill='none' stroke='black' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+	--iform-symbol-edit: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m4.1 13.8-.7 2.8 2.8-.7 9-9a2 2 0 0 0-2.8-2.8l-9 9Zm7.2-8.5 3.4 3.4' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-trash: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M4 6h12M8 6V4.5h4V6m-6.8 0 .7 10.2h8.2L14.8 6M8.3 9v4.5M11.7 9v4.5' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-close: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m5.2 5.2 9.6 9.6M14.8 5.2l-9.6 9.6' fill='none' stroke='black' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+	--iform-symbol-download: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 3.4v8.4m0 0 3.2-3.2M10 11.8 6.8 8.6M4.2 15.8h11.6' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-preview: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M2.8 10s2.6-5 7.2-5 7.2 5 7.2 5-2.6 5-7.2 5-7.2-5-7.2-5Zm7.2 2.3a2.3 2.3 0 1 0 0-4.6 2.3 2.3 0 0 0 0 4.6Z' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-calendar: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5.5 3v3M14.5 3v3M3.5 7.3h13M5.2 4.5h9.6a1.9 1.9 0 0 1 1.9 1.9v8.4a1.9 1.9 0 0 1-1.9 1.9H5.2a1.9 1.9 0 0 1-1.9-1.9V6.4a1.9 1.9 0 0 1 1.9-1.9Z' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-bolt: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M11.2 2.8 5 10.5h4.6l-.9 6.7 6.4-8.8h-4.8l.9-5.6Z' fill='none' stroke='black' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-sort-up: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m5.3 12.2 4.7-4.7 4.7 4.7' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-sort-down: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m5.3 7.8 4.7 4.7 4.7-4.7' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-info: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 17a7 7 0 1 0 0-14 7 7 0 0 0 0 14Zm0-7.6v4.1M10 6.6h.1' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E");
+	--iform-symbol-warning: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 3.2 17 16H3L10 3.2Zm0 4.9v3.8M10 14.5h.1' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-check: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m4 10.4 4 4L16.2 6' fill='none' stroke='black' stroke-width='2.1' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-print: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M6 7V3.8h8V7M6 14.2H4.7a1.9 1.9 0 0 1-1.9-1.9V9.1A2.1 2.1 0 0 1 4.9 7h10.2a2.1 2.1 0 0 1 2.1 2.1v3.2a1.9 1.9 0 0 1-1.9 1.9H14M6 12h8v4.4H6z' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-expand: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M7.8 4H4v3.8M12.2 4H16v3.8M7.8 16H4v-3.8M12.2 16H16v-3.8M4.4 4.4l4.5 4.5M15.6 4.4l-4.5 4.5M4.4 15.6l4.5-4.5M15.6 15.6l-4.5-4.5' fill='none' stroke='black' stroke-width='1.65' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-keyboard: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M4.2 5h11.6a1.7 1.7 0 0 1 1.7 1.7v6.6a1.7 1.7 0 0 1-1.7 1.7H4.2a1.7 1.7 0 0 1-1.7-1.7V6.7A1.7 1.7 0 0 1 4.2 5Zm1.5 3.2h.1m3 0h.1m3 0h.1m3 0h.1M5.7 11h.1m3 0h5.5' fill='none' stroke='black' stroke-width='1.65' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-shield: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 3.2 15.8 5v4.4c0 3.7-2 6.2-5.8 7.4-3.8-1.2-5.8-3.7-5.8-7.4V5L10 3.2Zm-2.4 6.7 1.7 1.7 3.3-3.4' fill='none' stroke='black' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-clipboard: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M7.5 4.5h5M7 3.5h6v2.4H7V3.5ZM5 5.3H4v11.2h12V5.3h-1M7 9.5h6M7 12.5h4' fill='none' stroke='black' stroke-width='1.65' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-building: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 16.5V3.5h10v13M3.6 16.5h12.8M8 6.5h.1M12 6.5h.1M8 9.5h.1M12 9.5h.1M8 12.5h.1M12 12.5h.1' fill='none' stroke='black' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-address-book: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5.2 3.8h9.2a1.8 1.8 0 0 1 1.8 1.8v8.8a1.8 1.8 0 0 1-1.8 1.8H5.2a1.8 1.8 0 0 1-1.8-1.8V5.6a1.8 1.8 0 0 1 1.8-1.8ZM3.4 7h-1M3.4 13h-1M10 10a1.7 1.7 0 1 0 0-3.4 1.7 1.7 0 0 0 0 3.4Zm-3 3.8c.7-1.4 1.7-2.1 3-2.1s2.3.7 3 2.1' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-user: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 9.5a3.2 3.2 0 1 0 0-6.4 3.2 3.2 0 0 0 0 6.4Zm-6 7.3c1.2-3.1 3.2-4.6 6-4.6s4.8 1.5 6 4.6' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-users: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M8.1 9.2a2.6 2.6 0 1 0 0-5.2 2.6 2.6 0 0 0 0 5.2Zm-5.1 7c.9-2.7 2.6-4 5.1-4s4.2 1.3 5.1 4M14 10a2.2 2.2 0 1 0 0-4.4M13.8 12.3c1.7.2 2.9 1.3 3.6 3.4' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-box: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m10 2.8 6.5 3.5v7.4L10 17.2l-6.5-3.5V6.3L10 2.8Zm-6.1 3.7L10 9.8l6.1-3.3M10 9.8v7' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-service: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 5.2V3.5M4.5 13.5a5.5 5.5 0 0 1 11 0M3.2 16.2h13.6M7.2 5.8h5.6' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-doc: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 3.2h6.4L15 6.8v10H5v-13.6Zm6.2.3v3.6h3.5M7.5 10h5M7.5 13h5' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-doc-money: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 3.2h6.4L15 6.8v10H5v-13.6Zm6.2.3v3.6h3.5M10 9.2v5M8.4 10.3c.4-.6 1-.9 1.8-.9 1.1 0 1.8.5 1.8 1.2 0 1.8-3.8.8-3.8 2.6 0 .8.8 1.3 1.9 1.3.9 0 1.6-.3 2-.9' fill='none' stroke='black' stroke-width='1.55' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-doc-signature: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 3.2h6.4L15 6.8v10H5v-13.6Zm6.2.3v3.6h3.5M7.2 13.4c1.1-2.5 2.3-2.4 2.1-.7-.1 1.3.9 1.2 1.6.2.7-.9 1.4-.9 2 .2M7.2 15.2h5.8' fill='none' stroke='black' stroke-width='1.55' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-note: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M4.8 3.4h7.6l2.8 2.8v10.4H4.8V3.4Zm7.4.3v3h3M7.4 10h5.2M7.4 13h4' fill='none' stroke='black' stroke-width='1.65' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-truck: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M3 6h9v7H3V6Zm9 2.5h2.7l2.3 2.6V13h-5V8.5ZM6 15.2a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Zm8 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-briefcase: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M7.2 6V4.5h5.6V6M3.4 6h13.2v9.5H3.4V6Zm0 4.2c2.1 1 4.3 1.5 6.6 1.5s4.5-.5 6.6-1.5' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-project: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M3.7 4.4h4.6v4.6H3.7V4.4Zm8 6.6h4.6v4.6h-4.6V11ZM8.3 6.8h3.2c2.4 0 4.2 1.6 4.2 4.2M6 9v2c0 2.4 1.8 4 4.2 4h1.5' fill='none' stroke='black' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-task: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M4 5.5h2.5M9 5.5h7M4 10h2.5M9 10h7M4 14.5h2.5M9 14.5h7' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E");
+	--iform-symbol-bank: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M3 7h14L10 3.4 3 7Zm2 2v5M9 9v5M15 9v5M3.5 16.5h13' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-payment: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M3.5 5.5h13v9h-13v-9Zm0 3h13M7 12h3M13 11.8l1 1 2-2' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-wallet: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M4 6h11a2 2 0 0 1 2 2v7H4a2 2 0 0 1-2-2V5.8A1.8 1.8 0 0 1 3.8 4H14v2M13.2 10.5h3.5v2.7h-3.5a1.35 1.35 0 1 1 0-2.7Z' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-phone: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M6.3 3.5 4.2 5.1c-.5.4-.7 1.1-.4 1.7 1.8 4 5.4 7.5 9.4 9.4.6.3 1.3.1 1.7-.4l1.6-2.1-3.6-2.4-1.4 1.5a10.6 10.6 0 0 1-4.3-4.3l1.5-1.4-2.4-3.6Z' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-mobile: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M7 3.2h6a1.4 1.4 0 0 1 1.4 1.4v10.8a1.4 1.4 0 0 1-1.4 1.4H7a1.4 1.4 0 0 1-1.4-1.4V4.6A1.4 1.4 0 0 1 7 3.2Zm2.8 11.3h.4' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-mail: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M3.5 5.3h13v9.4h-13V5.3Zm.5.6 6 5 6-5' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-chat: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M4.4 5.2h11.2a2 2 0 0 1 2 2v5.1a2 2 0 0 1-2 2H9.3l-4.1 2v-2H4.4a2 2 0 0 1-2-2V7.2a2 2 0 0 1 2-2Z' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-send: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M3.5 10.2 16.7 3.8l-3.1 12.6-3.2-4.3-4.4 2 1.7-3.9-4.2 0Zm4.2 0 8.8-6.1' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-link: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M8.2 6.5 9.4 5.3a4 4 0 0 1 5.6 5.6l-1.7 1.7M11.8 13.5l-1.2 1.2A4 4 0 1 1 5 9.1l1.7-1.7M7.7 12.3l4.6-4.6' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-external: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M8 5H4.8a1.8 1.8 0 0 0-1.8 1.8v8.4A1.8 1.8 0 0 0 4.8 17h8.4a1.8 1.8 0 0 0 1.8-1.8V12M11 3h6v6M9.5 10.5 16.5 3.5' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-globe: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 17a7 7 0 1 0 0-14 7 7 0 0 0 0 14Zm0-14c2 1.8 3 4.1 3 7s-1 5.2-3 7m0-14c-2 1.8-3 4.1-3 7s1 5.2 3 7M3.5 10h13M4.8 6.4h10.4M4.8 13.6h10.4' fill='none' stroke='black' stroke-width='1.35' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-map: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m3.5 5.4 4-1.8 5 1.8 4-1.8v11l-4 1.8-5-1.8-4 1.8v-11Zm4-1.8v11m5-9.2v11' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-folder: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M3.2 6.2h5l1.5 1.8h7.1v6.8A1.8 1.8 0 0 1 15 16.6H5a1.8 1.8 0 0 1-1.8-1.8V6.2Z' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-tag: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M3.5 10.3 10.3 3.5h5.2v5.2l-6.8 6.8-5.2-5.2Zm9.2-4.2h.1' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-barcode: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M4 4.5v11M7 4.5v11M10.5 4.5v11M13 4.5v11M16 4.5v11' fill='none' stroke='black' stroke-width='1.9' stroke-linecap='round'/%3E%3C/svg%3E");
+	--iform-symbol-clock: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 17a7 7 0 1 0 0-14 7 7 0 0 0 0 14Zm0-10v3.6l2.4 1.5' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-lock: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 8.5h10v7.8H5V8.5Zm2.2 0V6.8a2.8 2.8 0 0 1 5.6 0v1.7M10 12v1.8' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-gear: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='black' fill-rule='evenodd' d='M8.45 2.4h3.1l.35 2.05c.43.16.84.38 1.22.65l1.95-.7 1.55 2.68-1.58 1.33c.04.26.06.52.06.79s-.02.53-.06.79l1.58 1.33-1.55 2.68-1.95-.7c-.38.27-.79.49-1.22.65L11.55 16h-3.1l-.35-2.05a5.64 5.64 0 0 1-1.22-.65l-1.95.7-1.55-2.68 1.58-1.33A5.25 5.25 0 0 1 4.9 9.2c0-.27.02-.53.06-.79L3.38 7.08 4.93 4.4l1.95.7c.38-.27.79-.49 1.22-.65L8.45 2.4ZM10 11.85a2.65 2.65 0 1 0 0-5.3 2.65 2.65 0 0 0 0 5.3Z' clip-rule='evenodd'/%3E%3C/svg%3E");
+	--iform-symbol-tools: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m4 16 5.5-5.5M6.2 3.6 8.5 6 6 8.5 3.6 6.2M11.4 4.1l4.5 4.5m-1.2-5.7 2.4 2.4-8.9 8.9-2.4-2.4 8.9-8.9Z' fill='none' stroke='black' stroke-width='1.55' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-chart: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M4 16V4M4 16h12.5M6.5 12.5l3-3 2.2 2.1 4-5' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-ticket: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M3.5 7.2a2.2 2.2 0 0 0 0 5.6v2h13v-2a2.2 2.2 0 0 0 0-5.6v-2h-13v2Zm7-1.8v9.2' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-magic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m5 15 8.7-8.7M11.8 4.4l3.8 3.8M4 4.5h.1M7 2.8v1.4M15.5 13.5h.1M17.2 10.5h-1.4M8.2 17.2v-1.4' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-server: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M4.5 3.6h11a1.6 1.6 0 0 1 1.6 1.6v2.3a1.6 1.6 0 0 1-1.6 1.6h-11a1.6 1.6 0 0 1-1.6-1.6V5.2a1.6 1.6 0 0 1 1.6-1.6Zm0 7.3h11a1.6 1.6 0 0 1 1.6 1.6v2.3a1.6 1.6 0 0 1-1.6 1.6h-11a1.6 1.6 0 0 1-1.6-1.6v-2.3a1.6 1.6 0 0 1 1.6-1.6ZM6 6.4h.1M6 13.6h.1M9 6.4h5M9 13.6h5' fill='none' stroke='black' stroke-width='1.55' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-home: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m3.2 9 6.8-5.8L16.8 9M5 8.5v8h10v-8M8.2 16.5V12h3.6v4.5' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-chevron-left: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m12.5 4.5-5.5 5.5 5.5 5.5' fill='none' stroke='black' stroke-width='2.1' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-chevron-right: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m7.5 4.5 5.5 5.5-5.5 5.5' fill='none' stroke='black' stroke-width='2.1' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-question: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 17a7 7 0 1 0 0-14 7 7 0 0 0 0 14Zm-2.1-8a2.2 2.2 0 1 1 3.5 1.8c-.9.6-1.4 1.1-1.4 2M10 15h.1' fill='none' stroke='black' stroke-width='1.65' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-source: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M4 6.2h4.2M4 13.8h4.2M8.2 10h7.2m0 0-2.9-2.9m2.9 2.9-2.9 2.9' fill='none' stroke='black' stroke-width='1.85' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-filter: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M3.5 5h13L11.5 10v4.5l-3 1.5v-6L3.5 5Z' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-star: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m10 3.2 2 4.1 4.5.7-3.3 3.2.8 4.6-4-2.1-4 2.1.8-4.6L3.5 8l4.5-.7 2-4.1Z' fill='none' stroke='black' stroke-width='1.7' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-play: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M6.5 4.5v11l9-5.5-9-5.5Z' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-stop-circle: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 17a7 7 0 1 0 0-14 7 7 0 0 0 0 14Zm-2.2-9.2h4.4v4.4H7.8V7.8Z' fill='none' stroke='black' stroke-width='1.7' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-toggle-on: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M7 6h6a4 4 0 0 1 0 8H7a4 4 0 0 1 0-8Zm6 5.8a1.8 1.8 0 1 0 0-3.6 1.8 1.8 0 0 0 0 3.6Z' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-toggle-off: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M7 6h6a4 4 0 0 1 0 8H7a4 4 0 0 1 0-8Zm0 5.8a1.8 1.8 0 1 0 0-3.6 1.8 1.8 0 0 0 0 3.6Z' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-crop: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M6 3v11h11M3 6h11v11M14 3v3M3 14h3' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-rss: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 15.5h.1M4.5 10.5a5 5 0 0 1 5 5M4.5 5.5a10 10 0 0 1 10 10' fill='none' stroke='black' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+	--iform-symbol-balance: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 3.5v13M5 7h10M6 7l-3 5h6L6 7Zm8 0-3 5h6l-3-5ZM7 17h6' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-ruler: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M4 13.5 13.5 4l2.5 2.5L6.5 16 4 13.5Zm3.1-.4 1.2 1.2M9.2 11l1.2 1.2M11.3 8.9l1.2 1.2M13.4 6.8 14.6 8' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-bug: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M6.7 8.1h6.6v5.1a3.3 3.3 0 0 1-6.6 0V8.1Zm1.6 0V6.3a1.7 1.7 0 0 1 3.4 0v1.8M4 10h2.7M13.3 10H16M4.8 5.5l2.4 2M12.8 7.5l2.4-2M4.8 15l2.2-1.4M13 13.6l2.2 1.4' fill='none' stroke='black' stroke-width='1.65' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-vial: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M8 3.8h4M10 4v5.6l4.4 5.6a1.2 1.2 0 0 1-1 2H6.6a1.2 1.2 0 0 1-1-2L10 9.6M7.3 13.2h5.4' fill='none' stroke='black' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-archive: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M4 5h12v3H4V5Zm1.2 3v8h9.6V8M8.2 11h3.6' fill='none' stroke='black' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
 	--inputbordercolor: rgba(208, 215, 222, 0.95);
 	--colorboxstatsborder: #d0d7de;
 	--colorboxiconbg: #f6f8fa;
@@ -518,6 +602,766 @@ a:active,
 	width: 14px !important;
 }
 
+#mainbody img[src$="/search.png"] {
+	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M8.7 14.2a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11Zm4-1.5 4.1 4.1' fill='none' stroke='%236e7781' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+}
+
+#mainbody img[src$="/searchclear.png"],
+#mainbody img[src$="/close.png"],
+#mainbody img[src$="/close_title.png"] {
+	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m5.2 5.2 9.6 9.6M14.8 5.2l-9.6 9.6' fill='none' stroke='%236e7781' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E") !important;
+}
+
+#mainbody img[src$="/refresh.png"] {
+	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M16.2 7.2A6.4 6.4 0 0 0 4.1 5.4M3.6 3.1v3.9h3.9M3.8 12.8a6.4 6.4 0 0 0 12.1 1.8m.5 2.3v-3.9h-3.9' fill='none' stroke='%230969da' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+}
+
+#mainbody img[src$="/edit.png"],
+#mainbody img[src$="/button_edit.png"] {
+	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m4.1 13.8-.7 2.8 2.8-.7 9-9a2 2 0 0 0-2.8-2.8l-9 9Zm7.2-8.5 3.4 3.4' fill='none' stroke='%236e7781' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+}
+
+#mainbody img[src$="/delete.png"],
+#mainbody img[src$="/edit_remove.png"] {
+	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M4 6h12M8 6V4.5h4V6m-6.8 0 .7 10.2h8.2L14.8 6M8.3 9v4.5M11.7 9v4.5' fill='none' stroke='%23cf222e' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+}
+
+#mainbody img[src$="/edit_add.png"],
+#mainbody img[src$="/addfile.png"] {
+	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 3.4v13.2M3.4 10h13.2' fill='none' stroke='%230969da' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E") !important;
+}
+
+#mainbody img[src$="/sort_asc.png"],
+#mainbody img[src$="/sort_asc_disabled.png"],
+#mainbody img[src$="/uparrow.png"] {
+	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m5.3 12.2 4.7-4.7 4.7 4.7' fill='none' stroke='%236e7781' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+}
+
+#mainbody img[src$="/sort_desc.png"],
+#mainbody img[src$="/sort_desc_disabled.png"] {
+	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m5.3 7.8 4.7 4.7 4.7-4.7' fill='none' stroke='%236e7781' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+}
+
+#mainbody img[src$="/filter.png"] {
+	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M3.5 5h13L11.5 10v4.5l-3 1.5v-6L3.5 5Z' fill='none' stroke='%236e7781' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+}
+
+#mainbody img[src$="/rightarrow.png"] {
+	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M4 5v4.5a3.5 3.5 0 0 0 3.5 3.5H16m0 0-3-3m3 3-3 3' fill='none' stroke='%230969da' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+}
+
+#mainbody img[src$="/search.png"],
+#mainbody img[src$="/searchclear.png"],
+#mainbody img[src$="/refresh.png"],
+#mainbody img[src$="/edit.png"],
+#mainbody img[src$="/button_edit.png"],
+#mainbody img[src$="/delete.png"],
+#mainbody img[src$="/edit_remove.png"],
+#mainbody img[src$="/edit_add.png"],
+#mainbody img[src$="/addfile.png"],
+#mainbody img[src$="/sort_asc.png"],
+#mainbody img[src$="/sort_asc_disabled.png"],
+#mainbody img[src$="/sort_desc.png"],
+#mainbody img[src$="/sort_desc_disabled.png"],
+#mainbody img[src$="/filter.png"],
+#mainbody img[src$="/uparrow.png"],
+#mainbody img[src$="/rightarrow.png"],
+#mainbody img[src$="/close.png"],
+#mainbody img[src$="/close_title.png"] {
+	background: transparent !important;
+	filter: none !important;
+	height: 16px !important;
+	object-fit: contain !important;
+	opacity: 0.95;
+	vertical-align: middle;
+	width: 16px !important;
+}
+
+#mainbody img[src$="/warning.png"],
+#mainbody img[src$="/warning_white.png"],
+#mainbody a.dashboardlineindicatorlate img,
+#mainbody .imglatecoin img {
+	background: transparent !important;
+	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 3.2 17 16H3L10 3.2Zm0 4.9v3.8M10 14.5h.1' fill='none' stroke='%239a6700' stroke-width='1.85' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+	filter: none !important;
+	height: 16px !important;
+	object-fit: contain !important;
+	opacity: 0.95;
+	vertical-align: middle;
+	width: 16px !important;
+}
+
+body#mainbody :is(.fa-search, .fa-redo, .fa-sync, .fa-refresh, .fa-bars, .fa-stream, .fa-list, .fa-th-list, .fa-th, .fa-grip-horizontal, .fa-table, .fa-arrows-alt, .fa-expand-arrows-alt, .fa-plus-circle, .fa-plus, .fa-pencil-alt, .fa-edit, .fa-trash, .fa-times, .fa-remove, .fa-download, .fa-search-plus, .fa-eye, .fa-binoculars, .fa-calendar, .fa-calendar-alt, .fa-calendar-day, .fa-calendar-week, .fa-caret-up, .fa-caret-down, .fa-info-circle, .fa-question, .fa-exclamation-triangle, .fa-check, .fa-print)::before {
+	background-color: currentColor;
+	content: "" !important;
+	display: inline-block;
+	height: 1em;
+	-webkit-mask: var(--iform-symbol-mask) center / contain no-repeat;
+	mask: var(--iform-symbol-mask) center / contain no-repeat;
+	vertical-align: -0.12em;
+	width: 1em;
+}
+
+body#mainbody :is(.fa-search, .fa-bars, .fa-stream, .fa-list, .fa-th-list, .fa-th, .fa-grip-horizontal, .fa-table, .fa-arrows-alt, .fa-expand-arrows-alt, .fa-pencil-alt, .fa-edit, .fa-times, .fa-remove, .fa-caret-up, .fa-caret-down, .fa-info-circle, .fa-question, .fa-print) {
+	color: var(--iform-icon-muted) !important;
+}
+
+body#mainbody :is(.fa-redo, .fa-sync, .fa-refresh, .fa-plus-circle, .fa-plus, .fa-download, .fa-search-plus, .fa-eye, .fa-binoculars, .fa-calendar, .fa-calendar-alt, .fa-calendar-day, .fa-calendar-week) {
+	color: var(--iform-icon-accent) !important;
+}
+
+body#mainbody :is(.fa-trash) {
+	color: var(--iform-icon-danger) !important;
+}
+
+body#mainbody :is(.fa-exclamation-triangle) {
+	color: var(--iform-icon-warning) !important;
+}
+
+body#mainbody :is(.fa-check) {
+	color: var(--iform-icon-success) !important;
+}
+
+#id-top :is(.fa-search, .fa-redo, .fa-sync, .fa-refresh, .fa-bars, .fa-stream, .fa-list, .fa-th-list, .fa-th, .fa-grip-horizontal, .fa-table, .fa-arrows-alt, .fa-expand-arrows-alt, .fa-plus-circle, .fa-plus, .fa-pencil-alt, .fa-edit, .fa-trash, .fa-times, .fa-remove, .fa-download, .fa-search-plus, .fa-eye, .fa-binoculars, .fa-calendar, .fa-calendar-alt, .fa-calendar-day, .fa-calendar-week, .fa-caret-up, .fa-caret-down, .fa-info-circle, .fa-exclamation-triangle, .fa-check, .fa-print),
+.login_block :is(.fa-search, .fa-redo, .fa-sync, .fa-refresh, .fa-bars, .fa-stream, .fa-list, .fa-th-list, .fa-th, .fa-grip-horizontal, .fa-table, .fa-arrows-alt, .fa-expand-arrows-alt, .fa-plus-circle, .fa-plus, .fa-pencil-alt, .fa-edit, .fa-trash, .fa-times, .fa-remove, .fa-download, .fa-search-plus, .fa-eye, .fa-binoculars, .fa-calendar, .fa-calendar-alt, .fa-calendar-day, .fa-calendar-week, .fa-caret-up, .fa-caret-down, .fa-info-circle, .fa-exclamation-triangle, .fa-check, .fa-print) {
+	color: inherit !important;
+}
+
+body#mainbody :is(.fa-search)::before {
+	--iform-symbol-mask: var(--iform-symbol-search);
+}
+
+body#mainbody :is(.fa-redo, .fa-sync, .fa-refresh)::before {
+	--iform-symbol-mask: var(--iform-symbol-refresh);
+}
+
+body#mainbody :is(.fa-bars, .fa-stream, .fa-list, .fa-th-list)::before {
+	--iform-symbol-mask: var(--iform-symbol-list);
+}
+
+body#mainbody :is(.fa-th, .fa-grip-horizontal, .fa-table)::before {
+	--iform-symbol-mask: var(--iform-symbol-grid);
+}
+
+body#mainbody :is(.fa-arrows-alt, .fa-expand-arrows-alt)::before {
+	--iform-symbol-mask: var(--iform-symbol-expand);
+}
+
+body#mainbody :is(.fa-plus-circle, .fa-plus)::before {
+	--iform-symbol-mask: var(--iform-symbol-plus);
+}
+
+body#mainbody :is(.fa-pencil-alt, .fa-edit)::before {
+	--iform-symbol-mask: var(--iform-symbol-edit);
+}
+
+body#mainbody :is(.fa-trash)::before {
+	--iform-symbol-mask: var(--iform-symbol-trash);
+}
+
+body#mainbody :is(.fa-times, .fa-remove)::before {
+	--iform-symbol-mask: var(--iform-symbol-close);
+}
+
+body#mainbody :is(.fa-download)::before {
+	--iform-symbol-mask: var(--iform-symbol-download);
+}
+
+body#mainbody :is(.fa-search-plus, .fa-eye, .fa-binoculars)::before {
+	--iform-symbol-mask: var(--iform-symbol-preview);
+}
+
+body#mainbody :is(.fa-calendar, .fa-calendar-alt, .fa-calendar-day, .fa-calendar-week)::before {
+	--iform-symbol-mask: var(--iform-symbol-calendar);
+}
+
+body#mainbody :is(.fa-caret-up)::before {
+	--iform-symbol-mask: var(--iform-symbol-sort-up);
+}
+
+body#mainbody :is(.fa-caret-down)::before {
+	--iform-symbol-mask: var(--iform-symbol-sort-down);
+}
+
+body#mainbody :is(.fa-info-circle)::before {
+	--iform-symbol-mask: var(--iform-symbol-info);
+}
+
+body#mainbody :is(.fa-question)::before {
+	--iform-symbol-mask: var(--iform-symbol-source);
+}
+
+body#mainbody :is(.fa-exclamation-triangle)::before {
+	--iform-symbol-mask: var(--iform-symbol-warning);
+}
+
+#mainbody .fa-exclamation-triangle.hideonsmartphone::before,
+#mainbody .fa-exclamation-triangle.pictowarning::before {
+	height: 14px !important;
+	vertical-align: -0.16em;
+	width: 14px !important;
+}
+
+body#mainbody :is(.fa-check)::before {
+	--iform-symbol-mask: var(--iform-symbol-check);
+}
+
+body#mainbody :is(.fa-print)::before {
+	--iform-symbol-mask: var(--iform-symbol-print);
+}
+
+body#mainbody :is(.fa-building, .fa-address-book, .fa-address-card, .fa-user, .fa-user-alt, .fa-user-tie, .fa-user-friends, .fa-users, .fa-cube, .fa-cubes, .fa-box, .fa-box-open, .fa-boxes, .fa-barcode, .fa-concierge-bell, .fa-file, .fa-file-alt, .fa-file-invoice, .fa-file-invoice-dollar, .fa-file-signature, .fa-file-pdf, .fa-file-pdf-o, .fa-file-o, .fa-file-text-o, .fa-file-image-o, .fa-file-code-o, .fa-file-excel-o, .fa-file-word-o, .fa-file-powerpoint-o, .fa-file-video-o, .fa-file-audio-o, .fa-file-archive, .fa-file-archive-o, .fa-archive, .fa-paragraph, .fa-clipboard, .fa-clipboard-list, .fa-keyboard, .fa-shield-alt, .fa-sticky-note, .fa-note-sticky, .fa-bug, .fa-vial, .fa-flask, .fa-dolly, .fa-truck, .fa-truck-loading, .fa-ambulance, .fa-suitcase, .fa-project-diagram, .fa-tasks, .fa-university, .fa-money-check-alt, .fa-dollar-sign, .fa-coins, .fa-wallet, .fa-stripe-s, .fa-phone, .fa-mobile-alt, .fa-fax, .fa-at, .fa-envelope, .fa-comments, .fa-comment, .fa-comment-dots, .fa-paper-plane, .fa-link, .fa-unlink, .fa-external-link-alt, .fa-share-alt, .fa-globe, .fa-globe-americas, .fa-globe-europe, .fa-map, .fa-map-marked, .fa-map-marked-alt, .fa-map-marker-alt, .fa-folder, .fa-folder-open, .fa-tag, .fa-tags, .fa-clock, .fa-business-time, .fa-language, .fa-lock, .fa-key, .fa-cog, .fa-cogs, .fa-tools, .fa-wrench, .fa-chart-line, .fa-chart-bar, .fa-ticket-alt, .fa-magic, .fa-gift, .fa-handshake, .fa-umbrella-beach, .fa-cash-register, .fa-door-open, .fa-check-double, .fa-receipt, .fa-calculator, .fa-hand-holding-usd, .fa-money-bill-alt, .fa-search-dollar, .fa-layer-group, .fa-columns, .fa-history, .fa-bullseye, .fa-id-card-alt, .fa-id-badge, .fa-people-arrows, .fa-laptop-house, .fa-pallet, .fa-shapes, .fa-chalkboard-teacher, .fa-server, .fa-weather-level4, .fa-dol-action, .fa-dol-commande, .fa-dol-contrat, .fa-dol-cubes, .fa-dol-expensereport, .fa-dol-facture, .fa-dol-holiday, .fa-dol-member, .fa-dol-project, .fa-dol-propal, .fa-dol-ticket, .fa-dol-bank_account, .fa-dol-invoice_supplier, .fa-dol-order_supplier, .fa-dol-supplier_proposal)::before {
+	background-color: currentColor;
+	content: "" !important;
+	display: inline-block;
+	height: 1em;
+	-webkit-mask: var(--iform-symbol-mask) center / contain no-repeat;
+	mask: var(--iform-symbol-mask) center / contain no-repeat;
+	vertical-align: -0.12em;
+	width: 1em;
+}
+
+body#mainbody :is(.fa-building)::before {
+	--iform-symbol-mask: var(--iform-symbol-building);
+}
+
+body#mainbody :is(.fa-address-book, .fa-address-card)::before {
+	--iform-symbol-mask: var(--iform-symbol-address-book);
+}
+
+body#mainbody :is(.fa-user, .fa-user-alt, .fa-user-tie, .fa-dol-member)::before {
+	--iform-symbol-mask: var(--iform-symbol-user);
+}
+
+body#mainbody :is(.fa-user-friends, .fa-users, .fa-people-arrows)::before {
+	--iform-symbol-mask: var(--iform-symbol-users);
+}
+
+body#mainbody :is(.fa-cube, .fa-cubes, .fa-box, .fa-box-open, .fa-boxes, .fa-pallet, .fa-shapes, .fa-dol-cubes)::before {
+	--iform-symbol-mask: var(--iform-symbol-box);
+}
+
+body#mainbody :is(.fa-concierge-bell)::before {
+	--iform-symbol-mask: var(--iform-symbol-service);
+}
+
+body#mainbody :is(.fa-file, .fa-file-alt, .fa-file-o, .fa-file-text-o)::before {
+	--iform-symbol-mask: var(--iform-symbol-doc);
+}
+
+body#mainbody :is(.fa-file-invoice, .fa-dol-commande, .fa-dol-order_supplier)::before {
+	--iform-symbol-mask: var(--iform-symbol-doc);
+}
+
+body#mainbody :is(.fa-file-invoice-dollar, .fa-receipt, .fa-dol-facture, .fa-dol-invoice_supplier)::before {
+	--iform-symbol-mask: var(--iform-symbol-doc-money);
+}
+
+body#mainbody :is(.fa-file-signature, .fa-dol-propal, .fa-dol-supplier_proposal)::before {
+	--iform-symbol-mask: var(--iform-symbol-doc-signature);
+}
+
+body#mainbody :is(.fa-paragraph, .fa-sticky-note, .fa-note-sticky)::before {
+	--iform-symbol-mask: var(--iform-symbol-note);
+}
+
+body#mainbody :is(.fa-file-pdf, .fa-file-pdf-o, .fa-file-image-o, .fa-file-code-o, .fa-file-excel-o, .fa-file-word-o, .fa-file-powerpoint-o, .fa-file-video-o, .fa-file-audio-o)::before {
+	--iform-symbol-mask: var(--iform-symbol-doc);
+}
+
+body#mainbody :is(.fa-file-archive, .fa-file-archive-o, .fa-archive)::before {
+	--iform-symbol-mask: var(--iform-symbol-archive);
+}
+
+body#mainbody :is(.fa-clipboard, .fa-clipboard-list)::before {
+	--iform-symbol-mask: var(--iform-symbol-clipboard);
+}
+
+body#mainbody :is(.fa-keyboard)::before {
+	--iform-symbol-mask: var(--iform-symbol-keyboard);
+}
+
+body#mainbody :is(.fa-shield-alt)::before {
+	--iform-symbol-mask: var(--iform-symbol-shield);
+}
+
+body#mainbody :is(.fa-bug)::before {
+	--iform-symbol-mask: var(--iform-symbol-bug);
+}
+
+body#mainbody :is(.fa-vial, .fa-flask)::before {
+	--iform-symbol-mask: var(--iform-symbol-vial);
+}
+
+body#mainbody :is(.fa-dolly, .fa-truck, .fa-truck-loading, .fa-ambulance)::before {
+	--iform-symbol-mask: var(--iform-symbol-truck);
+}
+
+body#mainbody :is(.fa-suitcase, .fa-dol-contrat)::before {
+	--iform-symbol-mask: var(--iform-symbol-briefcase);
+}
+
+body#mainbody :is(.fa-project-diagram, .fa-dol-project)::before {
+	--iform-symbol-mask: var(--iform-symbol-project);
+}
+
+body#mainbody :is(.fa-tasks)::before {
+	--iform-symbol-mask: var(--iform-symbol-task);
+}
+
+body#mainbody :is(.fa-university, .fa-dol-bank_account)::before {
+	--iform-symbol-mask: var(--iform-symbol-bank);
+}
+
+body#mainbody :is(.fa-money-check-alt, .fa-dollar-sign, .fa-coins, .fa-calculator, .fa-hand-holding-usd, .fa-search-dollar, .fa-stripe-s)::before {
+	--iform-symbol-mask: var(--iform-symbol-payment);
+}
+
+body#mainbody :is(.fa-wallet, .fa-money-bill-alt, .fa-dol-expensereport)::before {
+	--iform-symbol-mask: var(--iform-symbol-wallet);
+}
+
+body#mainbody :is(.fa-phone)::before {
+	--iform-symbol-mask: var(--iform-symbol-phone);
+}
+
+body#mainbody :is(.fa-mobile-alt)::before {
+	--iform-symbol-mask: var(--iform-symbol-mobile);
+}
+
+body#mainbody :is(.fa-fax)::before {
+	--iform-symbol-mask: var(--iform-symbol-print);
+}
+
+body#mainbody :is(.fa-at, .fa-envelope)::before {
+	--iform-symbol-mask: var(--iform-symbol-mail);
+}
+
+body#mainbody :is(.fa-comments, .fa-comment, .fa-comment-dots)::before {
+	--iform-symbol-mask: var(--iform-symbol-chat);
+}
+
+body#mainbody :is(.fa-paper-plane)::before {
+	--iform-symbol-mask: var(--iform-symbol-send);
+}
+
+body#mainbody :is(.fa-link, .fa-unlink, .fa-share-alt)::before {
+	--iform-symbol-mask: var(--iform-symbol-link);
+}
+
+body#mainbody :is(.fa-external-link-alt, .fa-door-open)::before {
+	--iform-symbol-mask: var(--iform-symbol-external);
+}
+
+body#mainbody :is(.fa-globe, .fa-globe-americas, .fa-globe-europe)::before {
+	--iform-symbol-mask: var(--iform-symbol-globe);
+}
+
+body#mainbody :is(.fa-map, .fa-map-marked, .fa-map-marked-alt, .fa-map-marker-alt)::before {
+	--iform-symbol-mask: var(--iform-symbol-map);
+}
+
+body#mainbody :is(.fa-folder, .fa-folder-open)::before {
+	--iform-symbol-mask: var(--iform-symbol-folder);
+}
+
+body#mainbody :is(.fa-tag, .fa-tags, .fa-layer-group)::before {
+	--iform-symbol-mask: var(--iform-symbol-tag);
+}
+
+body#mainbody :is(.fa-barcode)::before {
+	--iform-symbol-mask: var(--iform-symbol-barcode);
+}
+
+body#mainbody :is(.fa-clock, .fa-business-time, .fa-history)::before {
+	--iform-symbol-mask: var(--iform-symbol-clock);
+}
+
+body#mainbody :is(.fa-language)::before {
+	--iform-symbol-mask: var(--iform-symbol-globe);
+}
+
+body#mainbody :is(.fa-lock, .fa-key)::before {
+	--iform-symbol-mask: var(--iform-symbol-lock);
+}
+
+body#mainbody :is(.fa-cog, .fa-cogs)::before {
+	--iform-symbol-mask: var(--iform-symbol-gear);
+}
+
+body#mainbody :is(.fa-tools, .fa-wrench)::before {
+	--iform-symbol-mask: var(--iform-symbol-tools);
+}
+
+body#mainbody :is(.fa-chart-line, .fa-chart-bar)::before {
+	--iform-symbol-mask: var(--iform-symbol-chart);
+}
+
+body#mainbody :is(.fa-ticket-alt, .fa-dol-ticket)::before {
+	--iform-symbol-mask: var(--iform-symbol-ticket);
+}
+
+body#mainbody :is(.fa-magic)::before {
+	--iform-symbol-mask: var(--iform-symbol-magic);
+}
+
+body#mainbody :is(.fa-server)::before {
+	--iform-symbol-mask: var(--iform-symbol-server);
+}
+
+body#mainbody :is(.fa-weather-level4)::before {
+	--iform-symbol-mask: var(--iform-symbol-bolt);
+}
+
+body#mainbody :is(.fa-dol-action)::before {
+	--iform-symbol-mask: var(--iform-symbol-calendar);
+}
+
+body#mainbody :is(.fa-gift, .fa-handshake, .fa-umbrella-beach, .fa-cash-register, .fa-check-double, .fa-id-card-alt, .fa-id-badge, .fa-laptop-house, .fa-chalkboard-teacher, .fa-bullseye, .fa-columns)::before {
+	--iform-symbol-mask: var(--iform-symbol-service);
+}
+
+body#mainbody :is(.fa-dol-holiday)::before {
+	--iform-symbol-mask: var(--iform-symbol-service);
+}
+
+body#mainbody :is(.fa-home, .fa-chevron-left, .fa-chevron-right, .fa-angle-left, .fa-angle-right, .fa-angle-double-left, .fa-angle-double-right, .fa-arrow-left, .fa-arrow-right, .fa-arrow-up, .fa-arrow-down, .fa-long-arrow-alt-left, .fa-long-arrow-alt-right, .fa-long-arrow-alt-up, .fa-long-arrow-alt-down, .fa-arrow-alt-circle-left, .fa-arrow-alt-circle-right, .fa-arrow-alt-circle-down, .fa-question-circle, .fa-filter, .fa-star, .fa-play, .fa-stop-circle, .fa-toggle-on, .fa-toggle-off, .fa-crop, .fa-rss, .fa-balance-scale, .fa-ruler, .fa-pencil-ruler, .fa-fill, .fa-exchange-alt, .fa-code-branch, .fa-square, .fa-check-square, .fa-plus-square, .fa-indent, .fa-list-alt, .fa-mars, .fa-venus, .fa-transgender, .fa-genderless, .fa-calendar-check, .fa-eye-slash, .fa-file-export)::before {
+	background-color: currentColor;
+	content: "" !important;
+	display: inline-block;
+	height: 1em;
+	-webkit-mask: var(--iform-symbol-mask) center / contain no-repeat;
+	mask: var(--iform-symbol-mask) center / contain no-repeat;
+	vertical-align: -0.12em;
+	width: 1em;
+}
+
+body#mainbody :is(.fa-home)::before {
+	--iform-symbol-mask: var(--iform-symbol-home);
+}
+
+body#mainbody :is(.fa-chevron-left, .fa-angle-left, .fa-angle-double-left, .fa-arrow-left, .fa-long-arrow-alt-left, .fa-arrow-alt-circle-left)::before {
+	--iform-symbol-mask: var(--iform-symbol-chevron-left);
+}
+
+body#mainbody :is(.fa-chevron-right, .fa-angle-right, .fa-angle-double-right, .fa-arrow-right, .fa-long-arrow-alt-right, .fa-arrow-alt-circle-right, .fa-arrow-alt-circle-down)::before {
+	--iform-symbol-mask: var(--iform-symbol-chevron-right);
+}
+
+body#mainbody :is(.fa-arrow-up, .fa-long-arrow-alt-up)::before {
+	--iform-symbol-mask: var(--iform-symbol-sort-up);
+}
+
+body#mainbody :is(.fa-arrow-down, .fa-long-arrow-alt-down)::before {
+	--iform-symbol-mask: var(--iform-symbol-sort-down);
+}
+
+body#mainbody :is(.fa-question-circle)::before {
+	--iform-symbol-mask: var(--iform-symbol-question);
+}
+
+body#mainbody :is(.fa-indent, .fa-list-alt)::before {
+	--iform-symbol-mask: var(--iform-symbol-list);
+}
+
+body#mainbody :is(.fa-filter)::before {
+	--iform-symbol-mask: var(--iform-symbol-filter);
+}
+
+body#mainbody :is(.fa-star)::before {
+	--iform-symbol-mask: var(--iform-symbol-star);
+}
+
+body#mainbody :is(.fa-play)::before {
+	--iform-symbol-mask: var(--iform-symbol-play);
+}
+
+body#mainbody :is(.fa-stop-circle)::before {
+	--iform-symbol-mask: var(--iform-symbol-stop-circle);
+}
+
+body#mainbody :is(.fa-toggle-on)::before {
+	--iform-symbol-mask: var(--iform-symbol-toggle-on);
+}
+
+body#mainbody :is(.fa-toggle-off)::before {
+	--iform-symbol-mask: var(--iform-symbol-toggle-off);
+}
+
+body#mainbody :is(.fa-crop, .fa-fill)::before {
+	--iform-symbol-mask: var(--iform-symbol-crop);
+}
+
+body#mainbody :is(.fa-rss)::before {
+	--iform-symbol-mask: var(--iform-symbol-rss);
+}
+
+body#mainbody :is(.fa-balance-scale)::before {
+	--iform-symbol-mask: var(--iform-symbol-balance);
+}
+
+body#mainbody :is(.fa-ruler)::before {
+	--iform-symbol-mask: var(--iform-symbol-ruler);
+}
+
+body#mainbody :is(.fa-pencil-ruler)::before {
+	--iform-symbol-mask: var(--iform-symbol-tools);
+}
+
+body#mainbody :is(.fa-exchange-alt)::before {
+	--iform-symbol-mask: var(--iform-symbol-refresh);
+}
+
+body#mainbody :is(.fa-calendar-check)::before {
+	--iform-symbol-mask: var(--iform-symbol-calendar);
+}
+
+body#mainbody :is(.fa-eye-slash)::before {
+	--iform-symbol-mask: var(--iform-symbol-preview);
+}
+
+body#mainbody :is(.fa-file-export)::before {
+	--iform-symbol-mask: var(--iform-symbol-download);
+}
+
+body#mainbody :is(.fa-mars, .fa-venus, .fa-transgender, .fa-genderless)::before {
+	--iform-symbol-mask: var(--iform-symbol-user);
+}
+
+body#mainbody :is(.fa-code-branch)::before {
+	--iform-symbol-mask: var(--iform-symbol-project);
+}
+
+body#mainbody :is(.fa-square, .fa-check-square, .fa-plus-square)::before {
+	--iform-symbol-mask: var(--iform-symbol-check);
+}
+
+#mainbody :is(.pictotitle.widthpictotitle, .widthpictotitle.pictotitle)[class*="fa-"],
+#mainbody .table-fiche-title :is(.pictotitle, .widthpictotitle)[class*="fa-"],
+#mainbody .titre :is(.pictotitle, .widthpictotitle)[class*="fa-"] {
+	align-items: center;
+	display: inline-flex;
+	font-size: 22.56px !important;
+	justify-content: center;
+	line-height: 1 !important;
+	min-width: 34px;
+	vertical-align: middle;
+}
+
+#mainbody :is(.pictotitle.widthpictotitle, .widthpictotitle.pictotitle)[class*="fa-"]::before,
+#mainbody .table-fiche-title :is(.pictotitle, .widthpictotitle)[class*="fa-"]::before,
+#mainbody .titre :is(.pictotitle, .widthpictotitle)[class*="fa-"]::before {
+	height: 30px !important;
+	width: 30px !important;
+}
+
+#id-left :is(.vmenu, .menu_titre, .vmenu_titre) :is(.pictofixedwidth[class*="fa-"], .fa[class*="fa-"])::before {
+	height: 1.22em;
+	vertical-align: -0.18em;
+	width: 1.22em;
+}
+
+#id-left :is(.vmenu, .menu_titre, .vmenu_titre) :is(.em088, .em092).pictofixedwidth[class*="fa-"]::before {
+	height: 1.38em;
+	width: 1.38em;
+}
+
+#id-left :is(.pictofixedwidth[class*="fa-"], .fa[class*="fa-"], .fas[class*="fa-"], .far[class*="fa-"], .fab[class*="fa-"]) {
+	align-items: center;
+	display: inline-flex;
+	justify-content: center;
+	line-height: 1 !important;
+	min-width: 24px;
+	vertical-align: middle;
+}
+
+#id-left :is(.pictofixedwidth[class*="fa-"], .fa[class*="fa-"], .fas[class*="fa-"], .far[class*="fa-"], .fab[class*="fa-"])::before {
+	height: 18px !important;
+	width: 18px !important;
+}
+
+#mainbody .pictomodule[class*="fa-"] {
+	align-items: center;
+	display: inline-flex;
+	justify-content: center;
+	line-height: 1;
+	min-width: 20px;
+	vertical-align: middle;
+}
+
+#mainbody .pictomodule[class*="fa-"]::before {
+	height: 20px;
+	vertical-align: -0.24em;
+	width: 20px;
+}
+
+#mainbody .pictomodule[class*="fa-"]:is(.em080, .em088, .em092)::before {
+	height: 20px;
+	width: 20px;
+}
+
+#mainbody :is(.em080, .em088, .em092).pictofixedwidth[class*="fa-"] {
+	align-items: center;
+	display: inline-flex;
+	justify-content: center;
+	line-height: 1;
+	min-width: 22px;
+	vertical-align: middle;
+}
+
+#mainbody :is(.em080, .em088, .em092).pictofixedwidth[class*="fa-"]::before {
+	height: 1.14em !important;
+	width: 1.14em !important;
+}
+
+#mainbody :is(table.border, .tableforfield, .tagtable, .fichecenter) :is(.em080, .em088, .em092).pictofixedwidth[class*="fa-"]::before {
+	height: 20px !important;
+	width: 20px !important;
+}
+
+#mainbody :is(table.border, .tableforfield, .tagtable, .fichecenter) .pictofixedwidth[class*="fa-"] {
+	align-items: center;
+	display: inline-flex;
+	justify-content: center;
+	line-height: 1 !important;
+	min-width: 24px;
+	text-align: center;
+	vertical-align: middle;
+	width: 24px;
+}
+
+#mainbody :is(table.border, .tableforfield, .tagtable, .fichecenter) .pictofixedwidth[class*="fa-"]::before {
+	height: 20px !important;
+	transform: none !important;
+	width: 20px !important;
+}
+
+#id-left a.vmenu[title="设置"] :is(.pictofixedwidth[class*="fa-"], .fa[class*="fa-"], .fas[class*="fa-"], .far[class*="fa-"], .fab[class*="fa-"]) {
+	align-items: center;
+	color: inherit !important;
+	display: inline-flex;
+	font-size: 18px !important;
+	justify-content: center;
+	line-height: 1 !important;
+	min-width: 28px;
+	vertical-align: middle;
+}
+
+#id-left a.vmenu[title="设置"] :is(.pictofixedwidth[class*="fa-"], .fa[class*="fa-"], .fas[class*="fa-"], .far[class*="fa-"], .fab[class*="fa-"])::before {
+	height: 18px !important;
+	--iform-symbol-mask: var(--iform-symbol-gear) !important;
+	width: 18px !important;
+}
+
+body#mainbody #id-left :is(.menu_titre, .vmenu_titre) :is(.pictofixedwidth[class*="fa-"], .fa[class*="fa-"], .fas[class*="fa-"], .far[class*="fa-"], .fab[class*="fa-"]) {
+	align-items: center;
+	display: inline-flex;
+	font-size: 18px !important;
+	justify-content: center;
+	line-height: 1 !important;
+	min-width: 28px;
+	vertical-align: middle;
+}
+
+body#mainbody #id-left :is(.menu_titre, .vmenu_titre) :is(.pictofixedwidth[class*="fa-"], .fa[class*="fa-"], .fas[class*="fa-"], .far[class*="fa-"], .fab[class*="fa-"])::before {
+	height: 18px !important;
+	width: 18px !important;
+}
+
+#mainbody :is(table.border, .tableforfield, .tagtable, .fichecenter) .fa-history.paddingright {
+	align-items: center;
+	display: inline-flex;
+	justify-content: center;
+	line-height: 1;
+	min-width: 20px;
+	vertical-align: middle;
+}
+
+#mainbody :is(table.border, .tableforfield, .tagtable, .fichecenter) .fa-history.paddingright::before {
+	height: 1.22em !important;
+	width: 1.22em !important;
+}
+
+#mainbody :is(.fa-sticky-note, .fa-note-sticky) {
+	align-items: center;
+	display: inline-flex;
+	justify-content: center;
+	line-height: 1;
+	vertical-align: middle;
+}
+
+#mainbody :is(.fa-sticky-note, .fa-note-sticky)::before {
+	height: 1.05em !important;
+	width: 1.05em !important;
+}
+
+#mainbody .boxstatsindicator :is(.fa, .fas, .far, .fab)[class*="fa-"] {
+	align-items: center;
+	display: inline-flex;
+	font-size: 19.552px !important;
+	justify-content: center;
+	line-height: 1 !important;
+	min-width: 20px;
+	vertical-align: -0.18em;
+}
+
+#mainbody .boxstatsindicator :is(.fa, .fas, .far, .fab)[class*="fa-"]::before {
+	height: 20px !important;
+	width: 20px !important;
+}
+
+body#mainbody :is(.fa-toggle-on, .fa-toggle-off) {
+	display: inline-block;
+	height: 18px;
+	line-height: 0;
+	position: relative;
+	text-align: left;
+	vertical-align: -3px;
+	width: 34px;
+}
+
+body#mainbody :is(.fa-toggle-on, .fa-toggle-off)::before {
+	background-color: currentColor !important;
+	border-radius: 999px;
+	content: "" !important;
+	display: block;
+	height: 100%;
+	left: 0;
+	-webkit-mask: none !important;
+	mask: none !important;
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+
+body#mainbody :is(.fa-toggle-on, .fa-toggle-off)::after {
+	background: var(--iform-switch-knob);
+	border-radius: 999px;
+	box-shadow: 0 1px 2px rgba(31, 35, 40, 0.22);
+	content: "";
+	display: block;
+	height: 10px;
+	position: absolute;
+	top: 4px;
+	width: 10px;
+}
+
+body#mainbody .fa-toggle-on::after {
+	left: 20px;
+}
+
+body#mainbody .fa-toggle-off::after {
+	left: 4px;
+}
+
+body#mainbody .fa-toggle-on {
+	color: var(--iform-icon-success) !important;
+}
+
+body#mainbody .fa-toggle-off {
+	color: var(--iform-icon-muted) !important;
+}
+
 #mainbody .fa-globe-americas,
 #mainbody .fa-map,
 #mainbody .fa-map-marked,
@@ -549,6 +1393,81 @@ a:active,
 	color: inherit !important;
 }
 
+#id-top a.tmenuimage {
+	align-items: center;
+	display: flex;
+	height: 24px;
+	justify-content: center;
+	line-height: 24px;
+	margin-bottom: 0;
+}
+
+#id-top a.tmenuimage[class*="fa-"]::before,
+#id-top a.tmenuimage :is(.fa, .fas, .far, .fab)[class*="fa-"]::before {
+	height: 20px !important;
+	vertical-align: -0.16em;
+	width: 20px !important;
+}
+
+#id-top a.tmenuimage :is(.fa, .fas, .far, .fab)[class*="fa-"] {
+	align-items: center;
+	display: inline-flex;
+	justify-content: center;
+	min-width: 24px;
+}
+
+#id-top div.mainmenu {
+	align-items: center;
+	display: flex;
+	height: 24px;
+	justify-content: center;
+	line-height: 24px;
+}
+
+#id-top a.tmenulabel {
+	display: inline-block;
+	line-height: 18px;
+	margin-top: 2px;
+	transform: translateY(0);
+}
+
+#id-top li.tmenu,
+#id-top li.tmenusel {
+	margin-left: 12px;
+}
+
+#mainbody td.center > a > .fa-plus-circle {
+	font-size: 18px !important;
+	line-height: 1 !important;
+	vertical-align: middle;
+}
+
+#mainbody td.center > a > .fa-plus-circle::before {
+	height: 18px !important;
+	width: 18px !important;
+}
+
+.info-box.info-box-sm .info-box-status {
+	position: absolute;
+	right: 8px;
+	bottom: 6px;
+}
+
+.info-box .info-box-status .badge {
+	align-items: center;
+	box-sizing: border-box;
+	display: inline-flex !important;
+	justify-content: center;
+	line-height: 14px !important;
+	min-height: 18px;
+	padding: 1px 7px !important;
+	vertical-align: middle;
+}
+
+.info-box .info-box-status .badge + .badge {
+	margin-left: 6px;
+}
+
 #id-top {
 	border-bottom: 1px solid var(--iform-line);
 	box-shadow: 0 1px 0 rgba(31, 35, 40, 0.04);
@@ -566,6 +1485,9 @@ a:active,
 	border: 1px solid transparent;
 	border-radius: 5px;
 	box-sizing: border-box;
+	height: calc(100% - 6px);
+	margin-bottom: 3px;
+	margin-top: 3px;
 }
 
 #id-top li.tmenusel div.tmenucenter,
@@ -842,6 +1764,14 @@ textarea:focus,
 	border-radius: 5px;
 }
 
+#mainbody a.btnTitle,
+#mainbody .btnTitle {
+	background: transparent !important;
+	border-color: var(--iform-line) !important;
+	box-shadow: none !important;
+	color: var(--iform-muted) !important;
+}
+
 table.border,
 table.noborder,
 table.liste,
@@ -889,6 +1819,47 @@ table.liste,
 	padding: 0 !important;
 	border-radius: 50% !important;
 	vertical-align: middle;
+}
+
+#mainbody .badge.badge-warning:has(.fa-exclamation-triangle) {
+	align-items: center;
+	box-sizing: border-box;
+	display: inline-flex !important;
+	gap: 5px;
+	line-height: 14px !important;
+	min-height: 18px;
+	padding: 1px 7px !important;
+	position: relative;
+	top: 0;
+	vertical-align: middle;
+}
+
+#mainbody .badge.badge-warning .fa-exclamation-triangle {
+	align-items: center;
+	border-color: transparent !important;
+	box-shadow: none !important;
+	color: inherit !important;
+	display: inline-flex !important;
+	height: 12px;
+	justify-content: center;
+	line-height: 1 !important;
+	margin: 0;
+	width: 12px;
+}
+
+#mainbody .badge.badge-warning .fa-exclamation-triangle.hideonsmartphone {
+	display: inline-flex !important;
+}
+
+#mainbody .badge.badge-warning .fa-exclamation-triangle::before {
+	height: 12px !important;
+	vertical-align: 0;
+	width: 12px !important;
+}
+
+#mainbody :is(.dpInvisibleButtons, .datenowlink) {
+	border-color: var(--iform-line) !important;
+	box-shadow: none !important;
 }
 
 .jnotify-container {
@@ -956,6 +1927,13 @@ if (getDolGlobalInt('THEME_DARKMODEENABLED')) {
 	--iform-status-success-bg: rgba(61, 180, 111, 0.14);
 	--iform-status-success-border: rgba(61, 180, 111, 0.3);
 	--iform-status-success-text: #83e5a1;
+	--iform-icon-default: #a9b3c0;
+	--iform-icon-muted: #8f99a7;
+	--iform-icon-accent: #78b7ff;
+	--iform-icon-danger: #ff8b8b;
+	--iform-icon-warning: #ffd38a;
+	--iform-icon-success: #83e5a1;
+	--iform-switch-knob: #1c1f22;
 	--colorbackhmenu1: #1c1f22;
 	--colorbackvmenu1: #181b1f;
 	--colorbacktitle1: #24282d;
@@ -1104,6 +2082,8 @@ hr,
 #id-left .blockvmenufirst,
 #id-left .blockvmenulast {
 	border-bottom: 1px solid rgba(80, 90, 102, 0.5) !important;
+	border-left-color: transparent !important;
+	border-right-color: transparent !important;
 	border-top: 0 !important;
 }
 
@@ -1657,11 +2637,23 @@ textarea:focus,
 }
 
 .select2-container--default .select2-results__option--highlighted[aria-selected],
-.select2-container--default .select2-results__option--highlighted[aria-selected] span,
+.select2-container--default .select2-results__option--highlighted[aria-selected] span:not(.flag-sprite):not([class*="flag"]):not(.fi):not([class^="fi-"]):not([class*=" fi-"]),
 .select2-results .select2-highlighted,
-.select2-results .select2-highlighted span {
+.select2-results .select2-highlighted span:not(.flag-sprite):not([class*="flag"]):not(.fi):not([class^="fi-"]):not([class*=" fi-"]) {
 	background: var(--iform-accent-soft) !important;
 	color: var(--iform-accent-hover) !important;
+}
+
+.select2-container--default .select2-results__option--highlighted[aria-selected] :is(.flag-sprite, img),
+.select2-container--default .select2-results__option--highlighted[aria-selected] [class*="flag"],
+.select2-container--default .select2-results__option--highlighted[aria-selected] :is(.fi, [class^="fi-"], [class*=" fi-"]),
+.select2-results .select2-highlighted :is(.flag-sprite, img),
+.select2-results .select2-highlighted [class*="flag"],
+.select2-results .select2-highlighted :is(.fi, [class^="fi-"], [class*=" fi-"]) {
+	background-color: transparent !important;
+	color: inherit !important;
+	filter: none !important;
+	opacity: 1 !important;
 }
 
 .select2-container--default .select2-selection--multiple .select2-selection__choice,
@@ -1944,6 +2936,22 @@ li.select2-selection__choice,
 	color: var(--iform-muted) !important;
 }
 
+#mainbody .pictofixedwidth.fa-question,
+#mainbody .pictomodule.fa-bug,
+#mainbody .pictomodule.fa-vial,
+#mainbody .pictomodule.fa-flask,
+#mainbody .pictomodule.fa-file-archive,
+#mainbody .pictomodule.fa-file-archive-o,
+#mainbody .pictomodule.fa-archive,
+#mainbody .info-box-module .fa-bug,
+#mainbody .info-box-module .fa-vial,
+#mainbody .info-box-module .fa-flask,
+#mainbody .info-box-module .fa-file-archive,
+#mainbody .info-box-module .fa-file-archive-o,
+#mainbody .info-box-module .fa-archive {
+	color: var(--iform-icon-muted) !important;
+}
+
 #mainbody table.border td > .fa-barcode,
 #mainbody table.border td > .fa-cube,
 #mainbody table.border td > .fa-box-open,
@@ -2026,6 +3034,14 @@ li.select2-selection__choice,
 	color: #ffd38a !important;
 }
 
+#mainbody img[src$="/warning.png"],
+#mainbody img[src$="/warning_white.png"],
+#mainbody a.dashboardlineindicatorlate img,
+#mainbody .imglatecoin img {
+	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 3.2 17 16H3L10 3.2Zm0 4.9v3.8M10 14.5h.1' fill='none' stroke='%23ffd38a' stroke-width='1.85' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+	opacity: 1;
+}
+
 #mainbody img.ui-datepicker-trigger,
 #mainbody img[src$="/object_calendarday.png"] {
 	background: transparent !important;
@@ -2053,6 +3069,55 @@ li.select2-selection__choice,
 #mainbody .AutoFillAmount:focus img {
 	filter: brightness(0) saturate(100%) invert(75%) sepia(77%) saturate(1183%) hue-rotate(181deg) brightness(102%) contrast(103%) !important;
 	opacity: 1;
+}
+
+#mainbody img[src$="/search.png"] {
+	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M8.7 14.2a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11Zm4-1.5 4.1 4.1' fill='none' stroke='%238f99a7' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+}
+
+#mainbody img[src$="/searchclear.png"],
+#mainbody img[src$="/close.png"],
+#mainbody img[src$="/close_title.png"] {
+	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m5.2 5.2 9.6 9.6M14.8 5.2l-9.6 9.6' fill='none' stroke='%238f99a7' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E") !important;
+}
+
+#mainbody img[src$="/refresh.png"] {
+	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M16.2 7.2A6.4 6.4 0 0 0 4.1 5.4M3.6 3.1v3.9h3.9M3.8 12.8a6.4 6.4 0 0 0 12.1 1.8m.5 2.3v-3.9h-3.9' fill='none' stroke='%2378b7ff' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+}
+
+#mainbody img[src$="/edit.png"],
+#mainbody img[src$="/button_edit.png"] {
+	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m4.1 13.8-.7 2.8 2.8-.7 9-9a2 2 0 0 0-2.8-2.8l-9 9Zm7.2-8.5 3.4 3.4' fill='none' stroke='%238f99a7' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+}
+
+#mainbody img[src$="/delete.png"],
+#mainbody img[src$="/edit_remove.png"] {
+	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M4 6h12M8 6V4.5h4V6m-6.8 0 .7 10.2h8.2L14.8 6M8.3 9v4.5M11.7 9v4.5' fill='none' stroke='%23ff8b8b' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+}
+
+#mainbody img[src$="/edit_add.png"],
+#mainbody img[src$="/addfile.png"] {
+	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 3.4v13.2M3.4 10h13.2' fill='none' stroke='%2378b7ff' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E") !important;
+}
+
+#mainbody img[src$="/sort_asc.png"],
+#mainbody img[src$="/sort_asc_disabled.png"],
+#mainbody img[src$="/uparrow.png"] {
+	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m5.3 12.2 4.7-4.7 4.7 4.7' fill='none' stroke='%238f99a7' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+}
+
+#mainbody img[src$="/sort_desc.png"],
+#mainbody img[src$="/sort_desc_disabled.png"] {
+	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m5.3 7.8 4.7 4.7 4.7-4.7' fill='none' stroke='%238f99a7' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+}
+
+#mainbody img[src$="/filter.png"] {
+	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M3.5 5h13L11.5 10v4.5l-3 1.5v-6L3.5 5Z' fill='none' stroke='%238f99a7' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+}
+
+#mainbody img[src$="/rightarrow.png"],
+#mainbody .AutoFillAmount img {
+	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M4 5v4.5a3.5 3.5 0 0 0 3.5 3.5H16m0 0-3-3m3 3-3 3' fill='none' stroke='%2378b7ff' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
 }
 
 #id-top a.tmenuimage,
