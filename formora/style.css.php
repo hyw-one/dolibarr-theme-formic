@@ -7332,6 +7332,32 @@ table.jPicker {
 				max-width: none !important;
 				min-width: 100% !important;
 			}
+
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche :is(.boxhalfleft, .boxhalfright, .fichehalfleft, .fichehalfright) > .box.divboxtable.boxdraggable:has(> table.boxtable) {
+				-webkit-overflow-scrolling: touch;
+				box-sizing: border-box !important;
+				max-width: 100% !important;
+				overflow-x: auto !important;
+				padding-bottom: 6px !important;
+				scrollbar-color: var(--formora-line) transparent;
+				scrollbar-width: thin;
+			}
+
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche :is(.boxhalfleft, .boxhalfright, .fichehalfleft, .fichehalfright) > .box.divboxtable.boxdraggable:has(> table.boxtable)::-webkit-scrollbar {
+				height: 8px;
+			}
+
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche :is(.boxhalfleft, .boxhalfright, .fichehalfleft, .fichehalfright) > .box.divboxtable.boxdraggable:has(> table.boxtable)::-webkit-scrollbar-thumb {
+				background: var(--formora-line);
+				border: 2px solid transparent;
+				border-radius: 999px;
+				background-clip: content-box;
+			}
+
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche :is(.boxhalfleft, .boxhalfright, .fichehalfleft, .fichehalfright) > .box.divboxtable.boxdraggable > table.boxtable {
+				max-width: none !important;
+				min-width: 100% !important;
+			}
 		}
 
 		@media only screen and (max-width: 480px) {
