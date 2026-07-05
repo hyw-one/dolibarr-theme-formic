@@ -7625,6 +7625,7 @@ table.jPicker {
 			}
 		}
 
+		/* Canonical list toolbar layout: title actions stay on the viewport track, mass actions get a separate row. */
 		body#mainbody.bodyforlist:not(.poslist) #id-right .fiche table.table-fiche-title {
 			align-items: center !important;
 			column-gap: 10px !important;
@@ -7676,6 +7677,11 @@ table.jPicker {
 			min-height: 0 !important;
 			min-width: 0 !important;
 			padding: 0 !important;
+		}
+
+		body#mainbody.bodyforlist:not(.poslist) #id-right .fiche table.table-fiche-title .col-right :is(a.btnTitle, .btnTitle, .paginationcombolimit, .paginationpage, .paginationlastpage, .paginationafterarrows, .pageplusone) {
+			box-sizing: border-box !important;
+			flex: 0 0 auto !important;
 		}
 
 		body#mainbody.bodyforlist:not(.poslist):not(:has(.checkforselect:checked)) #id-right .fiche table.table-fiche-title .col-center:has(#massaction) {
