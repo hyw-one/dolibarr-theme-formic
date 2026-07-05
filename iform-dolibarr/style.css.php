@@ -451,31 +451,40 @@ require __DIR__.'/global.inc.php';
 
 /* iForm skin layer: visual polish over Eldy's native layout. */
 :root {
-	--iform-accent: #0969da;
-	--iform-accent-hover: #0757b8;
-	--iform-line: #d0d7de;
-	--iform-line-soft: #e5e7eb;
-	--iform-bg: #f6f8fa;
+	--iform-accent: #0071e3;
+	--iform-accent-hover: #005bb5;
+	--iform-line: #c9cdd3;
+	--iform-line-soft: #e6e8ec;
+	--iform-bg: #f5f5f7;
 	--iform-surface: #ffffff;
-	--iform-surface-alt: #f6f8fa;
-	--iform-text: #1f2328;
-	--iform-muted: #636e7b;
-	--iform-danger: #cf222e;
-	--iform-danger-bg: #ffebe9;
-	--iform-danger-hover-bg: #ffd8d3;
-	--iform-neutral-bg: #ffffff;
-	--iform-neutral-hover-bg: #f6f8fa;
-	--iform-refused-bg: #f6f8fa;
-	--iform-focus-ring: rgba(31, 35, 40, 0.12);
-	--iform-status-success-bg: #1a7f37;
-	--iform-status-success-border: rgba(255, 255, 255, 0);
+	--iform-surface-alt: #f5f5f7;
+	--iform-text: #1d1d1f;
+	--iform-muted: #6e6e73;
+	--iform-danger: #d70015;
+	--iform-danger-bg: #fff1f1;
+	--iform-danger-hover-bg: #ffe1e4;
+	--iform-neutral-bg: #fbfbfd;
+	--iform-neutral-hover-bg: #f2f2f4;
+	--iform-refused-bg: #f5f5f7;
+	--iform-focus-ring: rgba(0, 113, 227, 0.18);
+	--iform-status-success-bg: #248a3d;
+	--iform-status-success-border: rgba(36, 138, 61, 0.16);
 	--iform-status-success-text: #ffffff;
-	--iform-icon-default: #57606a;
-	--iform-icon-muted: #6e7781;
-	--iform-icon-accent: #0969da;
-	--iform-icon-danger: #cf222e;
-	--iform-icon-warning: #9a6700;
-	--iform-icon-success: #1a7f37;
+	--iform-icon-default: #5f6368;
+	--iform-icon-muted: #86868b;
+	--iform-icon-accent: #0071e3;
+	--iform-icon-danger: #d70015;
+	--iform-icon-warning: #b26a00;
+	--iform-icon-success: #248a3d;
+	--iform-radius-sm: 6px;
+	--iform-radius: 8px;
+	--iform-radius-lg: 12px;
+	--iform-control-height: 34px;
+	--iform-shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.05), 0 8px 24px rgba(0, 0, 0, 0.06);
+	--iform-shadow-elevated: 0 16px 42px rgba(0, 0, 0, 0.16);
+	--iform-shadow-menu: 0 10px 28px rgba(0, 0, 0, 0.14);
+	--iform-elevated: #ffffff;
+	--iform-table-header: #f5f5f7;
 	--iform-switch-knob: #ffffff;
 	--iform-module-enabled-glow: rgba(26, 127, 55, 0.16);
 	--iform-module-enabled-glow-soft: rgba(26, 127, 55, 0.05);
@@ -557,10 +566,10 @@ require __DIR__.'/global.inc.php';
 	--iform-symbol-bug: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M6.7 8.1h6.6v5.1a3.3 3.3 0 0 1-6.6 0V8.1Zm1.6 0V6.3a1.7 1.7 0 0 1 3.4 0v1.8M4 10h2.7M13.3 10H16M4.8 5.5l2.4 2M12.8 7.5l2.4-2M4.8 15l2.2-1.4M13 13.6l2.2 1.4' fill='none' stroke='black' stroke-width='1.65' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
 	--iform-symbol-vial: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M8 3.8h4M10 4v5.6l4.4 5.6a1.2 1.2 0 0 1-1 2H6.6a1.2 1.2 0 0 1-1-2L10 9.6M7.3 13.2h5.4' fill='none' stroke='black' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
 	--iform-symbol-archive: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M4 5h12v3H4V5Zm1.2 3v8h9.6V8M8.2 11h3.6' fill='none' stroke='black' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-	--inputbordercolor: rgba(208, 215, 222, 0.95);
-	--colorboxstatsborder: #d0d7de;
-	--colorboxiconbg: #f6f8fa;
-	--fieldrequiredcolor: #cf222e;
+	--inputbordercolor: rgba(201, 205, 211, 0.96);
+	--colorboxstatsborder: #c9cdd3;
+	--colorboxiconbg: #f5f5f7;
+	--fieldrequiredcolor: #d70015;
 }
 
 body {
@@ -2058,72 +2067,77 @@ if (getDolGlobalInt('THEME_DARKMODEENABLED')) {
 ?>
 :root {
 	color-scheme: dark;
-	--iform-accent: #4ea3ff;
-	--iform-accent-hover: #78b7ff;
-	--iform-accent-soft: rgba(78, 163, 255, 0.16);
-	--iform-line: #3a4048;
-	--iform-line-soft: #2c3238;
-	--iform-bg: #151719;
-	--iform-surface: #1c1f22;
-	--iform-surface-alt: #24282d;
-	--iform-text: #edf2f7;
-	--iform-muted: #a9b3c0;
-	--iform-danger: #ff8b8b;
-	--iform-danger-bg: #3a1f24;
-	--iform-danger-hover-bg: #4a252b;
-	--iform-neutral-bg: #202429;
-	--iform-neutral-hover-bg: #2a3037;
-	--iform-refused-bg: #202429;
-	--iform-focus-ring: rgba(78, 163, 255, 0.28);
-	--iform-status-success-bg: rgba(61, 180, 111, 0.14);
-	--iform-status-success-border: rgba(61, 180, 111, 0.3);
-	--iform-status-success-text: #83e5a1;
-	--iform-icon-default: #a9b3c0;
-	--iform-icon-muted: #8f99a7;
-	--iform-icon-accent: #78b7ff;
-	--iform-icon-danger: #ff8b8b;
-	--iform-icon-warning: #ffd38a;
-	--iform-icon-success: #83e5a1;
+	--iform-accent: #0a84ff;
+	--iform-accent-hover: #64b5ff;
+	--iform-accent-soft: rgba(10, 132, 255, 0.18);
+	--iform-line: #3a3a3c;
+	--iform-line-soft: #2c2c2e;
+	--iform-bg: #0f1012;
+	--iform-surface: #1c1c1e;
+	--iform-surface-alt: #242426;
+	--iform-text: #f5f5f7;
+	--iform-muted: #a1a1a6;
+	--iform-danger: #ff6961;
+	--iform-danger-bg: #3a1f22;
+	--iform-danger-hover-bg: #4a2428;
+	--iform-neutral-bg: #202124;
+	--iform-neutral-hover-bg: #2c2c2e;
+	--iform-refused-bg: #202124;
+	--iform-focus-ring: rgba(10, 132, 255, 0.32);
+	--iform-status-success-bg: rgba(48, 209, 88, 0.16);
+	--iform-status-success-border: rgba(48, 209, 88, 0.32);
+	--iform-status-success-text: #30d158;
+	--iform-icon-default: #a1a1a6;
+	--iform-icon-muted: #8e8e93;
+	--iform-icon-accent: #64b5ff;
+	--iform-icon-danger: #ff6961;
+	--iform-icon-warning: #ffd60a;
+	--iform-icon-success: #30d158;
 	--iform-switch-knob: #1c1f22;
-	--iform-module-enabled-glow: rgba(61, 180, 111, 0.28);
-	--iform-module-enabled-glow-soft: rgba(61, 180, 111, 0.08);
-	--colorbackhmenu1: #1c1f22;
-	--colorbackvmenu1: #181b1f;
-	--colorbacktitle1: #24282d;
-	--colorbacktabcard1: #1c1f22;
-	--colorbacktabactive: #24282d;
-	--colorbacklineimpair1: #1c1f22;
-	--colorbacklineimpair2: #1c1f22;
-	--colorbacklinepair1: #1c1f22;
-	--colorbacklinepair2: #202429;
-	--colorbacklinepairhover: #263141;
-	--colorbacklinepairchecked: #183a5e;
-	--colorbacklinebreak: #252a30;
-		--colorbackbody: #151719;
-		--colorbackmobilemenu: #181b1f;
-		--colorbackgrey: #202429;
+	--iform-module-enabled-glow: rgba(48, 209, 88, 0.26);
+	--iform-module-enabled-glow-soft: rgba(48, 209, 88, 0.08);
+	--iform-shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.35), 0 8px 24px rgba(0, 0, 0, 0.28);
+	--iform-shadow-elevated: 0 18px 48px rgba(0, 0, 0, 0.48);
+	--iform-shadow-menu: 0 14px 34px rgba(0, 0, 0, 0.5);
+	--iform-elevated: #242426;
+	--iform-table-header: #242426;
+	--colorbackhmenu1: #1c1c1e;
+	--colorbackvmenu1: #151517;
+	--colorbacktitle1: #242426;
+	--colorbacktabcard1: #1c1c1e;
+	--colorbacktabactive: #242426;
+	--colorbacklineimpair1: #1c1c1e;
+	--colorbacklineimpair2: #1c1c1e;
+	--colorbacklinepair1: #1c1c1e;
+	--colorbacklinepair2: #202124;
+	--colorbacklinepairhover: #2b3340;
+	--colorbacklinepairchecked: #15395f;
+	--colorbacklinebreak: #2c2c2e;
+		--colorbackbody: #0f1012;
+		--colorbackmobilemenu: #151517;
+		--colorbackgrey: #202124;
 		--infoboxmoduleenabledbgcolor: transparent;
-		--colortexttitlenotab: #edf2f7;
-		--colortexttitlenotab2: #edf2f7;
-		--colortexttitle: rgba(237, 242, 247, 0.95);
-	--colortexttitlelink: rgba(78, 163, 255, 0.95);
-	--colortext: #edf2f7;
-	--colortextlink: #4ea3ff;
-	--colortextbackhmenu: #edf2f7;
-	--colortextbackvmenu: #edf2f7;
-	--colortopbordertitle1: #3a4048;
-	--inputbackgroundcolor: #202429;
-	--inputbackgroundcolordisabled: #181b1f;
-	--inputcolordisabled: #7f8a96;
-	--inputbordercolor: #3a4048;
-	--tooltipbgcolor: rgba(28, 31, 34, 0.98);
-	--tooltipfontcolor: #edf2f7;
-	--oddevencolor: #edf2f7;
-	--colorboxstatsborder: #3a4048;
-	--colorboxiconbg: #202429;
-	--fieldrequiredcolor: #ff8b8b;
-	--refidnocolor: #edf2f7;
-	--tableforfieldcolor: #a9b3c0;
+		--colortexttitlenotab: #f5f5f7;
+		--colortexttitlenotab2: #f5f5f7;
+		--colortexttitle: rgba(245, 245, 247, 0.96);
+	--colortexttitlelink: rgba(10, 132, 255, 0.96);
+	--colortext: #f5f5f7;
+	--colortextlink: #0a84ff;
+	--colortextbackhmenu: #f5f5f7;
+	--colortextbackvmenu: #f5f5f7;
+	--colortopbordertitle1: #3a3a3c;
+	--inputbackgroundcolor: #202124;
+	--inputbackgroundcolordisabled: #151517;
+	--inputcolordisabled: #77777d;
+	--inputbordercolor: #3a3a3c;
+	--tooltipbgcolor: rgba(28, 28, 30, 0.98);
+	--tooltipfontcolor: #f5f5f7;
+	--oddevencolor: #f5f5f7;
+	--colorboxstatsborder: #3a3a3c;
+	--colorboxiconbg: #202124;
+	--fieldrequiredcolor: #ff6961;
+	--refidnocolor: #f5f5f7;
+	--tableforfieldcolor: #a1a1a6;
 }
 
 html,
@@ -3582,6 +3596,36 @@ span.badge-status4b {
 	color: #ffb4b4 !important;
 }
 
+.badge-dot.badge-status0,
+.badge-dot.badge-status2,
+.badge-dot.badge-status5,
+.badge-dot.badge-status6,
+.badge-dot.badge-status9 {
+	background: rgba(200, 208, 217, 0.28) !important;
+	border-color: rgba(200, 208, 217, 0.38) !important;
+}
+
+.badge-dot.badge-status1,
+.badge-dot.badge-status1b,
+.badge-dot.badge-status3 {
+	background: rgba(255, 211, 138, 0.32) !important;
+	border-color: rgba(255, 211, 138, 0.46) !important;
+}
+
+.badge-dot.badge-status4,
+.badge-dot.badge-status4b,
+.badge-dot.badge-status7,
+.badge-dot.badge-status11 {
+	background: rgba(131, 229, 161, 0.3) !important;
+	border-color: rgba(131, 229, 161, 0.44) !important;
+}
+
+.badge-dot.badge-status8,
+.badge-dot.badge-status10 {
+	background: rgba(255, 180, 180, 0.3) !important;
+	border-color: rgba(255, 180, 180, 0.44) !important;
+}
+
 div.statusref:has(.badge-status),
 div.statusdoc:has(.badge-status),
 div.statusrefsupplier:has(.badge-status) {
@@ -3854,6 +3898,913 @@ table.jPicker {
 	}
 	?>
 
+	/* iForm Apple-inspired refresh layer: shared component rules for light and dark palettes. */
+	body#mainbody,
+	body.bodylogin {
+		background: var(--iform-bg) !important;
+		color: var(--iform-text) !important;
+		font-synthesis-weight: none;
+		-webkit-font-smoothing: antialiased;
+		text-rendering: optimizeLegibility;
+	}
+
+	body#mainbody table,
+	body#mainbody input,
+	body#mainbody textarea,
+	body#mainbody select,
+	body#mainbody button,
+	body.bodylogin input,
+	body.bodylogin button {
+		letter-spacing: 0;
+	}
+
+	body#mainbody a,
+	body#mainbody .classlink,
+	body#mainbody .linkobject,
+	body#mainbody .nowraponall a {
+		color: var(--iform-accent);
+		text-decoration-thickness: 1px;
+		text-underline-offset: 2px;
+	}
+
+	body#mainbody a:hover,
+	body#mainbody .classlink:hover,
+	body#mainbody .linkobject:hover {
+		color: var(--iform-accent-hover);
+	}
+
+	body#mainbody #id-container,
+	body#mainbody #id-right,
+	body#mainbody #id-right .fiche,
+	body#mainbody #id-right div.fiche {
+		background: var(--iform-bg) !important;
+		color: var(--iform-text) !important;
+	}
+
+	body#mainbody #id-top {
+		background: var(--iform-surface) !important;
+		border-bottom: 1px solid var(--iform-line-soft) !important;
+		box-shadow: 0 1px 0 rgba(0, 0, 0, 0.02) !important;
+	}
+
+	body#mainbody #id-top li.tmenu,
+	body#mainbody #id-top li.tmenusel {
+		background: transparent !important;
+		background-image: none !important;
+		border-radius: 0 !important;
+	}
+
+	body#mainbody #id-top li.tmenu div.tmenucenter,
+	body#mainbody #id-top li.tmenusel div.tmenucenter {
+		border: 1px solid transparent !important;
+		border-radius: var(--iform-radius-sm) !important;
+		box-shadow: none !important;
+		min-height: 46px;
+		transition: background-color 0.14s ease, border-color 0.14s ease, color 0.14s ease;
+	}
+
+	body#mainbody #id-top li.tmenu :is(a, span, div.mainmenu, .mainmenuaspan, .tmenuimage, .tmenulabel),
+	body#mainbody #id-top li.tmenusel :is(a, span, div.mainmenu, .mainmenuaspan, .tmenuimage, .tmenulabel),
+	body#mainbody #id-top li.tmenu:hover :is(a, span, div.mainmenu, .mainmenuaspan, .tmenuimage, .tmenulabel),
+	body#mainbody #id-top li.tmenusel:hover :is(a, span, div.mainmenu, .mainmenuaspan, .tmenuimage, .tmenulabel) {
+		background: transparent !important;
+		background-color: transparent !important;
+		background-image: none !important;
+		box-shadow: none !important;
+	}
+
+	body#mainbody #id-top li.tmenu:not(.nohover):hover div.tmenucenter,
+	body#mainbody #id-top li.tmenusel div.tmenucenter {
+		background: var(--iform-neutral-hover-bg) !important;
+		border-color: var(--iform-line-soft) !important;
+	}
+
+	body#mainbody #id-top a.tmenuimage,
+	body#mainbody #id-top a.tmenulabel,
+	body#mainbody #id-top a.tmenulabel .mainmenuaspan {
+		color: var(--iform-muted) !important;
+	}
+
+	body#mainbody #id-top li.tmenu:not(.nohover):hover a.tmenuimage,
+	body#mainbody #id-top li.tmenu:not(.nohover):hover a.tmenulabel,
+	body#mainbody #id-top li.tmenusel a.tmenuimage,
+	body#mainbody #id-top li.tmenusel a.tmenulabel,
+	body#mainbody #id-top li.tmenusel a.tmenulabel .mainmenuaspan {
+		color: var(--iform-text) !important;
+	}
+
+	body#mainbody #id-top a.tmenuimage :is(.fa, .fas, .far, .fab)[class*="fa-"]::before,
+	body#mainbody #id-top a.tmenuimage[class*="fa-"]::before {
+		color: currentColor !important;
+		font-size: 22px !important;
+		height: 22px !important;
+		line-height: 22px !important;
+		width: 22px !important;
+	}
+
+	body#mainbody #id-left,
+	body#mainbody #id-left .blockvmenu,
+	body#mainbody #id-left .blockvmenupair,
+	body#mainbody #id-left .blockvmenuimpair,
+	body#mainbody #id-left .blockvmenufirst,
+	body#mainbody #id-left .blockvmenulast {
+		background: var(--colorbackvmenu1) !important;
+		border-color: var(--iform-line-soft) !important;
+	}
+
+	body#mainbody #id-left .vmenu_titre,
+	body#mainbody #id-left .menu_titre {
+		background: transparent !important;
+		border-color: transparent !important;
+		color: var(--iform-muted) !important;
+		font-weight: 600;
+		padding: 2px 0 !important;
+	}
+
+	body#mainbody #id-left .menu_contenu {
+		line-height: 0 !important;
+		padding: 1px 0 !important;
+	}
+
+	body#mainbody #id-left .menu_contenu > br {
+		display: none !important;
+	}
+
+	body#mainbody #id-left a.vmenu,
+	body#mainbody #id-left .menu_titre > a.vmenu,
+	body#mainbody #id-left .vmenu_titre > a.vmenu,
+	body#mainbody #id-left .menu_contenu > a {
+		border-radius: var(--iform-radius-sm) !important;
+		box-sizing: border-box !important;
+		color: var(--iform-text) !important;
+		display: flex !important;
+		align-items: center;
+		gap: 7px;
+		line-height: 1.25 !important;
+		margin: 0 8px !important;
+		max-width: 100%;
+		min-height: 28px;
+		padding: 4px 10px !important;
+		transition: background-color 0.14s ease, color 0.14s ease;
+		width: calc(100% - 16px) !important;
+	}
+
+	body#mainbody #id-left .menu_contenu > a {
+		min-height: 28px;
+		margin: 0 8px !important;
+		padding: 4px 10px !important;
+		width: calc(100% - 16px) !important;
+	}
+
+	body#mainbody #id-left .menu_contenu_comm_propal_list > a[href*="search_status="],
+	body#mainbody #id-left .menu_contenu_commande_list_det > a,
+	body#mainbody #id-left .menu_contenu_compta_facture_list > a[href*="search_status="],
+	body#mainbody #id-left .menu_contenu_supplier_proposal_list > a[href*="search_status="],
+	body#mainbody #id-left .menu_contenu_fourn_commande_list_det > a,
+	body#mainbody #id-left .menu_contenu_societe_list > a[href*="type="],
+	body#mainbody #id-left .menu_contenu_societe_card > a[href*="type="],
+	body#mainbody #id-left .menu_contenu_contact_list > a[href*="type="] {
+		margin: 0 8px 0 24px !important;
+		width: calc(100% - 32px) !important;
+	}
+
+	body#mainbody #id-left a.vmenu:hover,
+	body#mainbody #id-left .menu_titre:hover > a.vmenu,
+	body#mainbody #id-left .vmenu_titre:hover > a.vmenu,
+	body#mainbody #id-left .menu_contenu > a:hover,
+	body#mainbody #id-left .menu_contenu:hover > a,
+	body#mainbody #id-left .menu_contenu > a:focus {
+		background: var(--iform-neutral-hover-bg) !important;
+		color: var(--iform-accent) !important;
+		text-decoration: none !important;
+	}
+
+	body#mainbody #id-left :is(.pictofixedwidth[class*="fa-"], .fa[class*="fa-"], .fas[class*="fa-"], .far[class*="fa-"], .fab[class*="fa-"])::before {
+		color: currentColor !important;
+		font-size: 16px !important;
+		line-height: 18px !important;
+	}
+
+	body#mainbody table.table-fiche-title {
+		border-bottom: 1px solid var(--iform-line-soft) !important;
+		margin-bottom: 16px !important;
+		padding-bottom: 8px !important;
+	}
+
+	body#mainbody table.table-fiche-title tr,
+	body#mainbody table.table-fiche-title td,
+	body#mainbody table.table-fiche-title th {
+		border-color: transparent !important;
+	}
+
+	body#mainbody table.table-fiche-title .titre,
+	body#mainbody table.table-fiche-title div.titre,
+	body#mainbody .titre {
+		color: var(--iform-text) !important;
+		font-weight: 650 !important;
+		letter-spacing: 0 !important;
+	}
+
+	body#mainbody .opacitymedium,
+	body#mainbody .opacitymedium i,
+	body#mainbody .opacitymedium span {
+		color: var(--iform-muted) !important;
+	}
+
+	body#mainbody .box,
+	body#mainbody .boxtable,
+	body#mainbody .box-flex-item,
+	body#mainbody div.fiche div.info,
+	body#mainbody div.fiche div.warning,
+	body#mainbody div.fiche div.error,
+	body#mainbody div.fiche div.neutral,
+	body#mainbody table.noborder,
+	body#mainbody table.border,
+	body#mainbody table.tableforfield,
+	body#mainbody table.tagtable {
+		background: var(--iform-surface) !important;
+		border-color: var(--iform-line-soft) !important;
+		box-shadow: none !important;
+		color: var(--iform-text) !important;
+	}
+
+	body#mainbody .fichecenter,
+	body#mainbody .fichethirdleft,
+	body#mainbody .fichetwothirdright,
+	body#mainbody .fichehalfleft,
+	body#mainbody .fichehalfright {
+		background: transparent !important;
+		box-shadow: none !important;
+	}
+
+	body#mainbody :is(.fichehalfleft, .fichehalfright, .fichethirdleft, .fichetwothirdright) > :is(table.noborder, table.border, table.tableforfield, .div-table-responsive, .div-table-responsive-no-min) {
+		margin-bottom: 12px !important;
+	}
+
+	body#mainbody .tabBar {
+		background: transparent !important;
+		border-color: transparent !important;
+		box-shadow: none !important;
+		color: var(--iform-text) !important;
+	}
+
+	body#mainbody .tabBar :is(.tagtable, .table-border),
+	body#mainbody .tabBar :is(.tagtr, .tagtd) {
+		background: transparent !important;
+		border-color: transparent !important;
+		box-shadow: none !important;
+	}
+
+	body#mainbody .paginationref,
+	body#mainbody .paginationref :is(ul, li, .litext, .noborder) {
+		background: transparent !important;
+		border-color: transparent !important;
+		box-shadow: none !important;
+	}
+
+	body#mainbody .fichecenter .box-flex-container > .box-flex-item,
+	body#mainbody .fichecenter .box-flex-container > .box-flex-item:hover {
+		background: transparent !important;
+		border-color: transparent !important;
+		box-shadow: none !important;
+	}
+
+	body#mainbody :is(.boxhalfleft, .boxhalfright, .fichehalfleft, .fichehalfright) > .box.divboxtable.boxdraggable,
+	body#mainbody :is(.boxhalfleft, .boxhalfright, .fichehalfleft, .fichehalfright) > .box.divboxtable.boxdraggable:hover {
+		background: transparent !important;
+		border-color: transparent !important;
+		box-shadow: none !important;
+		overflow: visible !important;
+	}
+
+	body#mainbody .box,
+	body#mainbody .boxtable,
+	body#mainbody .box-flex-item,
+	body#mainbody .info-box,
+	body#mainbody table.noborder,
+	body#mainbody table.border,
+	body#mainbody table.tableforfield,
+	body#mainbody table.tagtable {
+		border-radius: var(--iform-radius) !important;
+	}
+
+	body#mainbody .info-box,
+	body#mainbody .box-flex-item.info-box-module .info-box {
+		background: var(--iform-surface) !important;
+		border: 1px solid var(--iform-line-soft) !important;
+		box-shadow: none !important;
+		color: var(--iform-text) !important;
+		box-sizing: border-box !important;
+		overflow: hidden !important;
+		position: relative;
+	}
+
+	body#mainbody .info-box > .info-box-icon {
+		border-radius: 0 !important;
+		box-sizing: border-box !important;
+		display: flex !important;
+		align-items: center;
+		justify-content: center;
+		height: 100% !important;
+		min-height: inherit !important;
+	}
+
+	body#mainbody .info-box:hover,
+	body#mainbody .box-flex-item.info-box-module:hover .info-box {
+		border-color: var(--iform-line) !important;
+		box-shadow: var(--iform-shadow-soft) !important;
+	}
+
+	body#mainbody .info-box:has(dl.dropdown dd .multichoicedoc > ul.ulselectedfields.open) {
+		overflow: visible !important;
+	}
+
+	body#mainbody table.liste,
+	body#mainbody table.noborder,
+	body#mainbody table.border,
+	body#mainbody table.boxtable,
+	body#mainbody table.tagtable.liste {
+		border-collapse: separate !important;
+		border-spacing: 0 !important;
+		overflow: hidden;
+	}
+
+	body#mainbody table.boxtable tr:first-child > :first-child {
+		border-top-left-radius: calc(var(--iform-radius) - 1px) !important;
+	}
+
+	body#mainbody table.boxtable tr:first-child > :last-child {
+		border-top-right-radius: calc(var(--iform-radius) - 1px) !important;
+	}
+
+	body#mainbody table.boxtable tr:last-child > :first-child {
+		border-bottom-left-radius: calc(var(--iform-radius) - 1px) !important;
+	}
+
+	body#mainbody table.boxtable tr:last-child > :last-child {
+		border-bottom-right-radius: calc(var(--iform-radius) - 1px) !important;
+	}
+
+	body#mainbody table.liste th,
+	body#mainbody table.noborder th,
+	body#mainbody table.border th,
+	body#mainbody .liste_titre,
+	body#mainbody .liste_titre_sel,
+	body#mainbody .liste_titre_create {
+		background: var(--iform-table-header) !important;
+		border-color: var(--iform-line-soft) !important;
+		color: var(--iform-muted) !important;
+		font-weight: 650 !important;
+	}
+
+	body#mainbody table.liste td,
+	body#mainbody table.noborder td,
+	body#mainbody table.border td,
+	body#mainbody table.tableforfield td,
+	body#mainbody table.tagtable td,
+	body#mainbody tr.oddeven td,
+	body#mainbody tr.pair td,
+	body#mainbody tr.impair td {
+		border-color: var(--iform-line-soft) !important;
+		color: var(--iform-text) !important;
+	}
+
+	body#mainbody table.liste td.opacitylow,
+	body#mainbody table.noborder td.opacitylow,
+	body#mainbody table.border td.opacitylow,
+	body#mainbody table.tagtable td.opacitylow,
+	body#mainbody tr.oddeven td.opacitylow,
+	body#mainbody tr.pair td.opacitylow,
+	body#mainbody tr.impair td.opacitylow {
+		opacity: 1 !important;
+		color: var(--iform-muted) !important;
+	}
+
+	body#mainbody table.liste tr,
+	body#mainbody table.noborder tr,
+	body#mainbody table.border tr,
+	body#mainbody table.tableforfield tr,
+	body#mainbody table.tagtable tr,
+	body#mainbody tr.oddeven,
+	body#mainbody tr.pair,
+	body#mainbody tr.impair {
+		border-color: var(--iform-line-soft) !important;
+	}
+
+	body#mainbody :is(.boxhalfleft, .boxhalfright, .fichehalfleft, .fichehalfright) > .box.divboxtable.boxdraggable:empty,
+	body#mainbody :is(.boxhalfleft, .boxhalfright, .fichehalfleft, .fichehalfright) > .box.divboxtable.boxdraggable[id="boxto_A"],
+	body#mainbody :is(.boxhalfleft, .boxhalfright, .fichehalfleft, .fichehalfright) > .box.divboxtable.boxdraggable[id="boxto_B"] {
+		background: transparent !important;
+		border-color: transparent !important;
+		box-shadow: none !important;
+	}
+
+	body#mainbody tr.oddeven:hover td,
+	body#mainbody tr.pair:hover td,
+	body#mainbody tr.impair:hover td,
+	body#mainbody tr.highlight td {
+		background: var(--iform-neutral-hover-bg) !important;
+	}
+
+	body#mainbody tr.rowselected td,
+	body#mainbody tr.selected td,
+	body#mainbody tr.oddeven.selected td {
+		background: var(--iform-accent-soft, rgba(0, 113, 227, 0.12)) !important;
+		border-color: var(--iform-accent) !important;
+	}
+
+	body#mainbody input:not(.select2-search__field):not([type="checkbox"]):not([type="radio"]):not([type="image"]):not([type="submit"]):not([type="button"]),
+	body#mainbody textarea,
+	body#mainbody select,
+	body#mainbody .select2-container--default .select2-selection--single,
+	body#mainbody .select2-container--default .select2-selection--multiple,
+	body.bodylogin input:not([type="checkbox"]):not([type="radio"]):not([type="image"]):not([type="submit"]):not([type="button"]) {
+		background: var(--inputbackgroundcolor, var(--iform-surface)) !important;
+		border: 1px solid var(--inputbordercolor, var(--iform-line)) !important;
+		border-radius: var(--iform-radius-sm) !important;
+		box-shadow: none !important;
+		color: var(--iform-text) !important;
+		min-height: var(--iform-control-height);
+		transition: border-color 0.14s ease, box-shadow 0.14s ease, background-color 0.14s ease;
+	}
+
+	body#mainbody .select2-container--default .select2-selection--multiple .select2-search__field {
+		background: transparent !important;
+		border: 0 !important;
+		border-radius: 0 !important;
+		box-shadow: none !important;
+		min-height: 0;
+	}
+
+	body#mainbody input:focus:not(.noborderfocus):not(.inputsearch_dropdownselectedfields):not(.button):not(.buttonwebsite):not(.buttonreset):not(.select2-search__field):not(#top-bookmark-search-input):not(.search_component_input):not(.input-nobottom),
+	body#mainbody textarea:focus,
+	body#mainbody select:focus,
+	body#mainbody .select2-container--open [aria-expanded="false"].select2-selection--single,
+	body#mainbody .select2-container--focus span.selection span.select2-selection:not(.noborderfocus):not(.massactionselect),
+	body.bodylogin input:focus {
+		border-color: var(--iform-accent) !important;
+		box-shadow: 0 0 0 3px var(--iform-focus-ring) !important;
+		outline: none !important;
+	}
+
+	body#mainbody input:disabled,
+	body#mainbody textarea:disabled,
+	body#mainbody select:disabled,
+	body#mainbody input[readonly],
+	body#mainbody textarea[readonly],
+	body#mainbody .select2-container--default.select2-container--disabled .select2-selection--single,
+	body#mainbody .select2-container--default.select2-container--disabled .select2-selection--multiple {
+		background: var(--inputbackgroundcolordisabled, var(--iform-neutral-bg)) !important;
+		border-color: var(--iform-line-soft) !important;
+		color: var(--inputcolordisabled, var(--iform-muted)) !important;
+		cursor: not-allowed;
+		opacity: 1;
+	}
+
+	body#mainbody div.urllink {
+		align-items: center;
+		background: var(--iform-neutral-bg) !important;
+		border: 1px solid var(--iform-line-soft) !important;
+		border-radius: var(--iform-radius-sm) !important;
+		box-shadow: none !important;
+		color: var(--iform-text) !important;
+		display: flex;
+		gap: 8px;
+		height: auto !important;
+		min-height: 40px;
+		opacity: 1 !important;
+		padding: 4px 6px !important;
+	}
+
+	body#mainbody div.urllink a,
+	body#mainbody div.urllink :is(.fa, .fas, .far, .fab)[class*="fa-"] {
+		color: var(--iform-accent) !important;
+	}
+
+	body#mainbody div.urllink input {
+		flex: 1 1 auto;
+		min-width: 0 !important;
+		opacity: 1 !important;
+	}
+
+	body#mainbody .select2-dropdown,
+	body#mainbody .select2-drop,
+	body#mainbody .ui-autocomplete,
+	body#mainbody .dropdown-content,
+	body#mainbody .dropdown-menu,
+	body#mainbody .ui-datepicker {
+		background: var(--iform-elevated) !important;
+		border: 1px solid var(--iform-line) !important;
+		border-radius: var(--iform-radius) !important;
+		box-shadow: var(--iform-shadow-menu) !important;
+		color: var(--iform-text) !important;
+		overflow: hidden;
+	}
+
+	body#mainbody .select2-results__option,
+	body#mainbody .ui-menu .ui-menu-item-wrapper,
+	body#mainbody .dropdown-item,
+	body#mainbody .dropdown-content a {
+		color: var(--iform-text) !important;
+	}
+
+	body#mainbody .select2-dropdown .select2-results__option {
+		background: var(--iform-elevated) !important;
+	}
+
+	body#mainbody .select2-container--default .select2-results__option--highlighted[aria-selected],
+	body#mainbody .select2-container--default .select2-results__option:hover,
+	body#mainbody .select2-dropdown .select2-results .select2-highlighted,
+	body#mainbody .select2-dropdown .select2-results__option:hover {
+		background: var(--iform-neutral-hover-bg) !important;
+		color: var(--iform-accent) !important;
+	}
+
+	body#mainbody .select2-container--default .select2-results__option--highlighted[aria-selected] span:not(.flag-sprite):not([class*="flag"]):not(.fi):not([class^="fi-"]):not([class*=" fi-"]),
+	body#mainbody .select2-container--default .select2-results__option:hover span:not(.flag-sprite):not([class*="flag"]):not(.fi):not([class^="fi-"]):not([class*=" fi-"]) {
+		background: transparent !important;
+		color: inherit !important;
+	}
+
+	body#mainbody .select2-results .select2-highlighted,
+	body#mainbody .ui-menu .ui-menu-item-wrapper.ui-state-active,
+	body#mainbody .ui-menu .ui-menu-item-wrapper:hover,
+	body#mainbody .ui-datepicker td a:hover {
+		background: var(--iform-neutral-hover-bg) !important;
+		color: var(--iform-accent) !important;
+	}
+
+	body#mainbody .butAction:not(.butActionDelete):not(.butActionRefused),
+	body#mainbody .butAction:not(.butActionDelete):not(.butActionRefused):link,
+	body#mainbody .butAction:not(.butActionDelete):not(.butActionRefused):visited,
+	body#mainbody .button:not(.buttonDelete):not(.buttonRefused):not(.button-delete):not(.buttonpayment):not(.bordertransp):not(:disabled),
+	body#mainbody input[type="submit"]:not(.buttonDelete):not(.buttonRefused):not(.buttonpayment):not(.bordertransp):not(:disabled),
+	body#mainbody input[type="button"]:not(.buttonDelete):not(.buttonRefused):not(.buttonpayment):not(.bordertransp):not(:disabled) {
+		align-items: center !important;
+		appearance: none;
+		background: var(--iform-accent) !important;
+		background-image: none !important;
+		border: 1px solid var(--iform-accent) !important;
+		border-radius: var(--iform-radius-sm) !important;
+		box-shadow: none !important;
+		box-sizing: border-box !important;
+		color: #fff !important;
+		display: inline-flex !important;
+		font-weight: 600 !important;
+		height: auto !important;
+		justify-content: center !important;
+		line-height: 1.15 !important;
+		min-height: 34px !important;
+		padding: 7px 12px !important;
+		vertical-align: middle !important;
+	}
+
+	body#mainbody .butAction:not(.butActionDelete):not(.butActionRefused):hover,
+	body#mainbody .button:not(.buttonDelete):not(.buttonRefused):not(.button-delete):not(.buttonpayment):not(.bordertransp):not(:disabled):hover,
+	body#mainbody input[type="submit"]:not(.buttonDelete):not(.buttonRefused):not(.buttonpayment):not(.bordertransp):not(:disabled):hover,
+	body#mainbody input[type="button"]:not(.buttonDelete):not(.buttonRefused):not(.buttonpayment):not(.bordertransp):not(:disabled):hover {
+		background: var(--iform-accent-hover) !important;
+		border-color: var(--iform-accent-hover) !important;
+		box-shadow: none !important;
+		color: #fff !important;
+		text-decoration: none !important;
+	}
+
+	<?php
+	if (getDolGlobalInt('THEME_DARKMODEENABLED')) {
+		print "/* iForm dark-mode action buttons keep outline/soft fill treatment. */\n";
+		if (getDolGlobalInt('THEME_DARKMODEENABLED') != 2) {
+			print "@media (prefers-color-scheme: dark) {";
+		} else {
+			print "@media not print {";
+		}
+	?>
+	body#mainbody .butAction:not(.butActionDelete):not(.butActionRefused),
+	body#mainbody .butAction:not(.butActionDelete):not(.butActionRefused):link,
+	body#mainbody .butAction:not(.butActionDelete):not(.butActionRefused):visited,
+	body#mainbody .button:not(.buttonDelete):not(.buttonRefused):not(.button-delete):not(.buttonpayment):not(.bordertransp):not(:disabled),
+	body#mainbody input[type="submit"]:not(.buttonDelete):not(.buttonRefused):not(.buttonpayment):not(.bordertransp):not(:disabled),
+	body#mainbody input[type="button"]:not(.buttonDelete):not(.buttonRefused):not(.buttonpayment):not(.bordertransp):not(:disabled) {
+		background: var(--iform-accent-soft) !important;
+		border-color: rgba(78, 163, 255, 0.4) !important;
+		color: var(--iform-accent) !important;
+	}
+
+	body#mainbody .butAction:not(.butActionDelete):not(.butActionRefused):hover,
+	body#mainbody .button:not(.buttonDelete):not(.buttonRefused):not(.button-delete):not(.buttonpayment):not(.bordertransp):not(:disabled):hover,
+	body#mainbody input[type="submit"]:not(.buttonDelete):not(.buttonRefused):not(.buttonpayment):not(.bordertransp):not(:disabled):hover,
+	body#mainbody input[type="button"]:not(.buttonDelete):not(.buttonRefused):not(.buttonpayment):not(.bordertransp):not(:disabled):hover {
+		background: var(--iform-neutral-hover-bg) !important;
+		border-color: var(--iform-accent) !important;
+		color: var(--iform-accent) !important;
+	}
+	<?php
+		print "}\n";
+	}
+	?>
+
+	body#mainbody .butActionDelete,
+	body#mainbody .butActionDelete:link,
+	body#mainbody .butActionDelete:visited {
+		background: var(--iform-danger-bg) !important;
+		background-image: none !important;
+		border: 1px solid rgba(215, 0, 21, 0.28) !important;
+		border-radius: var(--iform-radius-sm) !important;
+		box-shadow: none !important;
+		color: var(--iform-danger) !important;
+	}
+
+	body#mainbody .butActionDelete:hover {
+		background: var(--iform-danger-hover-bg) !important;
+		border-color: var(--iform-danger) !important;
+		color: var(--iform-danger) !important;
+	}
+
+	body#mainbody .butActionRefused,
+	body#mainbody .butActionRefused:link,
+	body#mainbody .butActionRefused:visited,
+	body#mainbody .butActionNewRefused {
+		background: var(--iform-refused-bg) !important;
+		background-image: none !important;
+		border: 1px solid var(--iform-line-soft) !important;
+		border-radius: var(--iform-radius-sm) !important;
+		box-shadow: none !important;
+		color: var(--iform-muted) !important;
+		cursor: not-allowed !important;
+		opacity: 1 !important;
+	}
+
+	body#mainbody .butAction,
+	body#mainbody .butActionDelete,
+	body#mainbody .butActionRefused,
+	body#mainbody .butActionNewRefused,
+	body#mainbody .button,
+	body#mainbody .buttonDelete,
+	body#mainbody .buttonRefused,
+	body#mainbody input[type="submit"],
+	body#mainbody input[type="button"],
+	body#mainbody button.button {
+		align-items: center !important;
+		box-sizing: border-box !important;
+		display: inline-flex !important;
+		height: auto !important;
+		justify-content: center !important;
+		line-height: 1.15 !important;
+		min-height: 34px !important;
+		padding: 7px 12px !important;
+		vertical-align: middle !important;
+		white-space: nowrap;
+	}
+
+	body#mainbody div.tabsAction,
+	body#mainbody div.tabsActionNoBottom {
+		align-items: center;
+		display: flex;
+		flex-wrap: nowrap;
+		gap: 10px;
+		justify-content: flex-end;
+		overflow: visible !important;
+	}
+
+	body#mainbody div.tabsAction > a.butAction,
+	body#mainbody div.tabsAction > a.butActionRefused,
+	body#mainbody div.tabsAction > a.butActionDelete,
+	body#mainbody div.tabsAction > span.butAction,
+	body#mainbody div.tabsAction > span.butActionRefused,
+	body#mainbody div.tabsAction > span.butActionDelete,
+	body#mainbody div.tabsAction > div.divButAction > span.butAction,
+	body#mainbody div.tabsAction > div.divButAction > span.butActionDelete,
+	body#mainbody div.tabsAction > div.divButAction > span.butActionRefused,
+	body#mainbody div.tabsAction > div.divButAction > a.butAction,
+	body#mainbody div.tabsAction > div.divButAction > a.butActionDelete,
+	body#mainbody div.tabsAction > div.divButAction > a.butActionRefused,
+	body#mainbody div.tabsAction > .dropdown > .dropdown-toggle {
+		margin-bottom: 0 !important;
+		margin-left: 0 !important;
+		margin-right: 0 !important;
+	}
+
+	body#mainbody input[name="confirmmassactioninvisible"] {
+		display: none !important;
+	}
+
+	body#mainbody .butAction:focus,
+	body#mainbody .butActionDelete:focus,
+	body#mainbody .butActionRefused:focus,
+	body#mainbody .button:focus,
+	body#mainbody button:focus {
+		box-shadow: 0 0 0 3px var(--iform-focus-ring) !important;
+		outline: none !important;
+	}
+
+	body#mainbody .badge,
+	body#mainbody .badge-status,
+	body#mainbody .badgeneutral,
+	body#mainbody span.badgeneutral {
+		align-items: center;
+		border-radius: 999px !important;
+		display: inline-flex;
+		font-weight: 650 !important;
+		gap: 4px;
+		min-height: 18px;
+		padding: 2px 7px !important;
+		vertical-align: middle;
+	}
+
+	body#mainbody .badge-status,
+	body#mainbody .badgeneutral,
+	body#mainbody span.badgeneutral {
+		border: 1px solid var(--iform-line-soft) !important;
+	}
+
+	body#mainbody .badge-dot.badge-status {
+		box-sizing: border-box !important;
+		display: inline-block !important;
+		height: 14px !important;
+		min-height: 14px !important;
+		min-width: 14px !important;
+		padding: 0 !important;
+		vertical-align: middle;
+		width: 14px !important;
+	}
+
+	body#mainbody .badge-dot.badge-status0,
+	body#mainbody .badge-dot.badge-status2,
+	body#mainbody .badge-dot.badge-status5,
+	body#mainbody .badge-dot.badge-status6,
+	body#mainbody .badge-dot.badge-status9 {
+		background: rgba(200, 208, 217, 0.28) !important;
+		border: 1px solid rgba(200, 208, 217, 0.38) !important;
+	}
+
+	body#mainbody .badge-dot.badge-status1,
+	body#mainbody .badge-dot.badge-status1b,
+	body#mainbody .badge-dot.badge-status3 {
+		background: rgba(255, 211, 138, 0.32) !important;
+		border: 1px solid rgba(255, 211, 138, 0.46) !important;
+	}
+
+	body#mainbody .badge-dot.badge-status4,
+	body#mainbody .badge-dot.badge-status4b,
+	body#mainbody .badge-dot.badge-status7,
+	body#mainbody .badge-dot.badge-status11,
+	body#mainbody .badge-dot.badge-status6[data-status-element="facture"][data-status="2"],
+	body#mainbody .badge-dot.badge-status6[data-status-element="invoice_supplier"][data-status="2"],
+	body#mainbody .badge-dot.badge-status6[data-status-element="commande"][data-status="3"] {
+		background: rgba(48, 209, 88, 0.32) !important;
+		border: 1px solid rgba(48, 209, 88, 0.48) !important;
+	}
+
+	body#mainbody .badge-dot.badge-status8,
+	body#mainbody .badge-dot.badge-status10 {
+		background: rgba(255, 180, 180, 0.3) !important;
+		border: 1px solid rgba(255, 180, 180, 0.44) !important;
+	}
+
+	body#mainbody .badge .fa,
+	body#mainbody .badge-status .fa,
+	body#mainbody .badgeneutral .fa {
+		font-size: 12px !important;
+		line-height: 12px !important;
+		margin: 0 !important;
+		vertical-align: -1px;
+	}
+
+	body#mainbody .ui-dialog,
+	body#mainbody .ui-dialog-content,
+	body#mainbody .ui-dialog-titlebar,
+	body#mainbody .modal-content,
+	body#mainbody .ficheaddleft,
+	body#mainbody .ficheaddright {
+		background: var(--iform-elevated) !important;
+		border-color: var(--iform-line) !important;
+		color: var(--iform-text) !important;
+	}
+
+	body#mainbody .ui-dialog,
+	body#mainbody .modal-content {
+		border-radius: var(--iform-radius-lg) !important;
+		box-shadow: var(--iform-shadow-elevated) !important;
+		overflow: hidden;
+	}
+
+	body#mainbody .ui-widget-overlay,
+	body#mainbody .modal-backdrop {
+		background: rgba(0, 0, 0, 0.38) !important;
+	}
+
+	body#mainbody .ui-tooltip,
+	body#mainbody .tooltip,
+	body#mainbody .tooltipster-base,
+	body#mainbody .tooltipster-box {
+		background: var(--tooltipbgcolor, var(--iform-elevated)) !important;
+		border: 1px solid var(--iform-line) !important;
+		border-radius: var(--iform-radius-sm) !important;
+		box-shadow: var(--iform-shadow-menu) !important;
+		color: var(--tooltipfontcolor, var(--iform-text)) !important;
+	}
+
+	body#mainbody .jnotify-container .jnotify-notification {
+		border: 1px solid var(--iform-line) !important;
+		border-radius: var(--iform-radius) !important;
+		box-shadow: var(--iform-shadow-menu) !important;
+		overflow: hidden;
+	}
+
+	body#mainbody .jnotify-background,
+	body#mainbody div.jnotify-background,
+	body#mainbody .jnotify-container .jnotify-background {
+		background: var(--iform-elevated) !important;
+		border: 0 !important;
+	}
+
+	body#mainbody .jnotify-container .jnotify-notification .jnotify-message,
+	body#mainbody .jnotify-container .jnotify-close {
+		color: var(--iform-text) !important;
+	}
+
+	body#mainbody [class*="fa-"],
+	body#mainbody .fa,
+	body#mainbody .fas,
+	body#mainbody .far,
+	body#mainbody .fab {
+		color: inherit;
+	}
+
+	body#mainbody :is(.pictofixedwidth[class*="fa-"], .fa[class*="fa-"], .fas[class*="fa-"], .far[class*="fa-"], .fab[class*="fa-"]) {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		vertical-align: -2px;
+	}
+
+	body#mainbody :is(.pictofixedwidth[class*="fa-"], .fa[class*="fa-"], .fas[class*="fa-"], .far[class*="fa-"], .fab[class*="fa-"])::before {
+		color: currentColor;
+	}
+
+	body#mainbody img,
+	body#mainbody .flag-sprite,
+	body#mainbody [class*="flag"],
+	body#mainbody .fi,
+	body#mainbody [class^="fi-"],
+	body#mainbody [class*=" fi-"] {
+		color: initial;
+		filter: none;
+	}
+
+	body.bodylogin {
+		background-color: var(--iform-bg) !important;
+	}
+
+	body.bodylogin .login_table {
+		background: var(--iform-surface) !important;
+		border: 1px solid var(--iform-line-soft) !important;
+		border-radius: var(--iform-radius-lg) !important;
+		box-shadow: var(--iform-shadow-elevated) !important;
+		color: var(--iform-text) !important;
+	}
+
+	body.bodylogin .login_table .tagtable {
+		background: transparent !important;
+		border: 0 !important;
+		box-shadow: none !important;
+	}
+
+	body.bodylogin .login_table input#username,
+	body.bodylogin .login_table input#password,
+	body.bodylogin .login_table input#securitycode {
+		background: var(--inputbackgroundcolor, var(--iform-surface)) !important;
+		border-color: var(--inputbordercolor, var(--iform-line)) !important;
+		color: var(--iform-text) !important;
+	}
+
+	body.bodylogin .login_table input::placeholder {
+		color: var(--iform-muted) !important;
+		opacity: 0.54;
+	}
+
+	body.bodylogin .butActionLogin,
+	body.bodylogin .butActionLogin:link,
+	body.bodylogin .butActionLogin:visited,
+	body.bodylogin .butActionLogin:hover,
+	body.bodylogin .butActionLogin:active {
+		background: var(--iform-surface-alt) !important;
+		border: 1px solid var(--iform-line) !important;
+		border-radius: var(--iform-radius-sm) !important;
+		box-shadow: none !important;
+		color: var(--iform-text) !important;
+		font-weight: 650 !important;
+		min-height: 44px;
+	}
+
+	body.bodylogin .butActionLogin:hover,
+	body.bodylogin .butActionLogin:focus {
+		background: var(--iform-neutral-hover-bg) !important;
+		border-color: var(--iform-accent) !important;
+		box-shadow: 0 0 0 3px var(--iform-focus-ring) !important;
+		color: var(--iform-text) !important;
+	}
+
 	/* Final action/menu dropdown override: menu rows must not inherit primary button fills. */
 	body#mainbody .dropdown-holder.open > .dropdown-content,
 	body#mainbody .tabsAction .dropdown.open > .dropdown-menu,
@@ -3930,6 +4881,21 @@ table.jPicker {
 	body#mainbody .dropdown-holder > .dropdown-content > span.butActionRefused:hover {
 		color: var(--iform-muted) !important;
 		cursor: not-allowed !important;
+	}
+
+	body#mainbody input[name="confirmmassactioninvisible"],
+	body#mainbody input[name="confirmmassaction"].hideobject:not([style*="display: inline"]) {
+		display: none !important;
+		height: 0 !important;
+		left: -10000px !important;
+		min-height: 0 !important;
+		min-width: 0 !important;
+		opacity: 0 !important;
+		padding: 0 !important;
+		position: absolute !important;
+		top: auto !important;
+		visibility: hidden !important;
+		width: 0 !important;
 	}
 
 	@media only screen and (max-width: 767px) {
