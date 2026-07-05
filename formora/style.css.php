@@ -7305,6 +7305,33 @@ table.jPicker {
 				word-break: keep-all;
 				overflow-wrap: normal;
 			}
+
+			body#mainbody.bodyforlist #id-right .fiche .div-table-responsive {
+				-webkit-overflow-scrolling: touch;
+				border-bottom: 1px solid var(--formora-line-soft) !important;
+				box-sizing: border-box !important;
+				max-width: 100% !important;
+				overflow-x: auto !important;
+				padding-bottom: 6px !important;
+				scrollbar-color: var(--formora-line) transparent;
+				scrollbar-width: thin;
+			}
+
+			body#mainbody.bodyforlist #id-right .fiche .div-table-responsive::-webkit-scrollbar {
+				height: 8px;
+			}
+
+			body#mainbody.bodyforlist #id-right .fiche .div-table-responsive::-webkit-scrollbar-thumb {
+				background: var(--formora-line);
+				border: 2px solid transparent;
+				border-radius: 999px;
+				background-clip: content-box;
+			}
+
+			body#mainbody.bodyforlist #id-right .fiche .div-table-responsive > table.liste {
+				max-width: none !important;
+				min-width: 100% !important;
+			}
 		}
 
 <?php
