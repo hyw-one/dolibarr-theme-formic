@@ -5608,6 +5608,50 @@ table.jPicker {
 		text-decoration: none !important;
 	}
 
+	body#mainbody.mod-product.page-list a.btnTitle.btnTitlePlus[href*="/product/card.php?action=create"] {
+		align-items: center !important;
+		background: rgba(10, 132, 255, 0.12) !important;
+		border: 1px solid rgba(10, 132, 255, 0.34) !important;
+		border-radius: 6px !important;
+		border-width: 1px !important;
+		box-sizing: border-box !important;
+		color: var(--formora-accent) !important;
+		display: inline-flex !important;
+		gap: 6px !important;
+		height: 36px !important;
+		justify-content: center !important;
+		min-height: 36px !important;
+		padding: 7px 10px !important;
+		text-decoration: none !important;
+		vertical-align: middle !important;
+		white-space: nowrap !important;
+	}
+
+	body#mainbody.mod-product.page-list a.btnTitle.btnTitlePlus[href*="/product/card.php?action=create"] :is(.btnTitle-icon, .btnTitle-label) {
+		color: inherit !important;
+		line-height: 1 !important;
+	}
+
+	body#mainbody.mod-product.page-list a.btnTitle.btnTitlePlus[href*="/product/card.php?action=create"] .btnTitle-icon {
+		font-size: 14px !important;
+		margin: 0 !important;
+	}
+
+	body#mainbody.mod-product.page-list a.btnTitle.btnTitlePlus[href*="/product/card.php?action=create"] .btnTitle-label {
+		font-weight: 600 !important;
+	}
+
+	body#mainbody.mod-product.page-list a.btnTitle.btnTitlePlus[href*="/product/card.php?action=create"]:hover,
+	body#mainbody.mod-product.page-list a.btnTitle.btnTitlePlus[href*="/product/card.php?action=create"]:focus {
+		background: rgba(10, 132, 255, 0.18) !important;
+		border-color: rgba(10, 132, 255, 0.56) !important;
+		border-width: 1px !important;
+		box-shadow: none !important;
+		color: var(--formora-accent-hover) !important;
+		height: 36px !important;
+		padding: 7px 10px !important;
+	}
+
 	<?php
 	if (getDolGlobalInt('THEME_DARKMODEENABLED')) {
 		print "/* Formora dark-mode action buttons keep outline/soft fill treatment. */\n";
