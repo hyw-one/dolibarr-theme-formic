@@ -127,10 +127,10 @@ CKEDITOR.editorConfig = function( config )
 	// Used for mailing fields
 	config.toolbar_dolibarr_readonly =
 	[
-	 	['Maximize'],
-	 	['Find'],
-	 	['Image'],
-	 	['Source']
+		['Maximize'],
+		['Find'],
+		['Image'],
+		['Source'],
 		['SpecialChar'],
 	];
 };
