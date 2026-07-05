@@ -24,7 +24,7 @@
  */
 
 /**
- *		\file       htdocs/theme/iform-dolibarr/style.css.php
+ *		\file       htdocs/theme/formora/style.css.php
  *		\brief      File for CSS style sheet Eldy
  */
 
@@ -177,7 +177,7 @@ $right = ($langs->trans("DIRECTION") == 'rtl' ? 'left' : 'right');
 $left = ($langs->trans("DIRECTION") == 'rtl' ? 'right' : 'left');
 
 $path = ''; // This value may be used in future for external module to overwrite theme
-$theme = 'iform-dolibarr'; // Value of theme
+$theme = 'formora'; // Value of theme
 if (getDolGlobalString('MAIN_OVERWRITE_THEME_RES')) {
 	$path = '/' . getDolGlobalString('MAIN_OVERWRITE_THEME_RES');
 	$theme = getDolGlobalString('MAIN_OVERWRITE_THEME_RES');
@@ -251,7 +251,7 @@ if (!getDolGlobalString('THEME_ELDY_ENABLE_PERSONALIZED')) {
 	$conf->global->THEME_ELDY_FONT_SIZE2 = '0.75em';
 }
 
-// This theme deliberately keeps Eldy's layout code but freezes the iForm color set.
+// This theme deliberately keeps Eldy's layout code but freezes the Formora color set.
 $conf->global->THEME_ELDY_ENABLE_PERSONALIZED = 0;
 if (is_object($user)) {
 	$user->conf->THEME_ELDY_ENABLE_PERSONALIZED = 0;
@@ -449,144 +449,144 @@ require __DIR__.'/global.inc.php';
 
 ?>
 
-/* iForm skin layer: visual polish over Eldy's native layout. */
+/* Formora skin layer: visual polish over Eldy's native layout. */
 :root {
-	--iform-accent: #0071e3;
-	--iform-accent-hover: #005bb5;
-	--iform-accent-soft-hover: rgba(0, 113, 227, 0.16);
-	--iform-line: #c9cdd3;
-	--iform-line-soft: #e6e8ec;
-	--iform-bg: #f5f5f7;
-	--iform-surface: #ffffff;
-	--iform-surface-alt: #f5f5f7;
-	--iform-text: #1d1d1f;
-	--iform-muted: #6e6e73;
-	--iform-danger: #d70015;
-	--iform-danger-bg: #fff1f1;
-	--iform-danger-hover-bg: #ffe1e4;
-	--iform-toast-success-bg: #f0fbf3;
-	--iform-toast-success-border: rgba(36, 138, 61, 0.28);
-	--iform-toast-success-text: #1a7f37;
-	--iform-toast-warning-bg: #fff8e6;
-	--iform-toast-warning-border: rgba(178, 106, 0, 0.32);
-	--iform-toast-warning-text: #9a6700;
-	--iform-toast-error-bg: #fff1f1;
-	--iform-toast-error-border: rgba(215, 0, 21, 0.32);
-	--iform-toast-error-text: #d70015;
-	--iform-neutral-bg: #fbfbfd;
-	--iform-neutral-hover-bg: #f2f2f4;
-	--iform-refused-bg: #f5f5f7;
-	--iform-focus-ring: rgba(0, 113, 227, 0.18);
-	--iform-focus-outline: #005bb5;
-	--iform-status-success-bg: #248a3d;
-	--iform-status-success-border: rgba(36, 138, 61, 0.16);
-	--iform-status-success-text: #ffffff;
-	--iform-icon-default: #5f6368;
-	--iform-icon-muted: #86868b;
-	--iform-icon-accent: #0071e3;
-	--iform-icon-date: #57606a;
-	--iform-icon-danger: #d70015;
-	--iform-icon-warning: #b26a00;
-	--iform-icon-success: #248a3d;
-	--iform-infobox-action: #906080;
-	--iform-infobox-bank: #7a6d10;
-	--iform-infobox-contract: #238b7f;
-	--iform-infobox-customer: #65953d;
-	--iform-infobox-holiday: #755114;
-	--iform-infobox-member: #79633f;
-	--iform-infobox-project: #6c6aa8;
-	--iform-infobox-stock: #b0a53e;
-	--iform-infobox-supplier: #599caf;
-	--iform-radius-sm: 6px;
-	--iform-radius: 8px;
-	--iform-radius-lg: 12px;
-	--iform-control-height: 34px;
-	--iform-shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.05), 0 8px 24px rgba(0, 0, 0, 0.06);
-	--iform-shadow-elevated: 0 16px 42px rgba(0, 0, 0, 0.16);
-	--iform-shadow-menu: 0 10px 28px rgba(0, 0, 0, 0.14);
-	--iform-elevated: #ffffff;
-	--iform-table-header: #f5f5f7;
-	--iform-switch-knob: #ffffff;
-	--iform-module-enabled-glow: rgba(26, 127, 55, 0.16);
-	--iform-module-enabled-glow-soft: rgba(26, 127, 55, 0.05);
+	--formora-accent: #0071e3;
+	--formora-accent-hover: #005bb5;
+	--formora-accent-soft-hover: rgba(0, 113, 227, 0.16);
+	--formora-line: #c9cdd3;
+	--formora-line-soft: #e6e8ec;
+	--formora-bg: #f5f5f7;
+	--formora-surface: #ffffff;
+	--formora-surface-alt: #f5f5f7;
+	--formora-text: #1d1d1f;
+	--formora-muted: #6e6e73;
+	--formora-danger: #d70015;
+	--formora-danger-bg: #fff1f1;
+	--formora-danger-hover-bg: #ffe1e4;
+	--formora-toast-success-bg: #f0fbf3;
+	--formora-toast-success-border: rgba(36, 138, 61, 0.28);
+	--formora-toast-success-text: #1a7f37;
+	--formora-toast-warning-bg: #fff8e6;
+	--formora-toast-warning-border: rgba(178, 106, 0, 0.32);
+	--formora-toast-warning-text: #9a6700;
+	--formora-toast-error-bg: #fff1f1;
+	--formora-toast-error-border: rgba(215, 0, 21, 0.32);
+	--formora-toast-error-text: #d70015;
+	--formora-neutral-bg: #fbfbfd;
+	--formora-neutral-hover-bg: #f2f2f4;
+	--formora-refused-bg: #f5f5f7;
+	--formora-focus-ring: rgba(0, 113, 227, 0.18);
+	--formora-focus-outline: #005bb5;
+	--formora-status-success-bg: #248a3d;
+	--formora-status-success-border: rgba(36, 138, 61, 0.16);
+	--formora-status-success-text: #ffffff;
+	--formora-icon-default: #5f6368;
+	--formora-icon-muted: #86868b;
+	--formora-icon-accent: #0071e3;
+	--formora-icon-date: #57606a;
+	--formora-icon-danger: #d70015;
+	--formora-icon-warning: #b26a00;
+	--formora-icon-success: #248a3d;
+	--formora-infobox-action: #906080;
+	--formora-infobox-bank: #7a6d10;
+	--formora-infobox-contract: #238b7f;
+	--formora-infobox-customer: #65953d;
+	--formora-infobox-holiday: #755114;
+	--formora-infobox-member: #79633f;
+	--formora-infobox-project: #6c6aa8;
+	--formora-infobox-stock: #b0a53e;
+	--formora-infobox-supplier: #599caf;
+	--formora-radius-sm: 6px;
+	--formora-radius: 8px;
+	--formora-radius-lg: 12px;
+	--formora-control-height: 34px;
+	--formora-shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.05), 0 8px 24px rgba(0, 0, 0, 0.06);
+	--formora-shadow-elevated: 0 16px 42px rgba(0, 0, 0, 0.16);
+	--formora-shadow-menu: 0 10px 28px rgba(0, 0, 0, 0.14);
+	--formora-elevated: #ffffff;
+	--formora-table-header: #f5f5f7;
+	--formora-switch-knob: #ffffff;
+	--formora-module-enabled-glow: rgba(26, 127, 55, 0.16);
+	--formora-module-enabled-glow-soft: rgba(26, 127, 55, 0.05);
 	--infoboxmoduleenabledbgcolor: transparent;
-	--iform-symbol-search: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M8.7 14.2a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11Zm4-1.5 4.1 4.1' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-	--iform-symbol-refresh: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M16.2 7.2A6.4 6.4 0 0 0 4.1 5.4M3.6 3.1v3.9h3.9M3.8 12.8a6.4 6.4 0 0 0 12.1 1.8m.5 2.3v-3.9h-3.9' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-	--iform-symbol-list: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5.5 5.2h11M5.5 10h11M5.5 14.8h11M2.8 5.2h.1M2.8 10h.1M2.8 14.8h.1' fill='none' stroke='black' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
-	--iform-symbol-grid: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M3.5 3.5h4.2v4.2H3.5zM12.3 3.5h4.2v4.2h-4.2zM3.5 12.3h4.2v4.2H3.5zM12.3 12.3h4.2v4.2h-4.2z' fill='none' stroke='black' stroke-width='1.7' stroke-linejoin='round'/%3E%3C/svg%3E");
-	--iform-symbol-plus: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 3.4v13.2M3.4 10h13.2' fill='none' stroke='black' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
-	--iform-symbol-edit: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m4.1 13.8-.7 2.8 2.8-.7 9-9a2 2 0 0 0-2.8-2.8l-9 9Zm7.2-8.5 3.4 3.4' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-	--iform-symbol-trash: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M4 6h12M8 6V4.5h4V6m-6.8 0 .7 10.2h8.2L14.8 6M8.3 9v4.5M11.7 9v4.5' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-	--iform-symbol-close: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m5.2 5.2 9.6 9.6M14.8 5.2l-9.6 9.6' fill='none' stroke='black' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
-	--iform-symbol-download: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 3.4v8.4m0 0 3.2-3.2M10 11.8 6.8 8.6M4.2 15.8h11.6' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-	--iform-symbol-preview: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M2.8 10s2.6-5 7.2-5 7.2 5 7.2 5-2.6 5-7.2 5-7.2-5-7.2-5Zm7.2 2.3a2.3 2.3 0 1 0 0-4.6 2.3 2.3 0 0 0 0 4.6Z' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-	--iform-symbol-calendar: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5.5 3v3M14.5 3v3M3.5 7.3h13M5.2 4.5h9.6a1.9 1.9 0 0 1 1.9 1.9v8.4a1.9 1.9 0 0 1-1.9 1.9H5.2a1.9 1.9 0 0 1-1.9-1.9V6.4a1.9 1.9 0 0 1 1.9-1.9Z' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-	--iform-symbol-bolt: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M11.2 2.8 5 10.5h4.6l-.9 6.7 6.4-8.8h-4.8l.9-5.6Z' fill='none' stroke='black' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-	--iform-symbol-sort-up: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m5.3 12.2 4.7-4.7 4.7 4.7' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-	--iform-symbol-sort-down: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m5.3 7.8 4.7 4.7 4.7-4.7' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-	--iform-symbol-info: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 17a7 7 0 1 0 0-14 7 7 0 0 0 0 14Zm0-7.6v4.1M10 6.6h.1' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E");
-	--iform-symbol-warning: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 3.2 17 16H3L10 3.2Zm0 4.9v3.8M10 14.5h.1' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-	--iform-symbol-check: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m4 10.4 4 4L16.2 6' fill='none' stroke='black' stroke-width='2.1' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-	--iform-symbol-print: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M6 7V3.8h8V7M6 14.2H4.7a1.9 1.9 0 0 1-1.9-1.9V9.1A2.1 2.1 0 0 1 4.9 7h10.2a2.1 2.1 0 0 1 2.1 2.1v3.2a1.9 1.9 0 0 1-1.9 1.9H14M6 12h8v4.4H6z' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-	--iform-symbol-expand: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M7.8 4H4v3.8M12.2 4H16v3.8M7.8 16H4v-3.8M12.2 16H16v-3.8M4.4 4.4l4.5 4.5M15.6 4.4l-4.5 4.5M4.4 15.6l4.5-4.5M15.6 15.6l-4.5-4.5' fill='none' stroke='black' stroke-width='1.65' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-	--iform-symbol-keyboard: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M4.2 5h11.6a1.7 1.7 0 0 1 1.7 1.7v6.6a1.7 1.7 0 0 1-1.7 1.7H4.2a1.7 1.7 0 0 1-1.7-1.7V6.7A1.7 1.7 0 0 1 4.2 5Zm1.5 3.2h.1m3 0h.1m3 0h.1m3 0h.1M5.7 11h.1m3 0h5.5' fill='none' stroke='black' stroke-width='1.65' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-	--iform-symbol-shield: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 3.2 15.8 5v4.4c0 3.7-2 6.2-5.8 7.4-3.8-1.2-5.8-3.7-5.8-7.4V5L10 3.2Zm-2.4 6.7 1.7 1.7 3.3-3.4' fill='none' stroke='black' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-	--iform-symbol-clipboard: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M7.5 4.5h5M7 3.5h6v2.4H7V3.5ZM5 5.3H4v11.2h12V5.3h-1M7 9.5h6M7 12.5h4' fill='none' stroke='black' stroke-width='1.65' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-	--iform-symbol-building: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 16.5V3.5h10v13M3.6 16.5h12.8M8 6.5h.1M12 6.5h.1M8 9.5h.1M12 9.5h.1M8 12.5h.1M12 12.5h.1' fill='none' stroke='black' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-	--iform-symbol-address-book: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5.2 3.8h9.2a1.8 1.8 0 0 1 1.8 1.8v8.8a1.8 1.8 0 0 1-1.8 1.8H5.2a1.8 1.8 0 0 1-1.8-1.8V5.6a1.8 1.8 0 0 1 1.8-1.8ZM3.4 7h-1M3.4 13h-1M10 10a1.7 1.7 0 1 0 0-3.4 1.7 1.7 0 0 0 0 3.4Zm-3 3.8c.7-1.4 1.7-2.1 3-2.1s2.3.7 3 2.1' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-	--iform-symbol-user: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 9.5a3.2 3.2 0 1 0 0-6.4 3.2 3.2 0 0 0 0 6.4Zm-6 7.3c1.2-3.1 3.2-4.6 6-4.6s4.8 1.5 6 4.6' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-	--iform-symbol-users: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M8.1 9.2a2.6 2.6 0 1 0 0-5.2 2.6 2.6 0 0 0 0 5.2Zm-5.1 7c.9-2.7 2.6-4 5.1-4s4.2 1.3 5.1 4M14 10a2.2 2.2 0 1 0 0-4.4M13.8 12.3c1.7.2 2.9 1.3 3.6 3.4' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-	--iform-symbol-box: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m10 2.8 6.5 3.5v7.4L10 17.2l-6.5-3.5V6.3L10 2.8Zm-6.1 3.7L10 9.8l6.1-3.3M10 9.8v7' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-	--iform-symbol-service: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 5.2V3.5M4.5 13.5a5.5 5.5 0 0 1 11 0M3.2 16.2h13.6M7.2 5.8h5.6' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-	--iform-symbol-doc: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 3.2h6.4L15 6.8v10H5v-13.6Zm6.2.3v3.6h3.5M7.5 10h5M7.5 13h5' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-	--iform-symbol-doc-money: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 3.2h6.4L15 6.8v10H5v-13.6Zm6.2.3v3.6h3.5M10 9.2v5M8.4 10.3c.4-.6 1-.9 1.8-.9 1.1 0 1.8.5 1.8 1.2 0 1.8-3.8.8-3.8 2.6 0 .8.8 1.3 1.9 1.3.9 0 1.6-.3 2-.9' fill='none' stroke='black' stroke-width='1.55' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-	--iform-symbol-doc-signature: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 3.2h6.4L15 6.8v10H5v-13.6Zm6.2.3v3.6h3.5M7.2 13.4c1.1-2.5 2.3-2.4 2.1-.7-.1 1.3.9 1.2 1.6.2.7-.9 1.4-.9 2 .2M7.2 15.2h5.8' fill='none' stroke='black' stroke-width='1.55' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-	--iform-symbol-note: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M4.8 3.4h7.6l2.8 2.8v10.4H4.8V3.4Zm7.4.3v3h3M7.4 10h5.2M7.4 13h4' fill='none' stroke='black' stroke-width='1.65' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-	--iform-symbol-truck: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M3 6h9v7H3V6Zm9 2.5h2.7l2.3 2.6V13h-5V8.5ZM6 15.2a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Zm8 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-	--iform-symbol-briefcase: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M7.2 6V4.5h5.6V6M3.4 6h13.2v9.5H3.4V6Zm0 4.2c2.1 1 4.3 1.5 6.6 1.5s4.5-.5 6.6-1.5' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-	--iform-symbol-project: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M3.7 4.4h4.6v4.6H3.7V4.4Zm8 6.6h4.6v4.6h-4.6V11ZM8.3 6.8h3.2c2.4 0 4.2 1.6 4.2 4.2M6 9v2c0 2.4 1.8 4 4.2 4h1.5' fill='none' stroke='black' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-	--iform-symbol-task: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M4 5.5h2.5M9 5.5h7M4 10h2.5M9 10h7M4 14.5h2.5M9 14.5h7' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E");
-	--iform-symbol-bank: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M3 7h14L10 3.4 3 7Zm2 2v5M9 9v5M15 9v5M3.5 16.5h13' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-	--iform-symbol-payment: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M3.5 5.5h13v9h-13v-9Zm0 3h13M7 12h3M13 11.8l1 1 2-2' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-	--iform-symbol-wallet: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M4 6h11a2 2 0 0 1 2 2v7H4a2 2 0 0 1-2-2V5.8A1.8 1.8 0 0 1 3.8 4H14v2M13.2 10.5h3.5v2.7h-3.5a1.35 1.35 0 1 1 0-2.7Z' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-	--iform-symbol-phone: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M6.3 3.5 4.2 5.1c-.5.4-.7 1.1-.4 1.7 1.8 4 5.4 7.5 9.4 9.4.6.3 1.3.1 1.7-.4l1.6-2.1-3.6-2.4-1.4 1.5a10.6 10.6 0 0 1-4.3-4.3l1.5-1.4-2.4-3.6Z' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-	--iform-symbol-mobile: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M7 3.2h6a1.4 1.4 0 0 1 1.4 1.4v10.8a1.4 1.4 0 0 1-1.4 1.4H7a1.4 1.4 0 0 1-1.4-1.4V4.6A1.4 1.4 0 0 1 7 3.2Zm2.8 11.3h.4' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-	--iform-symbol-mail: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M3.5 5.3h13v9.4h-13V5.3Zm.5.6 6 5 6-5' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-	--iform-symbol-chat: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M4.4 5.2h11.2a2 2 0 0 1 2 2v5.1a2 2 0 0 1-2 2H9.3l-4.1 2v-2H4.4a2 2 0 0 1-2-2V7.2a2 2 0 0 1 2-2Z' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-	--iform-symbol-send: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M3.5 10.2 16.7 3.8l-3.1 12.6-3.2-4.3-4.4 2 1.7-3.9-4.2 0Zm4.2 0 8.8-6.1' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-	--iform-symbol-link: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M8.2 6.5 9.4 5.3a4 4 0 0 1 5.6 5.6l-1.7 1.7M11.8 13.5l-1.2 1.2A4 4 0 1 1 5 9.1l1.7-1.7M7.7 12.3l4.6-4.6' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-	--iform-symbol-external: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M8 5H4.8a1.8 1.8 0 0 0-1.8 1.8v8.4A1.8 1.8 0 0 0 4.8 17h8.4a1.8 1.8 0 0 0 1.8-1.8V12M11 3h6v6M9.5 10.5 16.5 3.5' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-	--iform-symbol-globe: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 17a7 7 0 1 0 0-14 7 7 0 0 0 0 14Zm0-14c2 1.8 3 4.1 3 7s-1 5.2-3 7m0-14c-2 1.8-3 4.1-3 7s1 5.2 3 7M3.5 10h13M4.8 6.4h10.4M4.8 13.6h10.4' fill='none' stroke='black' stroke-width='1.35' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-	--iform-symbol-map: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m3.5 5.4 4-1.8 5 1.8 4-1.8v11l-4 1.8-5-1.8-4 1.8v-11Zm4-1.8v11m5-9.2v11' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-	--iform-symbol-folder: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M3.2 6.2h5l1.5 1.8h7.1v6.8A1.8 1.8 0 0 1 15 16.6H5a1.8 1.8 0 0 1-1.8-1.8V6.2Z' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-	--iform-symbol-tag: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M3.5 10.3 10.3 3.5h5.2v5.2l-6.8 6.8-5.2-5.2Zm9.2-4.2h.1' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-	--iform-symbol-barcode: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M4 4.5v11M7 4.5v11M10.5 4.5v11M13 4.5v11M16 4.5v11' fill='none' stroke='black' stroke-width='1.9' stroke-linecap='round'/%3E%3C/svg%3E");
-	--iform-symbol-clock: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 17a7 7 0 1 0 0-14 7 7 0 0 0 0 14Zm0-10v3.6l2.4 1.5' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-	--iform-symbol-lock: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 8.5h10v7.8H5V8.5Zm2.2 0V6.8a2.8 2.8 0 0 1 5.6 0v1.7M10 12v1.8' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-	--iform-symbol-gear: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='black' fill-rule='evenodd' d='M8.45 2.4h3.1l.35 2.05c.43.16.84.38 1.22.65l1.95-.7 1.55 2.68-1.58 1.33c.04.26.06.52.06.79s-.02.53-.06.79l1.58 1.33-1.55 2.68-1.95-.7c-.38.27-.79.49-1.22.65L11.55 16h-3.1l-.35-2.05a5.64 5.64 0 0 1-1.22-.65l-1.95.7-1.55-2.68 1.58-1.33A5.25 5.25 0 0 1 4.9 9.2c0-.27.02-.53.06-.79L3.38 7.08 4.93 4.4l1.95.7c.38-.27.79-.49 1.22-.65L8.45 2.4ZM10 11.85a2.65 2.65 0 1 0 0-5.3 2.65 2.65 0 0 0 0 5.3Z' clip-rule='evenodd'/%3E%3C/svg%3E");
-	--iform-symbol-tools: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m4 16 5.5-5.5M6.2 3.6 8.5 6 6 8.5 3.6 6.2M11.4 4.1l4.5 4.5m-1.2-5.7 2.4 2.4-8.9 8.9-2.4-2.4 8.9-8.9Z' fill='none' stroke='black' stroke-width='1.55' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-	--iform-symbol-chart: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M4 16V4M4 16h12.5M6.5 12.5l3-3 2.2 2.1 4-5' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-	--iform-symbol-ticket: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M3.5 7.2a2.2 2.2 0 0 0 0 5.6v2h13v-2a2.2 2.2 0 0 0 0-5.6v-2h-13v2Zm7-1.8v9.2' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-	--iform-symbol-magic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m5 15 8.7-8.7M11.8 4.4l3.8 3.8M4 4.5h.1M7 2.8v1.4M15.5 13.5h.1M17.2 10.5h-1.4M8.2 17.2v-1.4' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-	--iform-symbol-server: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M4.5 3.6h11a1.6 1.6 0 0 1 1.6 1.6v2.3a1.6 1.6 0 0 1-1.6 1.6h-11a1.6 1.6 0 0 1-1.6-1.6V5.2a1.6 1.6 0 0 1 1.6-1.6Zm0 7.3h11a1.6 1.6 0 0 1 1.6 1.6v2.3a1.6 1.6 0 0 1-1.6 1.6h-11a1.6 1.6 0 0 1-1.6-1.6v-2.3a1.6 1.6 0 0 1 1.6-1.6ZM6 6.4h.1M6 13.6h.1M9 6.4h5M9 13.6h5' fill='none' stroke='black' stroke-width='1.55' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-	--iform-symbol-home: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m3.2 9 6.8-5.8L16.8 9M5 8.5v8h10v-8M8.2 16.5V12h3.6v4.5' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-	--iform-symbol-chevron-left: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m12.5 4.5-5.5 5.5 5.5 5.5' fill='none' stroke='black' stroke-width='2.1' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-	--iform-symbol-chevron-right: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m7.5 4.5 5.5 5.5-5.5 5.5' fill='none' stroke='black' stroke-width='2.1' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-	--iform-symbol-question: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 17a7 7 0 1 0 0-14 7 7 0 0 0 0 14Zm-2.1-8a2.2 2.2 0 1 1 3.5 1.8c-.9.6-1.4 1.1-1.4 2M10 15h.1' fill='none' stroke='black' stroke-width='1.65' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-	--iform-symbol-source: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M4 6.2h4.2M4 13.8h4.2M8.2 10h7.2m0 0-2.9-2.9m2.9 2.9-2.9 2.9' fill='none' stroke='black' stroke-width='1.85' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-	--iform-symbol-filter: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M3.5 5h13L11.5 10v4.5l-3 1.5v-6L3.5 5Z' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-	--iform-symbol-star: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m10 3.2 2 4.1 4.5.7-3.3 3.2.8 4.6-4-2.1-4 2.1.8-4.6L3.5 8l4.5-.7 2-4.1Z' fill='none' stroke='black' stroke-width='1.7' stroke-linejoin='round'/%3E%3C/svg%3E");
-	--iform-symbol-play: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M6.5 4.5v11l9-5.5-9-5.5Z' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-	--iform-symbol-stop-circle: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 17a7 7 0 1 0 0-14 7 7 0 0 0 0 14Zm-2.2-9.2h4.4v4.4H7.8V7.8Z' fill='none' stroke='black' stroke-width='1.7' stroke-linejoin='round'/%3E%3C/svg%3E");
-	--iform-symbol-toggle-on: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M7 6h6a4 4 0 0 1 0 8H7a4 4 0 0 1 0-8Zm6 5.8a1.8 1.8 0 1 0 0-3.6 1.8 1.8 0 0 0 0 3.6Z' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-	--iform-symbol-toggle-off: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M7 6h6a4 4 0 0 1 0 8H7a4 4 0 0 1 0-8Zm0 5.8a1.8 1.8 0 1 0 0-3.6 1.8 1.8 0 0 0 0 3.6Z' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-	--iform-symbol-crop: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M6 3v11h11M3 6h11v11M14 3v3M3 14h3' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-	--iform-symbol-rss: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 15.5h.1M4.5 10.5a5 5 0 0 1 5 5M4.5 5.5a10 10 0 0 1 10 10' fill='none' stroke='black' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
-	--iform-symbol-balance: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 3.5v13M5 7h10M6 7l-3 5h6L6 7Zm8 0-3 5h6l-3-5ZM7 17h6' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-	--iform-symbol-ruler: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M4 13.5 13.5 4l2.5 2.5L6.5 16 4 13.5Zm3.1-.4 1.2 1.2M9.2 11l1.2 1.2M11.3 8.9l1.2 1.2M13.4 6.8 14.6 8' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-	--iform-symbol-bug: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M6.7 8.1h6.6v5.1a3.3 3.3 0 0 1-6.6 0V8.1Zm1.6 0V6.3a1.7 1.7 0 0 1 3.4 0v1.8M4 10h2.7M13.3 10H16M4.8 5.5l2.4 2M12.8 7.5l2.4-2M4.8 15l2.2-1.4M13 13.6l2.2 1.4' fill='none' stroke='black' stroke-width='1.65' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-	--iform-symbol-vial: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M8 3.8h4M10 4v5.6l4.4 5.6a1.2 1.2 0 0 1-1 2H6.6a1.2 1.2 0 0 1-1-2L10 9.6M7.3 13.2h5.4' fill='none' stroke='black' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-	--iform-symbol-archive: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M4 5h12v3H4V5Zm1.2 3v8h9.6V8M8.2 11h3.6' fill='none' stroke='black' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--formora-symbol-search: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M8.7 14.2a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11Zm4-1.5 4.1 4.1' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--formora-symbol-refresh: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M16.2 7.2A6.4 6.4 0 0 0 4.1 5.4M3.6 3.1v3.9h3.9M3.8 12.8a6.4 6.4 0 0 0 12.1 1.8m.5 2.3v-3.9h-3.9' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--formora-symbol-list: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5.5 5.2h11M5.5 10h11M5.5 14.8h11M2.8 5.2h.1M2.8 10h.1M2.8 14.8h.1' fill='none' stroke='black' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+	--formora-symbol-grid: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M3.5 3.5h4.2v4.2H3.5zM12.3 3.5h4.2v4.2h-4.2zM3.5 12.3h4.2v4.2H3.5zM12.3 12.3h4.2v4.2h-4.2z' fill='none' stroke='black' stroke-width='1.7' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--formora-symbol-plus: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 3.4v13.2M3.4 10h13.2' fill='none' stroke='black' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+	--formora-symbol-edit: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m4.1 13.8-.7 2.8 2.8-.7 9-9a2 2 0 0 0-2.8-2.8l-9 9Zm7.2-8.5 3.4 3.4' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--formora-symbol-trash: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M4 6h12M8 6V4.5h4V6m-6.8 0 .7 10.2h8.2L14.8 6M8.3 9v4.5M11.7 9v4.5' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--formora-symbol-close: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m5.2 5.2 9.6 9.6M14.8 5.2l-9.6 9.6' fill='none' stroke='black' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+	--formora-symbol-download: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 3.4v8.4m0 0 3.2-3.2M10 11.8 6.8 8.6M4.2 15.8h11.6' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--formora-symbol-preview: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M2.8 10s2.6-5 7.2-5 7.2 5 7.2 5-2.6 5-7.2 5-7.2-5-7.2-5Zm7.2 2.3a2.3 2.3 0 1 0 0-4.6 2.3 2.3 0 0 0 0 4.6Z' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--formora-symbol-calendar: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5.5 3v3M14.5 3v3M3.5 7.3h13M5.2 4.5h9.6a1.9 1.9 0 0 1 1.9 1.9v8.4a1.9 1.9 0 0 1-1.9 1.9H5.2a1.9 1.9 0 0 1-1.9-1.9V6.4a1.9 1.9 0 0 1 1.9-1.9Z' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--formora-symbol-bolt: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M11.2 2.8 5 10.5h4.6l-.9 6.7 6.4-8.8h-4.8l.9-5.6Z' fill='none' stroke='black' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--formora-symbol-sort-up: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m5.3 12.2 4.7-4.7 4.7 4.7' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--formora-symbol-sort-down: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m5.3 7.8 4.7 4.7 4.7-4.7' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--formora-symbol-info: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 17a7 7 0 1 0 0-14 7 7 0 0 0 0 14Zm0-7.6v4.1M10 6.6h.1' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E");
+	--formora-symbol-warning: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 3.2 17 16H3L10 3.2Zm0 4.9v3.8M10 14.5h.1' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--formora-symbol-check: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m4 10.4 4 4L16.2 6' fill='none' stroke='black' stroke-width='2.1' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--formora-symbol-print: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M6 7V3.8h8V7M6 14.2H4.7a1.9 1.9 0 0 1-1.9-1.9V9.1A2.1 2.1 0 0 1 4.9 7h10.2a2.1 2.1 0 0 1 2.1 2.1v3.2a1.9 1.9 0 0 1-1.9 1.9H14M6 12h8v4.4H6z' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--formora-symbol-expand: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M7.8 4H4v3.8M12.2 4H16v3.8M7.8 16H4v-3.8M12.2 16H16v-3.8M4.4 4.4l4.5 4.5M15.6 4.4l-4.5 4.5M4.4 15.6l4.5-4.5M15.6 15.6l-4.5-4.5' fill='none' stroke='black' stroke-width='1.65' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--formora-symbol-keyboard: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M4.2 5h11.6a1.7 1.7 0 0 1 1.7 1.7v6.6a1.7 1.7 0 0 1-1.7 1.7H4.2a1.7 1.7 0 0 1-1.7-1.7V6.7A1.7 1.7 0 0 1 4.2 5Zm1.5 3.2h.1m3 0h.1m3 0h.1m3 0h.1M5.7 11h.1m3 0h5.5' fill='none' stroke='black' stroke-width='1.65' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--formora-symbol-shield: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 3.2 15.8 5v4.4c0 3.7-2 6.2-5.8 7.4-3.8-1.2-5.8-3.7-5.8-7.4V5L10 3.2Zm-2.4 6.7 1.7 1.7 3.3-3.4' fill='none' stroke='black' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--formora-symbol-clipboard: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M7.5 4.5h5M7 3.5h6v2.4H7V3.5ZM5 5.3H4v11.2h12V5.3h-1M7 9.5h6M7 12.5h4' fill='none' stroke='black' stroke-width='1.65' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--formora-symbol-building: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 16.5V3.5h10v13M3.6 16.5h12.8M8 6.5h.1M12 6.5h.1M8 9.5h.1M12 9.5h.1M8 12.5h.1M12 12.5h.1' fill='none' stroke='black' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--formora-symbol-address-book: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5.2 3.8h9.2a1.8 1.8 0 0 1 1.8 1.8v8.8a1.8 1.8 0 0 1-1.8 1.8H5.2a1.8 1.8 0 0 1-1.8-1.8V5.6a1.8 1.8 0 0 1 1.8-1.8ZM3.4 7h-1M3.4 13h-1M10 10a1.7 1.7 0 1 0 0-3.4 1.7 1.7 0 0 0 0 3.4Zm-3 3.8c.7-1.4 1.7-2.1 3-2.1s2.3.7 3 2.1' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--formora-symbol-user: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 9.5a3.2 3.2 0 1 0 0-6.4 3.2 3.2 0 0 0 0 6.4Zm-6 7.3c1.2-3.1 3.2-4.6 6-4.6s4.8 1.5 6 4.6' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--formora-symbol-users: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M8.1 9.2a2.6 2.6 0 1 0 0-5.2 2.6 2.6 0 0 0 0 5.2Zm-5.1 7c.9-2.7 2.6-4 5.1-4s4.2 1.3 5.1 4M14 10a2.2 2.2 0 1 0 0-4.4M13.8 12.3c1.7.2 2.9 1.3 3.6 3.4' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--formora-symbol-box: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m10 2.8 6.5 3.5v7.4L10 17.2l-6.5-3.5V6.3L10 2.8Zm-6.1 3.7L10 9.8l6.1-3.3M10 9.8v7' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--formora-symbol-service: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 5.2V3.5M4.5 13.5a5.5 5.5 0 0 1 11 0M3.2 16.2h13.6M7.2 5.8h5.6' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--formora-symbol-doc: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 3.2h6.4L15 6.8v10H5v-13.6Zm6.2.3v3.6h3.5M7.5 10h5M7.5 13h5' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--formora-symbol-doc-money: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 3.2h6.4L15 6.8v10H5v-13.6Zm6.2.3v3.6h3.5M10 9.2v5M8.4 10.3c.4-.6 1-.9 1.8-.9 1.1 0 1.8.5 1.8 1.2 0 1.8-3.8.8-3.8 2.6 0 .8.8 1.3 1.9 1.3.9 0 1.6-.3 2-.9' fill='none' stroke='black' stroke-width='1.55' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--formora-symbol-doc-signature: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 3.2h6.4L15 6.8v10H5v-13.6Zm6.2.3v3.6h3.5M7.2 13.4c1.1-2.5 2.3-2.4 2.1-.7-.1 1.3.9 1.2 1.6.2.7-.9 1.4-.9 2 .2M7.2 15.2h5.8' fill='none' stroke='black' stroke-width='1.55' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--formora-symbol-note: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M4.8 3.4h7.6l2.8 2.8v10.4H4.8V3.4Zm7.4.3v3h3M7.4 10h5.2M7.4 13h4' fill='none' stroke='black' stroke-width='1.65' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--formora-symbol-truck: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M3 6h9v7H3V6Zm9 2.5h2.7l2.3 2.6V13h-5V8.5ZM6 15.2a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Zm8 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--formora-symbol-briefcase: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M7.2 6V4.5h5.6V6M3.4 6h13.2v9.5H3.4V6Zm0 4.2c2.1 1 4.3 1.5 6.6 1.5s4.5-.5 6.6-1.5' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--formora-symbol-project: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M3.7 4.4h4.6v4.6H3.7V4.4Zm8 6.6h4.6v4.6h-4.6V11ZM8.3 6.8h3.2c2.4 0 4.2 1.6 4.2 4.2M6 9v2c0 2.4 1.8 4 4.2 4h1.5' fill='none' stroke='black' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--formora-symbol-task: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M4 5.5h2.5M9 5.5h7M4 10h2.5M9 10h7M4 14.5h2.5M9 14.5h7' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E");
+	--formora-symbol-bank: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M3 7h14L10 3.4 3 7Zm2 2v5M9 9v5M15 9v5M3.5 16.5h13' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--formora-symbol-payment: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M3.5 5.5h13v9h-13v-9Zm0 3h13M7 12h3M13 11.8l1 1 2-2' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--formora-symbol-wallet: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M4 6h11a2 2 0 0 1 2 2v7H4a2 2 0 0 1-2-2V5.8A1.8 1.8 0 0 1 3.8 4H14v2M13.2 10.5h3.5v2.7h-3.5a1.35 1.35 0 1 1 0-2.7Z' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--formora-symbol-phone: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M6.3 3.5 4.2 5.1c-.5.4-.7 1.1-.4 1.7 1.8 4 5.4 7.5 9.4 9.4.6.3 1.3.1 1.7-.4l1.6-2.1-3.6-2.4-1.4 1.5a10.6 10.6 0 0 1-4.3-4.3l1.5-1.4-2.4-3.6Z' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--formora-symbol-mobile: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M7 3.2h6a1.4 1.4 0 0 1 1.4 1.4v10.8a1.4 1.4 0 0 1-1.4 1.4H7a1.4 1.4 0 0 1-1.4-1.4V4.6A1.4 1.4 0 0 1 7 3.2Zm2.8 11.3h.4' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--formora-symbol-mail: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M3.5 5.3h13v9.4h-13V5.3Zm.5.6 6 5 6-5' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--formora-symbol-chat: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M4.4 5.2h11.2a2 2 0 0 1 2 2v5.1a2 2 0 0 1-2 2H9.3l-4.1 2v-2H4.4a2 2 0 0 1-2-2V7.2a2 2 0 0 1 2-2Z' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--formora-symbol-send: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M3.5 10.2 16.7 3.8l-3.1 12.6-3.2-4.3-4.4 2 1.7-3.9-4.2 0Zm4.2 0 8.8-6.1' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--formora-symbol-link: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M8.2 6.5 9.4 5.3a4 4 0 0 1 5.6 5.6l-1.7 1.7M11.8 13.5l-1.2 1.2A4 4 0 1 1 5 9.1l1.7-1.7M7.7 12.3l4.6-4.6' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--formora-symbol-external: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M8 5H4.8a1.8 1.8 0 0 0-1.8 1.8v8.4A1.8 1.8 0 0 0 4.8 17h8.4a1.8 1.8 0 0 0 1.8-1.8V12M11 3h6v6M9.5 10.5 16.5 3.5' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--formora-symbol-globe: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 17a7 7 0 1 0 0-14 7 7 0 0 0 0 14Zm0-14c2 1.8 3 4.1 3 7s-1 5.2-3 7m0-14c-2 1.8-3 4.1-3 7s1 5.2 3 7M3.5 10h13M4.8 6.4h10.4M4.8 13.6h10.4' fill='none' stroke='black' stroke-width='1.35' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--formora-symbol-map: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m3.5 5.4 4-1.8 5 1.8 4-1.8v11l-4 1.8-5-1.8-4 1.8v-11Zm4-1.8v11m5-9.2v11' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--formora-symbol-folder: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M3.2 6.2h5l1.5 1.8h7.1v6.8A1.8 1.8 0 0 1 15 16.6H5a1.8 1.8 0 0 1-1.8-1.8V6.2Z' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--formora-symbol-tag: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M3.5 10.3 10.3 3.5h5.2v5.2l-6.8 6.8-5.2-5.2Zm9.2-4.2h.1' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--formora-symbol-barcode: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M4 4.5v11M7 4.5v11M10.5 4.5v11M13 4.5v11M16 4.5v11' fill='none' stroke='black' stroke-width='1.9' stroke-linecap='round'/%3E%3C/svg%3E");
+	--formora-symbol-clock: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 17a7 7 0 1 0 0-14 7 7 0 0 0 0 14Zm0-10v3.6l2.4 1.5' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--formora-symbol-lock: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 8.5h10v7.8H5V8.5Zm2.2 0V6.8a2.8 2.8 0 0 1 5.6 0v1.7M10 12v1.8' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--formora-symbol-gear: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='black' fill-rule='evenodd' d='M8.45 2.4h3.1l.35 2.05c.43.16.84.38 1.22.65l1.95-.7 1.55 2.68-1.58 1.33c.04.26.06.52.06.79s-.02.53-.06.79l1.58 1.33-1.55 2.68-1.95-.7c-.38.27-.79.49-1.22.65L11.55 16h-3.1l-.35-2.05a5.64 5.64 0 0 1-1.22-.65l-1.95.7-1.55-2.68 1.58-1.33A5.25 5.25 0 0 1 4.9 9.2c0-.27.02-.53.06-.79L3.38 7.08 4.93 4.4l1.95.7c.38-.27.79-.49 1.22-.65L8.45 2.4ZM10 11.85a2.65 2.65 0 1 0 0-5.3 2.65 2.65 0 0 0 0 5.3Z' clip-rule='evenodd'/%3E%3C/svg%3E");
+	--formora-symbol-tools: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m4 16 5.5-5.5M6.2 3.6 8.5 6 6 8.5 3.6 6.2M11.4 4.1l4.5 4.5m-1.2-5.7 2.4 2.4-8.9 8.9-2.4-2.4 8.9-8.9Z' fill='none' stroke='black' stroke-width='1.55' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--formora-symbol-chart: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M4 16V4M4 16h12.5M6.5 12.5l3-3 2.2 2.1 4-5' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--formora-symbol-ticket: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M3.5 7.2a2.2 2.2 0 0 0 0 5.6v2h13v-2a2.2 2.2 0 0 0 0-5.6v-2h-13v2Zm7-1.8v9.2' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--formora-symbol-magic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m5 15 8.7-8.7M11.8 4.4l3.8 3.8M4 4.5h.1M7 2.8v1.4M15.5 13.5h.1M17.2 10.5h-1.4M8.2 17.2v-1.4' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--formora-symbol-server: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M4.5 3.6h11a1.6 1.6 0 0 1 1.6 1.6v2.3a1.6 1.6 0 0 1-1.6 1.6h-11a1.6 1.6 0 0 1-1.6-1.6V5.2a1.6 1.6 0 0 1 1.6-1.6Zm0 7.3h11a1.6 1.6 0 0 1 1.6 1.6v2.3a1.6 1.6 0 0 1-1.6 1.6h-11a1.6 1.6 0 0 1-1.6-1.6v-2.3a1.6 1.6 0 0 1 1.6-1.6ZM6 6.4h.1M6 13.6h.1M9 6.4h5M9 13.6h5' fill='none' stroke='black' stroke-width='1.55' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--formora-symbol-home: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m3.2 9 6.8-5.8L16.8 9M5 8.5v8h10v-8M8.2 16.5V12h3.6v4.5' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--formora-symbol-chevron-left: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m12.5 4.5-5.5 5.5 5.5 5.5' fill='none' stroke='black' stroke-width='2.1' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--formora-symbol-chevron-right: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m7.5 4.5 5.5 5.5-5.5 5.5' fill='none' stroke='black' stroke-width='2.1' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--formora-symbol-question: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 17a7 7 0 1 0 0-14 7 7 0 0 0 0 14Zm-2.1-8a2.2 2.2 0 1 1 3.5 1.8c-.9.6-1.4 1.1-1.4 2M10 15h.1' fill='none' stroke='black' stroke-width='1.65' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--formora-symbol-source: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M4 6.2h4.2M4 13.8h4.2M8.2 10h7.2m0 0-2.9-2.9m2.9 2.9-2.9 2.9' fill='none' stroke='black' stroke-width='1.85' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--formora-symbol-filter: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M3.5 5h13L11.5 10v4.5l-3 1.5v-6L3.5 5Z' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--formora-symbol-star: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m10 3.2 2 4.1 4.5.7-3.3 3.2.8 4.6-4-2.1-4 2.1.8-4.6L3.5 8l4.5-.7 2-4.1Z' fill='none' stroke='black' stroke-width='1.7' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--formora-symbol-play: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M6.5 4.5v11l9-5.5-9-5.5Z' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--formora-symbol-stop-circle: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 17a7 7 0 1 0 0-14 7 7 0 0 0 0 14Zm-2.2-9.2h4.4v4.4H7.8V7.8Z' fill='none' stroke='black' stroke-width='1.7' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--formora-symbol-toggle-on: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M7 6h6a4 4 0 0 1 0 8H7a4 4 0 0 1 0-8Zm6 5.8a1.8 1.8 0 1 0 0-3.6 1.8 1.8 0 0 0 0 3.6Z' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--formora-symbol-toggle-off: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M7 6h6a4 4 0 0 1 0 8H7a4 4 0 0 1 0-8Zm0 5.8a1.8 1.8 0 1 0 0-3.6 1.8 1.8 0 0 0 0 3.6Z' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--formora-symbol-crop: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M6 3v11h11M3 6h11v11M14 3v3M3 14h3' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--formora-symbol-rss: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 15.5h.1M4.5 10.5a5 5 0 0 1 5 5M4.5 5.5a10 10 0 0 1 10 10' fill='none' stroke='black' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+	--formora-symbol-balance: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 3.5v13M5 7h10M6 7l-3 5h6L6 7Zm8 0-3 5h6l-3-5ZM7 17h6' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--formora-symbol-ruler: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M4 13.5 13.5 4l2.5 2.5L6.5 16 4 13.5Zm3.1-.4 1.2 1.2M9.2 11l1.2 1.2M11.3 8.9l1.2 1.2M13.4 6.8 14.6 8' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--formora-symbol-bug: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M6.7 8.1h6.6v5.1a3.3 3.3 0 0 1-6.6 0V8.1Zm1.6 0V6.3a1.7 1.7 0 0 1 3.4 0v1.8M4 10h2.7M13.3 10H16M4.8 5.5l2.4 2M12.8 7.5l2.4-2M4.8 15l2.2-1.4M13 13.6l2.2 1.4' fill='none' stroke='black' stroke-width='1.65' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--formora-symbol-vial: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M8 3.8h4M10 4v5.6l4.4 5.6a1.2 1.2 0 0 1-1 2H6.6a1.2 1.2 0 0 1-1-2L10 9.6M7.3 13.2h5.4' fill='none' stroke='black' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--formora-symbol-archive: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M4 5h12v3H4V5Zm1.2 3v8h9.6V8M8.2 11h3.6' fill='none' stroke='black' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
 	--inputbordercolor: rgba(201, 205, 211, 0.96);
 	--colorboxstatsborder: #c9cdd3;
 	--colorboxiconbg: #f5f5f7;
@@ -594,8 +594,8 @@ require __DIR__.'/global.inc.php';
 }
 
 body {
-	color: var(--iform-text);
-	background: var(--iform-bg);
+	color: var(--formora-text);
+	background: var(--formora-bg);
 }
 
 .bodylogin .butActionLogin,
@@ -603,7 +603,7 @@ body {
 .bodylogin .butActionLogin:visited,
 .bodylogin .butActionLogin:hover,
 .bodylogin .butActionLogin:active {
-	color: var(--iform-text) !important;
+	color: var(--formora-text) !important;
 }
 
 a:link,
@@ -611,7 +611,7 @@ a:visited,
 a:hover,
 a:active,
 .classlink {
-	color: var(--iform-accent);
+	color: var(--formora-accent);
 }
 
 #mainbody .imgforviewmode,
@@ -738,34 +738,34 @@ body#mainbody :is(.fa-search, .fa-redo, .fa-sync, .fa-refresh, .fa-bars, .fa-str
 	content: "" !important;
 	display: inline-block;
 	height: 1em;
-	-webkit-mask: var(--iform-symbol-mask) center / contain no-repeat;
-	mask: var(--iform-symbol-mask) center / contain no-repeat;
+	-webkit-mask: var(--formora-symbol-mask) center / contain no-repeat;
+	mask: var(--formora-symbol-mask) center / contain no-repeat;
 	vertical-align: -0.12em;
 	width: 1em;
 }
 
 body#mainbody :is(.fa-search, .fa-bars, .fa-stream, .fa-list, .fa-th-list, .fa-th, .fa-grip-horizontal, .fa-table, .fa-arrows-alt, .fa-expand-arrows-alt, .fa-pencil-alt, .fa-edit, .fa-times, .fa-remove, .fa-caret-up, .fa-caret-down, .fa-info-circle, .fa-question, .fa-print) {
-	color: var(--iform-icon-muted) !important;
+	color: var(--formora-icon-muted) !important;
 }
 
 body#mainbody :is(.fa-redo, .fa-sync, .fa-refresh, .fa-plus-circle, .fa-plus, .fa-download, .fa-search-plus, .fa-eye, .fa-binoculars, .fa-calendar, .fa-calendar-alt, .fa-calendar-day, .fa-calendar-week) {
-	color: var(--iform-icon-accent) !important;
+	color: var(--formora-icon-accent) !important;
 }
 
 body#mainbody :is(.fa-calendar, .fa-calendar-alt, .fa-calendar-day, .fa-calendar-week) {
-	color: var(--iform-icon-date) !important;
+	color: var(--formora-icon-date) !important;
 }
 
 body#mainbody :is(.fa-trash) {
-	color: var(--iform-icon-danger) !important;
+	color: var(--formora-icon-danger) !important;
 }
 
 body#mainbody :is(.fa-exclamation-triangle) {
-	color: var(--iform-icon-warning) !important;
+	color: var(--formora-icon-warning) !important;
 }
 
 body#mainbody :is(.fa-check) {
-	color: var(--iform-icon-success) !important;
+	color: var(--formora-icon-success) !important;
 }
 
 #id-top :is(.fa-search, .fa-redo, .fa-sync, .fa-refresh, .fa-bars, .fa-stream, .fa-list, .fa-th-list, .fa-th, .fa-grip-horizontal, .fa-table, .fa-arrows-alt, .fa-expand-arrows-alt, .fa-plus-circle, .fa-plus, .fa-pencil-alt, .fa-edit, .fa-trash, .fa-times, .fa-remove, .fa-download, .fa-search-plus, .fa-eye, .fa-binoculars, .fa-calendar, .fa-calendar-alt, .fa-calendar-day, .fa-calendar-week, .fa-caret-up, .fa-caret-down, .fa-caret-left, .fa-caret-right, .fa-info-circle, .fa-exclamation-triangle, .fa-check, .fa-print),
@@ -774,79 +774,79 @@ body#mainbody :is(.fa-check) {
 }
 
 body#mainbody :is(.fa-search)::before {
-	--iform-symbol-mask: var(--iform-symbol-search);
+	--formora-symbol-mask: var(--formora-symbol-search);
 }
 
 body#mainbody :is(.fa-redo, .fa-sync, .fa-refresh)::before {
-	--iform-symbol-mask: var(--iform-symbol-refresh);
+	--formora-symbol-mask: var(--formora-symbol-refresh);
 }
 
 body#mainbody :is(.fa-bars, .fa-stream, .fa-list, .fa-th-list)::before {
-	--iform-symbol-mask: var(--iform-symbol-list);
+	--formora-symbol-mask: var(--formora-symbol-list);
 }
 
 body#mainbody :is(.fa-th, .fa-grip-horizontal, .fa-table)::before {
-	--iform-symbol-mask: var(--iform-symbol-grid);
+	--formora-symbol-mask: var(--formora-symbol-grid);
 }
 
 body#mainbody :is(.fa-arrows-alt, .fa-expand-arrows-alt)::before {
-	--iform-symbol-mask: var(--iform-symbol-expand);
+	--formora-symbol-mask: var(--formora-symbol-expand);
 }
 
 body#mainbody :is(.fa-plus-circle, .fa-plus)::before {
-	--iform-symbol-mask: var(--iform-symbol-plus);
+	--formora-symbol-mask: var(--formora-symbol-plus);
 }
 
 body#mainbody :is(.fa-pencil-alt, .fa-edit)::before {
-	--iform-symbol-mask: var(--iform-symbol-edit);
+	--formora-symbol-mask: var(--formora-symbol-edit);
 }
 
 body#mainbody :is(.fa-trash)::before {
-	--iform-symbol-mask: var(--iform-symbol-trash);
+	--formora-symbol-mask: var(--formora-symbol-trash);
 }
 
 body#mainbody :is(.fa-times, .fa-remove)::before {
-	--iform-symbol-mask: var(--iform-symbol-close);
+	--formora-symbol-mask: var(--formora-symbol-close);
 }
 
 body#mainbody :is(.fa-download)::before {
-	--iform-symbol-mask: var(--iform-symbol-download);
+	--formora-symbol-mask: var(--formora-symbol-download);
 }
 
 body#mainbody :is(.fa-search-plus, .fa-eye, .fa-binoculars)::before {
-	--iform-symbol-mask: var(--iform-symbol-preview);
+	--formora-symbol-mask: var(--formora-symbol-preview);
 }
 
 body#mainbody :is(.fa-calendar, .fa-calendar-alt, .fa-calendar-day, .fa-calendar-week)::before {
-	--iform-symbol-mask: var(--iform-symbol-calendar);
+	--formora-symbol-mask: var(--formora-symbol-calendar);
 }
 
 body#mainbody :is(.fa-caret-up)::before {
-	--iform-symbol-mask: var(--iform-symbol-sort-up);
+	--formora-symbol-mask: var(--formora-symbol-sort-up);
 }
 
 body#mainbody :is(.fa-caret-down)::before {
-	--iform-symbol-mask: var(--iform-symbol-sort-down);
+	--formora-symbol-mask: var(--formora-symbol-sort-down);
 }
 
 body#mainbody :is(.fa-caret-left)::before {
-	--iform-symbol-mask: var(--iform-symbol-chevron-left);
+	--formora-symbol-mask: var(--formora-symbol-chevron-left);
 }
 
 body#mainbody :is(.fa-caret-right)::before {
-	--iform-symbol-mask: var(--iform-symbol-chevron-right);
+	--formora-symbol-mask: var(--formora-symbol-chevron-right);
 }
 
 body#mainbody :is(.fa-info-circle)::before {
-	--iform-symbol-mask: var(--iform-symbol-info);
+	--formora-symbol-mask: var(--formora-symbol-info);
 }
 
 body#mainbody :is(.fa-question)::before {
-	--iform-symbol-mask: var(--iform-symbol-source);
+	--formora-symbol-mask: var(--formora-symbol-source);
 }
 
 body#mainbody :is(.fa-exclamation-triangle)::before {
-	--iform-symbol-mask: var(--iform-symbol-warning);
+	--formora-symbol-mask: var(--formora-symbol-warning);
 }
 
 #mainbody .fa-exclamation-triangle.hideonsmartphone::before,
@@ -857,11 +857,11 @@ body#mainbody :is(.fa-exclamation-triangle)::before {
 }
 
 body#mainbody :is(.fa-check)::before {
-	--iform-symbol-mask: var(--iform-symbol-check);
+	--formora-symbol-mask: var(--formora-symbol-check);
 }
 
 body#mainbody :is(.fa-print)::before {
-	--iform-symbol-mask: var(--iform-symbol-print);
+	--formora-symbol-mask: var(--formora-symbol-print);
 }
 
 body#mainbody :is(.fa-building, .fa-address-book, .fa-address-card, .fa-user, .fa-user-alt, .fa-user-tie, .fa-user-friends, .fa-users, .fa-cube, .fa-cubes, .fa-box, .fa-box-open, .fa-boxes, .fa-barcode, .fa-concierge-bell, .fa-file, .fa-file-alt, .fa-file-invoice, .fa-file-invoice-dollar, .fa-file-signature, .fa-file-pdf, .fa-file-pdf-o, .fa-file-o, .fa-file-text-o, .fa-file-image-o, .fa-file-code-o, .fa-file-excel-o, .fa-file-word-o, .fa-file-powerpoint-o, .fa-file-video-o, .fa-file-audio-o, .fa-file-archive, .fa-file-archive-o, .fa-archive, .fa-paragraph, .fa-clipboard, .fa-clipboard-list, .fa-keyboard, .fa-shield-alt, .fa-sticky-note, .fa-note-sticky, .fa-bug, .fa-vial, .fa-flask, .fa-dolly, .fa-truck, .fa-truck-loading, .fa-ambulance, .fa-suitcase, .fa-project-diagram, .fa-tasks, .fa-university, .fa-money-check-alt, .fa-dollar-sign, .fa-coins, .fa-wallet, .fa-stripe-s, .fa-phone, .fa-mobile-alt, .fa-fax, .fa-at, .fa-envelope, .fa-comments, .fa-comment, .fa-comment-dots, .fa-paper-plane, .fa-link, .fa-unlink, .fa-external-link-alt, .fa-share-alt, .fa-globe, .fa-globe-americas, .fa-globe-europe, .fa-map, .fa-map-marked, .fa-map-marked-alt, .fa-map-marker-alt, .fa-folder, .fa-folder-open, .fa-tag, .fa-tags, .fa-clock, .fa-business-time, .fa-language, .fa-lock, .fa-key, .fa-cog, .fa-cogs, .fa-tools, .fa-wrench, .fa-chart-line, .fa-chart-bar, .fa-ticket-alt, .fa-magic, .fa-gift, .fa-handshake, .fa-umbrella-beach, .fa-cash-register, .fa-door-open, .fa-check-double, .fa-receipt, .fa-calculator, .fa-hand-holding-usd, .fa-money-bill-alt, .fa-search-dollar, .fa-layer-group, .fa-columns, .fa-history, .fa-bullseye, .fa-id-card-alt, .fa-id-badge, .fa-people-arrows, .fa-laptop-house, .fa-pallet, .fa-shapes, .fa-chalkboard-teacher, .fa-server, .fa-weather-level4, .fa-dol-action, .fa-dol-commande, .fa-dol-contrat, .fa-dol-cubes, .fa-dol-expensereport, .fa-dol-facture, .fa-dol-holiday, .fa-dol-member, .fa-dol-project, .fa-dol-propal, .fa-dol-ticket, .fa-dol-bank_account, .fa-dol-invoice_supplier, .fa-dol-order_supplier, .fa-dol-supplier_proposal)::before {
@@ -869,214 +869,214 @@ body#mainbody :is(.fa-building, .fa-address-book, .fa-address-card, .fa-user, .f
 	content: "" !important;
 	display: inline-block;
 	height: 1em;
-	-webkit-mask: var(--iform-symbol-mask) center / contain no-repeat;
-	mask: var(--iform-symbol-mask) center / contain no-repeat;
+	-webkit-mask: var(--formora-symbol-mask) center / contain no-repeat;
+	mask: var(--formora-symbol-mask) center / contain no-repeat;
 	vertical-align: -0.12em;
 	width: 1em;
 }
 
 body#mainbody :is(.fa-building)::before {
-	--iform-symbol-mask: var(--iform-symbol-building);
+	--formora-symbol-mask: var(--formora-symbol-building);
 }
 
 body#mainbody :is(.fa-address-book, .fa-address-card)::before {
-	--iform-symbol-mask: var(--iform-symbol-address-book);
+	--formora-symbol-mask: var(--formora-symbol-address-book);
 }
 
 body#mainbody :is(.fa-user, .fa-user-alt, .fa-user-tie, .fa-dol-member)::before {
-	--iform-symbol-mask: var(--iform-symbol-user);
+	--formora-symbol-mask: var(--formora-symbol-user);
 }
 
 body#mainbody :is(.fa-user-friends, .fa-users, .fa-people-arrows)::before {
-	--iform-symbol-mask: var(--iform-symbol-users);
+	--formora-symbol-mask: var(--formora-symbol-users);
 }
 
 body#mainbody :is(.fa-cube, .fa-cubes, .fa-box, .fa-box-open, .fa-boxes, .fa-pallet, .fa-shapes, .fa-dol-cubes)::before {
-	--iform-symbol-mask: var(--iform-symbol-box);
+	--formora-symbol-mask: var(--formora-symbol-box);
 }
 
 body#mainbody :is(.fa-concierge-bell)::before {
-	--iform-symbol-mask: var(--iform-symbol-service);
+	--formora-symbol-mask: var(--formora-symbol-service);
 }
 
 body#mainbody :is(.fa-file, .fa-file-alt, .fa-file-o, .fa-file-text-o)::before {
-	--iform-symbol-mask: var(--iform-symbol-doc);
+	--formora-symbol-mask: var(--formora-symbol-doc);
 }
 
 body#mainbody :is(.fa-file-invoice, .fa-dol-commande, .fa-dol-order_supplier)::before {
-	--iform-symbol-mask: var(--iform-symbol-doc);
+	--formora-symbol-mask: var(--formora-symbol-doc);
 }
 
 body#mainbody :is(.fa-file-invoice-dollar, .fa-receipt, .fa-dol-facture, .fa-dol-invoice_supplier)::before {
-	--iform-symbol-mask: var(--iform-symbol-doc-money);
+	--formora-symbol-mask: var(--formora-symbol-doc-money);
 }
 
 body#mainbody :is(.fa-file-signature, .fa-dol-propal, .fa-dol-supplier_proposal)::before {
-	--iform-symbol-mask: var(--iform-symbol-doc-signature);
+	--formora-symbol-mask: var(--formora-symbol-doc-signature);
 }
 
 body#mainbody :is(.fa-paragraph, .fa-sticky-note, .fa-note-sticky)::before {
-	--iform-symbol-mask: var(--iform-symbol-note);
+	--formora-symbol-mask: var(--formora-symbol-note);
 }
 
 body#mainbody :is(.fa-file-pdf, .fa-file-pdf-o, .fa-file-image-o, .fa-file-code-o, .fa-file-excel-o, .fa-file-word-o, .fa-file-powerpoint-o, .fa-file-video-o, .fa-file-audio-o)::before {
-	--iform-symbol-mask: var(--iform-symbol-doc);
+	--formora-symbol-mask: var(--formora-symbol-doc);
 }
 
 body#mainbody :is(.fa-file-archive, .fa-file-archive-o, .fa-archive)::before {
-	--iform-symbol-mask: var(--iform-symbol-archive);
+	--formora-symbol-mask: var(--formora-symbol-archive);
 }
 
 body#mainbody :is(.fa-clipboard, .fa-clipboard-list)::before {
-	--iform-symbol-mask: var(--iform-symbol-clipboard);
+	--formora-symbol-mask: var(--formora-symbol-clipboard);
 }
 
 body#mainbody :is(.fa-keyboard)::before {
-	--iform-symbol-mask: var(--iform-symbol-keyboard);
+	--formora-symbol-mask: var(--formora-symbol-keyboard);
 }
 
 body#mainbody :is(.fa-shield-alt)::before {
-	--iform-symbol-mask: var(--iform-symbol-shield);
+	--formora-symbol-mask: var(--formora-symbol-shield);
 }
 
 body#mainbody :is(.fa-bug)::before {
-	--iform-symbol-mask: var(--iform-symbol-bug);
+	--formora-symbol-mask: var(--formora-symbol-bug);
 }
 
 body#mainbody :is(.fa-vial, .fa-flask)::before {
-	--iform-symbol-mask: var(--iform-symbol-vial);
+	--formora-symbol-mask: var(--formora-symbol-vial);
 }
 
 body#mainbody :is(.fa-dolly, .fa-truck, .fa-truck-loading, .fa-ambulance)::before {
-	--iform-symbol-mask: var(--iform-symbol-truck);
+	--formora-symbol-mask: var(--formora-symbol-truck);
 }
 
 body#mainbody :is(.fa-suitcase, .fa-dol-contrat)::before {
-	--iform-symbol-mask: var(--iform-symbol-briefcase);
+	--formora-symbol-mask: var(--formora-symbol-briefcase);
 }
 
 body#mainbody :is(.fa-project-diagram, .fa-dol-project)::before {
-	--iform-symbol-mask: var(--iform-symbol-project);
+	--formora-symbol-mask: var(--formora-symbol-project);
 }
 
 body#mainbody :is(.fa-tasks)::before {
-	--iform-symbol-mask: var(--iform-symbol-task);
+	--formora-symbol-mask: var(--formora-symbol-task);
 }
 
 body#mainbody :is(.fa-university, .fa-dol-bank_account)::before {
-	--iform-symbol-mask: var(--iform-symbol-bank);
+	--formora-symbol-mask: var(--formora-symbol-bank);
 }
 
 body#mainbody :is(.fa-money-check-alt, .fa-dollar-sign, .fa-coins, .fa-calculator, .fa-hand-holding-usd, .fa-search-dollar, .fa-stripe-s)::before {
-	--iform-symbol-mask: var(--iform-symbol-payment);
+	--formora-symbol-mask: var(--formora-symbol-payment);
 }
 
 body#mainbody :is(.fa-wallet, .fa-money-bill-alt, .fa-dol-expensereport)::before {
-	--iform-symbol-mask: var(--iform-symbol-wallet);
+	--formora-symbol-mask: var(--formora-symbol-wallet);
 }
 
 body#mainbody :is(.fa-phone)::before {
-	--iform-symbol-mask: var(--iform-symbol-phone);
+	--formora-symbol-mask: var(--formora-symbol-phone);
 }
 
 body#mainbody :is(.fa-mobile-alt)::before {
-	--iform-symbol-mask: var(--iform-symbol-mobile);
+	--formora-symbol-mask: var(--formora-symbol-mobile);
 }
 
 body#mainbody :is(.fa-fax)::before {
-	--iform-symbol-mask: var(--iform-symbol-print);
+	--formora-symbol-mask: var(--formora-symbol-print);
 }
 
 body#mainbody :is(.fa-at, .fa-envelope)::before {
-	--iform-symbol-mask: var(--iform-symbol-mail);
+	--formora-symbol-mask: var(--formora-symbol-mail);
 }
 
 body#mainbody :is(.fa-comments, .fa-comment, .fa-comment-dots)::before {
-	--iform-symbol-mask: var(--iform-symbol-chat);
+	--formora-symbol-mask: var(--formora-symbol-chat);
 }
 
 body#mainbody :is(.fa-paper-plane)::before {
-	--iform-symbol-mask: var(--iform-symbol-send);
+	--formora-symbol-mask: var(--formora-symbol-send);
 }
 
 body#mainbody :is(.fa-link, .fa-unlink, .fa-share-alt)::before {
-	--iform-symbol-mask: var(--iform-symbol-link);
+	--formora-symbol-mask: var(--formora-symbol-link);
 }
 
 body#mainbody :is(.fa-external-link-alt, .fa-door-open)::before {
-	--iform-symbol-mask: var(--iform-symbol-external);
+	--formora-symbol-mask: var(--formora-symbol-external);
 }
 
 body#mainbody :is(.fa-globe, .fa-globe-americas, .fa-globe-europe)::before {
-	--iform-symbol-mask: var(--iform-symbol-globe);
+	--formora-symbol-mask: var(--formora-symbol-globe);
 }
 
 body#mainbody :is(.fa-map, .fa-map-marked, .fa-map-marked-alt, .fa-map-marker-alt)::before {
-	--iform-symbol-mask: var(--iform-symbol-map);
+	--formora-symbol-mask: var(--formora-symbol-map);
 }
 
 body#mainbody :is(.fa-folder, .fa-folder-open)::before {
-	--iform-symbol-mask: var(--iform-symbol-folder);
+	--formora-symbol-mask: var(--formora-symbol-folder);
 }
 
 body#mainbody :is(.fa-tag, .fa-tags, .fa-layer-group)::before {
-	--iform-symbol-mask: var(--iform-symbol-tag);
+	--formora-symbol-mask: var(--formora-symbol-tag);
 }
 
 body#mainbody :is(.fa-barcode)::before {
-	--iform-symbol-mask: var(--iform-symbol-barcode);
+	--formora-symbol-mask: var(--formora-symbol-barcode);
 }
 
 body#mainbody :is(.fa-clock, .fa-business-time, .fa-history)::before {
-	--iform-symbol-mask: var(--iform-symbol-clock);
+	--formora-symbol-mask: var(--formora-symbol-clock);
 }
 
 body#mainbody :is(.fa-language)::before {
-	--iform-symbol-mask: var(--iform-symbol-globe);
+	--formora-symbol-mask: var(--formora-symbol-globe);
 }
 
 body#mainbody :is(.fa-lock, .fa-key)::before {
-	--iform-symbol-mask: var(--iform-symbol-lock);
+	--formora-symbol-mask: var(--formora-symbol-lock);
 }
 
 body#mainbody :is(.fa-cog, .fa-cogs)::before {
-	--iform-symbol-mask: var(--iform-symbol-gear);
+	--formora-symbol-mask: var(--formora-symbol-gear);
 }
 
 body#mainbody :is(.fa-tools, .fa-wrench)::before {
-	--iform-symbol-mask: var(--iform-symbol-tools);
+	--formora-symbol-mask: var(--formora-symbol-tools);
 }
 
 body#mainbody :is(.fa-chart-line, .fa-chart-bar)::before {
-	--iform-symbol-mask: var(--iform-symbol-chart);
+	--formora-symbol-mask: var(--formora-symbol-chart);
 }
 
 body#mainbody :is(.fa-ticket-alt, .fa-dol-ticket)::before {
-	--iform-symbol-mask: var(--iform-symbol-ticket);
+	--formora-symbol-mask: var(--formora-symbol-ticket);
 }
 
 body#mainbody :is(.fa-magic)::before {
-	--iform-symbol-mask: var(--iform-symbol-magic);
+	--formora-symbol-mask: var(--formora-symbol-magic);
 }
 
 body#mainbody :is(.fa-server)::before {
-	--iform-symbol-mask: var(--iform-symbol-server);
+	--formora-symbol-mask: var(--formora-symbol-server);
 }
 
 body#mainbody :is(.fa-weather-level4)::before {
-	--iform-symbol-mask: var(--iform-symbol-bolt);
+	--formora-symbol-mask: var(--formora-symbol-bolt);
 }
 
 body#mainbody :is(.fa-dol-action)::before {
-	--iform-symbol-mask: var(--iform-symbol-calendar);
+	--formora-symbol-mask: var(--formora-symbol-calendar);
 }
 
 body#mainbody :is(.fa-gift, .fa-handshake, .fa-umbrella-beach, .fa-cash-register, .fa-check-double, .fa-id-card-alt, .fa-id-badge, .fa-laptop-house, .fa-chalkboard-teacher, .fa-bullseye, .fa-columns)::before {
-	--iform-symbol-mask: var(--iform-symbol-service);
+	--formora-symbol-mask: var(--formora-symbol-service);
 }
 
 body#mainbody :is(.fa-dol-holiday)::before {
-	--iform-symbol-mask: var(--iform-symbol-service);
+	--formora-symbol-mask: var(--formora-symbol-service);
 }
 
 body#mainbody :is(.fa-home, .fa-chevron-left, .fa-chevron-right, .fa-angle-left, .fa-angle-right, .fa-angle-double-left, .fa-angle-double-right, .fa-arrow-left, .fa-arrow-right, .fa-arrow-up, .fa-arrow-down, .fa-long-arrow-alt-left, .fa-long-arrow-alt-right, .fa-long-arrow-alt-up, .fa-long-arrow-alt-down, .fa-arrow-alt-circle-left, .fa-arrow-alt-circle-right, .fa-arrow-alt-circle-down, .fa-question-circle, .fa-filter, .fa-star, .fa-play, .fa-stop-circle, .fa-toggle-on, .fa-toggle-off, .fa-crop, .fa-rss, .fa-balance-scale, .fa-ruler, .fa-pencil-ruler, .fa-fill, .fa-exchange-alt, .fa-code-branch, .fa-square, .fa-check-square, .fa-plus-square, .fa-indent, .fa-list-alt, .fa-mars, .fa-venus, .fa-transgender, .fa-genderless, .fa-calendar-check, .fa-eye-slash, .fa-file-export)::before {
@@ -1084,110 +1084,110 @@ body#mainbody :is(.fa-home, .fa-chevron-left, .fa-chevron-right, .fa-angle-left,
 	content: "" !important;
 	display: inline-block;
 	height: 1em;
-	-webkit-mask: var(--iform-symbol-mask) center / contain no-repeat;
-	mask: var(--iform-symbol-mask) center / contain no-repeat;
+	-webkit-mask: var(--formora-symbol-mask) center / contain no-repeat;
+	mask: var(--formora-symbol-mask) center / contain no-repeat;
 	vertical-align: -0.12em;
 	width: 1em;
 }
 
 body#mainbody :is(.fa-home)::before {
-	--iform-symbol-mask: var(--iform-symbol-home);
+	--formora-symbol-mask: var(--formora-symbol-home);
 }
 
 body#mainbody :is(.fa-chevron-left, .fa-angle-left, .fa-angle-double-left, .fa-arrow-left, .fa-long-arrow-alt-left, .fa-arrow-alt-circle-left)::before {
-	--iform-symbol-mask: var(--iform-symbol-chevron-left);
+	--formora-symbol-mask: var(--formora-symbol-chevron-left);
 }
 
 body#mainbody :is(.fa-chevron-right, .fa-angle-right, .fa-angle-double-right, .fa-arrow-right, .fa-long-arrow-alt-right, .fa-arrow-alt-circle-right, .fa-arrow-alt-circle-down)::before {
-	--iform-symbol-mask: var(--iform-symbol-chevron-right);
+	--formora-symbol-mask: var(--formora-symbol-chevron-right);
 }
 
 body#mainbody :is(.fa-arrow-up, .fa-long-arrow-alt-up)::before {
-	--iform-symbol-mask: var(--iform-symbol-sort-up);
+	--formora-symbol-mask: var(--formora-symbol-sort-up);
 }
 
 body#mainbody :is(.fa-arrow-down, .fa-long-arrow-alt-down)::before {
-	--iform-symbol-mask: var(--iform-symbol-sort-down);
+	--formora-symbol-mask: var(--formora-symbol-sort-down);
 }
 
 body#mainbody :is(.fa-question-circle)::before {
-	--iform-symbol-mask: var(--iform-symbol-question);
+	--formora-symbol-mask: var(--formora-symbol-question);
 }
 
 body#mainbody :is(.fa-indent, .fa-list-alt)::before {
-	--iform-symbol-mask: var(--iform-symbol-list);
+	--formora-symbol-mask: var(--formora-symbol-list);
 }
 
 body#mainbody :is(.fa-filter)::before {
-	--iform-symbol-mask: var(--iform-symbol-filter);
+	--formora-symbol-mask: var(--formora-symbol-filter);
 }
 
 body#mainbody :is(.fa-star)::before {
-	--iform-symbol-mask: var(--iform-symbol-star);
+	--formora-symbol-mask: var(--formora-symbol-star);
 }
 
 body#mainbody :is(.fa-play)::before {
-	--iform-symbol-mask: var(--iform-symbol-play);
+	--formora-symbol-mask: var(--formora-symbol-play);
 }
 
 body#mainbody :is(.fa-stop-circle)::before {
-	--iform-symbol-mask: var(--iform-symbol-stop-circle);
+	--formora-symbol-mask: var(--formora-symbol-stop-circle);
 }
 
 body#mainbody :is(.fa-toggle-on)::before {
-	--iform-symbol-mask: var(--iform-symbol-toggle-on);
+	--formora-symbol-mask: var(--formora-symbol-toggle-on);
 }
 
 body#mainbody :is(.fa-toggle-off)::before {
-	--iform-symbol-mask: var(--iform-symbol-toggle-off);
+	--formora-symbol-mask: var(--formora-symbol-toggle-off);
 }
 
 body#mainbody :is(.fa-crop, .fa-fill)::before {
-	--iform-symbol-mask: var(--iform-symbol-crop);
+	--formora-symbol-mask: var(--formora-symbol-crop);
 }
 
 body#mainbody :is(.fa-rss)::before {
-	--iform-symbol-mask: var(--iform-symbol-rss);
+	--formora-symbol-mask: var(--formora-symbol-rss);
 }
 
 body#mainbody :is(.fa-balance-scale)::before {
-	--iform-symbol-mask: var(--iform-symbol-balance);
+	--formora-symbol-mask: var(--formora-symbol-balance);
 }
 
 body#mainbody :is(.fa-ruler)::before {
-	--iform-symbol-mask: var(--iform-symbol-ruler);
+	--formora-symbol-mask: var(--formora-symbol-ruler);
 }
 
 body#mainbody :is(.fa-pencil-ruler)::before {
-	--iform-symbol-mask: var(--iform-symbol-tools);
+	--formora-symbol-mask: var(--formora-symbol-tools);
 }
 
 body#mainbody :is(.fa-exchange-alt)::before {
-	--iform-symbol-mask: var(--iform-symbol-refresh);
+	--formora-symbol-mask: var(--formora-symbol-refresh);
 }
 
 body#mainbody :is(.fa-calendar-check)::before {
-	--iform-symbol-mask: var(--iform-symbol-calendar);
+	--formora-symbol-mask: var(--formora-symbol-calendar);
 }
 
 body#mainbody :is(.fa-eye-slash)::before {
-	--iform-symbol-mask: var(--iform-symbol-preview);
+	--formora-symbol-mask: var(--formora-symbol-preview);
 }
 
 body#mainbody :is(.fa-file-export)::before {
-	--iform-symbol-mask: var(--iform-symbol-download);
+	--formora-symbol-mask: var(--formora-symbol-download);
 }
 
 body#mainbody :is(.fa-mars, .fa-venus, .fa-transgender, .fa-genderless)::before {
-	--iform-symbol-mask: var(--iform-symbol-user);
+	--formora-symbol-mask: var(--formora-symbol-user);
 }
 
 body#mainbody :is(.fa-code-branch)::before {
-	--iform-symbol-mask: var(--iform-symbol-project);
+	--formora-symbol-mask: var(--formora-symbol-project);
 }
 
 body#mainbody :is(.fa-square, .fa-check-square, .fa-plus-square)::before {
-	--iform-symbol-mask: var(--iform-symbol-check);
+	--formora-symbol-mask: var(--formora-symbol-check);
 }
 
 #mainbody :is(.pictotitle.widthpictotitle, .widthpictotitle.pictotitle)[class*="fa-"],
@@ -1303,7 +1303,7 @@ body#mainbody :is(.fa-square, .fa-check-square, .fa-plus-square)::before {
 
 #id-left a.vmenu[title="设置"] :is(.pictofixedwidth[class*="fa-"], .fa[class*="fa-"], .fas[class*="fa-"], .far[class*="fa-"], .fab[class*="fa-"])::before {
 	height: 18px !important;
-	--iform-symbol-mask: var(--iform-symbol-gear) !important;
+	--formora-symbol-mask: var(--formora-symbol-gear) !important;
 	width: 18px !important;
 }
 
@@ -1392,7 +1392,7 @@ body#mainbody :is(.fa-toggle-on, .fa-toggle-off)::before {
 }
 
 body#mainbody :is(.fa-toggle-on, .fa-toggle-off)::after {
-	background: var(--iform-switch-knob);
+	background: var(--formora-switch-knob);
 	border-radius: 999px;
 	box-shadow: 0 1px 2px rgba(31, 35, 40, 0.22);
 	content: "";
@@ -1412,11 +1412,11 @@ body#mainbody .fa-toggle-off::after {
 }
 
 body#mainbody .fa-toggle-on {
-	color: var(--iform-icon-success) !important;
+	color: var(--formora-icon-success) !important;
 }
 
 body#mainbody .fa-toggle-off {
-	color: var(--iform-icon-muted) !important;
+	color: var(--formora-icon-muted) !important;
 }
 
 #mainbody .fa-globe-americas,
@@ -1429,17 +1429,17 @@ body#mainbody .fa-toggle-off {
 
 #mainbody .infobox-project,
 #mainbody .fa-dol-project {
-	color: var(--iform-infobox-project) !important;
+	color: var(--formora-infobox-project) !important;
 }
 
 #mainbody .infobox-cubes,
 #mainbody .fa-dol-cubes {
-	color: var(--iform-infobox-stock) !important;
+	color: var(--formora-infobox-stock) !important;
 }
 
 #mainbody .infobox-action,
 #mainbody .fa-dol-action {
-	color: var(--iform-infobox-action) !important;
+	color: var(--formora-infobox-action) !important;
 }
 
 #mainbody .infobox-propal,
@@ -1448,7 +1448,7 @@ body#mainbody .fa-toggle-off {
 #mainbody .fa-dol-propal,
 #mainbody .fa-dol-facture,
 #mainbody .fa-dol-commande {
-	color: var(--iform-infobox-customer) !important;
+	color: var(--formora-infobox-customer) !important;
 }
 
 #mainbody .infobox-supplier_proposal,
@@ -1457,7 +1457,7 @@ body#mainbody .fa-toggle-off {
 #mainbody .fa-dol-supplier_proposal,
 #mainbody .fa-dol-invoice_supplier,
 #mainbody .fa-dol-order_supplier {
-	color: var(--iform-infobox-supplier) !important;
+	color: var(--formora-infobox-supplier) !important;
 }
 
 #mainbody .infobox-adherent,
@@ -1465,12 +1465,12 @@ body#mainbody .fa-toggle-off {
 #mainbody .infobox-expensereport,
 #mainbody .fa-dol-member,
 #mainbody .fa-dol-expensereport {
-	color: var(--iform-infobox-member) !important;
+	color: var(--formora-infobox-member) !important;
 }
 
 #mainbody .infobox-holiday,
 #mainbody .fa-dol-holiday {
-	color: var(--iform-infobox-holiday) !important;
+	color: var(--formora-infobox-holiday) !important;
 }
 
 #mainbody .infobox-bank_account,
@@ -1479,7 +1479,7 @@ body#mainbody .fa-toggle-off {
 #mainbody .fa-university,
 #mainbody .fa-dollar-sign,
 #mainbody .fa-clipboard-list {
-	color: var(--iform-infobox-bank) !important;
+	color: var(--formora-infobox-bank) !important;
 }
 
 #mainbody .infobox-contrat,
@@ -1488,7 +1488,7 @@ body#mainbody .fa-toggle-off {
 #mainbody .fa-suitcase,
 #mainbody .fa-ambulance,
 #mainbody .fa-ticket-alt {
-	color: var(--iform-infobox-contract) !important;
+	color: var(--formora-infobox-contract) !important;
 }
 
 #mainbody .classfortooltip .fa-question-circle,
@@ -1550,7 +1550,7 @@ body.bodytakepos .topnav .fab {
 #mainbody .cke_combo_off a.cke_combo_button:focus,
 #mainbody .cke_combo_off a.cke_combo_button:active {
 	background: rgba(0, 113, 227, 0.08) !important;
-	border-color: var(--iform-line) !important;
+	border-color: var(--formora-line) !important;
 }
 
 #mainbody .cke_combo_text {
@@ -1665,7 +1665,7 @@ body.bodytakepos .topnav .login_block_other a:hover:not(.nohover) {
 }
 
 #id-top {
-	border-bottom: 1px solid var(--iform-line);
+	border-bottom: 1px solid var(--formora-line);
 	box-shadow: 0 1px 0 rgba(31, 35, 40, 0.04);
 }
 
@@ -1703,7 +1703,7 @@ body.bodytakepos .topnav .login_block_other a:hover:not(.nohover) {
 
 #id-top li.tmenusel a.tmenulabel,
 #id-top li.tmenusel a.tmenulabel .mainmenuaspan {
-	color: var(--iform-accent) !important;
+	color: var(--formora-accent) !important;
 }
 
 #id-left {
@@ -1713,16 +1713,16 @@ body.bodytakepos .topnav .login_block_other a:hover:not(.nohover) {
 }
 
 #id-left .blockvmenu {
-	border-bottom: 1px solid var(--iform-line-soft) !important;
+	border-bottom: 1px solid var(--formora-line-soft) !important;
 }
 
 #id-left hr {
-	border-top-color: var(--iform-line-soft) !important;
+	border-top-color: var(--formora-line-soft) !important;
 }
 
 .menu_titre,
 .vmenu_titre {
-	color: var(--iform-text);
+	color: var(--formora-text);
 }
 
 .tab,
@@ -1744,7 +1744,7 @@ tr.liste_titre,
 table.border tr.liste_titre,
 table.noborder tr.liste_titre {
 	background-color: #f6f8fa;
-	color: var(--iform-text);
+	color: var(--formora-text);
 }
 
 tr.oddeven:hover,
@@ -1758,7 +1758,7 @@ textarea,
 select,
 .select2-container--default .select2-selection--single,
 .select2-container--default .select2-selection--multiple {
-	border-color: var(--iform-line);
+	border-color: var(--formora-line);
 	border-radius: 5px;
 }
 
@@ -1767,7 +1767,7 @@ select:focus,
 textarea:focus,
 .select2-container--open [aria-expanded="false"].select2-selection--single,
 .select2-container--focus span.selection span.select2-selection:not(.noborderfocus):not(.massactionselect) {
-	border-color: var(--iform-accent) !important;
+	border-color: var(--formora-accent) !important;
 	box-shadow: 0 0 0 2px rgba(9, 105, 218, 0.14);
 }
 
@@ -1777,9 +1777,9 @@ textarea:focus,
 #mainbody input.button:not(.buttonDelete):not(.bordertransp):not(.buttonpayment):not(:disabled),
 #mainbody button.button:not(.buttonDelete):not(.bordertransp):not(.buttonpayment):not(:disabled),
 #mainbody a.button:not(.buttonDelete):not(.bordertransp):not(.buttonpayment) {
-	background: var(--iform-accent) !important;
+	background: var(--formora-accent) !important;
 	background-image: none !important;
-	border-color: var(--iform-accent) !important;
+	border-color: var(--formora-accent) !important;
 	color: #fff !important;
 }
 
@@ -1787,9 +1787,9 @@ textarea:focus,
 #mainbody input.button:not(.buttonDelete):not(.bordertransp):not(.buttonpayment):not(:disabled):hover,
 #mainbody button.button:not(.buttonDelete):not(.bordertransp):not(.buttonpayment):not(:disabled):hover,
 #mainbody a.button:not(.buttonDelete):not(.bordertransp):not(.buttonpayment):hover {
-	background: var(--iform-accent-hover) !important;
+	background: var(--formora-accent-hover) !important;
 	background-image: none !important;
-	border-color: var(--iform-accent-hover) !important;
+	border-color: var(--formora-accent-hover) !important;
 	box-shadow: none !important;
 	color: #fff !important;
 }
@@ -1798,9 +1798,9 @@ textarea:focus,
 #mainbody button.button.buttongen:not(:disabled),
 #mainbody input.buttongen:not(:disabled),
 #mainbody button.buttongen:not(:disabled) {
-	background: var(--iform-accent) !important;
+	background: var(--formora-accent) !important;
 	background-image: none !important;
-	border: 1px solid var(--iform-accent) !important;
+	border: 1px solid var(--formora-accent) !important;
 	color: #fff !important;
 }
 
@@ -1808,9 +1808,9 @@ textarea:focus,
 #mainbody button.button.buttongen:not(:disabled):hover,
 #mainbody input.buttongen:not(:disabled):hover,
 #mainbody button.buttongen:not(:disabled):hover {
-	background: var(--iform-accent-hover) !important;
+	background: var(--formora-accent-hover) !important;
 	background-image: none !important;
-	border-color: var(--iform-accent-hover) !important;
+	border-color: var(--formora-accent-hover) !important;
 	box-shadow: none !important;
 	color: #fff !important;
 }
@@ -1821,9 +1821,9 @@ textarea:focus,
 #mainbody .butActionDelete:hover,
 #mainbody .butActionDelete:active,
 #mainbody .buttonDelete {
-	background: var(--iform-danger) !important;
+	background: var(--formora-danger) !important;
 	background-image: none !important;
-	border: 1px solid var(--iform-danger) !important;
+	border: 1px solid var(--formora-danger) !important;
 	color: #fff !important;
 	box-shadow: none !important;
 }
@@ -1848,10 +1848,10 @@ textarea:focus,
 #mainbody .buttonDelete:disabled,
 #mainbody .button.disabled,
 #mainbody .buttonDelete.disabled {
-	background: var(--iform-refused-bg) !important;
+	background: var(--formora-refused-bg) !important;
 	background-image: none !important;
-	border: 1px solid var(--iform-line) !important;
-	color: var(--iform-muted) !important;
+	border: 1px solid var(--formora-line) !important;
+	color: var(--formora-muted) !important;
 	opacity: 1 !important;
 	box-shadow: none !important;
 	cursor: not-allowed !important;
@@ -1863,7 +1863,7 @@ textarea:focus,
 #mainbody .button:focus,
 #mainbody .buttonDelete:focus {
 	outline: none !important;
-	box-shadow: 0 0 0 2px var(--iform-focus-ring) !important;
+	box-shadow: 0 0 0 2px var(--formora-focus-ring) !important;
 }
 
 #mainbody .butAction:focus-visible,
@@ -1874,9 +1874,9 @@ textarea:focus,
 #mainbody button:focus-visible,
 #mainbody a.btnTitle:focus-visible,
 #mainbody .btnTitle:focus-visible {
-	outline: 2px solid var(--iform-focus-outline) !important;
+	outline: 2px solid var(--formora-focus-outline) !important;
 	outline-offset: 3px !important;
-	box-shadow: 0 0 0 4px var(--iform-focus-ring) !important;
+	box-shadow: 0 0 0 4px var(--formora-focus-ring) !important;
 }
 
 #mainbody .butActionRefused:focus,
@@ -1891,31 +1891,31 @@ textarea:focus,
 #mainbody .dropdown-content .butActionRefused {
 	background: transparent !important;
 	border: 0 !important;
-	border-bottom: 1px solid var(--iform-line-soft) !important;
+	border-bottom: 1px solid var(--formora-line-soft) !important;
 	border-radius: 0 !important;
 	box-shadow: none !important;
-	color: var(--iform-text) !important;
+	color: var(--formora-text) !important;
 	margin-left: 0 !important;
 	margin-right: 0 !important;
 }
 
 #mainbody .dropdown-content .butAction:hover,
 #mainbody .dropdown-content .butAction:focus {
-	background: var(--iform-neutral-hover-bg) !important;
-	border-bottom-color: var(--iform-line) !important;
-	color: var(--iform-accent) !important;
+	background: var(--formora-neutral-hover-bg) !important;
+	border-bottom-color: var(--formora-line) !important;
+	color: var(--formora-accent) !important;
 	text-decoration: none !important;
 }
 
 #mainbody .dropdown-content .butActionDelete,
 #mainbody .dropdown-content .butActionDelete:link,
 #mainbody .dropdown-content .butActionDelete:visited {
-	color: var(--iform-danger) !important;
+	color: var(--formora-danger) !important;
 }
 
 #mainbody .dropdown-content .butActionDelete:hover,
 #mainbody .dropdown-content .butActionDelete:focus {
-	background: var(--iform-danger-bg) !important;
+	background: var(--formora-danger-bg) !important;
 	border-bottom-color: #ff8182 !important;
 	color: #a40e26 !important;
 	text-decoration: none !important;
@@ -1925,32 +1925,32 @@ textarea:focus,
 #mainbody .dropdown-content .butActionRefused:hover,
 #mainbody .dropdown-content .butActionRefused:focus {
 	background: transparent !important;
-	border-bottom-color: var(--iform-line-soft) !important;
-	color: var(--iform-muted) !important;
+	border-bottom-color: var(--formora-line-soft) !important;
+	color: var(--formora-muted) !important;
 	cursor: not-allowed !important;
 }
 
 #mainbody dl.dropdown dd .multichoicedoc > ul.ulselectedfields.open {
-	background: var(--iform-surface) !important;
-	border: 1px solid var(--iform-line) !important;
+	background: var(--formora-surface) !important;
+	border: 1px solid var(--formora-line) !important;
 	box-shadow: 0 8px 18px rgba(31, 35, 40, 0.12) !important;
-	color: var(--iform-text) !important;
+	color: var(--formora-text) !important;
 	max-height: none !important;
 	overflow: visible !important;
 	z-index: 1000 !important;
 }
 
 #mainbody dl.dropdown dd .multichoicedoc > ul.ulselectedfields.open > li {
-	color: var(--iform-text) !important;
+	color: var(--formora-text) !important;
 }
 
 #mainbody dl.dropdown dd .multichoicedoc > ul.ulselectedfields.open > li:hover:not(.liinputsearch) {
-	background: var(--iform-neutral-hover-bg) !important;
-	color: var(--iform-accent) !important;
+	background: var(--formora-neutral-hover-bg) !important;
+	color: var(--formora-accent) !important;
 }
 
 #mainbody dl.dropdown dd .multichoicedoc > ul.ulselectedfields.open a {
-	color: var(--iform-accent) !important;
+	color: var(--formora-accent) !important;
 	text-decoration: none !important;
 }
 
@@ -1976,9 +1976,9 @@ textarea:focus,
 #mainbody a.btnTitle,
 #mainbody .btnTitle {
 	background: transparent !important;
-	border-color: var(--iform-line) !important;
+	border-color: var(--formora-line) !important;
 	box-shadow: none !important;
-	color: var(--iform-muted) !important;
+	color: var(--formora-muted) !important;
 }
 
 #mainbody .box-flex-container.kanban .box-flex-item.info-box-module,
@@ -1989,15 +1989,15 @@ textarea:focus,
 }
 
 #mainbody .box-flex-container.kanban .box-flex-item.info-box-module .info-box {
-	background: var(--iform-surface) !important;
+	background: var(--formora-surface) !important;
 	background-image: none !important;
-	border-color: var(--iform-line) !important;
+	border-color: var(--formora-line) !important;
 	overflow: hidden;
 	position: relative;
 }
 
 #mainbody .box-flex-container.kanban .box-flex-item.info-box-module .info-box-icon {
-	background: var(--iform-surface-alt) !important;
+	background: var(--formora-surface-alt) !important;
 	background-image: none !important;
 	position: relative;
 	z-index: 1;
@@ -2012,7 +2012,7 @@ textarea:focus,
 }
 
 #mainbody .box-flex-container.kanban .box-flex-item.info-box-module:not(.--disabled) .info-box::after {
-	background: radial-gradient(circle at calc(100% - 42px) calc(100% - 18px), var(--iform-module-enabled-glow) 0%, var(--iform-module-enabled-glow-soft) 38%, transparent 74%);
+	background: radial-gradient(circle at calc(100% - 42px) calc(100% - 18px), var(--formora-module-enabled-glow) 0%, var(--formora-module-enabled-glow-soft) 38%, transparent 74%);
 	bottom: 0;
 	content: "";
 	pointer-events: none;
@@ -2028,21 +2028,21 @@ table.noborder,
 table.liste,
 .div-table-responsive,
 .div-table-responsive-no-min {
-	border-color: var(--iform-line);
+	border-color: var(--formora-line);
 }
 
 #mainbody .fichehalfleft table.noborder.centpercent,
 #mainbody .fichehalfright table.noborder.centpercent,
 #mainbody .boxhalfleft table.noborder.centpercent,
 #mainbody .boxhalfright table.noborder.centpercent {
-	border: 1px solid var(--iform-line) !important;
-	border-color: var(--iform-line) !important;
+	border: 1px solid var(--formora-line) !important;
+	border-color: var(--formora-line) !important;
 }
 
 div.liste_titre_bydiv,
 div.liste_titre_bydiv_nothingafter,
 #mainbody .liste_titre.liste_titre_bydiv {
-	border-color: var(--iform-line) !important;
+	border-color: var(--formora-line) !important;
 }
 
 #mainbody .div-table-responsive > table.liste:not(.listwithfilterbefore),
@@ -2090,13 +2090,13 @@ div.liste_titre_bydiv_nothingafter,
 #mainbody table.tagtable.liste,
 #mainbody .div-table-responsive > table.liste,
 #mainbody .div-table-responsive-no-min > table.liste {
-	border-color: var(--iform-line) !important;
+	border-color: var(--formora-line) !important;
 }
 
 #mainbody table.liste :is(tr, td, th),
 #mainbody table.tagtable.liste :is(tr, td, th),
 #mainbody table.liste > :is(thead, tbody, tfoot) > tr > :is(td, th) {
-	border-color: var(--iform-line) !important;
+	border-color: var(--formora-line) !important;
 }
 
 #mainbody table.liste.formdoc > :is(tbody, tfoot):last-child > tr:last-child > :is(td, th),
@@ -2134,9 +2134,9 @@ div.liste_titre_bydiv_nothingafter,
 .badge-status.badge-status6[data-status-element="facture"][data-status="2"],
 .badge-status.badge-status6[data-status-element="invoice_supplier"][data-status="2"],
 .badge-status.badge-status6[data-status-element="commande"][data-status="3"] {
-	background: var(--iform-status-success-bg) !important;
-	border-color: var(--iform-status-success-border) !important;
-	color: var(--iform-status-success-text) !important;
+	background: var(--formora-status-success-bg) !important;
+	border-color: var(--formora-status-success-border) !important;
+	color: var(--formora-status-success-text) !important;
 }
 
 /* Some embedded linked-object tables render the status badge in label-less (tooltip-only) mode; without any text a badge with pill padding collapses into a thin flat bar instead of reading as a status dot. */
@@ -2192,7 +2192,7 @@ div.liste_titre_bydiv_nothingafter,
 }
 
 #mainbody :is(.dpInvisibleButtons, .datenowlink) {
-	border-color: var(--iform-line) !important;
+	border-color: var(--formora-line) !important;
 	box-shadow: none !important;
 }
 
@@ -2209,8 +2209,8 @@ div.liste_titre_bydiv_nothingafter,
 
 .jnotify-container .jnotify-notification {
 	max-width: min(520px, calc(100vw - 32px));
-	background: var(--iform-surface) !important;
-	border: 1px solid var(--iform-line);
+	background: var(--formora-surface) !important;
+	border: 1px solid var(--formora-line);
 	border-radius: 6px;
 	box-shadow: 0 10px 24px rgba(31, 35, 40, 0.12);
 	overflow: hidden;
@@ -2228,13 +2228,13 @@ div.jnotify-background,
 }
 
 .jnotify-container .jnotify-notification .jnotify-message {
-	color: var(--iform-text) !important;
+	color: var(--formora-text) !important;
 	padding: 12px 14px;
 }
 
 <?php
 if (getDolGlobalInt('THEME_DARKMODEENABLED')) {
-	print "/* iForm dark skin layer */\n";
+	print "/* Formora dark skin layer */\n";
 	if (getDolGlobalInt('THEME_DARKMODEENABLED') != 2) {
 		print "@media (prefers-color-scheme: dark) {";
 	} else {
@@ -2243,61 +2243,61 @@ if (getDolGlobalInt('THEME_DARKMODEENABLED')) {
 ?>
 :root {
 	color-scheme: dark;
-	--iform-accent: #0a84ff;
-	--iform-accent-hover: #64b5ff;
-	--iform-accent-soft: rgba(10, 132, 255, 0.18);
-	--iform-line: #3a3a3c;
-	--iform-line-soft: #2c2c2e;
-	--iform-bg: #0f1012;
-	--iform-surface: #1c1c1e;
-	--iform-surface-alt: #242426;
-	--iform-text: #f5f5f7;
-	--iform-muted: #a1a1a6;
-	--iform-danger: #ff6961;
-	--iform-danger-bg: #3a1f22;
-	--iform-danger-hover-bg: #4a2428;
-	--iform-toast-success-bg: rgba(48, 209, 88, 0.16);
-	--iform-toast-success-border: rgba(48, 209, 88, 0.36);
-	--iform-toast-success-text: #8ff0a4;
-	--iform-toast-warning-bg: rgba(255, 214, 10, 0.16);
-	--iform-toast-warning-border: rgba(255, 214, 10, 0.36);
-	--iform-toast-warning-text: #ffd60a;
-	--iform-toast-error-bg: rgba(255, 105, 97, 0.16);
-	--iform-toast-error-border: rgba(255, 105, 97, 0.42);
-	--iform-toast-error-text: #ff8a82;
-	--iform-neutral-bg: #202124;
-	--iform-neutral-hover-bg: #2c2c2e;
-	--iform-refused-bg: #202124;
-	--iform-focus-ring: rgba(10, 132, 255, 0.32);
-	--iform-focus-outline: #78b7ff;
-	--iform-status-success-bg: rgba(48, 209, 88, 0.16);
-	--iform-status-success-border: rgba(48, 209, 88, 0.32);
-	--iform-status-success-text: #30d158;
-	--iform-icon-default: #a1a1a6;
-	--iform-icon-muted: #8e8e93;
-	--iform-icon-accent: #64b5ff;
-	--iform-icon-date: #a1a1a6;
-	--iform-icon-danger: #ff6961;
-	--iform-icon-warning: #ffd60a;
-	--iform-icon-success: #30d158;
-	--iform-accent-soft-hover: rgba(10, 132, 255, 0.28);
-	--iform-infobox-action: #c98fb4;
-	--iform-infobox-bank: #d8ca53;
-	--iform-infobox-contract: #55d6c4;
-	--iform-infobox-customer: #9bd56b;
-	--iform-infobox-holiday: #e3b85a;
-	--iform-infobox-member: #d3a66c;
-	--iform-infobox-project: #aaa7ee;
-	--iform-infobox-stock: #d7ce5e;
-	--iform-infobox-supplier: #73c7df;
-	--iform-switch-knob: #1c1f22;
-	--iform-module-enabled-glow: rgba(48, 209, 88, 0.26);
-	--iform-module-enabled-glow-soft: rgba(48, 209, 88, 0.08);
-	--iform-shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.35), 0 8px 24px rgba(0, 0, 0, 0.28);
-	--iform-shadow-elevated: 0 18px 48px rgba(0, 0, 0, 0.48);
-	--iform-shadow-menu: 0 14px 34px rgba(0, 0, 0, 0.5);
-	--iform-elevated: #242426;
-	--iform-table-header: #242426;
+	--formora-accent: #0a84ff;
+	--formora-accent-hover: #64b5ff;
+	--formora-accent-soft: rgba(10, 132, 255, 0.18);
+	--formora-line: #3a3a3c;
+	--formora-line-soft: #2c2c2e;
+	--formora-bg: #0f1012;
+	--formora-surface: #1c1c1e;
+	--formora-surface-alt: #242426;
+	--formora-text: #f5f5f7;
+	--formora-muted: #a1a1a6;
+	--formora-danger: #ff6961;
+	--formora-danger-bg: #3a1f22;
+	--formora-danger-hover-bg: #4a2428;
+	--formora-toast-success-bg: rgba(48, 209, 88, 0.16);
+	--formora-toast-success-border: rgba(48, 209, 88, 0.36);
+	--formora-toast-success-text: #8ff0a4;
+	--formora-toast-warning-bg: rgba(255, 214, 10, 0.16);
+	--formora-toast-warning-border: rgba(255, 214, 10, 0.36);
+	--formora-toast-warning-text: #ffd60a;
+	--formora-toast-error-bg: rgba(255, 105, 97, 0.16);
+	--formora-toast-error-border: rgba(255, 105, 97, 0.42);
+	--formora-toast-error-text: #ff8a82;
+	--formora-neutral-bg: #202124;
+	--formora-neutral-hover-bg: #2c2c2e;
+	--formora-refused-bg: #202124;
+	--formora-focus-ring: rgba(10, 132, 255, 0.32);
+	--formora-focus-outline: #78b7ff;
+	--formora-status-success-bg: rgba(48, 209, 88, 0.16);
+	--formora-status-success-border: rgba(48, 209, 88, 0.32);
+	--formora-status-success-text: #30d158;
+	--formora-icon-default: #a1a1a6;
+	--formora-icon-muted: #8e8e93;
+	--formora-icon-accent: #64b5ff;
+	--formora-icon-date: #a1a1a6;
+	--formora-icon-danger: #ff6961;
+	--formora-icon-warning: #ffd60a;
+	--formora-icon-success: #30d158;
+	--formora-accent-soft-hover: rgba(10, 132, 255, 0.28);
+	--formora-infobox-action: #c98fb4;
+	--formora-infobox-bank: #d8ca53;
+	--formora-infobox-contract: #55d6c4;
+	--formora-infobox-customer: #9bd56b;
+	--formora-infobox-holiday: #e3b85a;
+	--formora-infobox-member: #d3a66c;
+	--formora-infobox-project: #aaa7ee;
+	--formora-infobox-stock: #d7ce5e;
+	--formora-infobox-supplier: #73c7df;
+	--formora-switch-knob: #1c1f22;
+	--formora-module-enabled-glow: rgba(48, 209, 88, 0.26);
+	--formora-module-enabled-glow-soft: rgba(48, 209, 88, 0.08);
+	--formora-shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.35), 0 8px 24px rgba(0, 0, 0, 0.28);
+	--formora-shadow-elevated: 0 18px 48px rgba(0, 0, 0, 0.48);
+	--formora-shadow-menu: 0 14px 34px rgba(0, 0, 0, 0.5);
+	--formora-elevated: #242426;
+	--formora-table-header: #242426;
 	--colorbackhmenu1: #1c1c1e;
 	--colorbackvmenu1: #151517;
 	--colorbacktitle1: #242426;
@@ -2340,8 +2340,8 @@ if (getDolGlobalInt('THEME_DARKMODEENABLED')) {
 html,
 body,
 #mainbody {
-	background: var(--iform-bg) !important;
-	color: var(--iform-text);
+	background: var(--formora-bg) !important;
+	color: var(--formora-text);
 }
 
 .bodylogin .login_table input#username,
@@ -2364,26 +2364,26 @@ a:active,
 .nowraponall a,
 .linkobject,
 .linkobject:visited {
-	color: var(--iform-accent);
+	color: var(--formora-accent);
 }
 
 hr,
 .opacitymedium {
-	border-color: var(--iform-line-soft);
+	border-color: var(--formora-line-soft);
 }
 
 #id-top,
 .login_block,
 .inline-block.login_block {
-	background: var(--iform-surface) !important;
-	border-color: var(--iform-line-soft) !important;
-	color: var(--iform-text) !important;
+	background: var(--formora-surface) !important;
+	border-color: var(--formora-line-soft) !important;
+	color: var(--formora-text) !important;
 }
 
 .tmenu,
 .tmenuimage {
-	background: var(--iform-surface) !important;
-	border-color: var(--iform-line-soft) !important;
+	background: var(--formora-surface) !important;
+	border-color: var(--formora-line-soft) !important;
 }
 
 #id-top {
@@ -2436,7 +2436,7 @@ body#mainbody .login_block.usedropdown #topmenu-login-dropdown > a.dropdown-togg
 #id-top a.tmenulabel .mainmenuaspan,
 .login_block,
 .login_block > a {
-	color: var(--iform-text) !important;
+	color: var(--formora-text) !important;
 }
 
 #id-top li.tmenu div.tmenucenter,
@@ -2466,7 +2466,7 @@ body#mainbody .login_block.usedropdown #topmenu-login-dropdown > a.dropdown-togg
 #id-top li.tmenusel a.tmenulabel .mainmenuaspan,
 #id-top li.tmenu:not(.nohover):hover a.tmenulabel,
 #id-top li.tmenu:not(.nohover):hover a.tmenulabel .mainmenuaspan {
-	color: var(--iform-accent-hover) !important;
+	color: var(--formora-accent-hover) !important;
 }
 
 #id-left,
@@ -2481,8 +2481,8 @@ body#mainbody .login_block.usedropdown #topmenu-login-dropdown > a.dropdown-togg
 .vmenu_titre,
 .menu_titre {
 	background: var(--colorbackvmenu1) !important;
-	border-color: var(--iform-line-soft) !important;
-	color: var(--iform-text) !important;
+	border-color: var(--formora-line-soft) !important;
+	color: var(--formora-text) !important;
 }
 
 #id-container {
@@ -2513,20 +2513,20 @@ body#mainbody .login_block.usedropdown #topmenu-login-dropdown > a.dropdown-togg
 
 .side-nav,
 .side-nav-vert {
-	border-color: var(--iform-line-soft) !important;
+	border-color: var(--formora-line-soft) !important;
 	box-shadow: none !important;
 }
 
 #id-left a,
 .vmenu a,
 .menu_contenu a {
-	color: var(--iform-muted) !important;
+	color: var(--formora-muted) !important;
 }
 
 #id-left a:hover,
 .vmenu a:hover,
 .menu_contenu a:hover {
-	color: var(--iform-accent-hover) !important;
+	color: var(--formora-accent-hover) !important;
 }
 
 .info-box,
@@ -2554,9 +2554,9 @@ body#mainbody .login_block.usedropdown #topmenu-login-dropdown > a.dropdown-togg
 .dropdown-bookmark,
 .dropdown-quickadd,
 .dropdown-content {
-	background: var(--iform-surface) !important;
-	border-color: var(--iform-line) !important;
-	color: var(--iform-text) !important;
+	background: var(--formora-surface) !important;
+	border-color: var(--formora-line) !important;
+	color: var(--formora-text) !important;
 }
 
 .ui-dialog {
@@ -2568,28 +2568,28 @@ body#mainbody .login_block.usedropdown #topmenu-login-dropdown > a.dropdown-togg
 }
 
 .box-flex-item.info-box-module:not(.--disabled) {
-	border-color: var(--iform-line) !important;
+	border-color: var(--formora-line) !important;
 }
 
 .box-flex-item.info-box-module:not(.--disabled) .info-box-content {
-	color: var(--iform-text) !important;
+	color: var(--formora-text) !important;
 }
 
 .box-flex-item.info-box-module:not(.--disabled) .info-box-title,
 .box-flex-item.info-box-module:not(.--disabled) .info-box-text {
-	color: var(--iform-text) !important;
+	color: var(--formora-text) !important;
 }
 
 .box-flex-item.info-box-module:not(.--disabled) .info-box-desc,
 .box-flex-item.info-box-module:not(.--disabled) .info-box-desc-long {
-	color: var(--iform-muted) !important;
+	color: var(--formora-muted) !important;
 }
 
 div.ui-tooltip.mytooltip,
 div.ui-tooltip.mytooltip-hover-tooltip {
-	background: var(--iform-surface) !important;
-	border: 1px solid var(--iform-line) !important;
-	color: var(--iform-text) !important;
+	background: var(--formora-surface) !important;
+	border: 1px solid var(--formora-line) !important;
+	color: var(--formora-text) !important;
 	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.45) !important;
 	filter: none !important;
 }
@@ -2607,19 +2607,19 @@ div.ui-tooltip.mytooltip-hover-tooltip {
 }
 
 #mainbody dl.dropdown dd .multichoicedoc > ul.ulselectedfields.open {
-	background: var(--iform-surface) !important;
-	border-color: var(--iform-line) !important;
+	background: var(--formora-surface) !important;
+	border-color: var(--formora-line) !important;
 	box-shadow: 0 14px 28px rgba(0, 0, 0, 0.56) !important;
-	color: var(--iform-text) !important;
+	color: var(--formora-text) !important;
 }
 
 #mainbody dl.dropdown dd .multichoicedoc > ul.ulselectedfields.open > li:hover:not(.liinputsearch) {
-	background: var(--iform-neutral-hover-bg) !important;
-	color: var(--iform-accent-hover) !important;
+	background: var(--formora-neutral-hover-bg) !important;
+	color: var(--formora-accent-hover) !important;
 }
 
 #mainbody .dropdown-holder.open .dropdown-content::before {
-	border-color: transparent transparent var(--iform-surface) transparent !important;
+	border-color: transparent transparent var(--formora-surface) transparent !important;
 }
 
 .box {
@@ -2632,16 +2632,16 @@ div.ui-tooltip.mytooltip-hover-tooltip {
 
 .user-footer .button-top-menu-dropdown,
 .dropdown-item {
-	background: var(--iform-surface-alt) !important;
-	border-color: var(--iform-line) !important;
-	color: var(--iform-text) !important;
+	background: var(--formora-surface-alt) !important;
+	border-color: var(--formora-line) !important;
+	color: var(--formora-text) !important;
 }
 
 .dropdown-item.active,
 .dropdown-item:hover,
 .dropdown-item:focus {
-	background: var(--iform-neutral-hover-bg) !important;
-	color: var(--iform-accent-hover) !important;
+	background: var(--formora-neutral-hover-bg) !important;
+	color: var(--formora-accent-hover) !important;
 }
 
 #topmenu-quickadd-dropdown .dropdown-item.active,
@@ -2650,8 +2650,8 @@ div.ui-tooltip.mytooltip-hover-tooltip {
 #topmenu-global-search-dropdown .dropdown-item.active,
 #topmenu-global-search-dropdown .dropdown-item:hover,
 #topmenu-global-search-dropdown .dropdown-item:focus {
-	background: var(--iform-neutral-hover-bg) !important;
-	color: var(--iform-text) !important;
+	background: var(--formora-neutral-hover-bg) !important;
+	color: var(--formora-text) !important;
 }
 
 #topmenu-quickadd-dropdown .dropdown-item span,
@@ -2691,8 +2691,8 @@ div.ui-tooltip.mytooltip-hover-tooltip {
 .tabBarNoBottom,
 .tabBar .tabBar {
 	background: transparent !important;
-	border-color: var(--iform-line-soft) !important;
-	color: var(--iform-text) !important;
+	border-color: var(--formora-line-soft) !important;
+	color: var(--formora-text) !important;
 }
 
 .tabBar,
@@ -2703,9 +2703,9 @@ div.ui-tooltip.mytooltip-hover-tooltip {
 
 #mainbody .divsection,
 #mainbody .divsection.wordbreak {
-	background: var(--iform-surface) !important;
-	border-color: var(--iform-line) !important;
-	color: var(--iform-text) !important;
+	background: var(--formora-surface) !important;
+	border-color: var(--formora-line) !important;
+	color: var(--formora-text) !important;
 }
 
 .tab,
@@ -2716,18 +2716,18 @@ div.ui-tooltip.mytooltip-hover-tooltip {
 	background: transparent !important;
 	border: 0 !important;
 	border-bottom: 3px solid transparent !important;
-	color: var(--iform-muted) !important;
+	color: var(--formora-muted) !important;
 	box-shadow: none !important;
 }
 
 .tabactive,
 .tabBar .tabsElem.tabsElemActive a,
 .tabs .tabsElem.tabsElemActive a {
-	color: var(--iform-accent-hover) !important;
+	color: var(--formora-accent-hover) !important;
 }
 
 .tabactive {
-	border-bottom-color: var(--iform-accent) !important;
+	border-bottom-color: var(--formora-accent) !important;
 	box-shadow: none !important;
 }
 
@@ -2755,7 +2755,7 @@ div.tabsElem a.tabunactive::before {
 .liste_total,
 .amount,
 .opacityhigh {
-	color: var(--iform-text) !important;
+	color: var(--formora-text) !important;
 }
 
 .secondary,
@@ -2769,7 +2769,7 @@ div.tabsElem a.tabunactive::before {
 .tableforfield td:first-child,
 .tableforfield div.tagtd:first-child,
 .trforfield td:first-child {
-	color: var(--iform-muted) !important;
+	color: var(--formora-muted) !important;
 }
 
 #mainbody .fa.opacityhigh,
@@ -2795,16 +2795,16 @@ table.liste,
 .tagtable,
 .paymenttable,
 .margintable {
-	background: var(--iform-surface) !important;
-	border-color: var(--iform-line-soft) !important;
-	color: var(--iform-text) !important;
+	background: var(--formora-surface) !important;
+	border-color: var(--formora-line-soft) !important;
+	color: var(--formora-text) !important;
 }
 
 table.border,
 .border {
 	background: transparent !important;
-	border-color: var(--iform-line-soft) !important;
-	color: var(--iform-text) !important;
+	border-color: var(--formora-line-soft) !important;
+	color: var(--formora-text) !important;
 }
 
 .liste_titre,
@@ -2817,9 +2817,9 @@ table.liste tr.liste_titre,
 div.liste_titre,
 div.liste_titre_bydiv,
 table.dataTable thead tr {
-	background: var(--iform-surface-alt) !important;
-	border-color: var(--iform-line) !important;
-	color: var(--iform-text) !important;
+	background: var(--formora-surface-alt) !important;
+	border-color: var(--formora-line) !important;
+	color: var(--formora-text) !important;
 }
 
 .liste_titre a,
@@ -2827,20 +2827,20 @@ table.dataTable thead tr {
 .liste_titre th a,
 tr.liste_titre th a,
 tr.liste_titre td a {
-	color: var(--iform-accent-hover) !important;
+	color: var(--formora-accent-hover) !important;
 }
 
 div.liste_titre_bydiv,
 div.liste_titre_bydiv_nothingafter {
-	border-color: var(--iform-line) !important;
+	border-color: var(--formora-line) !important;
 }
 
 #mainbody .fichehalfleft table.noborder.centpercent,
 #mainbody .fichehalfright table.noborder.centpercent,
 #mainbody .boxhalfleft table.noborder.centpercent,
 #mainbody .boxhalfright table.noborder.centpercent {
-	border: 1px solid var(--iform-line) !important;
-	border-color: var(--iform-line) !important;
+	border: 1px solid var(--formora-line) !important;
+	border-color: var(--formora-line) !important;
 }
 
 tr.oddeven,
@@ -2856,8 +2856,8 @@ tr.impair,
 .liste > tbody > tr:nth-child(even):not(.liste_titre):not(.nooddeven):not(.liste_total),
 .noborder > tbody > tr:nth-child(odd):not(.liste_titre):not(.nooddeven):not(.liste_total),
 .liste > tbody > tr:nth-child(odd):not(.liste_titre):not(.nooddeven):not(.liste_total) {
-	background: var(--iform-surface) !important;
-	color: var(--iform-text) !important;
+	background: var(--formora-surface) !important;
+	color: var(--formora-text) !important;
 }
 
 tr.oddeven:hover,
@@ -2869,7 +2869,7 @@ tr.impair:hover,
 .tagtr.oddeven:hover,
 .tagtr.pair:hover,
 .tagtr.impair:hover {
-	background: var(--iform-neutral-hover-bg) !important;
+	background: var(--formora-neutral-hover-bg) !important;
 }
 
 td,
@@ -2881,7 +2881,7 @@ div.tagtd,
 .noborder th,
 .border td,
 .border th {
-	border-color: var(--iform-line-soft) !important;
+	border-color: var(--formora-line-soft) !important;
 	color: inherit;
 }
 
@@ -2891,60 +2891,60 @@ div.tagtd,
 #mainbody table.tagtable.liste,
 #mainbody .div-table-responsive > table.liste,
 #mainbody .div-table-responsive-no-min > table.liste {
-	border-color: var(--iform-line) !important;
+	border-color: var(--formora-line) !important;
 }
 
 #mainbody table.liste :is(tr, td, th),
 #mainbody table.tagtable.liste :is(tr, td, th),
 #mainbody table.liste > :is(thead, tbody, tfoot) > tr > :is(td, th) {
-	border-color: var(--iform-line) !important;
+	border-color: var(--formora-line) !important;
 }
 
 .trforbreak td,
 div.tableforcontact form.tagtr:last-of-type div.tagtd,
 .ui-mobile fieldset {
-	border-color: var(--iform-line-soft) !important;
+	border-color: var(--formora-line-soft) !important;
 }
 
 .paginate_button,
 .paginate_active,
 table.jPicker {
-	border-color: var(--iform-line-soft) !important;
+	border-color: var(--formora-line-soft) !important;
 }
 
 #mainbody .navmode .btnTitle .pictoactionview {
-	color: var(--iform-muted) !important;
+	color: var(--formora-muted) !important;
 }
 
 #mainbody .navmode .btnTitle:hover .pictoactionview,
 #mainbody .navmode .btnTitle:focus .pictoactionview,
 #mainbody .navmode .btnTitleSelected .pictoactionview {
-	color: var(--iform-accent-hover) !important;
+	color: var(--formora-accent-hover) !important;
 }
 
 #mainbody .sectioncalendarbymonth,
 #mainbody table.cal_month {
-	background: var(--iform-surface) !important;
-	color: var(--iform-text) !important;
+	background: var(--formora-surface) !important;
+	color: var(--formora-text) !important;
 }
 
 #mainbody table.cal_month tr,
 #mainbody table.noborder.cal_month tr {
-	background: var(--iform-surface) !important;
-	border-color: var(--iform-line-soft) !important;
-	border-top-color: var(--iform-line-soft) !important;
+	background: var(--formora-surface) !important;
+	border-color: var(--formora-line-soft) !important;
+	border-top-color: var(--formora-line-soft) !important;
 }
 
 #mainbody table.cal_month td,
 #mainbody table.cal_month th,
 #mainbody table.cal_month .tagtd,
 #mainbody table.cal_month .tdfordaytitle {
-	border-color: var(--iform-line-soft) !important;
-	color: var(--iform-text) !important;
+	border-color: var(--formora-line-soft) !important;
+	color: var(--formora-text) !important;
 }
 
 #mainbody table.cal_month .tdfordaytitle {
-	background: var(--iform-surface-alt) !important;
+	background: var(--formora-surface-alt) !important;
 }
 
 #mainbody table.cal_month .cal_current_month,
@@ -2952,9 +2952,9 @@ table.jPicker {
 #mainbody table.cal_month .cal_current_month_oneday,
 #mainbody table.cal_month .cal_current_month_peruserleft,
 #mainbody table.cal_month .cal_current_month_peruserleft.cal_impair {
-	background: var(--iform-surface) !important;
-	border-color: var(--iform-line-soft) !important;
-	color: var(--iform-text) !important;
+	background: var(--formora-surface) !important;
+	border-color: var(--formora-line-soft) !important;
+	color: var(--formora-text) !important;
 }
 
 #mainbody table.cal_month .cal_other_month,
@@ -2962,9 +2962,9 @@ table.jPicker {
 #mainbody table.cal_month .cal_other_month_peruserleft,
 #mainbody table.cal_month .cal_past_month,
 #mainbody table.cal_month td.cal_other_month {
-	background: var(--iform-neutral-bg) !important;
-	border-color: var(--iform-line-soft) !important;
-	color: var(--iform-muted) !important;
+	background: var(--formora-neutral-bg) !important;
+	border-color: var(--formora-line-soft) !important;
+	color: var(--formora-muted) !important;
 	opacity: 1 !important;
 }
 
@@ -2974,7 +2974,7 @@ table.jPicker {
 #mainbody table.cal_month .cal_today_peruser_impair {
 	background: rgba(78, 163, 255, 0.12) !important;
 	border-color: rgba(78, 163, 255, 0.38) !important;
-	color: var(--iform-text) !important;
+	color: var(--formora-text) !important;
 }
 
 #mainbody table.cal_month .dayevent,
@@ -2989,8 +2989,8 @@ table.jPicker {
 }
 
 #mainbody table.cal_event {
-	background: var(--iform-surface-alt) !important;
-	border: 1px solid var(--iform-line) !important;
+	background: var(--formora-surface-alt) !important;
+	border: 1px solid var(--formora-line) !important;
 	box-shadow: none !important;
 	filter: none !important;
 }
@@ -3001,11 +3001,11 @@ table.jPicker {
 #mainbody table.cal_event a:link,
 #mainbody table.cal_event a:visited,
 #mainbody table.cal_event a:active {
-	color: var(--iform-text) !important;
+	color: var(--formora-text) !important;
 }
 
 #mainbody table.cal_event a.cal_event_title:hover {
-	color: var(--iform-accent-hover) !important;
+	color: var(--formora-accent-hover) !important;
 }
 
 input:not([type="image"]):not([type="checkbox"]):not([type="radio"]),
@@ -3019,14 +3019,14 @@ select,
 .select2-search__field {
 	background: var(--inputbackgroundcolor) !important;
 	border-color: var(--inputbordercolor) !important;
-	color: var(--iform-text) !important;
+	color: var(--formora-text) !important;
 }
 
 input::placeholder,
 textarea::placeholder,
 .select2-container--default .select2-selection--single .select2-selection__placeholder,
 .select2-default {
-	color: var(--iform-muted) !important;
+	color: var(--formora-muted) !important;
 	opacity: 1;
 }
 
@@ -3044,14 +3044,14 @@ select:focus,
 textarea:focus,
 .select2-container--open [aria-expanded="false"].select2-selection--single,
 .select2-container--focus span.selection span.select2-selection:not(.noborderfocus):not(.massactionselect) {
-	border-color: var(--iform-accent) !important;
-	box-shadow: 0 0 0 2px var(--iform-focus-ring) !important;
+	border-color: var(--formora-accent) !important;
+	box-shadow: 0 0 0 2px var(--formora-focus-ring) !important;
 }
 
 .select2-container--default .select2-selection--single .select2-selection__rendered,
 .select2-container .select2-selection--single .select2-selection__rendered,
 .select2-container .select2-choice > .select2-chosen {
-	color: var(--iform-text) !important;
+	color: var(--formora-text) !important;
 	background: transparent !important;
 }
 
@@ -3061,16 +3061,16 @@ textarea:focus,
 .select2-results .select2-searching,
 .select2-results .select2-ajax-error,
 .select2-results .select2-selection-limit {
-	color: var(--iform-text) !important;
-	background: var(--iform-surface) !important;
+	color: var(--formora-text) !important;
+	background: var(--formora-surface) !important;
 }
 
 .select2-container--default .select2-results__option--highlighted[aria-selected],
 .select2-container--default .select2-results__option--highlighted[aria-selected] span:not(.flag-sprite):not([class*="flag"]):not(.fi):not([class^="fi-"]):not([class*=" fi-"]),
 .select2-results .select2-highlighted,
 .select2-results .select2-highlighted span:not(.flag-sprite):not([class*="flag"]):not(.fi):not([class^="fi-"]):not([class*=" fi-"]) {
-	background: var(--iform-accent-soft) !important;
-	color: var(--iform-accent-hover) !important;
+	background: var(--formora-accent-soft) !important;
+	color: var(--formora-accent-hover) !important;
 }
 
 .select2-container--default .select2-results__option--highlighted[aria-selected] :is(.flag-sprite, img),
@@ -3088,19 +3088,19 @@ textarea:focus,
 .select2-container--default .select2-selection--multiple .select2-selection__choice,
 li.select2-selection__choice,
 .select2-container-multi .select2-choices .select2-search-choice {
-	background: var(--iform-neutral-bg) !important;
-	border-color: var(--iform-line) !important;
-	color: var(--iform-text) !important;
+	background: var(--formora-neutral-bg) !important;
+	border-color: var(--formora-line) !important;
+	color: var(--formora-text) !important;
 }
 
 body#mainbody .ace_editor,
 body#mainbody .ace_editor.ace-chrome,
 body#mainbody .ace_editor.ace-one-dark {
 	background: var(--inputbackgroundcolor) !important;
-	border: 1px solid var(--iform-line) !important;
-	border-radius: 0 0 var(--iform-radius-sm) var(--iform-radius-sm) !important;
+	border: 1px solid var(--formora-line) !important;
+	border-radius: 0 0 var(--formora-radius-sm) var(--formora-radius-sm) !important;
 	box-shadow: none !important;
-	color: var(--iform-text) !important;
+	color: var(--formora-text) !important;
 	font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace !important;
 }
 
@@ -3109,23 +3109,23 @@ body#mainbody .ace_content,
 body#mainbody .ace_layer,
 body#mainbody .ace_text-layer {
 	background: var(--inputbackgroundcolor) !important;
-	color: var(--iform-text) !important;
+	color: var(--formora-text) !important;
 }
 
 body#mainbody .ace_gutter {
-	background: var(--iform-surface-alt) !important;
-	border-right: 1px solid var(--iform-line-soft) !important;
-	color: var(--iform-muted) !important;
+	background: var(--formora-surface-alt) !important;
+	border-right: 1px solid var(--formora-line-soft) !important;
+	color: var(--formora-muted) !important;
 }
 
 body#mainbody .ace_gutter-cell {
 	background: transparent !important;
-	color: var(--iform-muted) !important;
+	color: var(--formora-muted) !important;
 }
 
 body#mainbody .ace_gutter-active-line {
 	background: rgba(10, 132, 255, 0.14) !important;
-	color: var(--iform-accent-hover) !important;
+	color: var(--formora-accent-hover) !important;
 }
 
 body#mainbody .ace_marker-layer .ace_active-line {
@@ -3146,7 +3146,7 @@ body#mainbody .ace_marker-layer .ace_selected-word {
 }
 
 body#mainbody .ace_marker-layer .ace_bracket {
-	border: 1px solid var(--iform-accent-hover) !important;
+	border: 1px solid var(--formora-accent-hover) !important;
 }
 
 body#mainbody .ace_marker-layer .ace_step {
@@ -3158,13 +3158,13 @@ body#mainbody .ace_marker-layer .ace_stack {
 }
 
 body#mainbody .ace_cursor {
-	border-left-color: var(--iform-accent-hover) !important;
-	color: var(--iform-accent-hover) !important;
+	border-left-color: var(--formora-accent-hover) !important;
+	color: var(--formora-accent-hover) !important;
 	opacity: 1 !important;
 }
 
 body#mainbody .ace_print-margin {
-	background: var(--iform-line-soft) !important;
+	background: var(--formora-line-soft) !important;
 	opacity: 0.38 !important;
 }
 
@@ -3237,54 +3237,54 @@ body#mainbody .ace_list {
 
 body#mainbody .ace_invalid,
 body#mainbody .ace_invalid.ace_deprecated {
-	background: var(--iform-danger-bg) !important;
-	color: var(--iform-danger) !important;
+	background: var(--formora-danger-bg) !important;
+	color: var(--formora-danger) !important;
 }
 
 body#mainbody .ace_fold {
-	background: var(--iform-accent) !important;
-	border-color: var(--iform-text) !important;
+	background: var(--formora-accent) !important;
+	border-color: var(--formora-text) !important;
 }
 
 body#mainbody .aceeditorstatusbar {
-	background: var(--iform-surface-alt) !important;
-	border: 1px solid var(--iform-line) !important;
+	background: var(--formora-surface-alt) !important;
+	border: 1px solid var(--formora-line) !important;
 	border-bottom: 0 !important;
-	border-radius: var(--iform-radius-sm) var(--iform-radius-sm) 0 0 !important;
+	border-radius: var(--formora-radius-sm) var(--formora-radius-sm) 0 0 !important;
 	box-sizing: border-box !important;
-	color: var(--iform-text) !important;
+	color: var(--formora-text) !important;
 }
 
 body#mainbody .aceeditorstatusbar .classlink,
 body#mainbody .aceeditorstatusbar a {
-	color: var(--iform-accent-hover) !important;
+	color: var(--formora-accent-hover) !important;
 }
 
 body#mainbody .ace_status-indicator {
-	border-color: var(--iform-line-soft) !important;
-	color: var(--iform-muted) !important;
+	border-color: var(--formora-line-soft) !important;
+	color: var(--formora-muted) !important;
 }
 
 body#mainbody .ace_editor.ace_autocomplete,
 body#mainbody .ace_editor.ace_autocomplete .ace_scroller,
 body#mainbody .ace_editor.ace_autocomplete .ace_content {
-	background: var(--iform-surface) !important;
-	border-color: var(--iform-line) !important;
-	box-shadow: var(--iform-shadow-menu) !important;
-	color: var(--iform-text) !important;
+	background: var(--formora-surface) !important;
+	border-color: var(--formora-line) !important;
+	box-shadow: var(--formora-shadow-menu) !important;
+	color: var(--formora-text) !important;
 }
 
 body#mainbody .ace_editor.ace_autocomplete .ace_line-hover {
-	background: var(--iform-neutral-hover-bg) !important;
-	border-color: var(--iform-line) !important;
+	background: var(--formora-neutral-hover-bg) !important;
+	border-color: var(--formora-line) !important;
 }
 
 body#mainbody .ace_editor.ace_autocomplete .ace_completion-highlight {
-	color: var(--iform-accent-hover) !important;
+	color: var(--formora-accent-hover) !important;
 }
 
 body#mainbody .ace_editor.ace_autocomplete .ace_rightAlignedText {
-	color: var(--iform-muted) !important;
+	color: var(--formora-muted) !important;
 }
 
 body#mainbody .cke_chrome,
@@ -3294,30 +3294,30 @@ body#mainbody .cke_bottom,
 body#mainbody .cke_contents,
 body#mainbody .cke_panel,
 body#mainbody .cke_panel_frame {
-	background: var(--iform-surface) !important;
-	border-color: var(--iform-line) !important;
-	color: var(--iform-text) !important;
+	background: var(--formora-surface) !important;
+	border-color: var(--formora-line) !important;
+	color: var(--formora-text) !important;
 }
 
 body#mainbody .cke_chrome {
-	border: 1px solid var(--iform-line) !important;
-	border-radius: var(--iform-radius-sm) !important;
+	border: 1px solid var(--formora-line) !important;
+	border-radius: var(--formora-radius-sm) !important;
 	box-shadow: none !important;
 	overflow: hidden;
 }
 
 body#mainbody .cke_top,
 body#mainbody .cke_bottom {
-	background: var(--iform-surface-alt) !important;
-	border-color: var(--iform-line-soft) !important;
+	background: var(--formora-surface-alt) !important;
+	border-color: var(--formora-line-soft) !important;
 }
 
 body#mainbody .cke_contents {
-	border-top: 1px solid var(--iform-line-soft) !important;
+	border-top: 1px solid var(--formora-line-soft) !important;
 }
 
 body#mainbody iframe.cke_wysiwyg_frame {
-	background: var(--iform-surface) !important;
+	background: var(--formora-surface) !important;
 	color-scheme: dark;
 }
 
@@ -3325,7 +3325,7 @@ body#mainbody textarea.cke_source {
 	background: var(--inputbackgroundcolor) !important;
 	border: 0 !important;
 	box-sizing: border-box !important;
-	color: var(--iform-text) !important;
+	color: var(--formora-text) !important;
 	font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace !important;
 	line-height: 1.45 !important;
 	margin: 0 !important;
@@ -3338,14 +3338,14 @@ body#mainbody .cke_combo_text,
 body#mainbody .cke_button_label,
 body#mainbody .cke_path_item,
 body#mainbody .cke_path_empty {
-	color: var(--iform-text) !important;
+	color: var(--formora-text) !important;
 }
 
 body#mainbody .cke_combo_label,
 body#mainbody .cke_button_disabled .cke_button_label,
 body#mainbody .cke_button_disabled .cke_button_icon,
 body#mainbody .cke_path_empty {
-	color: var(--iform-muted) !important;
+	color: var(--formora-muted) !important;
 	opacity: 0.62 !important;
 }
 
@@ -3359,8 +3359,8 @@ body#mainbody .cke_combo {
 body#mainbody .cke_toolbar_separator,
 body#mainbody .cke_toolgroup a.cke_button:last-child::after,
 body#mainbody .cke_combo::after {
-	background-color: var(--iform-line) !important;
-	border-color: var(--iform-line) !important;
+	background-color: var(--formora-line) !important;
+	border-color: var(--formora-line) !important;
 }
 
 body#mainbody a.cke_button,
@@ -3375,9 +3375,9 @@ body#mainbody .cke_combo_off a.cke_combo_button:hover,
 body#mainbody .cke_combo_off a.cke_combo_button:focus,
 body#mainbody .cke_combo_off a.cke_combo_button:active {
 	border: 1px solid transparent !important;
-	border-radius: var(--iform-radius-sm) !important;
+	border-radius: var(--formora-radius-sm) !important;
 	box-shadow: none !important;
-	color: var(--iform-text) !important;
+	color: var(--formora-text) !important;
 	padding: 3px 5px !important;
 }
 
@@ -3406,9 +3406,9 @@ body#mainbody .cke_combo_on a.cke_combo_button,
 body#mainbody .cke_combo_off a.cke_combo_button:hover,
 body#mainbody .cke_combo_off a.cke_combo_button:focus,
 body#mainbody .cke_combo_off a.cke_combo_button:active {
-	background: var(--iform-accent-soft) !important;
+	background: var(--formora-accent-soft) !important;
 	border-color: rgba(78, 163, 255, 0.42) !important;
-	color: var(--iform-accent-hover) !important;
+	color: var(--formora-accent-hover) !important;
 }
 
 body#mainbody a.cke_button_disabled,
@@ -3417,7 +3417,7 @@ body#mainbody a.cke_button_disabled:focus,
 body#mainbody a.cke_button_disabled:active {
 	background: transparent !important;
 	border-color: transparent !important;
-	color: var(--iform-muted) !important;
+	color: var(--formora-muted) !important;
 	opacity: 0.62 !important;
 }
 
@@ -3433,7 +3433,7 @@ body#mainbody .cke_button_disabled .cke_button_icon {
 
 body#mainbody .cke_button_arrow,
 body#mainbody .cke_combo_arrow {
-	border-top-color: var(--iform-muted) !important;
+	border-top-color: var(--formora-muted) !important;
 }
 
 body#mainbody a.cke_button:hover .cke_button_arrow,
@@ -3441,18 +3441,18 @@ body#mainbody a.cke_button:focus .cke_button_arrow,
 body#mainbody .cke_combo_on .cke_combo_arrow,
 body#mainbody .cke_combo_off a.cke_combo_button:hover .cke_combo_arrow,
 body#mainbody .cke_combo_off a.cke_combo_button:focus .cke_combo_arrow {
-	border-top-color: var(--iform-accent-hover) !important;
+	border-top-color: var(--formora-accent-hover) !important;
 }
 
 body#mainbody .cke_panel {
-	background: var(--iform-surface) !important;
-	border: 1px solid var(--iform-line) !important;
-	box-shadow: var(--iform-shadow-menu) !important;
+	background: var(--formora-surface) !important;
+	border: 1px solid var(--formora-line) !important;
+	box-shadow: var(--formora-shadow-menu) !important;
 	color-scheme: dark;
 }
 
 body#mainbody .cke_panel_frame {
-	background: var(--iform-surface) !important;
+	background: var(--formora-surface) !important;
 }
 
 body#mainbody .cke_dialog_background_cover {
@@ -3461,11 +3461,11 @@ body#mainbody .cke_dialog_background_cover {
 }
 
 body#mainbody .cke_dialog {
-	background: var(--iform-surface) !important;
-	border: 1px solid var(--iform-line) !important;
-	border-radius: var(--iform-radius) !important;
-	box-shadow: var(--iform-shadow-elevated) !important;
-	color: var(--iform-text) !important;
+	background: var(--formora-surface) !important;
+	border: 1px solid var(--formora-line) !important;
+	border-radius: var(--formora-radius) !important;
+	box-shadow: var(--formora-shadow-elevated) !important;
+	color: var(--formora-text) !important;
 	overflow: hidden;
 }
 
@@ -3477,31 +3477,31 @@ body#mainbody .cke_dialog_ui_vbox_child,
 body#mainbody .cke_dialog_ui_hbox_first,
 body#mainbody .cke_dialog_ui_hbox_child,
 body#mainbody .cke_dialog_ui_hbox_last {
-	background: var(--iform-surface) !important;
-	border-color: var(--iform-line-soft) !important;
-	color: var(--iform-text) !important;
+	background: var(--formora-surface) !important;
+	border-color: var(--formora-line-soft) !important;
+	color: var(--formora-text) !important;
 }
 
 body#mainbody .cke_dialog_title,
 body#mainbody .cke_dialog_footer {
-	background: var(--iform-surface-alt) !important;
+	background: var(--formora-surface-alt) !important;
 	background-image: none !important;
-	border-color: var(--iform-line-soft) !important;
-	color: var(--iform-text) !important;
+	border-color: var(--formora-line-soft) !important;
+	color: var(--formora-text) !important;
 	text-shadow: none !important;
 }
 
 body#mainbody .cke_dialog_title {
-	border-bottom: 1px solid var(--iform-line-soft) !important;
+	border-bottom: 1px solid var(--formora-line-soft) !important;
 }
 
 body#mainbody .cke_dialog_footer {
-	border-top: 1px solid var(--iform-line-soft) !important;
+	border-top: 1px solid var(--formora-line-soft) !important;
 }
 
 body#mainbody .cke_dialog_tabs {
-	background: var(--iform-surface-alt) !important;
-	border-bottom: 1px solid var(--iform-line-soft) !important;
+	background: var(--formora-surface-alt) !important;
+	border-bottom: 1px solid var(--formora-line-soft) !important;
 }
 
 body#mainbody .cke_dialog_tab,
@@ -3511,16 +3511,16 @@ body#mainbody .cke_dialog_tab:focus {
 	border: 0 !important;
 	border-bottom: 3px solid transparent !important;
 	box-shadow: none !important;
-	color: var(--iform-muted) !important;
+	color: var(--formora-muted) !important;
 	text-shadow: none !important;
 }
 
 body#mainbody .cke_dialog_tab_selected,
 body#mainbody .cke_dialog_tab_selected:hover,
 body#mainbody .cke_dialog_tab_selected:focus {
-	background: var(--iform-surface) !important;
-	border-bottom-color: var(--iform-accent) !important;
-	color: var(--iform-accent-hover) !important;
+	background: var(--formora-surface) !important;
+	border-bottom-color: var(--formora-accent) !important;
+	color: var(--formora-accent-hover) !important;
 }
 
 body#mainbody .cke_dialog_ui_labeled_label,
@@ -3535,17 +3535,17 @@ body#mainbody .cke_dialog th,
 body#mainbody .cke_dialog label,
 body#mainbody .cke_dialog legend {
 	background: transparent !important;
-	border-color: var(--iform-line-soft) !important;
-	color: var(--iform-text) !important;
+	border-color: var(--formora-line-soft) !important;
+	color: var(--formora-text) !important;
 	text-shadow: none !important;
 }
 
 body#mainbody .cke_dialog .ImagePreviewBox,
 body#mainbody .cke_dialog .FlashPreviewBox {
-	background: var(--iform-neutral-bg) !important;
-	border: 1px solid var(--iform-line) !important;
-	border-radius: var(--iform-radius-sm) !important;
-	color: var(--iform-muted) !important;
+	background: var(--formora-neutral-bg) !important;
+	border: 1px solid var(--formora-line) !important;
+	border-radius: var(--formora-radius-sm) !important;
+	color: var(--formora-muted) !important;
 }
 
 body#mainbody .cke_dialog .ImagePreviewBox img {
@@ -3558,51 +3558,51 @@ body#mainbody .cke_dialog textarea,
 body#mainbody .cke_dialog select {
 	background: var(--inputbackgroundcolor) !important;
 	border: 1px solid var(--inputbordercolor) !important;
-	border-radius: var(--iform-radius-sm) !important;
+	border-radius: var(--formora-radius-sm) !important;
 	box-shadow: none !important;
-	color: var(--iform-text) !important;
+	color: var(--formora-text) !important;
 	color-scheme: dark;
 }
 
 body#mainbody .cke_dialog input:focus,
 body#mainbody .cke_dialog textarea:focus,
 body#mainbody .cke_dialog select:focus {
-	border-color: var(--iform-accent) !important;
-	box-shadow: 0 0 0 3px var(--iform-focus-ring) !important;
+	border-color: var(--formora-accent) !important;
+	box-shadow: 0 0 0 3px var(--formora-focus-ring) !important;
 	outline: none !important;
 }
 
 body#mainbody .cke_dialog input[type="checkbox"],
 body#mainbody .cke_dialog input[type="radio"] {
-	accent-color: var(--iform-accent);
+	accent-color: var(--formora-accent);
 }
 
 body#mainbody .cke_dialog a.cke_dialog_ui_button,
 body#mainbody .cke_dialog a.cke_dialog_ui_button:hover,
 body#mainbody .cke_dialog a.cke_dialog_ui_button:focus,
 body#mainbody .cke_dialog a.cke_dialog_ui_button:active {
-	background: var(--iform-neutral-bg) !important;
+	background: var(--formora-neutral-bg) !important;
 	background-image: none !important;
-	border: 1px solid var(--iform-line) !important;
-	border-radius: var(--iform-radius-sm) !important;
+	border: 1px solid var(--formora-line) !important;
+	border-radius: var(--formora-radius-sm) !important;
 	box-shadow: none !important;
-	color: var(--iform-text) !important;
+	color: var(--formora-text) !important;
 	text-shadow: none !important;
 }
 
 body#mainbody .cke_dialog a.cke_dialog_ui_button:hover,
 body#mainbody .cke_dialog a.cke_dialog_ui_button:focus {
-	background: var(--iform-neutral-hover-bg) !important;
-	border-color: var(--iform-accent) !important;
-	color: var(--iform-accent-hover) !important;
+	background: var(--formora-neutral-hover-bg) !important;
+	border-color: var(--formora-accent) !important;
+	color: var(--formora-accent-hover) !important;
 }
 
 body#mainbody .cke_dialog a.cke_dialog_ui_button_ok,
 body#mainbody .cke_dialog a.cke_dialog_ui_button_ok:hover,
 body#mainbody .cke_dialog a.cke_dialog_ui_button_ok:focus {
-	background: var(--iform-accent-soft) !important;
+	background: var(--formora-accent-soft) !important;
 	border-color: rgba(78, 163, 255, 0.42) !important;
-	color: var(--iform-accent-hover) !important;
+	color: var(--formora-accent-hover) !important;
 }
 
 body#mainbody .cke_dialog a.cke_dialog_ui_button span,
@@ -3631,9 +3631,9 @@ body#mainbody .cke_dialog_close_button:focus {
 #mainbody button.button.buttongen:not(:disabled),
 #mainbody input.buttongen:not(:disabled),
 #mainbody button.buttongen:not(:disabled) {
-	background: var(--iform-accent-soft) !important;
+	background: var(--formora-accent-soft) !important;
 	border-color: rgba(78, 163, 255, 0.4) !important;
-	color: var(--iform-accent-hover) !important;
+	color: var(--formora-accent-hover) !important;
 }
 
 #mainbody .butAction:not(.butActionDelete):not(.butActionRefused):hover,
@@ -3646,7 +3646,7 @@ body#mainbody .cke_dialog_close_button:focus {
 #mainbody button.buttongen:not(:disabled):hover {
 	background: rgba(78, 163, 255, 0.24) !important;
 	border-color: rgba(78, 163, 255, 0.55) !important;
-	color: var(--iform-accent-hover) !important;
+	color: var(--formora-accent-hover) !important;
 }
 
 #mainbody .butActionDelete,
@@ -3655,14 +3655,14 @@ body#mainbody .cke_dialog_close_button:focus {
 #mainbody .butActionDelete:hover,
 #mainbody .butActionDelete:active,
 #mainbody .buttonDelete {
-	background: var(--iform-danger-bg) !important;
+	background: var(--formora-danger-bg) !important;
 	border-color: #6e3038 !important;
-	color: var(--iform-danger) !important;
+	color: var(--formora-danger) !important;
 }
 
 #mainbody .butActionDelete:hover,
 #mainbody .buttonDelete:hover:not(:disabled) {
-	background: var(--iform-danger-hover-bg) !important;
+	background: var(--formora-danger-hover-bg) !important;
 	border-color: #8f3e49 !important;
 	color: #ffb4b4 !important;
 }
@@ -3678,9 +3678,9 @@ body#mainbody .cke_dialog_close_button:focus {
 #mainbody .buttonDelete:disabled,
 #mainbody .button.disabled,
 #mainbody .buttonDelete.disabled {
-	background: var(--iform-refused-bg) !important;
-	border-color: var(--iform-line) !important;
-	color: var(--iform-muted) !important;
+	background: var(--formora-refused-bg) !important;
+	border-color: var(--formora-line) !important;
+	color: var(--formora-muted) !important;
 }
 
 #mainbody .dropdown-content a:is(.butAction,.butActionDelete,.butActionRefused),
@@ -3689,31 +3689,31 @@ body#mainbody .cke_dialog_close_button:focus {
 #mainbody .dropdown-content .butActionRefused {
 	background: transparent !important;
 	border: 0 !important;
-	border-bottom: 1px solid var(--iform-line-soft) !important;
+	border-bottom: 1px solid var(--formora-line-soft) !important;
 	border-radius: 0 !important;
 	box-shadow: none !important;
-	color: var(--iform-text) !important;
+	color: var(--formora-text) !important;
 	margin-left: 0 !important;
 	margin-right: 0 !important;
 }
 
 #mainbody .dropdown-content .butAction:hover,
 #mainbody .dropdown-content .butAction:focus {
-	background: var(--iform-neutral-hover-bg) !important;
-	border-bottom-color: var(--iform-line) !important;
-	color: var(--iform-accent-hover) !important;
+	background: var(--formora-neutral-hover-bg) !important;
+	border-bottom-color: var(--formora-line) !important;
+	color: var(--formora-accent-hover) !important;
 	text-decoration: none !important;
 }
 
 #mainbody .dropdown-content .butActionDelete,
 #mainbody .dropdown-content .butActionDelete:link,
 #mainbody .dropdown-content .butActionDelete:visited {
-	color: var(--iform-danger) !important;
+	color: var(--formora-danger) !important;
 }
 
 #mainbody .dropdown-content .butActionDelete:hover,
 #mainbody .dropdown-content .butActionDelete:focus {
-	background: var(--iform-danger-hover-bg) !important;
+	background: var(--formora-danger-hover-bg) !important;
 	border-bottom-color: #8f3e49 !important;
 	color: #ffb4b4 !important;
 	text-decoration: none !important;
@@ -3723,8 +3723,8 @@ body#mainbody .cke_dialog_close_button:focus {
 #mainbody .dropdown-content .butActionRefused:hover,
 #mainbody .dropdown-content .butActionRefused:focus {
 	background: transparent !important;
-	border-bottom-color: var(--iform-line-soft) !important;
-	color: var(--iform-muted) !important;
+	border-bottom-color: var(--formora-line-soft) !important;
+	color: var(--formora-muted) !important;
 	cursor: not-allowed !important;
 }
 
@@ -3741,26 +3741,26 @@ body#mainbody .cke_dialog_close_button:focus {
 #mainbody a.btnTitle:focus,
 #mainbody .btnTitle:hover,
 #mainbody .btnTitle:focus {
-	background: var(--iform-neutral-hover-bg) !important;
-	border-color: var(--iform-line) !important;
+	background: var(--formora-neutral-hover-bg) !important;
+	border-color: var(--formora-line) !important;
 	box-shadow: none !important;
-	color: var(--iform-accent-hover) !important;
+	color: var(--formora-accent-hover) !important;
 }
 
 #mainbody a.btnTitle.btnTitleSelected,
 #mainbody a.btnTitle.btnTitleSelected:hover,
 #mainbody .btnTitle.btnTitleSelected,
 #mainbody .btnTitle.btnTitleSelected:hover {
-	background: var(--iform-surface-alt) !important;
-	border-color: var(--iform-line) !important;
-	color: var(--iform-muted) !important;
+	background: var(--formora-surface-alt) !important;
+	border-color: var(--formora-line) !important;
+	color: var(--formora-muted) !important;
 }
 
 .spannature,
 .nonature-back {
-	background: var(--iform-surface-alt) !important;
-	border: 1px solid var(--iform-line) !important;
-	color: var(--iform-muted) !important;
+	background: var(--formora-surface-alt) !important;
+	border: 1px solid var(--formora-line) !important;
+	color: var(--formora-muted) !important;
 	box-shadow: none !important;
 }
 
@@ -3771,7 +3771,7 @@ body#mainbody .cke_dialog_close_button:focus {
 
 .spannature input[type="checkbox"],
 .spannature input[type="radio"] {
-	accent-color: var(--iform-accent);
+	accent-color: var(--formora-accent);
 	color-scheme: dark;
 }
 
@@ -3790,7 +3790,7 @@ body#mainbody .cke_dialog_close_button:focus {
 .vendor-back {
 	background: rgba(78, 163, 255, 0.2) !important;
 	border-color: rgba(78, 163, 255, 0.38) !important;
-	color: var(--iform-accent-hover) !important;
+	color: var(--formora-accent-hover) !important;
 }
 
 .user-back {
@@ -3809,9 +3809,9 @@ body#mainbody .cke_dialog_close_button:focus {
 .spannature.prospect-back:has(input:not(:checked)),
 .spannature.customer-back:has(input:not(:checked)),
 .spannature.vendor-back:has(input:not(:checked)) {
-	background: var(--iform-surface-alt) !important;
-	border-color: var(--iform-line) !important;
-	color: var(--iform-muted) !important;
+	background: var(--formora-surface-alt) !important;
+	border-color: var(--formora-line) !important;
+	color: var(--formora-muted) !important;
 }
 
 #mainbody table.border td > .pictofixedwidth[class*="fa-"],
@@ -3890,7 +3890,7 @@ body#mainbody .cke_dialog_close_button:focus {
 
 #mainbody .fa-clock,
 #mainbody .fa-language {
-	color: var(--iform-muted) !important;
+	color: var(--formora-muted) !important;
 }
 
 #mainbody .pictofixedwidth.fa-question,
@@ -3906,20 +3906,20 @@ body#mainbody .cke_dialog_close_button:focus {
 #mainbody .info-box-module .fa-file-archive,
 #mainbody .info-box-module .fa-file-archive-o,
 #mainbody .info-box-module .fa-archive {
-	color: var(--iform-icon-muted) !important;
+	color: var(--formora-icon-muted) !important;
 }
 
 #mainbody table.border td > .fa-barcode,
 #mainbody table.border td > .fa-cube,
 #mainbody table.border td > .fa-box-open,
 #mainbody table.border td > .fa-boxes {
-	color: var(--iform-infobox-stock) !important;
+	color: var(--formora-infobox-stock) !important;
 }
 
 #mainbody table.border td > .fa-user,
 #mainbody table.border td > .fa-user-alt,
 #mainbody table.border td > .fa-user-tie {
-	color: var(--iform-infobox-member) !important;
+	color: var(--formora-infobox-member) !important;
 }
 
 #mainbody table.border td > .fa-info-circle {
@@ -3950,7 +3950,7 @@ body#mainbody .cke_dialog_close_button:focus {
 #mainbody .infobox-adherent,
 #mainbody .infobox-member,
 #mainbody .infobox-expensereport {
-	color: var(--iform-infobox-member) !important;
+	color: var(--formora-infobox-member) !important;
 }
 
 #mainbody .infobox-holiday,
@@ -3959,7 +3959,7 @@ body#mainbody .cke_dialog_close_button:focus {
 #mainbody .pictomodule.fa-umbrella-beach,
 #mainbody .fa-dol-holiday,
 #mainbody .fa-dol-holiday::before {
-	color: var(--iform-infobox-holiday) !important;
+	color: var(--formora-infobox-holiday) !important;
 }
 
 #mainbody .fa-weather-level0::before {
@@ -4016,37 +4016,37 @@ body#mainbody .cke_dialog_close_button:focus {
 #mainbody .messageinfo .fa-info-circle,
 #mainbody .messagedebug .fa-info-circle,
 #mainbody .wordbreak.info .fa-info-circle {
-	color: var(--iform-accent-hover) !important;
+	color: var(--formora-accent-hover) !important;
 }
 
 #mainbody .a-filter,
 #mainbody .a-mesure {
-	background: var(--iform-accent-soft) !important;
+	background: var(--formora-accent-soft) !important;
 	border: 1px solid rgba(78, 163, 255, 0.35) !important;
 	box-shadow: none !important;
-	color: var(--iform-accent-hover) !important;
+	color: var(--formora-accent-hover) !important;
 }
 
 #mainbody .a-filter-disabled,
 #mainbody .a-mesure-disabled {
-	background: var(--iform-surface-alt) !important;
-	border: 1px solid var(--iform-line) !important;
+	background: var(--formora-surface-alt) !important;
+	border: 1px solid var(--formora-line) !important;
 	box-shadow: none !important;
-	color: var(--iform-muted) !important;
+	color: var(--formora-muted) !important;
 	opacity: 1 !important;
 }
 
 #mainbody .websitebar {
-	background: var(--iform-surface-alt) !important;
-	border-bottom-color: var(--iform-line) !important;
-	color: var(--iform-text) !important;
+	background: var(--formora-surface-alt) !important;
+	border-bottom-color: var(--formora-line) !important;
+	color: var(--formora-text) !important;
 }
 
 #mainbody .websitebar .button,
 #mainbody .websitebar .buttonDelete {
-	background: var(--iform-surface) !important;
-	border-color: var(--iform-line) !important;
-	color: var(--iform-text) !important;
+	background: var(--formora-surface) !important;
+	border-color: var(--formora-line) !important;
+	color: var(--formora-text) !important;
 	box-shadow: none !important;
 }
 
@@ -4054,20 +4054,20 @@ body#mainbody .cke_dialog_close_button:focus {
 #mainbody .websitebar .button:focus,
 #mainbody .websitebar .button.bordertransp:hover,
 #mainbody .websitebar .button.bordertransp:focus {
-	background: var(--iform-neutral-hover-bg) !important;
+	background: var(--formora-neutral-hover-bg) !important;
 	border-color: rgba(78, 163, 255, 0.45) !important;
-	color: var(--iform-accent-hover) !important;
+	color: var(--formora-accent-hover) !important;
 }
 
 #mainbody .websitebar input#previewpageurl,
 #mainbody .websitebar input.bordertransp {
 	background: var(--inputbackgroundcolor) !important;
 	border-color: var(--inputbordercolor) !important;
-	color: var(--iform-text) !important;
+	color: var(--formora-text) !important;
 }
 
 #mainbody .websitebar .fa-plus-circle.btnTitle-icon {
-	color: var(--iform-accent-hover) !important;
+	color: var(--formora-accent-hover) !important;
 }
 
 #mainbody img[src$="/opensurvey/img/calendar-32.png"],
@@ -4081,25 +4081,25 @@ body#mainbody .cke_dialog_close_button:focus {
 #mainbody div.corps:has(.index_date, .index_sondage),
 #mainbody div.corps:has(.opensurveydescription),
 #mainbody .survey_intro {
-	background: var(--iform-surface) !important;
-	border-color: var(--iform-line) !important;
+	background: var(--formora-surface) !important;
+	border-color: var(--formora-line) !important;
 	box-shadow: none !important;
-	color: var(--iform-text) !important;
+	color: var(--formora-text) !important;
 }
 
 #mainbody .index_date,
 #mainbody .index_sondage {
-	color: var(--iform-text) !important;
+	color: var(--formora-text) !important;
 }
 
 body.bodytakepos {
-	background: var(--iform-bg) !important;
-	color: var(--iform-text) !important;
+	background: var(--formora-bg) !important;
+	color: var(--formora-text) !important;
 }
 
 body.bodytakepos .topnav {
-	background: var(--iform-surface) !important;
-	border-bottom: 1px solid var(--iform-line) !important;
+	background: var(--formora-surface) !important;
+	border-bottom: 1px solid var(--formora-line) !important;
 }
 
 body.bodytakepos .topnav a,
@@ -4107,7 +4107,7 @@ body.bodytakepos .topnav .fa,
 body.bodytakepos .topnav .fas,
 body.bodytakepos .topnav .far,
 body.bodytakepos .topnav .fab {
-	color: var(--iform-text) !important;
+	color: var(--formora-text) !important;
 }
 
 body.bodytakepos .topnav .fa,
@@ -4119,35 +4119,35 @@ body.bodytakepos .topnav .fab {
 
 body.bodytakepos .topnav-left a:hover:not(.nohover),
 body.bodytakepos .topnav .login_block_other a:hover:not(.nohover) {
-	background: var(--iform-neutral-hover-bg) !important;
-	color: var(--iform-accent-hover) !important;
+	background: var(--formora-neutral-hover-bg) !important;
+	color: var(--formora-accent-hover) !important;
 }
 
 body.bodytakepos .modal-content {
-	background: var(--iform-surface) !important;
-	border: 1px solid var(--iform-line) !important;
+	background: var(--formora-surface) !important;
+	border: 1px solid var(--formora-line) !important;
 	box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45) !important;
-	color: var(--iform-text) !important;
+	color: var(--formora-text) !important;
 }
 
 body.bodytakepos .wrapper,
 body.bodytakepos .wrapper2 {
-	background: var(--iform-surface) !important;
-	border: 1px solid var(--iform-line) !important;
+	background: var(--formora-surface) !important;
+	border: 1px solid var(--formora-line) !important;
 	box-shadow: none !important;
-	color: var(--iform-text) !important;
+	color: var(--formora-text) !important;
 }
 
 body.bodytakepos .wrapper.divempty,
 body.bodytakepos .wrapper2.divempty {
-	background: var(--iform-surface-alt) !important;
-	border-color: var(--iform-line-soft) !important;
+	background: var(--formora-surface-alt) !important;
+	border-color: var(--formora-line-soft) !important;
 }
 
 body.bodytakepos .description,
 body.bodytakepos .catwatermark {
 	background: rgba(21, 23, 25, 0.72) !important;
-	color: var(--iform-text) !important;
+	color: var(--formora-text) !important;
 }
 
 body.bodytakepos input,
@@ -4155,7 +4155,7 @@ body.bodytakepos select,
 body.bodytakepos textarea {
 	background: var(--inputbackgroundcolor) !important;
 	border-color: var(--inputbordercolor) !important;
-	color: var(--iform-text) !important;
+	color: var(--formora-text) !important;
 }
 
 #mainbody img[src$="/warning.png"],
@@ -4297,7 +4297,7 @@ span.badgeneutral {
 .statusrefsupplier,
 .statusdoc {
 	background: rgba(78, 163, 255, 0.12) !important;
-	color: var(--iform-accent-hover) !important;
+	color: var(--formora-accent-hover) !important;
 }
 
 .badge-status.badge-status0,
@@ -4344,9 +4344,9 @@ span.badge-status4b {
 .badge-status.badge-status6[data-status-element="facture"][data-status="2"],
 .badge-status.badge-status6[data-status-element="invoice_supplier"][data-status="2"],
 .badge-status.badge-status6[data-status-element="commande"][data-status="3"] {
-	background: var(--iform-status-success-bg) !important;
-	border-color: var(--iform-status-success-border) !important;
-	color: var(--iform-status-success-text) !important;
+	background: var(--formora-status-success-bg) !important;
+	border-color: var(--formora-status-success-border) !important;
+	color: var(--formora-status-success-text) !important;
 }
 
 .badge-status.badge-status8,
@@ -4404,19 +4404,19 @@ div.statusrefsupplier.statusrefbis {
 	background: rgba(78, 163, 255, 0.08) !important;
 	border: 1px solid rgba(78, 163, 255, 0.18) !important;
 	border-radius: 999px !important;
-	color: var(--iform-muted) !important;
+	color: var(--formora-muted) !important;
 	padding: 2px 9px !important;
 }
 
 div.statusref.statusrefbis .opacitymedium,
 div.statusdoc.statusrefbis .opacitymedium,
 div.statusrefsupplier.statusrefbis .opacitymedium {
-	color: var(--iform-muted) !important;
+	color: var(--formora-muted) !important;
 }
 
 .jnotify-container .jnotify-notification {
-	background: var(--iform-surface) !important;
-	border-color: var(--iform-line) !important;
+	background: var(--formora-surface) !important;
+	border-color: var(--formora-line) !important;
 	box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
 }
 
@@ -4430,7 +4430,7 @@ div.jnotify-background,
 
 .jnotify-container .jnotify-notification .jnotify-message,
 .jnotify-container .jnotify-close {
-	color: var(--iform-text) !important;
+	color: var(--formora-text) !important;
 }
 
 .jnotify-container .jnotify-notification-ok .jnotify-background {
@@ -4467,29 +4467,29 @@ div.jnotify-background,
 .ui-datepicker-header,
 .ui-menu,
 .ui-autocomplete {
-	background: var(--iform-surface-alt) !important;
-	border-color: var(--iform-line) !important;
-	color: var(--iform-text) !important;
+	background: var(--formora-surface-alt) !important;
+	border-color: var(--formora-line) !important;
+	color: var(--formora-text) !important;
 }
 
 div#ui-datepicker-div,
 .ui-datepicker.ui-widget.ui-widget-content {
-	background: var(--iform-surface-alt) !important;
-	border-color: var(--iform-line) !important;
+	background: var(--formora-surface-alt) !important;
+	border-color: var(--formora-line) !important;
 	box-shadow: 0 2px 14px rgba(0, 0, 0, 0.55) !important;
 }
 
 .ui-state-hover,
 .ui-menu .ui-menu-item-wrapper.ui-state-active,
 .ui-autocomplete .ui-menu-item-wrapper.ui-state-active {
-	background: var(--iform-neutral-hover-bg) !important;
-	color: var(--iform-accent-hover) !important;
+	background: var(--formora-neutral-hover-bg) !important;
+	color: var(--formora-accent-hover) !important;
 }
 
 .ui-dialog .ui-dialog-titlebar-close {
-	background: var(--iform-surface-alt) !important;
-	border: 1px solid var(--iform-line) !important;
-	color: var(--iform-muted) !important;
+	background: var(--formora-surface-alt) !important;
+	border: 1px solid var(--formora-line) !important;
+	color: var(--formora-muted) !important;
 	box-shadow: none !important;
 }
 
@@ -4497,14 +4497,14 @@ div#ui-datepicker-div,
 .ui-dialog .ui-dialog-titlebar-close:focus,
 .ui-dialog .ui-dialog-titlebar-close.ui-state-hover,
 .ui-dialog .ui-dialog-titlebar-close.ui-state-focus {
-	background: var(--iform-neutral-hover-bg) !important;
+	background: var(--formora-neutral-hover-bg) !important;
 	border-color: rgba(78, 163, 255, 0.45) !important;
-	color: var(--iform-accent-hover) !important;
+	color: var(--formora-accent-hover) !important;
 }
 
 .ui-dialog .ui-dialog-titlebar-close:focus-visible {
 	outline: 0;
-	box-shadow: 0 0 0 2px var(--iform-focus-ring) !important;
+	box-shadow: 0 0 0 2px var(--formora-focus-ring) !important;
 }
 
 .ui-dialog .ui-dialog-titlebar-close .ui-icon-closethick {
@@ -4513,9 +4513,9 @@ div#ui-datepicker-div,
 }
 
 .ui-dialog .ui-dialog-buttonpane .ui-button {
-	background: var(--iform-surface-alt) !important;
-	border: 1px solid var(--iform-line) !important;
-	color: var(--iform-text) !important;
+	background: var(--formora-surface-alt) !important;
+	border: 1px solid var(--formora-line) !important;
+	color: var(--formora-text) !important;
 	box-shadow: none !important;
 }
 
@@ -4523,14 +4523,14 @@ div#ui-datepicker-div,
 .ui-dialog .ui-dialog-buttonpane .ui-button:focus,
 .ui-dialog .ui-dialog-buttonpane .ui-button.ui-state-hover,
 .ui-dialog .ui-dialog-buttonpane .ui-button.ui-state-focus {
-	background: var(--iform-neutral-hover-bg) !important;
+	background: var(--formora-neutral-hover-bg) !important;
 	border-color: rgba(78, 163, 255, 0.45) !important;
-	color: var(--iform-accent-hover) !important;
+	color: var(--formora-accent-hover) !important;
 }
 
 .ui-dialog .ui-dialog-buttonpane .ui-button:focus-visible {
 	outline: 0;
-	box-shadow: 0 0 0 2px var(--iform-focus-ring) !important;
+	box-shadow: 0 0 0 2px var(--formora-focus-ring) !important;
 }
 
 .ui-widget-overlay.ui-front,
@@ -4546,16 +4546,16 @@ span.userimg div.userphoto,
 img.userphotosmall,
 img.userphoto[alt="Gravatar avatar"],
 img.photouserphoto.dropdown-user-image[alt="Gravatar avatar"] {
-	background: var(--iform-surface-alt) !important;
-	border-color: var(--iform-line) !important;
-	color: var(--iform-text) !important;
+	background: var(--formora-surface-alt) !important;
+	border-color: var(--formora-line) !important;
+	color: var(--formora-text) !important;
 }
 
 div.pagination .disabled span,
 div.pagination .disabled a {
-	background: var(--iform-surface-alt) !important;
-	border-color: var(--iform-line) !important;
-	color: var(--iform-muted) !important;
+	background: var(--formora-surface-alt) !important;
+	border-color: var(--formora-line) !important;
+	color: var(--formora-muted) !important;
 }
 
 .warning,
@@ -4566,13 +4566,13 @@ div.pagination .disabled a {
 .messagewarning,
 .messageerr,
 .messageok {
-	border-color: var(--iform-line) !important;
-	color: var(--iform-text) !important;
+	border-color: var(--formora-line) !important;
+	color: var(--formora-text) !important;
 }
 
 .messageerr,
 .error {
-	background: var(--iform-danger-bg) !important;
+	background: var(--formora-danger-bg) !important;
 	border-color: rgba(255, 139, 139, 0.3) !important;
 	border-left-color: #ff8b8b !important;
 	color: #ffb4b4 !important;
@@ -4595,17 +4595,17 @@ div.pagination .disabled a {
 }
 
 .info {
-	background: var(--iform-accent-soft) !important;
+	background: var(--formora-accent-soft) !important;
 	border-color: rgba(78, 163, 255, 0.28) !important;
-	border-left-color: var(--iform-accent) !important;
-	color: var(--iform-accent-hover) !important;
+	border-left-color: var(--formora-accent) !important;
+	color: var(--formora-accent-hover) !important;
 }
 
 img,
 .photowithmargin,
 .photo,
 .photowithmargin {
-	border-color: var(--iform-line) !important;
+	border-color: var(--formora-line) !important;
 }
 
 .dropzone,
@@ -4613,9 +4613,9 @@ img,
 .ecmfile,
 .drag,
 .dragHandle {
-	background: var(--iform-surface-alt) !important;
-	border-color: var(--iform-line) !important;
-	color: var(--iform-text) !important;
+	background: var(--formora-surface-alt) !important;
+	border-color: var(--formora-line) !important;
+	color: var(--formora-text) !important;
 }
 
 .documentpreview img,
@@ -4637,16 +4637,16 @@ table.jPicker {
 }
 
 * {
-	scrollbar-color: #3a4048 var(--iform-bg);
+	scrollbar-color: #3a4048 var(--formora-bg);
 }
 
 ::-webkit-scrollbar {
-	background: var(--iform-bg);
+	background: var(--formora-bg);
 }
 
 ::-webkit-scrollbar-thumb {
 	background: #3a4048;
-	border: 2px solid var(--iform-bg);
+	border: 2px solid var(--formora-bg);
 	border-radius: 999px;
 }
 
@@ -4655,18 +4655,18 @@ table.jPicker {
 }
 
 .box, .boxtable {
-	scrollbar-color: var(--iform-line) transparent;
+	scrollbar-color: var(--formora-line) transparent;
 }
 <?php
 	print "}\n";
 	}
 	?>
 
-	/* iForm Apple-inspired refresh layer: shared component rules for light and dark palettes. */
+	/* Formora Apple-inspired refresh layer: shared component rules for light and dark palettes. */
 	body#mainbody,
 	body.bodylogin {
-		background: var(--iform-bg) !important;
-		color: var(--iform-text) !important;
+		background: var(--formora-bg) !important;
+		color: var(--formora-text) !important;
 		font-synthesis-weight: none;
 		-webkit-font-smoothing: antialiased;
 		text-rendering: optimizeLegibility;
@@ -4686,7 +4686,7 @@ table.jPicker {
 	body#mainbody .classlink,
 	body#mainbody .linkobject,
 	body#mainbody .nowraponall a {
-		color: var(--iform-accent);
+		color: var(--formora-accent);
 		text-decoration-thickness: 1px;
 		text-underline-offset: 2px;
 	}
@@ -4694,20 +4694,20 @@ table.jPicker {
 	body#mainbody a:hover,
 	body#mainbody .classlink:hover,
 	body#mainbody .linkobject:hover {
-		color: var(--iform-accent-hover);
+		color: var(--formora-accent-hover);
 	}
 
 	body#mainbody #id-container,
 	body#mainbody #id-right,
 	body#mainbody #id-right .fiche,
 	body#mainbody #id-right div.fiche {
-		background: var(--iform-bg) !important;
-		color: var(--iform-text) !important;
+		background: var(--formora-bg) !important;
+		color: var(--formora-text) !important;
 	}
 
 	body#mainbody #id-top {
-		background: var(--iform-surface) !important;
-		border-bottom: 1px solid var(--iform-line-soft) !important;
+		background: var(--formora-surface) !important;
+		border-bottom: 1px solid var(--formora-line-soft) !important;
 		box-shadow: 0 1px 0 rgba(0, 0, 0, 0.02) !important;
 	}
 
@@ -4724,7 +4724,7 @@ table.jPicker {
 	body#mainbody #id-top li.tmenu div.tmenucenter,
 	body#mainbody #id-top li.tmenusel div.tmenucenter {
 		border: 1px solid transparent !important;
-		border-radius: var(--iform-radius-sm) !important;
+		border-radius: var(--formora-radius-sm) !important;
 		box-sizing: border-box !important;
 		box-shadow: none !important;
 		display: flex !important;
@@ -4778,14 +4778,14 @@ table.jPicker {
 
 	body#mainbody #id-top li.tmenu:not(.nohover):hover div.tmenucenter,
 	body#mainbody #id-top li.tmenusel div.tmenucenter {
-		background: var(--iform-neutral-hover-bg) !important;
-		border-color: var(--iform-line-soft) !important;
+		background: var(--formora-neutral-hover-bg) !important;
+		border-color: var(--formora-line-soft) !important;
 	}
 
 	body#mainbody #id-top a.tmenuimage,
 	body#mainbody #id-top a.tmenulabel,
 	body#mainbody #id-top a.tmenulabel .mainmenuaspan {
-		color: var(--iform-muted) !important;
+		color: var(--formora-muted) !important;
 		max-width: none !important;
 		overflow: visible !important;
 		text-overflow: clip !important;
@@ -4798,7 +4798,7 @@ table.jPicker {
 	body#mainbody #id-top li.tmenusel a.tmenuimage,
 	body#mainbody #id-top li.tmenusel a.tmenulabel,
 	body#mainbody #id-top li.tmenusel a.tmenulabel .mainmenuaspan {
-		color: var(--iform-text) !important;
+		color: var(--formora-text) !important;
 	}
 
 	body#mainbody #id-top a.tmenuimage :is(.fa, .fas, .far, .fab)[class*="fa-"]::before,
@@ -4817,23 +4817,23 @@ table.jPicker {
 	body#mainbody #id-left .blockvmenufirst,
 	body#mainbody #id-left .blockvmenulast {
 		background: var(--colorbackvmenu1) !important;
-		border-color: var(--iform-line-soft) !important;
+		border-color: var(--formora-line-soft) !important;
 	}
 
 	body#mainbody #id-left .vmenu_titre,
 	body#mainbody #id-left .menu_titre {
 		background: transparent !important;
 		border-color: transparent !important;
-		color: var(--iform-muted) !important;
+		color: var(--formora-muted) !important;
 		font-weight: 600;
 		padding: 2px 0 !important;
 	}
 
 	body#mainbody #id-left :is(.menu_titre, .vmenu_titre):not(:has(> a.vmenu)) {
 		align-items: center;
-		border-radius: var(--iform-radius-sm) !important;
+		border-radius: var(--formora-radius-sm) !important;
 		box-sizing: border-box !important;
-		color: var(--iform-text) !important;
+		color: var(--formora-text) !important;
 		display: flex !important;
 		gap: 4px;
 		line-height: 1.25 !important;
@@ -4864,7 +4864,7 @@ table.jPicker {
 	}
 
 	body#mainbody #id-left :is(.menu_titre, .vmenu_titre):not(:has(> a.vmenu)) > span.vmenudisabled {
-		color: var(--iform-muted) !important;
+		color: var(--formora-muted) !important;
 	}
 
 	body#mainbody #id-left .menu_top {
@@ -4884,7 +4884,7 @@ table.jPicker {
 		background: transparent !important;
 		border-color: transparent !important;
 		box-sizing: border-box !important;
-		color: var(--iform-muted) !important;
+		color: var(--formora-muted) !important;
 		font-size: 0.92em;
 		font-weight: 600;
 		line-height: 1.25 !important;
@@ -4898,9 +4898,9 @@ table.jPicker {
 	body#mainbody #id-left .menu_titre > a.vmenu,
 	body#mainbody #id-left .vmenu_titre > a.vmenu,
 	body#mainbody #id-left .menu_contenu > a {
-		border-radius: var(--iform-radius-sm) !important;
+		border-radius: var(--formora-radius-sm) !important;
 		box-sizing: border-box !important;
-		color: var(--iform-text) !important;
+		color: var(--formora-text) !important;
 		display: flex !important;
 		align-items: center;
 		gap: 4px;
@@ -4945,8 +4945,8 @@ table.jPicker {
 	body#mainbody #id-left .menu_contenu > a:hover,
 	body#mainbody #id-left .menu_contenu:hover > a,
 	body#mainbody #id-left .menu_contenu > a:focus {
-		background: var(--iform-neutral-hover-bg) !important;
-		color: var(--iform-accent) !important;
+		background: var(--formora-neutral-hover-bg) !important;
+		color: var(--formora-accent) !important;
 		text-decoration: none !important;
 	}
 
@@ -4956,7 +4956,7 @@ table.jPicker {
 	}
 
 	body#mainbody table.table-fiche-title {
-		border-bottom: 1px solid var(--iform-line-soft) !important;
+		border-bottom: 1px solid var(--formora-line-soft) !important;
 		margin-bottom: 16px !important;
 		padding-bottom: 8px !important;
 	}
@@ -4970,7 +4970,7 @@ table.jPicker {
 	body#mainbody table.table-fiche-title .titre,
 	body#mainbody table.table-fiche-title div.titre,
 	body#mainbody .titre {
-		color: var(--iform-text) !important;
+		color: var(--formora-text) !important;
 		font-weight: 650 !important;
 		letter-spacing: 0 !important;
 	}
@@ -4978,7 +4978,7 @@ table.jPicker {
 	body#mainbody .opacitymedium,
 	body#mainbody .opacitymedium i,
 	body#mainbody .opacitymedium span {
-		color: var(--iform-muted) !important;
+		color: var(--formora-muted) !important;
 	}
 
 	body#mainbody .box,
@@ -4992,10 +4992,10 @@ table.jPicker {
 	body#mainbody table.border,
 	body#mainbody table.tableforfield,
 	body#mainbody table.tagtable {
-		background: var(--iform-surface) !important;
-		border-color: var(--iform-line-soft) !important;
+		background: var(--formora-surface) !important;
+		border-color: var(--formora-line-soft) !important;
 		box-shadow: none !important;
-		color: var(--iform-text) !important;
+		color: var(--formora-text) !important;
 	}
 
 	body#mainbody .fichecenter,
@@ -5015,7 +5015,7 @@ table.jPicker {
 		background: transparent !important;
 		border-color: transparent !important;
 		box-shadow: none !important;
-		color: var(--iform-text) !important;
+		color: var(--formora-text) !important;
 	}
 
 	body#mainbody .tabBar :is(.tagtable, .table-border),
@@ -5055,15 +5055,15 @@ table.jPicker {
 	body#mainbody table.border,
 	body#mainbody table.tableforfield,
 	body#mainbody table.tagtable {
-		border-radius: var(--iform-radius) !important;
+		border-radius: var(--formora-radius) !important;
 	}
 
 	body#mainbody .info-box,
 	body#mainbody .box-flex-item.info-box-module .info-box {
-		background: var(--iform-surface) !important;
-		border: 1px solid var(--iform-line-soft) !important;
+		background: var(--formora-surface) !important;
+		border: 1px solid var(--formora-line-soft) !important;
 		box-shadow: none !important;
-		color: var(--iform-text) !important;
+		color: var(--formora-text) !important;
 		box-sizing: border-box !important;
 		overflow: hidden !important;
 		position: relative;
@@ -5081,8 +5081,8 @@ table.jPicker {
 
 	body#mainbody .info-box:hover,
 	body#mainbody .box-flex-item.info-box-module:hover .info-box {
-		border-color: var(--iform-line) !important;
-		box-shadow: var(--iform-shadow-soft) !important;
+		border-color: var(--formora-line) !important;
+		box-shadow: var(--formora-shadow-soft) !important;
 	}
 
 	body#mainbody .info-box:has(dl.dropdown dd .multichoicedoc > ul.ulselectedfields.open) {
@@ -5100,19 +5100,19 @@ table.jPicker {
 	}
 
 	body#mainbody table.boxtable tr:first-child > :first-child {
-		border-top-left-radius: calc(var(--iform-radius) - 1px) !important;
+		border-top-left-radius: calc(var(--formora-radius) - 1px) !important;
 	}
 
 	body#mainbody table.boxtable tr:first-child > :last-child {
-		border-top-right-radius: calc(var(--iform-radius) - 1px) !important;
+		border-top-right-radius: calc(var(--formora-radius) - 1px) !important;
 	}
 
 	body#mainbody table.boxtable tr:last-child > :first-child {
-		border-bottom-left-radius: calc(var(--iform-radius) - 1px) !important;
+		border-bottom-left-radius: calc(var(--formora-radius) - 1px) !important;
 	}
 
 	body#mainbody table.boxtable tr:last-child > :last-child {
-		border-bottom-right-radius: calc(var(--iform-radius) - 1px) !important;
+		border-bottom-right-radius: calc(var(--formora-radius) - 1px) !important;
 	}
 
 	body#mainbody table.liste th,
@@ -5121,9 +5121,9 @@ table.jPicker {
 	body#mainbody .liste_titre,
 	body#mainbody .liste_titre_sel,
 	body#mainbody .liste_titre_create {
-		background: var(--iform-table-header) !important;
-		border-color: var(--iform-line-soft) !important;
-		color: var(--iform-muted) !important;
+		background: var(--formora-table-header) !important;
+		border-color: var(--formora-line-soft) !important;
+		color: var(--formora-muted) !important;
 		font-weight: 650 !important;
 	}
 
@@ -5135,8 +5135,8 @@ table.jPicker {
 	body#mainbody tr.oddeven td,
 	body#mainbody tr.pair td,
 		body#mainbody tr.impair td {
-			border-color: var(--iform-line-soft) !important;
-			color: var(--iform-text) !important;
+			border-color: var(--formora-line-soft) !important;
+			color: var(--formora-text) !important;
 		}
 
 		body#mainbody table.border:not(.liste) > tbody > tr > td {
@@ -5158,7 +5158,7 @@ table.jPicker {
 	body#mainbody tr.pair td.opacitylow,
 	body#mainbody tr.impair td.opacitylow {
 		opacity: 1 !important;
-		color: var(--iform-muted) !important;
+		color: var(--formora-muted) !important;
 	}
 
 	body#mainbody table.liste tr,
@@ -5169,7 +5169,7 @@ table.jPicker {
 	body#mainbody tr.oddeven,
 	body#mainbody tr.pair,
 	body#mainbody tr.impair {
-		border-color: var(--iform-line-soft) !important;
+		border-color: var(--formora-line-soft) !important;
 	}
 
 	body#mainbody table.liste.formdoc > :is(tbody, tfoot):last-child > tr:last-child > :is(td, th),
@@ -5199,14 +5199,14 @@ table.jPicker {
 	body#mainbody tr.pair:hover td,
 	body#mainbody tr.impair:hover td,
 	body#mainbody tr.highlight td {
-		background: var(--iform-neutral-hover-bg) !important;
+		background: var(--formora-neutral-hover-bg) !important;
 	}
 
 	body#mainbody tr.rowselected td,
 	body#mainbody tr.selected td,
 	body#mainbody tr.oddeven.selected td {
-		background: var(--iform-accent-soft, rgba(0, 113, 227, 0.12)) !important;
-		border-color: var(--iform-accent) !important;
+		background: var(--formora-accent-soft, rgba(0, 113, 227, 0.12)) !important;
+		border-color: var(--formora-accent) !important;
 	}
 
 	body#mainbody input:not(.select2-search__field):not([type="checkbox"]):not([type="radio"]):not([type="image"]):not([type="submit"]):not([type="button"]),
@@ -5215,12 +5215,12 @@ table.jPicker {
 	body#mainbody .select2-container--default .select2-selection--single,
 	body#mainbody .select2-container--default .select2-selection--multiple,
 	body.bodylogin input:not([type="checkbox"]):not([type="radio"]):not([type="image"]):not([type="submit"]):not([type="button"]) {
-		background: var(--inputbackgroundcolor, var(--iform-surface)) !important;
-		border: 1px solid var(--inputbordercolor, var(--iform-line)) !important;
-		border-radius: var(--iform-radius-sm) !important;
+		background: var(--inputbackgroundcolor, var(--formora-surface)) !important;
+		border: 1px solid var(--inputbordercolor, var(--formora-line)) !important;
+		border-radius: var(--formora-radius-sm) !important;
 		box-shadow: none !important;
-		color: var(--iform-text) !important;
-		min-height: var(--iform-control-height);
+		color: var(--formora-text) !important;
+		min-height: var(--formora-control-height);
 		transition: border-color 0.14s ease, box-shadow 0.14s ease, background-color 0.14s ease;
 	}
 
@@ -5249,7 +5249,7 @@ table.jPicker {
 	}
 
 	body#mainbody .select2-container--default .select2-selection--single .select2-selection__arrow b {
-		background-color: var(--iform-icon-muted) !important;
+		background-color: var(--formora-icon-muted) !important;
 		border: 0 !important;
 		display: block !important;
 		height: 14px !important;
@@ -5259,14 +5259,14 @@ table.jPicker {
 		top: 50% !important;
 		transform: translate(-50%, -50%) !important;
 		width: 14px !important;
-		-webkit-mask: var(--iform-symbol-sort-down) center / contain no-repeat;
-		mask: var(--iform-symbol-sort-down) center / contain no-repeat;
+		-webkit-mask: var(--formora-symbol-sort-down) center / contain no-repeat;
+		mask: var(--formora-symbol-sort-down) center / contain no-repeat;
 	}
 
 	body#mainbody .select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b,
 	body#mainbody .select2-container--default .select2-selection--single[aria-expanded="true"] .select2-selection__arrow b {
-		-webkit-mask-image: var(--iform-symbol-sort-up) !important;
-		mask-image: var(--iform-symbol-sort-up) !important;
+		-webkit-mask-image: var(--formora-symbol-sort-up) !important;
+		mask-image: var(--formora-symbol-sort-up) !important;
 	}
 
 	body#mainbody input:focus:not(.noborderfocus):not(.inputsearch_dropdownselectedfields):not(.button):not(.buttonwebsite):not(.buttonreset):not(.select2-search__field):not(#top-bookmark-search-input):not(.search_component_input):not(.input-nobottom),
@@ -5275,8 +5275,8 @@ table.jPicker {
 	body#mainbody .select2-container--open [aria-expanded="false"].select2-selection--single,
 	body#mainbody .select2-container--focus span.selection span.select2-selection:not(.noborderfocus):not(.massactionselect),
 	body.bodylogin input:focus {
-		border-color: var(--iform-accent) !important;
-		box-shadow: 0 0 0 3px var(--iform-focus-ring) !important;
+		border-color: var(--formora-accent) !important;
+		box-shadow: 0 0 0 3px var(--formora-focus-ring) !important;
 		outline: none !important;
 	}
 
@@ -5287,20 +5287,20 @@ table.jPicker {
 	body#mainbody textarea[readonly],
 	body#mainbody .select2-container--default.select2-container--disabled .select2-selection--single,
 	body#mainbody .select2-container--default.select2-container--disabled .select2-selection--multiple {
-		background: var(--inputbackgroundcolordisabled, var(--iform-neutral-bg)) !important;
-		border-color: var(--iform-line-soft) !important;
-		color: var(--inputcolordisabled, var(--iform-muted)) !important;
+		background: var(--inputbackgroundcolordisabled, var(--formora-neutral-bg)) !important;
+		border-color: var(--formora-line-soft) !important;
+		color: var(--inputcolordisabled, var(--formora-muted)) !important;
 		cursor: not-allowed;
 		opacity: 1;
 	}
 
 	body#mainbody div.urllink {
 		align-items: center;
-		background: var(--iform-neutral-bg) !important;
-		border: 1px solid var(--iform-line-soft) !important;
-		border-radius: var(--iform-radius-sm) !important;
+		background: var(--formora-neutral-bg) !important;
+		border: 1px solid var(--formora-line-soft) !important;
+		border-radius: var(--formora-radius-sm) !important;
 		box-shadow: none !important;
-		color: var(--iform-text) !important;
+		color: var(--formora-text) !important;
 		display: flex;
 		gap: 8px;
 		height: auto !important;
@@ -5311,7 +5311,7 @@ table.jPicker {
 
 	body#mainbody div.urllink a,
 	body#mainbody div.urllink :is(.fa, .fas, .far, .fab)[class*="fa-"] {
-		color: var(--iform-accent) !important;
+		color: var(--formora-accent) !important;
 	}
 
 	body#mainbody div.urllink input {
@@ -5326,11 +5326,11 @@ table.jPicker {
 	body#mainbody .dropdown-content,
 	body#mainbody .dropdown-menu,
 	body#mainbody .ui-datepicker {
-		background: var(--iform-elevated) !important;
-		border: 1px solid var(--iform-line) !important;
-		border-radius: var(--iform-radius) !important;
-		box-shadow: var(--iform-shadow-menu) !important;
-		color: var(--iform-text) !important;
+		background: var(--formora-elevated) !important;
+		border: 1px solid var(--formora-line) !important;
+		border-radius: var(--formora-radius) !important;
+		box-shadow: var(--formora-shadow-menu) !important;
+		color: var(--formora-text) !important;
 		overflow: hidden;
 	}
 
@@ -5338,19 +5338,19 @@ table.jPicker {
 	body#mainbody .ui-menu .ui-menu-item-wrapper,
 	body#mainbody .dropdown-item,
 	body#mainbody .dropdown-content a {
-		color: var(--iform-text) !important;
+		color: var(--formora-text) !important;
 	}
 
 	body#mainbody .select2-dropdown .select2-results__option {
-		background: var(--iform-elevated) !important;
+		background: var(--formora-elevated) !important;
 	}
 
 	body#mainbody .select2-container--default .select2-results__option--highlighted[aria-selected],
 	body#mainbody .select2-container--default .select2-results__option:hover,
 	body#mainbody .select2-dropdown .select2-results .select2-highlighted,
 	body#mainbody .select2-dropdown .select2-results__option:hover {
-		background: var(--iform-neutral-hover-bg) !important;
-		color: var(--iform-accent) !important;
+		background: var(--formora-neutral-hover-bg) !important;
+		color: var(--formora-accent) !important;
 	}
 
 	body#mainbody .select2-container--default .select2-results__option--highlighted[aria-selected] span:not(.flag-sprite):not([class*="flag"]):not(.fi):not([class^="fi-"]):not([class*=" fi-"]),
@@ -5363,8 +5363,8 @@ table.jPicker {
 	body#mainbody .ui-menu .ui-menu-item-wrapper.ui-state-active,
 	body#mainbody .ui-menu .ui-menu-item-wrapper:hover,
 	body#mainbody .ui-datepicker td a:hover {
-		background: var(--iform-neutral-hover-bg) !important;
-		color: var(--iform-accent) !important;
+		background: var(--formora-neutral-hover-bg) !important;
+		color: var(--formora-accent) !important;
 	}
 
 	body#mainbody .butAction:not(.butActionDelete):not(.butActionRefused),
@@ -5375,10 +5375,10 @@ table.jPicker {
 	body#mainbody input[type="button"]:not(.buttonDelete):not(.buttonRefused):not(.buttonpayment):not(.bordertransp):not(:disabled) {
 		align-items: center !important;
 		appearance: none;
-		background: var(--iform-accent) !important;
+		background: var(--formora-accent) !important;
 		background-image: none !important;
-		border: 1px solid var(--iform-accent) !important;
-		border-radius: var(--iform-radius-sm) !important;
+		border: 1px solid var(--formora-accent) !important;
+		border-radius: var(--formora-radius-sm) !important;
 		box-shadow: none !important;
 		box-sizing: border-box !important;
 		color: #fff !important;
@@ -5396,8 +5396,8 @@ table.jPicker {
 	body#mainbody .button:not(.buttonDelete):not(.buttonRefused):not(.button-delete):not(.buttonpayment):not(.bordertransp):not(:disabled):hover,
 	body#mainbody input[type="submit"]:not(.buttonDelete):not(.buttonRefused):not(.buttonpayment):not(.bordertransp):not(:disabled):hover,
 	body#mainbody input[type="button"]:not(.buttonDelete):not(.buttonRefused):not(.buttonpayment):not(.bordertransp):not(:disabled):hover {
-		background: var(--iform-accent-hover) !important;
-		border-color: var(--iform-accent-hover) !important;
+		background: var(--formora-accent-hover) !important;
+		border-color: var(--formora-accent-hover) !important;
 		box-shadow: none !important;
 		color: #fff !important;
 		text-decoration: none !important;
@@ -5405,7 +5405,7 @@ table.jPicker {
 
 	<?php
 	if (getDolGlobalInt('THEME_DARKMODEENABLED')) {
-		print "/* iForm dark-mode action buttons keep outline/soft fill treatment. */\n";
+		print "/* Formora dark-mode action buttons keep outline/soft fill treatment. */\n";
 		if (getDolGlobalInt('THEME_DARKMODEENABLED') != 2) {
 			print "@media (prefers-color-scheme: dark) {";
 		} else {
@@ -5418,18 +5418,18 @@ table.jPicker {
 	body#mainbody .button:not(.buttonDelete):not(.buttonRefused):not(.button-delete):not(.buttonpayment):not(.bordertransp):not(:disabled),
 	body#mainbody input[type="submit"]:not(.buttonDelete):not(.buttonRefused):not(.buttonpayment):not(.bordertransp):not(:disabled),
 	body#mainbody input[type="button"]:not(.buttonDelete):not(.buttonRefused):not(.buttonpayment):not(.bordertransp):not(:disabled) {
-		background: var(--iform-accent-soft) !important;
+		background: var(--formora-accent-soft) !important;
 		border-color: rgba(78, 163, 255, 0.4) !important;
-		color: var(--iform-accent) !important;
+		color: var(--formora-accent) !important;
 	}
 
 	body#mainbody .butAction:not(.butActionDelete):not(.butActionRefused):hover,
 	body#mainbody .button:not(.buttonDelete):not(.buttonRefused):not(.button-delete):not(.buttonpayment):not(.bordertransp):not(:disabled):hover,
 	body#mainbody input[type="submit"]:not(.buttonDelete):not(.buttonRefused):not(.buttonpayment):not(.bordertransp):not(:disabled):hover,
 	body#mainbody input[type="button"]:not(.buttonDelete):not(.buttonRefused):not(.buttonpayment):not(.bordertransp):not(:disabled):hover {
-		background: var(--iform-accent-soft-hover) !important;
-		border-color: var(--iform-accent) !important;
-		color: var(--iform-accent) !important;
+		background: var(--formora-accent-soft-hover) !important;
+		border-color: var(--formora-accent) !important;
+		color: var(--formora-accent) !important;
 	}
 	<?php
 		print "}\n";
@@ -5439,10 +5439,10 @@ table.jPicker {
 	body#mainbody .butActionDelete,
 	body#mainbody .butActionDelete:link,
 	body#mainbody .butActionDelete:visited {
-		background: var(--iform-danger) !important;
+		background: var(--formora-danger) !important;
 		background-image: none !important;
-		border: 1px solid var(--iform-danger) !important;
-		border-radius: var(--iform-radius-sm) !important;
+		border: 1px solid var(--formora-danger) !important;
+		border-radius: var(--formora-radius-sm) !important;
 		box-shadow: none !important;
 		color: #fff !important;
 	}
@@ -5464,15 +5464,15 @@ table.jPicker {
 	body#mainbody .butActionDelete,
 	body#mainbody .butActionDelete:link,
 	body#mainbody .butActionDelete:visited {
-		background: var(--iform-danger-bg) !important;
+		background: var(--formora-danger-bg) !important;
 		border-color: rgba(255, 69, 58, 0.4) !important;
-		color: var(--iform-danger) !important;
+		color: var(--formora-danger) !important;
 	}
 
 	body#mainbody .butActionDelete:hover {
-		background: var(--iform-danger-hover-bg) !important;
-		border-color: var(--iform-danger) !important;
-		color: var(--iform-danger) !important;
+		background: var(--formora-danger-hover-bg) !important;
+		border-color: var(--formora-danger) !important;
+		color: var(--formora-danger) !important;
 	}
 	<?php
 		print "}\n";
@@ -5483,12 +5483,12 @@ table.jPicker {
 	body#mainbody .butActionRefused:link,
 	body#mainbody .butActionRefused:visited,
 	body#mainbody .butActionNewRefused {
-		background: var(--iform-refused-bg) !important;
+		background: var(--formora-refused-bg) !important;
 		background-image: none !important;
-		border: 1px solid var(--iform-line-soft) !important;
-		border-radius: var(--iform-radius-sm) !important;
+		border: 1px solid var(--formora-line-soft) !important;
+		border-radius: var(--formora-radius-sm) !important;
 		box-shadow: none !important;
-		color: var(--iform-muted) !important;
+		color: var(--formora-muted) !important;
 		cursor: not-allowed !important;
 		opacity: 1 !important;
 	}
@@ -5552,7 +5552,7 @@ table.jPicker {
 	body#mainbody .butActionRefused:focus,
 	body#mainbody .button:focus,
 	body#mainbody button:focus {
-		box-shadow: 0 0 0 3px var(--iform-focus-ring) !important;
+		box-shadow: 0 0 0 3px var(--formora-focus-ring) !important;
 		outline: none !important;
 	}
 
@@ -5564,9 +5564,9 @@ table.jPicker {
 	body#mainbody button:focus-visible,
 	body#mainbody a.btnTitle:focus-visible,
 	body#mainbody .btnTitle:focus-visible {
-		outline: 2px solid var(--iform-focus-outline) !important;
+		outline: 2px solid var(--formora-focus-outline) !important;
 		outline-offset: 3px !important;
-		box-shadow: 0 0 0 4px var(--iform-focus-ring) !important;
+		box-shadow: 0 0 0 4px var(--formora-focus-ring) !important;
 	}
 
 	body#mainbody .badge,
@@ -5586,7 +5586,7 @@ table.jPicker {
 	body#mainbody .badge-status,
 	body#mainbody .badgeneutral,
 	body#mainbody span.badgeneutral {
-		border: 1px solid var(--iform-line-soft) !important;
+		border: 1px solid var(--formora-line-soft) !important;
 	}
 
 	body#mainbody .badge-dot.badge-status {
@@ -5648,15 +5648,15 @@ table.jPicker {
 	body#mainbody .modal-content,
 	body#mainbody .ficheaddleft,
 	body#mainbody .ficheaddright {
-		background: var(--iform-elevated) !important;
-		border-color: var(--iform-line) !important;
-		color: var(--iform-text) !important;
+		background: var(--formora-elevated) !important;
+		border-color: var(--formora-line) !important;
+		color: var(--formora-text) !important;
 	}
 
 	body#mainbody .ui-dialog,
 	body#mainbody .modal-content {
-		border-radius: var(--iform-radius-lg) !important;
-		box-shadow: var(--iform-shadow-elevated) !important;
+		border-radius: var(--formora-radius-lg) !important;
+		box-shadow: var(--formora-shadow-elevated) !important;
 		overflow: hidden;
 	}
 
@@ -5669,11 +5669,11 @@ table.jPicker {
 	body#mainbody .tooltip,
 	body#mainbody .tooltipster-base,
 	body#mainbody .tooltipster-box {
-		background: var(--tooltipbgcolor, var(--iform-elevated)) !important;
-		border: 1px solid var(--iform-line) !important;
-		border-radius: var(--iform-radius-sm) !important;
-		box-shadow: var(--iform-shadow-menu) !important;
-		color: var(--tooltipfontcolor, var(--iform-text)) !important;
+		background: var(--tooltipbgcolor, var(--formora-elevated)) !important;
+		border: 1px solid var(--formora-line) !important;
+		border-radius: var(--formora-radius-sm) !important;
+		box-shadow: var(--formora-shadow-menu) !important;
+		color: var(--tooltipfontcolor, var(--formora-text)) !important;
 	}
 
 	body#mainbody .jnotify-container {
@@ -5681,9 +5681,9 @@ table.jPicker {
 	}
 
 	body#mainbody .jnotify-container .jnotify-notification {
-		border: 1px solid var(--iform-line) !important;
-		border-radius: var(--iform-radius) !important;
-		box-shadow: var(--iform-shadow-menu) !important;
+		border: 1px solid var(--formora-line) !important;
+		border-radius: var(--formora-radius) !important;
+		box-shadow: var(--formora-shadow-menu) !important;
 		overflow: hidden;
 	}
 
@@ -5698,37 +5698,37 @@ table.jPicker {
 
 	body#mainbody .jnotify-container .jnotify-notification .jnotify-message,
 	body#mainbody .jnotify-container .jnotify-close {
-		color: var(--iform-text) !important;
+		color: var(--formora-text) !important;
 	}
 
 	body#mainbody .jnotify-container .jnotify-notification-ok {
-		background: var(--iform-toast-success-bg) !important;
-		border-color: var(--iform-toast-success-border) !important;
+		background: var(--formora-toast-success-bg) !important;
+		border-color: var(--formora-toast-success-border) !important;
 	}
 
 	body#mainbody .jnotify-container .jnotify-notification-ok .jnotify-message,
 	body#mainbody .jnotify-container .jnotify-notification-ok .jnotify-close {
-		color: var(--iform-toast-success-text) !important;
+		color: var(--formora-toast-success-text) !important;
 	}
 
 	body#mainbody .jnotify-container .jnotify-notification-warning {
-		background: var(--iform-toast-warning-bg) !important;
-		border-color: var(--iform-toast-warning-border) !important;
+		background: var(--formora-toast-warning-bg) !important;
+		border-color: var(--formora-toast-warning-border) !important;
 	}
 
 	body#mainbody .jnotify-container .jnotify-notification-warning .jnotify-message,
 	body#mainbody .jnotify-container .jnotify-notification-warning .jnotify-close {
-		color: var(--iform-toast-warning-text) !important;
+		color: var(--formora-toast-warning-text) !important;
 	}
 
 	body#mainbody .jnotify-container .jnotify-notification-error {
-		background: var(--iform-toast-error-bg) !important;
-		border-color: var(--iform-toast-error-border) !important;
+		background: var(--formora-toast-error-bg) !important;
+		border-color: var(--formora-toast-error-border) !important;
 	}
 
 	body#mainbody .jnotify-container .jnotify-notification-error .jnotify-message,
 	body#mainbody .jnotify-container .jnotify-notification-error .jnotify-close {
-		color: var(--iform-toast-error-text) !important;
+		color: var(--formora-toast-error-text) !important;
 	}
 
 	body#mainbody [class*="fa-"],
@@ -5761,15 +5761,15 @@ table.jPicker {
 	}
 
 	body.bodylogin {
-		background-color: var(--iform-bg) !important;
+		background-color: var(--formora-bg) !important;
 	}
 
 	body.bodylogin .login_table {
-		background: var(--iform-surface) !important;
-		border: 1px solid var(--iform-line-soft) !important;
-		border-radius: var(--iform-radius-lg) !important;
-		box-shadow: var(--iform-shadow-elevated) !important;
-		color: var(--iform-text) !important;
+		background: var(--formora-surface) !important;
+		border: 1px solid var(--formora-line-soft) !important;
+		border-radius: var(--formora-radius-lg) !important;
+		box-shadow: var(--formora-shadow-elevated) !important;
+		color: var(--formora-text) !important;
 	}
 
 	body.bodylogin .login_table .tagtable {
@@ -5781,13 +5781,13 @@ table.jPicker {
 	body.bodylogin .login_table input#username,
 	body.bodylogin .login_table input#password,
 	body.bodylogin .login_table input#securitycode {
-		background: var(--inputbackgroundcolor, var(--iform-surface)) !important;
-		border-color: var(--inputbordercolor, var(--iform-line)) !important;
-		color: var(--iform-text) !important;
+		background: var(--inputbackgroundcolor, var(--formora-surface)) !important;
+		border-color: var(--inputbordercolor, var(--formora-line)) !important;
+		color: var(--formora-text) !important;
 	}
 
 	body.bodylogin .login_table input::placeholder {
-		color: var(--iform-muted) !important;
+		color: var(--formora-muted) !important;
 		opacity: 0.54;
 	}
 
@@ -5796,21 +5796,21 @@ table.jPicker {
 	body.bodylogin .butActionLogin:visited,
 	body.bodylogin .butActionLogin:hover,
 	body.bodylogin .butActionLogin:active {
-		background: var(--iform-surface-alt) !important;
-		border: 1px solid var(--iform-line) !important;
-		border-radius: var(--iform-radius-sm) !important;
+		background: var(--formora-surface-alt) !important;
+		border: 1px solid var(--formora-line) !important;
+		border-radius: var(--formora-radius-sm) !important;
 		box-shadow: none !important;
-		color: var(--iform-text) !important;
+		color: var(--formora-text) !important;
 		font-weight: 650 !important;
 		min-height: 44px;
 	}
 
 	body.bodylogin .butActionLogin:hover,
 	body.bodylogin .butActionLogin:focus {
-		background: var(--iform-neutral-hover-bg) !important;
-		border-color: var(--iform-accent) !important;
-		box-shadow: 0 0 0 3px var(--iform-focus-ring) !important;
-		color: var(--iform-text) !important;
+		background: var(--formora-neutral-hover-bg) !important;
+		border-color: var(--formora-accent) !important;
+		box-shadow: 0 0 0 3px var(--formora-focus-ring) !important;
+		color: var(--formora-text) !important;
 	}
 
 	body#mainbody .login_block.usedropdown {
@@ -5849,15 +5849,15 @@ table.jPicker {
 	body#mainbody .tabsAction .dropdown.open > .dropdown-menu,
 	body#mainbody .tabsActionNoBottom .dropdown.open > .dropdown-menu,
 	body#mainbody .tabBar .dropdown.open > .dropdown-menu {
-		background-color: var(--iform-surface) !important;
+		background-color: var(--formora-surface) !important;
 		background-image: none !important;
-		border: 1px solid var(--iform-line) !important;
+		border: 1px solid var(--formora-line) !important;
 		box-shadow: 0 8px 18px rgba(31, 35, 40, 0.12) !important;
-		color: var(--iform-text) !important;
+		color: var(--formora-text) !important;
 	}
 
 	body#mainbody .dropdown-holder.open > .dropdown-content::before {
-		border-color: transparent transparent var(--iform-surface) transparent !important;
+		border-color: transparent transparent var(--formora-surface) transparent !important;
 	}
 
 	body#mainbody .dropdown-holder > .dropdown-content > a.butAction,
@@ -5872,11 +5872,11 @@ table.jPicker {
 		background-color: transparent !important;
 		background-image: none !important;
 		border: 0 !important;
-		border-bottom: 1px solid var(--iform-line-soft) !important;
+		border-bottom: 1px solid var(--formora-line-soft) !important;
 		border-radius: 0 !important;
 		box-sizing: border-box !important;
 		box-shadow: none !important;
-		color: var(--iform-text) !important;
+		color: var(--formora-text) !important;
 		display: block !important;
 		line-height: 20px !important;
 		margin: 0 !important;
@@ -5895,33 +5895,33 @@ table.jPicker {
 	body#mainbody .tabsActionNoBottom .dropdown-menu > .dropdown-item:focus,
 	body#mainbody .tabBar .dropdown-menu > .dropdown-item:hover,
 	body#mainbody .tabBar .dropdown-menu > .dropdown-item:focus {
-		background-color: var(--iform-neutral-hover-bg) !important;
+		background-color: var(--formora-neutral-hover-bg) !important;
 		background-image: none !important;
-		border-bottom-color: var(--iform-line) !important;
+		border-bottom-color: var(--formora-line) !important;
 		box-shadow: none !important;
-		color: var(--iform-accent) !important;
+		color: var(--formora-accent) !important;
 		text-decoration: none !important;
 	}
 
 	body#mainbody .dropdown-holder > .dropdown-content > a.butActionDelete,
 	body#mainbody .dropdown-holder > .dropdown-content > a.butActionDelete:link,
 	body#mainbody .dropdown-holder > .dropdown-content > a.butActionDelete:visited {
-		color: var(--iform-danger) !important;
+		color: var(--formora-danger) !important;
 	}
 
 	body#mainbody .dropdown-holder > .dropdown-content > a.butActionDelete:hover,
 	body#mainbody .dropdown-holder > .dropdown-content > a.butActionDelete:focus {
-		background-color: var(--iform-danger-bg) !important;
+		background-color: var(--formora-danger-bg) !important;
 		background-image: none !important;
 		border-bottom-color: #ff8182 !important;
-		color: var(--iform-danger) !important;
+		color: var(--formora-danger) !important;
 	}
 
 	body#mainbody .dropdown-holder > .dropdown-content > a.butActionRefused,
 	body#mainbody .dropdown-holder > .dropdown-content > span.butActionRefused,
 	body#mainbody .dropdown-holder > .dropdown-content > a.butActionRefused:hover,
 	body#mainbody .dropdown-holder > .dropdown-content > span.butActionRefused:hover {
-		color: var(--iform-muted) !important;
+		color: var(--formora-muted) !important;
 		cursor: not-allowed !important;
 	}
 
@@ -5929,10 +5929,10 @@ table.jPicker {
 		background-color: transparent !important;
 		background-image: none !important;
 		border: 0 !important;
-		border-radius: var(--iform-radius-sm) !important;
+		border-radius: var(--formora-radius-sm) !important;
 		box-shadow: none !important;
 		box-sizing: border-box !important;
-		color: var(--iform-text) !important;
+		color: var(--formora-text) !important;
 		display: block !important;
 		margin: 0 !important;
 		padding: 8px 12px !important;
@@ -5942,9 +5942,9 @@ table.jPicker {
 
 	body#mainbody #topmenu-quickadd-dropdown .dropdown-menu .dropdown-item.quickadd-item:hover,
 	body#mainbody #topmenu-quickadd-dropdown .dropdown-menu .dropdown-item.quickadd-item:focus {
-		background-color: var(--iform-neutral-hover-bg) !important;
+		background-color: var(--formora-neutral-hover-bg) !important;
 		background-image: none !important;
-		color: var(--iform-text) !important;
+		color: var(--formora-text) !important;
 		text-decoration: none !important;
 	}
 

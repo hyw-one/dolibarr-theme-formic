@@ -19,7 +19,7 @@
  */
 
 /**
- *		\file       htdocs/theme/iform-dolibarr/global.inc.php
+ *		\file       htdocs/theme/formora/global.inc.php
  *		\brief      File for CSS style sheet Eldy. Called by styles.css.php.
  */
 if (!defined('ISLOADEDBYSTEELSHEET')) {

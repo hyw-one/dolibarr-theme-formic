@@ -69,23 +69,23 @@ if (getDolGlobalString('THEME_DARKMODEENABLED')) {
 	print "
       :root {
 
-            --btncolortext: var(--iform-text, #edf2f7);
-            --btncolorbg: var(--iform-surface, #1c1f22);
-            --btncolorborderhover: var(--iform-accent, #4ea3ff);
-            --btncolorborder: var(--iform-line, #3a4048);
-            --butactiondeletebg: var(--iform-danger-bg, #3a1f24);
-			--butactionbg: var(--iform-accent-soft, rgba(78, 163, 255, 0.16));
-			--textbutaction: var(--iform-accent-hover, #78b7ff);
+            --btncolortext: var(--formora-text, #edf2f7);
+            --btncolorbg: var(--formora-surface, #1c1f22);
+            --btncolorborderhover: var(--formora-accent, #4ea3ff);
+            --btncolorborder: var(--formora-line, #3a4048);
+            --butactiondeletebg: var(--formora-danger-bg, #3a1f24);
+			--butactionbg: var(--formora-accent-soft, rgba(78, 163, 255, 0.16));
+			--textbutaction: var(--formora-accent-hover, #78b7ff);
 
       }
 
       .btnTitle.refused, a.btnTitle.refused, .btnTitle.refused:hover, a.btnTitle.refused:hover {
-            background: var(--iform-refused-bg, #202429) !important;
-            color: var(--iform-muted, #a9b3c0) !important;
+            background: var(--formora-refused-bg, #202429) !important;
+            color: var(--formora-muted, #a9b3c0) !important;
       }
 
       .butActionDelete, .butActionDelete:link, .butActionDelete:visited, .butActionDelete:hover, .butActionDelete:active, .buttonDelete {
-            color: var(--iform-danger, #ff8b8b) !important;
+            color: var(--formora-danger, #ff8b8b) !important;
       }
       \n";
 	print "}";
