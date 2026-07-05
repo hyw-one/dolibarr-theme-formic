@@ -476,6 +476,15 @@ require __DIR__.'/global.inc.php';
 	--iform-icon-danger: #d70015;
 	--iform-icon-warning: #b26a00;
 	--iform-icon-success: #248a3d;
+	--iform-infobox-action: #906080;
+	--iform-infobox-bank: #7a6d10;
+	--iform-infobox-contract: #238b7f;
+	--iform-infobox-customer: #65953d;
+	--iform-infobox-holiday: #755114;
+	--iform-infobox-member: #79633f;
+	--iform-infobox-project: #6c6aa8;
+	--iform-infobox-stock: #b0a53e;
+	--iform-infobox-supplier: #599caf;
 	--iform-radius-sm: 6px;
 	--iform-radius: 8px;
 	--iform-radius-lg: 12px;
@@ -1280,8 +1289,11 @@ body#mainbody #id-left :is(.menu_titre, .vmenu_titre) :is(.pictofixedwidth[class
 	font-size: 18px !important;
 	justify-content: center;
 	line-height: 1 !important;
-	min-width: 28px;
+	min-width: 24px !important;
+	padding-left: 0 !important;
+	padding-right: 0 !important;
 	vertical-align: middle;
+	width: 24px !important;
 }
 
 body#mainbody #id-left :is(.menu_titre, .vmenu_titre) :is(.pictofixedwidth[class*="fa-"], .fa[class*="fa-"], .fas[class*="fa-"], .far[class*="fa-"], .fab[class*="fa-"])::before {
@@ -1391,13 +1403,59 @@ body#mainbody .fa-toggle-off {
 	color: #64748b !important;
 }
 
+#mainbody .infobox-project,
+#mainbody .fa-dol-project {
+	color: var(--iform-infobox-project) !important;
+}
+
+#mainbody .infobox-cubes,
+#mainbody .fa-dol-cubes {
+	color: var(--iform-infobox-stock) !important;
+}
+
+#mainbody .infobox-action,
+#mainbody .fa-dol-action {
+	color: var(--iform-infobox-action) !important;
+}
+
+#mainbody .infobox-propal,
+#mainbody .infobox-facture,
+#mainbody .infobox-commande,
+#mainbody .fa-dol-propal,
+#mainbody .fa-dol-facture,
+#mainbody .fa-dol-commande {
+	color: var(--iform-infobox-customer) !important;
+}
+
+#mainbody .infobox-supplier_proposal,
+#mainbody .infobox-invoice_supplier,
+#mainbody .infobox-order_supplier,
+#mainbody .fa-dol-supplier_proposal,
+#mainbody .fa-dol-invoice_supplier,
+#mainbody .fa-dol-order_supplier {
+	color: var(--iform-infobox-supplier) !important;
+}
+
+#mainbody .infobox-adherent,
+#mainbody .infobox-member,
+#mainbody .infobox-expensereport,
+#mainbody .fa-dol-member,
+#mainbody .fa-dol-expensereport {
+	color: var(--iform-infobox-member) !important;
+}
+
+#mainbody .infobox-holiday,
+#mainbody .fa-dol-holiday {
+	color: var(--iform-infobox-holiday) !important;
+}
+
 #mainbody .infobox-bank_account,
 #mainbody .fa-dol-bank_account,
 #mainbody .fa-money-check-alt,
 #mainbody .fa-university,
 #mainbody .fa-dollar-sign,
 #mainbody .fa-clipboard-list {
-	color: #7a6d10 !important;
+	color: var(--iform-infobox-bank) !important;
 }
 
 #mainbody .infobox-contrat,
@@ -1406,7 +1464,7 @@ body#mainbody .fa-toggle-off {
 #mainbody .fa-suitcase,
 #mainbody .fa-ambulance,
 #mainbody .fa-ticket-alt {
-	color: #238b7f !important;
+	color: var(--iform-infobox-contract) !important;
 }
 
 #mainbody .classfortooltip .fa-question-circle,
@@ -2093,6 +2151,15 @@ if (getDolGlobalInt('THEME_DARKMODEENABLED')) {
 	--iform-icon-danger: #ff6961;
 	--iform-icon-warning: #ffd60a;
 	--iform-icon-success: #30d158;
+	--iform-infobox-action: #c98fb4;
+	--iform-infobox-bank: #d8ca53;
+	--iform-infobox-contract: #55d6c4;
+	--iform-infobox-customer: #9bd56b;
+	--iform-infobox-holiday: #e3b85a;
+	--iform-infobox-member: #d3a66c;
+	--iform-infobox-project: #aaa7ee;
+	--iform-infobox-stock: #d7ce5e;
+	--iform-infobox-supplier: #73c7df;
 	--iform-switch-knob: #1c1f22;
 	--iform-module-enabled-glow: rgba(48, 209, 88, 0.26);
 	--iform-module-enabled-glow-soft: rgba(48, 209, 88, 0.08);
@@ -3151,13 +3218,13 @@ li.select2-selection__choice,
 #mainbody table.border td > .fa-cube,
 #mainbody table.border td > .fa-box-open,
 #mainbody table.border td > .fa-boxes {
-	color: #c8b75a !important;
+	color: var(--iform-infobox-stock) !important;
 }
 
 #mainbody table.border td > .fa-user,
 #mainbody table.border td > .fa-user-alt,
 #mainbody table.border td > .fa-user-tie {
-	color: #b99155 !important;
+	color: var(--iform-infobox-member) !important;
 }
 
 #mainbody table.border td > .fa-info-circle {
@@ -3188,7 +3255,7 @@ li.select2-selection__choice,
 #mainbody .infobox-adherent,
 #mainbody .infobox-member,
 #mainbody .infobox-expensereport {
-	color: #b99155 !important;
+	color: var(--iform-infobox-member) !important;
 }
 
 #mainbody .infobox-holiday,
@@ -3197,7 +3264,7 @@ li.select2-selection__choice,
 #mainbody .pictomodule.fa-umbrella-beach,
 #mainbody .fa-dol-holiday,
 #mainbody .fa-dol-holiday::before {
-	color: #d6a43e !important;
+	color: var(--iform-infobox-holiday) !important;
 }
 
 #mainbody .fa-weather-level0::before {
@@ -3952,15 +4019,26 @@ table.jPicker {
 		background: transparent !important;
 		background-image: none !important;
 		border-radius: 0 !important;
+		min-width: 52px !important;
+		width: auto !important;
 	}
 
 	body#mainbody #id-top li.tmenu div.tmenucenter,
 	body#mainbody #id-top li.tmenusel div.tmenucenter {
 		border: 1px solid transparent !important;
 		border-radius: var(--iform-radius-sm) !important;
+		box-sizing: border-box !important;
 		box-shadow: none !important;
+		display: flex !important;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
 		min-height: 46px;
+		min-width: 52px;
+		overflow: visible !important;
+		padding: 3px 8px !important;
 		transition: background-color 0.14s ease, border-color 0.14s ease, color 0.14s ease;
+		width: auto !important;
 	}
 
 	body#mainbody #id-top li.tmenu :is(a, span, div.mainmenu, .mainmenuaspan, .tmenuimage, .tmenulabel),
@@ -3983,6 +4061,11 @@ table.jPicker {
 	body#mainbody #id-top a.tmenulabel,
 	body#mainbody #id-top a.tmenulabel .mainmenuaspan {
 		color: var(--iform-muted) !important;
+		max-width: none !important;
+		overflow: visible !important;
+		text-overflow: clip !important;
+		white-space: nowrap !important;
+		width: auto !important;
 	}
 
 	body#mainbody #id-top li.tmenu:not(.nohover):hover a.tmenuimage,
@@ -4021,6 +4104,48 @@ table.jPicker {
 		padding: 2px 0 !important;
 	}
 
+	body#mainbody #id-left :is(.menu_titre, .vmenu_titre):not(:has(> a.vmenu)) {
+		align-items: center;
+		border-radius: var(--iform-radius-sm) !important;
+		box-sizing: border-box !important;
+		color: var(--iform-text) !important;
+		display: flex !important;
+		gap: 4px;
+		line-height: 1.25 !important;
+		margin: 4px 8px 0 !important;
+		max-width: 100%;
+		min-height: 28px;
+		padding: 4px 10px 4px 4px !important;
+		width: calc(100% - 16px) !important;
+	}
+
+	body#mainbody #id-left :is(.menu_titre, .vmenu_titre):not(:has(> a.vmenu)) > :is(span.vmenu, span.vmenudisabled) {
+		align-items: center;
+		background: transparent !important;
+		border: 0 !important;
+		box-sizing: border-box !important;
+		color: inherit !important;
+		display: flex !important;
+		gap: 4px;
+		line-height: 1.25 !important;
+		margin: 0 !important;
+		padding: 0 !important;
+		width: auto !important;
+	}
+
+	body#mainbody #id-left :is(.menu_titre, .vmenu_titre):not(:has(> a.vmenu)) > :is(span.vmenu, span.vmenudisabled) :is(.paddingright, .paddingleft) {
+		padding-left: 0 !important;
+		padding-right: 0 !important;
+	}
+
+	body#mainbody #id-left :is(.menu_titre, .vmenu_titre):not(:has(> a.vmenu)) > span.vmenudisabled {
+		color: var(--iform-muted) !important;
+	}
+
+	body#mainbody #id-left .menu_top {
+		display: none !important;
+	}
+
 	body#mainbody #id-left .menu_contenu {
 		line-height: 0 !important;
 		padding: 1px 0 !important;
@@ -4028,6 +4153,20 @@ table.jPicker {
 
 	body#mainbody #id-left .menu_contenu > br {
 		display: none !important;
+	}
+
+	body#mainbody #id-left .menu_contenu:not(:has(> a)) {
+		background: transparent !important;
+		border-color: transparent !important;
+		box-sizing: border-box !important;
+		color: var(--iform-muted) !important;
+		font-size: 0.92em;
+		font-weight: 600;
+		line-height: 1.25 !important;
+		margin: 6px 8px 2px !important;
+		min-height: 24px;
+		padding: 3px 10px !important;
+		width: calc(100% - 16px) !important;
 	}
 
 	body#mainbody #id-left a.vmenu,
@@ -4039,7 +4178,7 @@ table.jPicker {
 		color: var(--iform-text) !important;
 		display: flex !important;
 		align-items: center;
-		gap: 7px;
+		gap: 4px;
 		line-height: 1.25 !important;
 		margin: 0 8px !important;
 		max-width: 100%;
@@ -4056,6 +4195,10 @@ table.jPicker {
 		width: calc(100% - 16px) !important;
 	}
 
+	body#mainbody #id-left :is(.menu_titre, .vmenu_titre) > a.vmenu {
+		padding-left: 4px !important;
+	}
+
 	body#mainbody #id-left .menu_contenu_comm_propal_list > a[href*="search_status="],
 	body#mainbody #id-left .menu_contenu_commande_list_det > a,
 	body#mainbody #id-left .menu_contenu_compta_facture_list > a[href*="search_status="],
@@ -4063,7 +4206,8 @@ table.jPicker {
 	body#mainbody #id-left .menu_contenu_fourn_commande_list_det > a,
 	body#mainbody #id-left .menu_contenu_societe_list > a[href*="type="],
 	body#mainbody #id-left .menu_contenu_societe_card > a[href*="type="],
-	body#mainbody #id-left .menu_contenu_contact_list > a[href*="type="] {
+	body#mainbody #id-left .menu_contenu_contact_list > a[href*="type="],
+	body#mainbody #id-left .menu_contenu[class*="menu_contenu_accountancy_journal_"] > a {
 		margin: 0 8px 0 24px !important;
 		width: calc(100% - 32px) !important;
 	}
@@ -4080,7 +4224,6 @@ table.jPicker {
 	}
 
 	body#mainbody #id-left :is(.pictofixedwidth[class*="fa-"], .fa[class*="fa-"], .fas[class*="fa-"], .far[class*="fa-"], .fab[class*="fa-"])::before {
-		color: currentColor !important;
 		font-size: 16px !important;
 		line-height: 18px !important;
 	}
