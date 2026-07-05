@@ -7174,14 +7174,138 @@ table.jPicker {
 	}
 	?>
 
-	@media only screen and (max-width: 767px) {
-		table.table-fiche-title .titre,
-		table.table-fiche-title div.titre,
-	table.table-fiche-title td.col-title {
-		word-break: keep-all;
-		overflow-wrap: normal;
-	}
-}
+		@media only screen and (max-width: 1180px) {
+			body#mainbody:not(.bodytakepos):not(.bodylogin) #id-top {
+				box-sizing: border-box !important;
+				height: 60px !important;
+				min-height: 60px !important;
+				overflow: visible !important;
+				position: relative !important;
+			}
+
+			body#mainbody:not(.bodytakepos):not(.bodylogin) #tmenu_tooltip {
+				box-sizing: border-box !important;
+				height: 60px !important;
+				min-height: 60px !important;
+				max-width: calc(100% - 116px) !important;
+				overflow-x: auto !important;
+				overflow-y: hidden !important;
+				padding-right: 0 !important;
+				scrollbar-width: none;
+				white-space: nowrap !important;
+				width: calc(100% - 116px) !important;
+			}
+
+			body#mainbody:not(.bodytakepos):not(.bodylogin) #tmenu_tooltip::-webkit-scrollbar {
+				display: none;
+			}
+
+			body#mainbody:not(.bodytakepos):not(.bodylogin) #id-top :is(.tmenudiv, ul.tmenu) {
+				align-items: stretch !important;
+				display: flex !important;
+				flex-wrap: nowrap !important;
+				height: 60px !important;
+				margin: 0 !important;
+				min-width: max-content !important;
+				overflow: visible !important;
+				padding: 0 !important;
+				width: max-content !important;
+			}
+
+			body#mainbody:not(.bodytakepos):not(.bodylogin) #id-top :is(li.tmenu, li.tmenusel) {
+				display: block !important;
+				flex: 0 0 48px !important;
+				float: none !important;
+				height: 60px !important;
+				margin-left: 4px !important;
+				min-width: 48px !important;
+				width: 48px !important;
+			}
+
+			body#mainbody:not(.bodytakepos):not(.bodylogin) #id-top :is(li.tmenu, li.tmenusel) div.tmenucenter {
+				flex-direction: row !important;
+				height: 54px !important;
+				min-height: 54px !important;
+				min-width: 44px !important;
+				overflow: hidden !important;
+				padding: 3px 0 !important;
+				width: 44px !important;
+			}
+
+			body#mainbody:not(.bodytakepos):not(.bodylogin) #id-top :is(li.tmenu, li.tmenusel) div.tmenucenter > a.tmenuimage {
+				height: 44px !important;
+				min-height: 44px !important;
+				width: 44px !important;
+			}
+
+			body#mainbody:not(.bodytakepos):not(.bodylogin) #id-top :is(li.tmenu, li.tmenusel) div.tmenucenter > a.tmenulabel {
+				display: none !important;
+			}
+
+			body#mainbody:not(.bodytakepos):not(.bodylogin) .login_block.usedropdown {
+				background: var(--formora-surface) !important;
+				border-left: 1px solid var(--formora-line-soft) !important;
+				box-sizing: border-box !important;
+				height: 60px !important;
+				left: auto !important;
+				max-width: 116px !important;
+				min-width: 0 !important;
+				padding-left: 4px !important;
+				position: absolute !important;
+				right: 0 !important;
+				top: 0 !important;
+				width: auto !important;
+				z-index: 30 !important;
+			}
+
+			body#mainbody:not(.bodytakepos):not(.bodylogin) .login_block.usedropdown .login_block_other {
+				display: none !important;
+			}
+
+			body#mainbody:not(.bodytakepos):not(.bodylogin) .login_block.usedropdown > :is(.login_block_tools, .login_block_user) {
+				align-items: center !important;
+				display: flex !important;
+				height: 60px !important;
+				min-width: 0 !important;
+			}
+
+			body#mainbody:not(.bodytakepos):not(.bodylogin) .login_block.usedropdown #topmenu-quickadd-dropdown,
+			body#mainbody:not(.bodytakepos):not(.bodylogin) .login_block.usedropdown #topmenu-quickadd-dropdown > a.dropdown-toggle,
+			body#mainbody:not(.bodytakepos):not(.bodylogin) .login_block.usedropdown #topmenu-login-dropdown > a.dropdown-toggle {
+				height: 60px !important;
+				min-width: 38px !important;
+			}
+
+			body#mainbody:not(.bodytakepos):not(.bodylogin) .login_block.usedropdown :is(.atoploginusername, .login_block_elem_name .hidden-xs) {
+				display: none !important;
+			}
+
+			body#mainbody:not(.bodytakepos):not(.bodylogin) :is(#topmenu-quickadd-dropdown, #topmenu-login-dropdown) > .dropdown-menu {
+				bottom: auto !important;
+				left: auto !important;
+				max-height: calc(100vh - 72px) !important;
+				max-width: calc(100vw - 12px) !important;
+				overflow-x: hidden !important;
+				overflow-y: auto !important;
+				position: fixed !important;
+				right: 6px !important;
+				top: 60px !important;
+				width: min(285px, calc(100vw - 12px)) !important;
+			}
+
+			body#mainbody:not(.bodytakepos):not(.bodylogin) #id-container {
+				min-height: calc(100vh - 60px) !important;
+			}
+		}
+
+		@media only screen and (max-width: 767px) {
+			table.table-fiche-title .titre,
+			table.table-fiche-title div.titre,
+			table.table-fiche-title td.col-title {
+				word-break: keep-all;
+				overflow-wrap: normal;
+			}
+		}
 
 <?php
 
