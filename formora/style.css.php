@@ -7460,11 +7460,18 @@ table.jPicker {
 
 			body#mainbody:not(.bodytakepos):not(.bodylogin) .side-nav {
 				box-sizing: border-box !important;
+				width: <?php echo $leftmenuwidth + 20; ?>px !important;
+				min-height: calc(100vh - 60px) !important;
 				padding: 8px 0 0 !important;
+				border-bottom: 0 !important;
 			}
 
 			body#mainbody:not(.bodytakepos):not(.bodylogin) .side-nav #id-left {
 				padding-top: 8px !important;
+			}
+
+			body#mainbody:not(.bodytakepos):not(.bodylogin) .side-nav #id-left .blockvmenulast {
+				border-bottom: 0 !important;
 			}
 
 			body#mainbody.bodyforlist:not(.poslist) #id-right .fiche {
