@@ -177,7 +177,7 @@
 		var colors = currentColors();
 		configureChartDefaults(colors);
 
-		if (!window.Chart || window.Chart.__iformDarkPatch) {
+		if (!window.Chart || window.Chart.__formoraDarkPatch) {
 			return;
 		}
 
@@ -198,8 +198,8 @@
 		});
 
 		try {
-			PatchedChart.__iformDarkPatch = true;
-			PatchedChart.__iformOriginal = OriginalChart;
+			PatchedChart.__formoraDarkPatch = true;
+			PatchedChart.__formoraOriginal = OriginalChart;
 		} catch (e) {
 			// Some Chart.js builds expose read-only statics; the proxy still works.
 		}
@@ -281,7 +281,7 @@
 				if (editor && typeof editor.setTheme === 'function' && editor.getTheme && editor.getTheme() !== 'ace/theme/one_dark') {
 					editor.setTheme('ace/theme/one_dark');
 				}
-				element.classList.add('iform-ace-dark');
+				element.classList.add('formora-ace-dark');
 			} catch (e) {
 				// ACE may still be initializing; the scheduled retry will pick it up.
 			}
