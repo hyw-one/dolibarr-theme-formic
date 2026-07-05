@@ -268,7 +268,52 @@ Avoid broad fixes such as global `button`, `.fa`, `.select2`, `table`, `input`, 
 - Dark-mode computed background/color/border-color
 - Parent modal and iframe document styles independently
 
-## 9. Current Unknowns
+## 9. Mandatory UI Fix Verification Gate
+
+This section is mandatory for every Formora UI/theme fix before commit. It was added after a regression where a selected-fields dropdown fix targeted the wrong class (`ul.ulselectedfields.open`) while the real Dolibarr runtime menu used `ul.selectedfieldsleft.open`, leaving dark-mode colors and clipping unfixed on BOM/list pages.
+
+Do not mark a UI fix complete, and do not commit it, unless all applicable checks below have been executed against the synced test environment.
+
+### Required Runtime Proof
+
+- Reproduce the exact page, viewport, mode, and interaction state that exposed the issue.
+- Open the real menu, dropdown, modal, iframe, Select2 panel, hover state, focus state, or selected state. Static CSS inspection alone is not enough.
+- Capture the actual runtime DOM identity of the target element: tag, id, class list, and relevant parent chain.
+- Verify proposed selectors with `element.matches()` or equivalent direct selector matching on the actual target element.
+- Read computed style on the actual target element after the fix, including `background-color`, `color`, `border-color`, `box-shadow`, `z-index`, `display`, `position`, `overflow`, `width`, and `height` as applicable.
+- Inspect parent overflow/clipping chain from the target element up to `body`, especially `table.liste`, `.div-table-responsive`, Colorbox containers, iframe bodies, and POS wrappers.
+- Check both document-level horizontal overflow values: `document.documentElement.scrollWidth > clientWidth` and `document.body.scrollWidth > clientWidth`.
+- Check target and ancestor bounding boxes against the viewport and relevant scroll containers.
+- For hover/focus issues, verify the actual hover/focus target and compare computed styles before and after the state.
+
+### Required Regression Scope
+
+- Sync the local theme to the Dolibarr test environment before runtime verification.
+- Re-test the exact original URL and state after syncing.
+- Re-test at least one same-component page that uses a different Dolibarr DOM variant. For example, selected-fields dropdowns must be checked on both a standard list such as `/societe/list.php` and another module list such as `/bom/bom_list.php`.
+- Re-test both light and dark modes when the fix touches color, shadows, borders, backgrounds, icon color, or contrast.
+- Re-test mobile and desktop widths when the fix touches overflow, clipping, menus, table/list wrappers, pagination, title areas, or POS layout.
+- Re-test parent and iframe documents separately for Colorbox/iframe fixes.
+
+### Prohibited Shortcuts
+
+- Do not treat "the CSS rule exists in generated CSS" as proof that a component is fixed.
+- Do not treat CSS output order as proof unless the selector is shown to match the runtime element.
+- Do not submit a UI fix based only on grep, curl, DOM source, or an unopened hidden element.
+- Do not use a broad global selector to compensate for an unverified component selector.
+- Do not call a state verified if automation failed to open or hover it. Say it is unverified and continue with a better runtime strategy.
+
+### Commit Gate
+
+Every UI fix commit summary should include:
+
+- URL(s), mode(s), viewport(s), and interaction state(s) verified.
+- Actual target selector and confirmation that it matched the runtime element.
+- Key computed style values before/after or after-fix values.
+- Overflow/clipping result.
+- Same-component regression page(s).
+
+## 10. Current Unknowns
 
 - Toast success/warning/error/info states still need stable runtime triggers.
 - jQuery UI date picker needs a concrete date field page to trigger and inspect.
