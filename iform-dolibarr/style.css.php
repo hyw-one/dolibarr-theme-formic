@@ -451,33 +451,159 @@ require __DIR__.'/global.inc.php';
 
 /* iForm skin layer: visual polish over Eldy's native layout. */
 :root {
-	--iform-accent: #0969da;
-	--iform-accent-hover: #0757b8;
-	--iform-line: #d0d7de;
-	--iform-line-soft: #e5e7eb;
-	--iform-bg: #f6f8fa;
+	--iform-accent: #0071e3;
+	--iform-accent-hover: #005bb5;
+	--iform-accent-soft-hover: rgba(0, 113, 227, 0.16);
+	--iform-line: #c9cdd3;
+	--iform-line-soft: #e6e8ec;
+	--iform-bg: #f5f5f7;
 	--iform-surface: #ffffff;
-	--iform-text: #1f2328;
-	--iform-muted: #636e7b;
-	--iform-danger: #cf222e;
-	--iform-danger-bg: #ffebe9;
-	--iform-danger-hover-bg: #ffd8d3;
-	--iform-neutral-bg: #ffffff;
-	--iform-neutral-hover-bg: #f6f8fa;
-	--iform-refused-bg: #f6f8fa;
-	--iform-focus-ring: rgba(31, 35, 40, 0.12);
-	--iform-status-success-bg: #1a7f37;
-	--iform-status-success-border: rgba(255, 255, 255, 0);
+	--iform-surface-alt: #f5f5f7;
+	--iform-text: #1d1d1f;
+	--iform-muted: #6e6e73;
+	--iform-danger: #d70015;
+	--iform-danger-bg: #fff1f1;
+	--iform-danger-hover-bg: #ffe1e4;
+	--iform-toast-success-bg: #f0fbf3;
+	--iform-toast-success-border: rgba(36, 138, 61, 0.28);
+	--iform-toast-success-text: #1a7f37;
+	--iform-toast-warning-bg: #fff8e6;
+	--iform-toast-warning-border: rgba(178, 106, 0, 0.32);
+	--iform-toast-warning-text: #9a6700;
+	--iform-toast-error-bg: #fff1f1;
+	--iform-toast-error-border: rgba(215, 0, 21, 0.32);
+	--iform-toast-error-text: #d70015;
+	--iform-neutral-bg: #fbfbfd;
+	--iform-neutral-hover-bg: #f2f2f4;
+	--iform-refused-bg: #f5f5f7;
+	--iform-focus-ring: rgba(0, 113, 227, 0.18);
+	--iform-focus-outline: #005bb5;
+	--iform-status-success-bg: #248a3d;
+	--iform-status-success-border: rgba(36, 138, 61, 0.16);
 	--iform-status-success-text: #ffffff;
-	--inputbordercolor: rgba(208, 215, 222, 0.95);
-	--colorboxstatsborder: #d0d7de;
-	--colorboxiconbg: #f6f8fa;
-	--fieldrequiredcolor: #cf222e;
+	--iform-icon-default: #5f6368;
+	--iform-icon-muted: #86868b;
+	--iform-icon-accent: #0071e3;
+	--iform-icon-date: #57606a;
+	--iform-icon-danger: #d70015;
+	--iform-icon-warning: #b26a00;
+	--iform-icon-success: #248a3d;
+	--iform-infobox-action: #906080;
+	--iform-infobox-bank: #7a6d10;
+	--iform-infobox-contract: #238b7f;
+	--iform-infobox-customer: #65953d;
+	--iform-infobox-holiday: #755114;
+	--iform-infobox-member: #79633f;
+	--iform-infobox-project: #6c6aa8;
+	--iform-infobox-stock: #b0a53e;
+	--iform-infobox-supplier: #599caf;
+	--iform-radius-sm: 6px;
+	--iform-radius: 8px;
+	--iform-radius-lg: 12px;
+	--iform-control-height: 34px;
+	--iform-shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.05), 0 8px 24px rgba(0, 0, 0, 0.06);
+	--iform-shadow-elevated: 0 16px 42px rgba(0, 0, 0, 0.16);
+	--iform-shadow-menu: 0 10px 28px rgba(0, 0, 0, 0.14);
+	--iform-elevated: #ffffff;
+	--iform-table-header: #f5f5f7;
+	--iform-switch-knob: #ffffff;
+	--iform-module-enabled-glow: rgba(26, 127, 55, 0.16);
+	--iform-module-enabled-glow-soft: rgba(26, 127, 55, 0.05);
+	--infoboxmoduleenabledbgcolor: transparent;
+	--iform-symbol-search: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M8.7 14.2a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11Zm4-1.5 4.1 4.1' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-refresh: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M16.2 7.2A6.4 6.4 0 0 0 4.1 5.4M3.6 3.1v3.9h3.9M3.8 12.8a6.4 6.4 0 0 0 12.1 1.8m.5 2.3v-3.9h-3.9' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-list: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5.5 5.2h11M5.5 10h11M5.5 14.8h11M2.8 5.2h.1M2.8 10h.1M2.8 14.8h.1' fill='none' stroke='black' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+	--iform-symbol-grid: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M3.5 3.5h4.2v4.2H3.5zM12.3 3.5h4.2v4.2h-4.2zM3.5 12.3h4.2v4.2H3.5zM12.3 12.3h4.2v4.2h-4.2z' fill='none' stroke='black' stroke-width='1.7' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-plus: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 3.4v13.2M3.4 10h13.2' fill='none' stroke='black' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+	--iform-symbol-edit: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m4.1 13.8-.7 2.8 2.8-.7 9-9a2 2 0 0 0-2.8-2.8l-9 9Zm7.2-8.5 3.4 3.4' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-trash: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M4 6h12M8 6V4.5h4V6m-6.8 0 .7 10.2h8.2L14.8 6M8.3 9v4.5M11.7 9v4.5' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-close: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m5.2 5.2 9.6 9.6M14.8 5.2l-9.6 9.6' fill='none' stroke='black' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+	--iform-symbol-download: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 3.4v8.4m0 0 3.2-3.2M10 11.8 6.8 8.6M4.2 15.8h11.6' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-preview: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M2.8 10s2.6-5 7.2-5 7.2 5 7.2 5-2.6 5-7.2 5-7.2-5-7.2-5Zm7.2 2.3a2.3 2.3 0 1 0 0-4.6 2.3 2.3 0 0 0 0 4.6Z' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-calendar: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5.5 3v3M14.5 3v3M3.5 7.3h13M5.2 4.5h9.6a1.9 1.9 0 0 1 1.9 1.9v8.4a1.9 1.9 0 0 1-1.9 1.9H5.2a1.9 1.9 0 0 1-1.9-1.9V6.4a1.9 1.9 0 0 1 1.9-1.9Z' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-bolt: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M11.2 2.8 5 10.5h4.6l-.9 6.7 6.4-8.8h-4.8l.9-5.6Z' fill='none' stroke='black' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-sort-up: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m5.3 12.2 4.7-4.7 4.7 4.7' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-sort-down: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m5.3 7.8 4.7 4.7 4.7-4.7' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-info: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 17a7 7 0 1 0 0-14 7 7 0 0 0 0 14Zm0-7.6v4.1M10 6.6h.1' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E");
+	--iform-symbol-warning: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 3.2 17 16H3L10 3.2Zm0 4.9v3.8M10 14.5h.1' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-check: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m4 10.4 4 4L16.2 6' fill='none' stroke='black' stroke-width='2.1' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-print: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M6 7V3.8h8V7M6 14.2H4.7a1.9 1.9 0 0 1-1.9-1.9V9.1A2.1 2.1 0 0 1 4.9 7h10.2a2.1 2.1 0 0 1 2.1 2.1v3.2a1.9 1.9 0 0 1-1.9 1.9H14M6 12h8v4.4H6z' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-expand: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M7.8 4H4v3.8M12.2 4H16v3.8M7.8 16H4v-3.8M12.2 16H16v-3.8M4.4 4.4l4.5 4.5M15.6 4.4l-4.5 4.5M4.4 15.6l4.5-4.5M15.6 15.6l-4.5-4.5' fill='none' stroke='black' stroke-width='1.65' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-keyboard: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M4.2 5h11.6a1.7 1.7 0 0 1 1.7 1.7v6.6a1.7 1.7 0 0 1-1.7 1.7H4.2a1.7 1.7 0 0 1-1.7-1.7V6.7A1.7 1.7 0 0 1 4.2 5Zm1.5 3.2h.1m3 0h.1m3 0h.1m3 0h.1M5.7 11h.1m3 0h5.5' fill='none' stroke='black' stroke-width='1.65' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-shield: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 3.2 15.8 5v4.4c0 3.7-2 6.2-5.8 7.4-3.8-1.2-5.8-3.7-5.8-7.4V5L10 3.2Zm-2.4 6.7 1.7 1.7 3.3-3.4' fill='none' stroke='black' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-clipboard: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M7.5 4.5h5M7 3.5h6v2.4H7V3.5ZM5 5.3H4v11.2h12V5.3h-1M7 9.5h6M7 12.5h4' fill='none' stroke='black' stroke-width='1.65' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-building: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 16.5V3.5h10v13M3.6 16.5h12.8M8 6.5h.1M12 6.5h.1M8 9.5h.1M12 9.5h.1M8 12.5h.1M12 12.5h.1' fill='none' stroke='black' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-address-book: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5.2 3.8h9.2a1.8 1.8 0 0 1 1.8 1.8v8.8a1.8 1.8 0 0 1-1.8 1.8H5.2a1.8 1.8 0 0 1-1.8-1.8V5.6a1.8 1.8 0 0 1 1.8-1.8ZM3.4 7h-1M3.4 13h-1M10 10a1.7 1.7 0 1 0 0-3.4 1.7 1.7 0 0 0 0 3.4Zm-3 3.8c.7-1.4 1.7-2.1 3-2.1s2.3.7 3 2.1' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-user: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 9.5a3.2 3.2 0 1 0 0-6.4 3.2 3.2 0 0 0 0 6.4Zm-6 7.3c1.2-3.1 3.2-4.6 6-4.6s4.8 1.5 6 4.6' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-users: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M8.1 9.2a2.6 2.6 0 1 0 0-5.2 2.6 2.6 0 0 0 0 5.2Zm-5.1 7c.9-2.7 2.6-4 5.1-4s4.2 1.3 5.1 4M14 10a2.2 2.2 0 1 0 0-4.4M13.8 12.3c1.7.2 2.9 1.3 3.6 3.4' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-box: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m10 2.8 6.5 3.5v7.4L10 17.2l-6.5-3.5V6.3L10 2.8Zm-6.1 3.7L10 9.8l6.1-3.3M10 9.8v7' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-service: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 5.2V3.5M4.5 13.5a5.5 5.5 0 0 1 11 0M3.2 16.2h13.6M7.2 5.8h5.6' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-doc: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 3.2h6.4L15 6.8v10H5v-13.6Zm6.2.3v3.6h3.5M7.5 10h5M7.5 13h5' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-doc-money: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 3.2h6.4L15 6.8v10H5v-13.6Zm6.2.3v3.6h3.5M10 9.2v5M8.4 10.3c.4-.6 1-.9 1.8-.9 1.1 0 1.8.5 1.8 1.2 0 1.8-3.8.8-3.8 2.6 0 .8.8 1.3 1.9 1.3.9 0 1.6-.3 2-.9' fill='none' stroke='black' stroke-width='1.55' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-doc-signature: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 3.2h6.4L15 6.8v10H5v-13.6Zm6.2.3v3.6h3.5M7.2 13.4c1.1-2.5 2.3-2.4 2.1-.7-.1 1.3.9 1.2 1.6.2.7-.9 1.4-.9 2 .2M7.2 15.2h5.8' fill='none' stroke='black' stroke-width='1.55' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-note: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M4.8 3.4h7.6l2.8 2.8v10.4H4.8V3.4Zm7.4.3v3h3M7.4 10h5.2M7.4 13h4' fill='none' stroke='black' stroke-width='1.65' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-truck: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M3 6h9v7H3V6Zm9 2.5h2.7l2.3 2.6V13h-5V8.5ZM6 15.2a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Zm8 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-briefcase: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M7.2 6V4.5h5.6V6M3.4 6h13.2v9.5H3.4V6Zm0 4.2c2.1 1 4.3 1.5 6.6 1.5s4.5-.5 6.6-1.5' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-project: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M3.7 4.4h4.6v4.6H3.7V4.4Zm8 6.6h4.6v4.6h-4.6V11ZM8.3 6.8h3.2c2.4 0 4.2 1.6 4.2 4.2M6 9v2c0 2.4 1.8 4 4.2 4h1.5' fill='none' stroke='black' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-task: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M4 5.5h2.5M9 5.5h7M4 10h2.5M9 10h7M4 14.5h2.5M9 14.5h7' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E");
+	--iform-symbol-bank: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M3 7h14L10 3.4 3 7Zm2 2v5M9 9v5M15 9v5M3.5 16.5h13' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-payment: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M3.5 5.5h13v9h-13v-9Zm0 3h13M7 12h3M13 11.8l1 1 2-2' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-wallet: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M4 6h11a2 2 0 0 1 2 2v7H4a2 2 0 0 1-2-2V5.8A1.8 1.8 0 0 1 3.8 4H14v2M13.2 10.5h3.5v2.7h-3.5a1.35 1.35 0 1 1 0-2.7Z' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-phone: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M6.3 3.5 4.2 5.1c-.5.4-.7 1.1-.4 1.7 1.8 4 5.4 7.5 9.4 9.4.6.3 1.3.1 1.7-.4l1.6-2.1-3.6-2.4-1.4 1.5a10.6 10.6 0 0 1-4.3-4.3l1.5-1.4-2.4-3.6Z' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-mobile: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M7 3.2h6a1.4 1.4 0 0 1 1.4 1.4v10.8a1.4 1.4 0 0 1-1.4 1.4H7a1.4 1.4 0 0 1-1.4-1.4V4.6A1.4 1.4 0 0 1 7 3.2Zm2.8 11.3h.4' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-mail: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M3.5 5.3h13v9.4h-13V5.3Zm.5.6 6 5 6-5' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-chat: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M4.4 5.2h11.2a2 2 0 0 1 2 2v5.1a2 2 0 0 1-2 2H9.3l-4.1 2v-2H4.4a2 2 0 0 1-2-2V7.2a2 2 0 0 1 2-2Z' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-send: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M3.5 10.2 16.7 3.8l-3.1 12.6-3.2-4.3-4.4 2 1.7-3.9-4.2 0Zm4.2 0 8.8-6.1' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-link: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M8.2 6.5 9.4 5.3a4 4 0 0 1 5.6 5.6l-1.7 1.7M11.8 13.5l-1.2 1.2A4 4 0 1 1 5 9.1l1.7-1.7M7.7 12.3l4.6-4.6' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-external: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M8 5H4.8a1.8 1.8 0 0 0-1.8 1.8v8.4A1.8 1.8 0 0 0 4.8 17h8.4a1.8 1.8 0 0 0 1.8-1.8V12M11 3h6v6M9.5 10.5 16.5 3.5' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-globe: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 17a7 7 0 1 0 0-14 7 7 0 0 0 0 14Zm0-14c2 1.8 3 4.1 3 7s-1 5.2-3 7m0-14c-2 1.8-3 4.1-3 7s1 5.2 3 7M3.5 10h13M4.8 6.4h10.4M4.8 13.6h10.4' fill='none' stroke='black' stroke-width='1.35' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-map: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m3.5 5.4 4-1.8 5 1.8 4-1.8v11l-4 1.8-5-1.8-4 1.8v-11Zm4-1.8v11m5-9.2v11' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-folder: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M3.2 6.2h5l1.5 1.8h7.1v6.8A1.8 1.8 0 0 1 15 16.6H5a1.8 1.8 0 0 1-1.8-1.8V6.2Z' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-tag: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M3.5 10.3 10.3 3.5h5.2v5.2l-6.8 6.8-5.2-5.2Zm9.2-4.2h.1' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-barcode: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M4 4.5v11M7 4.5v11M10.5 4.5v11M13 4.5v11M16 4.5v11' fill='none' stroke='black' stroke-width='1.9' stroke-linecap='round'/%3E%3C/svg%3E");
+	--iform-symbol-clock: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 17a7 7 0 1 0 0-14 7 7 0 0 0 0 14Zm0-10v3.6l2.4 1.5' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-lock: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 8.5h10v7.8H5V8.5Zm2.2 0V6.8a2.8 2.8 0 0 1 5.6 0v1.7M10 12v1.8' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-gear: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='black' fill-rule='evenodd' d='M8.45 2.4h3.1l.35 2.05c.43.16.84.38 1.22.65l1.95-.7 1.55 2.68-1.58 1.33c.04.26.06.52.06.79s-.02.53-.06.79l1.58 1.33-1.55 2.68-1.95-.7c-.38.27-.79.49-1.22.65L11.55 16h-3.1l-.35-2.05a5.64 5.64 0 0 1-1.22-.65l-1.95.7-1.55-2.68 1.58-1.33A5.25 5.25 0 0 1 4.9 9.2c0-.27.02-.53.06-.79L3.38 7.08 4.93 4.4l1.95.7c.38-.27.79-.49 1.22-.65L8.45 2.4ZM10 11.85a2.65 2.65 0 1 0 0-5.3 2.65 2.65 0 0 0 0 5.3Z' clip-rule='evenodd'/%3E%3C/svg%3E");
+	--iform-symbol-tools: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m4 16 5.5-5.5M6.2 3.6 8.5 6 6 8.5 3.6 6.2M11.4 4.1l4.5 4.5m-1.2-5.7 2.4 2.4-8.9 8.9-2.4-2.4 8.9-8.9Z' fill='none' stroke='black' stroke-width='1.55' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-chart: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M4 16V4M4 16h12.5M6.5 12.5l3-3 2.2 2.1 4-5' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-ticket: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M3.5 7.2a2.2 2.2 0 0 0 0 5.6v2h13v-2a2.2 2.2 0 0 0 0-5.6v-2h-13v2Zm7-1.8v9.2' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-magic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m5 15 8.7-8.7M11.8 4.4l3.8 3.8M4 4.5h.1M7 2.8v1.4M15.5 13.5h.1M17.2 10.5h-1.4M8.2 17.2v-1.4' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-server: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M4.5 3.6h11a1.6 1.6 0 0 1 1.6 1.6v2.3a1.6 1.6 0 0 1-1.6 1.6h-11a1.6 1.6 0 0 1-1.6-1.6V5.2a1.6 1.6 0 0 1 1.6-1.6Zm0 7.3h11a1.6 1.6 0 0 1 1.6 1.6v2.3a1.6 1.6 0 0 1-1.6 1.6h-11a1.6 1.6 0 0 1-1.6-1.6v-2.3a1.6 1.6 0 0 1 1.6-1.6ZM6 6.4h.1M6 13.6h.1M9 6.4h5M9 13.6h5' fill='none' stroke='black' stroke-width='1.55' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-home: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m3.2 9 6.8-5.8L16.8 9M5 8.5v8h10v-8M8.2 16.5V12h3.6v4.5' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-chevron-left: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m12.5 4.5-5.5 5.5 5.5 5.5' fill='none' stroke='black' stroke-width='2.1' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-chevron-right: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m7.5 4.5 5.5 5.5-5.5 5.5' fill='none' stroke='black' stroke-width='2.1' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-question: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 17a7 7 0 1 0 0-14 7 7 0 0 0 0 14Zm-2.1-8a2.2 2.2 0 1 1 3.5 1.8c-.9.6-1.4 1.1-1.4 2M10 15h.1' fill='none' stroke='black' stroke-width='1.65' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-source: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M4 6.2h4.2M4 13.8h4.2M8.2 10h7.2m0 0-2.9-2.9m2.9 2.9-2.9 2.9' fill='none' stroke='black' stroke-width='1.85' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-filter: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M3.5 5h13L11.5 10v4.5l-3 1.5v-6L3.5 5Z' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-star: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m10 3.2 2 4.1 4.5.7-3.3 3.2.8 4.6-4-2.1-4 2.1.8-4.6L3.5 8l4.5-.7 2-4.1Z' fill='none' stroke='black' stroke-width='1.7' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-play: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M6.5 4.5v11l9-5.5-9-5.5Z' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-stop-circle: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 17a7 7 0 1 0 0-14 7 7 0 0 0 0 14Zm-2.2-9.2h4.4v4.4H7.8V7.8Z' fill='none' stroke='black' stroke-width='1.7' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-toggle-on: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M7 6h6a4 4 0 0 1 0 8H7a4 4 0 0 1 0-8Zm6 5.8a1.8 1.8 0 1 0 0-3.6 1.8 1.8 0 0 0 0 3.6Z' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-toggle-off: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M7 6h6a4 4 0 0 1 0 8H7a4 4 0 0 1 0-8Zm0 5.8a1.8 1.8 0 1 0 0-3.6 1.8 1.8 0 0 0 0 3.6Z' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-crop: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M6 3v11h11M3 6h11v11M14 3v3M3 14h3' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-rss: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 15.5h.1M4.5 10.5a5 5 0 0 1 5 5M4.5 5.5a10 10 0 0 1 10 10' fill='none' stroke='black' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+	--iform-symbol-balance: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 3.5v13M5 7h10M6 7l-3 5h6L6 7Zm8 0-3 5h6l-3-5ZM7 17h6' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-ruler: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M4 13.5 13.5 4l2.5 2.5L6.5 16 4 13.5Zm3.1-.4 1.2 1.2M9.2 11l1.2 1.2M11.3 8.9l1.2 1.2M13.4 6.8 14.6 8' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-bug: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M6.7 8.1h6.6v5.1a3.3 3.3 0 0 1-6.6 0V8.1Zm1.6 0V6.3a1.7 1.7 0 0 1 3.4 0v1.8M4 10h2.7M13.3 10H16M4.8 5.5l2.4 2M12.8 7.5l2.4-2M4.8 15l2.2-1.4M13 13.6l2.2 1.4' fill='none' stroke='black' stroke-width='1.65' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-vial: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M8 3.8h4M10 4v5.6l4.4 5.6a1.2 1.2 0 0 1-1 2H6.6a1.2 1.2 0 0 1-1-2L10 9.6M7.3 13.2h5.4' fill='none' stroke='black' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--iform-symbol-archive: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M4 5h12v3H4V5Zm1.2 3v8h9.6V8M8.2 11h3.6' fill='none' stroke='black' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--inputbordercolor: rgba(201, 205, 211, 0.96);
+	--colorboxstatsborder: #c9cdd3;
+	--colorboxiconbg: #f5f5f7;
+	--fieldrequiredcolor: #d70015;
 }
 
 body {
 	color: var(--iform-text);
 	background: var(--iform-bg);
+}
+
+.bodylogin .butActionLogin,
+.bodylogin .butActionLogin:link,
+.bodylogin .butActionLogin:visited,
+.bodylogin .butActionLogin:hover,
+.bodylogin .butActionLogin:active {
+	color: var(--iform-text) !important;
 }
 
 a:link,
@@ -518,6 +644,781 @@ a:active,
 	width: 14px !important;
 }
 
+#mainbody img[src$="/search.png"] {
+	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M8.7 14.2a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11Zm4-1.5 4.1 4.1' fill='none' stroke='%236e7781' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+}
+
+#mainbody img[src$="/searchclear.png"],
+#mainbody img[src$="/close.png"],
+#mainbody img[src$="/close_title.png"] {
+	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m5.2 5.2 9.6 9.6M14.8 5.2l-9.6 9.6' fill='none' stroke='%236e7781' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E") !important;
+}
+
+#mainbody img[src$="/refresh.png"] {
+	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M16.2 7.2A6.4 6.4 0 0 0 4.1 5.4M3.6 3.1v3.9h3.9M3.8 12.8a6.4 6.4 0 0 0 12.1 1.8m.5 2.3v-3.9h-3.9' fill='none' stroke='%230969da' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+}
+
+#mainbody img[src$="/edit.png"],
+#mainbody img[src$="/button_edit.png"] {
+	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m4.1 13.8-.7 2.8 2.8-.7 9-9a2 2 0 0 0-2.8-2.8l-9 9Zm7.2-8.5 3.4 3.4' fill='none' stroke='%236e7781' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+}
+
+#mainbody img[src$="/delete.png"],
+#mainbody img[src$="/edit_remove.png"] {
+	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M4 6h12M8 6V4.5h4V6m-6.8 0 .7 10.2h8.2L14.8 6M8.3 9v4.5M11.7 9v4.5' fill='none' stroke='%23cf222e' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+}
+
+#mainbody img[src$="/edit_add.png"],
+#mainbody img[src$="/addfile.png"] {
+	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 3.4v13.2M3.4 10h13.2' fill='none' stroke='%230969da' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E") !important;
+}
+
+#mainbody img[src$="/sort_asc.png"],
+#mainbody img[src$="/sort_asc_disabled.png"],
+#mainbody img[src$="/uparrow.png"] {
+	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m5.3 12.2 4.7-4.7 4.7 4.7' fill='none' stroke='%236e7781' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+}
+
+#mainbody img[src$="/sort_desc.png"],
+#mainbody img[src$="/sort_desc_disabled.png"] {
+	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m5.3 7.8 4.7 4.7 4.7-4.7' fill='none' stroke='%236e7781' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+}
+
+#mainbody img[src$="/filter.png"] {
+	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M3.5 5h13L11.5 10v4.5l-3 1.5v-6L3.5 5Z' fill='none' stroke='%236e7781' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+}
+
+#mainbody img[src$="/rightarrow.png"] {
+	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M4 5v4.5a3.5 3.5 0 0 0 3.5 3.5H16m0 0-3-3m3 3-3 3' fill='none' stroke='%230969da' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+}
+
+#mainbody img[src$="/search.png"],
+#mainbody img[src$="/searchclear.png"],
+#mainbody img[src$="/refresh.png"],
+#mainbody img[src$="/edit.png"],
+#mainbody img[src$="/button_edit.png"],
+#mainbody img[src$="/delete.png"],
+#mainbody img[src$="/edit_remove.png"],
+#mainbody img[src$="/edit_add.png"],
+#mainbody img[src$="/addfile.png"],
+#mainbody img[src$="/sort_asc.png"],
+#mainbody img[src$="/sort_asc_disabled.png"],
+#mainbody img[src$="/sort_desc.png"],
+#mainbody img[src$="/sort_desc_disabled.png"],
+#mainbody img[src$="/filter.png"],
+#mainbody img[src$="/uparrow.png"],
+#mainbody img[src$="/rightarrow.png"],
+#mainbody img[src$="/close.png"],
+#mainbody img[src$="/close_title.png"] {
+	background: transparent !important;
+	filter: none !important;
+	height: 16px !important;
+	object-fit: contain !important;
+	opacity: 0.95;
+	vertical-align: middle;
+	width: 16px !important;
+}
+
+#mainbody img[src$="/warning.png"],
+#mainbody img[src$="/warning_white.png"],
+#mainbody a.dashboardlineindicatorlate img,
+#mainbody .imglatecoin img {
+	background: transparent !important;
+	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 3.2 17 16H3L10 3.2Zm0 4.9v3.8M10 14.5h.1' fill='none' stroke='%239a6700' stroke-width='1.85' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+	filter: none !important;
+	height: 16px !important;
+	object-fit: contain !important;
+	opacity: 0.95;
+	vertical-align: middle;
+	width: 16px !important;
+}
+
+body#mainbody :is(.fa-search, .fa-redo, .fa-sync, .fa-refresh, .fa-bars, .fa-stream, .fa-list, .fa-th-list, .fa-th, .fa-grip-horizontal, .fa-table, .fa-arrows-alt, .fa-expand-arrows-alt, .fa-plus-circle, .fa-plus, .fa-pencil-alt, .fa-edit, .fa-trash, .fa-times, .fa-remove, .fa-download, .fa-search-plus, .fa-eye, .fa-binoculars, .fa-calendar, .fa-calendar-alt, .fa-calendar-day, .fa-calendar-week, .fa-caret-up, .fa-caret-down, .fa-caret-left, .fa-caret-right, .fa-info-circle, .fa-question, .fa-exclamation-triangle, .fa-check, .fa-print)::before {
+	background-color: currentColor;
+	content: "" !important;
+	display: inline-block;
+	height: 1em;
+	-webkit-mask: var(--iform-symbol-mask) center / contain no-repeat;
+	mask: var(--iform-symbol-mask) center / contain no-repeat;
+	vertical-align: -0.12em;
+	width: 1em;
+}
+
+body#mainbody :is(.fa-search, .fa-bars, .fa-stream, .fa-list, .fa-th-list, .fa-th, .fa-grip-horizontal, .fa-table, .fa-arrows-alt, .fa-expand-arrows-alt, .fa-pencil-alt, .fa-edit, .fa-times, .fa-remove, .fa-caret-up, .fa-caret-down, .fa-info-circle, .fa-question, .fa-print) {
+	color: var(--iform-icon-muted) !important;
+}
+
+body#mainbody :is(.fa-redo, .fa-sync, .fa-refresh, .fa-plus-circle, .fa-plus, .fa-download, .fa-search-plus, .fa-eye, .fa-binoculars, .fa-calendar, .fa-calendar-alt, .fa-calendar-day, .fa-calendar-week) {
+	color: var(--iform-icon-accent) !important;
+}
+
+body#mainbody :is(.fa-calendar, .fa-calendar-alt, .fa-calendar-day, .fa-calendar-week) {
+	color: var(--iform-icon-date) !important;
+}
+
+body#mainbody :is(.fa-trash) {
+	color: var(--iform-icon-danger) !important;
+}
+
+body#mainbody :is(.fa-exclamation-triangle) {
+	color: var(--iform-icon-warning) !important;
+}
+
+body#mainbody :is(.fa-check) {
+	color: var(--iform-icon-success) !important;
+}
+
+#id-top :is(.fa-search, .fa-redo, .fa-sync, .fa-refresh, .fa-bars, .fa-stream, .fa-list, .fa-th-list, .fa-th, .fa-grip-horizontal, .fa-table, .fa-arrows-alt, .fa-expand-arrows-alt, .fa-plus-circle, .fa-plus, .fa-pencil-alt, .fa-edit, .fa-trash, .fa-times, .fa-remove, .fa-download, .fa-search-plus, .fa-eye, .fa-binoculars, .fa-calendar, .fa-calendar-alt, .fa-calendar-day, .fa-calendar-week, .fa-caret-up, .fa-caret-down, .fa-caret-left, .fa-caret-right, .fa-info-circle, .fa-exclamation-triangle, .fa-check, .fa-print),
+.login_block :is(.fa-search, .fa-redo, .fa-sync, .fa-refresh, .fa-bars, .fa-stream, .fa-list, .fa-th-list, .fa-th, .fa-grip-horizontal, .fa-table, .fa-arrows-alt, .fa-expand-arrows-alt, .fa-plus-circle, .fa-plus, .fa-pencil-alt, .fa-edit, .fa-trash, .fa-times, .fa-remove, .fa-download, .fa-search-plus, .fa-eye, .fa-binoculars, .fa-calendar, .fa-calendar-alt, .fa-calendar-day, .fa-calendar-week, .fa-caret-up, .fa-caret-down, .fa-caret-left, .fa-caret-right, .fa-info-circle, .fa-exclamation-triangle, .fa-check, .fa-print) {
+	color: inherit !important;
+}
+
+body#mainbody :is(.fa-search)::before {
+	--iform-symbol-mask: var(--iform-symbol-search);
+}
+
+body#mainbody :is(.fa-redo, .fa-sync, .fa-refresh)::before {
+	--iform-symbol-mask: var(--iform-symbol-refresh);
+}
+
+body#mainbody :is(.fa-bars, .fa-stream, .fa-list, .fa-th-list)::before {
+	--iform-symbol-mask: var(--iform-symbol-list);
+}
+
+body#mainbody :is(.fa-th, .fa-grip-horizontal, .fa-table)::before {
+	--iform-symbol-mask: var(--iform-symbol-grid);
+}
+
+body#mainbody :is(.fa-arrows-alt, .fa-expand-arrows-alt)::before {
+	--iform-symbol-mask: var(--iform-symbol-expand);
+}
+
+body#mainbody :is(.fa-plus-circle, .fa-plus)::before {
+	--iform-symbol-mask: var(--iform-symbol-plus);
+}
+
+body#mainbody :is(.fa-pencil-alt, .fa-edit)::before {
+	--iform-symbol-mask: var(--iform-symbol-edit);
+}
+
+body#mainbody :is(.fa-trash)::before {
+	--iform-symbol-mask: var(--iform-symbol-trash);
+}
+
+body#mainbody :is(.fa-times, .fa-remove)::before {
+	--iform-symbol-mask: var(--iform-symbol-close);
+}
+
+body#mainbody :is(.fa-download)::before {
+	--iform-symbol-mask: var(--iform-symbol-download);
+}
+
+body#mainbody :is(.fa-search-plus, .fa-eye, .fa-binoculars)::before {
+	--iform-symbol-mask: var(--iform-symbol-preview);
+}
+
+body#mainbody :is(.fa-calendar, .fa-calendar-alt, .fa-calendar-day, .fa-calendar-week)::before {
+	--iform-symbol-mask: var(--iform-symbol-calendar);
+}
+
+body#mainbody :is(.fa-caret-up)::before {
+	--iform-symbol-mask: var(--iform-symbol-sort-up);
+}
+
+body#mainbody :is(.fa-caret-down)::before {
+	--iform-symbol-mask: var(--iform-symbol-sort-down);
+}
+
+body#mainbody :is(.fa-caret-left)::before {
+	--iform-symbol-mask: var(--iform-symbol-chevron-left);
+}
+
+body#mainbody :is(.fa-caret-right)::before {
+	--iform-symbol-mask: var(--iform-symbol-chevron-right);
+}
+
+body#mainbody :is(.fa-info-circle)::before {
+	--iform-symbol-mask: var(--iform-symbol-info);
+}
+
+body#mainbody :is(.fa-question)::before {
+	--iform-symbol-mask: var(--iform-symbol-source);
+}
+
+body#mainbody :is(.fa-exclamation-triangle)::before {
+	--iform-symbol-mask: var(--iform-symbol-warning);
+}
+
+#mainbody .fa-exclamation-triangle.hideonsmartphone::before,
+#mainbody .fa-exclamation-triangle.pictowarning::before {
+	height: 14px !important;
+	vertical-align: -0.16em;
+	width: 14px !important;
+}
+
+body#mainbody :is(.fa-check)::before {
+	--iform-symbol-mask: var(--iform-symbol-check);
+}
+
+body#mainbody :is(.fa-print)::before {
+	--iform-symbol-mask: var(--iform-symbol-print);
+}
+
+body#mainbody :is(.fa-building, .fa-address-book, .fa-address-card, .fa-user, .fa-user-alt, .fa-user-tie, .fa-user-friends, .fa-users, .fa-cube, .fa-cubes, .fa-box, .fa-box-open, .fa-boxes, .fa-barcode, .fa-concierge-bell, .fa-file, .fa-file-alt, .fa-file-invoice, .fa-file-invoice-dollar, .fa-file-signature, .fa-file-pdf, .fa-file-pdf-o, .fa-file-o, .fa-file-text-o, .fa-file-image-o, .fa-file-code-o, .fa-file-excel-o, .fa-file-word-o, .fa-file-powerpoint-o, .fa-file-video-o, .fa-file-audio-o, .fa-file-archive, .fa-file-archive-o, .fa-archive, .fa-paragraph, .fa-clipboard, .fa-clipboard-list, .fa-keyboard, .fa-shield-alt, .fa-sticky-note, .fa-note-sticky, .fa-bug, .fa-vial, .fa-flask, .fa-dolly, .fa-truck, .fa-truck-loading, .fa-ambulance, .fa-suitcase, .fa-project-diagram, .fa-tasks, .fa-university, .fa-money-check-alt, .fa-dollar-sign, .fa-coins, .fa-wallet, .fa-stripe-s, .fa-phone, .fa-mobile-alt, .fa-fax, .fa-at, .fa-envelope, .fa-comments, .fa-comment, .fa-comment-dots, .fa-paper-plane, .fa-link, .fa-unlink, .fa-external-link-alt, .fa-share-alt, .fa-globe, .fa-globe-americas, .fa-globe-europe, .fa-map, .fa-map-marked, .fa-map-marked-alt, .fa-map-marker-alt, .fa-folder, .fa-folder-open, .fa-tag, .fa-tags, .fa-clock, .fa-business-time, .fa-language, .fa-lock, .fa-key, .fa-cog, .fa-cogs, .fa-tools, .fa-wrench, .fa-chart-line, .fa-chart-bar, .fa-ticket-alt, .fa-magic, .fa-gift, .fa-handshake, .fa-umbrella-beach, .fa-cash-register, .fa-door-open, .fa-check-double, .fa-receipt, .fa-calculator, .fa-hand-holding-usd, .fa-money-bill-alt, .fa-search-dollar, .fa-layer-group, .fa-columns, .fa-history, .fa-bullseye, .fa-id-card-alt, .fa-id-badge, .fa-people-arrows, .fa-laptop-house, .fa-pallet, .fa-shapes, .fa-chalkboard-teacher, .fa-server, .fa-weather-level4, .fa-dol-action, .fa-dol-commande, .fa-dol-contrat, .fa-dol-cubes, .fa-dol-expensereport, .fa-dol-facture, .fa-dol-holiday, .fa-dol-member, .fa-dol-project, .fa-dol-propal, .fa-dol-ticket, .fa-dol-bank_account, .fa-dol-invoice_supplier, .fa-dol-order_supplier, .fa-dol-supplier_proposal)::before {
+	background-color: currentColor;
+	content: "" !important;
+	display: inline-block;
+	height: 1em;
+	-webkit-mask: var(--iform-symbol-mask) center / contain no-repeat;
+	mask: var(--iform-symbol-mask) center / contain no-repeat;
+	vertical-align: -0.12em;
+	width: 1em;
+}
+
+body#mainbody :is(.fa-building)::before {
+	--iform-symbol-mask: var(--iform-symbol-building);
+}
+
+body#mainbody :is(.fa-address-book, .fa-address-card)::before {
+	--iform-symbol-mask: var(--iform-symbol-address-book);
+}
+
+body#mainbody :is(.fa-user, .fa-user-alt, .fa-user-tie, .fa-dol-member)::before {
+	--iform-symbol-mask: var(--iform-symbol-user);
+}
+
+body#mainbody :is(.fa-user-friends, .fa-users, .fa-people-arrows)::before {
+	--iform-symbol-mask: var(--iform-symbol-users);
+}
+
+body#mainbody :is(.fa-cube, .fa-cubes, .fa-box, .fa-box-open, .fa-boxes, .fa-pallet, .fa-shapes, .fa-dol-cubes)::before {
+	--iform-symbol-mask: var(--iform-symbol-box);
+}
+
+body#mainbody :is(.fa-concierge-bell)::before {
+	--iform-symbol-mask: var(--iform-symbol-service);
+}
+
+body#mainbody :is(.fa-file, .fa-file-alt, .fa-file-o, .fa-file-text-o)::before {
+	--iform-symbol-mask: var(--iform-symbol-doc);
+}
+
+body#mainbody :is(.fa-file-invoice, .fa-dol-commande, .fa-dol-order_supplier)::before {
+	--iform-symbol-mask: var(--iform-symbol-doc);
+}
+
+body#mainbody :is(.fa-file-invoice-dollar, .fa-receipt, .fa-dol-facture, .fa-dol-invoice_supplier)::before {
+	--iform-symbol-mask: var(--iform-symbol-doc-money);
+}
+
+body#mainbody :is(.fa-file-signature, .fa-dol-propal, .fa-dol-supplier_proposal)::before {
+	--iform-symbol-mask: var(--iform-symbol-doc-signature);
+}
+
+body#mainbody :is(.fa-paragraph, .fa-sticky-note, .fa-note-sticky)::before {
+	--iform-symbol-mask: var(--iform-symbol-note);
+}
+
+body#mainbody :is(.fa-file-pdf, .fa-file-pdf-o, .fa-file-image-o, .fa-file-code-o, .fa-file-excel-o, .fa-file-word-o, .fa-file-powerpoint-o, .fa-file-video-o, .fa-file-audio-o)::before {
+	--iform-symbol-mask: var(--iform-symbol-doc);
+}
+
+body#mainbody :is(.fa-file-archive, .fa-file-archive-o, .fa-archive)::before {
+	--iform-symbol-mask: var(--iform-symbol-archive);
+}
+
+body#mainbody :is(.fa-clipboard, .fa-clipboard-list)::before {
+	--iform-symbol-mask: var(--iform-symbol-clipboard);
+}
+
+body#mainbody :is(.fa-keyboard)::before {
+	--iform-symbol-mask: var(--iform-symbol-keyboard);
+}
+
+body#mainbody :is(.fa-shield-alt)::before {
+	--iform-symbol-mask: var(--iform-symbol-shield);
+}
+
+body#mainbody :is(.fa-bug)::before {
+	--iform-symbol-mask: var(--iform-symbol-bug);
+}
+
+body#mainbody :is(.fa-vial, .fa-flask)::before {
+	--iform-symbol-mask: var(--iform-symbol-vial);
+}
+
+body#mainbody :is(.fa-dolly, .fa-truck, .fa-truck-loading, .fa-ambulance)::before {
+	--iform-symbol-mask: var(--iform-symbol-truck);
+}
+
+body#mainbody :is(.fa-suitcase, .fa-dol-contrat)::before {
+	--iform-symbol-mask: var(--iform-symbol-briefcase);
+}
+
+body#mainbody :is(.fa-project-diagram, .fa-dol-project)::before {
+	--iform-symbol-mask: var(--iform-symbol-project);
+}
+
+body#mainbody :is(.fa-tasks)::before {
+	--iform-symbol-mask: var(--iform-symbol-task);
+}
+
+body#mainbody :is(.fa-university, .fa-dol-bank_account)::before {
+	--iform-symbol-mask: var(--iform-symbol-bank);
+}
+
+body#mainbody :is(.fa-money-check-alt, .fa-dollar-sign, .fa-coins, .fa-calculator, .fa-hand-holding-usd, .fa-search-dollar, .fa-stripe-s)::before {
+	--iform-symbol-mask: var(--iform-symbol-payment);
+}
+
+body#mainbody :is(.fa-wallet, .fa-money-bill-alt, .fa-dol-expensereport)::before {
+	--iform-symbol-mask: var(--iform-symbol-wallet);
+}
+
+body#mainbody :is(.fa-phone)::before {
+	--iform-symbol-mask: var(--iform-symbol-phone);
+}
+
+body#mainbody :is(.fa-mobile-alt)::before {
+	--iform-symbol-mask: var(--iform-symbol-mobile);
+}
+
+body#mainbody :is(.fa-fax)::before {
+	--iform-symbol-mask: var(--iform-symbol-print);
+}
+
+body#mainbody :is(.fa-at, .fa-envelope)::before {
+	--iform-symbol-mask: var(--iform-symbol-mail);
+}
+
+body#mainbody :is(.fa-comments, .fa-comment, .fa-comment-dots)::before {
+	--iform-symbol-mask: var(--iform-symbol-chat);
+}
+
+body#mainbody :is(.fa-paper-plane)::before {
+	--iform-symbol-mask: var(--iform-symbol-send);
+}
+
+body#mainbody :is(.fa-link, .fa-unlink, .fa-share-alt)::before {
+	--iform-symbol-mask: var(--iform-symbol-link);
+}
+
+body#mainbody :is(.fa-external-link-alt, .fa-door-open)::before {
+	--iform-symbol-mask: var(--iform-symbol-external);
+}
+
+body#mainbody :is(.fa-globe, .fa-globe-americas, .fa-globe-europe)::before {
+	--iform-symbol-mask: var(--iform-symbol-globe);
+}
+
+body#mainbody :is(.fa-map, .fa-map-marked, .fa-map-marked-alt, .fa-map-marker-alt)::before {
+	--iform-symbol-mask: var(--iform-symbol-map);
+}
+
+body#mainbody :is(.fa-folder, .fa-folder-open)::before {
+	--iform-symbol-mask: var(--iform-symbol-folder);
+}
+
+body#mainbody :is(.fa-tag, .fa-tags, .fa-layer-group)::before {
+	--iform-symbol-mask: var(--iform-symbol-tag);
+}
+
+body#mainbody :is(.fa-barcode)::before {
+	--iform-symbol-mask: var(--iform-symbol-barcode);
+}
+
+body#mainbody :is(.fa-clock, .fa-business-time, .fa-history)::before {
+	--iform-symbol-mask: var(--iform-symbol-clock);
+}
+
+body#mainbody :is(.fa-language)::before {
+	--iform-symbol-mask: var(--iform-symbol-globe);
+}
+
+body#mainbody :is(.fa-lock, .fa-key)::before {
+	--iform-symbol-mask: var(--iform-symbol-lock);
+}
+
+body#mainbody :is(.fa-cog, .fa-cogs)::before {
+	--iform-symbol-mask: var(--iform-symbol-gear);
+}
+
+body#mainbody :is(.fa-tools, .fa-wrench)::before {
+	--iform-symbol-mask: var(--iform-symbol-tools);
+}
+
+body#mainbody :is(.fa-chart-line, .fa-chart-bar)::before {
+	--iform-symbol-mask: var(--iform-symbol-chart);
+}
+
+body#mainbody :is(.fa-ticket-alt, .fa-dol-ticket)::before {
+	--iform-symbol-mask: var(--iform-symbol-ticket);
+}
+
+body#mainbody :is(.fa-magic)::before {
+	--iform-symbol-mask: var(--iform-symbol-magic);
+}
+
+body#mainbody :is(.fa-server)::before {
+	--iform-symbol-mask: var(--iform-symbol-server);
+}
+
+body#mainbody :is(.fa-weather-level4)::before {
+	--iform-symbol-mask: var(--iform-symbol-bolt);
+}
+
+body#mainbody :is(.fa-dol-action)::before {
+	--iform-symbol-mask: var(--iform-symbol-calendar);
+}
+
+body#mainbody :is(.fa-gift, .fa-handshake, .fa-umbrella-beach, .fa-cash-register, .fa-check-double, .fa-id-card-alt, .fa-id-badge, .fa-laptop-house, .fa-chalkboard-teacher, .fa-bullseye, .fa-columns)::before {
+	--iform-symbol-mask: var(--iform-symbol-service);
+}
+
+body#mainbody :is(.fa-dol-holiday)::before {
+	--iform-symbol-mask: var(--iform-symbol-service);
+}
+
+body#mainbody :is(.fa-home, .fa-chevron-left, .fa-chevron-right, .fa-angle-left, .fa-angle-right, .fa-angle-double-left, .fa-angle-double-right, .fa-arrow-left, .fa-arrow-right, .fa-arrow-up, .fa-arrow-down, .fa-long-arrow-alt-left, .fa-long-arrow-alt-right, .fa-long-arrow-alt-up, .fa-long-arrow-alt-down, .fa-arrow-alt-circle-left, .fa-arrow-alt-circle-right, .fa-arrow-alt-circle-down, .fa-question-circle, .fa-filter, .fa-star, .fa-play, .fa-stop-circle, .fa-toggle-on, .fa-toggle-off, .fa-crop, .fa-rss, .fa-balance-scale, .fa-ruler, .fa-pencil-ruler, .fa-fill, .fa-exchange-alt, .fa-code-branch, .fa-square, .fa-check-square, .fa-plus-square, .fa-indent, .fa-list-alt, .fa-mars, .fa-venus, .fa-transgender, .fa-genderless, .fa-calendar-check, .fa-eye-slash, .fa-file-export)::before {
+	background-color: currentColor;
+	content: "" !important;
+	display: inline-block;
+	height: 1em;
+	-webkit-mask: var(--iform-symbol-mask) center / contain no-repeat;
+	mask: var(--iform-symbol-mask) center / contain no-repeat;
+	vertical-align: -0.12em;
+	width: 1em;
+}
+
+body#mainbody :is(.fa-home)::before {
+	--iform-symbol-mask: var(--iform-symbol-home);
+}
+
+body#mainbody :is(.fa-chevron-left, .fa-angle-left, .fa-angle-double-left, .fa-arrow-left, .fa-long-arrow-alt-left, .fa-arrow-alt-circle-left)::before {
+	--iform-symbol-mask: var(--iform-symbol-chevron-left);
+}
+
+body#mainbody :is(.fa-chevron-right, .fa-angle-right, .fa-angle-double-right, .fa-arrow-right, .fa-long-arrow-alt-right, .fa-arrow-alt-circle-right, .fa-arrow-alt-circle-down)::before {
+	--iform-symbol-mask: var(--iform-symbol-chevron-right);
+}
+
+body#mainbody :is(.fa-arrow-up, .fa-long-arrow-alt-up)::before {
+	--iform-symbol-mask: var(--iform-symbol-sort-up);
+}
+
+body#mainbody :is(.fa-arrow-down, .fa-long-arrow-alt-down)::before {
+	--iform-symbol-mask: var(--iform-symbol-sort-down);
+}
+
+body#mainbody :is(.fa-question-circle)::before {
+	--iform-symbol-mask: var(--iform-symbol-question);
+}
+
+body#mainbody :is(.fa-indent, .fa-list-alt)::before {
+	--iform-symbol-mask: var(--iform-symbol-list);
+}
+
+body#mainbody :is(.fa-filter)::before {
+	--iform-symbol-mask: var(--iform-symbol-filter);
+}
+
+body#mainbody :is(.fa-star)::before {
+	--iform-symbol-mask: var(--iform-symbol-star);
+}
+
+body#mainbody :is(.fa-play)::before {
+	--iform-symbol-mask: var(--iform-symbol-play);
+}
+
+body#mainbody :is(.fa-stop-circle)::before {
+	--iform-symbol-mask: var(--iform-symbol-stop-circle);
+}
+
+body#mainbody :is(.fa-toggle-on)::before {
+	--iform-symbol-mask: var(--iform-symbol-toggle-on);
+}
+
+body#mainbody :is(.fa-toggle-off)::before {
+	--iform-symbol-mask: var(--iform-symbol-toggle-off);
+}
+
+body#mainbody :is(.fa-crop, .fa-fill)::before {
+	--iform-symbol-mask: var(--iform-symbol-crop);
+}
+
+body#mainbody :is(.fa-rss)::before {
+	--iform-symbol-mask: var(--iform-symbol-rss);
+}
+
+body#mainbody :is(.fa-balance-scale)::before {
+	--iform-symbol-mask: var(--iform-symbol-balance);
+}
+
+body#mainbody :is(.fa-ruler)::before {
+	--iform-symbol-mask: var(--iform-symbol-ruler);
+}
+
+body#mainbody :is(.fa-pencil-ruler)::before {
+	--iform-symbol-mask: var(--iform-symbol-tools);
+}
+
+body#mainbody :is(.fa-exchange-alt)::before {
+	--iform-symbol-mask: var(--iform-symbol-refresh);
+}
+
+body#mainbody :is(.fa-calendar-check)::before {
+	--iform-symbol-mask: var(--iform-symbol-calendar);
+}
+
+body#mainbody :is(.fa-eye-slash)::before {
+	--iform-symbol-mask: var(--iform-symbol-preview);
+}
+
+body#mainbody :is(.fa-file-export)::before {
+	--iform-symbol-mask: var(--iform-symbol-download);
+}
+
+body#mainbody :is(.fa-mars, .fa-venus, .fa-transgender, .fa-genderless)::before {
+	--iform-symbol-mask: var(--iform-symbol-user);
+}
+
+body#mainbody :is(.fa-code-branch)::before {
+	--iform-symbol-mask: var(--iform-symbol-project);
+}
+
+body#mainbody :is(.fa-square, .fa-check-square, .fa-plus-square)::before {
+	--iform-symbol-mask: var(--iform-symbol-check);
+}
+
+#mainbody :is(.pictotitle.widthpictotitle, .widthpictotitle.pictotitle)[class*="fa-"],
+#mainbody .table-fiche-title :is(.pictotitle, .widthpictotitle)[class*="fa-"],
+#mainbody .titre :is(.pictotitle, .widthpictotitle)[class*="fa-"] {
+	align-items: center;
+	display: inline-flex;
+	font-size: 22.56px !important;
+	justify-content: center;
+	line-height: 1 !important;
+	min-width: 34px;
+	vertical-align: middle;
+}
+
+#mainbody :is(.pictotitle.widthpictotitle, .widthpictotitle.pictotitle)[class*="fa-"]::before,
+#mainbody .table-fiche-title :is(.pictotitle, .widthpictotitle)[class*="fa-"]::before,
+#mainbody .titre :is(.pictotitle, .widthpictotitle)[class*="fa-"]::before {
+	height: 30px !important;
+	width: 30px !important;
+}
+
+#id-left :is(.vmenu, .menu_titre, .vmenu_titre) :is(.pictofixedwidth[class*="fa-"], .fa[class*="fa-"])::before {
+	height: 1.22em;
+	vertical-align: -0.18em;
+	width: 1.22em;
+}
+
+#id-left :is(.vmenu, .menu_titre, .vmenu_titre) :is(.em088, .em092).pictofixedwidth[class*="fa-"]::before {
+	height: 1.38em;
+	width: 1.38em;
+}
+
+#id-left :is(.pictofixedwidth[class*="fa-"], .fa[class*="fa-"], .fas[class*="fa-"], .far[class*="fa-"], .fab[class*="fa-"]) {
+	align-items: center;
+	display: inline-flex;
+	justify-content: center;
+	line-height: 1 !important;
+	min-width: 24px;
+	vertical-align: middle;
+}
+
+#id-left :is(.pictofixedwidth[class*="fa-"], .fa[class*="fa-"], .fas[class*="fa-"], .far[class*="fa-"], .fab[class*="fa-"])::before {
+	height: 18px !important;
+	width: 18px !important;
+}
+
+#mainbody .pictomodule[class*="fa-"] {
+	align-items: center;
+	display: inline-flex;
+	justify-content: center;
+	line-height: 1;
+	min-width: 20px;
+	vertical-align: middle;
+}
+
+#mainbody .pictomodule[class*="fa-"]::before {
+	height: 20px;
+	vertical-align: -0.24em;
+	width: 20px;
+}
+
+#mainbody .pictomodule[class*="fa-"]:is(.em080, .em088, .em092)::before {
+	height: 20px;
+	width: 20px;
+}
+
+#mainbody :is(.em080, .em088, .em092).pictofixedwidth[class*="fa-"] {
+	align-items: center;
+	display: inline-flex;
+	justify-content: center;
+	line-height: 1;
+	min-width: 22px;
+	vertical-align: middle;
+}
+
+#mainbody :is(.em080, .em088, .em092).pictofixedwidth[class*="fa-"]::before {
+	height: 1.14em !important;
+	width: 1.14em !important;
+}
+
+#mainbody :is(table.border, .tableforfield, .tagtable, .fichecenter) :is(.em080, .em088, .em092).pictofixedwidth[class*="fa-"]::before {
+	height: 20px !important;
+	width: 20px !important;
+}
+
+#mainbody :is(table.border, .tableforfield, .tagtable, .fichecenter) .pictofixedwidth[class*="fa-"] {
+	align-items: center;
+	display: inline-flex;
+	justify-content: center;
+	line-height: 1 !important;
+	min-width: 24px;
+	text-align: center;
+	vertical-align: middle;
+	width: 24px;
+}
+
+#mainbody :is(table.border, .tableforfield, .tagtable, .fichecenter) .pictofixedwidth[class*="fa-"]::before {
+	height: 20px !important;
+	transform: none !important;
+	width: 20px !important;
+}
+
+#id-left a.vmenu[title="设置"] :is(.pictofixedwidth[class*="fa-"], .fa[class*="fa-"], .fas[class*="fa-"], .far[class*="fa-"], .fab[class*="fa-"]) {
+	align-items: center;
+	color: inherit !important;
+	display: inline-flex;
+	font-size: 18px !important;
+	justify-content: center;
+	line-height: 1 !important;
+	min-width: 28px;
+	vertical-align: middle;
+}
+
+#id-left a.vmenu[title="设置"] :is(.pictofixedwidth[class*="fa-"], .fa[class*="fa-"], .fas[class*="fa-"], .far[class*="fa-"], .fab[class*="fa-"])::before {
+	height: 18px !important;
+	--iform-symbol-mask: var(--iform-symbol-gear) !important;
+	width: 18px !important;
+}
+
+body#mainbody #id-left :is(.menu_titre, .vmenu_titre) :is(.pictofixedwidth[class*="fa-"], .fa[class*="fa-"], .fas[class*="fa-"], .far[class*="fa-"], .fab[class*="fa-"]) {
+	align-items: center;
+	display: inline-flex;
+	font-size: 18px !important;
+	justify-content: center;
+	line-height: 1 !important;
+	min-width: 24px !important;
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+	vertical-align: middle;
+	width: 24px !important;
+}
+
+body#mainbody #id-left :is(.menu_titre, .vmenu_titre) :is(.pictofixedwidth[class*="fa-"], .fa[class*="fa-"], .fas[class*="fa-"], .far[class*="fa-"], .fab[class*="fa-"])::before {
+	height: 18px !important;
+	width: 18px !important;
+}
+
+#mainbody :is(table.border, .tableforfield, .tagtable, .fichecenter) .fa-history.paddingright {
+	align-items: center;
+	display: inline-flex;
+	justify-content: center;
+	line-height: 1;
+	min-width: 20px;
+	vertical-align: middle;
+}
+
+#mainbody :is(table.border, .tableforfield, .tagtable, .fichecenter) .fa-history.paddingright::before {
+	height: 1.22em !important;
+	width: 1.22em !important;
+}
+
+#mainbody :is(.fa-sticky-note, .fa-note-sticky) {
+	align-items: center;
+	display: inline-flex;
+	justify-content: center;
+	line-height: 1;
+	vertical-align: middle;
+}
+
+#mainbody :is(.fa-sticky-note, .fa-note-sticky)::before {
+	height: 1.05em !important;
+	width: 1.05em !important;
+}
+
+#mainbody .boxstatsindicator :is(.fa, .fas, .far, .fab)[class*="fa-"] {
+	align-items: center;
+	display: inline-flex;
+	font-size: 19.552px !important;
+	justify-content: center;
+	line-height: 1 !important;
+	min-width: 20px;
+	vertical-align: -0.18em;
+}
+
+#mainbody .boxstatsindicator :is(.fa, .fas, .far, .fab)[class*="fa-"]::before {
+	height: 20px !important;
+	width: 20px !important;
+}
+
+body#mainbody :is(.fa-toggle-on, .fa-toggle-off) {
+	display: inline-block;
+	height: 18px;
+	line-height: 0;
+	position: relative;
+	text-align: left;
+	vertical-align: -3px;
+	width: 34px;
+}
+
+body#mainbody :is(.fa-toggle-on, .fa-toggle-off)::before {
+	background-color: currentColor !important;
+	border-radius: 999px;
+	content: "" !important;
+	display: block;
+	height: 100%;
+	left: 0;
+	-webkit-mask: none !important;
+	mask: none !important;
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+
+body#mainbody :is(.fa-toggle-on, .fa-toggle-off)::after {
+	background: var(--iform-switch-knob);
+	border-radius: 999px;
+	box-shadow: 0 1px 2px rgba(31, 35, 40, 0.22);
+	content: "";
+	display: block;
+	height: 10px;
+	position: absolute;
+	top: 4px;
+	width: 10px;
+}
+
+body#mainbody .fa-toggle-on::after {
+	left: 20px;
+}
+
+body#mainbody .fa-toggle-off::after {
+	left: 4px;
+}
+
+body#mainbody .fa-toggle-on {
+	color: var(--iform-icon-success) !important;
+}
+
+body#mainbody .fa-toggle-off {
+	color: var(--iform-icon-muted) !important;
+}
+
 #mainbody .fa-globe-americas,
 #mainbody .fa-map,
 #mainbody .fa-map-marked,
@@ -526,19 +1427,157 @@ a:active,
 	color: #64748b !important;
 }
 
+#mainbody .infobox-project,
+#mainbody .fa-dol-project {
+	color: var(--iform-infobox-project) !important;
+}
+
+#mainbody .infobox-cubes,
+#mainbody .fa-dol-cubes {
+	color: var(--iform-infobox-stock) !important;
+}
+
+#mainbody .infobox-action,
+#mainbody .fa-dol-action {
+	color: var(--iform-infobox-action) !important;
+}
+
+#mainbody .infobox-propal,
+#mainbody .infobox-facture,
+#mainbody .infobox-commande,
+#mainbody .fa-dol-propal,
+#mainbody .fa-dol-facture,
+#mainbody .fa-dol-commande {
+	color: var(--iform-infobox-customer) !important;
+}
+
+#mainbody .infobox-supplier_proposal,
+#mainbody .infobox-invoice_supplier,
+#mainbody .infobox-order_supplier,
+#mainbody .fa-dol-supplier_proposal,
+#mainbody .fa-dol-invoice_supplier,
+#mainbody .fa-dol-order_supplier {
+	color: var(--iform-infobox-supplier) !important;
+}
+
+#mainbody .infobox-adherent,
+#mainbody .infobox-member,
+#mainbody .infobox-expensereport,
+#mainbody .fa-dol-member,
+#mainbody .fa-dol-expensereport {
+	color: var(--iform-infobox-member) !important;
+}
+
+#mainbody .infobox-holiday,
+#mainbody .fa-dol-holiday {
+	color: var(--iform-infobox-holiday) !important;
+}
+
 #mainbody .infobox-bank_account,
+#mainbody .fa-dol-bank_account,
 #mainbody .fa-money-check-alt,
 #mainbody .fa-university,
 #mainbody .fa-dollar-sign,
 #mainbody .fa-clipboard-list {
-	color: #7a6d10 !important;
+	color: var(--iform-infobox-bank) !important;
 }
 
 #mainbody .infobox-contrat,
+#mainbody .infobox-ticket,
+#mainbody .fa-dol-ticket,
 #mainbody .fa-suitcase,
 #mainbody .fa-ambulance,
 #mainbody .fa-ticket-alt {
-	color: #238b7f !important;
+	color: var(--iform-infobox-contract) !important;
+}
+
+#mainbody .classfortooltip .fa-question-circle,
+#mainbody .fa-question-circle.classfortooltip,
+#mainbody .leaveuserbalance .fa-question-circle {
+	color: #64748b !important;
+}
+
+#mainbody .divsearchfield .fa-square.pictofixedwidth {
+	color: #8f99a7 !important;
+}
+
+body.bodytakepos .topnav a,
+body.bodytakepos .topnav .fa,
+body.bodytakepos .topnav .fas,
+body.bodytakepos .topnav .far,
+body.bodytakepos .topnav .fab {
+	color: #4b5563 !important;
+}
+
+body.bodytakepos .topnav .fa,
+body.bodytakepos .topnav .fas,
+body.bodytakepos .topnav .far,
+body.bodytakepos .topnav .fab {
+	color: inherit !important;
+}
+
+#mainbody .cke_combo {
+	align-items: center;
+	display: inline-flex !important;
+	height: 28px !important;
+	margin-bottom: 5px !important;
+	margin-right: 10px !important;
+	vertical-align: top;
+}
+
+#mainbody .cke_combo::after {
+	margin-top: 0 !important;
+	right: -6px !important;
+	top: 5px !important;
+}
+
+#mainbody a.cke_combo_button,
+#mainbody .cke_combo_on a.cke_combo_button,
+#mainbody .cke_combo_off a.cke_combo_button,
+#mainbody .cke_combo_off a.cke_combo_button:hover,
+#mainbody .cke_combo_off a.cke_combo_button:focus,
+#mainbody .cke_combo_off a.cke_combo_button:active {
+	background: transparent !important;
+	border: 1px solid transparent !important;
+	box-sizing: border-box !important;
+	height: 28px !important;
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+#mainbody .cke_combo_on a.cke_combo_button,
+#mainbody .cke_combo_off a.cke_combo_button:hover,
+#mainbody .cke_combo_off a.cke_combo_button:focus,
+#mainbody .cke_combo_off a.cke_combo_button:active {
+	background: rgba(0, 113, 227, 0.08) !important;
+	border-color: var(--iform-line) !important;
+}
+
+#mainbody .cke_combo_text {
+	box-sizing: border-box !important;
+	height: 26px !important;
+	line-height: 26px !important;
+	padding-left: 10px !important;
+}
+
+#mainbody .cke_combo_open {
+	height: 26px !important;
+	margin-bottom: 0 !important;
+	margin-top: 0 !important;
+}
+
+#mainbody .cke_combo_arrow {
+	margin-top: 11px !important;
+}
+
+body.bodytakepos .topnav {
+	border-bottom: 1px solid #d0d7de !important;
+}
+
+body.bodytakepos .topnav-left a:hover:not(.nohover),
+body.bodytakepos .topnav .login_block_other a:hover:not(.nohover) {
+	background-color: #e6ebf0 !important;
+	color: #1f2937 !important;
 }
 
 #id-top a.tmenuimage,
@@ -547,6 +1586,82 @@ a:active,
 #id-top a.tmenuimage .far,
 #id-top a.tmenuimage .fab {
 	color: inherit !important;
+}
+
+#id-top a.tmenuimage {
+	align-items: center;
+	display: flex;
+	height: 24px;
+	justify-content: center;
+	line-height: 24px;
+	margin-bottom: 0;
+}
+
+#id-top a.tmenuimage[class*="fa-"]::before,
+#id-top a.tmenuimage :is(.fa, .fas, .far, .fab)[class*="fa-"]::before {
+	color: inherit !important;
+	height: 20px !important;
+	vertical-align: -0.16em;
+	width: 20px !important;
+}
+
+#id-top a.tmenuimage :is(.fa, .fas, .far, .fab)[class*="fa-"] {
+	align-items: center;
+	display: inline-flex;
+	justify-content: center;
+	min-width: 24px;
+}
+
+#id-top div.mainmenu {
+	align-items: center;
+	display: flex;
+	height: 24px;
+	justify-content: center;
+	line-height: 24px;
+}
+
+#id-top a.tmenulabel {
+	display: inline-block;
+	line-height: 18px;
+	margin-top: 2px;
+	transform: translateY(0);
+}
+
+#id-top li.tmenu,
+#id-top li.tmenusel {
+	margin-left: 12px;
+}
+
+#mainbody td.center > a > .fa-plus-circle {
+	font-size: 18px !important;
+	line-height: 1 !important;
+	vertical-align: middle;
+}
+
+#mainbody td.center > a > .fa-plus-circle::before {
+	height: 18px !important;
+	width: 18px !important;
+}
+
+.info-box.info-box-sm .info-box-status {
+	position: absolute;
+	right: 8px;
+	bottom: 6px;
+}
+
+.info-box .info-box-status .badge {
+	align-items: center;
+	box-sizing: border-box;
+	display: inline-flex !important;
+	justify-content: center;
+	line-height: 14px !important;
+	min-height: 18px;
+	padding: 1px 7px !important;
+	vertical-align: middle;
+}
+
+.info-box .info-box-status .badge + .badge {
+	margin-left: 6px;
 }
 
 #id-top {
@@ -566,6 +1681,9 @@ a:active,
 	border: 1px solid transparent;
 	border-radius: 5px;
 	box-sizing: border-box;
+	height: calc(100% - 6px);
+	margin-bottom: 3px;
+	margin-top: 3px;
 }
 
 #id-top li.tmenusel div.tmenucenter,
@@ -703,19 +1821,19 @@ textarea:focus,
 #mainbody .butActionDelete:hover,
 #mainbody .butActionDelete:active,
 #mainbody .buttonDelete {
-	background: var(--iform-danger-bg) !important;
+	background: var(--iform-danger) !important;
 	background-image: none !important;
-	border: 1px solid #ff8182 !important;
-	color: var(--iform-danger) !important;
+	border: 1px solid var(--iform-danger) !important;
+	color: #fff !important;
 	box-shadow: none !important;
 }
 
 #mainbody .butActionDelete:hover,
 #mainbody .buttonDelete:hover:not(:disabled) {
-	background: var(--iform-danger-hover-bg) !important;
+	background: #a40e26 !important;
 	background-image: none !important;
-	border-color: #ff8182 !important;
-	color: #a40e26 !important;
+	border-color: #a40e26 !important;
+	color: #fff !important;
 	box-shadow: none !important;
 }
 
@@ -746,6 +1864,19 @@ textarea:focus,
 #mainbody .buttonDelete:focus {
 	outline: none !important;
 	box-shadow: 0 0 0 2px var(--iform-focus-ring) !important;
+}
+
+#mainbody .butAction:focus-visible,
+#mainbody .butActionDelete:focus-visible,
+#mainbody .butActionRefused:focus-visible,
+#mainbody .button:focus-visible,
+#mainbody .buttonDelete:focus-visible,
+#mainbody button:focus-visible,
+#mainbody a.btnTitle:focus-visible,
+#mainbody .btnTitle:focus-visible {
+	outline: 2px solid var(--iform-focus-outline) !important;
+	outline-offset: 3px !important;
+	box-shadow: 0 0 0 4px var(--iform-focus-ring) !important;
 }
 
 #mainbody .butActionRefused:focus,
@@ -842,12 +1973,145 @@ textarea:focus,
 	border-radius: 5px;
 }
 
+#mainbody a.btnTitle,
+#mainbody .btnTitle {
+	background: transparent !important;
+	border-color: var(--iform-line) !important;
+	box-shadow: none !important;
+	color: var(--iform-muted) !important;
+}
+
+#mainbody .box-flex-container.kanban .box-flex-item.info-box-module,
+#mainbody .box-flex-container.kanban .box-flex-item.info-box-module .info-box,
+#mainbody .box-flex-container.kanban .box-flex-item.info-box-module .info-box-icon,
+#mainbody .box-flex-container.kanban .box-flex-item.info-box-module .info-box-content {
+	box-sizing: border-box;
+}
+
+#mainbody .box-flex-container.kanban .box-flex-item.info-box-module .info-box {
+	background: var(--iform-surface) !important;
+	background-image: none !important;
+	border-color: var(--iform-line) !important;
+	overflow: hidden;
+	position: relative;
+}
+
+#mainbody .box-flex-container.kanban .box-flex-item.info-box-module .info-box-icon {
+	background: var(--iform-surface-alt) !important;
+	background-image: none !important;
+	position: relative;
+	z-index: 1;
+}
+
+#mainbody .box-flex-container.kanban .box-flex-item.info-box-module .info-box-content,
+#mainbody .box-flex-container.kanban .box-flex-item.info-box-module .info-box-module-enabled {
+	background: transparent !important;
+	background-image: none !important;
+	position: relative;
+	z-index: 1;
+}
+
+#mainbody .box-flex-container.kanban .box-flex-item.info-box-module:not(.--disabled) .info-box::after {
+	background: radial-gradient(circle at calc(100% - 42px) calc(100% - 18px), var(--iform-module-enabled-glow) 0%, var(--iform-module-enabled-glow-soft) 38%, transparent 74%);
+	bottom: 0;
+	content: "";
+	pointer-events: none;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 58%;
+	z-index: 0;
+}
+
 table.border,
 table.noborder,
 table.liste,
 .div-table-responsive,
 .div-table-responsive-no-min {
-	border-color: var(--iform-line-soft);
+	border-color: var(--iform-line);
+}
+
+#mainbody .fichehalfleft table.noborder.centpercent,
+#mainbody .fichehalfright table.noborder.centpercent,
+#mainbody .boxhalfleft table.noborder.centpercent,
+#mainbody .boxhalfright table.noborder.centpercent {
+	border: 1px solid var(--iform-line) !important;
+	border-color: var(--iform-line) !important;
+}
+
+div.liste_titre_bydiv,
+div.liste_titre_bydiv_nothingafter,
+#mainbody .liste_titre.liste_titre_bydiv {
+	border-color: var(--iform-line) !important;
+}
+
+#mainbody .div-table-responsive > table.liste:not(.listwithfilterbefore),
+#mainbody .div-table-responsive-no-min > table.liste:not(.listwithfilterbefore) {
+	border-collapse: separate !important;
+	border-radius: 8px !important;
+	border-spacing: 0 !important;
+	overflow: hidden;
+}
+
+#mainbody .div-table-responsive > table.liste:not(.listwithfilterbefore) > :is(thead, tbody):first-child > tr:first-child > :is(td, th):first-child,
+#mainbody .div-table-responsive-no-min > table.liste:not(.listwithfilterbefore) > :is(thead, tbody):first-child > tr:first-child > :is(td, th):first-child {
+	border-top-left-radius: 8px !important;
+}
+
+#mainbody .div-table-responsive > table.liste:not(.listwithfilterbefore) > :is(thead, tbody):first-child > tr:first-child > :is(td, th):last-child,
+#mainbody .div-table-responsive-no-min > table.liste:not(.listwithfilterbefore) > :is(thead, tbody):first-child > tr:first-child > :is(td, th):last-child {
+	border-top-right-radius: 8px !important;
+}
+
+#mainbody .div-table-responsive > table.liste > :is(tbody, tfoot):last-child > tr:last-child > :is(td, th):first-child,
+#mainbody .div-table-responsive-no-min > table.liste > :is(tbody, tfoot):last-child > tr:last-child > :is(td, th):first-child {
+	border-bottom-left-radius: 8px !important;
+}
+
+#mainbody .div-table-responsive > table.liste > :is(tbody, tfoot):last-child > tr:last-child > :is(td, th):last-child,
+#mainbody .div-table-responsive-no-min > table.liste > :is(tbody, tfoot):last-child > tr:last-child > :is(td, th):last-child {
+	border-bottom-right-radius: 8px !important;
+}
+
+#mainbody .div-table-responsive > table.liste.listwithfilterbefore,
+#mainbody .div-table-responsive-no-min > table.liste.listwithfilterbefore {
+	border-top-left-radius: 0 !important;
+	border-top-right-radius: 0 !important;
+	overflow: visible;
+}
+
+#mainbody .div-table-responsive > table.liste.listwithfilterbefore > :is(thead, tbody):first-child > tr:first-child > :is(td, th),
+#mainbody .div-table-responsive-no-min > table.liste.listwithfilterbefore > :is(thead, tbody):first-child > tr:first-child > :is(td, th) {
+	border-top-left-radius: 0 !important;
+	border-top-right-radius: 0 !important;
+}
+
+#mainbody table.liste,
+#mainbody table.tagtable.liste,
+#mainbody .div-table-responsive > table.liste,
+#mainbody .div-table-responsive-no-min > table.liste {
+	border-color: var(--iform-line) !important;
+}
+
+#mainbody table.liste :is(tr, td, th),
+#mainbody table.tagtable.liste :is(tr, td, th),
+#mainbody table.liste > :is(thead, tbody, tfoot) > tr > :is(td, th) {
+	border-color: var(--iform-line) !important;
+}
+
+#mainbody table.liste.formdoc > :is(tbody, tfoot):last-child > tr:last-child > :is(td, th),
+#mainbody table.liste.formdoc > tbody > tr.oddeven:last-child > :is(td, th) {
+	border-bottom: 0 !important;
+}
+
+#mainbody table.tableforfield > :is(thead, tbody):first-child > tr:first-child > :is(td, th),
+#mainbody table.border.tableforfield > :is(thead, tbody):first-child > tr:first-child > :is(td, th) {
+	border-top: 0 !important;
+}
+
+#mainbody :is(.fichehalfleft, .fichehalfright, .fichethirdleft, .fichetwothirdright):has(> table.tableforfield) > .underbanner.clearboth {
+	border-bottom: 0 !important;
+	height: 0 !important;
 }
 
 .badge-status,
@@ -891,6 +2155,47 @@ table.liste,
 	vertical-align: middle;
 }
 
+#mainbody .badge.badge-warning:has(.fa-exclamation-triangle) {
+	align-items: center;
+	box-sizing: border-box;
+	display: inline-flex !important;
+	gap: 5px;
+	line-height: 14px !important;
+	min-height: 18px;
+	padding: 1px 7px !important;
+	position: relative;
+	top: 0;
+	vertical-align: middle;
+}
+
+#mainbody .badge.badge-warning .fa-exclamation-triangle {
+	align-items: center;
+	border-color: transparent !important;
+	box-shadow: none !important;
+	color: inherit !important;
+	display: inline-flex !important;
+	height: 12px;
+	justify-content: center;
+	line-height: 1 !important;
+	margin: 0;
+	width: 12px;
+}
+
+#mainbody .badge.badge-warning .fa-exclamation-triangle.hideonsmartphone {
+	display: inline-flex !important;
+}
+
+#mainbody .badge.badge-warning .fa-exclamation-triangle::before {
+	height: 12px !important;
+	vertical-align: 0;
+	width: 12px !important;
+}
+
+#mainbody :is(.dpInvisibleButtons, .datenowlink) {
+	border-color: var(--iform-line) !important;
+	box-shadow: none !important;
+}
+
 .jnotify-container {
 	top: 60px !important;
 	right: 16px !important;
@@ -898,13 +2203,14 @@ table.liste,
 	width: auto !important;
 	min-width: min(320px, calc(100vw - 32px));
 	max-width: min(520px, calc(100vw - 32px));
+	overflow: visible !important;
 	padding: 10px 0 0 !important;
 }
 
 .jnotify-container .jnotify-notification {
 	max-width: min(520px, calc(100vw - 32px));
 	background: var(--iform-surface) !important;
-	border: 1px solid var(--iform-line-soft);
+	border: 1px solid var(--iform-line);
 	border-radius: 6px;
 	box-shadow: 0 10px 24px rgba(31, 35, 40, 0.12);
 	overflow: hidden;
@@ -913,11 +2219,12 @@ table.liste,
 .jnotify-background,
 div.jnotify-background,
 .jnotify-container .jnotify-background {
-	background: var(--iform-surface) !important;
+	background: transparent !important;
 	border: 0 !important;
 	border-radius: 0 !important;
 	box-shadow: none !important;
 	opacity: 1 !important;
+	pointer-events: none !important;
 }
 
 .jnotify-container .jnotify-notification .jnotify-message {
@@ -936,63 +2243,98 @@ if (getDolGlobalInt('THEME_DARKMODEENABLED')) {
 ?>
 :root {
 	color-scheme: dark;
-	--iform-accent: #4ea3ff;
-	--iform-accent-hover: #78b7ff;
-	--iform-accent-soft: rgba(78, 163, 255, 0.16);
-	--iform-line: #3a4048;
-	--iform-line-soft: #2c3238;
-	--iform-bg: #151719;
-	--iform-surface: #1c1f22;
-	--iform-surface-alt: #24282d;
-	--iform-text: #edf2f7;
-	--iform-muted: #a9b3c0;
-	--iform-danger: #ff8b8b;
-	--iform-danger-bg: #3a1f24;
-	--iform-danger-hover-bg: #4a252b;
-	--iform-neutral-bg: #202429;
-	--iform-neutral-hover-bg: #2a3037;
-	--iform-refused-bg: #202429;
-	--iform-focus-ring: rgba(78, 163, 255, 0.28);
-	--iform-status-success-bg: rgba(61, 180, 111, 0.14);
-	--iform-status-success-border: rgba(61, 180, 111, 0.3);
-	--iform-status-success-text: #83e5a1;
-	--colorbackhmenu1: #1c1f22;
-	--colorbackvmenu1: #181b1f;
-	--colorbacktitle1: #24282d;
-	--colorbacktabcard1: #1c1f22;
-	--colorbacktabactive: #24282d;
-	--colorbacklineimpair1: #1c1f22;
-	--colorbacklineimpair2: #1c1f22;
-	--colorbacklinepair1: #1c1f22;
-	--colorbacklinepair2: #202429;
-	--colorbacklinepairhover: #263141;
-	--colorbacklinepairchecked: #183a5e;
-	--colorbacklinebreak: #252a30;
-		--colorbackbody: #151719;
-		--colorbackmobilemenu: #181b1f;
-		--colorbackgrey: #202429;
-		--infoboxmoduleenabledbgcolor: linear-gradient(0.4turn, #24282d 0%, #24282d 68%, rgba(61, 180, 111, 0.18) 100%);
-		--colortexttitlenotab: #edf2f7;
-		--colortexttitlenotab2: #edf2f7;
-		--colortexttitle: rgba(237, 242, 247, 0.95);
-	--colortexttitlelink: rgba(78, 163, 255, 0.95);
-	--colortext: #edf2f7;
-	--colortextlink: #4ea3ff;
-	--colortextbackhmenu: #edf2f7;
-	--colortextbackvmenu: #edf2f7;
-	--colortopbordertitle1: #3a4048;
-	--inputbackgroundcolor: #202429;
-	--inputbackgroundcolordisabled: #181b1f;
-	--inputcolordisabled: #7f8a96;
-	--inputbordercolor: #3a4048;
-	--tooltipbgcolor: rgba(28, 31, 34, 0.98);
-	--tooltipfontcolor: #edf2f7;
-	--oddevencolor: #edf2f7;
-	--colorboxstatsborder: #3a4048;
-	--colorboxiconbg: #202429;
-	--fieldrequiredcolor: #ff8b8b;
-	--refidnocolor: #edf2f7;
-	--tableforfieldcolor: #a9b3c0;
+	--iform-accent: #0a84ff;
+	--iform-accent-hover: #64b5ff;
+	--iform-accent-soft: rgba(10, 132, 255, 0.18);
+	--iform-line: #3a3a3c;
+	--iform-line-soft: #2c2c2e;
+	--iform-bg: #0f1012;
+	--iform-surface: #1c1c1e;
+	--iform-surface-alt: #242426;
+	--iform-text: #f5f5f7;
+	--iform-muted: #a1a1a6;
+	--iform-danger: #ff6961;
+	--iform-danger-bg: #3a1f22;
+	--iform-danger-hover-bg: #4a2428;
+	--iform-toast-success-bg: rgba(48, 209, 88, 0.16);
+	--iform-toast-success-border: rgba(48, 209, 88, 0.36);
+	--iform-toast-success-text: #8ff0a4;
+	--iform-toast-warning-bg: rgba(255, 214, 10, 0.16);
+	--iform-toast-warning-border: rgba(255, 214, 10, 0.36);
+	--iform-toast-warning-text: #ffd60a;
+	--iform-toast-error-bg: rgba(255, 105, 97, 0.16);
+	--iform-toast-error-border: rgba(255, 105, 97, 0.42);
+	--iform-toast-error-text: #ff8a82;
+	--iform-neutral-bg: #202124;
+	--iform-neutral-hover-bg: #2c2c2e;
+	--iform-refused-bg: #202124;
+	--iform-focus-ring: rgba(10, 132, 255, 0.32);
+	--iform-focus-outline: #78b7ff;
+	--iform-status-success-bg: rgba(48, 209, 88, 0.16);
+	--iform-status-success-border: rgba(48, 209, 88, 0.32);
+	--iform-status-success-text: #30d158;
+	--iform-icon-default: #a1a1a6;
+	--iform-icon-muted: #8e8e93;
+	--iform-icon-accent: #64b5ff;
+	--iform-icon-date: #a1a1a6;
+	--iform-icon-danger: #ff6961;
+	--iform-icon-warning: #ffd60a;
+	--iform-icon-success: #30d158;
+	--iform-accent-soft-hover: rgba(10, 132, 255, 0.28);
+	--iform-infobox-action: #c98fb4;
+	--iform-infobox-bank: #d8ca53;
+	--iform-infobox-contract: #55d6c4;
+	--iform-infobox-customer: #9bd56b;
+	--iform-infobox-holiday: #e3b85a;
+	--iform-infobox-member: #d3a66c;
+	--iform-infobox-project: #aaa7ee;
+	--iform-infobox-stock: #d7ce5e;
+	--iform-infobox-supplier: #73c7df;
+	--iform-switch-knob: #1c1f22;
+	--iform-module-enabled-glow: rgba(48, 209, 88, 0.26);
+	--iform-module-enabled-glow-soft: rgba(48, 209, 88, 0.08);
+	--iform-shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.35), 0 8px 24px rgba(0, 0, 0, 0.28);
+	--iform-shadow-elevated: 0 18px 48px rgba(0, 0, 0, 0.48);
+	--iform-shadow-menu: 0 14px 34px rgba(0, 0, 0, 0.5);
+	--iform-elevated: #242426;
+	--iform-table-header: #242426;
+	--colorbackhmenu1: #1c1c1e;
+	--colorbackvmenu1: #151517;
+	--colorbacktitle1: #242426;
+	--colorbacktabcard1: #1c1c1e;
+	--colorbacktabactive: #242426;
+	--colorbacklineimpair1: #1c1c1e;
+	--colorbacklineimpair2: #1c1c1e;
+	--colorbacklinepair1: #1c1c1e;
+	--colorbacklinepair2: #202124;
+	--colorbacklinepairhover: #2b3340;
+	--colorbacklinepairchecked: #15395f;
+	--colorbacklinebreak: #2c2c2e;
+		--colorbackbody: #0f1012;
+		--colorbackmobilemenu: #151517;
+		--colorbackgrey: #202124;
+		--infoboxmoduleenabledbgcolor: transparent;
+		--colortexttitlenotab: #f5f5f7;
+		--colortexttitlenotab2: #f5f5f7;
+		--colortexttitle: rgba(245, 245, 247, 0.96);
+	--colortexttitlelink: rgba(10, 132, 255, 0.96);
+	--colortext: #f5f5f7;
+	--colortextlink: #0a84ff;
+	--colortextbackhmenu: #f5f5f7;
+	--colortextbackvmenu: #f5f5f7;
+	--colortopbordertitle1: #3a3a3c;
+	--inputbackgroundcolor: #202124;
+	--inputbackgroundcolordisabled: #151517;
+	--inputcolordisabled: #77777d;
+	--inputbordercolor: #3a3a3c;
+	--tooltipbgcolor: rgba(28, 28, 30, 0.98);
+	--tooltipfontcolor: #f5f5f7;
+	--oddevencolor: #f5f5f7;
+	--colorboxstatsborder: #3a3a3c;
+	--colorboxiconbg: #202124;
+	--fieldrequiredcolor: #ff6961;
+	--refidnocolor: #f5f5f7;
+	--tableforfieldcolor: #a1a1a6;
 }
 
 html,
@@ -1000,6 +2342,18 @@ body,
 #mainbody {
 	background: var(--iform-bg) !important;
 	color: var(--iform-text);
+}
+
+.bodylogin .login_table input#username,
+.bodylogin .login_table input#password,
+.bodylogin .login_table input#securitycode {
+	background: transparent !important;
+}
+
+.bodylogin .login_table .tagtable {
+	background: transparent !important;
+	border-color: transparent !important;
+	box-shadow: none !important;
 }
 
 a:link,
@@ -1038,7 +2392,44 @@ hr,
 
 .login_block,
 .inline-block.login_block {
-	border-bottom: 1px solid var(--iform-line-soft) !important;
+	border-bottom: 0 !important;
+}
+
+body#mainbody .login_block.usedropdown {
+	align-items: center !important;
+	display: flex !important;
+	height: 60px !important;
+	justify-content: flex-end !important;
+	line-height: normal !important;
+	top: 0 !important;
+}
+
+body#mainbody .login_block.usedropdown > :is(.login_block_tools, .login_block_other, .login_block_user) {
+	align-items: center !important;
+	display: flex !important;
+	height: 100% !important;
+	line-height: normal !important;
+}
+
+body#mainbody .login_block.usedropdown :is(.atoplogin, .login_block_elem, .login_block_other > .inline-block) {
+	align-items: center !important;
+	display: inline-flex !important;
+	line-height: normal !important;
+}
+
+body#mainbody .login_block.usedropdown #topmenu-quickadd-dropdown,
+body#mainbody .login_block.usedropdown #topmenu-quickadd-dropdown > a.dropdown-toggle {
+	align-items: center !important;
+	display: inline-flex !important;
+	height: 60px !important;
+	line-height: normal !important;
+}
+
+body#mainbody .login_block.usedropdown #topmenu-login-dropdown > a.dropdown-toggle {
+	align-items: center !important;
+	display: inline-flex !important;
+	height: 60px !important;
+	line-height: normal !important;
 }
 
 #id-top a.tmenulabel,
@@ -1104,6 +2495,8 @@ hr,
 #id-left .blockvmenufirst,
 #id-left .blockvmenulast {
 	border-bottom: 1px solid rgba(80, 90, 102, 0.5) !important;
+	border-left-color: transparent !important;
+	border-right-color: transparent !important;
 	border-top: 0 !important;
 }
 
@@ -1175,7 +2568,7 @@ hr,
 }
 
 .box-flex-item.info-box-module:not(.--disabled) {
-	border-color: rgba(61, 180, 111, 0.28) !important;
+	border-color: var(--iform-line) !important;
 }
 
 .box-flex-item.info-box-module:not(.--disabled) .info-box-content {
@@ -1439,13 +2832,14 @@ tr.liste_titre td a {
 
 div.liste_titre_bydiv,
 div.liste_titre_bydiv_nothingafter {
-	border-color: var(--iform-line-soft) !important;
+	border-color: var(--iform-line) !important;
 }
 
 #mainbody .fichehalfleft table.noborder.centpercent,
 #mainbody .fichehalfright table.noborder.centpercent,
 #mainbody .boxhalfleft table.noborder.centpercent,
 #mainbody .boxhalfright table.noborder.centpercent {
+	border: 1px solid var(--iform-line) !important;
 	border-color: var(--iform-line) !important;
 }
 
@@ -1489,6 +2883,21 @@ div.tagtd,
 .border th {
 	border-color: var(--iform-line-soft) !important;
 	color: inherit;
+}
+
+#mainbody .div-table-responsive,
+#mainbody .div-table-responsive-no-min,
+#mainbody table.liste,
+#mainbody table.tagtable.liste,
+#mainbody .div-table-responsive > table.liste,
+#mainbody .div-table-responsive-no-min > table.liste {
+	border-color: var(--iform-line) !important;
+}
+
+#mainbody table.liste :is(tr, td, th),
+#mainbody table.tagtable.liste :is(tr, td, th),
+#mainbody table.liste > :is(thead, tbody, tfoot) > tr > :is(td, th) {
+	border-color: var(--iform-line) !important;
 }
 
 .trforbreak td,
@@ -1657,11 +3066,23 @@ textarea:focus,
 }
 
 .select2-container--default .select2-results__option--highlighted[aria-selected],
-.select2-container--default .select2-results__option--highlighted[aria-selected] span,
+.select2-container--default .select2-results__option--highlighted[aria-selected] span:not(.flag-sprite):not([class*="flag"]):not(.fi):not([class^="fi-"]):not([class*=" fi-"]),
 .select2-results .select2-highlighted,
-.select2-results .select2-highlighted span {
+.select2-results .select2-highlighted span:not(.flag-sprite):not([class*="flag"]):not(.fi):not([class^="fi-"]):not([class*=" fi-"]) {
 	background: var(--iform-accent-soft) !important;
 	color: var(--iform-accent-hover) !important;
+}
+
+.select2-container--default .select2-results__option--highlighted[aria-selected] :is(.flag-sprite, img),
+.select2-container--default .select2-results__option--highlighted[aria-selected] [class*="flag"],
+.select2-container--default .select2-results__option--highlighted[aria-selected] :is(.fi, [class^="fi-"], [class*=" fi-"]),
+.select2-results .select2-highlighted :is(.flag-sprite, img),
+.select2-results .select2-highlighted [class*="flag"],
+.select2-results .select2-highlighted :is(.fi, [class^="fi-"], [class*=" fi-"]) {
+	background-color: transparent !important;
+	color: inherit !important;
+	filter: none !important;
+	opacity: 1 !important;
 }
 
 .select2-container--default .select2-selection--multiple .select2-selection__choice,
@@ -1670,6 +3091,534 @@ li.select2-selection__choice,
 	background: var(--iform-neutral-bg) !important;
 	border-color: var(--iform-line) !important;
 	color: var(--iform-text) !important;
+}
+
+body#mainbody .ace_editor,
+body#mainbody .ace_editor.ace-chrome,
+body#mainbody .ace_editor.ace-one-dark {
+	background: var(--inputbackgroundcolor) !important;
+	border: 1px solid var(--iform-line) !important;
+	border-radius: 0 0 var(--iform-radius-sm) var(--iform-radius-sm) !important;
+	box-shadow: none !important;
+	color: var(--iform-text) !important;
+	font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace !important;
+}
+
+body#mainbody .ace_scroller,
+body#mainbody .ace_content,
+body#mainbody .ace_layer,
+body#mainbody .ace_text-layer {
+	background: var(--inputbackgroundcolor) !important;
+	color: var(--iform-text) !important;
+}
+
+body#mainbody .ace_gutter {
+	background: var(--iform-surface-alt) !important;
+	border-right: 1px solid var(--iform-line-soft) !important;
+	color: var(--iform-muted) !important;
+}
+
+body#mainbody .ace_gutter-cell {
+	background: transparent !important;
+	color: var(--iform-muted) !important;
+}
+
+body#mainbody .ace_gutter-active-line {
+	background: rgba(10, 132, 255, 0.14) !important;
+	color: var(--iform-accent-hover) !important;
+}
+
+body#mainbody .ace_marker-layer .ace_active-line {
+	background: rgba(10, 132, 255, 0.10) !important;
+}
+
+body#mainbody .ace_marker-layer .ace_selection {
+	background: rgba(10, 132, 255, 0.34) !important;
+}
+
+body#mainbody .ace_multiselect .ace_selection.ace_start {
+	box-shadow: 0 0 3px 0 var(--inputbackgroundcolor) !important;
+}
+
+body#mainbody .ace_marker-layer .ace_selected-word {
+	background: rgba(10, 132, 255, 0.18) !important;
+	border: 1px solid rgba(78, 163, 255, 0.42) !important;
+}
+
+body#mainbody .ace_marker-layer .ace_bracket {
+	border: 1px solid var(--iform-accent-hover) !important;
+}
+
+body#mainbody .ace_marker-layer .ace_step {
+	background: rgba(255, 214, 10, 0.20) !important;
+}
+
+body#mainbody .ace_marker-layer .ace_stack {
+	background: rgba(48, 209, 88, 0.16) !important;
+}
+
+body#mainbody .ace_cursor {
+	border-left-color: var(--iform-accent-hover) !important;
+	color: var(--iform-accent-hover) !important;
+	opacity: 1 !important;
+}
+
+body#mainbody .ace_print-margin {
+	background: var(--iform-line-soft) !important;
+	opacity: 0.38 !important;
+}
+
+body#mainbody .ace_invisible {
+	color: rgba(245, 245, 247, 0.22) !important;
+}
+
+body#mainbody .ace_indent-guide,
+body#mainbody .ace_indent-guide-active {
+	background-image: linear-gradient(to bottom, rgba(245, 245, 247, 0.14) 50%, transparent 50%) !important;
+	background-position: right top !important;
+	background-repeat: repeat-y !important;
+	background-size: 1px 4px !important;
+}
+
+body#mainbody .ace_keyword,
+body#mainbody .ace_storage,
+body#mainbody .ace_meta.ace_tag {
+	color: #d7a5ff !important;
+}
+
+body#mainbody .ace_keyword.ace_operator {
+	color: #c8d0d9 !important;
+}
+
+body#mainbody .ace_string,
+body#mainbody .ace_string.ace_regex,
+body#mainbody .ace_string.ace_regexp {
+	color: #9df0b4 !important;
+}
+
+body#mainbody .ace_comment,
+body#mainbody .ace_comment.ace_doc,
+body#mainbody .ace_comment.ace_doc.ace_tag {
+	color: #7f8a99 !important;
+	font-style: italic;
+}
+
+body#mainbody .ace_constant,
+body#mainbody .ace_constant.ace_numeric,
+body#mainbody .ace_constant.ace_language,
+body#mainbody .ace_constant.ace_library,
+body#mainbody .ace_constant.ace_buildin {
+	color: #ffd38a !important;
+}
+
+body#mainbody .ace_variable,
+body#mainbody .ace_variable.ace_parameter {
+	color: #8bdfff !important;
+}
+
+body#mainbody .ace_support.ace_function,
+body#mainbody .ace_entity.ace_name.ace_function {
+	color: #64b5ff !important;
+}
+
+body#mainbody .ace_support.ace_type,
+body#mainbody .ace_support.ace_class,
+body#mainbody .ace_support.ace_constant,
+body#mainbody .ace_support.ace_other {
+	color: #f4d47c !important;
+}
+
+body#mainbody .ace_entity.ace_name.ace_tag,
+body#mainbody .ace_entity.ace_other.ace_attribute-name,
+body#mainbody .ace_heading,
+body#mainbody .ace_list {
+	color: #ff9f8f !important;
+}
+
+body#mainbody .ace_invalid,
+body#mainbody .ace_invalid.ace_deprecated {
+	background: var(--iform-danger-bg) !important;
+	color: var(--iform-danger) !important;
+}
+
+body#mainbody .ace_fold {
+	background: var(--iform-accent) !important;
+	border-color: var(--iform-text) !important;
+}
+
+body#mainbody .aceeditorstatusbar {
+	background: var(--iform-surface-alt) !important;
+	border: 1px solid var(--iform-line) !important;
+	border-bottom: 0 !important;
+	border-radius: var(--iform-radius-sm) var(--iform-radius-sm) 0 0 !important;
+	box-sizing: border-box !important;
+	color: var(--iform-text) !important;
+}
+
+body#mainbody .aceeditorstatusbar .classlink,
+body#mainbody .aceeditorstatusbar a {
+	color: var(--iform-accent-hover) !important;
+}
+
+body#mainbody .ace_status-indicator {
+	border-color: var(--iform-line-soft) !important;
+	color: var(--iform-muted) !important;
+}
+
+body#mainbody .ace_editor.ace_autocomplete,
+body#mainbody .ace_editor.ace_autocomplete .ace_scroller,
+body#mainbody .ace_editor.ace_autocomplete .ace_content {
+	background: var(--iform-surface) !important;
+	border-color: var(--iform-line) !important;
+	box-shadow: var(--iform-shadow-menu) !important;
+	color: var(--iform-text) !important;
+}
+
+body#mainbody .ace_editor.ace_autocomplete .ace_line-hover {
+	background: var(--iform-neutral-hover-bg) !important;
+	border-color: var(--iform-line) !important;
+}
+
+body#mainbody .ace_editor.ace_autocomplete .ace_completion-highlight {
+	color: var(--iform-accent-hover) !important;
+}
+
+body#mainbody .ace_editor.ace_autocomplete .ace_rightAlignedText {
+	color: var(--iform-muted) !important;
+}
+
+body#mainbody .cke_chrome,
+body#mainbody .cke_inner,
+body#mainbody .cke_top,
+body#mainbody .cke_bottom,
+body#mainbody .cke_contents,
+body#mainbody .cke_panel,
+body#mainbody .cke_panel_frame {
+	background: var(--iform-surface) !important;
+	border-color: var(--iform-line) !important;
+	color: var(--iform-text) !important;
+}
+
+body#mainbody .cke_chrome {
+	border: 1px solid var(--iform-line) !important;
+	border-radius: var(--iform-radius-sm) !important;
+	box-shadow: none !important;
+	overflow: hidden;
+}
+
+body#mainbody .cke_top,
+body#mainbody .cke_bottom {
+	background: var(--iform-surface-alt) !important;
+	border-color: var(--iform-line-soft) !important;
+}
+
+body#mainbody .cke_contents {
+	border-top: 1px solid var(--iform-line-soft) !important;
+}
+
+body#mainbody iframe.cke_wysiwyg_frame {
+	background: var(--iform-surface) !important;
+	color-scheme: dark;
+}
+
+body#mainbody textarea.cke_source {
+	background: var(--inputbackgroundcolor) !important;
+	border: 0 !important;
+	box-sizing: border-box !important;
+	color: var(--iform-text) !important;
+	font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace !important;
+	line-height: 1.45 !important;
+	margin: 0 !important;
+	padding: 10px 12px !important;
+}
+
+body#mainbody .cke_reset_all,
+body#mainbody .cke_reset_all *,
+body#mainbody .cke_combo_text,
+body#mainbody .cke_button_label,
+body#mainbody .cke_path_item,
+body#mainbody .cke_path_empty {
+	color: var(--iform-text) !important;
+}
+
+body#mainbody .cke_combo_label,
+body#mainbody .cke_button_disabled .cke_button_label,
+body#mainbody .cke_button_disabled .cke_button_icon,
+body#mainbody .cke_path_empty {
+	color: var(--iform-muted) !important;
+	opacity: 0.62 !important;
+}
+
+body#mainbody .cke_toolgroup,
+body#mainbody .cke_combo {
+	background: transparent !important;
+	border: 0 !important;
+	box-shadow: none !important;
+}
+
+body#mainbody .cke_toolbar_separator,
+body#mainbody .cke_toolgroup a.cke_button:last-child::after,
+body#mainbody .cke_combo::after {
+	background-color: var(--iform-line) !important;
+	border-color: var(--iform-line) !important;
+}
+
+body#mainbody a.cke_button,
+body#mainbody a.cke_button:hover,
+body#mainbody a.cke_button:focus,
+body#mainbody a.cke_button:active,
+body#mainbody a.cke_button_on,
+body#mainbody a.cke_combo_button,
+body#mainbody .cke_combo_on a.cke_combo_button,
+body#mainbody .cke_combo_off a.cke_combo_button,
+body#mainbody .cke_combo_off a.cke_combo_button:hover,
+body#mainbody .cke_combo_off a.cke_combo_button:focus,
+body#mainbody .cke_combo_off a.cke_combo_button:active {
+	border: 1px solid transparent !important;
+	border-radius: var(--iform-radius-sm) !important;
+	box-shadow: none !important;
+	color: var(--iform-text) !important;
+	padding: 3px 5px !important;
+}
+
+body#mainbody a.cke_button_expandable,
+body#mainbody a.cke_button_expandable:hover,
+body#mainbody a.cke_button_expandable:focus,
+body#mainbody a.cke_button_expandable:active,
+body#mainbody a.cke_button_expandable.cke_button_on {
+	padding: 3px 4px !important;
+}
+
+body#mainbody a.cke_combo_button,
+body#mainbody .cke_combo_on a.cke_combo_button,
+body#mainbody .cke_combo_off a.cke_combo_button,
+body#mainbody .cke_combo_off a.cke_combo_button:hover,
+body#mainbody .cke_combo_off a.cke_combo_button:focus,
+body#mainbody .cke_combo_off a.cke_combo_button:active {
+	padding: 0 !important;
+}
+
+body#mainbody a.cke_button:hover,
+body#mainbody a.cke_button:focus,
+body#mainbody a.cke_button:active,
+body#mainbody a.cke_button_on,
+body#mainbody .cke_combo_on a.cke_combo_button,
+body#mainbody .cke_combo_off a.cke_combo_button:hover,
+body#mainbody .cke_combo_off a.cke_combo_button:focus,
+body#mainbody .cke_combo_off a.cke_combo_button:active {
+	background: var(--iform-accent-soft) !important;
+	border-color: rgba(78, 163, 255, 0.42) !important;
+	color: var(--iform-accent-hover) !important;
+}
+
+body#mainbody a.cke_button_disabled,
+body#mainbody a.cke_button_disabled:hover,
+body#mainbody a.cke_button_disabled:focus,
+body#mainbody a.cke_button_disabled:active {
+	background: transparent !important;
+	border-color: transparent !important;
+	color: var(--iform-muted) !important;
+	opacity: 0.62 !important;
+}
+
+body#mainbody .cke_button_icon {
+	filter: invert(1) brightness(1.5) contrast(0.92);
+	opacity: 0.92 !important;
+}
+
+body#mainbody .cke_button_disabled .cke_button_icon {
+	filter: invert(1) brightness(1.08) contrast(0.85);
+	opacity: 0.42 !important;
+}
+
+body#mainbody .cke_button_arrow,
+body#mainbody .cke_combo_arrow {
+	border-top-color: var(--iform-muted) !important;
+}
+
+body#mainbody a.cke_button:hover .cke_button_arrow,
+body#mainbody a.cke_button:focus .cke_button_arrow,
+body#mainbody .cke_combo_on .cke_combo_arrow,
+body#mainbody .cke_combo_off a.cke_combo_button:hover .cke_combo_arrow,
+body#mainbody .cke_combo_off a.cke_combo_button:focus .cke_combo_arrow {
+	border-top-color: var(--iform-accent-hover) !important;
+}
+
+body#mainbody .cke_panel {
+	background: var(--iform-surface) !important;
+	border: 1px solid var(--iform-line) !important;
+	box-shadow: var(--iform-shadow-menu) !important;
+	color-scheme: dark;
+}
+
+body#mainbody .cke_panel_frame {
+	background: var(--iform-surface) !important;
+}
+
+body#mainbody .cke_dialog_background_cover {
+	background: rgba(0, 0, 0, 0.58) !important;
+	opacity: 1 !important;
+}
+
+body#mainbody .cke_dialog {
+	background: var(--iform-surface) !important;
+	border: 1px solid var(--iform-line) !important;
+	border-radius: var(--iform-radius) !important;
+	box-shadow: var(--iform-shadow-elevated) !important;
+	color: var(--iform-text) !important;
+	overflow: hidden;
+}
+
+body#mainbody .cke_dialog_body,
+body#mainbody .cke_dialog_contents,
+body#mainbody .cke_dialog_contents_body,
+body#mainbody .cke_dialog_page_contents,
+body#mainbody .cke_dialog_ui_vbox_child,
+body#mainbody .cke_dialog_ui_hbox_first,
+body#mainbody .cke_dialog_ui_hbox_child,
+body#mainbody .cke_dialog_ui_hbox_last {
+	background: var(--iform-surface) !important;
+	border-color: var(--iform-line-soft) !important;
+	color: var(--iform-text) !important;
+}
+
+body#mainbody .cke_dialog_title,
+body#mainbody .cke_dialog_footer {
+	background: var(--iform-surface-alt) !important;
+	background-image: none !important;
+	border-color: var(--iform-line-soft) !important;
+	color: var(--iform-text) !important;
+	text-shadow: none !important;
+}
+
+body#mainbody .cke_dialog_title {
+	border-bottom: 1px solid var(--iform-line-soft) !important;
+}
+
+body#mainbody .cke_dialog_footer {
+	border-top: 1px solid var(--iform-line-soft) !important;
+}
+
+body#mainbody .cke_dialog_tabs {
+	background: var(--iform-surface-alt) !important;
+	border-bottom: 1px solid var(--iform-line-soft) !important;
+}
+
+body#mainbody .cke_dialog_tab,
+body#mainbody .cke_dialog_tab:hover,
+body#mainbody .cke_dialog_tab:focus {
+	background: transparent !important;
+	border: 0 !important;
+	border-bottom: 3px solid transparent !important;
+	box-shadow: none !important;
+	color: var(--iform-muted) !important;
+	text-shadow: none !important;
+}
+
+body#mainbody .cke_dialog_tab_selected,
+body#mainbody .cke_dialog_tab_selected:hover,
+body#mainbody .cke_dialog_tab_selected:focus {
+	background: var(--iform-surface) !important;
+	border-bottom-color: var(--iform-accent) !important;
+	color: var(--iform-accent-hover) !important;
+}
+
+body#mainbody .cke_dialog_ui_labeled_label,
+body#mainbody .cke_dialog_ui_html,
+body#mainbody .cke_dialog_ui_text,
+body#mainbody .cke_dialog_ui_checkbox label,
+body#mainbody .cke_dialog .ImagePreviewBox,
+body#mainbody .cke_dialog .FlashPreviewBox,
+body#mainbody .cke_dialog table,
+body#mainbody .cke_dialog td,
+body#mainbody .cke_dialog th,
+body#mainbody .cke_dialog label,
+body#mainbody .cke_dialog legend {
+	background: transparent !important;
+	border-color: var(--iform-line-soft) !important;
+	color: var(--iform-text) !important;
+	text-shadow: none !important;
+}
+
+body#mainbody .cke_dialog .ImagePreviewBox,
+body#mainbody .cke_dialog .FlashPreviewBox {
+	background: var(--iform-neutral-bg) !important;
+	border: 1px solid var(--iform-line) !important;
+	border-radius: var(--iform-radius-sm) !important;
+	color: var(--iform-muted) !important;
+}
+
+body#mainbody .cke_dialog .ImagePreviewBox img {
+	filter: none !important;
+	opacity: 1 !important;
+}
+
+body#mainbody .cke_dialog input,
+body#mainbody .cke_dialog textarea,
+body#mainbody .cke_dialog select {
+	background: var(--inputbackgroundcolor) !important;
+	border: 1px solid var(--inputbordercolor) !important;
+	border-radius: var(--iform-radius-sm) !important;
+	box-shadow: none !important;
+	color: var(--iform-text) !important;
+	color-scheme: dark;
+}
+
+body#mainbody .cke_dialog input:focus,
+body#mainbody .cke_dialog textarea:focus,
+body#mainbody .cke_dialog select:focus {
+	border-color: var(--iform-accent) !important;
+	box-shadow: 0 0 0 3px var(--iform-focus-ring) !important;
+	outline: none !important;
+}
+
+body#mainbody .cke_dialog input[type="checkbox"],
+body#mainbody .cke_dialog input[type="radio"] {
+	accent-color: var(--iform-accent);
+}
+
+body#mainbody .cke_dialog a.cke_dialog_ui_button,
+body#mainbody .cke_dialog a.cke_dialog_ui_button:hover,
+body#mainbody .cke_dialog a.cke_dialog_ui_button:focus,
+body#mainbody .cke_dialog a.cke_dialog_ui_button:active {
+	background: var(--iform-neutral-bg) !important;
+	background-image: none !important;
+	border: 1px solid var(--iform-line) !important;
+	border-radius: var(--iform-radius-sm) !important;
+	box-shadow: none !important;
+	color: var(--iform-text) !important;
+	text-shadow: none !important;
+}
+
+body#mainbody .cke_dialog a.cke_dialog_ui_button:hover,
+body#mainbody .cke_dialog a.cke_dialog_ui_button:focus {
+	background: var(--iform-neutral-hover-bg) !important;
+	border-color: var(--iform-accent) !important;
+	color: var(--iform-accent-hover) !important;
+}
+
+body#mainbody .cke_dialog a.cke_dialog_ui_button_ok,
+body#mainbody .cke_dialog a.cke_dialog_ui_button_ok:hover,
+body#mainbody .cke_dialog a.cke_dialog_ui_button_ok:focus {
+	background: var(--iform-accent-soft) !important;
+	border-color: rgba(78, 163, 255, 0.42) !important;
+	color: var(--iform-accent-hover) !important;
+}
+
+body#mainbody .cke_dialog a.cke_dialog_ui_button span,
+body#mainbody .cke_dialog a.cke_dialog_ui_button_ok span {
+	color: inherit !important;
+	text-shadow: none !important;
+}
+
+body#mainbody .cke_dialog_close_button {
+	filter: invert(1) brightness(1.7) contrast(0.9);
+	opacity: 0.76 !important;
+}
+
+body#mainbody .cke_dialog_close_button:hover,
+body#mainbody .cke_dialog_close_button:focus {
+	opacity: 1 !important;
 }
 
 #mainbody .butAction:not(.butActionDelete):not(.butActionRefused),
@@ -1944,17 +3893,33 @@ li.select2-selection__choice,
 	color: var(--iform-muted) !important;
 }
 
+#mainbody .pictofixedwidth.fa-question,
+#mainbody .pictomodule.fa-bug,
+#mainbody .pictomodule.fa-vial,
+#mainbody .pictomodule.fa-flask,
+#mainbody .pictomodule.fa-file-archive,
+#mainbody .pictomodule.fa-file-archive-o,
+#mainbody .pictomodule.fa-archive,
+#mainbody .info-box-module .fa-bug,
+#mainbody .info-box-module .fa-vial,
+#mainbody .info-box-module .fa-flask,
+#mainbody .info-box-module .fa-file-archive,
+#mainbody .info-box-module .fa-file-archive-o,
+#mainbody .info-box-module .fa-archive {
+	color: var(--iform-icon-muted) !important;
+}
+
 #mainbody table.border td > .fa-barcode,
 #mainbody table.border td > .fa-cube,
 #mainbody table.border td > .fa-box-open,
 #mainbody table.border td > .fa-boxes {
-	color: #c8b75a !important;
+	color: var(--iform-infobox-stock) !important;
 }
 
 #mainbody table.border td > .fa-user,
 #mainbody table.border td > .fa-user-alt,
 #mainbody table.border td > .fa-user-tie {
-	color: #b99155 !important;
+	color: var(--iform-infobox-member) !important;
 }
 
 #mainbody table.border td > .fa-info-circle {
@@ -1985,16 +3950,37 @@ li.select2-selection__choice,
 #mainbody .infobox-adherent,
 #mainbody .infobox-member,
 #mainbody .infobox-expensereport {
-	color: #b99155 !important;
+	color: var(--iform-infobox-member) !important;
 }
 
 #mainbody .infobox-holiday,
 #mainbody .info-box-module .infobox-holiday,
 #mainbody .pictomodule.infobox-holiday,
-#mainbody .pictomodule.fa-umbrella-beach {
-	color: #d6a43e !important;
+#mainbody .pictomodule.fa-umbrella-beach,
+#mainbody .fa-dol-holiday,
+#mainbody .fa-dol-holiday::before {
+	color: var(--iform-infobox-holiday) !important;
 }
 
+#mainbody .fa-weather-level0::before {
+	color: #f0d56a !important;
+}
+
+#mainbody .fa-weather-level1::before,
+#mainbody .fa-weather-level2::before {
+	color: #ffd38a !important;
+}
+
+#mainbody .fa-weather-level3::before {
+	color: #ffb86b !important;
+}
+
+#mainbody .fa-weather-level4::before {
+	color: #ff8b8b !important;
+}
+
+#mainbody .infobox-portal,
+#mainbody .infobox-portal::before,
 #mainbody .info-box-module .infobox-portal,
 #mainbody .info-box-module .fa-at,
 #mainbody .info-box-module .fa-share-alt,
@@ -2026,6 +4012,160 @@ li.select2-selection__choice,
 	color: #ffd38a !important;
 }
 
+#mainbody .info .fa-info-circle,
+#mainbody .messageinfo .fa-info-circle,
+#mainbody .messagedebug .fa-info-circle,
+#mainbody .wordbreak.info .fa-info-circle {
+	color: var(--iform-accent-hover) !important;
+}
+
+#mainbody .a-filter,
+#mainbody .a-mesure {
+	background: var(--iform-accent-soft) !important;
+	border: 1px solid rgba(78, 163, 255, 0.35) !important;
+	box-shadow: none !important;
+	color: var(--iform-accent-hover) !important;
+}
+
+#mainbody .a-filter-disabled,
+#mainbody .a-mesure-disabled {
+	background: var(--iform-surface-alt) !important;
+	border: 1px solid var(--iform-line) !important;
+	box-shadow: none !important;
+	color: var(--iform-muted) !important;
+	opacity: 1 !important;
+}
+
+#mainbody .websitebar {
+	background: var(--iform-surface-alt) !important;
+	border-bottom-color: var(--iform-line) !important;
+	color: var(--iform-text) !important;
+}
+
+#mainbody .websitebar .button,
+#mainbody .websitebar .buttonDelete {
+	background: var(--iform-surface) !important;
+	border-color: var(--iform-line) !important;
+	color: var(--iform-text) !important;
+	box-shadow: none !important;
+}
+
+#mainbody .websitebar .button:hover,
+#mainbody .websitebar .button:focus,
+#mainbody .websitebar .button.bordertransp:hover,
+#mainbody .websitebar .button.bordertransp:focus {
+	background: var(--iform-neutral-hover-bg) !important;
+	border-color: rgba(78, 163, 255, 0.45) !important;
+	color: var(--iform-accent-hover) !important;
+}
+
+#mainbody .websitebar input#previewpageurl,
+#mainbody .websitebar input.bordertransp {
+	background: var(--inputbackgroundcolor) !important;
+	border-color: var(--inputbordercolor) !important;
+	color: var(--iform-text) !important;
+}
+
+#mainbody .websitebar .fa-plus-circle.btnTitle-icon {
+	color: var(--iform-accent-hover) !important;
+}
+
+#mainbody img[src$="/opensurvey/img/calendar-32.png"],
+#mainbody img[src$="/opensurvey/img/chart-32.png"],
+#mainbody img[src$="/img/calendar-32.png"],
+#mainbody img[src$="/img/chart-32.png"] {
+	filter: none !important;
+	opacity: 1;
+}
+
+#mainbody div.corps:has(.index_date, .index_sondage),
+#mainbody div.corps:has(.opensurveydescription),
+#mainbody .survey_intro {
+	background: var(--iform-surface) !important;
+	border-color: var(--iform-line) !important;
+	box-shadow: none !important;
+	color: var(--iform-text) !important;
+}
+
+#mainbody .index_date,
+#mainbody .index_sondage {
+	color: var(--iform-text) !important;
+}
+
+body.bodytakepos {
+	background: var(--iform-bg) !important;
+	color: var(--iform-text) !important;
+}
+
+body.bodytakepos .topnav {
+	background: var(--iform-surface) !important;
+	border-bottom: 1px solid var(--iform-line) !important;
+}
+
+body.bodytakepos .topnav a,
+body.bodytakepos .topnav .fa,
+body.bodytakepos .topnav .fas,
+body.bodytakepos .topnav .far,
+body.bodytakepos .topnav .fab {
+	color: var(--iform-text) !important;
+}
+
+body.bodytakepos .topnav .fa,
+body.bodytakepos .topnav .fas,
+body.bodytakepos .topnav .far,
+body.bodytakepos .topnav .fab {
+	color: inherit !important;
+}
+
+body.bodytakepos .topnav-left a:hover:not(.nohover),
+body.bodytakepos .topnav .login_block_other a:hover:not(.nohover) {
+	background: var(--iform-neutral-hover-bg) !important;
+	color: var(--iform-accent-hover) !important;
+}
+
+body.bodytakepos .modal-content {
+	background: var(--iform-surface) !important;
+	border: 1px solid var(--iform-line) !important;
+	box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45) !important;
+	color: var(--iform-text) !important;
+}
+
+body.bodytakepos .wrapper,
+body.bodytakepos .wrapper2 {
+	background: var(--iform-surface) !important;
+	border: 1px solid var(--iform-line) !important;
+	box-shadow: none !important;
+	color: var(--iform-text) !important;
+}
+
+body.bodytakepos .wrapper.divempty,
+body.bodytakepos .wrapper2.divempty {
+	background: var(--iform-surface-alt) !important;
+	border-color: var(--iform-line-soft) !important;
+}
+
+body.bodytakepos .description,
+body.bodytakepos .catwatermark {
+	background: rgba(21, 23, 25, 0.72) !important;
+	color: var(--iform-text) !important;
+}
+
+body.bodytakepos input,
+body.bodytakepos select,
+body.bodytakepos textarea {
+	background: var(--inputbackgroundcolor) !important;
+	border-color: var(--inputbordercolor) !important;
+	color: var(--iform-text) !important;
+}
+
+#mainbody img[src$="/warning.png"],
+#mainbody img[src$="/warning_white.png"],
+#mainbody a.dashboardlineindicatorlate img,
+#mainbody .imglatecoin img {
+	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 3.2 17 16H3L10 3.2Zm0 4.9v3.8M10 14.5h.1' fill='none' stroke='%23ffd38a' stroke-width='1.85' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+	opacity: 1;
+}
+
 #mainbody img.ui-datepicker-trigger,
 #mainbody img[src$="/object_calendarday.png"] {
 	background: transparent !important;
@@ -2055,11 +4195,65 @@ li.select2-selection__choice,
 	opacity: 1;
 }
 
+#mainbody img[src$="/search.png"] {
+	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M8.7 14.2a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11Zm4-1.5 4.1 4.1' fill='none' stroke='%238f99a7' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+}
+
+#mainbody img[src$="/searchclear.png"],
+#mainbody img[src$="/close.png"],
+#mainbody img[src$="/close_title.png"] {
+	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m5.2 5.2 9.6 9.6M14.8 5.2l-9.6 9.6' fill='none' stroke='%238f99a7' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E") !important;
+}
+
+#mainbody img[src$="/refresh.png"] {
+	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M16.2 7.2A6.4 6.4 0 0 0 4.1 5.4M3.6 3.1v3.9h3.9M3.8 12.8a6.4 6.4 0 0 0 12.1 1.8m.5 2.3v-3.9h-3.9' fill='none' stroke='%2378b7ff' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+}
+
+#mainbody img[src$="/edit.png"],
+#mainbody img[src$="/button_edit.png"] {
+	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m4.1 13.8-.7 2.8 2.8-.7 9-9a2 2 0 0 0-2.8-2.8l-9 9Zm7.2-8.5 3.4 3.4' fill='none' stroke='%238f99a7' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+}
+
+#mainbody img[src$="/delete.png"],
+#mainbody img[src$="/edit_remove.png"] {
+	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M4 6h12M8 6V4.5h4V6m-6.8 0 .7 10.2h8.2L14.8 6M8.3 9v4.5M11.7 9v4.5' fill='none' stroke='%23ff8b8b' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+}
+
+#mainbody img[src$="/edit_add.png"],
+#mainbody img[src$="/addfile.png"] {
+	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 3.4v13.2M3.4 10h13.2' fill='none' stroke='%2378b7ff' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E") !important;
+}
+
+#mainbody img[src$="/sort_asc.png"],
+#mainbody img[src$="/sort_asc_disabled.png"],
+#mainbody img[src$="/uparrow.png"] {
+	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m5.3 12.2 4.7-4.7 4.7 4.7' fill='none' stroke='%238f99a7' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+}
+
+#mainbody img[src$="/sort_desc.png"],
+#mainbody img[src$="/sort_desc_disabled.png"] {
+	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m5.3 7.8 4.7 4.7 4.7-4.7' fill='none' stroke='%238f99a7' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+}
+
+#mainbody img[src$="/filter.png"] {
+	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M3.5 5h13L11.5 10v4.5l-3 1.5v-6L3.5 5Z' fill='none' stroke='%238f99a7' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+}
+
+#mainbody img[src$="/rightarrow.png"],
+#mainbody .AutoFillAmount img {
+	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M4 5v4.5a3.5 3.5 0 0 0 3.5 3.5H16m0 0-3-3m3 3-3 3' fill='none' stroke='%2378b7ff' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+}
+
 #id-top a.tmenuimage,
 #id-top a.tmenuimage .fa,
 #id-top a.tmenuimage .fas,
 #id-top a.tmenuimage .far,
 #id-top a.tmenuimage .fab {
+	color: inherit !important;
+}
+
+#id-top a.tmenuimage[class*="fa-"]::before,
+#id-top a.tmenuimage :is(.fa, .fas, .far, .fab)[class*="fa-"]::before {
 	color: inherit !important;
 }
 
@@ -2164,6 +4358,36 @@ span.badge-status4b {
 	color: #ffb4b4 !important;
 }
 
+.badge-dot.badge-status0,
+.badge-dot.badge-status2,
+.badge-dot.badge-status5,
+.badge-dot.badge-status6,
+.badge-dot.badge-status9 {
+	background: rgba(200, 208, 217, 0.28) !important;
+	border-color: rgba(200, 208, 217, 0.38) !important;
+}
+
+.badge-dot.badge-status1,
+.badge-dot.badge-status1b,
+.badge-dot.badge-status3 {
+	background: rgba(255, 211, 138, 0.32) !important;
+	border-color: rgba(255, 211, 138, 0.46) !important;
+}
+
+.badge-dot.badge-status4,
+.badge-dot.badge-status4b,
+.badge-dot.badge-status7,
+.badge-dot.badge-status11 {
+	background: rgba(131, 229, 161, 0.3) !important;
+	border-color: rgba(131, 229, 161, 0.44) !important;
+}
+
+.badge-dot.badge-status8,
+.badge-dot.badge-status10 {
+	background: rgba(255, 180, 180, 0.3) !important;
+	border-color: rgba(255, 180, 180, 0.44) !important;
+}
+
 div.statusref:has(.badge-status),
 div.statusdoc:has(.badge-status),
 div.statusrefsupplier:has(.badge-status) {
@@ -2199,7 +4423,9 @@ div.statusrefsupplier.statusrefbis .opacitymedium {
 .jnotify-background,
 div.jnotify-background,
 .jnotify-container .jnotify-background {
-	background: var(--iform-surface) !important;
+	background: transparent !important;
+	box-shadow: none !important;
+	pointer-events: none !important;
 }
 
 .jnotify-container .jnotify-notification .jnotify-message,
@@ -2208,7 +4434,7 @@ div.jnotify-background,
 }
 
 .jnotify-container .jnotify-notification-ok .jnotify-background {
-	background: rgba(61, 180, 111, 0.16) !important;
+	background: transparent !important;
 }
 
 .jnotify-container .jnotify-notification-ok .jnotify-message,
@@ -2217,7 +4443,7 @@ div.jnotify-background,
 }
 
 .jnotify-container .jnotify-notification-warning .jnotify-background {
-	background: rgba(214, 164, 62, 0.18) !important;
+	background: transparent !important;
 }
 
 .jnotify-container .jnotify-notification-warning .jnotify-message,
@@ -2226,7 +4452,7 @@ div.jnotify-background,
 }
 
 .jnotify-container .jnotify-notification-error .jnotify-background {
-	background: rgba(255, 139, 139, 0.16) !important;
+	background: transparent !important;
 }
 
 .jnotify-container .jnotify-notification-error .jnotify-message,
@@ -2305,6 +4531,12 @@ div#ui-datepicker-div,
 .ui-dialog .ui-dialog-buttonpane .ui-button:focus-visible {
 	outline: 0;
 	box-shadow: 0 0 0 2px var(--iform-focus-ring) !important;
+}
+
+.ui-widget-overlay.ui-front,
+.ui-widget-overlay {
+	background: rgba(0, 0, 0, 0.58) !important;
+	opacity: 1 !important;
 }
 
 .divadvancedsearchfieldcompinput,
@@ -2430,6 +4662,1188 @@ table.jPicker {
 	}
 	?>
 
+	/* iForm Apple-inspired refresh layer: shared component rules for light and dark palettes. */
+	body#mainbody,
+	body.bodylogin {
+		background: var(--iform-bg) !important;
+		color: var(--iform-text) !important;
+		font-synthesis-weight: none;
+		-webkit-font-smoothing: antialiased;
+		text-rendering: optimizeLegibility;
+	}
+
+	body#mainbody table,
+	body#mainbody input,
+	body#mainbody textarea,
+	body#mainbody select,
+	body#mainbody button,
+	body.bodylogin input,
+	body.bodylogin button {
+		letter-spacing: 0;
+	}
+
+	body#mainbody a,
+	body#mainbody .classlink,
+	body#mainbody .linkobject,
+	body#mainbody .nowraponall a {
+		color: var(--iform-accent);
+		text-decoration-thickness: 1px;
+		text-underline-offset: 2px;
+	}
+
+	body#mainbody a:hover,
+	body#mainbody .classlink:hover,
+	body#mainbody .linkobject:hover {
+		color: var(--iform-accent-hover);
+	}
+
+	body#mainbody #id-container,
+	body#mainbody #id-right,
+	body#mainbody #id-right .fiche,
+	body#mainbody #id-right div.fiche {
+		background: var(--iform-bg) !important;
+		color: var(--iform-text) !important;
+	}
+
+	body#mainbody #id-top {
+		background: var(--iform-surface) !important;
+		border-bottom: 1px solid var(--iform-line-soft) !important;
+		box-shadow: 0 1px 0 rgba(0, 0, 0, 0.02) !important;
+	}
+
+	body#mainbody #id-top li.tmenu,
+	body#mainbody #id-top li.tmenusel {
+		background: transparent !important;
+		background-image: none !important;
+		border-radius: 0 !important;
+		margin-left: 6px !important;
+		min-width: 52px !important;
+		width: auto !important;
+	}
+
+	body#mainbody #id-top li.tmenu div.tmenucenter,
+	body#mainbody #id-top li.tmenusel div.tmenucenter {
+		border: 1px solid transparent !important;
+		border-radius: var(--iform-radius-sm) !important;
+		box-sizing: border-box !important;
+		box-shadow: none !important;
+		display: flex !important;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		min-height: 46px;
+		min-width: 52px;
+		overflow: visible !important;
+		padding: 3px 0 !important;
+		position: relative;
+		transition: background-color 0.14s ease, border-color 0.14s ease, color 0.14s ease;
+		width: auto !important;
+	}
+
+	body#mainbody #id-top :is(li.tmenu, li.tmenusel) div.tmenucenter:has(> a.tmenulabel[href]) {
+		cursor: pointer;
+	}
+
+	body#mainbody #id-top :is(li.tmenu, li.tmenusel) div.tmenucenter > a.tmenulabel[href] {
+		align-items: flex-end;
+		box-sizing: border-box !important;
+		display: flex !important;
+		justify-content: center;
+		min-height: 18px;
+		padding: 0 8px !important;
+		position: relative;
+		width: 100% !important;
+	}
+
+	body#mainbody #id-top :is(li.tmenu, li.tmenusel) div.tmenucenter > a.tmenuimage {
+		align-items: center;
+		box-sizing: border-box !important;
+		display: flex !important;
+		height: 25px !important;
+		justify-content: center;
+		min-height: 25px;
+		position: relative;
+		width: 100% !important;
+	}
+
+	body#mainbody #id-top li.tmenu :is(a, span, div.mainmenu, .mainmenuaspan, .tmenuimage, .tmenulabel),
+	body#mainbody #id-top li.tmenusel :is(a, span, div.mainmenu, .mainmenuaspan, .tmenuimage, .tmenulabel),
+	body#mainbody #id-top li.tmenu:hover :is(a, span, div.mainmenu, .mainmenuaspan, .tmenuimage, .tmenulabel),
+	body#mainbody #id-top li.tmenusel:hover :is(a, span, div.mainmenu, .mainmenuaspan, .tmenuimage, .tmenulabel) {
+		background: transparent !important;
+		background-color: transparent !important;
+		background-image: none !important;
+		box-shadow: none !important;
+	}
+
+	body#mainbody #id-top li.tmenu:not(.nohover):hover div.tmenucenter,
+	body#mainbody #id-top li.tmenusel div.tmenucenter {
+		background: var(--iform-neutral-hover-bg) !important;
+		border-color: var(--iform-line-soft) !important;
+	}
+
+	body#mainbody #id-top a.tmenuimage,
+	body#mainbody #id-top a.tmenulabel,
+	body#mainbody #id-top a.tmenulabel .mainmenuaspan {
+		color: var(--iform-muted) !important;
+		max-width: none !important;
+		overflow: visible !important;
+		text-overflow: clip !important;
+		white-space: nowrap !important;
+		width: auto !important;
+	}
+
+	body#mainbody #id-top li.tmenu:not(.nohover):hover a.tmenuimage,
+	body#mainbody #id-top li.tmenu:not(.nohover):hover a.tmenulabel,
+	body#mainbody #id-top li.tmenusel a.tmenuimage,
+	body#mainbody #id-top li.tmenusel a.tmenulabel,
+	body#mainbody #id-top li.tmenusel a.tmenulabel .mainmenuaspan {
+		color: var(--iform-text) !important;
+	}
+
+	body#mainbody #id-top a.tmenuimage :is(.fa, .fas, .far, .fab)[class*="fa-"]::before,
+	body#mainbody #id-top a.tmenuimage[class*="fa-"]::before {
+		color: currentColor !important;
+		font-size: 22px !important;
+		height: 22px !important;
+		line-height: 22px !important;
+		width: 22px !important;
+	}
+
+	body#mainbody #id-left,
+	body#mainbody #id-left .blockvmenu,
+	body#mainbody #id-left .blockvmenupair,
+	body#mainbody #id-left .blockvmenuimpair,
+	body#mainbody #id-left .blockvmenufirst,
+	body#mainbody #id-left .blockvmenulast {
+		background: var(--colorbackvmenu1) !important;
+		border-color: var(--iform-line-soft) !important;
+	}
+
+	body#mainbody #id-left .vmenu_titre,
+	body#mainbody #id-left .menu_titre {
+		background: transparent !important;
+		border-color: transparent !important;
+		color: var(--iform-muted) !important;
+		font-weight: 600;
+		padding: 2px 0 !important;
+	}
+
+	body#mainbody #id-left :is(.menu_titre, .vmenu_titre):not(:has(> a.vmenu)) {
+		align-items: center;
+		border-radius: var(--iform-radius-sm) !important;
+		box-sizing: border-box !important;
+		color: var(--iform-text) !important;
+		display: flex !important;
+		gap: 4px;
+		line-height: 1.25 !important;
+		margin: 4px 8px 0 !important;
+		max-width: 100%;
+		min-height: 28px;
+		padding: 4px 10px 4px 4px !important;
+		width: calc(100% - 16px) !important;
+	}
+
+	body#mainbody #id-left :is(.menu_titre, .vmenu_titre):not(:has(> a.vmenu)) > :is(span.vmenu, span.vmenudisabled) {
+		align-items: center;
+		background: transparent !important;
+		border: 0 !important;
+		box-sizing: border-box !important;
+		color: inherit !important;
+		display: flex !important;
+		gap: 4px;
+		line-height: 1.25 !important;
+		margin: 0 !important;
+		padding: 0 !important;
+		width: auto !important;
+	}
+
+	body#mainbody #id-left :is(.menu_titre, .vmenu_titre):not(:has(> a.vmenu)) > :is(span.vmenu, span.vmenudisabled) :is(.paddingright, .paddingleft) {
+		padding-left: 0 !important;
+		padding-right: 0 !important;
+	}
+
+	body#mainbody #id-left :is(.menu_titre, .vmenu_titre):not(:has(> a.vmenu)) > span.vmenudisabled {
+		color: var(--iform-muted) !important;
+	}
+
+	body#mainbody #id-left .menu_top {
+		display: none !important;
+	}
+
+	body#mainbody #id-left .menu_contenu {
+		line-height: 0 !important;
+		padding: 1px 0 !important;
+	}
+
+	body#mainbody #id-left .menu_contenu > br {
+		display: none !important;
+	}
+
+	body#mainbody #id-left .menu_contenu:not(:has(> a)) {
+		background: transparent !important;
+		border-color: transparent !important;
+		box-sizing: border-box !important;
+		color: var(--iform-muted) !important;
+		font-size: 0.92em;
+		font-weight: 600;
+		line-height: 1.25 !important;
+		margin: 6px 8px 2px !important;
+		min-height: 24px;
+		padding: 3px 10px !important;
+		width: calc(100% - 16px) !important;
+	}
+
+	body#mainbody #id-left a.vmenu,
+	body#mainbody #id-left .menu_titre > a.vmenu,
+	body#mainbody #id-left .vmenu_titre > a.vmenu,
+	body#mainbody #id-left .menu_contenu > a {
+		border-radius: var(--iform-radius-sm) !important;
+		box-sizing: border-box !important;
+		color: var(--iform-text) !important;
+		display: flex !important;
+		align-items: center;
+		gap: 4px;
+		line-height: 1.25 !important;
+		margin: 0 8px !important;
+		max-width: 100%;
+		min-height: 28px;
+		padding: 4px 10px !important;
+		transition: background-color 0.14s ease, color 0.14s ease;
+		width: calc(100% - 16px) !important;
+	}
+
+	body#mainbody #id-left .menu_contenu > a {
+		min-height: 28px;
+		margin: 0 8px !important;
+		padding: 4px 10px !important;
+		width: calc(100% - 16px) !important;
+	}
+
+	body#mainbody #id-left :is(.menu_titre, .vmenu_titre) > a.vmenu {
+		padding-left: 4px !important;
+	}
+
+	body#mainbody #id-left .menu_contenu > a[href*="search_status="],
+	body#mainbody #id-left .menu_contenu > a[href*="search_fk_statut="],
+	body#mainbody #id-left .menu_contenu > a[href*="status="],
+	body#mainbody #id-left .menu_contenu > a[href*="statut="]:not([href*="statut=-1%2C1"]),
+	body#mainbody #id-left .menu_contenu > a[href*="filter="],
+	body#mainbody #id-left .menu_contenu > a[href*="filtert="],
+	body#mainbody #id-left .menu_contenu > a[href*="list_det.php"],
+	body#mainbody #id-left .menu_contenu_societe_list > a[href*="type="],
+	body#mainbody #id-left .menu_contenu_societe_card > a[href*="type="],
+	body#mainbody #id-left .menu_contenu_contact_list > a[href*="type="],
+	body#mainbody #id-left .menu_contenu[class*="menu_contenu_accountancy_journal_"] > a {
+		margin: 0 8px 0 24px !important;
+		width: calc(100% - 32px) !important;
+	}
+
+	body#mainbody #id-left a.vmenu:hover,
+	body#mainbody #id-left .menu_titre:hover > a.vmenu,
+	body#mainbody #id-left .vmenu_titre:hover > a.vmenu,
+	body#mainbody #id-left .menu_contenu > a:hover,
+	body#mainbody #id-left .menu_contenu:hover > a,
+	body#mainbody #id-left .menu_contenu > a:focus {
+		background: var(--iform-neutral-hover-bg) !important;
+		color: var(--iform-accent) !important;
+		text-decoration: none !important;
+	}
+
+	body#mainbody #id-left :is(.pictofixedwidth[class*="fa-"], .fa[class*="fa-"], .fas[class*="fa-"], .far[class*="fa-"], .fab[class*="fa-"])::before {
+		font-size: 16px !important;
+		line-height: 18px !important;
+	}
+
+	body#mainbody table.table-fiche-title {
+		border-bottom: 1px solid var(--iform-line-soft) !important;
+		margin-bottom: 16px !important;
+		padding-bottom: 8px !important;
+	}
+
+	body#mainbody table.table-fiche-title tr,
+	body#mainbody table.table-fiche-title td,
+	body#mainbody table.table-fiche-title th {
+		border-color: transparent !important;
+	}
+
+	body#mainbody table.table-fiche-title .titre,
+	body#mainbody table.table-fiche-title div.titre,
+	body#mainbody .titre {
+		color: var(--iform-text) !important;
+		font-weight: 650 !important;
+		letter-spacing: 0 !important;
+	}
+
+	body#mainbody .opacitymedium,
+	body#mainbody .opacitymedium i,
+	body#mainbody .opacitymedium span {
+		color: var(--iform-muted) !important;
+	}
+
+	body#mainbody .box,
+	body#mainbody .boxtable,
+	body#mainbody .box-flex-item,
+	body#mainbody div.fiche div.info,
+	body#mainbody div.fiche div.warning,
+	body#mainbody div.fiche div.error,
+	body#mainbody div.fiche div.neutral,
+	body#mainbody table.noborder,
+	body#mainbody table.border,
+	body#mainbody table.tableforfield,
+	body#mainbody table.tagtable {
+		background: var(--iform-surface) !important;
+		border-color: var(--iform-line-soft) !important;
+		box-shadow: none !important;
+		color: var(--iform-text) !important;
+	}
+
+	body#mainbody .fichecenter,
+	body#mainbody .fichethirdleft,
+	body#mainbody .fichetwothirdright,
+	body#mainbody .fichehalfleft,
+	body#mainbody .fichehalfright {
+		background: transparent !important;
+		box-shadow: none !important;
+	}
+
+	body#mainbody :is(.fichehalfleft, .fichehalfright, .fichethirdleft, .fichetwothirdright) > :is(table.noborder, table.border, table.tableforfield, .div-table-responsive, .div-table-responsive-no-min) {
+		margin-bottom: 12px !important;
+	}
+
+	body#mainbody .tabBar {
+		background: transparent !important;
+		border-color: transparent !important;
+		box-shadow: none !important;
+		color: var(--iform-text) !important;
+	}
+
+	body#mainbody .tabBar :is(.tagtable, .table-border),
+	body#mainbody .tabBar :is(.tagtr, .tagtd) {
+		background: transparent !important;
+		border-color: transparent !important;
+		box-shadow: none !important;
+	}
+
+	body#mainbody .paginationref,
+	body#mainbody .paginationref :is(ul, li, .litext, .noborder) {
+		background: transparent !important;
+		border-color: transparent !important;
+		box-shadow: none !important;
+	}
+
+	body#mainbody .fichecenter .box-flex-container > .box-flex-item,
+	body#mainbody .fichecenter .box-flex-container > .box-flex-item:hover {
+		background: transparent !important;
+		border-color: transparent !important;
+		box-shadow: none !important;
+	}
+
+	body#mainbody :is(.boxhalfleft, .boxhalfright, .fichehalfleft, .fichehalfright) > .box.divboxtable.boxdraggable,
+	body#mainbody :is(.boxhalfleft, .boxhalfright, .fichehalfleft, .fichehalfright) > .box.divboxtable.boxdraggable:hover {
+		background: transparent !important;
+		border-color: transparent !important;
+		box-shadow: none !important;
+		overflow: visible !important;
+	}
+
+	body#mainbody .box,
+	body#mainbody .boxtable,
+	body#mainbody .box-flex-item,
+	body#mainbody .info-box,
+	body#mainbody table.noborder,
+	body#mainbody table.border,
+	body#mainbody table.tableforfield,
+	body#mainbody table.tagtable {
+		border-radius: var(--iform-radius) !important;
+	}
+
+	body#mainbody .info-box,
+	body#mainbody .box-flex-item.info-box-module .info-box {
+		background: var(--iform-surface) !important;
+		border: 1px solid var(--iform-line-soft) !important;
+		box-shadow: none !important;
+		color: var(--iform-text) !important;
+		box-sizing: border-box !important;
+		overflow: hidden !important;
+		position: relative;
+	}
+
+	body#mainbody .info-box > .info-box-icon {
+		border-radius: 0 !important;
+		box-sizing: border-box !important;
+		display: flex !important;
+		align-items: center;
+		justify-content: center;
+		height: 100% !important;
+		min-height: inherit !important;
+	}
+
+	body#mainbody .info-box:hover,
+	body#mainbody .box-flex-item.info-box-module:hover .info-box {
+		border-color: var(--iform-line) !important;
+		box-shadow: var(--iform-shadow-soft) !important;
+	}
+
+	body#mainbody .info-box:has(dl.dropdown dd .multichoicedoc > ul.ulselectedfields.open) {
+		overflow: visible !important;
+	}
+
+	body#mainbody table.liste,
+	body#mainbody table.noborder,
+	body#mainbody table.border,
+	body#mainbody table.boxtable,
+	body#mainbody table.tagtable.liste {
+		border-collapse: separate !important;
+		border-spacing: 0 !important;
+		overflow: hidden;
+	}
+
+	body#mainbody table.boxtable tr:first-child > :first-child {
+		border-top-left-radius: calc(var(--iform-radius) - 1px) !important;
+	}
+
+	body#mainbody table.boxtable tr:first-child > :last-child {
+		border-top-right-radius: calc(var(--iform-radius) - 1px) !important;
+	}
+
+	body#mainbody table.boxtable tr:last-child > :first-child {
+		border-bottom-left-radius: calc(var(--iform-radius) - 1px) !important;
+	}
+
+	body#mainbody table.boxtable tr:last-child > :last-child {
+		border-bottom-right-radius: calc(var(--iform-radius) - 1px) !important;
+	}
+
+	body#mainbody table.liste th,
+	body#mainbody table.noborder th,
+	body#mainbody table.border th,
+	body#mainbody .liste_titre,
+	body#mainbody .liste_titre_sel,
+	body#mainbody .liste_titre_create {
+		background: var(--iform-table-header) !important;
+		border-color: var(--iform-line-soft) !important;
+		color: var(--iform-muted) !important;
+		font-weight: 650 !important;
+	}
+
+	body#mainbody table.liste td,
+	body#mainbody table.noborder td,
+	body#mainbody table.border td,
+	body#mainbody table.tableforfield td,
+	body#mainbody table.tagtable td,
+	body#mainbody tr.oddeven td,
+	body#mainbody tr.pair td,
+		body#mainbody tr.impair td {
+			border-color: var(--iform-line-soft) !important;
+			color: var(--iform-text) !important;
+		}
+
+		body#mainbody table.border:not(.liste) > tbody > tr > td {
+			padding-bottom: 7px !important;
+			padding-top: 7px !important;
+		}
+
+		body#mainbody table.border:not(.liste) {
+			box-sizing: border-box !important;
+			padding-left: 10px !important;
+			padding-right: 10px !important;
+		}
+
+		body#mainbody table.liste td.opacitylow,
+		body#mainbody table.noborder td.opacitylow,
+		body#mainbody table.border td.opacitylow,
+	body#mainbody table.tagtable td.opacitylow,
+	body#mainbody tr.oddeven td.opacitylow,
+	body#mainbody tr.pair td.opacitylow,
+	body#mainbody tr.impair td.opacitylow {
+		opacity: 1 !important;
+		color: var(--iform-muted) !important;
+	}
+
+	body#mainbody table.liste tr,
+	body#mainbody table.noborder tr,
+	body#mainbody table.border tr,
+	body#mainbody table.tableforfield tr,
+	body#mainbody table.tagtable tr,
+	body#mainbody tr.oddeven,
+	body#mainbody tr.pair,
+	body#mainbody tr.impair {
+		border-color: var(--iform-line-soft) !important;
+	}
+
+	body#mainbody table.liste.formdoc > :is(tbody, tfoot):last-child > tr:last-child > :is(td, th),
+	body#mainbody table.liste.formdoc > tbody > tr.oddeven:last-child > :is(td, th) {
+		border-bottom: 0 !important;
+	}
+
+	body#mainbody table.tableforfield > :is(thead, tbody):first-child > tr:first-child > :is(td, th),
+	body#mainbody table.border.tableforfield > :is(thead, tbody):first-child > tr:first-child > :is(td, th) {
+		border-top: 0 !important;
+	}
+
+	body#mainbody :is(.fichehalfleft, .fichehalfright, .fichethirdleft, .fichetwothirdright):has(> table.tableforfield) > .underbanner.clearboth {
+		border-bottom: 0 !important;
+		height: 0 !important;
+	}
+
+	body#mainbody :is(.boxhalfleft, .boxhalfright, .fichehalfleft, .fichehalfright) > .box.divboxtable.boxdraggable:empty,
+	body#mainbody :is(.boxhalfleft, .boxhalfright, .fichehalfleft, .fichehalfright) > .box.divboxtable.boxdraggable[id="boxto_A"],
+	body#mainbody :is(.boxhalfleft, .boxhalfright, .fichehalfleft, .fichehalfright) > .box.divboxtable.boxdraggable[id="boxto_B"] {
+		background: transparent !important;
+		border-color: transparent !important;
+		box-shadow: none !important;
+	}
+
+	body#mainbody tr.oddeven:hover td,
+	body#mainbody tr.pair:hover td,
+	body#mainbody tr.impair:hover td,
+	body#mainbody tr.highlight td {
+		background: var(--iform-neutral-hover-bg) !important;
+	}
+
+	body#mainbody tr.rowselected td,
+	body#mainbody tr.selected td,
+	body#mainbody tr.oddeven.selected td {
+		background: var(--iform-accent-soft, rgba(0, 113, 227, 0.12)) !important;
+		border-color: var(--iform-accent) !important;
+	}
+
+	body#mainbody input:not(.select2-search__field):not([type="checkbox"]):not([type="radio"]):not([type="image"]):not([type="submit"]):not([type="button"]),
+	body#mainbody textarea,
+	body#mainbody select,
+	body#mainbody .select2-container--default .select2-selection--single,
+	body#mainbody .select2-container--default .select2-selection--multiple,
+	body.bodylogin input:not([type="checkbox"]):not([type="radio"]):not([type="image"]):not([type="submit"]):not([type="button"]) {
+		background: var(--inputbackgroundcolor, var(--iform-surface)) !important;
+		border: 1px solid var(--inputbordercolor, var(--iform-line)) !important;
+		border-radius: var(--iform-radius-sm) !important;
+		box-shadow: none !important;
+		color: var(--iform-text) !important;
+		min-height: var(--iform-control-height);
+		transition: border-color 0.14s ease, box-shadow 0.14s ease, background-color 0.14s ease;
+	}
+
+	body#mainbody .select2-container--default .select2-selection--multiple .select2-search__field {
+		background: transparent !important;
+		border: 0 !important;
+		border-radius: 0 !important;
+		box-shadow: none !important;
+		min-height: 0;
+	}
+
+	body#mainbody .select2-container--default .select2-selection--single {
+		align-items: center !important;
+		display: flex !important;
+	}
+
+	body#mainbody .select2-container--default .select2-selection--single .select2-selection__rendered {
+		align-items: center !important;
+		display: flex !important;
+		flex: 1 1 auto !important;
+		height: 100% !important;
+		line-height: normal !important;
+		min-width: 0 !important;
+		padding-bottom: 0 !important;
+		padding-top: 0 !important;
+	}
+
+	body#mainbody .select2-container--default .select2-selection--single .select2-selection__arrow b {
+		background-color: var(--iform-icon-muted) !important;
+		border: 0 !important;
+		display: block !important;
+		height: 14px !important;
+		left: 50% !important;
+		margin: 0 !important;
+		position: absolute !important;
+		top: 50% !important;
+		transform: translate(-50%, -50%) !important;
+		width: 14px !important;
+		-webkit-mask: var(--iform-symbol-sort-down) center / contain no-repeat;
+		mask: var(--iform-symbol-sort-down) center / contain no-repeat;
+	}
+
+	body#mainbody .select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b,
+	body#mainbody .select2-container--default .select2-selection--single[aria-expanded="true"] .select2-selection__arrow b {
+		-webkit-mask-image: var(--iform-symbol-sort-up) !important;
+		mask-image: var(--iform-symbol-sort-up) !important;
+	}
+
+	body#mainbody input:focus:not(.noborderfocus):not(.inputsearch_dropdownselectedfields):not(.button):not(.buttonwebsite):not(.buttonreset):not(.select2-search__field):not(#top-bookmark-search-input):not(.search_component_input):not(.input-nobottom),
+	body#mainbody textarea:focus,
+	body#mainbody select:focus,
+	body#mainbody .select2-container--open [aria-expanded="false"].select2-selection--single,
+	body#mainbody .select2-container--focus span.selection span.select2-selection:not(.noborderfocus):not(.massactionselect),
+	body.bodylogin input:focus {
+		border-color: var(--iform-accent) !important;
+		box-shadow: 0 0 0 3px var(--iform-focus-ring) !important;
+		outline: none !important;
+	}
+
+	body#mainbody input:disabled,
+	body#mainbody textarea:disabled,
+	body#mainbody select:disabled,
+	body#mainbody input[readonly],
+	body#mainbody textarea[readonly],
+	body#mainbody .select2-container--default.select2-container--disabled .select2-selection--single,
+	body#mainbody .select2-container--default.select2-container--disabled .select2-selection--multiple {
+		background: var(--inputbackgroundcolordisabled, var(--iform-neutral-bg)) !important;
+		border-color: var(--iform-line-soft) !important;
+		color: var(--inputcolordisabled, var(--iform-muted)) !important;
+		cursor: not-allowed;
+		opacity: 1;
+	}
+
+	body#mainbody div.urllink {
+		align-items: center;
+		background: var(--iform-neutral-bg) !important;
+		border: 1px solid var(--iform-line-soft) !important;
+		border-radius: var(--iform-radius-sm) !important;
+		box-shadow: none !important;
+		color: var(--iform-text) !important;
+		display: flex;
+		gap: 8px;
+		height: auto !important;
+		min-height: 40px;
+		opacity: 1 !important;
+		padding: 4px 6px !important;
+	}
+
+	body#mainbody div.urllink a,
+	body#mainbody div.urllink :is(.fa, .fas, .far, .fab)[class*="fa-"] {
+		color: var(--iform-accent) !important;
+	}
+
+	body#mainbody div.urllink input {
+		flex: 1 1 auto;
+		min-width: 0 !important;
+		opacity: 1 !important;
+	}
+
+	body#mainbody .select2-dropdown,
+	body#mainbody .select2-drop,
+	body#mainbody .ui-autocomplete,
+	body#mainbody .dropdown-content,
+	body#mainbody .dropdown-menu,
+	body#mainbody .ui-datepicker {
+		background: var(--iform-elevated) !important;
+		border: 1px solid var(--iform-line) !important;
+		border-radius: var(--iform-radius) !important;
+		box-shadow: var(--iform-shadow-menu) !important;
+		color: var(--iform-text) !important;
+		overflow: hidden;
+	}
+
+	body#mainbody .select2-results__option,
+	body#mainbody .ui-menu .ui-menu-item-wrapper,
+	body#mainbody .dropdown-item,
+	body#mainbody .dropdown-content a {
+		color: var(--iform-text) !important;
+	}
+
+	body#mainbody .select2-dropdown .select2-results__option {
+		background: var(--iform-elevated) !important;
+	}
+
+	body#mainbody .select2-container--default .select2-results__option--highlighted[aria-selected],
+	body#mainbody .select2-container--default .select2-results__option:hover,
+	body#mainbody .select2-dropdown .select2-results .select2-highlighted,
+	body#mainbody .select2-dropdown .select2-results__option:hover {
+		background: var(--iform-neutral-hover-bg) !important;
+		color: var(--iform-accent) !important;
+	}
+
+	body#mainbody .select2-container--default .select2-results__option--highlighted[aria-selected] span:not(.flag-sprite):not([class*="flag"]):not(.fi):not([class^="fi-"]):not([class*=" fi-"]),
+	body#mainbody .select2-container--default .select2-results__option:hover span:not(.flag-sprite):not([class*="flag"]):not(.fi):not([class^="fi-"]):not([class*=" fi-"]) {
+		background: transparent !important;
+		color: inherit !important;
+	}
+
+	body#mainbody .select2-results .select2-highlighted,
+	body#mainbody .ui-menu .ui-menu-item-wrapper.ui-state-active,
+	body#mainbody .ui-menu .ui-menu-item-wrapper:hover,
+	body#mainbody .ui-datepicker td a:hover {
+		background: var(--iform-neutral-hover-bg) !important;
+		color: var(--iform-accent) !important;
+	}
+
+	body#mainbody .butAction:not(.butActionDelete):not(.butActionRefused),
+	body#mainbody .butAction:not(.butActionDelete):not(.butActionRefused):link,
+	body#mainbody .butAction:not(.butActionDelete):not(.butActionRefused):visited,
+	body#mainbody .button:not(.buttonDelete):not(.buttonRefused):not(.button-delete):not(.buttonpayment):not(.bordertransp):not(:disabled),
+	body#mainbody input[type="submit"]:not(.buttonDelete):not(.buttonRefused):not(.buttonpayment):not(.bordertransp):not(:disabled),
+	body#mainbody input[type="button"]:not(.buttonDelete):not(.buttonRefused):not(.buttonpayment):not(.bordertransp):not(:disabled) {
+		align-items: center !important;
+		appearance: none;
+		background: var(--iform-accent) !important;
+		background-image: none !important;
+		border: 1px solid var(--iform-accent) !important;
+		border-radius: var(--iform-radius-sm) !important;
+		box-shadow: none !important;
+		box-sizing: border-box !important;
+		color: #fff !important;
+		display: inline-flex !important;
+		font-weight: 600 !important;
+		height: auto !important;
+		justify-content: center !important;
+		line-height: 1.15 !important;
+		min-height: 34px !important;
+		padding: 7px 12px !important;
+		vertical-align: middle !important;
+	}
+
+	body#mainbody .butAction:not(.butActionDelete):not(.butActionRefused):hover,
+	body#mainbody .button:not(.buttonDelete):not(.buttonRefused):not(.button-delete):not(.buttonpayment):not(.bordertransp):not(:disabled):hover,
+	body#mainbody input[type="submit"]:not(.buttonDelete):not(.buttonRefused):not(.buttonpayment):not(.bordertransp):not(:disabled):hover,
+	body#mainbody input[type="button"]:not(.buttonDelete):not(.buttonRefused):not(.buttonpayment):not(.bordertransp):not(:disabled):hover {
+		background: var(--iform-accent-hover) !important;
+		border-color: var(--iform-accent-hover) !important;
+		box-shadow: none !important;
+		color: #fff !important;
+		text-decoration: none !important;
+	}
+
+	<?php
+	if (getDolGlobalInt('THEME_DARKMODEENABLED')) {
+		print "/* iForm dark-mode action buttons keep outline/soft fill treatment. */\n";
+		if (getDolGlobalInt('THEME_DARKMODEENABLED') != 2) {
+			print "@media (prefers-color-scheme: dark) {";
+		} else {
+			print "@media not print {";
+		}
+	?>
+	body#mainbody .butAction:not(.butActionDelete):not(.butActionRefused),
+	body#mainbody .butAction:not(.butActionDelete):not(.butActionRefused):link,
+	body#mainbody .butAction:not(.butActionDelete):not(.butActionRefused):visited,
+	body#mainbody .button:not(.buttonDelete):not(.buttonRefused):not(.button-delete):not(.buttonpayment):not(.bordertransp):not(:disabled),
+	body#mainbody input[type="submit"]:not(.buttonDelete):not(.buttonRefused):not(.buttonpayment):not(.bordertransp):not(:disabled),
+	body#mainbody input[type="button"]:not(.buttonDelete):not(.buttonRefused):not(.buttonpayment):not(.bordertransp):not(:disabled) {
+		background: var(--iform-accent-soft) !important;
+		border-color: rgba(78, 163, 255, 0.4) !important;
+		color: var(--iform-accent) !important;
+	}
+
+	body#mainbody .butAction:not(.butActionDelete):not(.butActionRefused):hover,
+	body#mainbody .button:not(.buttonDelete):not(.buttonRefused):not(.button-delete):not(.buttonpayment):not(.bordertransp):not(:disabled):hover,
+	body#mainbody input[type="submit"]:not(.buttonDelete):not(.buttonRefused):not(.buttonpayment):not(.bordertransp):not(:disabled):hover,
+	body#mainbody input[type="button"]:not(.buttonDelete):not(.buttonRefused):not(.buttonpayment):not(.bordertransp):not(:disabled):hover {
+		background: var(--iform-accent-soft-hover) !important;
+		border-color: var(--iform-accent) !important;
+		color: var(--iform-accent) !important;
+	}
+	<?php
+		print "}\n";
+	}
+	?>
+
+	body#mainbody .butActionDelete,
+	body#mainbody .butActionDelete:link,
+	body#mainbody .butActionDelete:visited {
+		background: var(--iform-danger) !important;
+		background-image: none !important;
+		border: 1px solid var(--iform-danger) !important;
+		border-radius: var(--iform-radius-sm) !important;
+		box-shadow: none !important;
+		color: #fff !important;
+	}
+
+	body#mainbody .butActionDelete:hover {
+		background: #a40e26 !important;
+		border-color: #a40e26 !important;
+		color: #fff !important;
+	}
+
+	<?php
+	if (getDolGlobalInt('THEME_DARKMODEENABLED')) {
+		if (getDolGlobalInt('THEME_DARKMODEENABLED') != 2) {
+			print "@media (prefers-color-scheme: dark) {";
+		} else {
+			print "@media not print {";
+		}
+	?>
+	body#mainbody .butActionDelete,
+	body#mainbody .butActionDelete:link,
+	body#mainbody .butActionDelete:visited {
+		background: var(--iform-danger-bg) !important;
+		border-color: rgba(255, 69, 58, 0.4) !important;
+		color: var(--iform-danger) !important;
+	}
+
+	body#mainbody .butActionDelete:hover {
+		background: var(--iform-danger-hover-bg) !important;
+		border-color: var(--iform-danger) !important;
+		color: var(--iform-danger) !important;
+	}
+	<?php
+		print "}\n";
+	}
+	?>
+
+	body#mainbody .butActionRefused,
+	body#mainbody .butActionRefused:link,
+	body#mainbody .butActionRefused:visited,
+	body#mainbody .butActionNewRefused {
+		background: var(--iform-refused-bg) !important;
+		background-image: none !important;
+		border: 1px solid var(--iform-line-soft) !important;
+		border-radius: var(--iform-radius-sm) !important;
+		box-shadow: none !important;
+		color: var(--iform-muted) !important;
+		cursor: not-allowed !important;
+		opacity: 1 !important;
+	}
+
+	body#mainbody .butAction,
+	body#mainbody .butActionDelete,
+	body#mainbody .butActionRefused,
+	body#mainbody .butActionNewRefused,
+	body#mainbody .button,
+	body#mainbody .buttonDelete,
+	body#mainbody .buttonRefused,
+	body#mainbody input[type="submit"],
+	body#mainbody input[type="button"],
+	body#mainbody button.button {
+		align-items: center !important;
+		box-sizing: border-box !important;
+		display: inline-flex !important;
+		height: auto !important;
+		justify-content: center !important;
+		line-height: 1.15 !important;
+		min-height: 34px !important;
+		padding: 7px 12px !important;
+		vertical-align: middle !important;
+		white-space: nowrap;
+	}
+
+	body#mainbody div.tabsAction,
+	body#mainbody div.tabsActionNoBottom {
+		align-items: center;
+		display: flex;
+		flex-wrap: nowrap;
+		gap: 10px;
+		justify-content: flex-end;
+		overflow: visible !important;
+	}
+
+	body#mainbody div.tabsAction > a.butAction,
+	body#mainbody div.tabsAction > a.butActionRefused,
+	body#mainbody div.tabsAction > a.butActionDelete,
+	body#mainbody div.tabsAction > span.butAction,
+	body#mainbody div.tabsAction > span.butActionRefused,
+	body#mainbody div.tabsAction > span.butActionDelete,
+	body#mainbody div.tabsAction > div.divButAction > span.butAction,
+	body#mainbody div.tabsAction > div.divButAction > span.butActionDelete,
+	body#mainbody div.tabsAction > div.divButAction > span.butActionRefused,
+	body#mainbody div.tabsAction > div.divButAction > a.butAction,
+	body#mainbody div.tabsAction > div.divButAction > a.butActionDelete,
+	body#mainbody div.tabsAction > div.divButAction > a.butActionRefused,
+	body#mainbody div.tabsAction > .dropdown > .dropdown-toggle {
+		margin-bottom: 0 !important;
+		margin-left: 0 !important;
+		margin-right: 0 !important;
+	}
+
+	body#mainbody input[name="confirmmassactioninvisible"] {
+		display: none !important;
+	}
+
+	body#mainbody .butAction:focus,
+	body#mainbody .butActionDelete:focus,
+	body#mainbody .butActionRefused:focus,
+	body#mainbody .button:focus,
+	body#mainbody button:focus {
+		box-shadow: 0 0 0 3px var(--iform-focus-ring) !important;
+		outline: none !important;
+	}
+
+	body#mainbody .butAction:focus-visible,
+	body#mainbody .butActionDelete:focus-visible,
+	body#mainbody .butActionRefused:focus-visible,
+	body#mainbody .button:focus-visible,
+	body#mainbody .buttonDelete:focus-visible,
+	body#mainbody button:focus-visible,
+	body#mainbody a.btnTitle:focus-visible,
+	body#mainbody .btnTitle:focus-visible {
+		outline: 2px solid var(--iform-focus-outline) !important;
+		outline-offset: 3px !important;
+		box-shadow: 0 0 0 4px var(--iform-focus-ring) !important;
+	}
+
+	body#mainbody .badge,
+	body#mainbody .badge-status,
+	body#mainbody .badgeneutral,
+	body#mainbody span.badgeneutral {
+		align-items: center;
+		border-radius: 999px !important;
+		display: inline-flex;
+		font-weight: 650 !important;
+		gap: 4px;
+		min-height: 18px;
+		padding: 2px 7px !important;
+		vertical-align: middle;
+	}
+
+	body#mainbody .badge-status,
+	body#mainbody .badgeneutral,
+	body#mainbody span.badgeneutral {
+		border: 1px solid var(--iform-line-soft) !important;
+	}
+
+	body#mainbody .badge-dot.badge-status {
+		box-sizing: border-box !important;
+		display: inline-block !important;
+		height: 14px !important;
+		min-height: 14px !important;
+		min-width: 14px !important;
+		padding: 0 !important;
+		vertical-align: middle;
+		width: 14px !important;
+	}
+
+	body#mainbody .badge-dot.badge-status0,
+	body#mainbody .badge-dot.badge-status2,
+	body#mainbody .badge-dot.badge-status5,
+	body#mainbody .badge-dot.badge-status6,
+	body#mainbody .badge-dot.badge-status9 {
+		background: rgba(200, 208, 217, 0.28) !important;
+		border: 1px solid rgba(200, 208, 217, 0.38) !important;
+	}
+
+	body#mainbody .badge-dot.badge-status1,
+	body#mainbody .badge-dot.badge-status1b,
+	body#mainbody .badge-dot.badge-status3 {
+		background: rgba(255, 211, 138, 0.32) !important;
+		border: 1px solid rgba(255, 211, 138, 0.46) !important;
+	}
+
+	body#mainbody .badge-dot.badge-status4,
+	body#mainbody .badge-dot.badge-status4b,
+	body#mainbody .badge-dot.badge-status7,
+	body#mainbody .badge-dot.badge-status11,
+	body#mainbody .badge-dot.badge-status6[data-status-element="facture"][data-status="2"],
+	body#mainbody .badge-dot.badge-status6[data-status-element="invoice_supplier"][data-status="2"],
+	body#mainbody .badge-dot.badge-status6[data-status-element="commande"][data-status="3"] {
+		background: rgba(48, 209, 88, 0.32) !important;
+		border: 1px solid rgba(48, 209, 88, 0.48) !important;
+	}
+
+	body#mainbody .badge-dot.badge-status8,
+	body#mainbody .badge-dot.badge-status10 {
+		background: rgba(255, 180, 180, 0.3) !important;
+		border: 1px solid rgba(255, 180, 180, 0.44) !important;
+	}
+
+	body#mainbody .badge .fa,
+	body#mainbody .badge-status .fa,
+	body#mainbody .badgeneutral .fa {
+		font-size: 12px !important;
+		line-height: 12px !important;
+		margin: 0 !important;
+		vertical-align: -1px;
+	}
+
+	body#mainbody .ui-dialog,
+	body#mainbody .ui-dialog-content,
+	body#mainbody .ui-dialog-titlebar,
+	body#mainbody .modal-content,
+	body#mainbody .ficheaddleft,
+	body#mainbody .ficheaddright {
+		background: var(--iform-elevated) !important;
+		border-color: var(--iform-line) !important;
+		color: var(--iform-text) !important;
+	}
+
+	body#mainbody .ui-dialog,
+	body#mainbody .modal-content {
+		border-radius: var(--iform-radius-lg) !important;
+		box-shadow: var(--iform-shadow-elevated) !important;
+		overflow: hidden;
+	}
+
+	body#mainbody .ui-widget-overlay,
+	body#mainbody .modal-backdrop {
+		background: rgba(0, 0, 0, 0.38) !important;
+	}
+
+	body#mainbody .ui-tooltip,
+	body#mainbody .tooltip,
+	body#mainbody .tooltipster-base,
+	body#mainbody .tooltipster-box {
+		background: var(--tooltipbgcolor, var(--iform-elevated)) !important;
+		border: 1px solid var(--iform-line) !important;
+		border-radius: var(--iform-radius-sm) !important;
+		box-shadow: var(--iform-shadow-menu) !important;
+		color: var(--tooltipfontcolor, var(--iform-text)) !important;
+	}
+
+	body#mainbody .jnotify-container {
+		overflow: visible !important;
+	}
+
+	body#mainbody .jnotify-container .jnotify-notification {
+		border: 1px solid var(--iform-line) !important;
+		border-radius: var(--iform-radius) !important;
+		box-shadow: var(--iform-shadow-menu) !important;
+		overflow: hidden;
+	}
+
+	body#mainbody .jnotify-background,
+	body#mainbody div.jnotify-background,
+	body#mainbody .jnotify-container .jnotify-background {
+		background: transparent !important;
+		border: 0 !important;
+		box-shadow: none !important;
+		pointer-events: none !important;
+	}
+
+	body#mainbody .jnotify-container .jnotify-notification .jnotify-message,
+	body#mainbody .jnotify-container .jnotify-close {
+		color: var(--iform-text) !important;
+	}
+
+	body#mainbody .jnotify-container .jnotify-notification-ok {
+		background: var(--iform-toast-success-bg) !important;
+		border-color: var(--iform-toast-success-border) !important;
+	}
+
+	body#mainbody .jnotify-container .jnotify-notification-ok .jnotify-message,
+	body#mainbody .jnotify-container .jnotify-notification-ok .jnotify-close {
+		color: var(--iform-toast-success-text) !important;
+	}
+
+	body#mainbody .jnotify-container .jnotify-notification-warning {
+		background: var(--iform-toast-warning-bg) !important;
+		border-color: var(--iform-toast-warning-border) !important;
+	}
+
+	body#mainbody .jnotify-container .jnotify-notification-warning .jnotify-message,
+	body#mainbody .jnotify-container .jnotify-notification-warning .jnotify-close {
+		color: var(--iform-toast-warning-text) !important;
+	}
+
+	body#mainbody .jnotify-container .jnotify-notification-error {
+		background: var(--iform-toast-error-bg) !important;
+		border-color: var(--iform-toast-error-border) !important;
+	}
+
+	body#mainbody .jnotify-container .jnotify-notification-error .jnotify-message,
+	body#mainbody .jnotify-container .jnotify-notification-error .jnotify-close {
+		color: var(--iform-toast-error-text) !important;
+	}
+
+	body#mainbody [class*="fa-"],
+	body#mainbody .fa,
+	body#mainbody .fas,
+	body#mainbody .far,
+	body#mainbody .fab {
+		color: inherit;
+	}
+
+	body#mainbody :is(.pictofixedwidth[class*="fa-"], .fa[class*="fa-"], .fas[class*="fa-"], .far[class*="fa-"], .fab[class*="fa-"]) {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		vertical-align: -2px;
+	}
+
+	body#mainbody :is(.pictofixedwidth[class*="fa-"], .fa[class*="fa-"], .fas[class*="fa-"], .far[class*="fa-"], .fab[class*="fa-"])::before {
+		color: currentColor;
+	}
+
+	body#mainbody img,
+	body#mainbody .flag-sprite,
+	body#mainbody [class*="flag"],
+	body#mainbody .fi,
+	body#mainbody [class^="fi-"],
+	body#mainbody [class*=" fi-"] {
+		color: initial;
+		filter: none;
+	}
+
+	body.bodylogin {
+		background-color: var(--iform-bg) !important;
+	}
+
+	body.bodylogin .login_table {
+		background: var(--iform-surface) !important;
+		border: 1px solid var(--iform-line-soft) !important;
+		border-radius: var(--iform-radius-lg) !important;
+		box-shadow: var(--iform-shadow-elevated) !important;
+		color: var(--iform-text) !important;
+	}
+
+	body.bodylogin .login_table .tagtable {
+		background: transparent !important;
+		border: 0 !important;
+		box-shadow: none !important;
+	}
+
+	body.bodylogin .login_table input#username,
+	body.bodylogin .login_table input#password,
+	body.bodylogin .login_table input#securitycode {
+		background: var(--inputbackgroundcolor, var(--iform-surface)) !important;
+		border-color: var(--inputbordercolor, var(--iform-line)) !important;
+		color: var(--iform-text) !important;
+	}
+
+	body.bodylogin .login_table input::placeholder {
+		color: var(--iform-muted) !important;
+		opacity: 0.54;
+	}
+
+	body.bodylogin .butActionLogin,
+	body.bodylogin .butActionLogin:link,
+	body.bodylogin .butActionLogin:visited,
+	body.bodylogin .butActionLogin:hover,
+	body.bodylogin .butActionLogin:active {
+		background: var(--iform-surface-alt) !important;
+		border: 1px solid var(--iform-line) !important;
+		border-radius: var(--iform-radius-sm) !important;
+		box-shadow: none !important;
+		color: var(--iform-text) !important;
+		font-weight: 650 !important;
+		min-height: 44px;
+	}
+
+	body.bodylogin .butActionLogin:hover,
+	body.bodylogin .butActionLogin:focus {
+		background: var(--iform-neutral-hover-bg) !important;
+		border-color: var(--iform-accent) !important;
+		box-shadow: 0 0 0 3px var(--iform-focus-ring) !important;
+		color: var(--iform-text) !important;
+	}
+
+	body#mainbody .login_block.usedropdown {
+		align-items: center !important;
+		display: flex !important;
+		height: 60px !important;
+		justify-content: flex-end !important;
+		line-height: normal !important;
+		top: 0 !important;
+	}
+
+	body#mainbody .login_block.usedropdown > :is(.login_block_tools, .login_block_other, .login_block_user) {
+		align-items: center !important;
+		display: flex !important;
+		height: 100% !important;
+		line-height: normal !important;
+	}
+
+	body#mainbody .login_block.usedropdown :is(.atoplogin, .login_block_elem, .login_block_other > .inline-block) {
+		align-items: center !important;
+		display: inline-flex !important;
+		line-height: normal !important;
+	}
+
+	body#mainbody .login_block.usedropdown #topmenu-quickadd-dropdown,
+	body#mainbody .login_block.usedropdown #topmenu-quickadd-dropdown > a.dropdown-toggle,
+	body#mainbody .login_block.usedropdown #topmenu-login-dropdown > a.dropdown-toggle {
+		align-items: center !important;
+		display: inline-flex !important;
+		height: 60px !important;
+		line-height: normal !important;
+	}
+
 	/* Final action/menu dropdown override: menu rows must not inherit primary button fills. */
 	body#mainbody .dropdown-holder.open > .dropdown-content,
 	body#mainbody .tabsAction .dropdown.open > .dropdown-menu,
@@ -2464,8 +5878,11 @@ table.jPicker {
 		box-shadow: none !important;
 		color: var(--iform-text) !important;
 		display: block !important;
+		line-height: 20px !important;
 		margin: 0 !important;
+		min-height: 40px !important;
 		min-width: 0 !important;
+		padding: 10px 12px !important;
 		text-align: left !important;
 		width: 100% !important;
 	}
@@ -2506,6 +5923,61 @@ table.jPicker {
 	body#mainbody .dropdown-holder > .dropdown-content > span.butActionRefused:hover {
 		color: var(--iform-muted) !important;
 		cursor: not-allowed !important;
+	}
+
+	body#mainbody #topmenu-quickadd-dropdown .dropdown-menu .dropdown-item.quickadd-item {
+		background-color: transparent !important;
+		background-image: none !important;
+		border: 0 !important;
+		border-radius: var(--iform-radius-sm) !important;
+		box-shadow: none !important;
+		box-sizing: border-box !important;
+		color: var(--iform-text) !important;
+		display: block !important;
+		margin: 0 !important;
+		padding: 8px 12px !important;
+		text-decoration: none !important;
+		width: 100% !important;
+	}
+
+	body#mainbody #topmenu-quickadd-dropdown .dropdown-menu .dropdown-item.quickadd-item:hover,
+	body#mainbody #topmenu-quickadd-dropdown .dropdown-menu .dropdown-item.quickadd-item:focus {
+		background-color: var(--iform-neutral-hover-bg) !important;
+		background-image: none !important;
+		color: var(--iform-text) !important;
+		text-decoration: none !important;
+	}
+
+	body#mainbody #topmenu-quickadd-dropdown .dropdown-menu .dropdown-item.quickadd-item > span,
+	body#mainbody #topmenu-quickadd-dropdown .dropdown-menu .dropdown-item.quickadd-item:hover > span,
+	body#mainbody #topmenu-quickadd-dropdown .dropdown-menu .dropdown-item.quickadd-item:focus > span {
+		background: transparent !important;
+		border: 0 !important;
+		box-shadow: none !important;
+	}
+
+	body#mainbody #topmenu-quickadd-dropdown .dropdown-menu .dropdown-item.quickadd-item > span::before,
+	body#mainbody #topmenu-quickadd-dropdown .dropdown-menu .dropdown-item.quickadd-item:hover > span::before,
+	body#mainbody #topmenu-quickadd-dropdown .dropdown-menu .dropdown-item.quickadd-item:focus > span::before {
+		background-color: currentColor !important;
+		border: 0 !important;
+		box-shadow: none !important;
+		color: inherit !important;
+	}
+
+	body#mainbody input[name="confirmmassactioninvisible"],
+	body#mainbody input[name="confirmmassaction"].hideobject:not([style*="display: inline"]) {
+		display: none !important;
+		height: 0 !important;
+		left: -10000px !important;
+		min-height: 0 !important;
+		min-width: 0 !important;
+		opacity: 0 !important;
+		padding: 0 !important;
+		position: absolute !important;
+		top: auto !important;
+		visibility: hidden !important;
+		width: 0 !important;
 	}
 
 	@media only screen and (max-width: 767px) {

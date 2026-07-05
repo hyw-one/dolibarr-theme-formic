@@ -5,6 +5,23 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 
 CKEDITOR.editorConfig = function( config )
 {
+	var iformIsDarkMode = function() {
+		try {
+			return /\bdark\b/.test(window.getComputedStyle(document.documentElement).colorScheme || '');
+		} catch (e) {
+			return false;
+		}
+	};
+	var iformDarkMode = iformIsDarkMode();
+	var iformConfigUrl = '';
+	try {
+		iformConfigUrl = config.customConfig || (typeof ckeditorConfig !== 'undefined' ? ckeditorConfig : '');
+	} catch (e) {
+		iformConfigUrl = '';
+	}
+	var iformConfigBase = iformConfigUrl ? iformConfigUrl.split('?')[0].replace(/\/config\.js$/, '/') : '/theme/iform-dolibarr/ckeditor/';
+	var iformDarkContentsCss = iformConfigBase + 'dark-contents.css';
+
 	// Define changes to default configuration here.
 	// http://docs.cksource.com/CKEditor_3.x/Developers_Guide
 	// http://docs.cksource.com/ckeditor_api/symbols/CKEDITOR.config.html
@@ -27,6 +44,17 @@ CKEDITOR.editorConfig = function( config )
 	//config.contentsLanguage = 'fr';
 	config.fullPage = false;	// Not a full html page string, just part of it
 	config.dialog_backgroundCoverColor = 'rgb(255, 254, 253)';
+	if (iformDarkMode) {
+		config.dialog_backgroundCoverColor = 'rgb(0, 0, 0)';
+		var iformContentsCss = config.contentsCss || CKEDITOR.getUrl('contents.css');
+		if (!CKEDITOR.tools.isArray(iformContentsCss)) {
+			iformContentsCss = [iformContentsCss];
+		}
+		if (iformContentsCss.indexOf(iformDarkContentsCss) === -1) {
+			iformContentsCss.push(iformDarkContentsCss);
+		}
+		config.contentsCss = iformContentsCss;
+	}
 	//config.contentsCss = '/css/mysitestyles.css';
 	config.image_previewText=' ';	// Must no be empty
 	//config.autoParagraph = false;
@@ -111,6 +139,66 @@ CKEDITOR.editorConfig = function( config )
 /* Code to make links into CKEditor, in readonly, mode clickable */
 CKEDITOR.on('instanceReady', function(event) {
     var editor = event.editor;
+	var isDarkMode = false;
+	try {
+		isDarkMode = /\bdark\b/.test(window.getComputedStyle(document.documentElement).colorScheme || '');
+	} catch (e) {
+		isDarkMode = false;
+	}
+	if (isDarkMode) {
+		var configUrl = '';
+		try {
+			configUrl = editor.config.customConfig || (typeof ckeditorConfig !== 'undefined' ? ckeditorConfig : '');
+		} catch (e) {
+			configUrl = '';
+		}
+		var configBase = configUrl ? configUrl.split('?')[0].replace(/\/config\.js$/, '/') : '/theme/iform-dolibarr/ckeditor/';
+		var darkContentsCss = configBase + 'dark-contents.css';
+		var installDarkContents = function(doc) {
+			if (!doc || !doc.documentElement) return;
+			doc.documentElement.className += doc.documentElement.className.indexOf('iform-ckeditor-dark') === -1 ? ' iform-ckeditor-dark' : '';
+			if (!doc.getElementById('iform-ckeditor-dark-contents')) {
+				var link = doc.createElement('link');
+				link.id = 'iform-ckeditor-dark-contents';
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = darkContentsCss;
+				(doc.head || doc.documentElement).appendChild(link);
+			}
+		};
+		var installFrameDarkContents = function(frame) {
+			try {
+				if (frame && frame.contentDocument) {
+					installDarkContents(frame.contentDocument);
+				}
+			} catch (e) {
+				// Some browser-created frames may not be ready yet.
+			}
+		};
+		var refreshDarkFrames = function() {
+			var frames = document.querySelectorAll('iframe.cke_wysiwyg_frame, iframe.cke_panel_frame');
+			for (var i = 0; i < frames.length; i++) {
+				installFrameDarkContents(frames[i]);
+			}
+		};
+
+		editor.container.addClass('iform-ckeditor-dark');
+		if (editor.document && editor.document.$) {
+			installDarkContents(editor.document.$);
+		}
+		editor.on('contentDom', function() {
+			if (editor.document && editor.document.$) {
+				installDarkContents(editor.document.$);
+			}
+		});
+		refreshDarkFrames();
+		setTimeout(refreshDarkFrames, 100);
+		setTimeout(refreshDarkFrames, 500);
+		if (window.MutationObserver && !window.iformCkeditorDarkFrameObserver) {
+			window.iformCkeditorDarkFrameObserver = new MutationObserver(refreshDarkFrames);
+			window.iformCkeditorDarkFrameObserver.observe(document.body, { childList: true, subtree: true });
+		}
+	}
 	if (editor.readOnly) {
 	  var editable = editor.editable();
 	  editable.attachListener(editable, 'click', function(evt) {
