@@ -7341,6 +7341,35 @@ table.jPicker {
 				width: min(285px, calc(100vw - 12px)) !important;
 			}
 
+			body#mainbody:not(.bodytakepos):not(.bodylogin) .login_block_user .dropdown-menu .user-header {
+				align-items: center !important;
+				display: grid !important;
+				gap: 10px !important;
+				grid-template-columns: 48px minmax(0, 1fr) !important;
+				min-height: 82px !important;
+				padding: 12px !important;
+				text-align: left !important;
+			}
+
+			body#mainbody:not(.bodytakepos):not(.bodylogin) .login_block_user .dropdown-menu .user-header > .dropdown-user-image {
+				border-radius: 50% !important;
+				box-sizing: border-box !important;
+				display: block !important;
+				grid-column: 1 !important;
+				height: 48px !important;
+				margin: 0 !important;
+				object-fit: cover !important;
+				width: 48px !important;
+			}
+
+			body#mainbody:not(.bodytakepos):not(.bodylogin) .login_block_user .dropdown-menu .user-header > p {
+				grid-column: 2 !important;
+				margin: 0 !important;
+				min-width: 0 !important;
+				overflow-wrap: anywhere !important;
+				text-align: left !important;
+			}
+
 			body#mainbody:not(.bodytakepos):not(.bodylogin) #id-container {
 				min-height: calc(100vh - 60px) !important;
 			}
