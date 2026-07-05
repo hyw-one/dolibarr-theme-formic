@@ -1,15 +1,15 @@
-# iform-dolibarr
+# Formora
 
-`iform-dolibarr` is an Eldy-based theme for Dolibarr ERP/CRM 23.0.0. It keeps Dolibarr's default Eldy structure, layout behavior, menu logic, responsive breakpoints, and PHP include model, while replacing the visual layer with a cleaner iForm-oriented interface for light mode and dark mode.
+**Formora** is an Eldy-based theme for Dolibarr ERP/CRM 23.0.0. It keeps Dolibarr's default Eldy structure, layout behavior, menu logic, responsive breakpoints, and PHP include model, while replacing the visual layer with a cleaner Formora interface for light mode and dark mode.
 
-This repository contains the theme package only. After installation, both the theme directory and the Dolibarr theme id are `iform-dolibarr`.
+This repository contains the theme package only. After installation, both the theme directory and the Dolibarr theme id are `formora`.
 
 ## Features
 
 - Built from the Dolibarr 23.0.0 Eldy theme.
 - Preserves Eldy's top menu, left menu, lists, pagination, cards, tabs, mobile layout, and include structure.
-- Adds an iForm-style light theme with a quiet white/gray workspace, blue primary actions, clearer table states, refined focus states, and softer hover feedback.
-- Supports Dolibarr's official dark-mode switch and extends it with a complete iForm dark visual layer.
+- Adds a Formora-style light theme with a quiet white/gray workspace, blue primary actions, clearer table states, refined focus states, and softer hover feedback.
+- Supports Dolibarr's official dark-mode switch and extends it with a complete Formora dark visual layer.
 - Styles common Dolibarr UI elements: buttons, forms, select2 controls, tabs, cards, status badges, jNotify toasts, tooltips, dropdowns, dialogs, and scrollbars.
 - Adapts embedded editors and complex widgets, including CKEditor toolbars, dropdowns, dialogs, editing iframes, and the ACE editor used by Dolibarr's CSS editor.
 - Adjusts Chart.js pie-like charts in dark mode so borders, legends, and transparent fills remain readable.
@@ -23,10 +23,10 @@ Using it with another Dolibarr major version is not recommended without a review
 
 ## Installation
 
-Copy the `iform-dolibarr` directory from this repository into Dolibarr's theme directory:
+Copy the `formora` directory from this repository into Dolibarr's theme directory:
 
 ```text
-/path/to/dolibarr/htdocs/theme/iform-dolibarr
+/path/to/dolibarr/htdocs/theme/formora
 ```
 
 The installed directory should look like this:
@@ -34,16 +34,16 @@ The installed directory should look like this:
 ```text
 htdocs/
   theme/
-    iform-dolibarr/
+    formora/
       style.css.php
       theme_vars.inc.php
-      iform-dolibarr.js
+      formora.js
       img/
       ckeditor/
       tpl/
 ```
 
-If an older `iform-dolibarr` directory already exists, replace the whole directory instead of merging files into it. The theme contains many inherited assets, and partial merges can leave stale files behind.
+If an older `formora` directory already exists, replace the whole directory instead of merging files into it. The theme contains many inherited assets, and partial merges can leave stale files behind.
 
 ## Enabling the Theme
 
@@ -53,18 +53,18 @@ In Dolibarr, open:
 Home -> Setup -> Display -> Skin and colors
 ```
 
-Select `iform-dolibarr`, then save the setting.
+Select `formora`, then save the setting.
 
 For temporary testing, you can force the theme through URL parameters:
 
 ```text
-?theme=iform-dolibarr&dol_resetcache=1&dol_nocache=1
+?theme=formora&dol_resetcache=1&dol_nocache=1
 ```
 
 Example:
 
 ```text
-http://127.0.0.1:18090/product/index.php?theme=iform-dolibarr&dol_resetcache=1&dol_nocache=1
+http://127.0.0.1:18090/product/index.php?theme=formora&dol_resetcache=1&dol_nocache=1
 ```
 
 `dol_resetcache=1` and `dol_nocache=1` are useful while developing or reviewing theme changes. They should not be needed in normal production URLs.
@@ -82,10 +82,10 @@ Dolibarr 23 exposes the official `THEME_DARKMODEENABLED` setting:
 For testing, you can force dark mode with:
 
 ```text
-?theme=iform-dolibarr&THEME_DARKMODEENABLED=2&dol_resetcache=1&dol_nocache=1
+?theme=formora&THEME_DARKMODEENABLED=2&dol_resetcache=1&dol_nocache=1
 ```
 
-The theme adds an iForm dark layer on top of Dolibarr's official switch. It covers:
+The theme adds a Formora dark layer on top of Dolibarr's official switch. It covers:
 
 - Page backgrounds, content wrappers, cards, lists, tables, and pagination.
 - Top navigation, left navigation, selected menu states, separators, hover states, and focus states.
@@ -101,8 +101,8 @@ The theme adds an iForm dark layer on top of Dolibarr's official switch. It cove
 CKEditor-specific theme files live in:
 
 ```text
-iform-dolibarr/ckeditor/config.js
-iform-dolibarr/ckeditor/dark-contents.css
+formora/ckeditor/config.js
+formora/ckeditor/dark-contents.css
 ```
 
 In dark mode, `config.js` appends the dark content stylesheet to CKEditor and also installs it into editor iframes and panel iframes after they are created. This lets the theme cover:
@@ -116,12 +116,12 @@ When changing CKEditor styles, check the normal editing view, source mode, toolb
 
 ## CSS Editor Support
 
-Dolibarr's CSS editor page uses ACE. In dark mode, the theme script switches ACE to `ace/theme/one_dark` and adds the `iform-ace-dark` helper class. The CSS layer then finishes the Dolibarr page shell and ACE token styling.
+Dolibarr's CSS editor page uses ACE. In dark mode, the theme script switches ACE to `ace/theme/one_dark` and adds the `formora-ace-dark` helper class. The CSS layer then finishes the Dolibarr page shell and ACE token styling.
 
 Useful test page:
 
 ```text
-/admin/ihm.php?mode=css&theme=iform-dolibarr&THEME_DARKMODEENABLED=2&dol_resetcache=1&dol_nocache=1
+/admin/ihm.php?mode=css&theme=formora&THEME_DARKMODEENABLED=2&dol_resetcache=1&dol_nocache=1
 ```
 
 When checking this page, confirm that:
@@ -138,7 +138,7 @@ This repository does not require a frontend build. After changing files, sync th
 Example:
 
 ```bash
-rsync -a --delete iform-dolibarr/ /path/to/dolibarr/htdocs/theme/iform-dolibarr/
+rsync -a --delete formora/ /path/to/dolibarr/htdocs/theme/formora/
 ```
 
 While testing locally, use cache-busting parameters:
@@ -158,13 +158,13 @@ If the browser still serves cached JavaScript or image assets, force refresh the
 ```text
 README.md                         Project documentation
 LICENSE                           Project license declaration
-iform-dolibarr/style.css.php      Main Dolibarr theme stylesheet entry point
-iform-dolibarr/theme_vars.inc.php Theme variables, graph colors, and base palette
-iform-dolibarr/iform-dolibarr.js  Runtime theme script for charts and editor dark-mode support
-iform-dolibarr/ckeditor/          CKEditor config and dark content stylesheet
-iform-dolibarr/img/               Theme images, icons, and Dolibarr object icons
-iform-dolibarr/tpl/               Theme template fragments
-iform-dolibarr/*.inc.php          Dolibarr theme component style fragments
+formora/style.css.php      Main Dolibarr theme stylesheet entry point
+formora/theme_vars.inc.php Theme variables, graph colors, and base palette
+formora/formora.js  Runtime theme script for charts and editor dark-mode support
+formora/ckeditor/          CKEditor config and dark content stylesheet
+formora/img/               Theme images, icons, and Dolibarr object icons
+formora/tpl/               Theme template fragments
+formora/*.inc.php          Dolibarr theme component style fragments
 ```
 
 ## Suggested Verification Pages
@@ -196,15 +196,15 @@ Also run a light-mode regression pass so dark styles do not leak into the defaul
 Useful static checks:
 
 ```bash
-php -l iform-dolibarr/style.css.php
-node --check iform-dolibarr/iform-dolibarr.js
+php -l formora/style.css.php
+node --check formora/formora.js
 git diff --check
 ```
 
 If a local Dolibarr test environment is running, also confirm that the CSS endpoint responds:
 
 ```bash
-curl -I "http://127.0.0.1:18090/theme/iform-dolibarr/style.css.php?theme=iform-dolibarr&dol_nocache=1"
+curl -I "http://127.0.0.1:18090/theme/formora/style.css.php?theme=formora&dol_nocache=1"
 ```
 
 ## Design Principles
