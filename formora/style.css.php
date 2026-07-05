@@ -5016,6 +5016,7 @@ table.jPicker {
 			overflow-x: auto !important;
 			scrollbar-color: var(--formora-line) transparent;
 			scrollbar-width: thin;
+			--formora-list-track-width: max-content;
 		}
 
 		body#mainbody.bodyforlist:not(.poslist) #id-right .fiche form#searchFormList:has(> .liste_titre_bydiv + .div-table-responsive) > table.table-fiche-title {
@@ -5028,7 +5029,7 @@ table.jPicker {
 		body#mainbody.bodyforlist:not(.poslist) #id-right .fiche form#searchFormList:has(> .liste_titre_bydiv + .div-table-responsive) > .div-table-responsive {
 			max-width: none !important;
 			min-width: 100% !important;
-			width: max-content !important;
+			width: var(--formora-list-track-width) !important;
 		}
 
 		body#mainbody.bodyforlist:not(.poslist) #id-right .fiche form#searchFormList:has(> .liste_titre_bydiv + .div-table-responsive) > .div-table-responsive {

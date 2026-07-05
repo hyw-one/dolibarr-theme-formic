@@ -3,6 +3,7 @@
 
 	var aceRefreshTimer = null;
 	var chartRefreshTimer = null;
+	var listTrackWidthTimer = null;
 	var takeposUrlRefreshTimer = null;
 
 	function parseRgb(color) {
@@ -400,31 +401,73 @@
 		takeposUrlRefreshTimer = setTimeout(refreshTakeposIframeUrls, 0);
 	}
 
+	function syncListFilterTrackWidth() {
+		if (!document.body || !document.body.classList.contains('bodyforlist') || document.body.classList.contains('poslist')) {
+			return;
+		}
+
+		document.querySelectorAll('#id-right .fiche form#searchFormList').forEach(function (form) {
+			var filter = form.querySelector(':scope > .liste_titre_bydiv');
+			var tableWrap = form.querySelector(':scope > .liste_titre_bydiv + .div-table-responsive');
+			var table = tableWrap ? tableWrap.querySelector(':scope > table.liste') : null;
+			if (!filter || !tableWrap || !table) {
+				return;
+			}
+
+			form.style.removeProperty('--formora-list-track-width');
+			var width = Math.ceil(Math.max(
+				form.clientWidth || 0,
+				tableWrap.scrollWidth || 0,
+				table.scrollWidth || 0,
+				table.getBoundingClientRect().width || 0
+			));
+
+			if (width > 0) {
+				form.style.setProperty('--formora-list-track-width', width + 'px');
+			}
+		});
+	}
+
+	function scheduleListTrackWidth() {
+		clearTimeout(listTrackWidthTimer);
+		listTrackWidthTimer = setTimeout(syncListFilterTrackWidth, 0);
+	}
+
 	applyChartTheme();
 	applyAceTheme();
+	syncListFilterTrackWidth();
 	refreshTakeposIframeUrls();
 
 	if (document.readyState === 'loading') {
 		document.addEventListener('DOMContentLoaded', scheduleAceTheme);
 		document.addEventListener('DOMContentLoaded', scheduleChartTheme);
+		document.addEventListener('DOMContentLoaded', scheduleListTrackWidth);
 		document.addEventListener('DOMContentLoaded', scheduleTakeposThemeUrls);
 	} else {
 		scheduleAceTheme();
 		scheduleChartTheme();
+		scheduleListTrackWidth();
 		scheduleTakeposThemeUrls();
 	}
 
 	window.addEventListener('load', scheduleAceTheme);
 	window.addEventListener('load', scheduleChartTheme);
+	window.addEventListener('load', scheduleListTrackWidth);
+	window.addEventListener('resize', scheduleListTrackWidth);
 	window.addEventListener('load', scheduleTakeposThemeUrls);
+	document.addEventListener('change', scheduleListTrackWidth, true);
+	document.addEventListener('click', scheduleListTrackWidth, true);
 	setTimeout(scheduleAceTheme, 300);
 	setTimeout(scheduleAceTheme, 1000);
+	setTimeout(scheduleListTrackWidth, 300);
+	setTimeout(scheduleListTrackWidth, 1000);
 	setTimeout(scheduleTakeposThemeUrls, 300);
 
 	if (window.MutationObserver) {
 		new MutationObserver(function () {
 			scheduleAceTheme();
 			scheduleChartTheme();
+			scheduleListTrackWidth();
 			scheduleTakeposThemeUrls();
 		}).observe(document.documentElement, {
 			childList: true,
