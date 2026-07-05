@@ -6126,8 +6126,7 @@ table.jPicker {
 		width: 0 !important;
 	}
 
-	body#mainbody.bodyforlist:has(.checkforselect):not(:has(.checkforselect:checked)) #massaction,
-	body#mainbody.bodyforlist:has(.checkforselect):not(:has(.checkforselect:checked)) .select2-container:has(#select2-massaction-container) {
+	body#mainbody.bodyforlist:has(.checkforselect) .select2-container:has(#select2-massaction-container) {
 		display: none !important;
 		height: 0 !important;
 		left: -10000px !important;
@@ -6143,8 +6142,15 @@ table.jPicker {
 
 	body#mainbody.bodyforlist:has(.checkforselect:checked) .select2-container:has(#select2-massaction-container) {
 		display: inline-block !important;
+		height: auto !important;
+		left: auto !important;
+		min-height: var(--formora-control-height) !important;
 		opacity: 1 !important;
+		padding: 0 !important;
+		position: static !important;
+		top: auto !important;
 		visibility: visible !important;
+		width: 260px !important;
 	}
 
 	body#mainbody .select2-container:has(#select2-massaction-container) {
