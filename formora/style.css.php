@@ -7334,6 +7334,137 @@ table.jPicker {
 			}
 		}
 
+		@media only screen and (max-width: 480px) {
+			body.bodytakepos .topnav {
+				gap: 0 !important;
+				overflow-x: hidden !important;
+				padding: 0 4px !important;
+			}
+
+			body.bodytakepos .topnav-left {
+				flex: 1 1 auto !important;
+				gap: 4px !important;
+				min-width: 0 !important;
+				overflow: hidden !important;
+			}
+
+			body.bodytakepos .topnav-right {
+				flex: 0 0 auto !important;
+				margin-left: 4px !important;
+				min-width: 0 !important;
+			}
+
+			body.bodytakepos .topnav-left > .inline-block:has(.topnav-terminalhour),
+			body.bodytakepos .topnav-left > :is(#moreinfo, #infowarehouse),
+			body.bodytakepos .topnav .login_block_other.takepos > a[href="/"] {
+				display: none !important;
+			}
+
+			body.bodytakepos .topnav-left > :is(#customerandsales, #shoppingcart),
+			body.bodytakepos .topnav .login_block_other.takepos,
+			body.bodytakepos .topnav .login_block_user {
+				align-items: center !important;
+				display: flex !important;
+				height: 64px !important;
+				min-width: 0 !important;
+			}
+
+			body.bodytakepos #customerandsales {
+				flex: 0 0 86px !important;
+				max-width: 86px !important;
+				overflow: hidden !important;
+				width: 86px !important;
+			}
+
+			body.bodytakepos #customer {
+				box-sizing: border-box !important;
+				max-width: 86px !important;
+				min-width: 0 !important;
+				overflow: hidden !important;
+				padding-left: 8px !important;
+				padding-right: 8px !important;
+				text-overflow: ellipsis !important;
+				white-space: nowrap !important;
+				width: 86px !important;
+			}
+
+			body.bodytakepos #shoppingcart {
+				flex: 0 0 94px !important;
+				gap: 4px !important;
+				max-width: 94px !important;
+				overflow: hidden !important;
+				width: 94px !important;
+			}
+
+			body.bodytakepos #customerandsales > a,
+			body.bodytakepos #shoppingcart > a {
+				box-sizing: border-box !important;
+				float: none !important;
+				min-width: 0 !important;
+				padding-left: 6px !important;
+				padding-right: 6px !important;
+			}
+
+			body.bodytakepos #shoppingcart > a:first-child {
+				max-width: 58px !important;
+				overflow: hidden !important;
+				text-overflow: ellipsis !important;
+				white-space: nowrap !important;
+				width: 58px !important;
+			}
+
+			body.bodytakepos #shoppingcart > a:last-child {
+				width: 32px !important;
+			}
+
+			body.bodytakepos .topnav .login_block_other.takepos {
+				gap: 4px !important;
+			}
+
+			body.bodytakepos .topnav input#search {
+				box-sizing: border-box !important;
+				min-width: 78px !important;
+				width: 78px !important;
+			}
+
+			body.bodytakepos .topnav .login_block_other.takepos > a {
+				min-width: 34px !important;
+				width: 34px !important;
+			}
+
+			body.bodytakepos .login_block_user {
+				flex: 0 0 48px !important;
+				width: 48px !important;
+			}
+
+			body.bodytakepos #topmenu-login-dropdown,
+			body.bodytakepos #topmenu-login-dropdown > a.dropdown-toggle {
+				box-sizing: border-box !important;
+				flex: 0 0 48px !important;
+				max-width: 48px !important;
+				min-width: 48px !important;
+				overflow: hidden !important;
+				width: 48px !important;
+			}
+
+			body.bodytakepos #topmenu-login-dropdown .atoploginusername {
+				display: none !important;
+			}
+
+			body.bodytakepos #topmenu-login-dropdown > .dropdown-menu {
+				bottom: auto !important;
+				left: auto !important;
+				max-height: calc(100vh - 76px) !important;
+				max-width: calc(100vw - 12px) !important;
+				overflow-x: hidden !important;
+				overflow-y: auto !important;
+				position: fixed !important;
+				right: 6px !important;
+				top: 64px !important;
+				width: min(300px, calc(100vw - 12px)) !important;
+			}
+		}
+
 <?php
 
 if (is_object($db)) {
