@@ -4955,6 +4955,45 @@ table.jPicker {
 		body#mainbody:not(.bodylogin) #id-left > .vmenu {
 			min-height: calc(100vh - 80px);
 		}
+
+		body#mainbody.bodyforlist:not(.poslist) #id-right .fiche {
+			box-sizing: border-box !important;
+			max-width: calc(100vw - <?php echo $leftmenuwidth + 103; ?>px) !important;
+			min-width: 0 !important;
+		}
+
+		body#mainbody.bodyforlist:not(.poslist) #id-right .fiche :is(form#searchFormList, table.table-fiche-title, .liste_titre_bydiv, .div-table-responsive, .div-table-responsive-no-min) {
+			box-sizing: border-box !important;
+			max-width: 100% !important;
+			min-width: 0 !important;
+			width: 100% !important;
+		}
+
+		body#mainbody.bodyforlist:not(.poslist) #id-right .fiche :is(.div-table-responsive, .div-table-responsive-no-min) {
+			-webkit-overflow-scrolling: touch;
+			overflow-x: auto !important;
+			scrollbar-color: var(--formora-line) transparent;
+			scrollbar-width: thin;
+		}
+
+		body#mainbody.bodyforlist:not(.poslist) #id-right .fiche :is(.div-table-responsive, .div-table-responsive-no-min) > table.liste {
+			max-width: none !important;
+			min-width: 100% !important;
+		}
+
+		body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche :is(.boxhalfleft, .boxhalfright, .fichehalfleft, .fichehalfright) > .box.divboxtable.boxdraggable:has(> table.boxtable) {
+			-webkit-overflow-scrolling: touch;
+			box-sizing: border-box !important;
+			max-width: 100% !important;
+			overflow-x: auto !important;
+			scrollbar-color: var(--formora-line) transparent;
+			scrollbar-width: thin;
+		}
+
+		body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche :is(.boxhalfleft, .boxhalfright, .fichehalfleft, .fichehalfright) > .box.divboxtable.boxdraggable > table.boxtable {
+			max-width: none !important;
+			min-width: 100% !important;
+		}
 	}
 
 	body#mainbody #id-left .vmenu_titre,
@@ -7304,6 +7343,10 @@ table.jPicker {
 
 			body#mainbody:not(.bodytakepos):not(.bodylogin) #id-container {
 				min-height: calc(100vh - 60px) !important;
+			}
+
+			body#mainbody.bodyforlist:not(.poslist) #id-right .fiche {
+				max-width: none !important;
 			}
 		}
 
