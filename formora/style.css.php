@@ -2475,6 +2475,18 @@ body#mainbody .login_block.usedropdown #topmenu-login-dropdown > a.dropdown-togg
 	line-height: normal !important;
 }
 
+body#mainbody .login_block.usedropdown :is(.userimg.atoplogin span.userphoto, .userimgatoplogin span.userphoto, span.fa.atoplogin) {
+	align-items: center !important;
+	display: inline-flex !important;
+	justify-content: center !important;
+	line-height: 1 !important;
+}
+
+body#mainbody .login_block.usedropdown :is(.userimg.atoplogin span.userphoto, .userimgatoplogin span.userphoto, span.fa.atoplogin)::before {
+	margin: 0 !important;
+	vertical-align: 0 !important;
+}
+
 #id-top a.tmenulabel,
 #id-top a.tmenulabel .mainmenuaspan,
 .login_block,
@@ -5353,6 +5365,11 @@ table.jPicker {
 		display: flex !important;
 	}
 
+	body#mainbody .select2-container--default .select2-selection--single .select2-selection__arrow {
+		height: 100% !important;
+		top: 0 !important;
+	}
+
 	body#mainbody .select2-container--default .select2-selection--single .select2-selection__rendered {
 		align-items: center !important;
 		display: flex !important;
@@ -6107,6 +6124,41 @@ table.jPicker {
 		top: auto !important;
 		visibility: hidden !important;
 		width: 0 !important;
+	}
+
+	body#mainbody.bodyforlist:has(.checkforselect):not(:has(.checkforselect:checked)) #massaction,
+	body#mainbody.bodyforlist:has(.checkforselect):not(:has(.checkforselect:checked)) .select2-container:has(#select2-massaction-container) {
+		display: none !important;
+		height: 0 !important;
+		left: -10000px !important;
+		min-height: 0 !important;
+		min-width: 0 !important;
+		opacity: 0 !important;
+		padding: 0 !important;
+		position: absolute !important;
+		top: auto !important;
+		visibility: hidden !important;
+		width: 0 !important;
+	}
+
+	body#mainbody.bodyforlist:has(.checkforselect:checked) .select2-container:has(#select2-massaction-container) {
+		display: inline-block !important;
+		opacity: 1 !important;
+		visibility: visible !important;
+	}
+
+	body#mainbody .select2-container:has(#select2-massaction-container) {
+		width: 260px !important;
+	}
+
+	body#mainbody .select2-container:has(#select2-massaction-container) .select2-selection__rendered {
+		overflow: hidden !important;
+		text-overflow: ellipsis !important;
+		white-space: nowrap !important;
+	}
+
+	body#mainbody .select2-container:has(#select2-massaction-container) .select2-selection__rendered :is(.pictofixedwidth, img, .fa, .fas, .far, .fab) {
+		display: none !important;
 	}
 
 	body#mainbody.poslist #id-container::before {
