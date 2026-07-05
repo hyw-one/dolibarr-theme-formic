@@ -5006,35 +5006,27 @@ table.jPicker {
 		}
 
 		body#mainbody.bodyforlist:not(.poslist) #id-right .fiche form#searchFormList:has(> .liste_titre_bydiv + .div-table-responsive) {
-			overflow-x: visible !important;
+			-webkit-overflow-scrolling: touch;
+			overflow-x: auto !important;
+			scrollbar-color: var(--formora-line) transparent;
+			scrollbar-width: thin;
 		}
 
 		body#mainbody.bodyforlist:not(.poslist) #id-right .fiche form#searchFormList:has(> .liste_titre_bydiv + .div-table-responsive) > table.table-fiche-title {
-			position: static;
+			left: 0;
+			position: sticky;
 			z-index: 2;
 		}
 
 		body#mainbody.bodyforlist:not(.poslist) #id-right .fiche form#searchFormList:has(> .liste_titre_bydiv + .div-table-responsive) > .liste_titre_bydiv,
 		body#mainbody.bodyforlist:not(.poslist) #id-right .fiche form#searchFormList:has(> .liste_titre_bydiv + .div-table-responsive) > .div-table-responsive {
-			max-width: 100% !important;
-			min-width: 0 !important;
-			width: 100% !important;
+			max-width: none !important;
+			min-width: 100% !important;
+			width: max-content !important;
 		}
 
-		body#mainbody.bodyforlist:not(.poslist) #id-right .fiche form#searchFormList:has(> .liste_titre_bydiv + .div-table-responsive) > .liste_titre_bydiv {
+		body#mainbody.bodyforlist:not(.poslist) #id-right .fiche form#searchFormList:has(> .liste_titre_bydiv + .div-table-responsive) > .div-table-responsive {
 			overflow-x: visible !important;
-			white-space: normal !important;
-		}
-
-		body#mainbody.bodyforlist:not(.poslist) #id-right .fiche form#searchFormList:has(> .liste_titre_bydiv + .div-table-responsive) > .liste_titre_bydiv > .divsearchfield {
-			box-sizing: border-box !important;
-			max-width: 100% !important;
-			vertical-align: top !important;
-			white-space: normal !important;
-		}
-
-		body#mainbody.bodyforlist:not(.poslist) #id-right .fiche form#searchFormList:has(> .liste_titre_bydiv + .div-table-responsive) > .liste_titre_bydiv > .divsearchfield :is(input, select, textarea, .select2-container) {
-			max-width: 100% !important;
 		}
 
 		body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche :is(.boxhalfleft, .boxhalfright, .fichehalfleft, .fichehalfright) > .box.divboxtable.boxdraggable:has(> table.boxtable) {
