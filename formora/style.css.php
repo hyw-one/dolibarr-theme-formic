@@ -5005,6 +5005,12 @@ table.jPicker {
 			min-width: 100% !important;
 		}
 
+		@media only screen and (max-width: 929px) {
+			body#mainbody.bodyforlist.sidebar-collapse:not(.poslist) #id-right .fiche {
+				max-width: calc(100vw - 27px) !important;
+			}
+		}
+
 		body#mainbody.bodyforlist:not(.poslist) #id-right .fiche form#searchFormList:has(> .liste_titre_bydiv + .div-table-responsive) {
 			-webkit-overflow-scrolling: touch;
 			overflow-x: auto !important;
