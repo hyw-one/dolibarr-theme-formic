@@ -1973,7 +1973,7 @@ textarea:focus,
 	cursor: not-allowed !important;
 }
 
-#mainbody dl.dropdown dd ul.ulselectedfields.open {
+#mainbody dl.dropdown dd ul.open {
 	background: var(--formora-surface) !important;
 	border: 1px solid var(--formora-line) !important;
 	box-shadow: var(--formora-shadow-menu) !important;
@@ -1986,45 +1986,46 @@ textarea:focus,
 	overflow: visible !important;
 }
 
-#mainbody dl.dropdown dd ul.ulselectedfields.open > li {
+#mainbody dl.dropdown dd ul.open > li {
 	background: transparent !important;
 	color: var(--formora-text) !important;
 }
 
-#mainbody dl.dropdown dd ul.ulselectedfields.open > li:hover:not(.liinputsearch),
-#mainbody dl.dropdown dd ul.ulselectedfields.open > li:focus-within:not(.liinputsearch) {
+#mainbody dl.dropdown dd ul.open > li:hover:not(.liinputsearch),
+#mainbody dl.dropdown dd ul.open > li:focus-within:not(.liinputsearch) {
 	background: var(--formora-neutral-hover-bg) !important;
 	color: var(--formora-text) !important;
 }
 
-#mainbody dl.dropdown dd ul.ulselectedfields.open > li:has(input[type="checkbox"]:checked) {
+#mainbody dl.dropdown dd ul.open > li:has(input[type="checkbox"]:checked) {
 	color: var(--formora-text) !important;
 }
 
-#mainbody dl.dropdown dd ul.ulselectedfields.open > li.liinputsearch {
+#mainbody dl.dropdown dd ul.open > li.liinputsearch {
 	background: var(--formora-surface) !important;
 }
 
-#mainbody dl.dropdown dd ul.ulselectedfields.open input.inputsearch_dropdownselectedfields {
+#mainbody dl.dropdown dd ul.open input.inputsearch_dropdownselectedfields {
 	background: var(--formora-surface-alt) !important;
 	border-color: var(--formora-line) !important;
 	color: var(--formora-text) !important;
 }
 
-#mainbody dl.dropdown dd ul.ulselectedfields.open input.inputsearch_dropdownselectedfields::placeholder {
+#mainbody dl.dropdown dd ul.open input.inputsearch_dropdownselectedfields::placeholder {
 	color: var(--formora-muted) !important;
 }
 
-#mainbody dl.dropdown dd ul.ulselectedfields.open a {
+#mainbody dl.dropdown dd ul.open a {
 	color: var(--formora-accent) !important;
 	text-decoration: none !important;
 }
 
-#mainbody .box:has(dl.dropdown dd ul.ulselectedfields.open),
-#mainbody .boxtable:has(dl.dropdown dd ul.ulselectedfields.open),
-#mainbody .info-box:has(dl.dropdown dd ul.ulselectedfields.open),
-#mainbody .div-table-responsive:has(dl.dropdown dd ul.ulselectedfields.open),
-#mainbody .div-table-responsive-no-min:has(dl.dropdown dd ul.ulselectedfields.open) {
+#mainbody .box:has(dl.dropdown dd ul.open),
+#mainbody .boxtable:has(dl.dropdown dd ul.open),
+#mainbody .info-box:has(dl.dropdown dd ul.open),
+#mainbody table.liste:has(dl.dropdown dd ul.open),
+#mainbody .div-table-responsive:has(dl.dropdown dd ul.open),
+#mainbody .div-table-responsive-no-min:has(dl.dropdown dd ul.open) {
 	overflow: visible !important;
 }
 
