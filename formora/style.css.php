@@ -1580,6 +1580,22 @@ body.bodytakepos .topnav .login_block_other a:hover:not(.nohover) {
 	color: #1f2937 !important;
 }
 
+body#mainbody .select2-hidden-accessible {
+	bottom: auto !important;
+	height: 1px !important;
+	left: -10000px !important;
+	margin: 0 !important;
+	max-height: 1px !important;
+	max-width: 1px !important;
+	min-height: 0 !important;
+	min-width: 0 !important;
+	overflow: hidden !important;
+	position: absolute !important;
+	right: auto !important;
+	top: auto !important;
+	width: 1px !important;
+}
+
 #id-top a.tmenuimage,
 #id-top a.tmenuimage .fa,
 #id-top a.tmenuimage .fas,
@@ -1662,6 +1678,33 @@ body.bodytakepos .topnav .login_block_other a:hover:not(.nohover) {
 
 .info-box .info-box-status .badge + .badge {
 	margin-left: 6px;
+}
+
+#mainbody .info-box .info-box-line:has(.badge) {
+	align-items: center;
+	display: flex;
+	gap: 6px;
+	line-height: 24px;
+	min-height: 24px;
+	overflow: visible !important;
+}
+
+#mainbody .info-box .info-box-line:has(.badge) > .inline-block {
+	align-items: center;
+	display: inline-flex;
+	min-height: 24px;
+	overflow: visible !important;
+}
+
+#mainbody .info-box .info-box-line:has(.badge) .badge {
+	align-items: center;
+	box-sizing: border-box;
+	display: inline-flex !important;
+	height: 22px;
+	line-height: 14px !important;
+	min-height: 22px;
+	overflow: visible !important;
+	padding: 2px 8px !important;
 }
 
 #id-top {
@@ -2256,13 +2299,13 @@ if (getDolGlobalInt('THEME_DARKMODEENABLED')) {
 	--formora-danger: #ff6961;
 	--formora-danger-bg: #3a1f22;
 	--formora-danger-hover-bg: #4a2428;
-	--formora-toast-success-bg: rgba(48, 209, 88, 0.16);
+	--formora-toast-success-bg: #173522;
 	--formora-toast-success-border: rgba(48, 209, 88, 0.36);
 	--formora-toast-success-text: #8ff0a4;
-	--formora-toast-warning-bg: rgba(255, 214, 10, 0.16);
+	--formora-toast-warning-bg: #3a2f14;
 	--formora-toast-warning-border: rgba(255, 214, 10, 0.36);
 	--formora-toast-warning-text: #ffd60a;
-	--formora-toast-error-bg: rgba(255, 105, 97, 0.16);
+	--formora-toast-error-bg: #3a1f22;
 	--formora-toast-error-border: rgba(255, 105, 97, 0.42);
 	--formora-toast-error-text: #ff8a82;
 	--formora-neutral-bg: #202124;
@@ -2487,6 +2530,16 @@ body#mainbody .login_block.usedropdown #topmenu-login-dropdown > a.dropdown-togg
 
 #id-container {
 	min-height: calc(100vh - 51px);
+}
+
+@media only screen and (min-width: 768px) {
+	body#mainbody:not(.bodylogin) #id-left {
+		min-height: calc(100vh - 60px);
+	}
+
+	body#mainbody:not(.bodylogin) #id-left > .vmenu {
+		min-height: calc(100vh - 80px);
+	}
 }
 
 #id-left .blockvmenu,
@@ -4428,37 +4481,65 @@ div.jnotify-background,
 	pointer-events: none !important;
 }
 
-.jnotify-container .jnotify-notification .jnotify-message,
-.jnotify-container .jnotify-close {
-	color: var(--formora-text) !important;
-}
+	.jnotify-container .jnotify-notification .jnotify-message,
+	.jnotify-container .jnotify-close {
+		color: var(--formora-text) !important;
+	}
 
-.jnotify-container .jnotify-notification-ok .jnotify-background {
-	background: transparent !important;
-}
+	.jnotify-container .jnotify-notification-ok {
+		background: var(--formora-toast-success-bg) !important;
+		border-color: var(--formora-toast-success-border) !important;
+	}
 
-.jnotify-container .jnotify-notification-ok .jnotify-message,
-.jnotify-container .jnotify-notification-ok .jnotify-close {
-	color: #83e5a1 !important;
-}
+	.jnotify-container .jnotify-notification-ok .jnotify-background {
+		background: transparent !important;
+	}
 
-.jnotify-container .jnotify-notification-warning .jnotify-background {
-	background: transparent !important;
-}
+	.jnotify-container .jnotify-notification-ok .jnotify-message {
+		color: var(--formora-text) !important;
+	}
 
-.jnotify-container .jnotify-notification-warning .jnotify-message,
-.jnotify-container .jnotify-notification-warning .jnotify-close {
-	color: #ffd38a !important;
-}
+	.jnotify-container .jnotify-notification-ok .jnotify-close {
+		color: #83e5a1 !important;
+	}
 
-.jnotify-container .jnotify-notification-error .jnotify-background {
-	background: transparent !important;
-}
+	.jnotify-container .jnotify-notification-warning {
+		background: var(--formora-toast-warning-bg) !important;
+		border-color: var(--formora-toast-warning-border) !important;
+	}
 
-.jnotify-container .jnotify-notification-error .jnotify-message,
-.jnotify-container .jnotify-notification-error .jnotify-close {
-	color: #ffb4b4 !important;
-}
+	.jnotify-container .jnotify-notification-warning .jnotify-background {
+		background: transparent !important;
+	}
+
+	.jnotify-container .jnotify-notification-warning .jnotify-message {
+		color: var(--formora-text) !important;
+	}
+
+	.jnotify-container .jnotify-notification-warning .jnotify-close {
+		color: #ffd38a !important;
+	}
+
+	.jnotify-container .jnotify-notification-error {
+		background: var(--formora-toast-error-bg) !important;
+		border-color: var(--formora-toast-error-border) !important;
+	}
+
+	.jnotify-container .jnotify-notification-error .jnotify-background {
+		background: transparent !important;
+	}
+
+	.jnotify-container .jnotify-notification-error .jnotify-message {
+		color: var(--formora-text) !important;
+	}
+
+	.jnotify-container .jnotify-notification-error .jnotify-close {
+		color: #ffb4b4 !important;
+	}
+
+	.jnotify-container .jnotify-notification .jnotify-message :is(b, strong) {
+		color: inherit !important;
+	}
 
 .ui-widget-header,
 .ui-state-default,
@@ -4818,6 +4899,41 @@ table.jPicker {
 	body#mainbody #id-left .blockvmenulast {
 		background: var(--colorbackvmenu1) !important;
 		border-color: var(--formora-line-soft) !important;
+	}
+
+	@media only screen and (min-width: 768px) {
+		body#mainbody:not(.bodylogin):not(.poslist) #id-container:has(#id-left) {
+			min-height: calc(100vh - 51px);
+			position: relative;
+		}
+
+		body#mainbody:not(.bodylogin):not(.poslist) #id-container:has(#id-left)::before {
+			background: var(--colorbackvmenu1);
+			border-<?php print $right; ?>: 1px solid var(--formora-line-soft);
+			bottom: 0;
+			box-sizing: border-box;
+			content: "";
+			<?php print $left; ?>: 0;
+			pointer-events: none;
+			position: absolute;
+			top: 0;
+			width: <?php echo $leftmenuwidth + 20; ?>px;
+			z-index: 0;
+		}
+
+		body#mainbody:not(.bodylogin) #id-left,
+		body#mainbody:not(.bodylogin) #id-right {
+			position: relative;
+			z-index: 1;
+		}
+
+		body#mainbody:not(.bodylogin) #id-left {
+			min-height: calc(100vh - 60px);
+		}
+
+		body#mainbody:not(.bodylogin) #id-left > .vmenu {
+			min-height: calc(100vh - 80px);
+		}
 	}
 
 	body#mainbody #id-left .vmenu_titre,
@@ -5706,7 +5822,10 @@ table.jPicker {
 		border-color: var(--formora-toast-success-border) !important;
 	}
 
-	body#mainbody .jnotify-container .jnotify-notification-ok .jnotify-message,
+	body#mainbody .jnotify-container .jnotify-notification-ok .jnotify-message {
+		color: var(--formora-text) !important;
+	}
+
 	body#mainbody .jnotify-container .jnotify-notification-ok .jnotify-close {
 		color: var(--formora-toast-success-text) !important;
 	}
@@ -5716,7 +5835,10 @@ table.jPicker {
 		border-color: var(--formora-toast-warning-border) !important;
 	}
 
-	body#mainbody .jnotify-container .jnotify-notification-warning .jnotify-message,
+	body#mainbody .jnotify-container .jnotify-notification-warning .jnotify-message {
+		color: var(--formora-text) !important;
+	}
+
 	body#mainbody .jnotify-container .jnotify-notification-warning .jnotify-close {
 		color: var(--formora-toast-warning-text) !important;
 	}
@@ -5726,9 +5848,16 @@ table.jPicker {
 		border-color: var(--formora-toast-error-border) !important;
 	}
 
-	body#mainbody .jnotify-container .jnotify-notification-error .jnotify-message,
+	body#mainbody .jnotify-container .jnotify-notification-error .jnotify-message {
+		color: var(--formora-text) !important;
+	}
+
 	body#mainbody .jnotify-container .jnotify-notification-error .jnotify-close {
 		color: var(--formora-toast-error-text) !important;
+	}
+
+	body#mainbody .jnotify-container .jnotify-notification .jnotify-message :is(b, strong) {
+		color: inherit !important;
 	}
 
 	body#mainbody [class*="fa-"],
@@ -5979,6 +6108,1013 @@ table.jPicker {
 		visibility: hidden !important;
 		width: 0 !important;
 	}
+
+	body#mainbody.poslist #id-container::before {
+		content: none !important;
+		display: none !important;
+	}
+
+	body#mainbody.poslist #massaction,
+	body#mainbody.poslist .select2-container:has(#select2-massaction-container),
+	body#mainbody.poslist input[name="confirmmassaction"],
+	body#mainbody.poslist input[name="confirmmassactioninvisible"] {
+		border: 0 !important;
+		display: none !important;
+		height: 0 !important;
+		left: -10000px !important;
+		margin: 0 !important;
+		min-height: 0 !important;
+		min-width: 0 !important;
+		opacity: 0 !important;
+		padding: 0 !important;
+		position: absolute !important;
+		top: auto !important;
+		visibility: hidden !important;
+		width: 0 !important;
+	}
+
+	body#mainbody.poslist .toptitle .col-center:has(#massaction) {
+		padding: 0 !important;
+		width: 0 !important;
+	}
+
+	body#mainbody.poslist :is(#id-left, .side-nav) {
+		display: none !important;
+		min-height: 0 !important;
+		width: 0 !important;
+	}
+
+	body#mainbody.poslist #id-right {
+		display: block !important;
+		width: 100% !important;
+	}
+
+	/* Shared TakePOS structure keeps POS aligned with Formora in both light and dark palettes. */
+	body.bodytakepos,
+	body.takepossplitphp,
+	body:not(#mainbody):has(.takepospay),
+	body:not(#mainbody):has(.calcbutton),
+	body:not(#mainbody):has(.postablelines) {
+		background: var(--formora-bg) !important;
+		color: var(--formora-text) !important;
+	}
+
+	body.bodytakepos .container,
+	body.bodytakepos .row1,
+	body.bodytakepos .row1withhead,
+	body.bodytakepos .row2,
+	body.bodytakepos .row2withhead,
+	body.bodytakepos :is(.div1, .div2, .div3, .div4, .div5),
+	body.takepossplitphp :is(.splitsale, .rowsplit, .headersplit),
+	body:not(#mainbody):has(.takepospay) :is(.center, .div-table-responsive-no-min) {
+		background: var(--formora-bg) !important;
+		color: var(--formora-text) !important;
+	}
+
+	body.bodytakepos .header,
+	body.bodytakepos .topnav {
+		background: var(--formora-surface) !important;
+		border-bottom: 1px solid var(--formora-line-soft) !important;
+	}
+
+	body.bodytakepos .topnav {
+		align-items: center !important;
+		box-sizing: border-box !important;
+		display: flex !important;
+		flex-wrap: nowrap !important;
+		height: 64px !important;
+		min-height: 64px;
+		overflow-x: auto !important;
+		overflow-y: hidden !important;
+		white-space: nowrap;
+	}
+
+	body.bodytakepos .topnav-left,
+	body.bodytakepos .topnav-right {
+		align-items: center !important;
+		display: flex !important;
+		flex-wrap: nowrap !important;
+		float: none !important;
+		height: 64px;
+		min-width: 0;
+	}
+
+	body.bodytakepos .topnav-left {
+		flex: 1 1 auto;
+		overflow: hidden;
+	}
+
+	body.bodytakepos .topnav-right {
+		flex: 0 0 auto;
+		margin-left: auto;
+	}
+
+	body.bodytakepos .topnav .login_block_other.takepos {
+		align-items: center !important;
+		display: flex !important;
+		gap: 10px;
+		height: 64px;
+		margin-top: 0 !important;
+	}
+
+	body.bodytakepos .topnav-left > .inline-block {
+		align-items: center !important;
+		display: flex !important;
+		flex: 0 0 auto;
+		flex-wrap: nowrap !important;
+		gap: 10px;
+		height: 64px;
+		white-space: nowrap;
+	}
+
+	body.bodytakepos .topnav-left a,
+	body.bodytakepos .topnav-right a {
+		align-items: center !important;
+		display: flex !important;
+		flex: 0 0 auto;
+		float: none !important;
+		justify-content: center !important;
+	}
+
+	body.bodytakepos .topnav-left a span {
+		align-items: center;
+		display: inline-flex;
+		white-space: nowrap;
+	}
+
+	body.bodytakepos .topnav a,
+	body.bodytakepos .topnav :is(.fa, .fas, .far, .fab)::before {
+		color: var(--formora-text) !important;
+	}
+
+	body.bodytakepos .topnav-left a,
+	body.bodytakepos .topnav .login_block_other a {
+		border: 1px solid transparent !important;
+		border-radius: var(--formora-radius-sm) !important;
+	}
+
+	body.bodytakepos .topnav-left a:hover:not(.nohover),
+	body.bodytakepos .topnav .login_block_other a:hover:not(.nohover),
+	body.bodytakepos .topnav-left a:focus,
+	body.bodytakepos .topnav .login_block_other a:focus {
+		background: var(--formora-neutral-hover-bg) !important;
+		border-color: var(--formora-line-soft) !important;
+		color: var(--formora-text) !important;
+	}
+
+	body.bodytakepos .topnav-left a:active,
+	body.bodytakepos .topnav .login_block_other a:active {
+		background: var(--formora-accent-soft) !important;
+		border-color: var(--formora-accent) !important;
+		color: var(--formora-accent-hover) !important;
+	}
+
+	:is(body#mainbody, body.bodytakepos) .login_block_user .dropdown-menu {
+		background: var(--formora-elevated) !important;
+		border: 1px solid var(--formora-line) !important;
+		border-radius: var(--formora-radius) !important;
+		box-shadow: var(--formora-shadow-menu) !important;
+		box-sizing: border-box;
+		color: var(--formora-text) !important;
+		overflow: hidden;
+	}
+
+	:is(body#mainbody, body.bodytakepos) .login_block_user .dropdown-menu :is(.user-header, .user-body, .user-footer) {
+		background: var(--formora-elevated) !important;
+		color: var(--formora-text) !important;
+	}
+
+	:is(body#mainbody, body.bodytakepos) .login_block_user .dropdown-menu .user-header {
+		border-bottom: 1px solid var(--formora-line-soft) !important;
+		border-radius: calc(var(--formora-radius) - 1px) calc(var(--formora-radius) - 1px) 0 0 !important;
+	}
+
+	:is(body#mainbody, body.bodytakepos) .login_block_user .dropdown-menu .user-body {
+		border-radius: 0 !important;
+	}
+
+	:is(body#mainbody, body.bodytakepos) .login_block_user .dropdown-menu .user-body :is(a, span, div, p, td, th, strong, b) {
+		color: inherit !important;
+	}
+
+	:is(body#mainbody, body.bodytakepos) .login_block_user :is(#topmenulogincompanyinfo-btn, #topmenuloginmoreinfo-btn) {
+		align-items: center;
+		color: var(--formora-text) !important;
+		cursor: pointer;
+		display: flex;
+		gap: 8px;
+		line-height: 1.35;
+		min-height: 30px;
+		padding: 3px 0;
+		width: 100%;
+	}
+
+	:is(body#mainbody, body.bodytakepos) .login_block_user #topmenulogincompanyinfo + br {
+		display: none;
+	}
+
+	:is(body#mainbody, body.bodytakepos) .login_block_user #topmenuloginmoreinfo-btn {
+		margin-top: 2px;
+	}
+
+	:is(body#mainbody, body.bodytakepos) .login_block_user :is(#topmenulogincompanyinfo, #topmenuloginmoreinfo) {
+		line-height: 1.5;
+		margin: 4px 0 8px 24px;
+	}
+
+	:is(body#mainbody, body.bodytakepos) .login_block_user :is(#topmenulogincompanyinfo-btn, #topmenuloginmoreinfo-btn) > :is(.fa-caret-right, .fa-caret-down) {
+		color: var(--formora-icon-muted) !important;
+		flex: 0 0 auto;
+		font-size: 0.86em;
+		height: 1em;
+		line-height: 1;
+		width: 1em;
+	}
+
+	:is(body#mainbody, body.bodytakepos) .login_block_user :is(#topmenulogincompanyinfo-btn, #topmenuloginmoreinfo-btn) > :is(.fa-caret-right, .fa-caret-down)::before {
+		background-color: currentColor !important;
+		color: inherit !important;
+		content: "" !important;
+		display: inline-block;
+		height: 1em;
+		vertical-align: -0.12em;
+		width: 1em;
+	}
+
+	:is(body#mainbody, body.bodytakepos) .login_block_user :is(#topmenulogincompanyinfo-btn, #topmenuloginmoreinfo-btn) > .fa-caret-right::before {
+		-webkit-mask: var(--formora-symbol-chevron-right) center / contain no-repeat;
+		mask: var(--formora-symbol-chevron-right) center / contain no-repeat;
+	}
+
+	:is(body#mainbody, body.bodytakepos) .login_block_user :is(#topmenulogincompanyinfo-btn, #topmenuloginmoreinfo-btn) > .fa-caret-down::before {
+		-webkit-mask: var(--formora-symbol-sort-down) center / contain no-repeat;
+		mask: var(--formora-symbol-sort-down) center / contain no-repeat;
+	}
+
+	:is(body#mainbody, body.bodytakepos) .login_block_user :is(#topmenulogincompanyinfo-btn, #topmenuloginmoreinfo-btn):hover {
+		color: var(--formora-accent-hover) !important;
+	}
+
+	:is(body#mainbody, body.bodytakepos) .login_block_user :is(#topmenulogincompanyinfo-btn, #topmenuloginmoreinfo-btn):hover > :is(.fa-caret-right, .fa-caret-down) {
+		color: var(--formora-accent) !important;
+	}
+
+	:is(body#mainbody, body.bodytakepos) .login_block_user .dropdown-menu .user-footer {
+		background: var(--formora-surface-alt) !important;
+		border-top: 1px solid var(--formora-line-soft) !important;
+		border-radius: 0 0 calc(var(--formora-radius) - 1px) calc(var(--formora-radius) - 1px) !important;
+	}
+
+	:is(body#mainbody, body.bodytakepos) .login_block_user .button-top-menu-dropdown {
+		align-items: center !important;
+		background: var(--formora-surface) !important;
+		border: 1px solid var(--formora-line-soft) !important;
+		border-radius: var(--formora-radius-sm) !important;
+		box-shadow: none !important;
+		box-sizing: border-box !important;
+		color: var(--formora-accent) !important;
+		display: inline-flex !important;
+		font-weight: 600 !important;
+		gap: 7px;
+		justify-content: center !important;
+		min-height: 34px;
+		padding: 7px 12px !important;
+	}
+
+	:is(body#mainbody, body.bodytakepos) .login_block_user .button-top-menu-dropdown:hover,
+	:is(body#mainbody, body.bodytakepos) .login_block_user .button-top-menu-dropdown:focus {
+		background: var(--formora-accent-soft) !important;
+		border-color: var(--formora-accent) !important;
+		color: var(--formora-accent-hover) !important;
+		outline: 0 !important;
+	}
+
+	:is(body#mainbody, body.bodytakepos) .login_block_user .button-top-menu-dropdown :is(.fa, .fas, .far, .fab) {
+		background: transparent !important;
+		color: inherit !important;
+	}
+
+	:is(body#mainbody, body.bodytakepos) .login_block_user .button-top-menu-dropdown :is(.fa, .fas, .far, .fab)::before {
+		color: inherit !important;
+	}
+
+	body#mainbody .login_block_user .button-top-menu-dropdown :is(.fa-user, .fa-address-card)::before,
+	body.bodytakepos .login_block_user .button-top-menu-dropdown :is(.fa-user, .fa-address-card)::before {
+		background-color: currentColor !important;
+	}
+
+	body.bodytakepos .login_block_user .button-top-menu-dropdown :is(.fa-user, .fa-address-card)::before {
+		content: "" !important;
+		display: inline-block !important;
+		height: 14px !important;
+		vertical-align: -0.12em;
+		width: 14px !important;
+	}
+
+	body.bodytakepos .login_block_user .button-top-menu-dropdown .fa-user::before {
+		-webkit-mask: var(--formora-symbol-user) center / contain no-repeat;
+		mask: var(--formora-symbol-user) center / contain no-repeat;
+	}
+
+	body.bodytakepos .login_block_user .button-top-menu-dropdown .fa-address-card::before {
+		-webkit-mask: var(--formora-symbol-address-book) center / contain no-repeat;
+		mask: var(--formora-symbol-address-book) center / contain no-repeat;
+	}
+
+	:is(body#mainbody, body.bodytakepos) .login_block_user .dropdown-user-image {
+		background: var(--formora-surface-alt) !important;
+		border: 1px solid var(--formora-line) !important;
+		box-shadow: none !important;
+	}
+
+	body.bodytakepos .topnav input[type="text"],
+	body:not(#mainbody) input.takepospay,
+	body:not(#mainbody) textarea.takepospay,
+	body:not(#mainbody) select.takepospay {
+		background: var(--formora-surface-alt) !important;
+		border: 1px solid var(--formora-line) !important;
+		border-radius: var(--formora-radius-sm) !important;
+		color: var(--formora-text) !important;
+	}
+
+	body.bodytakepos .topnav input[type="text"] {
+		box-sizing: border-box !important;
+		float: none !important;
+		font-size: 1.3em !important;
+		height: 44px !important;
+		line-height: 44px !important;
+		margin: 0 10px 0 6px !important;
+		max-width: 360px !important;
+		min-width: 240px;
+		padding: 0 14px !important;
+	}
+
+	body.bodytakepos .topnav input[type="text"]:focus,
+	body:not(#mainbody) input.takepospay:focus,
+	body:not(#mainbody) textarea.takepospay:focus,
+	body:not(#mainbody) select.takepospay:focus {
+		border-color: var(--formora-accent) !important;
+		box-shadow: 0 0 0 3px var(--formora-focus-ring) !important;
+		outline: 0 !important;
+	}
+
+	body.bodytakepos div.paymentbordline,
+	body:not(#mainbody) div.paymentbordline {
+		background: var(--formora-elevated) !important;
+		border: 1px solid var(--formora-line-soft) !important;
+		color: var(--formora-text) !important;
+	}
+
+	body:not(#mainbody):has(.takepospay) div.paymentbordline.center {
+		background: var(--formora-elevated) !important;
+	}
+
+	body.bodytakepos .colorwhite,
+	body:not(#mainbody) .colorwhite {
+		color: var(--formora-text) !important;
+	}
+
+	body.bodytakepos .colorred,
+	body:not(#mainbody) .colorred {
+		color: var(--formora-danger) !important;
+	}
+
+	body.bodytakepos .colorgreen,
+	body.bodytakepos .order td,
+	body:not(#mainbody) .colorgreen,
+	body:not(#mainbody) .order td {
+		color: var(--formora-status-success-bg) !important;
+	}
+
+	body.bodytakepos :is(div.wrapper, div.wrapper2, .tab-category),
+	body.takepossplitphp .headercontent {
+		background: var(--formora-surface) !important;
+		border-color: var(--formora-line-soft) !important;
+		color: var(--formora-text) !important;
+	}
+
+	body.bodytakepos :is(div.wrapper, div.wrapper2, .tab-category):hover {
+		background: var(--formora-elevated) !important;
+		border-color: var(--formora-line) !important;
+	}
+
+	body.bodytakepos button,
+	body.bodytakepos input[type="button"],
+	body.bodytakepos input[type="submit"],
+	body:not(#mainbody) button.calcbutton,
+	body:not(#mainbody) button.calcbutton2,
+	body:not(#mainbody) button.calcbutton3,
+	body:not(#mainbody) input.button.takepospay,
+	body:not(#mainbody) button.item_value {
+		border: 1px solid var(--formora-line-soft) !important;
+		box-shadow: none !important;
+		transition: background-color 0.14s ease, border-color 0.14s ease, color 0.14s ease, transform 0.08s ease !important;
+	}
+
+	body.bodytakepos button :is(.fa, .fas, .far, .fab),
+	body.bodytakepos button :is(.fa, .fas, .far, .fab)::before,
+	body:not(#mainbody) button:is(.calcbutton, .calcbutton2, .calcbutton3, .actionbutton, .productbutton, .item_value) :is(.fa, .fas, .far, .fab),
+	body:not(#mainbody) button:is(.calcbutton, .calcbutton2, .calcbutton3, .actionbutton, .productbutton, .item_value) :is(.fa, .fas, .far, .fab)::before {
+		background: transparent !important;
+		color: inherit !important;
+	}
+
+	body.bodytakepos button.calcbutton,
+	body.bodytakepos button.calcbutton3,
+	body.bodytakepos button.actionbutton,
+	body.bodytakepos button.productbutton,
+	body.bodytakepos button.item_value,
+	body:not(#mainbody) button.calcbutton,
+	body:not(#mainbody) button.calcbutton3,
+	body:not(#mainbody) button.actionbutton,
+	body:not(#mainbody) button.productbutton,
+	body:not(#mainbody) button.item_value {
+		background: var(--formora-surface) !important;
+		border-color: var(--formora-line-soft) !important;
+		color: var(--formora-text) !important;
+	}
+
+	body.bodytakepos button.calcbutton2,
+	body:not(#mainbody) button.calcbutton2 {
+		background: var(--formora-accent) !important;
+		border-color: var(--formora-accent) !important;
+		color: #ffffff !important;
+	}
+
+	body.bodytakepos button.calcbutton2.clicked,
+	body:not(#mainbody) button.calcbutton2.clicked {
+		background: var(--formora-accent-hover) !important;
+		border-color: var(--formora-accent-hover) !important;
+		color: #ffffff !important;
+	}
+
+	body.bodytakepos button.calcbutton.poscolorblue,
+	body.bodytakepos button.calcbutton3.poscolorblue,
+	body:not(#mainbody) button.calcbutton.poscolorblue,
+	body:not(#mainbody) button.calcbutton3.poscolorblue {
+		background: var(--formora-accent) !important;
+		border-color: var(--formora-accent) !important;
+		color: #ffffff !important;
+	}
+
+	body.bodytakepos button.calcbutton2.poscolordelete,
+	body.bodytakepos button.calcbutton3.poscolordelete,
+	body:not(#mainbody) button.calcbutton2.poscolordelete,
+	body:not(#mainbody) button.calcbutton3.poscolordelete {
+		background: var(--formora-danger-bg) !important;
+		border-color: rgba(215, 0, 21, 0.28) !important;
+		color: var(--formora-danger) !important;
+	}
+
+	body.bodytakepos button:is(.calcbutton, .calcbutton2, .calcbutton3, .actionbutton, .productbutton, .block):active,
+	body.bodytakepos input:is([type="button"], [type="submit"]).takepospay:active,
+	body:not(#mainbody) button:is(.calcbutton, .calcbutton2, .calcbutton3, .actionbutton, .productbutton, .item_value):active,
+	body:not(#mainbody) input.button.takepospay:active {
+		background: var(--formora-accent-soft) !important;
+		border-color: var(--formora-accent) !important;
+		color: var(--formora-accent-hover) !important;
+		transform: translateY(1px);
+	}
+
+	body.bodytakepos button:is(.calcbutton, .calcbutton3, .actionbutton, .productbutton, .block):hover,
+	body.bodytakepos input:is([type="button"], [type="submit"]).takepospay:hover,
+	body:not(#mainbody) button:is(.calcbutton, .calcbutton3, .actionbutton, .productbutton, .item_value):hover,
+	body:not(#mainbody) input.button.takepospay:hover {
+		background: var(--formora-elevated) !important;
+		border-color: var(--formora-line) !important;
+		color: var(--formora-text) !important;
+	}
+
+	body.bodytakepos button.calcbutton2:hover,
+	body:not(#mainbody) button.calcbutton2:hover,
+	body.bodytakepos button.calcbutton.poscolorblue:hover,
+	body.bodytakepos button.calcbutton3.poscolorblue:hover,
+	body:not(#mainbody) button.calcbutton.poscolorblue:hover,
+	body:not(#mainbody) button.calcbutton3.poscolorblue:hover,
+	body.bodytakepos button.calcbutton.poscolorblue:active,
+	body.bodytakepos button.calcbutton3.poscolorblue:active,
+	body:not(#mainbody) button.calcbutton.poscolorblue:active,
+	body:not(#mainbody) button.calcbutton3.poscolorblue:active {
+		background: var(--formora-accent-hover) !important;
+		border-color: var(--formora-accent-hover) !important;
+		color: #ffffff !important;
+	}
+
+	body.bodytakepos button.calcbutton2.poscolordelete:hover,
+	body.bodytakepos button.calcbutton3.poscolordelete:hover,
+	body:not(#mainbody) button.calcbutton2.poscolordelete:hover,
+	body:not(#mainbody) button.calcbutton3.poscolordelete:hover,
+	body.bodytakepos button.calcbutton2.poscolordelete:active,
+	body.bodytakepos button.calcbutton3.poscolordelete:active,
+	body:not(#mainbody) button.calcbutton2.poscolordelete:active,
+	body:not(#mainbody) button.calcbutton3.poscolordelete:active {
+		background: var(--formora-danger-hover-bg) !important;
+		border-color: var(--formora-danger) !important;
+		color: var(--formora-danger) !important;
+	}
+
+	body.bodytakepos button.item_value.selected,
+	body:not(#mainbody) button.item_value.selected {
+		background: var(--formora-accent-soft) !important;
+		border-color: var(--formora-accent) !important;
+		color: var(--formora-accent-hover) !important;
+		font-weight: 700;
+	}
+
+	<?php
+	if (getDolGlobalInt('THEME_DARKMODEENABLED')) {
+		if (getDolGlobalInt('THEME_DARKMODEENABLED') != 2) {
+			print "@media (prefers-color-scheme: dark) {";
+		} else {
+			print "@media not print {";
+		}
+	?>
+	/* TakePOS loads its own stylesheet after the theme, so these rules keep the POS surface in the dark palette. */
+	body.bodytakepos,
+	body.takepossplitphp,
+	body:not(#mainbody):has(.takepospay),
+	body:not(#mainbody):has(.calcbutton),
+	body:not(#mainbody):has(.postablelines) {
+		background: var(--formora-bg) !important;
+		color: var(--formora-text) !important;
+	}
+
+	body.bodytakepos .container,
+	body.bodytakepos .row1,
+	body.bodytakepos .row1withhead,
+	body.bodytakepos .row2,
+	body.bodytakepos .row2withhead,
+	body.bodytakepos :is(.div1, .div2, .div3, .div4, .div5),
+	body.takepossplitphp :is(.splitsale, .rowsplit, .headersplit),
+	body:not(#mainbody):has(.takepospay) :is(.center, .div-table-responsive-no-min) {
+		background: var(--formora-bg) !important;
+		color: var(--formora-text) !important;
+	}
+
+	body.bodytakepos .header,
+	body.bodytakepos .topnav {
+		background: var(--formora-surface) !important;
+		border-bottom: 1px solid var(--formora-line-soft) !important;
+	}
+
+	body.bodytakepos .topnav {
+		align-items: center !important;
+		box-sizing: border-box !important;
+		display: flex !important;
+		flex-wrap: nowrap !important;
+		height: 64px !important;
+		min-height: 64px;
+		overflow-x: auto !important;
+		overflow-y: hidden !important;
+		white-space: nowrap;
+	}
+
+	body.bodytakepos .topnav-left,
+	body.bodytakepos .topnav-right {
+		align-items: center !important;
+		display: flex !important;
+		flex-wrap: nowrap !important;
+		float: none !important;
+		height: 64px;
+		min-width: 0;
+	}
+
+	body.bodytakepos .topnav-left {
+		flex: 1 1 auto;
+		overflow: hidden;
+	}
+
+	body.bodytakepos .topnav-right {
+		flex: 0 0 auto;
+		margin-left: auto;
+	}
+
+	body.bodytakepos .topnav .login_block_other.takepos {
+		align-items: center !important;
+		display: flex !important;
+		gap: 10px;
+		height: 64px;
+		margin-top: 0 !important;
+	}
+
+	body.bodytakepos .topnav-left > .inline-block {
+		align-items: center !important;
+		display: flex !important;
+		flex: 0 0 auto;
+		flex-wrap: nowrap !important;
+		gap: 10px;
+		height: 64px;
+		white-space: nowrap;
+	}
+
+	body.bodytakepos .topnav-left a,
+	body.bodytakepos .topnav-right a {
+		align-items: center !important;
+		display: flex !important;
+		flex: 0 0 auto;
+		float: none !important;
+		justify-content: center !important;
+	}
+
+	body.bodytakepos .topnav-left a span {
+		align-items: center;
+		display: inline-flex;
+		white-space: nowrap;
+	}
+
+	body.bodytakepos .topnav a,
+	body.bodytakepos .topnav :is(.fa, .fas, .far, .fab)::before {
+		color: var(--formora-text) !important;
+	}
+
+	body.bodytakepos .topnav-left a,
+	body.bodytakepos .topnav .login_block_other a {
+		border: 1px solid transparent !important;
+		border-radius: var(--formora-radius-sm) !important;
+	}
+
+	body.bodytakepos .topnav-left a:hover:not(.nohover),
+	body.bodytakepos .topnav .login_block_other a:hover:not(.nohover),
+	body.bodytakepos .topnav-left a:focus,
+	body.bodytakepos .topnav .login_block_other a:focus {
+		background: var(--formora-neutral-hover-bg) !important;
+		border-color: var(--formora-line-soft) !important;
+		color: var(--formora-text) !important;
+	}
+
+	body.bodytakepos .topnav-left a:active,
+	body.bodytakepos .topnav .login_block_other a:active {
+		background: var(--formora-accent-soft) !important;
+		border-color: var(--formora-accent) !important;
+		color: var(--formora-accent-hover) !important;
+	}
+
+	body.bodytakepos .topnav input[type="text"],
+	body:not(#mainbody) input.takepospay,
+	body:not(#mainbody) textarea.takepospay,
+	body:not(#mainbody) select.takepospay {
+		background: var(--formora-surface-alt) !important;
+		border: 1px solid var(--formora-line) !important;
+		border-radius: var(--formora-radius-sm) !important;
+		color: var(--formora-text) !important;
+	}
+
+	body.bodytakepos .topnav input[type="text"] {
+		box-sizing: border-box !important;
+		float: none !important;
+		font-size: 1.3em !important;
+		height: 44px !important;
+		line-height: 44px !important;
+		margin: 0 10px 0 6px !important;
+		max-width: 360px !important;
+		min-width: 240px;
+		padding: 0 14px !important;
+	}
+
+	body.bodytakepos .topnav input[type="text"]:focus,
+	body:not(#mainbody) input.takepospay:focus,
+	body:not(#mainbody) textarea.takepospay:focus,
+	body:not(#mainbody) select.takepospay:focus {
+		border-color: var(--formora-accent) !important;
+		box-shadow: 0 0 0 3px var(--formora-focus-ring) !important;
+		outline: 0 !important;
+	}
+
+	body.bodytakepos :is(div.wrapper, div.wrapper2, .tab-category),
+	body.takepossplitphp .headercontent {
+		background: var(--formora-surface) !important;
+		border-color: var(--formora-line-soft) !important;
+		color: var(--formora-text) !important;
+	}
+
+	body.bodytakepos :is(div.wrapper, div.wrapper2, .tab-category):hover {
+		background: var(--formora-elevated) !important;
+		border-color: #4c5057 !important;
+	}
+
+	body.bodytakepos .div4 .tab-category.active {
+		background: var(--formora-accent-soft) !important;
+		border-color: var(--formora-accent) !important;
+		color: var(--formora-accent-hover) !important;
+	}
+
+	body.bodytakepos div.description {
+		background: linear-gradient(to bottom, rgba(28, 28, 30, 0), rgba(28, 28, 30, 0.78), rgba(28, 28, 30, 0.98)) !important;
+		color: var(--formora-text) !important;
+	}
+
+	body.bodytakepos .catwatermark {
+		background: var(--formora-elevated) !important;
+		color: var(--formora-text) !important;
+		opacity: 0.72 !important;
+	}
+
+	body.bodytakepos .productprice {
+		background: var(--formora-accent-soft) !important;
+		color: var(--formora-accent-hover) !important;
+	}
+
+	body.bodytakepos table.postablelines,
+	body:not(#mainbody) table.postablelines {
+		background: var(--formora-surface) !important;
+		color: var(--formora-text) !important;
+	}
+
+	body.bodytakepos table.postablelines :is(th, td),
+	body:not(#mainbody) table.postablelines :is(th, td) {
+		border-color: var(--formora-line-soft) !important;
+		color: var(--formora-text) !important;
+	}
+
+	body.bodytakepos .posinvoiceline td,
+	body:not(#mainbody) .posinvoiceline td {
+		background: var(--formora-elevated) !important;
+	}
+
+	body.bodytakepos tr.selected,
+	body.bodytakepos tr.selected td,
+	body:not(#mainbody) tr.selected,
+	body:not(#mainbody) tr.selected td {
+		background: var(--formora-accent-soft) !important;
+		color: var(--formora-text) !important;
+	}
+
+	body.bodytakepos button,
+	body.bodytakepos input[type="button"],
+	body.bodytakepos input[type="submit"],
+	body:not(#mainbody) button.calcbutton,
+	body:not(#mainbody) button.calcbutton2,
+	body:not(#mainbody) button.calcbutton3,
+	body:not(#mainbody) input.button.takepospay,
+	body:not(#mainbody) button.item_value {
+		border: 1px solid var(--formora-line-soft) !important;
+		box-shadow: none !important;
+		transition: background-color 0.14s ease, border-color 0.14s ease, color 0.14s ease, transform 0.08s ease !important;
+	}
+
+	body.bodytakepos button :is(.fa, .fas, .far, .fab),
+	body.bodytakepos button :is(.fa, .fas, .far, .fab)::before,
+	body:not(#mainbody) button:is(.calcbutton, .calcbutton2, .calcbutton3, .actionbutton, .productbutton, .item_value) :is(.fa, .fas, .far, .fab),
+	body:not(#mainbody) button:is(.calcbutton, .calcbutton2, .calcbutton3, .actionbutton, .productbutton, .item_value) :is(.fa, .fas, .far, .fab)::before {
+		background: transparent !important;
+		color: inherit !important;
+	}
+
+	body.bodytakepos button.calcbutton,
+	body.bodytakepos button.calcbutton3,
+	body:not(#mainbody) button.calcbutton,
+	body:not(#mainbody) button.calcbutton3 {
+		background: var(--formora-elevated) !important;
+		color: var(--formora-text) !important;
+	}
+
+	body.bodytakepos button.calcbutton2,
+	body:not(#mainbody) button.calcbutton2 {
+		background: #17314f !important;
+		border-color: rgba(78, 163, 255, 0.32) !important;
+		color: #f5f5f7 !important;
+	}
+
+	body.bodytakepos button.calcbutton2.clicked,
+	body:not(#mainbody) button.calcbutton2.clicked {
+		background: var(--formora-accent) !important;
+		border-color: var(--formora-accent-hover) !important;
+		color: #ffffff !important;
+	}
+
+	body.bodytakepos button.actionbutton,
+	body:not(#mainbody) button.actionbutton {
+		background: #2f2f33 !important;
+		border-color: var(--formora-line-soft) !important;
+		color: var(--formora-text) !important;
+	}
+
+	body.bodytakepos button.productbutton,
+	body:not(#mainbody) button.productbutton {
+		background: #2a2b2f !important;
+		border-color: var(--formora-line-soft) !important;
+		color: var(--formora-text) !important;
+	}
+
+	body.bodytakepos button.calcbutton.poscolorblue,
+	body.bodytakepos button.calcbutton3.poscolorblue,
+	body:not(#mainbody) button.calcbutton.poscolorblue,
+	body:not(#mainbody) button.calcbutton3.poscolorblue {
+		background: var(--formora-accent) !important;
+		border-color: var(--formora-accent-hover) !important;
+		color: #ffffff !important;
+	}
+
+	body.bodytakepos button.calcbutton2.poscolordelete,
+	body.bodytakepos button.calcbutton3.poscolordelete,
+	body:not(#mainbody) button.calcbutton2.poscolordelete,
+	body:not(#mainbody) button.calcbutton3.poscolordelete {
+		background: rgba(255, 69, 58, 0.18) !important;
+		border-color: rgba(255, 69, 58, 0.36) !important;
+		color: var(--formora-danger) !important;
+	}
+
+	body.bodytakepos button:is(.calcbutton, .calcbutton2, .calcbutton3, .actionbutton, .productbutton, .block):active,
+	body.bodytakepos input:is([type="button"], [type="submit"]).takepospay:active,
+	body:not(#mainbody) button:is(.calcbutton, .calcbutton2, .calcbutton3, .actionbutton, .productbutton, .item_value):active,
+	body:not(#mainbody) input.button.takepospay:active {
+		background: var(--formora-accent-soft) !important;
+		border-color: var(--formora-accent-hover) !important;
+		color: var(--formora-accent-hover) !important;
+		transform: translateY(1px);
+	}
+
+	body.bodytakepos button.calcbutton:hover,
+	body.bodytakepos button.calcbutton3:hover,
+	body:not(#mainbody) button.calcbutton:hover,
+	body:not(#mainbody) button.calcbutton3:hover {
+		background: #303034 !important;
+		border-color: #4a4a4f !important;
+		color: var(--formora-text) !important;
+	}
+
+	body.bodytakepos button.calcbutton2:hover,
+	body:not(#mainbody) button.calcbutton2:hover {
+		background: #204a78 !important;
+		border-color: rgba(78, 163, 255, 0.58) !important;
+		color: #ffffff !important;
+	}
+
+	body.bodytakepos button.actionbutton:hover,
+	body:not(#mainbody) button.actionbutton:hover {
+		background: #34363a !important;
+		border-color: #4c5057 !important;
+		color: var(--formora-text) !important;
+	}
+
+	body.bodytakepos button.productbutton:hover,
+	body:not(#mainbody) button.productbutton:hover {
+		background: #34363a !important;
+		border-color: #4c5057 !important;
+		color: var(--formora-text) !important;
+	}
+
+	body.bodytakepos button.block:hover,
+	body.bodytakepos input:is([type="button"], [type="submit"]).takepospay:hover,
+	body:not(#mainbody) button.item_value:hover,
+	body:not(#mainbody) input.button.takepospay:hover {
+		background: #303034 !important;
+		border-color: #4a4a4f !important;
+		color: var(--formora-text) !important;
+	}
+
+	body.bodytakepos button.calcbutton.poscolorblue:hover,
+	body.bodytakepos button.calcbutton3.poscolorblue:hover,
+	body:not(#mainbody) button.calcbutton.poscolorblue:hover,
+	body:not(#mainbody) button.calcbutton3.poscolorblue:hover,
+	body.bodytakepos button.calcbutton.poscolorblue:active,
+	body.bodytakepos button.calcbutton3.poscolorblue:active,
+	body:not(#mainbody) button.calcbutton.poscolorblue:active,
+	body:not(#mainbody) button.calcbutton3.poscolorblue:active {
+		background: #0b8dff !important;
+		border-color: #64b5ff !important;
+		color: #ffffff !important;
+	}
+
+	body.bodytakepos button.calcbutton2.poscolordelete:hover,
+	body.bodytakepos button.calcbutton3.poscolordelete:hover,
+	body:not(#mainbody) button.calcbutton2.poscolordelete:hover,
+	body:not(#mainbody) button.calcbutton3.poscolordelete:hover,
+	body.bodytakepos button.calcbutton2.poscolordelete:active,
+	body.bodytakepos button.calcbutton3.poscolordelete:active,
+	body:not(#mainbody) button.calcbutton2.poscolordelete:active,
+	body:not(#mainbody) button.calcbutton3.poscolordelete:active {
+		background: rgba(255, 69, 58, 0.26) !important;
+		border-color: rgba(255, 69, 58, 0.52) !important;
+		color: #ff8a82 !important;
+	}
+
+	body.bodytakepos button.item_value,
+	body:not(#mainbody) button.item_value {
+		background: var(--formora-elevated) !important;
+		color: var(--formora-text) !important;
+	}
+
+	body.bodytakepos button.item_value.selected,
+	body:not(#mainbody) button.item_value.selected {
+		background: var(--formora-accent-soft) !important;
+		border-color: var(--formora-accent) !important;
+		color: var(--formora-accent-hover) !important;
+		font-weight: 700;
+	}
+
+	body.bodytakepos div.paymentbordline,
+	body:not(#mainbody) div.paymentbordline {
+		background: var(--formora-elevated) !important;
+		border: 1px solid var(--formora-line-soft) !important;
+		color: var(--formora-text) !important;
+	}
+
+	body:not(#mainbody):has(.takepospay) div.paymentbordline.center {
+		background: var(--formora-elevated) !important;
+	}
+
+	body.bodytakepos .colorwhite,
+	body:not(#mainbody) .colorwhite {
+		color: var(--formora-text) !important;
+	}
+
+	body.bodytakepos .colorred,
+	body:not(#mainbody) .colorred {
+		color: var(--formora-danger) !important;
+	}
+
+	body.bodytakepos .colorgreen,
+	body.bodytakepos .order td,
+	body:not(#mainbody) .colorgreen,
+	body:not(#mainbody) .order td {
+		color: var(--formora-status-success-text) !important;
+	}
+
+	body.bodytakepos .modal {
+		background: rgba(0, 0, 0, 0.68) !important;
+	}
+
+	body.bodytakepos .modal-content {
+		background: var(--formora-surface) !important;
+		border: 1px solid var(--formora-line) !important;
+		border-radius: var(--formora-radius) !important;
+		box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45) !important;
+		color: var(--formora-text) !important;
+		overflow: hidden;
+	}
+
+	body.bodytakepos .modal-header {
+		background: var(--formora-elevated) !important;
+		border-bottom: 1px solid var(--formora-line-soft) !important;
+		color: var(--formora-text) !important;
+	}
+
+	body.bodytakepos .modal-body {
+		background: var(--formora-surface) !important;
+		color: var(--formora-text) !important;
+	}
+
+	body.bodytakepos .close {
+		color: var(--formora-muted) !important;
+	}
+
+	body.bodytakepos .close:hover,
+	body.bodytakepos .close:focus {
+		color: var(--formora-text) !important;
+	}
+
+	body.bodytakepos .block,
+	body:not(#mainbody) .block {
+		background: var(--formora-elevated) !important;
+		border: 1px solid var(--formora-line-soft) !important;
+		color: var(--formora-text) !important;
+	}
+
+	body.bodytakepos #cboxOverlay {
+		background: #000000 !important;
+		opacity: 0.78 !important;
+	}
+
+	body.bodytakepos #colorbox {
+		outline: 0 !important;
+	}
+
+	body.bodytakepos :is(#cboxTopLeft, #cboxTopCenter, #cboxTopRight, #cboxMiddleLeft, #cboxMiddleRight, #cboxBottomLeft, #cboxBottomCenter, #cboxBottomRight) {
+		background: var(--formora-surface) !important;
+	}
+
+	body.bodytakepos :is(#cboxContent, #cboxLoadedContent, .cboxIframe) {
+		background: var(--formora-bg) !important;
+		color: var(--formora-text) !important;
+	}
+
+	body.bodytakepos #cboxContent {
+		border: 1px solid var(--formora-line) !important;
+		border-radius: var(--formora-radius) !important;
+		box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5) !important;
+		overflow: hidden !important;
+	}
+
+	body.bodytakepos #cboxTitle,
+	body.bodytakepos #cboxCurrent {
+		color: var(--formora-text) !important;
+	}
+
+	body.bodytakepos #cboxError {
+		background: var(--formora-surface) !important;
+		border-color: var(--formora-line) !important;
+		color: var(--formora-text) !important;
+	}
+
+	body.bodytakepos :is(#cboxPrevious, #cboxNext, #cboxSlideshow, #cboxClose):active {
+		background-color: transparent !important;
+		color: inherit !important;
+	}
+	<?php
+		print "}\n";
+	}
+	?>
 
 	@media only screen and (max-width: 767px) {
 		table.table-fiche-title .titre,
