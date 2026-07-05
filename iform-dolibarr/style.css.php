@@ -474,6 +474,7 @@ require __DIR__.'/global.inc.php';
 	--iform-icon-default: #5f6368;
 	--iform-icon-muted: #86868b;
 	--iform-icon-accent: #0071e3;
+	--iform-icon-date: #57606a;
 	--iform-icon-danger: #d70015;
 	--iform-icon-warning: #b26a00;
 	--iform-icon-success: #248a3d;
@@ -739,6 +740,10 @@ body#mainbody :is(.fa-search, .fa-bars, .fa-stream, .fa-list, .fa-th-list, .fa-t
 
 body#mainbody :is(.fa-redo, .fa-sync, .fa-refresh, .fa-plus-circle, .fa-plus, .fa-download, .fa-search-plus, .fa-eye, .fa-binoculars, .fa-calendar, .fa-calendar-alt, .fa-calendar-day, .fa-calendar-week) {
 	color: var(--iform-icon-accent) !important;
+}
+
+body#mainbody :is(.fa-calendar, .fa-calendar-alt, .fa-calendar-day, .fa-calendar-week) {
+	color: var(--iform-icon-date) !important;
 }
 
 body#mainbody :is(.fa-trash) {
@@ -2159,6 +2164,7 @@ if (getDolGlobalInt('THEME_DARKMODEENABLED')) {
 	--iform-icon-default: #a1a1a6;
 	--iform-icon-muted: #8e8e93;
 	--iform-icon-accent: #64b5ff;
+	--iform-icon-date: #a1a1a6;
 	--iform-icon-danger: #ff6961;
 	--iform-icon-warning: #ffd60a;
 	--iform-icon-success: #30d158;
