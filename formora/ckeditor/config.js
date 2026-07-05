@@ -5,22 +5,22 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 
 CKEDITOR.editorConfig = function( config )
 {
-	var iformIsDarkMode = function() {
+	var formoraIsDarkMode = function() {
 		try {
 			return /\bdark\b/.test(window.getComputedStyle(document.documentElement).colorScheme || '');
 		} catch (e) {
 			return false;
 		}
 	};
-	var iformDarkMode = iformIsDarkMode();
-	var iformConfigUrl = '';
+	var formoraDarkMode = formoraIsDarkMode();
+	var formoraConfigUrl = '';
 	try {
-		iformConfigUrl = config.customConfig || (typeof ckeditorConfig !== 'undefined' ? ckeditorConfig : '');
+		formoraConfigUrl = config.customConfig || (typeof ckeditorConfig !== 'undefined' ? ckeditorConfig : '');
 	} catch (e) {
-		iformConfigUrl = '';
+		formoraConfigUrl = '';
 	}
-	var iformConfigBase = iformConfigUrl ? iformConfigUrl.split('?')[0].replace(/\/config\.js$/, '/') : '/theme/iform-dolibarr/ckeditor/';
-	var iformDarkContentsCss = iformConfigBase + 'dark-contents.css';
+	var formoraConfigBase = formoraConfigUrl ? formoraConfigUrl.split('?')[0].replace(/\/config\.js$/, '/') : '/theme/formora/ckeditor/';
+	var formoraDarkContentsCss = formoraConfigBase + 'dark-contents.css';
 
 	// Define changes to default configuration here.
 	// http://docs.cksource.com/CKEditor_3.x/Developers_Guide
@@ -44,16 +44,16 @@ CKEDITOR.editorConfig = function( config )
 	//config.contentsLanguage = 'fr';
 	config.fullPage = false;	// Not a full html page string, just part of it
 	config.dialog_backgroundCoverColor = 'rgb(255, 254, 253)';
-	if (iformDarkMode) {
+	if (formoraDarkMode) {
 		config.dialog_backgroundCoverColor = 'rgb(0, 0, 0)';
-		var iformContentsCss = config.contentsCss || CKEDITOR.getUrl('contents.css');
-		if (!CKEDITOR.tools.isArray(iformContentsCss)) {
-			iformContentsCss = [iformContentsCss];
+		var formoraContentsCss = config.contentsCss || CKEDITOR.getUrl('contents.css');
+		if (!CKEDITOR.tools.isArray(formoraContentsCss)) {
+			formoraContentsCss = [formoraContentsCss];
 		}
-		if (iformContentsCss.indexOf(iformDarkContentsCss) === -1) {
-			iformContentsCss.push(iformDarkContentsCss);
+		if (formoraContentsCss.indexOf(formoraDarkContentsCss) === -1) {
+			formoraContentsCss.push(formoraDarkContentsCss);
 		}
-		config.contentsCss = iformContentsCss;
+		config.contentsCss = formoraContentsCss;
 	}
 	//config.contentsCss = '/css/mysitestyles.css';
 	config.image_previewText=' ';	// Must no be empty
@@ -152,14 +152,14 @@ CKEDITOR.on('instanceReady', function(event) {
 		} catch (e) {
 			configUrl = '';
 		}
-		var configBase = configUrl ? configUrl.split('?')[0].replace(/\/config\.js$/, '/') : '/theme/iform-dolibarr/ckeditor/';
+		var configBase = configUrl ? configUrl.split('?')[0].replace(/\/config\.js$/, '/') : '/theme/formora/ckeditor/';
 		var darkContentsCss = configBase + 'dark-contents.css';
 		var installDarkContents = function(doc) {
 			if (!doc || !doc.documentElement) return;
-			doc.documentElement.className += doc.documentElement.className.indexOf('iform-ckeditor-dark') === -1 ? ' iform-ckeditor-dark' : '';
-			if (!doc.getElementById('iform-ckeditor-dark-contents')) {
+			doc.documentElement.className += doc.documentElement.className.indexOf('formora-ckeditor-dark') === -1 ? ' formora-ckeditor-dark' : '';
+			if (!doc.getElementById('formora-ckeditor-dark-contents')) {
 				var link = doc.createElement('link');
-				link.id = 'iform-ckeditor-dark-contents';
+				link.id = 'formora-ckeditor-dark-contents';
 				link.rel = 'stylesheet';
 				link.type = 'text/css';
 				link.href = darkContentsCss;
@@ -182,7 +182,7 @@ CKEDITOR.on('instanceReady', function(event) {
 			}
 		};
 
-		editor.container.addClass('iform-ckeditor-dark');
+		editor.container.addClass('formora-ckeditor-dark');
 		if (editor.document && editor.document.$) {
 			installDarkContents(editor.document.$);
 		}
@@ -194,9 +194,9 @@ CKEDITOR.on('instanceReady', function(event) {
 		refreshDarkFrames();
 		setTimeout(refreshDarkFrames, 100);
 		setTimeout(refreshDarkFrames, 500);
-		if (window.MutationObserver && !window.iformCkeditorDarkFrameObserver) {
-			window.iformCkeditorDarkFrameObserver = new MutationObserver(refreshDarkFrames);
-			window.iformCkeditorDarkFrameObserver.observe(document.body, { childList: true, subtree: true });
+		if (window.MutationObserver && !window.formoraCkeditorDarkFrameObserver) {
+			window.formoraCkeditorDarkFrameObserver = new MutationObserver(refreshDarkFrames);
+			window.formoraCkeditorDarkFrameObserver.observe(document.body, { childList: true, subtree: true });
 		}
 	}
 	if (editor.readOnly) {
