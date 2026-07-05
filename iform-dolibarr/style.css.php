@@ -453,6 +453,7 @@ require __DIR__.'/global.inc.php';
 :root {
 	--iform-accent: #0071e3;
 	--iform-accent-hover: #005bb5;
+	--iform-accent-soft-hover: rgba(0, 113, 227, 0.16);
 	--iform-line: #c9cdd3;
 	--iform-line-soft: #e6e8ec;
 	--iform-bg: #f5f5f7;
@@ -1972,6 +1973,16 @@ div.liste_titre_bydiv_nothingafter,
 	border-top-right-radius: 8px !important;
 }
 
+#mainbody .div-table-responsive > table.liste > :is(tbody, tfoot):last-child > tr:last-child > :is(td, th):first-child,
+#mainbody .div-table-responsive-no-min > table.liste > :is(tbody, tfoot):last-child > tr:last-child > :is(td, th):first-child {
+	border-bottom-left-radius: 8px !important;
+}
+
+#mainbody .div-table-responsive > table.liste > :is(tbody, tfoot):last-child > tr:last-child > :is(td, th):last-child,
+#mainbody .div-table-responsive-no-min > table.liste > :is(tbody, tfoot):last-child > tr:last-child > :is(td, th):last-child {
+	border-bottom-right-radius: 8px !important;
+}
+
 #mainbody .div-table-responsive > table.liste.listwithfilterbefore,
 #mainbody .div-table-responsive-no-min > table.liste.listwithfilterbefore {
 	border-top-left-radius: 0 !important;
@@ -2151,6 +2162,7 @@ if (getDolGlobalInt('THEME_DARKMODEENABLED')) {
 	--iform-icon-danger: #ff6961;
 	--iform-icon-warning: #ffd60a;
 	--iform-icon-success: #30d158;
+	--iform-accent-soft-hover: rgba(10, 132, 255, 0.28);
 	--iform-infobox-action: #c98fb4;
 	--iform-infobox-bank: #d8ca53;
 	--iform-infobox-contract: #55d6c4;
@@ -3379,8 +3391,8 @@ li.select2-selection__choice,
 #mainbody img[src$="/opensurvey/img/chart-32.png"],
 #mainbody img[src$="/img/calendar-32.png"],
 #mainbody img[src$="/img/chart-32.png"] {
-	filter: brightness(0) saturate(100%) invert(69%) sepia(93%) saturate(705%) hue-rotate(180deg) brightness(101%) contrast(101%) !important;
-	opacity: 0.96;
+	filter: none !important;
+	opacity: 1;
 }
 
 #mainbody div.corps:has(.index_date, .index_sondage),
@@ -4019,6 +4031,7 @@ table.jPicker {
 		background: transparent !important;
 		background-image: none !important;
 		border-radius: 0 !important;
+		margin-left: 6px !important;
 		min-width: 52px !important;
 		width: auto !important;
 	}
@@ -4036,9 +4049,36 @@ table.jPicker {
 		min-height: 46px;
 		min-width: 52px;
 		overflow: visible !important;
-		padding: 3px 8px !important;
+		padding: 3px 0 !important;
+		position: relative;
 		transition: background-color 0.14s ease, border-color 0.14s ease, color 0.14s ease;
 		width: auto !important;
+	}
+
+	body#mainbody #id-top :is(li.tmenu, li.tmenusel) div.tmenucenter:has(> a.tmenulabel[href]) {
+		cursor: pointer;
+	}
+
+	body#mainbody #id-top :is(li.tmenu, li.tmenusel) div.tmenucenter > a.tmenulabel[href] {
+		align-items: flex-end;
+		box-sizing: border-box !important;
+		display: flex !important;
+		justify-content: center;
+		min-height: 18px;
+		padding: 0 8px !important;
+		position: relative;
+		width: 100% !important;
+	}
+
+	body#mainbody #id-top :is(li.tmenu, li.tmenusel) div.tmenucenter > a.tmenuimage {
+		align-items: center;
+		box-sizing: border-box !important;
+		display: flex !important;
+		height: 25px !important;
+		justify-content: center;
+		min-height: 25px;
+		position: relative;
+		width: 100% !important;
 	}
 
 	body#mainbody #id-top li.tmenu :is(a, span, div.mainmenu, .mainmenuaspan, .tmenuimage, .tmenulabel),
@@ -4199,11 +4239,13 @@ table.jPicker {
 		padding-left: 4px !important;
 	}
 
-	body#mainbody #id-left .menu_contenu_comm_propal_list > a[href*="search_status="],
-	body#mainbody #id-left .menu_contenu_commande_list_det > a,
-	body#mainbody #id-left .menu_contenu_compta_facture_list > a[href*="search_status="],
-	body#mainbody #id-left .menu_contenu_supplier_proposal_list > a[href*="search_status="],
-	body#mainbody #id-left .menu_contenu_fourn_commande_list_det > a,
+	body#mainbody #id-left .menu_contenu > a[href*="search_status="],
+	body#mainbody #id-left .menu_contenu > a[href*="search_fk_statut="],
+	body#mainbody #id-left .menu_contenu > a[href*="status="],
+	body#mainbody #id-left .menu_contenu > a[href*="statut="]:not([href*="statut=-1%2C1"]),
+	body#mainbody #id-left .menu_contenu > a[href*="filter="],
+	body#mainbody #id-left .menu_contenu > a[href*="filtert="],
+	body#mainbody #id-left .menu_contenu > a[href*="list_det.php"],
 	body#mainbody #id-left .menu_contenu_societe_list > a[href*="type="],
 	body#mainbody #id-left .menu_contenu_societe_card > a[href*="type="],
 	body#mainbody #id-left .menu_contenu_contact_list > a[href*="type="],
@@ -4407,14 +4449,25 @@ table.jPicker {
 	body#mainbody table.tagtable td,
 	body#mainbody tr.oddeven td,
 	body#mainbody tr.pair td,
-	body#mainbody tr.impair td {
-		border-color: var(--iform-line-soft) !important;
-		color: var(--iform-text) !important;
-	}
+		body#mainbody tr.impair td {
+			border-color: var(--iform-line-soft) !important;
+			color: var(--iform-text) !important;
+		}
 
-	body#mainbody table.liste td.opacitylow,
-	body#mainbody table.noborder td.opacitylow,
-	body#mainbody table.border td.opacitylow,
+		body#mainbody table.border:not(.liste) > tbody > tr > td {
+			padding-bottom: 7px !important;
+			padding-top: 7px !important;
+		}
+
+		body#mainbody table.border:not(.liste) {
+			box-sizing: border-box !important;
+			padding-left: 10px !important;
+			padding-right: 10px !important;
+		}
+
+		body#mainbody table.liste td.opacitylow,
+		body#mainbody table.noborder td.opacitylow,
+		body#mainbody table.border td.opacitylow,
 	body#mainbody table.tagtable td.opacitylow,
 	body#mainbody tr.oddeven td.opacitylow,
 	body#mainbody tr.pair td.opacitylow,
@@ -4637,7 +4690,7 @@ table.jPicker {
 	body#mainbody .button:not(.buttonDelete):not(.buttonRefused):not(.button-delete):not(.buttonpayment):not(.bordertransp):not(:disabled):hover,
 	body#mainbody input[type="submit"]:not(.buttonDelete):not(.buttonRefused):not(.buttonpayment):not(.bordertransp):not(:disabled):hover,
 	body#mainbody input[type="button"]:not(.buttonDelete):not(.buttonRefused):not(.buttonpayment):not(.bordertransp):not(:disabled):hover {
-		background: var(--iform-neutral-hover-bg) !important;
+		background: var(--iform-accent-soft-hover) !important;
 		border-color: var(--iform-accent) !important;
 		color: var(--iform-accent) !important;
 	}
