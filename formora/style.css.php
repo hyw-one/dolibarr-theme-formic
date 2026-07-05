@@ -5017,31 +5017,6 @@ table.jPicker {
 			}
 		}
 
-		body#mainbody.bodyforlist:not(.poslist) #id-right .fiche form#searchFormList:has(> .liste_titre_bydiv + .div-table-responsive) {
-			-webkit-overflow-scrolling: touch;
-			overflow-x: auto !important;
-			scrollbar-color: var(--formora-line) transparent;
-			scrollbar-width: thin;
-			--formora-list-track-width: max-content;
-		}
-
-		body#mainbody.bodyforlist:not(.poslist) #id-right .fiche form#searchFormList:has(> .liste_titre_bydiv + .div-table-responsive) > table.table-fiche-title {
-			left: 0;
-			position: sticky;
-			z-index: 2;
-		}
-
-		body#mainbody.bodyforlist:not(.poslist) #id-right .fiche form#searchFormList:has(> .liste_titre_bydiv + .div-table-responsive) > .liste_titre_bydiv,
-		body#mainbody.bodyforlist:not(.poslist) #id-right .fiche form#searchFormList:has(> .liste_titre_bydiv + .div-table-responsive) > .div-table-responsive {
-			max-width: none !important;
-			min-width: 100% !important;
-			width: var(--formora-list-track-width) !important;
-		}
-
-		body#mainbody.bodyforlist:not(.poslist) #id-right .fiche form#searchFormList:has(> .liste_titre_bydiv + .div-table-responsive) > .div-table-responsive {
-			overflow-x: visible !important;
-		}
-
 		body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche :is(.boxhalfleft, .boxhalfright, .fichehalfleft, .fichehalfright) > .box.divboxtable.boxdraggable:has(> table.boxtable) {
 			-webkit-overflow-scrolling: touch;
 			box-sizing: border-box !important;
@@ -7623,6 +7598,33 @@ table.jPicker {
 				max-width: none !important;
 				min-width: 100% !important;
 			}
+		}
+
+		/* Canonical list scroll track: filters and table share one horizontal lane at every viewport width. */
+		body#mainbody.bodyforlist:not(.poslist) #id-right .fiche form#searchFormList:has(> .liste_titre_bydiv + .div-table-responsive) {
+			-webkit-overflow-scrolling: touch;
+			overflow-x: auto !important;
+			scrollbar-color: var(--formora-line) transparent;
+			scrollbar-width: thin;
+			--formora-list-track-width: max-content;
+		}
+
+		body#mainbody.bodyforlist:not(.poslist) #id-right .fiche form#searchFormList:has(> .liste_titre_bydiv + .div-table-responsive) > table.table-fiche-title {
+			left: 0;
+			position: sticky;
+			z-index: 2;
+		}
+
+		body#mainbody.bodyforlist:not(.poslist) #id-right .fiche form#searchFormList:has(> .liste_titre_bydiv + .div-table-responsive) > .liste_titre_bydiv,
+		body#mainbody.bodyforlist:not(.poslist) #id-right .fiche form#searchFormList:has(> .liste_titre_bydiv + .div-table-responsive) > .div-table-responsive {
+			box-sizing: border-box !important;
+			max-width: none !important;
+			min-width: 100% !important;
+			width: var(--formora-list-track-width) !important;
+		}
+
+		body#mainbody.bodyforlist:not(.poslist) #id-right .fiche form#searchFormList:has(> .liste_titre_bydiv + .div-table-responsive) > .div-table-responsive {
+			overflow-x: visible !important;
 		}
 
 		/* Canonical list toolbar layout: title actions stay on the viewport track, mass actions get a separate row. */
