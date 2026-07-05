@@ -6279,7 +6279,7 @@ table.jPicker {
 		width: 0 !important;
 	}
 
-	body#mainbody.bodyforlist:has(.checkforselect) .select2-container:has(#select2-massaction-container) {
+	body#mainbody.bodyforlist:not(.poslist) #id-right .fiche table.table-fiche-title .select2-container:has(#select2-massaction-container) {
 		display: none !important;
 		height: 0 !important;
 		left: -10000px !important;
@@ -6309,7 +6309,7 @@ table.jPicker {
 		width: 0 !important;
 	}
 
-	body#mainbody.bodyforlist:has(.checkforselect:checked) .select2-container:has(#select2-massaction-container) {
+	body#mainbody.bodyforlist:not(.poslist):has(.checkforselect:checked) #id-right .fiche table.table-fiche-title .select2-container:has(#select2-massaction-container) {
 		display: inline-block !important;
 		height: auto !important;
 		left: auto !important;
@@ -6322,7 +6322,7 @@ table.jPicker {
 		width: 260px !important;
 	}
 
-	body#mainbody .select2-container:has(#select2-massaction-container) {
+	body#mainbody.bodyforlist:not(.poslist) #id-right .fiche table.table-fiche-title .select2-container:has(#select2-massaction-container) {
 		width: 260px !important;
 	}
 
@@ -6332,7 +6332,7 @@ table.jPicker {
 		width: 100% !important;
 	}
 
-	body#mainbody .select2-container:has(#select2-massaction-container) .select2-selection__rendered {
+	body#mainbody.bodyforlist:not(.poslist) #id-right .fiche table.table-fiche-title .select2-container:has(#select2-massaction-container) .select2-selection__rendered {
 		overflow: hidden !important;
 		padding-right: 32px !important;
 		text-overflow: ellipsis !important;
@@ -6346,7 +6346,7 @@ table.jPicker {
 		top: 0 !important;
 	}
 
-	body#mainbody .select2-container:has(#select2-massaction-container) .select2-selection__rendered :is(.pictofixedwidth, img, .fa, .fas, .far, .fab) {
+	body#mainbody.bodyforlist:not(.poslist) #id-right .fiche table.table-fiche-title .select2-container:has(#select2-massaction-container) .select2-selection__rendered :is(.pictofixedwidth, img, .fa, .fas, .far, .fab) {
 		display: none !important;
 	}
 
