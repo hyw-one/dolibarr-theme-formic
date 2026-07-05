@@ -7459,7 +7459,8 @@ table.jPicker {
 			}
 
 			body#mainbody:not(.bodytakepos):not(.bodylogin) .side-nav {
-				padding-top: 8px !important;
+				box-sizing: border-box !important;
+				padding: 8px 0 0 !important;
 			}
 
 			body#mainbody:not(.bodytakepos):not(.bodylogin) .side-nav #id-left {
