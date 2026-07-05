@@ -5011,6 +5011,12 @@ table.jPicker {
 			}
 		}
 
+		@media only screen and (min-width: 930px) and (max-width: 1180px) {
+			body#mainbody.bodyforlist:not(.poslist) #id-right .fiche {
+				max-width: calc(100vw - <?php echo $leftmenuwidth + 47; ?>px) !important;
+			}
+		}
+
 		body#mainbody.bodyforlist:not(.poslist) #id-right .fiche form#searchFormList:has(> .liste_titre_bydiv + .div-table-responsive) {
 			-webkit-overflow-scrolling: touch;
 			overflow-x: auto !important;
@@ -7600,13 +7606,6 @@ table.jPicker {
 				max-width: none !important;
 			}
 
-			body#mainbody.bodyforlist:not(.poslist):has(.checkforselect:checked) #id-right .fiche table.table-fiche-title .col-right {
-				display: none !important;
-				min-width: 0 !important;
-				padding: 0 !important;
-				width: 0 !important;
-			}
-
 			body#mainbody.bodyforlist:not(.poslist):has(.checkforselect:checked) #id-right .fiche table.table-fiche-title .col-center:has(#massaction) {
 				max-width: 184px !important;
 				width: 184px !important;
@@ -7745,6 +7744,7 @@ table.jPicker {
 			gap: 8px !important;
 			grid-area: actions !important;
 			justify-content: flex-end !important;
+			max-width: 100% !important;
 			min-width: 0 !important;
 			width: 100% !important;
 		}
