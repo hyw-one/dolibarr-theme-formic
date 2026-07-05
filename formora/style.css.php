@@ -7412,6 +7412,13 @@ table.jPicker {
 				display: none !important;
 			}
 
+			body#mainbody:not(.bodytakepos):not(.bodylogin) .login_block.usedropdown .login_block_elem_name,
+			body#mainbody:not(.bodytakepos):not(.bodylogin) .login_block.usedropdown #topmenu-login-dropdown {
+				min-width: 0 !important;
+				padding-left: 0 !important;
+				padding-right: 0 !important;
+			}
+
 			body#mainbody:not(.bodytakepos):not(.bodylogin) :is(#topmenu-quickadd-dropdown, #topmenu-login-dropdown) > .dropdown-menu {
 				bottom: auto !important;
 				left: auto !important;
@@ -7474,12 +7481,13 @@ table.jPicker {
 				border-bottom: 0 !important;
 			}
 
-			body#mainbody.bodyforlist:not(.poslist) #id-right .fiche {
-				max-width: none !important;
-			}
 		}
 
 		@media only screen and (max-width: 767px) {
+			body#mainbody.bodyforlist:not(.poslist) #id-right .fiche {
+				max-width: none !important;
+			}
+
 			body#mainbody.bodyforlist:not(.poslist):has(.checkforselect:checked) #id-right .fiche table.table-fiche-title .col-right {
 				display: none !important;
 				min-width: 0 !important;
