@@ -468,6 +468,7 @@ require __DIR__.'/global.inc.php';
 	--iform-neutral-hover-bg: #f2f2f4;
 	--iform-refused-bg: #f5f5f7;
 	--iform-focus-ring: rgba(0, 113, 227, 0.18);
+	--iform-focus-outline: #005bb5;
 	--iform-status-success-bg: #248a3d;
 	--iform-status-success-border: rgba(36, 138, 61, 0.16);
 	--iform-status-success-text: #ffffff;
@@ -1794,6 +1795,19 @@ textarea:focus,
 	box-shadow: 0 0 0 2px var(--iform-focus-ring) !important;
 }
 
+#mainbody .butAction:focus-visible,
+#mainbody .butActionDelete:focus-visible,
+#mainbody .butActionRefused:focus-visible,
+#mainbody .button:focus-visible,
+#mainbody .buttonDelete:focus-visible,
+#mainbody button:focus-visible,
+#mainbody a.btnTitle:focus-visible,
+#mainbody .btnTitle:focus-visible {
+	outline: 2px solid var(--iform-focus-outline) !important;
+	outline-offset: 3px !important;
+	box-shadow: 0 0 0 4px var(--iform-focus-ring) !important;
+}
+
 #mainbody .butActionRefused:focus,
 #mainbody .button:disabled:focus,
 #mainbody .buttonDelete:disabled:focus {
@@ -2014,6 +2028,21 @@ div.liste_titre_bydiv_nothingafter,
 	border-color: var(--iform-line) !important;
 }
 
+#mainbody table.liste.formdoc > :is(tbody, tfoot):last-child > tr:last-child > :is(td, th),
+#mainbody table.liste.formdoc > tbody > tr.oddeven:last-child > :is(td, th) {
+	border-bottom: 0 !important;
+}
+
+#mainbody table.tableforfield > :is(thead, tbody):first-child > tr:first-child > :is(td, th),
+#mainbody table.border.tableforfield > :is(thead, tbody):first-child > tr:first-child > :is(td, th) {
+	border-top: 0 !important;
+}
+
+#mainbody :is(.fichehalfleft, .fichehalfright, .fichethirdleft, .fichetwothirdright):has(> table.tableforfield) > .underbanner.clearboth {
+	border-bottom: 0 !important;
+	height: 0 !important;
+}
+
 .badge-status,
 .status,
 .statusref,
@@ -2158,6 +2187,7 @@ if (getDolGlobalInt('THEME_DARKMODEENABLED')) {
 	--iform-neutral-hover-bg: #2c2c2e;
 	--iform-refused-bg: #202124;
 	--iform-focus-ring: rgba(10, 132, 255, 0.32);
+	--iform-focus-outline: #78b7ff;
 	--iform-status-success-bg: rgba(48, 209, 88, 0.16);
 	--iform-status-success-border: rgba(48, 209, 88, 0.32);
 	--iform-status-success-text: #30d158;
@@ -4493,6 +4523,21 @@ table.jPicker {
 		border-color: var(--iform-line-soft) !important;
 	}
 
+	body#mainbody table.liste.formdoc > :is(tbody, tfoot):last-child > tr:last-child > :is(td, th),
+	body#mainbody table.liste.formdoc > tbody > tr.oddeven:last-child > :is(td, th) {
+		border-bottom: 0 !important;
+	}
+
+	body#mainbody table.tableforfield > :is(thead, tbody):first-child > tr:first-child > :is(td, th),
+	body#mainbody table.border.tableforfield > :is(thead, tbody):first-child > tr:first-child > :is(td, th) {
+		border-top: 0 !important;
+	}
+
+	body#mainbody :is(.fichehalfleft, .fichehalfright, .fichethirdleft, .fichetwothirdright):has(> table.tableforfield) > .underbanner.clearboth {
+		border-bottom: 0 !important;
+		height: 0 !important;
+	}
+
 	body#mainbody :is(.boxhalfleft, .boxhalfright, .fichehalfleft, .fichehalfright) > .box.divboxtable.boxdraggable:empty,
 	body#mainbody :is(.boxhalfleft, .boxhalfright, .fichehalfleft, .fichehalfright) > .box.divboxtable.boxdraggable[id="boxto_A"],
 	body#mainbody :is(.boxhalfleft, .boxhalfright, .fichehalfleft, .fichehalfright) > .box.divboxtable.boxdraggable[id="boxto_B"] {
@@ -4797,6 +4842,19 @@ table.jPicker {
 	body#mainbody button:focus {
 		box-shadow: 0 0 0 3px var(--iform-focus-ring) !important;
 		outline: none !important;
+	}
+
+	body#mainbody .butAction:focus-visible,
+	body#mainbody .butActionDelete:focus-visible,
+	body#mainbody .butActionRefused:focus-visible,
+	body#mainbody .button:focus-visible,
+	body#mainbody .buttonDelete:focus-visible,
+	body#mainbody button:focus-visible,
+	body#mainbody a.btnTitle:focus-visible,
+	body#mainbody .btnTitle:focus-visible {
+		outline: 2px solid var(--iform-focus-outline) !important;
+		outline-offset: 3px !important;
+		box-shadow: 0 0 0 4px var(--iform-focus-ring) !important;
 	}
 
 	body#mainbody .badge,
