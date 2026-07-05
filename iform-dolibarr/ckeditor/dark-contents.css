@@ -1,0 +1,148 @@
+/*
+ * iForm CKEditor dark contents.
+ * Loaded inside CKEditor's same-origin iframes, where parent-page CSS cannot reach.
+ */
+
+:root {
+	color-scheme: dark;
+}
+
+html,
+body,
+body.cke_editable,
+.cke_editable {
+	background: #1c1c1e !important;
+	color: #f5f5f7 !important;
+}
+
+body {
+	caret-color: #64b5ff;
+}
+
+::selection {
+	background: rgba(10, 132, 255, 0.38);
+	color: #ffffff;
+}
+
+a {
+	color: #64b5ff !important;
+}
+
+a:hover,
+a:focus {
+	color: #9dccff !important;
+}
+
+hr {
+	border-top-color: #3a3a3c !important;
+}
+
+blockquote {
+	border-color: #3a3a3c !important;
+	color: #d1d1d6 !important;
+}
+
+pre,
+code {
+	background: #202124 !important;
+	border: 1px solid #3a3a3c !important;
+	color: #f5f5f7 !important;
+}
+
+table,
+td,
+th {
+	border-color: #3a3a3c !important;
+	color: #f5f5f7 !important;
+}
+
+th {
+	background: #242426 !important;
+}
+
+figure {
+	background: rgba(255, 255, 255, 0.06) !important;
+	outline-color: #3a3a3c !important;
+}
+
+figcaption,
+.cke_widget_editable {
+	color: #d1d1d6 !important;
+}
+
+input,
+textarea,
+select {
+	background: #202124 !important;
+	border: 1px solid #3a3a3c !important;
+	color: #f5f5f7 !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+	border-color: #0a84ff !important;
+	box-shadow: 0 0 0 3px rgba(10, 132, 255, 0.32) !important;
+	outline: none !important;
+}
+
+/* CKEditor dropdown/menu panel iframes. */
+.cke_panel_container,
+.cke_panel_block,
+.cke_panel_list,
+.cke_colorblock {
+	background: #1c1c1e !important;
+	color: #f5f5f7 !important;
+}
+
+.cke_panel_grouptitle {
+	background: #242426 !important;
+	border-bottom-color: #3a3a3c !important;
+	color: #a1a1a6 !important;
+}
+
+.cke_panel_listItem a,
+.cke_colorblock a,
+a.cke_colorauto,
+a.cke_colormore {
+	background: transparent !important;
+	border-color: transparent !important;
+	color: #f5f5f7 !important;
+}
+
+.cke_panel_listItem.cke_selected a,
+.cke_panel_listItem a:hover,
+.cke_panel_listItem a:focus,
+.cke_panel_listItem a:active,
+a.cke_colorauto:hover,
+a.cke_colorauto:focus,
+a.cke_colormore:hover,
+a.cke_colormore:focus {
+	background: rgba(10, 132, 255, 0.18) !important;
+	border-color: rgba(10, 132, 255, 0.42) !important;
+	color: #64b5ff !important;
+	outline: none !important;
+}
+
+.cke_menubutton,
+.cke_menubutton_icon,
+.cke_menubutton_label,
+.cke_menuarrow {
+	background: transparent !important;
+	color: #f5f5f7 !important;
+}
+
+.cke_menubutton:hover,
+.cke_menubutton:focus,
+.cke_menubutton:active,
+.cke_menuitem .cke_menubutton_on,
+.cke_menubutton:hover .cke_menubutton_icon,
+.cke_menubutton:focus .cke_menubutton_icon,
+.cke_menubutton:active .cke_menubutton_icon {
+	background: rgba(10, 132, 255, 0.18) !important;
+	color: #64b5ff !important;
+}
+
+.cke_menuseparator {
+	background: #3a3a3c !important;
+}
