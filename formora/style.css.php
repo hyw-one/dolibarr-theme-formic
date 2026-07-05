@@ -7345,6 +7345,14 @@ table.jPicker {
 				min-height: calc(100vh - 60px) !important;
 			}
 
+			body#mainbody:not(.bodytakepos):not(.bodylogin) .side-nav {
+				padding-top: 8px !important;
+			}
+
+			body#mainbody:not(.bodytakepos):not(.bodylogin) .side-nav #id-left {
+				padding-top: 8px !important;
+			}
+
 			body#mainbody.bodyforlist:not(.poslist) #id-right .fiche {
 				max-width: none !important;
 			}
