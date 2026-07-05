@@ -7483,6 +7483,73 @@ table.jPicker {
 
 		}
 
+		@media only screen and (min-width: 768px) and (max-width: 1180px) {
+			body#mainbody.bodyforlist:not(.poslist) #id-right .fiche table.table-fiche-title {
+				align-items: center !important;
+				column-gap: 0 !important;
+				display: grid !important;
+				grid-template-columns: 44px minmax(0, 1fr) minmax(0, auto) !important;
+				row-gap: 8px !important;
+			}
+
+			body#mainbody.bodyforlist:not(.poslist) #id-right .fiche table.table-fiche-title > :is(tbody, thead, tfoot),
+			body#mainbody.bodyforlist:not(.poslist) #id-right .fiche table.table-fiche-title > :is(tbody, thead, tfoot) > tr {
+				display: contents !important;
+			}
+
+			body#mainbody.bodyforlist:not(.poslist) #id-right .fiche table.table-fiche-title .col-picto {
+				grid-column: 1 !important;
+				grid-row: 1 !important;
+				width: 42px !important;
+			}
+
+			body#mainbody.bodyforlist:not(.poslist) #id-right .fiche table.table-fiche-title .col-title {
+				grid-column: 2 !important;
+				grid-row: 1 !important;
+				min-width: 0 !important;
+				overflow-wrap: anywhere !important;
+				width: auto !important;
+			}
+
+			body#mainbody.bodyforlist:not(.poslist) #id-right .fiche table.table-fiche-title .col-right {
+				box-sizing: border-box !important;
+				grid-column: 3 !important;
+				grid-row: 1 !important;
+				justify-self: end !important;
+				max-width: 360px !important;
+				min-width: 0 !important;
+				width: auto !important;
+			}
+
+			body#mainbody.bodyforlist:not(.poslist):not(:has(.checkforselect:checked)) #id-right .fiche table.table-fiche-title .col-center:has(#massaction) {
+				display: none !important;
+				height: 0 !important;
+				padding: 0 !important;
+				width: 0 !important;
+			}
+
+			body#mainbody.bodyforlist:not(.poslist):has(.checkforselect:checked) #id-right .fiche table.table-fiche-title .col-center:has(#massaction) {
+				align-items: center !important;
+				box-sizing: border-box !important;
+				display: flex !important;
+				flex-wrap: wrap !important;
+				gap: 8px !important;
+				grid-column: 1 / -1 !important;
+				grid-row: 2 !important;
+				justify-content: center !important;
+				max-width: 100% !important;
+				min-width: 0 !important;
+				padding-left: 0 !important;
+				padding-right: 0 !important;
+				width: 100% !important;
+			}
+
+			body#mainbody.bodyforlist:not(.poslist):has(.checkforselect:checked) #id-right .fiche table.table-fiche-title .col-center:has(#massaction) .select2-container:has(#select2-massaction-container) {
+				max-width: calc(100% - 108px) !important;
+				width: 260px !important;
+			}
+		}
+
 		@media only screen and (max-width: 767px) {
 			body#mainbody.bodyforlist:not(.poslist) #id-right .fiche {
 				max-width: none !important;
