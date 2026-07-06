@@ -8044,6 +8044,25 @@ table.jPicker {
 
 		}
 
+		@media only screen and (min-width: 768px) and (max-width: 1279px) {
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right {
+				box-sizing: border-box !important;
+				max-width: calc(100vw - <?php echo $leftmenuwidth + 21; ?>px) !important;
+				min-width: 0 !important;
+				width: calc(100vw - <?php echo $leftmenuwidth + 21; ?>px) !important;
+			}
+
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche,
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right div.fiche {
+				box-sizing: border-box !important;
+				margin-left: 6px;
+				margin-right: 6px;
+				max-width: calc(100% - 12px) !important;
+				min-width: 0 !important;
+				width: auto !important;
+			}
+		}
+
 		@media only screen and (max-width: 767px) {
 			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right,
 			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche,
