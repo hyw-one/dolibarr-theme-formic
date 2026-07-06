@@ -3417,9 +3417,9 @@ textarea:focus,
 }
 
 .select2-container--default .select2-results__option--highlighted[aria-selected],
-.select2-container--default .select2-results__option--highlighted[aria-selected] span:not(.flag-sprite):not([class*="flag"]):not(.fi):not([class^="fi-"]):not([class*=" fi-"]),
+.select2-container--default .select2-results__option--highlighted[aria-selected] span:not(.flag-sprite):not([class*="flag"]):not(.fi):not([class^="fi-"]):not([class*=" fi-"]):not(.prospect-back):not(.customer-back):not(.vendor-back):not(.user-back):not(.member-company-back):not(.member-individual-back):not(.nonature-back),
 .select2-results .select2-highlighted,
-.select2-results .select2-highlighted span:not(.flag-sprite):not([class*="flag"]):not(.fi):not([class^="fi-"]):not([class*=" fi-"]) {
+.select2-results .select2-highlighted span:not(.flag-sprite):not([class*="flag"]):not(.fi):not([class^="fi-"]):not([class*=" fi-"]):not(.prospect-back):not(.customer-back):not(.vendor-back):not(.user-back):not(.member-company-back):not(.member-individual-back):not(.nonature-back) {
 	background: var(--formora-accent-soft) !important;
 	color: var(--formora-accent-hover) !important;
 }
@@ -5800,10 +5800,42 @@ table.jPicker {
 		color: var(--formora-accent) !important;
 	}
 
-	body#mainbody .select2-container--default .select2-results__option--highlighted[aria-selected] span:not(.flag-sprite):not([class*="flag"]):not(.fi):not([class^="fi-"]):not([class*=" fi-"]),
-	body#mainbody .select2-container--default .select2-results__option:hover span:not(.flag-sprite):not([class*="flag"]):not(.fi):not([class^="fi-"]):not([class*=" fi-"]) {
+	body#mainbody .select2-container--default .select2-results__option--highlighted[aria-selected] span:not(.flag-sprite):not([class*="flag"]):not(.fi):not([class^="fi-"]):not([class*=" fi-"]):not(.prospect-back):not(.customer-back):not(.vendor-back):not(.user-back):not(.member-company-back):not(.member-individual-back):not(.nonature-back),
+	body#mainbody .select2-container--default .select2-results__option:hover span:not(.flag-sprite):not([class*="flag"]):not(.fi):not([class^="fi-"]):not([class*=" fi-"]):not(.prospect-back):not(.customer-back):not(.vendor-back):not(.user-back):not(.member-company-back):not(.member-individual-back):not(.nonature-back) {
 		background: transparent !important;
 		color: inherit !important;
+	}
+
+	body#mainbody .select2-container--default .select2-results__option--highlighted[aria-selected] .prospect-back,
+	body#mainbody .select2-container--default .select2-results__option:hover .prospect-back,
+	body#mainbody .select2-dropdown .select2-results .select2-highlighted .prospect-back {
+		background: rgba(61, 180, 111, 0.18) !important;
+		border-color: rgba(61, 180, 111, 0.34) !important;
+		color: #9df0b4 !important;
+	}
+
+	body#mainbody .select2-container--default .select2-results__option--highlighted[aria-selected] .customer-back,
+	body#mainbody .select2-container--default .select2-results__option:hover .customer-back,
+	body#mainbody .select2-dropdown .select2-results .select2-highlighted .customer-back {
+		background: rgba(61, 180, 111, 0.28) !important;
+		border-color: rgba(61, 180, 111, 0.42) !important;
+		color: #b7f7c7 !important;
+	}
+
+	body#mainbody .select2-container--default .select2-results__option--highlighted[aria-selected] .vendor-back,
+	body#mainbody .select2-container--default .select2-results__option:hover .vendor-back,
+	body#mainbody .select2-dropdown .select2-results .select2-highlighted .vendor-back {
+		background: rgba(78, 163, 255, 0.2) !important;
+		border-color: rgba(78, 163, 255, 0.38) !important;
+		color: var(--formora-accent-hover) !important;
+	}
+
+	body#mainbody .select2-container--default .select2-results__option--highlighted[aria-selected] .user-back,
+	body#mainbody .select2-container--default .select2-results__option:hover .user-back,
+	body#mainbody .select2-dropdown .select2-results .select2-highlighted .user-back {
+		background: rgba(214, 164, 62, 0.18) !important;
+		border-color: rgba(214, 164, 62, 0.34) !important;
+		color: #ffd38a !important;
 	}
 
 	body#mainbody .select2-results .select2-highlighted,
@@ -5812,6 +5844,29 @@ table.jPicker {
 	body#mainbody .ui-datepicker td a:hover {
 		background: var(--formora-neutral-hover-bg) !important;
 		color: var(--formora-accent) !important;
+	}
+
+	body#mainbody div#ui-datepicker-div .ui-datepicker-calendar td a.ui-state-default {
+		background: transparent !important;
+		border: 1px solid transparent !important;
+		color: var(--formora-text) !important;
+		font-weight: 400 !important;
+	}
+
+	body#mainbody div#ui-datepicker-div .ui-datepicker-calendar td a.ui-state-active,
+	body#mainbody div#ui-datepicker-div .ui-datepicker-calendar td.ui-datepicker-current-day a,
+	body#mainbody div#ui-datepicker-div .ui-datepicker-calendar td.ui-datepicker-current-day a.ui-state-hover {
+		background: var(--formora-accent) !important;
+		border-color: var(--formora-accent) !important;
+		color: #fff !important;
+		font-weight: 700 !important;
+	}
+
+	body#mainbody div#ui-datepicker-div .ui-datepicker-calendar td.ui-datepicker-today:not(.ui-datepicker-current-day) a {
+		background: transparent !important;
+		border-color: var(--formora-line) !important;
+		color: var(--formora-text) !important;
+		font-weight: 650 !important;
 	}
 
 	body#mainbody .butAction:not(.butActionDelete):not(.butActionRefused),
@@ -7933,6 +7988,7 @@ table.jPicker {
 				overflow-x: auto !important;
 				overflow-y: hidden !important;
 				padding-right: 0 !important;
+				scroll-padding-left: 48px;
 				scrollbar-width: none;
 				white-space: nowrap !important;
 				width: calc(100% - 116px) !important;
@@ -7957,7 +8013,7 @@ table.jPicker {
 			}
 
 			body#mainbody.formora-tmenu-is-scrollable:not(.bodytakepos):not(.bodylogin) #id-top::before {
-				left: 0;
+				left: 48px;
 				-webkit-mask-image: linear-gradient(90deg, #000 0%, rgba(0, 0, 0, 0.72) 42%, transparent 100%);
 				mask-image: linear-gradient(90deg, #000 0%, rgba(0, 0, 0, 0.72) 42%, transparent 100%);
 			}
@@ -8012,6 +8068,14 @@ table.jPicker {
 				display: block !important;
 			}
 
+			body#mainbody:not(.bodytakepos):not(.bodylogin) #id-top li.menuhider {
+				background: var(--formora-surface) !important;
+				box-shadow: 10px 0 14px -14px rgba(0, 0, 0, 0.5) !important;
+				left: 0 !important;
+				position: sticky !important;
+				z-index: 35 !important;
+			}
+
 			body#mainbody:not(.bodytakepos):not(.bodylogin) #id-top :is(li.tmenu, li.tmenusel) div.tmenucenter {
 				flex-direction: column !important;
 				height: 54px !important;
@@ -8039,6 +8103,9 @@ table.jPicker {
 
 			body#mainbody:not(.bodytakepos):not(.bodylogin) #id-top li.menuhider div.tmenucenter {
 				align-items: center !important;
+				background: var(--formora-surface) !important;
+				border-right: 1px solid var(--formora-line-soft) !important;
+				box-sizing: border-box !important;
 				flex-direction: row !important;
 				height: 60px !important;
 				justify-content: center !important;
