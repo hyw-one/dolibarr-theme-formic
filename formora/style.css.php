@@ -5433,8 +5433,8 @@ table.jPicker {
 		}
 
 		body#mainbody table.border:not(.liste) > tbody > tr > td {
-			padding-bottom: 7px !important;
-			padding-top: 7px !important;
+			padding-bottom: 5px !important;
+			padding-top: 5px !important;
 		}
 
 		body#mainbody table.border:not(.liste) {
