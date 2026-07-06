@@ -7602,13 +7602,16 @@ table.jPicker {
 			}
 
 			body#mainbody:not(.bodytakepos):not(.bodylogin) #id-top :is(li.tmenu, li.tmenusel) {
-				display: block !important;
 				flex: 0 0 48px !important;
 				float: none !important;
 				height: 60px !important;
 				margin-left: 4px !important;
 				min-width: 48px !important;
 				width: 48px !important;
+			}
+
+			body#mainbody:not(.bodytakepos):not(.bodylogin) #id-top :is(li.tmenu:not(.menuhider), li.tmenusel:not(.menuhider)) {
+				display: block !important;
 			}
 
 			body#mainbody:not(.bodytakepos):not(.bodylogin) #id-top :is(li.tmenu, li.tmenusel) div.tmenucenter {
