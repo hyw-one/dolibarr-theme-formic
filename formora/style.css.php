@@ -388,6 +388,8 @@ $nbtopmenuentriesreal = $nbtopmenuentries;
 if ($conf->browser->layout == 'phone') {
 	$nbtopmenuentries = max($nbtopmenuentries, 10);
 }
+$formoraMenuCollapseWidth = (int) getDolGlobalString('THEME_ELDY_WITDHOFFSET_FOR_REDUC3', round($nbtopmenuentries * 47, 0) + 130);
+$formoraMenuExpandedMinWidth = $formoraMenuCollapseWidth + 1;
 
 $minwidthtmenu = 66; /* minimum width for one top menu entry */
 $heightmenu = 50; /* height of top menu, part with image */
@@ -436,6 +438,7 @@ print 'dol_screenwidth='.(empty($_SESSION['dol_screenwidth']) ? '' : $_SESSION['
 print 'dol_screenheight='.(empty($_SESSION['dol_screenheight']) ? '' : $_SESSION['dol_screenheight'])."\n";
 print 'fontsize='.$fontsize."\n";
 print 'nbtopmenuentries='.$nbtopmenuentries."\n";
+print 'formoraMenuCollapseWidth='.$formoraMenuCollapseWidth."\n";
 print 'fontsizesmaller='.$fontsizesmaller."\n";
 print 'topMenuFontSize='.$topMenuFontSize."\n";
 print 'toolTipBgColor='.$toolTipBgColor."\n";
@@ -504,11 +507,10 @@ require __DIR__.'/global.inc.php';
 	--formora-shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.05), 0 8px 24px rgba(0, 0, 0, 0.06);
 	--formora-shadow-elevated: 0 16px 42px rgba(0, 0, 0, 0.16);
 	--formora-shadow-menu: 0 10px 28px rgba(0, 0, 0, 0.14);
+	--formora-tmenu-scroll-hint: rgba(29, 29, 31, 0.34);
 	--formora-elevated: #ffffff;
 	--formora-table-header: #f5f5f7;
 	--formora-switch-knob: #ffffff;
-	--formora-module-enabled-glow: rgba(26, 127, 55, 0.16);
-	--formora-module-enabled-glow-soft: rgba(26, 127, 55, 0.05);
 	--infoboxmoduleenabledbgcolor: transparent;
 	--formora-symbol-search: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M8.7 14.2a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11Zm4-1.5 4.1 4.1' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
 	--formora-symbol-refresh: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M16.2 7.2A6.4 6.4 0 0 0 4.1 5.4M3.6 3.1v3.9h3.9M3.8 12.8a6.4 6.4 0 0 0 12.1 1.8m.5 2.3v-3.9h-3.9' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
@@ -2081,10 +2083,10 @@ body#mainbody.bodyforlist:not(.poslist):not(.bodylogin):not(.mod-product) #id-ri
 	--formora-title-action-icon-size: 21px;
 	--formora-title-action-size: 38px;
 	align-items: center !important;
-	background: transparent !important;
+	background: var(--formora-neutral-bg) !important;
 	border: 0 !important;
 	border-radius: var(--formora-radius-sm) !important;
-	box-shadow: inset 0 0 0 1px transparent !important;
+	box-shadow: inset 0 0 0 1px var(--formora-line-soft) !important;
 	box-sizing: border-box !important;
 	color: var(--formora-muted) !important;
 	display: inline-flex !important;
@@ -2186,16 +2188,156 @@ body#mainbody.bodyforlist:not(.poslist):not(.bodylogin):not(.mod-product) #id-ri
 	z-index: 1;
 }
 
-#mainbody .box-flex-container.kanban .box-flex-item.info-box-module:not(.--disabled) .info-box::after {
-	background: radial-gradient(circle at calc(100% - 42px) calc(100% - 18px), var(--formora-module-enabled-glow) 0%, var(--formora-module-enabled-glow-soft) 38%, transparent 74%);
-	bottom: 0;
-	content: "";
-	pointer-events: none;
-	position: absolute;
-	right: 0;
-	top: 0;
-	width: 58%;
-	z-index: 0;
+body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList .box-flex-container.kanban > .box-flex-item {
+	background: transparent !important;
+	border: 0 !important;
+	box-shadow: none !important;
+	overflow: visible !important;
+}
+
+body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList .box-flex-container.kanban > .box-flex-item > .info-box.info-box-sm {
+	align-items: stretch !important;
+	display: flex !important;
+	height: auto !important;
+	margin-bottom: 0 !important;
+	min-height: 80px !important;
+}
+
+body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList .box-flex-container.kanban > .box-flex-item > .info-box.info-box-sm > .info-box-icon {
+	align-self: stretch !important;
+	flex: 0 0 80px !important;
+	float: none !important;
+	height: auto !important;
+	min-height: 0 !important;
+	width: 80px !important;
+}
+
+body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList .box-flex-container.kanban > .box-flex-item > .info-box.info-box-sm > .info-box-content {
+	flex: 1 1 auto !important;
+	margin-left: 0 !important;
+	min-width: 0 !important;
+}
+
+body#mainbody.mod-product.bodyforlist:not(.bodylogin) #id-right .fiche form#searchFormList .box-flex-container.kanban > .box-flex-item > .info-box.info-box-sm > .info-box-content > .info-box-status.amount {
+	max-width: calc(100% - 182px) !important;
+	overflow: hidden !important;
+	right: 58px !important;
+	text-align: right !important;
+	text-overflow: ellipsis !important;
+	white-space: nowrap !important;
+	z-index: 1;
+}
+
+body#mainbody.mod-product.bodyforlist:not(.bodylogin) #id-right .fiche form#searchFormList .box-flex-container.kanban > .box-flex-item > .info-box.info-box-sm > .info-box-content > .info-box-status.opacitymedium:not(.amount) {
+	display: inline-block !important;
+	position: static !important;
+}
+
+body#mainbody.mod-product.bodyforlist:not(.bodylogin) #id-right .fiche form#searchFormList .box-flex-container.kanban > .box-flex-item > .info-box.info-box-sm > .info-box-content > .info-box-status:not(.amount):not(.opacitymedium) {
+	z-index: 2;
+}
+
+@media only screen and (max-width: 1024px) {
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList :is(.div-table-responsive, .div-table-responsive-no-min):has(.box-flex-container.kanban) {
+		-webkit-overflow-scrolling: touch;
+		height: auto !important;
+		max-height: none !important;
+		max-width: 100% !important;
+		min-height: 0 !important;
+		overflow-x: auto !important;
+		overflow-y: visible !important;
+		padding-bottom: 8px !important;
+		scrollbar-color: var(--formora-line) transparent;
+		scrollbar-width: thin;
+	}
+
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList :is(.div-table-responsive, .div-table-responsive-no-min):has(.box-flex-container.kanban)::-webkit-scrollbar {
+		height: 8px;
+	}
+
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList :is(.div-table-responsive, .div-table-responsive-no-min):has(.box-flex-container.kanban)::-webkit-scrollbar-thumb {
+		background: var(--formora-line);
+		background-clip: content-box;
+		border: 2px solid transparent;
+		border-radius: 999px;
+	}
+
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList :is(.div-table-responsive, .div-table-responsive-no-min):has(.box-flex-container.kanban) > table.liste,
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList :is(.div-table-responsive, .div-table-responsive-no-min):has(.box-flex-container.kanban) > table.liste > tbody,
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList :is(.div-table-responsive, .div-table-responsive-no-min):has(.box-flex-container.kanban) > table.liste > tbody > tr.trkanban,
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList :is(.div-table-responsive, .div-table-responsive-no-min):has(.box-flex-container.kanban) > table.liste > tbody > tr.trkanban > td {
+		background: transparent !important;
+		border: 0 !important;
+		box-sizing: border-box !important;
+		display: block !important;
+		height: auto !important;
+		max-height: none !important;
+		max-width: none !important;
+		min-width: 980px !important;
+		overflow: visible !important;
+		padding: 0 !important;
+		width: 980px !important;
+	}
+
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList .box-flex-container.kanban {
+		align-items: stretch !important;
+		background: var(--formora-surface-alt) !important;
+		border-radius: 0 0 var(--formora-radius) var(--formora-radius) !important;
+		box-sizing: border-box !important;
+		display: flex !important;
+		flex-direction: row !important;
+		flex-wrap: wrap !important;
+		gap: 10px !important;
+		margin: 0 !important;
+		max-width: none !important;
+		min-width: 980px !important;
+		padding: 12px 12px 20px !important;
+		width: 980px !important;
+	}
+
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList .box-flex-container.kanban > .box-flex-item {
+		box-sizing: border-box !important;
+		flex: 0 0 calc((980px - 44px) / 3) !important;
+		margin: 0 !important;
+		max-width: calc((980px - 44px) / 3) !important;
+		min-width: 0 !important;
+		width: calc((980px - 44px) / 3) !important;
+	}
+
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList .box-flex-container.kanban > .box-flex-item > .info-box.info-box-sm {
+		box-sizing: border-box !important;
+		width: 100% !important;
+	}
+}
+
+#mainbody .box-flex-container.kanban > .box-flex-item.info-box-module {
+	background: transparent !important;
+	border: 0 !important;
+	box-shadow: none !important;
+	overflow: visible !important;
+}
+
+#mainbody .box-flex-container.kanban > .box-flex-item.info-box-module > .info-box.info-box-sm.info-box-module {
+	align-items: stretch !important;
+	display: flex !important;
+	height: auto !important;
+	margin-bottom: 0 !important;
+	min-height: 80px !important;
+}
+
+#mainbody .box-flex-container.kanban > .box-flex-item.info-box-module > .info-box.info-box-sm.info-box-module > .info-box-icon {
+	align-self: stretch !important;
+	flex: 0 0 80px !important;
+	float: none !important;
+	height: auto !important;
+	min-height: 0 !important;
+	width: 80px !important;
+}
+
+#mainbody .box-flex-container.kanban > .box-flex-item.info-box-module > .info-box.info-box-sm.info-box-module > .info-box-content {
+	flex: 1 1 auto !important;
+	margin-left: 0 !important;
+	min-width: 0 !important;
 }
 
 table.border,
@@ -2226,6 +2368,14 @@ div.liste_titre_bydiv_nothingafter,
 	border-radius: 8px !important;
 	border-spacing: 0 !important;
 	overflow: hidden;
+}
+
+body#mainbody.mod-admin.page-modules #id-right .fiche .div-table-responsive > table.tagtable.liste {
+	border: 0 !important;
+}
+
+body#mainbody.mod-admin.page-modules #id-right .fiche .div-table-responsive > table.tagtable.liste > :is(tbody, tfoot):last-child > tr:last-child > :is(td, th) {
+	border-bottom: 0 !important;
 }
 
 #mainbody .div-table-responsive > table.liste:not(.listwithfilterbefore) > :is(thead, tbody):first-child > tr:first-child > :is(td, th):first-child,
@@ -2445,6 +2595,7 @@ if (getDolGlobalInt('THEME_DARKMODEENABLED')) {
 	--formora-refused-bg: #202124;
 	--formora-focus-ring: rgba(10, 132, 255, 0.32);
 	--formora-focus-outline: #78b7ff;
+	--formora-tmenu-scroll-hint: rgba(245, 245, 247, 0.36);
 	--formora-status-success-bg: rgba(48, 209, 88, 0.16);
 	--formora-status-success-border: rgba(48, 209, 88, 0.32);
 	--formora-status-success-text: #30d158;
@@ -2466,8 +2617,6 @@ if (getDolGlobalInt('THEME_DARKMODEENABLED')) {
 	--formora-infobox-stock: #d7ce5e;
 	--formora-infobox-supplier: #73c7df;
 	--formora-switch-knob: #1c1f22;
-	--formora-module-enabled-glow: rgba(48, 209, 88, 0.26);
-	--formora-module-enabled-glow-soft: rgba(48, 209, 88, 0.08);
 	--formora-shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.35), 0 8px 24px rgba(0, 0, 0, 0.28);
 	--formora-shadow-elevated: 0 18px 48px rgba(0, 0, 0, 0.48);
 	--formora-shadow-menu: 0 14px 34px rgba(0, 0, 0, 0.5);
@@ -3268,9 +3417,9 @@ textarea:focus,
 }
 
 .select2-container--default .select2-results__option--highlighted[aria-selected],
-.select2-container--default .select2-results__option--highlighted[aria-selected] span:not(.flag-sprite):not([class*="flag"]):not(.fi):not([class^="fi-"]):not([class*=" fi-"]),
+.select2-container--default .select2-results__option--highlighted[aria-selected] span:not(.flag-sprite):not([class*="flag"]):not(.fi):not([class^="fi-"]):not([class*=" fi-"]):not(.prospect-back):not(.customer-back):not(.vendor-back):not(.user-back):not(.member-company-back):not(.member-individual-back):not(.nonature-back),
 .select2-results .select2-highlighted,
-.select2-results .select2-highlighted span:not(.flag-sprite):not([class*="flag"]):not(.fi):not([class^="fi-"]):not([class*=" fi-"]) {
+.select2-results .select2-highlighted span:not(.flag-sprite):not([class*="flag"]):not(.fi):not([class^="fi-"]):not([class*=" fi-"]):not(.prospect-back):not(.customer-back):not(.vendor-back):not(.user-back):not(.member-company-back):not(.member-individual-back):not(.nonature-back) {
 	background: var(--formora-accent-soft) !important;
 	color: var(--formora-accent-hover) !important;
 }
@@ -5060,7 +5209,7 @@ table.jPicker {
 		border-color: var(--formora-line-soft) !important;
 	}
 
-	@media only screen and (min-width: 768px) {
+	@media only screen and (min-width: <?php echo $formoraMenuExpandedMinWidth; ?>px) {
 		body#mainbody:not(.bodylogin):not(.poslist) #id-container:has(#id-left) {
 			min-height: calc(100vh - 51px);
 			position: relative;
@@ -5433,8 +5582,8 @@ table.jPicker {
 		}
 
 		body#mainbody table.border:not(.liste) > tbody > tr > td {
-			padding-bottom: 7px !important;
-			padding-top: 7px !important;
+			padding-bottom: 5px !important;
+			padding-top: 5px !important;
 		}
 
 		body#mainbody table.border:not(.liste) {
@@ -5651,10 +5800,42 @@ table.jPicker {
 		color: var(--formora-accent) !important;
 	}
 
-	body#mainbody .select2-container--default .select2-results__option--highlighted[aria-selected] span:not(.flag-sprite):not([class*="flag"]):not(.fi):not([class^="fi-"]):not([class*=" fi-"]),
-	body#mainbody .select2-container--default .select2-results__option:hover span:not(.flag-sprite):not([class*="flag"]):not(.fi):not([class^="fi-"]):not([class*=" fi-"]) {
+	body#mainbody .select2-container--default .select2-results__option--highlighted[aria-selected] span:not(.flag-sprite):not([class*="flag"]):not(.fi):not([class^="fi-"]):not([class*=" fi-"]):not(.prospect-back):not(.customer-back):not(.vendor-back):not(.user-back):not(.member-company-back):not(.member-individual-back):not(.nonature-back),
+	body#mainbody .select2-container--default .select2-results__option:hover span:not(.flag-sprite):not([class*="flag"]):not(.fi):not([class^="fi-"]):not([class*=" fi-"]):not(.prospect-back):not(.customer-back):not(.vendor-back):not(.user-back):not(.member-company-back):not(.member-individual-back):not(.nonature-back) {
 		background: transparent !important;
 		color: inherit !important;
+	}
+
+	body#mainbody .select2-container--default .select2-results__option--highlighted[aria-selected] .prospect-back,
+	body#mainbody .select2-container--default .select2-results__option:hover .prospect-back,
+	body#mainbody .select2-dropdown .select2-results .select2-highlighted .prospect-back {
+		background: rgba(61, 180, 111, 0.18) !important;
+		border-color: rgba(61, 180, 111, 0.34) !important;
+		color: #9df0b4 !important;
+	}
+
+	body#mainbody .select2-container--default .select2-results__option--highlighted[aria-selected] .customer-back,
+	body#mainbody .select2-container--default .select2-results__option:hover .customer-back,
+	body#mainbody .select2-dropdown .select2-results .select2-highlighted .customer-back {
+		background: rgba(61, 180, 111, 0.28) !important;
+		border-color: rgba(61, 180, 111, 0.42) !important;
+		color: #b7f7c7 !important;
+	}
+
+	body#mainbody .select2-container--default .select2-results__option--highlighted[aria-selected] .vendor-back,
+	body#mainbody .select2-container--default .select2-results__option:hover .vendor-back,
+	body#mainbody .select2-dropdown .select2-results .select2-highlighted .vendor-back {
+		background: rgba(78, 163, 255, 0.2) !important;
+		border-color: rgba(78, 163, 255, 0.38) !important;
+		color: var(--formora-accent-hover) !important;
+	}
+
+	body#mainbody .select2-container--default .select2-results__option--highlighted[aria-selected] .user-back,
+	body#mainbody .select2-container--default .select2-results__option:hover .user-back,
+	body#mainbody .select2-dropdown .select2-results .select2-highlighted .user-back {
+		background: rgba(214, 164, 62, 0.18) !important;
+		border-color: rgba(214, 164, 62, 0.34) !important;
+		color: #ffd38a !important;
 	}
 
 	body#mainbody .select2-results .select2-highlighted,
@@ -5663,6 +5844,29 @@ table.jPicker {
 	body#mainbody .ui-datepicker td a:hover {
 		background: var(--formora-neutral-hover-bg) !important;
 		color: var(--formora-accent) !important;
+	}
+
+	body#mainbody div#ui-datepicker-div .ui-datepicker-calendar td a.ui-state-default {
+		background: transparent !important;
+		border: 1px solid transparent !important;
+		color: var(--formora-text) !important;
+		font-weight: 400 !important;
+	}
+
+	body#mainbody div#ui-datepicker-div .ui-datepicker-calendar td a.ui-state-active,
+	body#mainbody div#ui-datepicker-div .ui-datepicker-calendar td.ui-datepicker-current-day a,
+	body#mainbody div#ui-datepicker-div .ui-datepicker-calendar td.ui-datepicker-current-day a.ui-state-hover {
+		background: var(--formora-accent) !important;
+		border-color: var(--formora-accent) !important;
+		color: #fff !important;
+		font-weight: 700 !important;
+	}
+
+	body#mainbody div#ui-datepicker-div .ui-datepicker-calendar td.ui-datepicker-today:not(.ui-datepicker-current-day) a {
+		background: transparent !important;
+		border-color: var(--formora-line) !important;
+		color: var(--formora-text) !important;
+		font-weight: 650 !important;
 	}
 
 	body#mainbody .butAction:not(.butActionDelete):not(.butActionRefused),
@@ -5993,6 +6197,18 @@ table.jPicker {
 		width: 100% !important;
 	}
 
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > div.col-center:has(#massaction[style*="inline-block"]) > .centpercent.center,
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > div.col-center:has(input.massactionconfirmed:not([style*="display: none"])) > .centpercent.center,
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList .col-center:has(#massaction[style*="inline-block"]) > .centpercent.center,
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList .col-center:has(input.massactionconfirmed:not([style*="display: none"])) > .centpercent.center {
+		align-items: center;
+		display: inline-flex !important;
+		flex-wrap: wrap;
+		gap: 8px;
+		justify-content: center;
+		max-width: 100%;
+	}
+
 	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList #massaction,
 	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList input.massactionconfirmed {
 		margin: 0 !important;
@@ -6095,6 +6311,26 @@ table.jPicker {
 		padding-top: 8px !important;
 	}
 
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .div-table-responsive > table.liste > tbody > tr.liste_titre_filter .nowrapfordate,
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .div-table-responsive-no-min > table.liste > tbody > tr.liste_titre_filter .nowrapfordate {
+		align-items: flex-start;
+		display: inline-flex !important;
+		flex-direction: column;
+		gap: 0;
+	}
+
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .div-table-responsive > table.liste > tbody > tr.liste_titre_filter .nowrapfordate > .divfordateinput,
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .div-table-responsive-no-min > table.liste > tbody > tr.liste_titre_filter .nowrapfordate > .divfordateinput {
+		align-items: center;
+		display: inline-flex !important;
+		gap: 4px;
+	}
+
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .div-table-responsive > table.liste > tbody > tr.liste_titre_filter .nowrapfordate:has(> .divfordateinput > input[id$="_end"]),
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .div-table-responsive-no-min > table.liste > tbody > tr.liste_titre_filter .nowrapfordate:has(> .divfordateinput > input[id$="_end"]) {
+		margin-top: 0 !important;
+	}
+
 	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .div-table-responsive > table.liste > tbody > tr.liste_titre_filter + tr.liste_titre > :is(td, th),
 	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .div-table-responsive-no-min > table.liste > tbody > tr.liste_titre_filter + tr.liste_titre > :is(td, th) {
 		border-top: 1px solid var(--formora-line) !important;
@@ -6112,7 +6348,7 @@ table.jPicker {
 		min-width: 0 !important;
 	}
 
-	@media only screen and (min-width: 930px) {
+	@media only screen and (min-width: <?php echo $formoraMenuExpandedMinWidth; ?>px) {
 		body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right {
 			max-width: calc(100vw - <?php echo $leftmenuwidth + 21; ?>px) !important;
 			width: calc(100vw - <?php echo $leftmenuwidth + 21; ?>px) !important;
@@ -6138,7 +6374,7 @@ table.jPicker {
 		}
 	}
 
-	@media only screen and (min-width: 768px) and (max-width: 929px) {
+	@media only screen and (min-width: 768px) and (max-width: <?php echo $formoraMenuCollapseWidth; ?>px) {
 		body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right {
 			max-width: 100vw !important;
 			width: 100% !important;
@@ -6383,6 +6619,42 @@ table.jPicker {
 		border-radius: var(--formora-radius-sm) !important;
 		box-shadow: var(--formora-shadow-menu) !important;
 		color: var(--tooltipfontcolor, var(--formora-text)) !important;
+	}
+
+	body#mainbody div.ui-tooltip.mytooltip,
+	body#mainbody div.ui-tooltip.mytooltip-hover-tooltip {
+		box-sizing: border-box !important;
+		max-width: min(550px, calc(100vw - 32px)) !important;
+		min-width: min(420px, calc(100vw - 32px)) !important;
+		overflow-wrap: anywhere;
+		white-space: normal !important;
+		width: auto !important;
+	}
+
+	@media only screen and (max-width: 1180px) {
+		body#mainbody div.ui-tooltip.mytooltip,
+		body#mainbody div.ui-tooltip.mytooltip-hover-tooltip {
+			max-width: min(440px, calc(100vw - 32px)) !important;
+			min-width: min(320px, calc(100vw - 32px)) !important;
+		}
+	}
+
+	@media only screen and (max-width: 768px) {
+		body#mainbody div.ui-tooltip.mytooltip,
+		body#mainbody div.ui-tooltip.mytooltip-hover-tooltip {
+			max-width: calc(100vw - 24px) !important;
+			min-width: min(280px, calc(100vw - 24px)) !important;
+			padding: 14px 16px !important;
+		}
+	}
+
+	@media only screen and (max-width: 480px) {
+		body#mainbody div.ui-tooltip.mytooltip,
+		body#mainbody div.ui-tooltip.mytooltip-hover-tooltip {
+			max-width: calc(100vw - 20px) !important;
+			min-width: 0 !important;
+			padding: 12px !important;
+		}
 	}
 
 	body#mainbody .jnotify-container {
@@ -7716,6 +7988,7 @@ table.jPicker {
 				overflow-x: auto !important;
 				overflow-y: hidden !important;
 				padding-right: 0 !important;
+				scroll-padding-left: 48px;
 				scrollbar-width: none;
 				white-space: nowrap !important;
 				width: calc(100% - 116px) !important;
@@ -7740,7 +8013,7 @@ table.jPicker {
 			}
 
 			body#mainbody.formora-tmenu-is-scrollable:not(.bodytakepos):not(.bodylogin) #id-top::before {
-				left: 0;
+				left: 48px;
 				-webkit-mask-image: linear-gradient(90deg, #000 0%, rgba(0, 0, 0, 0.72) 42%, transparent 100%);
 				mask-image: linear-gradient(90deg, #000 0%, rgba(0, 0, 0, 0.72) 42%, transparent 100%);
 			}
@@ -7754,6 +8027,20 @@ table.jPicker {
 			body#mainbody.formora-tmenu-can-scroll-left:not(.bodytakepos):not(.bodylogin) #id-top::before,
 			body#mainbody.formora-tmenu-can-scroll-right:not(.bodytakepos):not(.bodylogin) #id-top::after {
 				opacity: 1;
+			}
+
+			body#mainbody.formora-tmenu-can-scroll-right:not(.formora-tmenu-can-scroll-left):not(.bodytakepos):not(.bodylogin) #tmenu_tooltip {
+				box-shadow: inset -20px 0 18px -16px var(--formora-tmenu-scroll-hint) !important;
+			}
+
+			body#mainbody.formora-tmenu-can-scroll-left:not(.formora-tmenu-can-scroll-right):not(.bodytakepos):not(.bodylogin) #tmenu_tooltip {
+				box-shadow: inset 20px 0 18px -16px var(--formora-tmenu-scroll-hint) !important;
+			}
+
+			body#mainbody.formora-tmenu-can-scroll-left.formora-tmenu-can-scroll-right:not(.bodytakepos):not(.bodylogin) #tmenu_tooltip {
+				box-shadow:
+					inset 20px 0 18px -16px var(--formora-tmenu-scroll-hint),
+					inset -20px 0 18px -16px var(--formora-tmenu-scroll-hint) !important;
 			}
 
 			body#mainbody:not(.bodytakepos):not(.bodylogin) #id-top :is(.tmenudiv, ul.tmenu) {
@@ -7781,6 +8068,14 @@ table.jPicker {
 				display: block !important;
 			}
 
+			body#mainbody:not(.bodytakepos):not(.bodylogin) #id-top li.menuhider {
+				background: var(--formora-surface) !important;
+				box-shadow: 10px 0 14px -14px rgba(0, 0, 0, 0.5) !important;
+				left: 0 !important;
+				position: sticky !important;
+				z-index: 35 !important;
+			}
+
 			body#mainbody:not(.bodytakepos):not(.bodylogin) #id-top :is(li.tmenu, li.tmenusel) div.tmenucenter {
 				flex-direction: column !important;
 				height: 54px !important;
@@ -7804,6 +8099,35 @@ table.jPicker {
 				min-height: 18px !important;
 				white-space: nowrap !important;
 				width: auto !important;
+			}
+
+			body#mainbody:not(.bodytakepos):not(.bodylogin) #id-top li.menuhider div.tmenucenter {
+				align-items: center !important;
+				background: var(--formora-surface) !important;
+				border-right: 1px solid var(--formora-line-soft) !important;
+				box-sizing: border-box !important;
+				flex-direction: row !important;
+				height: 60px !important;
+				justify-content: center !important;
+				margin-bottom: 0 !important;
+				margin-top: 0 !important;
+				min-height: 60px !important;
+				min-width: 44px !important;
+				padding: 0 8px !important;
+			}
+
+			body#mainbody:not(.bodytakepos):not(.bodylogin) #id-top li.menuhider div.tmenucenter > a.tmenuimage {
+				align-items: center !important;
+				display: flex !important;
+				height: 60px !important;
+				justify-content: center !important;
+				min-height: 60px !important;
+				min-width: 28px !important;
+				width: 28px !important;
+			}
+
+			body#mainbody:not(.bodytakepos):not(.bodylogin) #id-top li.menuhider div.tmenucenter > a.tmenulabel {
+				display: none !important;
 			}
 
 			body#mainbody:not(.bodytakepos):not(.bodylogin) .login_block.usedropdown {
@@ -7915,6 +8239,54 @@ table.jPicker {
 
 		}
 
+		@media only screen and (min-width: 768px) and (max-width: <?php echo $formoraMenuCollapseWidth; ?>px) {
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-container:has(#id-left)::before {
+				content: none !important;
+				display: none !important;
+			}
+
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right {
+				box-sizing: border-box !important;
+				left: auto !important;
+				max-width: 100vw !important;
+				min-width: 0 !important;
+				padding-left: 0 !important;
+				padding-right: 0 !important;
+				width: 100% !important;
+			}
+
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche,
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right div.fiche {
+				box-sizing: border-box !important;
+				margin-left: 13px;
+				margin-right: 14px;
+				max-width: calc(100vw - 27px) !important;
+				min-width: 0 !important;
+				width: auto !important;
+			}
+		}
+
+		@media only screen and (min-width: <?php echo $formoraMenuExpandedMinWidth; ?>px) {
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche,
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right div.fiche {
+				box-sizing: border-box !important;
+				margin-left: 12px;
+				margin-right: 12px;
+				max-width: calc(100% - 24px) !important;
+				min-width: 0 !important;
+				width: auto !important;
+			}
+		}
+
+		@media only screen and (min-width: <?php echo $formoraMenuExpandedMinWidth; ?>px) and (max-width: 1279px) {
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right {
+				box-sizing: border-box !important;
+				max-width: calc(100vw - <?php echo $leftmenuwidth + 21; ?>px) !important;
+				min-width: 0 !important;
+				width: calc(100vw - <?php echo $leftmenuwidth + 21; ?>px) !important;
+			}
+		}
+
 		@media only screen and (max-width: 767px) {
 			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right,
 			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche,
@@ -7922,71 +8294,6 @@ table.jPicker {
 				box-sizing: border-box !important;
 				max-width: 100% !important;
 				min-width: 0 !important;
-			}
-
-			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form table.border:not(.liste):not(.table-fiche-title) {
-				box-sizing: border-box !important;
-				display: block !important;
-				max-width: 100% !important;
-				min-width: 0 !important;
-				overflow: hidden !important;
-				padding-left: 8px !important;
-				padding-right: 8px !important;
-				width: 100% !important;
-			}
-
-			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form table.border:not(.liste):not(.table-fiche-title) > :is(tbody, thead, tfoot) {
-				box-sizing: border-box !important;
-				display: block !important;
-				max-width: 100% !important;
-				min-width: 0 !important;
-				width: 100% !important;
-			}
-
-			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form table.border:not(.liste):not(.table-fiche-title) > :is(tbody, thead, tfoot) > tr {
-				box-sizing: border-box !important;
-				display: flex !important;
-				flex-wrap: wrap;
-				gap: 4px 0;
-				max-width: 100% !important;
-				min-width: 0 !important;
-				width: 100% !important;
-			}
-
-			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form table.border:not(.liste):not(.table-fiche-title) > :is(tbody, thead, tfoot) > tr > :is(td, th) {
-				box-sizing: border-box !important;
-				display: block !important;
-				flex: 1 1 100%;
-				max-width: 100% !important;
-				min-width: 0 !important;
-				padding-left: 0 !important;
-				padding-right: 0 !important;
-				width: 100% !important;
-			}
-
-			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form table.border:not(.liste):not(.table-fiche-title) > :is(tbody, thead, tfoot) > tr > :is(td, th):first-child:not([colspan]) {
-				color: var(--formora-muted) !important;
-				font-weight: 650;
-				padding-bottom: 2px !important;
-			}
-
-			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form table.border:not(.liste):not(.table-fiche-title) :is(.minwidth50, .minwidth75, .minwidth100, .minwidth125, .minwidth150, .minwidth200, .minwidth250, .minwidth300, .minwidth400, .minwidth500, .maxwidth100, .maxwidth150, .maxwidth200, .maxwidth250, .maxwidth300, .maxwidth400, .maxwidth500, .widthcentpercentminusx) {
-				max-width: 100% !important;
-				min-width: 0 !important;
-			}
-
-			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form table.border:not(.liste):not(.table-fiche-title) :is(input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"]):not([type="image"]):not([type="submit"]):not([type="button"]), textarea, select, .select2-container, .select2-selection, .select2-selection__rendered, .select2-search--inline, .select2-search__field, div.urllink) {
-				box-sizing: border-box !important;
-				max-width: 100% !important;
-				min-width: 0 !important;
-				width: 100% !important;
-			}
-
-			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form table.border:not(.liste):not(.table-fiche-title) :is(td, th) > :is(table.nobordernopadding, table.noborder, table.border:not(.liste)) {
-				box-sizing: border-box !important;
-				max-width: 100% !important;
-				min-width: 0 !important;
-				width: 100% !important;
 			}
 
 			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche .tabBar,
@@ -7997,11 +8304,149 @@ table.jPicker {
 				overflow-x: hidden !important;
 			}
 
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche .tabBar:has(table.border:not(.liste):not(.table-fiche-title)) {
+				-webkit-overflow-scrolling: touch;
+				overflow-x: auto !important;
+				scrollbar-color: var(--formora-line) transparent;
+				scrollbar-width: thin;
+			}
+
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche .tabBar:has(table.border:not(.liste):not(.table-fiche-title))::-webkit-scrollbar {
+				height: 8px;
+			}
+
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche .tabBar:has(table.border:not(.liste):not(.table-fiche-title))::-webkit-scrollbar-thumb {
+				background: var(--formora-line);
+				background-clip: content-box;
+				border: 2px solid transparent;
+				border-radius: 999px;
+			}
+
 			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche .tabBar :is(table.border.centpercent, table.noborder.centpercent):not(.liste):not(.table-fiche-title) {
 				box-sizing: border-box !important;
 				max-width: 100% !important;
 				min-width: 0 !important;
 				width: 100% !important;
+			}
+
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche .tabBar table.border:not(.liste):not(.table-fiche-title) {
+				max-width: none !important;
+			}
+
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form .tabBar > table.border:not(.liste):not(.table-fiche-title) {
+				box-sizing: border-box !important;
+				display: block !important;
+				max-width: 100% !important;
+				min-width: 0 !important;
+				overflow: visible !important;
+				width: 100% !important;
+			}
+
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form > table.border:not(.liste):not(.table-fiche-title) {
+				box-sizing: border-box !important;
+				display: block !important;
+				max-width: 100% !important;
+				min-width: 0 !important;
+				overflow: visible !important;
+				width: 100% !important;
+			}
+
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form .tabBar > table.border:not(.liste):not(.table-fiche-title) > :is(tbody, thead, tfoot) {
+				box-sizing: border-box !important;
+				display: block !important;
+				max-width: 100% !important;
+				min-width: 0 !important;
+				width: 100% !important;
+			}
+
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form > table.border:not(.liste):not(.table-fiche-title) > :is(tbody, thead, tfoot) {
+				box-sizing: border-box !important;
+				display: block !important;
+				max-width: 100% !important;
+				min-width: 0 !important;
+				width: 100% !important;
+			}
+
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form .tabBar > table.border:not(.liste):not(.table-fiche-title) > :is(tbody, thead, tfoot) > tr {
+				align-items: stretch !important;
+				box-sizing: border-box !important;
+				display: flex !important;
+				flex-direction: column !important;
+				gap: 6px !important;
+				height: auto !important;
+				margin: 0 !important;
+				max-width: 100% !important;
+				min-height: 0 !important;
+				min-width: 0 !important;
+				padding: 10px !important;
+				width: 100% !important;
+			}
+
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form > table.border:not(.liste):not(.table-fiche-title) > :is(tbody, thead, tfoot) > tr {
+				align-items: stretch !important;
+				box-sizing: border-box !important;
+				display: flex !important;
+				flex-direction: column !important;
+				gap: 6px !important;
+				height: auto !important;
+				margin: 0 !important;
+				max-width: 100% !important;
+				min-height: 0 !important;
+				min-width: 0 !important;
+				padding: 10px !important;
+				width: 100% !important;
+			}
+
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form .tabBar > table.border:not(.liste):not(.table-fiche-title) > :is(tbody, thead, tfoot) > tr[style*="display: none"],
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form .tabBar > table.border:not(.liste):not(.table-fiche-title) > :is(tbody, thead, tfoot) > tr[style*="display:none"],
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form .tabBar > table.border:not(.liste):not(.table-fiche-title) > :is(tbody, thead, tfoot) > tr.hidden,
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form .tabBar > table.border:not(.liste):not(.table-fiche-title) > :is(tbody, thead, tfoot) > tr:not(:has(> :is(td, th))),
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form > table.border:not(.liste):not(.table-fiche-title) > :is(tbody, thead, tfoot) > tr[style*="display: none"],
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form > table.border:not(.liste):not(.table-fiche-title) > :is(tbody, thead, tfoot) > tr[style*="display:none"],
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form > table.border:not(.liste):not(.table-fiche-title) > :is(tbody, thead, tfoot) > tr.hidden,
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form > table.border:not(.liste):not(.table-fiche-title) > :is(tbody, thead, tfoot) > tr:not(:has(> :is(td, th))) {
+				display: none !important;
+			}
+
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form .tabBar > table.border:not(.liste):not(.table-fiche-title) > :is(tbody, thead, tfoot) > tr > :is(td, th) {
+				box-sizing: border-box !important;
+				display: block !important;
+				height: auto !important;
+				max-width: 100% !important;
+				min-height: 0 !important;
+				min-width: 0 !important;
+				padding: 0 !important;
+				width: 100% !important;
+			}
+
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form > table.border:not(.liste):not(.table-fiche-title) > :is(tbody, thead, tfoot) > tr > :is(td, th) {
+				box-sizing: border-box !important;
+				display: block !important;
+				height: auto !important;
+				max-width: 100% !important;
+				min-height: 0 !important;
+				min-width: 0 !important;
+				padding: 0 !important;
+				width: 100% !important;
+			}
+
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form .tabBar > table.border:not(.liste):not(.table-fiche-title) > :is(tbody, thead, tfoot) > tr > :is(td, th):empty {
+				display: none !important;
+			}
+
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form > table.border:not(.liste):not(.table-fiche-title) > :is(tbody, thead, tfoot) > tr > :is(td, th):empty {
+				display: none !important;
+			}
+
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form .tabBar > table.border:not(.liste):not(.table-fiche-title) > :is(tbody, thead, tfoot) > tr > :is(td, th):first-child,
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form > table.border:not(.liste):not(.table-fiche-title) > :is(tbody, thead, tfoot) > tr > :is(td, th):first-child {
+				font-weight: 650;
+				line-height: 1.25;
+			}
+
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form .tabBar > table.border:not(.liste):not(.table-fiche-title) > :is(tbody, thead, tfoot) > tr > :is(td, th) :is(input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"]):not([type="image"]):not([type="submit"]):not([type="button"]), textarea, select, .select2-container, .select2-selection, .select2-selection__rendered, div.urllink),
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form > table.border:not(.liste):not(.table-fiche-title) > :is(tbody, thead, tfoot) > tr > :is(td, th) :is(input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"]):not([type="image"]):not([type="submit"]):not([type="button"]), textarea, select, .select2-container, .select2-selection, .select2-selection__rendered, div.urllink) {
+				max-width: 100% !important;
 			}
 
 			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche .tabBar :is(img, canvas, svg) {
@@ -8032,6 +8477,100 @@ table.jPicker {
 			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche :is(.boxhalfleft, .boxhalfright, .fichehalfleft, .fichehalfright) > .box.divboxtable.boxdraggable > table.boxtable {
 				max-width: none !important;
 				min-width: 100% !important;
+			}
+		}
+
+		@media only screen and (max-width: 1024px) {
+			body#mainbody:not(.bodytakepos):not(.bodylogin) #id-top li.menuhider {
+				display: block !important;
+				flex: 0 0 auto !important;
+				float: none !important;
+				height: 60px !important;
+				margin-left: 0 !important;
+				min-width: 44px !important;
+				width: auto !important;
+			}
+
+			body#mainbody:not(.bodytakepos):not(.bodylogin) #id-container {
+				display: block !important;
+				min-height: calc(100vh - 60px) !important;
+				position: relative !important;
+				table-layout: fixed !important;
+				width: 100% !important;
+			}
+
+			body#mainbody:not(.bodytakepos):not(.bodylogin) #id-container:has(#id-left)::before {
+				content: none !important;
+				display: none !important;
+			}
+
+			body#mainbody.sidebar-collapse:not(.bodytakepos):not(.bodylogin) #id-container > .side-nav {
+				border: 0 !important;
+				box-shadow: none !important;
+				display: none !important;
+				max-width: 0 !important;
+				min-width: 0 !important;
+				padding-left: 0 !important;
+				padding-right: 0 !important;
+				width: 0 !important;
+			}
+
+			body#mainbody.sidebar-collapse:not(.bodytakepos):not(.bodylogin) #id-left {
+				max-width: 0 !important;
+				min-width: 0 !important;
+				padding-left: 0 !important;
+				padding-right: 0 !important;
+				width: 0 !important;
+			}
+
+			body#mainbody:not(.sidebar-collapse):not(.bodytakepos):not(.bodylogin) #id-container > .side-nav {
+				display: block !important;
+				float: none !important;
+				<?php print $left; ?>: 0 !important;
+				max-width: <?php echo $leftmenuwidth + 20; ?>px !important;
+				min-width: <?php echo $leftmenuwidth + 20; ?>px !important;
+				position: absolute !important;
+				top: 0 !important;
+				width: <?php echo $leftmenuwidth + 20; ?>px !important;
+				z-index: 200 !important;
+			}
+
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right,
+			body#mainbody:not(.bodytakepos):not(.bodylogin) #id-right,
+			body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right,
+			body#mainbody:is(.page-list_det, .page-task_time):not(.bodylogin) #id-right,
+			body#mainbody.classforhorizontalscrolloftabs:not(.bodytakepos):not(.bodylogin) #id-right {
+				box-sizing: border-box !important;
+				display: block !important;
+				left: auto !important;
+				max-width: 100vw !important;
+				min-width: 0 !important;
+				padding-left: 0 !important;
+				padding-right: 0 !important;
+				width: 100% !important;
+			}
+
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche,
+			body#mainbody:not(.bodytakepos):not(.bodylogin) #id-right .fiche,
+			body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche,
+			body#mainbody:is(.page-list_det, .page-task_time):not(.bodylogin) #id-right .fiche {
+				box-sizing: border-box !important;
+				margin-left: 13px !important;
+				margin-right: 14px !important;
+				max-width: calc(100vw - 27px) !important;
+				min-width: 0 !important;
+				width: auto !important;
+			}
+		}
+
+		@media only screen and (max-width: 767px) {
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche,
+			body#mainbody:not(.bodytakepos):not(.bodylogin) #id-right .fiche,
+			body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche,
+			body#mainbody:is(.page-list_det, .page-task_time):not(.bodylogin) #id-right .fiche {
+				margin-left: 9px !important;
+				margin-right: 10px !important;
+				max-width: calc(100vw - 19px) !important;
 			}
 		}
 
@@ -8165,6 +8704,26 @@ table.jPicker {
 				width: min(300px, calc(100vw - 12px)) !important;
 			}
 		}
+
+	body#mainbody :is(a.btnTitle, .btnTitle, .butAction, .butActionDelete, .button, .buttonDelete, button:not(:disabled), input.button:not(:disabled), input[type="button"]:not(:disabled), input[type="submit"]:not(:disabled)):focus-visible,
+	body#mainbody #id-top :is(a.tmenuimage, a.tmenulabel, .dropdown-toggle, .button-top-menu-dropdown):focus-visible,
+	body#mainbody #id-left :is(a, button, [tabindex]):focus-visible,
+	body#mainbody .select2-container--default .select2-selection--single:focus-visible,
+	body#mainbody .select2-container--default.select2-container--focus .select2-selection--single,
+	body#mainbody .select2-container--default.select2-container--open .select2-selection--single,
+	body.bodytakepos :is(a, button:not(:disabled), input:not([type="hidden"]):not(:disabled), select:not(:disabled), textarea:not(:disabled), .button-top-menu-dropdown):focus-visible {
+		outline: 2px solid var(--formora-focus-outline) !important;
+		outline-offset: 2px !important;
+		box-shadow: 0 0 0 4px var(--formora-focus-ring) !important;
+	}
+
+	body#mainbody #id-top :is(li.tmenu, li.tmenusel) div.tmenucenter:focus-within,
+	body#mainbody .login_block.usedropdown :is(#topmenu-quickadd-dropdown, #topmenu-login-dropdown) > a.dropdown-toggle:focus-visible,
+	body.bodytakepos .topnav :is(a, button, .dropdown-toggle):focus-visible {
+		border-radius: var(--formora-radius-sm) !important;
+		box-shadow: inset 0 0 0 2px var(--formora-focus-outline), 0 0 0 3px var(--formora-focus-ring) !important;
+		outline: 0 !important;
+	}
 
 	body#mainbody input[type="submit"][style*="display: none"]:not(#formora-inline-hidden),
 	body#mainbody input[type="submit"][style*="display:none"]:not(#formora-inline-hidden),
