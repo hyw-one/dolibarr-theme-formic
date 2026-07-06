@@ -2293,6 +2293,14 @@ div.liste_titre_bydiv_nothingafter,
 	overflow: hidden;
 }
 
+body#mainbody.mod-admin.page-modules #id-right .fiche .div-table-responsive > table.tagtable.liste {
+	border: 0 !important;
+}
+
+body#mainbody.mod-admin.page-modules #id-right .fiche .div-table-responsive > table.tagtable.liste > :is(tbody, tfoot):last-child > tr:last-child > :is(td, th) {
+	border-bottom: 0 !important;
+}
+
 #mainbody .div-table-responsive > table.liste:not(.listwithfilterbefore) > :is(thead, tbody):first-child > tr:first-child > :is(td, th):first-child,
 #mainbody .div-table-responsive-no-min > table.liste:not(.listwithfilterbefore) > :is(thead, tbody):first-child > tr:first-child > :is(td, th):first-child {
 	border-top-left-radius: 8px !important;
