@@ -5522,6 +5522,47 @@ table.jPicker {
 		box-shadow: none !important;
 	}
 
+	@media only screen and (min-width: 769px) {
+		body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right {
+			--formora-two-column-inner-gap: 16px;
+			--formora-two-column-outer-gap: 12px;
+		}
+
+		body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .box-flex-container:not(.kanban):not(.box-flex-container-columns):not(:has(> .box-flex-item.info-box-module)) {
+			box-sizing: border-box !important;
+			column-gap: var(--formora-two-column-inner-gap) !important;
+			margin-left: var(--formora-two-column-outer-gap) !important;
+			margin-right: var(--formora-two-column-outer-gap) !important;
+			max-width: calc(100% - (2 * var(--formora-two-column-outer-gap))) !important;
+			row-gap: 8px !important;
+			width: calc(100% - (2 * var(--formora-two-column-outer-gap))) !important;
+		}
+
+		body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .box-flex-container:not(.kanban):not(.box-flex-container-columns):not(:has(> .box-flex-item.info-box-module)) > .box-flex-item {
+			box-sizing: border-box !important;
+			flex: 1 1 290px !important;
+			margin: 0 !important;
+			max-width: none !important;
+			min-width: min(290px, 100%) !important;
+			width: auto !important;
+		}
+	}
+
+	@media only screen and (min-width: 1025px) {
+		body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .twocolumns {
+			box-sizing: border-box !important;
+			margin-left: var(--formora-two-column-outer-gap) !important;
+			margin-right: var(--formora-two-column-outer-gap) !important;
+			max-width: calc(100% - (2 * var(--formora-two-column-outer-gap))) !important;
+			width: calc(100% - (2 * var(--formora-two-column-outer-gap))) !important;
+		}
+
+		body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .twocolumns > :is(.boxhalfleft, .boxhalfright, .fichehalfleft, .fichehalfright) {
+			box-sizing: border-box !important;
+			width: calc(50% - (var(--formora-two-column-inner-gap) / 2)) !important;
+		}
+	}
+
 	body#mainbody .fichecenter .box-flex-container > .box-flex-item,
 	body#mainbody .fichecenter .box-flex-container > .box-flex-item:hover {
 		background: transparent !important;
