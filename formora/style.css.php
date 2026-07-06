@@ -2352,8 +2352,8 @@ table.liste,
 #mainbody .fichehalfright table.noborder.centpercent,
 #mainbody .boxhalfleft table.noborder.centpercent,
 #mainbody .boxhalfright table.noborder.centpercent {
-	border: 1px solid var(--formora-line) !important;
-	border-color: var(--formora-line) !important;
+	border: 0 !important;
+	border-color: transparent !important;
 }
 
 div.liste_titre_bydiv,
@@ -2666,6 +2666,15 @@ body,
 #mainbody {
 	background: var(--formora-bg) !important;
 	color: var(--formora-text);
+}
+
+body#mainbody :is(.opacitymediumbycolor, .optiongrey) {
+	color: var(--formora-muted) !important;
+	opacity: 1 !important;
+}
+
+body#mainbody :is(.opacitymediumbycolor, .optiongrey) :is(a, i, span) {
+	color: inherit !important;
 }
 
 .bodylogin .login_table input#username,
@@ -3190,8 +3199,8 @@ div.liste_titre_bydiv_nothingafter {
 #mainbody .fichehalfright table.noborder.centpercent,
 #mainbody .boxhalfleft table.noborder.centpercent,
 #mainbody .boxhalfright table.noborder.centpercent {
-	border: 1px solid var(--formora-line) !important;
-	border-color: var(--formora-line) !important;
+	border: 0 !important;
+	border-color: transparent !important;
 }
 
 tr.oddeven,
@@ -3277,6 +3286,45 @@ table.jPicker {
 #mainbody table.cal_month {
 	background: var(--formora-surface) !important;
 	color: var(--formora-text) !important;
+}
+
+#mainbody .sectioncalendarbymonth.maxscreenheightless300 {
+	border-radius: 0 0 var(--formora-radius) var(--formora-radius) !important;
+	max-height: none !important;
+	overflow-x: auto !important;
+	overflow-y: visible !important;
+}
+
+#mainbody form#searchFormList > .liste_titre_bydiv:has(+ .sectioncalendarbymonth) {
+	border: 0 !important;
+	border-radius: var(--formora-radius) var(--formora-radius) 0 0 !important;
+	overflow: hidden;
+}
+
+#mainbody .sectioncalendarbymonth.maxscreenheightless300 > table.cal_month,
+#mainbody table.cal_month.listwithfilterbefore {
+	border: 0 !important;
+	border-radius: 0 0 var(--formora-radius) var(--formora-radius) !important;
+	border-top-left-radius: 0 !important;
+	border-top-right-radius: 0 !important;
+	overflow: hidden;
+}
+
+#mainbody table.cal_month.listwithfilterbefore > :is(thead, tbody):first-child > tr:first-child > :is(td, th) {
+	border-top-left-radius: 0 !important;
+	border-top-right-radius: 0 !important;
+}
+
+#mainbody table.cal_month.listwithfilterbefore > :is(thead, tbody, tfoot) > tr > :is(td, th):first-child {
+	border-left: 0 !important;
+}
+
+#mainbody table.cal_month.listwithfilterbefore > :is(thead, tbody, tfoot) > tr > :is(td, th):last-child {
+	border-right: 0 !important;
+}
+
+#mainbody table.cal_month.listwithfilterbefore > :is(tbody, tfoot):last-child > tr:last-child > :is(td, th) {
+	border-bottom: 0 !important;
 }
 
 #mainbody table.cal_month tr,
@@ -5531,19 +5579,56 @@ table.jPicker {
 		overflow: visible !important;
 	}
 
-	body#mainbody table.liste,
-	body#mainbody table.noborder,
-	body#mainbody table.border,
-	body#mainbody table.boxtable,
-	body#mainbody table.tagtable.liste {
-		border-collapse: separate !important;
-		border-spacing: 0 !important;
-		overflow: hidden;
-	}
+		body#mainbody table.liste,
+		body#mainbody table.noborder,
+		body#mainbody table.border,
+		body#mainbody table.boxtable,
+		body#mainbody table.tagtable.liste {
+			border-collapse: separate !important;
+			border-spacing: 0 !important;
+			overflow: hidden;
+		}
 
-	body#mainbody table.boxtable tr:first-child > :first-child {
-		border-top-left-radius: calc(var(--formora-radius) - 1px) !important;
-	}
+		body#mainbody :is(table.liste, table.noborder, table.border, table.tableforfield, table.tagtable):not(.cal_month) > :is(thead, tbody, tfoot):first-child > tr:first-child > :is(td, th):first-child {
+			border-top-left-radius: calc(var(--formora-radius) - 1px) !important;
+		}
+
+		body#mainbody :is(table.liste, table.noborder, table.border, table.tableforfield, table.tagtable):not(.cal_month) > :is(thead, tbody, tfoot):first-child > tr:first-child > :is(td, th):last-child {
+			border-top-right-radius: calc(var(--formora-radius) - 1px) !important;
+		}
+
+		body#mainbody :is(table.liste, table.noborder, table.border, table.tableforfield, table.tagtable):not(.cal_month) > :is(tbody, tfoot):last-child > tr:last-child > :is(td, th):first-child {
+			border-bottom-left-radius: calc(var(--formora-radius) - 1px) !important;
+		}
+
+		body#mainbody :is(table.liste, table.noborder, table.border, table.tableforfield, table.tagtable):not(.cal_month) > :is(tbody, tfoot):last-child > tr:last-child > :is(td, th):last-child {
+			border-bottom-right-radius: calc(var(--formora-radius) - 1px) !important;
+		}
+
+		body#mainbody :is(div.tagtable, div.table-border):not(.paymenttable):not(.margintable) {
+			border-radius: var(--formora-radius) !important;
+			overflow: hidden;
+		}
+
+		body#mainbody :is(div.tagtable, div.table-border):not(.paymenttable):not(.margintable) > .tagtr:first-child > .tagtd:first-child {
+			border-top-left-radius: calc(var(--formora-radius) - 1px) !important;
+		}
+
+		body#mainbody :is(div.tagtable, div.table-border):not(.paymenttable):not(.margintable) > .tagtr:first-child > .tagtd:last-child {
+			border-top-right-radius: calc(var(--formora-radius) - 1px) !important;
+		}
+
+		body#mainbody :is(div.tagtable, div.table-border):not(.paymenttable):not(.margintable) > .tagtr:last-child > .tagtd:first-child {
+			border-bottom-left-radius: calc(var(--formora-radius) - 1px) !important;
+		}
+
+		body#mainbody :is(div.tagtable, div.table-border):not(.paymenttable):not(.margintable) > .tagtr:last-child > .tagtd:last-child {
+			border-bottom-right-radius: calc(var(--formora-radius) - 1px) !important;
+		}
+
+		body#mainbody table.boxtable tr:first-child > :first-child {
+			border-top-left-radius: calc(var(--formora-radius) - 1px) !important;
+		}
 
 	body#mainbody table.boxtable tr:first-child > :last-child {
 		border-top-right-radius: calc(var(--formora-radius) - 1px) !important;
@@ -5614,20 +5699,177 @@ table.jPicker {
 		border-color: var(--formora-line-soft) !important;
 	}
 
-	body#mainbody table.liste.formdoc > :is(tbody, tfoot):last-child > tr:last-child > :is(td, th),
-	body#mainbody table.liste.formdoc > tbody > tr.oddeven:last-child > :is(td, th) {
-		border-bottom: 0 !important;
-	}
+body#mainbody table.liste.formdoc > :is(tbody, tfoot):last-child > tr:last-child > :is(td, th),
+body#mainbody table.liste.formdoc > tbody > tr.oddeven:last-child > :is(td, th) {
+	border-bottom: 0 !important;
+}
 
-	body#mainbody table.tableforfield > :is(thead, tbody):first-child > tr:first-child > :is(td, th),
-	body#mainbody table.border.tableforfield > :is(thead, tbody):first-child > tr:first-child > :is(td, th) {
-		border-top: 0 !important;
-	}
+body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche :is(.div-table-responsive, .div-table-responsive-no-min):has(> :is(table.liste.noborder, table.tagtable.liste.noborder, table.noborder.centpercent:not(.noshadow):not(.nomarginbottom):not(.cal_month):not(.cal_pannel), table.noborder.allwidth:not(.noshadow):not(.nomarginbottom), .tagtable.tableforcontact)) {
+	-webkit-overflow-scrolling: touch;
+	border-radius: var(--formora-radius) !important;
+	box-sizing: border-box !important;
+	max-width: 100% !important;
+	min-width: 0 !important;
+	overflow-x: auto !important;
+	overflow-y: hidden;
+	scrollbar-color: var(--formora-line) transparent;
+	scrollbar-width: thin;
+	width: 100% !important;
+}
 
-	body#mainbody :is(.fichehalfleft, .fichehalfright, .fichethirdleft, .fichetwothirdright):has(> table.tableforfield) > .underbanner.clearboth {
-		border-bottom: 0 !important;
-		height: 0 !important;
-	}
+body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche :is(.div-table-responsive, .div-table-responsive-no-min):has(> :is(table.liste.noborder, table.tagtable.liste.noborder, table.noborder.centpercent:not(.noshadow):not(.nomarginbottom):not(.cal_month):not(.cal_pannel), table.noborder.allwidth:not(.noshadow):not(.nomarginbottom), .tagtable.tableforcontact))::-webkit-scrollbar {
+	height: 8px;
+}
+
+body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche :is(.div-table-responsive, .div-table-responsive-no-min):has(> :is(table.liste.noborder, table.tagtable.liste.noborder, table.noborder.centpercent:not(.noshadow):not(.nomarginbottom):not(.cal_month):not(.cal_pannel), table.noborder.allwidth:not(.noshadow):not(.nomarginbottom), .tagtable.tableforcontact))::-webkit-scrollbar-thumb {
+	background: var(--formora-line);
+	background-clip: content-box;
+	border: 2px solid transparent;
+	border-radius: 999px;
+}
+
+body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche :is(.div-table-responsive, .div-table-responsive-no-min) > :is(table.liste.noborder, table.tagtable.liste.noborder, table.noborder.centpercent:not(.noshadow):not(.nomarginbottom):not(.cal_month):not(.cal_pannel), table.noborder.allwidth:not(.noshadow):not(.nomarginbottom), .tagtable.tableforcontact) {
+	margin-bottom: 12px !important;
+	max-width: none !important;
+	min-width: 100% !important;
+}
+
+body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche :is(.div-table-responsive, .div-table-responsive-no-min) > :is(table.liste.noborder, table.tagtable.liste.noborder, table.noborder.centpercent:not(.noshadow):not(.nomarginbottom):not(.cal_month):not(.cal_pannel), table.noborder.allwidth:not(.noshadow):not(.nomarginbottom)):not(.paymenttable):not(.margintable):not(.cal_month) {
+	border: 0 !important;
+}
+
+body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche :is(.div-table-responsive, .div-table-responsive-no-min) > :is(table.liste.noborder, table.tagtable.liste.noborder, table.noborder.centpercent:not(.noshadow):not(.nomarginbottom):not(.cal_month):not(.cal_pannel), table.noborder.allwidth:not(.noshadow):not(.nomarginbottom)):not(.paymenttable):not(.margintable):not(.cal_month) > :is(thead, tbody, tfoot):first-child > tr:first-child > :is(td, th) {
+	border-top: 0 !important;
+}
+
+body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche :is(.div-table-responsive, .div-table-responsive-no-min) > :is(table.liste.noborder, table.tagtable.liste.noborder, table.noborder.centpercent:not(.noshadow):not(.nomarginbottom):not(.cal_month):not(.cal_pannel), table.noborder.allwidth:not(.noshadow):not(.nomarginbottom)):not(.paymenttable):not(.margintable):not(.cal_month) > :is(tbody, tfoot):last-child > tr:last-child > :is(td, th) {
+	border-bottom: 0 !important;
+}
+
+body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche :is(.div-table-responsive, .div-table-responsive-no-min) > :is(table.liste.noborder, table.tagtable.liste.noborder, table.noborder.centpercent:not(.noshadow):not(.nomarginbottom):not(.cal_month):not(.cal_pannel), table.noborder.allwidth:not(.noshadow):not(.nomarginbottom)):not(.paymenttable):not(.margintable):not(.cal_month) > :is(thead, tbody, tfoot) > tr > :is(td, th):first-child {
+	border-left: 0 !important;
+}
+
+body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche :is(.div-table-responsive, .div-table-responsive-no-min) > :is(table.liste.noborder, table.tagtable.liste.noborder, table.noborder.centpercent:not(.noshadow):not(.nomarginbottom):not(.cal_month):not(.cal_pannel), table.noborder.allwidth:not(.noshadow):not(.nomarginbottom)):not(.paymenttable):not(.margintable):not(.cal_month) > :is(thead, tbody, tfoot) > tr > :is(td, th):last-child {
+	border-right: 0 !important;
+}
+
+body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche :is(
+	table.noborder.centpercent,
+	table.noborder.allwidth,
+	table.paymenttable,
+	table.margintable,
+	table#tablelines,
+	table#tablelinesservice
+):not(.cal_month):not(.cal_pannel) {
+	border: 0 !important;
+	box-shadow: none !important;
+}
+
+body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche :is(
+	table.noborder.centpercent,
+	table.noborder.allwidth,
+	table.paymenttable,
+	table.margintable,
+	table#tablelines,
+	table#tablelinesservice
+):not(.cal_month):not(.cal_pannel) > :is(thead, tbody, tfoot):first-child > tr:first-child > :is(td, th) {
+	border-top: 0 !important;
+}
+
+body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche :is(
+	table.noborder.centpercent,
+	table.noborder.allwidth,
+	table.paymenttable,
+	table.margintable,
+	table#tablelines,
+	table#tablelinesservice
+):not(.cal_month):not(.cal_pannel) > :is(tbody, tfoot):last-child > tr:last-child > :is(td, th) {
+	border-bottom: 0 !important;
+}
+
+body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche :is(
+	table.noborder.centpercent,
+	table.noborder.allwidth,
+	table.paymenttable,
+	table.margintable,
+	table#tablelines,
+	table#tablelinesservice
+):not(.cal_month):not(.cal_pannel) > :is(thead, tbody, tfoot) > tr > :is(td, th):first-child {
+	border-left: 0 !important;
+}
+
+body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche :is(
+	table.noborder.centpercent,
+	table.noborder.allwidth,
+	table.paymenttable,
+	table.margintable,
+	table#tablelines,
+	table#tablelinesservice
+):not(.cal_month):not(.cal_pannel) > :is(thead, tbody, tfoot) > tr > :is(td, th):last-child {
+	border-right: 0 !important;
+}
+
+body#mainbody table.tableforfield > :is(thead, tbody):first-child > tr:first-child > :is(td, th),
+body#mainbody table.border.tableforfield > :is(thead, tbody):first-child > tr:first-child > :is(td, th) {
+	border-top: 0 !important;
+}
+
+body#mainbody table.tableforfield > :is(tbody, tfoot):last-child > tr:last-child > :is(td, th),
+body#mainbody table.border.tableforfield > :is(tbody, tfoot):last-child > tr:last-child > :is(td, th) {
+	border-bottom: 0 !important;
+}
+
+body#mainbody :is(div.tagtable.tableforfield, div.table-border.tableforfield) {
+	background: var(--formora-surface) !important;
+	border: 0 !important;
+	border-radius: var(--formora-radius) !important;
+	box-shadow: none !important;
+	box-sizing: border-box !important;
+	color: var(--formora-text) !important;
+	overflow: hidden;
+	padding: 1px 10px !important;
+}
+
+body#mainbody :is(div.tagtable.tableforfield, div.table-border.tableforfield) > .tagtr {
+	background: var(--formora-surface) !important;
+	border-color: var(--formora-line-soft) !important;
+	color: var(--formora-text) !important;
+}
+
+body#mainbody :is(div.tagtable.tableforfield, div.table-border.tableforfield) > .tagtr > .tagtd {
+	background: var(--formora-surface) !important;
+	border-bottom: 1px solid var(--formora-line-soft) !important;
+	border-color: var(--formora-line-soft) !important;
+	color: var(--formora-text) !important;
+	padding: 5px 8px 5px 10px !important;
+}
+
+body#mainbody :is(div.tagtable.tableforfield, div.table-border.tableforfield) > .tagtr:last-child > .tagtd,
+body#mainbody :is(.tagtable.tableforcontact, .tagtable.tableforfield, .table-border.tableforfield) > .tagtr:last-child > .tagtd,
+body#mainbody :is(.tagtable.tableforcontact, .tagtable.tableforfield, .table-border.tableforfield) .tagtd.noborderbottom {
+	border-bottom: 0 !important;
+}
+
+body#mainbody :is(div.tagtable.tableforfield, div.table-border.tableforfield) .nobordernopadding,
+body#mainbody :is(div.tagtable.tableforfield, div.table-border.tableforfield) .nobordernopadding :is(td, th) {
+	background: transparent !important;
+	border: 0 !important;
+	color: inherit !important;
+}
+
+body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right :is(.fiche, .fichecenter, .fichehalfleft, .fichehalfright, .fichethirdleft, .fichetwothirdright) > .underbanner.clearboth:has(+ :is(table.tableforfield, table.border.tableforfield, div.tableforfield, div.table-border.tableforfield, .div-table-responsive, .div-table-responsive-no-min)) {
+	border-bottom: 0 !important;
+	height: 0 !important;
+	margin: 0 !important;
+	min-height: 0 !important;
+	overflow: hidden !important;
+}
+
+		body#mainbody :is(.fichehalfleft, .fichehalfright, .fichethirdleft, .fichetwothirdright):has(> table.tableforfield) > .underbanner.clearboth {
+			border-bottom: 0 !important;
+			height: 0 !important;
+		}
 
 	body#mainbody :is(.boxhalfleft, .boxhalfright, .fichehalfleft, .fichehalfright) > .box.divboxtable.boxdraggable:empty,
 	body#mainbody :is(.boxhalfleft, .boxhalfright, .fichehalfleft, .fichehalfright) > .box.divboxtable.boxdraggable[id="boxto_A"],
@@ -6292,18 +6534,22 @@ table.jPicker {
 		width: 100% !important;
 	}
 
-	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .div-table-responsive > table.liste,
-	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .div-table-responsive-no-min > table.liste {
-		border: 0 !important;
-		margin-bottom: 0 !important;
-		max-width: none !important;
-		min-width: 100% !important;
-	}
+		body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .div-table-responsive > table.liste,
+		body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .div-table-responsive-no-min > table.liste {
+			border: 0 !important;
+			border-top-left-radius: 0 !important;
+			border-top-right-radius: 0 !important;
+			margin-bottom: 0 !important;
+			max-width: none !important;
+			min-width: 100% !important;
+		}
 
-	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .div-table-responsive > table.liste > tbody > tr.liste_titre_filter:first-child > :is(td, th),
-	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .div-table-responsive-no-min > table.liste > tbody > tr.liste_titre_filter:first-child > :is(td, th) {
-		border-top: 0 !important;
-	}
+		body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .div-table-responsive > table.liste > tbody > tr.liste_titre_filter:first-child > :is(td, th),
+		body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .div-table-responsive-no-min > table.liste > tbody > tr.liste_titre_filter:first-child > :is(td, th) {
+			border-top: 0 !important;
+			border-top-left-radius: 0 !important;
+			border-top-right-radius: 0 !important;
+		}
 
 	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .div-table-responsive > table.liste > tbody > tr.liste_titre_filter > :is(td, th),
 	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .div-table-responsive-no-min > table.liste > tbody > tr.liste_titre_filter > :is(td, th) {
@@ -6331,10 +6577,12 @@ table.jPicker {
 		margin-top: 0 !important;
 	}
 
-	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .div-table-responsive > table.liste > tbody > tr.liste_titre_filter + tr.liste_titre > :is(td, th),
-	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .div-table-responsive-no-min > table.liste > tbody > tr.liste_titre_filter + tr.liste_titre > :is(td, th) {
-		border-top: 1px solid var(--formora-line) !important;
-	}
+		body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .div-table-responsive > table.liste > tbody > tr.liste_titre_filter + tr.liste_titre > :is(td, th),
+		body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .div-table-responsive-no-min > table.liste > tbody > tr.liste_titre_filter + tr.liste_titre > :is(td, th) {
+			border-top: 1px solid var(--formora-line) !important;
+			border-top-left-radius: 0 !important;
+			border-top-right-radius: 0 !important;
+		}
 
 	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .div-table-responsive > table.liste > :is(tbody, tfoot):last-child > tr:last-child > :is(td, th),
 	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .div-table-responsive-no-min > table.liste > :is(tbody, tfoot):last-child > tr:last-child > :is(td, th) {
@@ -6464,14 +6712,51 @@ table.jPicker {
 		width: calc(100vw - 24px) !important;
 	}
 
+		body#mainbody div.tabsAction,
+		body#mainbody div.tabsActionNoBottom {
+			align-items: center;
+			display: flex;
+			flex-wrap: wrap;
+			gap: 8px;
+			justify-content: flex-end;
+			overflow: visible !important;
+		}
+
+		body#mainbody div.tabsAction > .dropdown,
+		body#mainbody div.tabsActionNoBottom > .dropdown,
+		body#mainbody div.tabsAction > div.divButAction,
+		body#mainbody div.tabsActionNoBottom > div.divButAction {
+			flex: 0 1 auto;
+			max-width: 100%;
+			min-width: 0;
+		}
+
+		body#mainbody div.tabsAction > a.butAction,
+		body#mainbody div.tabsAction > a.butActionRefused,
+		body#mainbody div.tabsAction > a.butActionDelete,
+		body#mainbody div.tabsAction > span.butAction,
+		body#mainbody div.tabsAction > span.butActionRefused,
+		body#mainbody div.tabsAction > span.butActionDelete,
+		body#mainbody div.tabsAction > div.divButAction > span.butAction,
+		body#mainbody div.tabsAction > div.divButAction > span.butActionDelete,
+		body#mainbody div.tabsAction > div.divButAction > span.butActionRefused,
+		body#mainbody div.tabsAction > div.divButAction > a.butAction,
+		body#mainbody div.tabsAction > div.divButAction > a.butActionDelete,
+		body#mainbody div.tabsAction > div.divButAction > a.butActionRefused,
+		body#mainbody div.tabsAction > .dropdown > .dropdown-toggle {
+			max-width: 100%;
+			margin-bottom: 0 !important;
+			margin-left: 0 !important;
+			margin-right: 0 !important;
+			min-width: 0;
+			overflow-wrap: anywhere;
+		}
+
+@media only screen and (max-width: 768px) {
 	body#mainbody div.tabsAction,
 	body#mainbody div.tabsActionNoBottom {
-		align-items: center;
-		display: flex;
-		flex-wrap: nowrap;
-		gap: 10px;
-		justify-content: flex-end;
-		overflow: visible !important;
+		justify-content: flex-start;
+		width: 100%;
 	}
 
 	body#mainbody div.tabsAction > a.butAction,
@@ -6480,17 +6765,24 @@ table.jPicker {
 	body#mainbody div.tabsAction > span.butAction,
 	body#mainbody div.tabsAction > span.butActionRefused,
 	body#mainbody div.tabsAction > span.butActionDelete,
+	body#mainbody div.tabsAction > div.divButAction,
 	body#mainbody div.tabsAction > div.divButAction > span.butAction,
 	body#mainbody div.tabsAction > div.divButAction > span.butActionDelete,
 	body#mainbody div.tabsAction > div.divButAction > span.butActionRefused,
 	body#mainbody div.tabsAction > div.divButAction > a.butAction,
 	body#mainbody div.tabsAction > div.divButAction > a.butActionDelete,
 	body#mainbody div.tabsAction > div.divButAction > a.butActionRefused,
+	body#mainbody div.tabsAction > .dropdown,
 	body#mainbody div.tabsAction > .dropdown > .dropdown-toggle {
-		margin-bottom: 0 !important;
-		margin-left: 0 !important;
-		margin-right: 0 !important;
+		flex: 1 1 10rem;
+		white-space: normal !important;
 	}
+
+	body#mainbody div.tabsAction > div.divButAction > :is(a, span),
+	body#mainbody div.tabsAction > .dropdown > .dropdown-toggle {
+		width: 100%;
+	}
+}
 
 	body#mainbody .butAction:focus,
 	body#mainbody .butActionDelete:focus,
@@ -6868,63 +7160,93 @@ table.jPicker {
 	}
 
 	/* Final action/menu dropdown override: menu rows must not inherit primary button fills. */
-	body#mainbody .dropdown-holder.open > .dropdown-content,
-	body#mainbody .tabsAction .dropdown.open > .dropdown-menu,
-	body#mainbody .tabsActionNoBottom .dropdown.open > .dropdown-menu,
-	body#mainbody .tabBar .dropdown.open > .dropdown-menu {
-		background-color: var(--formora-surface) !important;
-		background-image: none !important;
-		border: 1px solid var(--formora-line) !important;
-		box-shadow: 0 8px 18px rgba(31, 35, 40, 0.12) !important;
-		color: var(--formora-text) !important;
-	}
+		body#mainbody .dropdown-holder.open > .dropdown-content,
+		body#mainbody .tabsAction .dropdown.open > .dropdown-menu,
+		body#mainbody .tabsActionNoBottom .dropdown.open > .dropdown-menu,
+		body#mainbody .tabBar .dropdown.open > .dropdown-menu,
+		body#mainbody div#moretabsList,
+		body#mainbody div#moretabsListaction,
+		body#mainbody div.popuptabset {
+			background-color: var(--formora-surface) !important;
+			background-image: none !important;
+			border: 1px solid var(--formora-line) !important;
+			border-radius: var(--formora-radius) !important;
+			box-shadow: 0 8px 18px rgba(31, 35, 40, 0.12) !important;
+			box-sizing: border-box !important;
+			color: var(--formora-text) !important;
+			overflow: hidden;
+			z-index: 50;
+		}
 
-	body#mainbody .dropdown-holder.open > .dropdown-content::before {
-		border-color: transparent transparent var(--formora-surface) transparent !important;
-	}
+		body#mainbody .dropdown-holder.open > .dropdown-content::before {
+			border-color: transparent transparent var(--formora-surface) transparent !important;
+		}
 
 	body#mainbody .dropdown-holder > .dropdown-content > a.butAction,
 	body#mainbody .dropdown-holder > .dropdown-content > a.butAction:link,
 	body#mainbody .dropdown-holder > .dropdown-content > a.butAction:visited,
 	body#mainbody .dropdown-holder > .dropdown-content > span.butAction,
 	body#mainbody .dropdown-holder > .dropdown-content > a.butActionRefused,
-	body#mainbody .dropdown-holder > .dropdown-content > span.butActionRefused,
-	body#mainbody .tabsAction .dropdown-menu > .dropdown-item,
-	body#mainbody .tabsActionNoBottom .dropdown-menu > .dropdown-item,
-	body#mainbody .tabBar .dropdown-menu > .dropdown-item {
-		background-color: transparent !important;
-		background-image: none !important;
-		border: 0 !important;
-		border-bottom: 1px solid var(--formora-line-soft) !important;
-		border-radius: 0 !important;
-		box-sizing: border-box !important;
-		box-shadow: none !important;
-		color: var(--formora-text) !important;
+		body#mainbody .dropdown-holder > .dropdown-content > span.butActionRefused,
+		body#mainbody .tabsAction .dropdown-menu > .dropdown-item,
+		body#mainbody .tabsActionNoBottom .dropdown-menu > .dropdown-item,
+		body#mainbody .tabBar .dropdown-menu > .dropdown-item,
+		body#mainbody div#moretabsList a,
+		body#mainbody div#moretabsListaction a,
+		body#mainbody div.popuptabset a,
+		body#mainbody div.popuptab {
+				background-color: transparent !important;
+				background-image: none !important;
+				border: 0 !important;
+				border-bottom: 0 !important;
+			border-radius: 0 !important;
+			box-sizing: border-box !important;
+			box-shadow: none !important;
+			color: var(--formora-text) !important;
 		display: block !important;
 		line-height: 20px !important;
 		margin: 0 !important;
 		min-height: 40px !important;
-		min-width: 0 !important;
-		padding: 10px 12px !important;
-		text-align: left !important;
-		width: 100% !important;
-	}
+			min-width: 0 !important;
+			padding: 10px 12px !important;
+			text-align: left !important;
+			width: 100% !important;
+		}
 
-	body#mainbody .dropdown-holder > .dropdown-content > a.butAction:hover,
-	body#mainbody .dropdown-holder > .dropdown-content > a.butAction:focus,
-	body#mainbody .tabsAction .dropdown-menu > .dropdown-item:hover,
-	body#mainbody .tabsAction .dropdown-menu > .dropdown-item:focus,
-	body#mainbody .tabsActionNoBottom .dropdown-menu > .dropdown-item:hover,
-	body#mainbody .tabsActionNoBottom .dropdown-menu > .dropdown-item:focus,
-	body#mainbody .tabBar .dropdown-menu > .dropdown-item:hover,
-	body#mainbody .tabBar .dropdown-menu > .dropdown-item:focus {
-		background-color: var(--formora-neutral-hover-bg) !important;
-		background-image: none !important;
-		border-bottom-color: var(--formora-line) !important;
-		box-shadow: none !important;
-		color: var(--formora-accent) !important;
-		text-decoration: none !important;
-	}
+		body#mainbody div#moretabsList :is(a, span, div),
+		body#mainbody div#moretabsListaction :is(a, span, div),
+		body#mainbody div.popuptabset :is(a, span, div) {
+			color: inherit;
+		}
+
+		body#mainbody div#moretabsList > :last-child,
+		body#mainbody div#moretabsListaction > :last-child,
+		body#mainbody div.popuptabset > :last-child {
+			border-bottom: 0 !important;
+		}
+
+		body#mainbody .dropdown-holder > .dropdown-content > a.butAction:hover,
+		body#mainbody .dropdown-holder > .dropdown-content > a.butAction:focus,
+		body#mainbody .tabsAction .dropdown-menu > .dropdown-item:hover,
+		body#mainbody .tabsAction .dropdown-menu > .dropdown-item:focus,
+		body#mainbody .tabsActionNoBottom .dropdown-menu > .dropdown-item:hover,
+		body#mainbody .tabsActionNoBottom .dropdown-menu > .dropdown-item:focus,
+		body#mainbody .tabBar .dropdown-menu > .dropdown-item:hover,
+		body#mainbody .tabBar .dropdown-menu > .dropdown-item:focus,
+		body#mainbody div#moretabsList a:hover,
+		body#mainbody div#moretabsList a:focus,
+		body#mainbody div#moretabsListaction a:hover,
+		body#mainbody div#moretabsListaction a:focus,
+		body#mainbody div.popuptabset a:hover,
+		body#mainbody div.popuptabset a:focus,
+		body#mainbody div.popuptab:hover {
+				background-color: var(--formora-neutral-hover-bg) !important;
+				background-image: none !important;
+				border-bottom-color: transparent !important;
+			box-shadow: none !important;
+			color: var(--formora-accent) !important;
+			text-decoration: none !important;
+		}
 
 	body#mainbody .dropdown-holder > .dropdown-content > a.butActionDelete,
 	body#mainbody .dropdown-holder > .dropdown-content > a.butActionDelete:link,
@@ -6934,9 +7256,9 @@ table.jPicker {
 
 	body#mainbody .dropdown-holder > .dropdown-content > a.butActionDelete:hover,
 	body#mainbody .dropdown-holder > .dropdown-content > a.butActionDelete:focus {
-		background-color: var(--formora-danger-bg) !important;
-		background-image: none !important;
-		border-bottom-color: #ff8182 !important;
+			background-color: var(--formora-danger-bg) !important;
+			background-image: none !important;
+			border-bottom-color: transparent !important;
 		color: var(--formora-danger) !important;
 	}
 
