@@ -7216,6 +7216,37 @@ table.jPicker {
 				display: none;
 			}
 
+			body#mainbody.formora-tmenu-is-scrollable:not(.bodytakepos):not(.bodylogin) #id-top::before,
+			body#mainbody.formora-tmenu-is-scrollable:not(.bodytakepos):not(.bodylogin) #id-top::after {
+				background: var(--formora-surface);
+				content: "";
+				height: 60px;
+				opacity: 0;
+				pointer-events: none;
+				position: absolute;
+				top: 0;
+				transition: opacity 0.16s ease;
+				width: 30px;
+				z-index: 20;
+			}
+
+			body#mainbody.formora-tmenu-is-scrollable:not(.bodytakepos):not(.bodylogin) #id-top::before {
+				left: 0;
+				-webkit-mask-image: linear-gradient(90deg, #000 0%, rgba(0, 0, 0, 0.72) 42%, transparent 100%);
+				mask-image: linear-gradient(90deg, #000 0%, rgba(0, 0, 0, 0.72) 42%, transparent 100%);
+			}
+
+			body#mainbody.formora-tmenu-is-scrollable:not(.bodytakepos):not(.bodylogin) #id-top::after {
+				right: 116px;
+				-webkit-mask-image: linear-gradient(270deg, #000 0%, rgba(0, 0, 0, 0.72) 42%, transparent 100%);
+				mask-image: linear-gradient(270deg, #000 0%, rgba(0, 0, 0, 0.72) 42%, transparent 100%);
+			}
+
+			body#mainbody.formora-tmenu-can-scroll-left:not(.bodytakepos):not(.bodylogin) #id-top::before,
+			body#mainbody.formora-tmenu-can-scroll-right:not(.bodytakepos):not(.bodylogin) #id-top::after {
+				opacity: 1;
+			}
+
 			body#mainbody:not(.bodytakepos):not(.bodylogin) #id-top :is(.tmenudiv, ul.tmenu) {
 				align-items: stretch !important;
 				display: flex !important;
