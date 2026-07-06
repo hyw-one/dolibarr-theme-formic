@@ -2606,6 +2606,11 @@ body#mainbody .login_block.usedropdown :is(.userimg.atoplogin span.userphoto, .u
 	box-shadow: none !important;
 }
 
+body#mainbody:not(.bodylogin):not(.bodytakepos) #id-container > .side-nav {
+	border-bottom: 0 !important;
+	border-<?php print $right; ?>: 1px solid var(--formora-line-soft) !important;
+}
+
 #id-left a,
 .vmenu a,
 .menu_contenu a {
@@ -4954,7 +4959,7 @@ table.jPicker {
 
 		body#mainbody:not(.bodylogin):not(.poslist) #id-container:has(#id-left)::before {
 			background: var(--colorbackvmenu1);
-			border-<?php print $right; ?>: 1px solid var(--formora-line-soft);
+			border-<?php print $right; ?>: 0;
 			bottom: 0;
 			box-sizing: border-box;
 			content: "";
@@ -5746,6 +5751,312 @@ table.jPicker {
 	body#mainbody input[style*="display: none"],
 	body#mainbody input[style*="display:none"] {
 		display: none !important;
+	}
+
+	/* Formora list pages: keep Dolibarr behavior, but contain layout and make controls responsive. */
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right,
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche,
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList {
+		box-sizing: border-box !important;
+		min-width: 0 !important;
+	}
+
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList {
+		max-width: 100% !important;
+		overflow: visible !important;
+		width: 100% !important;
+	}
+
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > table.table-fiche-title {
+		background: transparent !important;
+		box-sizing: border-box !important;
+		display: block !important;
+		height: auto !important;
+		margin-bottom: 12px !important;
+		max-width: 100% !important;
+		min-height: 0 !important;
+		padding-bottom: 0 !important;
+		width: 100% !important;
+	}
+
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > table.table-fiche-title > tbody {
+		box-sizing: border-box !important;
+		display: block !important;
+		height: auto !important;
+		min-height: 0 !important;
+		width: 100% !important;
+	}
+
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > table.table-fiche-title > tbody > :is(tr.toptitle, tr.titre) {
+		align-items: center;
+		box-sizing: border-box !important;
+		display: flex !important;
+		flex-wrap: wrap;
+		gap: 10px 12px;
+		height: auto !important;
+		min-height: 0 !important;
+		width: 100% !important;
+	}
+
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > table.table-fiche-title > tbody > :is(tr.toptitle, tr.titre) > :is(td, th) {
+		box-sizing: border-box !important;
+		display: block !important;
+		height: auto !important;
+		min-width: 0 !important;
+		padding: 0 !important;
+		width: auto !important;
+	}
+
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > table.table-fiche-title :is(.col-picto, .widthpictotitle) {
+		flex: 0 0 auto;
+	}
+
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > table.table-fiche-title .col-title {
+		flex: 1 1 220px;
+	}
+
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > table.table-fiche-title .col-title .titre {
+		max-width: 100%;
+		white-space: normal;
+	}
+
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > table.table-fiche-title :is(.col-right, .col-center) {
+		flex: 0 1 auto;
+		margin-left: auto;
+		max-width: 100%;
+		min-width: 0;
+		text-align: end;
+	}
+
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > table.table-fiche-title .pagination {
+		align-items: center;
+		display: flex !important;
+		float: none !important;
+		justify-content: flex-end;
+		max-width: 100% !important;
+		overflow: visible !important;
+		white-space: normal !important;
+		width: auto !important;
+	}
+
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > table.table-fiche-title .pagination ul {
+		align-items: center;
+		display: inline-flex !important;
+		flex-wrap: wrap;
+		gap: 6px;
+		justify-content: flex-end;
+		margin: 0 !important;
+		padding: 0 !important;
+		width: auto !important;
+	}
+
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > table.table-fiche-title .pagination ul > li,
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > table.table-fiche-title .pagination ul > li.paginationafterarrows {
+		align-items: center;
+		display: flex !important;
+		flex: 0 0 auto;
+		float: none !important;
+		height: auto !important;
+		margin: 0 !important;
+		min-width: 0 !important;
+		width: auto !important;
+	}
+
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > table.table-fiche-title .pagination :is(a.btnTitle, span.btnTitle, input, .select2-container) {
+		flex: 0 0 auto;
+		max-width: 100% !important;
+	}
+
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > div.col-center:has(#massaction[style*="inline-block"]),
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > div.col-center:has(input.massactionconfirmed:not([style*="display: none"])) {
+		align-items: center;
+		background: var(--formora-surface-alt) !important;
+		border: 1px solid var(--formora-line-soft) !important;
+		border-radius: var(--formora-radius) !important;
+		box-sizing: border-box !important;
+		display: flex !important;
+		flex-wrap: wrap;
+		gap: 8px;
+		justify-content: center;
+		margin: 0 0 12px !important;
+		min-height: 0 !important;
+		padding: 10px !important;
+		width: 100% !important;
+	}
+
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList #massaction,
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList input.massactionconfirmed {
+		margin: 0 !important;
+	}
+
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .liste_titre_bydiv {
+		align-items: center;
+		background: var(--formora-surface-alt) !important;
+		border: 0 !important;
+		border-radius: var(--formora-radius) var(--formora-radius) 0 0 !important;
+		box-sizing: border-box !important;
+		display: flex !important;
+		flex-wrap: wrap;
+		gap: 8px 10px;
+		margin: 0 !important;
+		max-width: 100% !important;
+		min-width: 0 !important;
+		overflow: visible !important;
+		padding: 10px !important;
+		width: 100% !important;
+	}
+
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .liste_titre_bydiv .divsearchfield {
+		align-items: center;
+		box-sizing: border-box !important;
+		display: flex !important;
+		flex: 1 1 220px;
+		gap: 6px;
+		margin: 0 !important;
+		min-width: 0 !important;
+		padding: 0 !important;
+	}
+
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .liste_titre_bydiv :is(input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"]), select, textarea, .select2-container) {
+		box-sizing: border-box !important;
+		max-width: 100% !important;
+	}
+
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .liste_titre_bydiv .divsearchfield > :is(input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"]), select, textarea, .select2-container) {
+		flex: 1 1 120px !important;
+		min-width: 0 !important;
+		width: auto !important;
+	}
+
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .liste_titre_bydiv .divsearchfield > :is(span, div):has(> .select2-container) {
+		box-sizing: border-box !important;
+		flex: 1 1 120px !important;
+		max-width: 100% !important;
+		min-width: 0 !important;
+		width: auto !important;
+	}
+
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .liste_titre_bydiv .divsearchfield .select2-container {
+		min-width: 0 !important;
+		max-width: 100% !important;
+	}
+
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .liste_titre_bydiv .divsearchfield > :is(span, div):has(> .select2-container) > .select2-container {
+		width: 100% !important;
+	}
+
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .liste_titre_bydiv .divsearchfield .select2-container :is(.select2-selection, .select2-selection__rendered, .select2-search--inline, .select2-search__field) {
+		box-sizing: border-box !important;
+		max-width: 100% !important;
+		min-width: 0 !important;
+		width: 100% !important;
+	}
+
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .div-table-responsive,
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .div-table-responsive-no-min {
+		-webkit-overflow-scrolling: touch;
+		background: var(--formora-surface) !important;
+		border-radius: 0 0 var(--formora-radius) var(--formora-radius) !important;
+		box-sizing: border-box !important;
+		max-width: 100% !important;
+		min-width: 0 !important;
+		overflow-x: auto !important;
+		scrollbar-color: var(--formora-line) transparent;
+		scrollbar-width: thin;
+		width: 100% !important;
+	}
+
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .div-table-responsive > table.liste,
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .div-table-responsive-no-min > table.liste {
+		border: 0 !important;
+		margin-bottom: 0 !important;
+		max-width: none !important;
+		min-width: 100% !important;
+	}
+
+	@media only screen and (min-width: 930px) {
+		body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right {
+			max-width: calc(100vw - <?php echo $leftmenuwidth + 21; ?>px) !important;
+			width: calc(100vw - <?php echo $leftmenuwidth + 21; ?>px) !important;
+		}
+
+		body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche {
+			max-width: calc(100vw - <?php echo $leftmenuwidth + 47; ?>px) !important;
+		}
+	}
+
+	@media only screen and (min-width: 768px) and (max-width: 929px) {
+		body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right {
+			max-width: 100vw !important;
+			width: 100% !important;
+		}
+
+		body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche {
+			max-width: calc(100vw - 27px) !important;
+		}
+	}
+
+	@media only screen and (max-width: 900px) {
+		body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > table.table-fiche-title > tbody > :is(tr.toptitle, tr.titre) {
+			gap: 8px 10px;
+		}
+
+		body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > table.table-fiche-title .col-title {
+			flex: 1 1 calc(100% - 54px);
+		}
+
+		body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > table.table-fiche-title :is(.col-right, .col-center) {
+			flex: 1 1 100%;
+			margin-left: 0;
+			text-align: start;
+		}
+
+		body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > table.table-fiche-title .pagination,
+		body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > table.table-fiche-title .pagination ul {
+			justify-content: flex-start;
+			width: 100% !important;
+		}
+	}
+
+	@media only screen and (max-width: 480px) {
+		body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .liste_titre_bydiv {
+			gap: 7px;
+			padding: 8px !important;
+		}
+
+		body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .liste_titre_bydiv .divsearchfield {
+			flex-basis: 100%;
+		}
+	}
+
+	body#mainbody.bodyforlist:not(.bodylogin):has(form#searchFormList input[name="contextpage"][value="poslist"]) #id-container::before {
+		content: none !important;
+		display: none !important;
+	}
+
+	body#mainbody.bodyforlist:not(.bodylogin):has(form#searchFormList input[name="contextpage"][value="poslist"]) #id-container > .side-nav,
+	body#mainbody.bodyforlist:not(.bodylogin):has(form#searchFormList input[name="contextpage"][value="poslist"]) #id-left {
+		border: 0 !important;
+		display: none !important;
+		min-width: 0 !important;
+		padding: 0 !important;
+		width: 0 !important;
+	}
+
+	body#mainbody.bodyforlist:not(.bodylogin):has(form#searchFormList input[name="contextpage"][value="poslist"]) #id-right {
+		display: block !important;
+		left: auto !important;
+		max-width: 100vw !important;
+		padding-left: 0 !important;
+		padding-right: 0 !important;
+		width: 100vw !important;
+	}
+
+	body#mainbody.bodyforlist:not(.bodylogin):has(form#searchFormList input[name="contextpage"][value="poslist"]) #id-right .fiche {
+		margin-left: 12px !important;
+		margin-right: 12px !important;
+		max-width: calc(100vw - 24px) !important;
+		width: calc(100vw - 24px) !important;
 	}
 
 	body#mainbody div.tabsAction,
