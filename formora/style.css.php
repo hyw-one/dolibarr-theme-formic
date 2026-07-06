@@ -6089,6 +6089,12 @@ table.jPicker {
 		border-top: 0 !important;
 	}
 
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .div-table-responsive > table.liste > tbody > tr.liste_titre_filter > :is(td, th),
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .div-table-responsive-no-min > table.liste > tbody > tr.liste_titre_filter > :is(td, th) {
+		padding-bottom: 8px !important;
+		padding-top: 8px !important;
+	}
+
 	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .div-table-responsive > table.liste > tbody > tr.liste_titre_filter + tr.liste_titre > :is(td, th),
 	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .div-table-responsive-no-min > table.liste > tbody > tr.liste_titre_filter + tr.liste_titre > :is(td, th) {
 		border-top: 1px solid var(--formora-line) !important;
@@ -6183,6 +6189,12 @@ table.jPicker {
 
 		body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .liste_titre_bydiv .divsearchfield {
 			flex-basis: 100%;
+		}
+
+		body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .div-table-responsive > table.liste > tbody > tr.liste_titre_filter > :is(td, th),
+		body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .div-table-responsive-no-min > table.liste > tbody > tr.liste_titre_filter > :is(td, th) {
+			padding-bottom: 6px !important;
+			padding-top: 6px !important;
 		}
 	}
 
