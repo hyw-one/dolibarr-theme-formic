@@ -6566,6 +6566,42 @@ table.jPicker {
 		color: var(--tooltipfontcolor, var(--formora-text)) !important;
 	}
 
+	body#mainbody div.ui-tooltip.mytooltip,
+	body#mainbody div.ui-tooltip.mytooltip-hover-tooltip {
+		box-sizing: border-box !important;
+		max-width: min(550px, calc(100vw - 32px)) !important;
+		min-width: min(420px, calc(100vw - 32px)) !important;
+		overflow-wrap: anywhere;
+		white-space: normal !important;
+		width: auto !important;
+	}
+
+	@media only screen and (max-width: 1180px) {
+		body#mainbody div.ui-tooltip.mytooltip,
+		body#mainbody div.ui-tooltip.mytooltip-hover-tooltip {
+			max-width: min(440px, calc(100vw - 32px)) !important;
+			min-width: min(320px, calc(100vw - 32px)) !important;
+		}
+	}
+
+	@media only screen and (max-width: 768px) {
+		body#mainbody div.ui-tooltip.mytooltip,
+		body#mainbody div.ui-tooltip.mytooltip-hover-tooltip {
+			max-width: calc(100vw - 24px) !important;
+			min-width: min(280px, calc(100vw - 24px)) !important;
+			padding: 14px 16px !important;
+		}
+	}
+
+	@media only screen and (max-width: 480px) {
+		body#mainbody div.ui-tooltip.mytooltip,
+		body#mainbody div.ui-tooltip.mytooltip-hover-tooltip {
+			max-width: calc(100vw - 20px) !important;
+			min-width: 0 !important;
+			padding: 12px !important;
+		}
+	}
+
 	body#mainbody .jnotify-container {
 		overflow: visible !important;
 	}
