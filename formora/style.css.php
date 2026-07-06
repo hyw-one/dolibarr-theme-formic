@@ -2077,6 +2077,28 @@ textarea:focus,
 	color: var(--formora-muted) !important;
 }
 
+body#mainbody.bodyforlist:not(.poslist):not(.bodylogin):not(.mod-product) #id-right .fiche form#searchFormList > table.table-fiche-title :is(.paginationafterarrows, .titre_right) a.btnTitle.btnTitlePlus {
+	transition: background-color 0.14s ease, box-shadow 0.14s ease, color 0.14s ease;
+}
+
+body#mainbody.bodyforlist:not(.poslist):not(.bodylogin):not(.mod-product) #id-right .fiche form#searchFormList > table.table-fiche-title :is(.paginationafterarrows, .titre_right) a.btnTitle.btnTitlePlus:hover,
+body#mainbody.bodyforlist:not(.poslist):not(.bodylogin):not(.mod-product) #id-right .fiche form#searchFormList > table.table-fiche-title :is(.paginationafterarrows, .titre_right) a.btnTitle.btnTitlePlus:focus {
+	background: var(--formora-neutral-hover-bg) !important;
+	box-shadow: inset 0 0 0 1px var(--formora-line-soft) !important;
+	color: var(--formora-accent-hover) !important;
+	text-decoration: none !important;
+}
+
+body#mainbody.bodyforlist:not(.poslist):not(.bodylogin):not(.mod-product) #id-right .fiche form#searchFormList > table.table-fiche-title :is(.paginationafterarrows, .titre_right) a.btnTitle.btnTitlePlus:hover :is(.btnTitle-icon, span),
+body#mainbody.bodyforlist:not(.poslist):not(.bodylogin):not(.mod-product) #id-right .fiche form#searchFormList > table.table-fiche-title :is(.paginationafterarrows, .titre_right) a.btnTitle.btnTitlePlus:focus :is(.btnTitle-icon, span) {
+	color: inherit !important;
+}
+
+body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > table.table-fiche-title :is(.paginationafterarrows, .titre_right) a.btnTitle.btnTitlePlus:hover span::before,
+body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > table.table-fiche-title :is(.paginationafterarrows, .titre_right) a.btnTitle.btnTitlePlus:focus span::before {
+	font-size: 1em;
+}
+
 #mainbody .box-flex-container.kanban .box-flex-item.info-box-module,
 #mainbody .box-flex-container.kanban .box-flex-item.info-box-module .info-box,
 #mainbody .box-flex-container.kanban .box-flex-item.info-box-module .info-box-icon,
