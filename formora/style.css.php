@@ -507,8 +507,6 @@ require __DIR__.'/global.inc.php';
 	--formora-elevated: #ffffff;
 	--formora-table-header: #f5f5f7;
 	--formora-switch-knob: #ffffff;
-	--formora-module-enabled-glow: rgba(26, 127, 55, 0.16);
-	--formora-module-enabled-glow-soft: rgba(26, 127, 55, 0.05);
 	--infoboxmoduleenabledbgcolor: transparent;
 	--formora-symbol-search: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M8.7 14.2a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11Zm4-1.5 4.1 4.1' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
 	--formora-symbol-refresh: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M16.2 7.2A6.4 6.4 0 0 0 4.1 5.4M3.6 3.1v3.9h3.9M3.8 12.8a6.4 6.4 0 0 0 12.1 1.8m.5 2.3v-3.9h-3.9' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
@@ -2186,18 +2184,6 @@ body#mainbody.bodyforlist:not(.poslist):not(.bodylogin):not(.mod-product) #id-ri
 	z-index: 1;
 }
 
-#mainbody .box-flex-container.kanban .box-flex-item.info-box-module:not(.--disabled) .info-box::after {
-	background: radial-gradient(circle at calc(100% - 42px) calc(100% - 18px), var(--formora-module-enabled-glow) 0%, var(--formora-module-enabled-glow-soft) 38%, transparent 74%);
-	bottom: 0;
-	content: "";
-	pointer-events: none;
-	position: absolute;
-	right: 0;
-	top: 0;
-	width: 58%;
-	z-index: 0;
-}
-
 body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList .box-flex-container.kanban > .box-flex-item {
 	background: transparent !important;
 	border: 0 !important;
@@ -2545,8 +2531,6 @@ if (getDolGlobalInt('THEME_DARKMODEENABLED')) {
 	--formora-infobox-stock: #d7ce5e;
 	--formora-infobox-supplier: #73c7df;
 	--formora-switch-knob: #1c1f22;
-	--formora-module-enabled-glow: rgba(48, 209, 88, 0.26);
-	--formora-module-enabled-glow-soft: rgba(48, 209, 88, 0.08);
 	--formora-shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.35), 0 8px 24px rgba(0, 0, 0, 0.28);
 	--formora-shadow-elevated: 0 18px 48px rgba(0, 0, 0, 0.48);
 	--formora-shadow-menu: 0 14px 34px rgba(0, 0, 0, 0.5);
