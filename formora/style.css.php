@@ -5955,7 +5955,7 @@ table.jPicker {
 	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .div-table-responsive,
 	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .div-table-responsive-no-min {
 		-webkit-overflow-scrolling: touch;
-		background: var(--formora-surface) !important;
+		background: transparent !important;
 		border-radius: 0 0 var(--formora-radius) var(--formora-radius) !important;
 		box-sizing: border-box !important;
 		max-width: 100% !important;
