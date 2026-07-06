@@ -4,6 +4,7 @@
 	var aceRefreshTimer = null;
 	var chartRefreshTimer = null;
 	var takeposUrlRefreshTimer = null;
+	var topMenuScrollTimer = null;
 
 	function parseRgb(color) {
 		var value = String(color || '').trim();
@@ -400,32 +401,83 @@
 		takeposUrlRefreshTimer = setTimeout(refreshTakeposIframeUrls, 0);
 	}
 
+	function clearTopMenuScrollState() {
+		if (!document.body) {
+			return;
+		}
+
+		document.body.classList.remove(
+			'formora-tmenu-is-scrollable',
+			'formora-tmenu-can-scroll-left',
+			'formora-tmenu-can-scroll-right'
+		);
+	}
+
+	function isTopMenuMobileLayout() {
+		return !window.matchMedia || window.matchMedia('(max-width: 1180px)').matches;
+	}
+
+	function updateTopMenuScrollState() {
+		var body = document.body;
+		var menu = document.getElementById('tmenu_tooltip');
+
+		if (!body || !menu || body.classList.contains('bodytakepos') || body.classList.contains('bodylogin') || !isTopMenuMobileLayout()) {
+			clearTopMenuScrollState();
+			return;
+		}
+
+		if (!menu.__formoraTmenuScrollBound) {
+			menu.addEventListener('scroll', scheduleTopMenuScrollState, { passive: true });
+			menu.__formoraTmenuScrollBound = true;
+		}
+
+		var maxScroll = Math.max(0, menu.scrollWidth - menu.clientWidth);
+		var isScrollable = maxScroll > 1;
+		body.classList.toggle('formora-tmenu-is-scrollable', isScrollable);
+		body.classList.toggle('formora-tmenu-can-scroll-left', isScrollable && menu.scrollLeft > 1);
+		body.classList.toggle('formora-tmenu-can-scroll-right', isScrollable && menu.scrollLeft < maxScroll - 1);
+	}
+
+	function scheduleTopMenuScrollState() {
+		clearTimeout(topMenuScrollTimer);
+		topMenuScrollTimer = setTimeout(updateTopMenuScrollState, 0);
+	}
+
 	applyChartTheme();
 	applyAceTheme();
 	refreshTakeposIframeUrls();
+	updateTopMenuScrollState();
 
 	if (document.readyState === 'loading') {
 		document.addEventListener('DOMContentLoaded', scheduleAceTheme);
 		document.addEventListener('DOMContentLoaded', scheduleChartTheme);
 		document.addEventListener('DOMContentLoaded', scheduleTakeposThemeUrls);
+		document.addEventListener('DOMContentLoaded', scheduleTopMenuScrollState);
 	} else {
 		scheduleAceTheme();
 		scheduleChartTheme();
 		scheduleTakeposThemeUrls();
+		scheduleTopMenuScrollState();
 	}
 
 	window.addEventListener('load', scheduleAceTheme);
 	window.addEventListener('load', scheduleChartTheme);
 	window.addEventListener('load', scheduleTakeposThemeUrls);
+	window.addEventListener('load', scheduleTopMenuScrollState);
+	window.addEventListener('resize', scheduleTopMenuScrollState);
+	window.addEventListener('orientationchange', scheduleTopMenuScrollState);
 	setTimeout(scheduleAceTheme, 300);
 	setTimeout(scheduleAceTheme, 1000);
 	setTimeout(scheduleTakeposThemeUrls, 300);
+	setTimeout(scheduleTopMenuScrollState, 300);
+	setTimeout(scheduleTopMenuScrollState, 1000);
 
 	if (window.MutationObserver) {
 		new MutationObserver(function () {
 			scheduleAceTheme();
 			scheduleChartTheme();
 			scheduleTakeposThemeUrls();
+			scheduleTopMenuScrollState();
 		}).observe(document.documentElement, {
 			childList: true,
 			subtree: true
