@@ -388,6 +388,8 @@ $nbtopmenuentriesreal = $nbtopmenuentries;
 if ($conf->browser->layout == 'phone') {
 	$nbtopmenuentries = max($nbtopmenuentries, 10);
 }
+$formoraMenuCollapseWidth = (int) getDolGlobalString('THEME_ELDY_WITDHOFFSET_FOR_REDUC3', round($nbtopmenuentries * 47, 0) + 130);
+$formoraMenuExpandedMinWidth = $formoraMenuCollapseWidth + 1;
 
 $minwidthtmenu = 66; /* minimum width for one top menu entry */
 $heightmenu = 50; /* height of top menu, part with image */
@@ -436,6 +438,7 @@ print 'dol_screenwidth='.(empty($_SESSION['dol_screenwidth']) ? '' : $_SESSION['
 print 'dol_screenheight='.(empty($_SESSION['dol_screenheight']) ? '' : $_SESSION['dol_screenheight'])."\n";
 print 'fontsize='.$fontsize."\n";
 print 'nbtopmenuentries='.$nbtopmenuentries."\n";
+print 'formoraMenuCollapseWidth='.$formoraMenuCollapseWidth."\n";
 print 'fontsizesmaller='.$fontsizesmaller."\n";
 print 'topMenuFontSize='.$topMenuFontSize."\n";
 print 'toolTipBgColor='.$toolTipBgColor."\n";
@@ -5131,7 +5134,7 @@ table.jPicker {
 		border-color: var(--formora-line-soft) !important;
 	}
 
-	@media only screen and (min-width: 768px) {
+	@media only screen and (min-width: <?php echo $formoraMenuExpandedMinWidth; ?>px) {
 		body#mainbody:not(.bodylogin):not(.poslist) #id-container:has(#id-left) {
 			min-height: calc(100vh - 51px);
 			position: relative;
@@ -6215,7 +6218,7 @@ table.jPicker {
 		min-width: 0 !important;
 	}
 
-	@media only screen and (min-width: 930px) {
+	@media only screen and (min-width: <?php echo $formoraMenuExpandedMinWidth; ?>px) {
 		body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right {
 			max-width: calc(100vw - <?php echo $leftmenuwidth + 21; ?>px) !important;
 			width: calc(100vw - <?php echo $leftmenuwidth + 21; ?>px) !important;
@@ -6241,7 +6244,7 @@ table.jPicker {
 		}
 	}
 
-	@media only screen and (min-width: 768px) and (max-width: 929px) {
+	@media only screen and (min-width: 768px) and (max-width: <?php echo $formoraMenuCollapseWidth; ?>px) {
 		body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right {
 			max-width: 100vw !important;
 			width: 100% !important;
@@ -8044,7 +8047,34 @@ table.jPicker {
 
 		}
 
-		@media only screen and (min-width: 768px) and (max-width: 1279px) {
+		@media only screen and (min-width: 768px) and (max-width: <?php echo $formoraMenuCollapseWidth; ?>px) {
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-container:has(#id-left)::before {
+				content: none !important;
+				display: none !important;
+			}
+
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right {
+				box-sizing: border-box !important;
+				left: auto !important;
+				max-width: 100vw !important;
+				min-width: 0 !important;
+				padding-left: 0 !important;
+				padding-right: 0 !important;
+				width: 100% !important;
+			}
+
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche,
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right div.fiche {
+				box-sizing: border-box !important;
+				margin-left: 13px;
+				margin-right: 14px;
+				max-width: calc(100vw - 27px) !important;
+				min-width: 0 !important;
+				width: auto !important;
+			}
+		}
+
+		@media only screen and (min-width: <?php echo $formoraMenuExpandedMinWidth; ?>px) and (max-width: 1279px) {
 			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right {
 				box-sizing: border-box !important;
 				max-width: calc(100vw - <?php echo $leftmenuwidth + 21; ?>px) !important;
