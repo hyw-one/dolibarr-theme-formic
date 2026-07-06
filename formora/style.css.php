@@ -7808,6 +7808,25 @@ table.jPicker {
 				width: 100% !important;
 			}
 
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche .tabBar,
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche .tabBar :is(.fichecenter, .fichethirdleft, .fichetwothirdright) {
+				box-sizing: border-box !important;
+				max-width: 100% !important;
+				min-width: 0 !important;
+				overflow-x: hidden !important;
+			}
+
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche .tabBar :is(table.border.centpercent, table.noborder.centpercent):not(.liste):not(.table-fiche-title) {
+				box-sizing: border-box !important;
+				max-width: 100% !important;
+				min-width: 0 !important;
+				width: 100% !important;
+			}
+
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche .tabBar :is(img, canvas, svg) {
+				max-width: 100% !important;
+			}
+
 			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche :is(.boxhalfleft, .boxhalfright, .fichehalfleft, .fichehalfright) > .box.divboxtable.boxdraggable:has(> table.boxtable) {
 				-webkit-overflow-scrolling: touch;
 				box-sizing: border-box !important;
