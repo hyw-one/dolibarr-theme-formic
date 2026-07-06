@@ -7531,7 +7531,7 @@ table.jPicker {
 				box-sizing: border-box !important;
 				height: 60px !important;
 				min-height: 60px !important;
-				overflow: visible !important;
+				overflow: hidden !important;
 				position: relative !important;
 			}
 
