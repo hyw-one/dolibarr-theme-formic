@@ -2198,6 +2198,36 @@ body#mainbody.bodyforlist:not(.poslist):not(.bodylogin):not(.mod-product) #id-ri
 	z-index: 0;
 }
 
+body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList .box-flex-container.kanban > .box-flex-item {
+	background: transparent !important;
+	border: 0 !important;
+	box-shadow: none !important;
+	overflow: visible !important;
+}
+
+body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList .box-flex-container.kanban > .box-flex-item > .info-box.info-box-sm {
+	align-items: stretch !important;
+	display: flex !important;
+	height: auto !important;
+	margin-bottom: 0 !important;
+	min-height: 80px !important;
+}
+
+body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList .box-flex-container.kanban > .box-flex-item > .info-box.info-box-sm > .info-box-icon {
+	align-self: stretch !important;
+	flex: 0 0 80px !important;
+	float: none !important;
+	height: auto !important;
+	min-height: 0 !important;
+	width: 80px !important;
+}
+
+body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList .box-flex-container.kanban > .box-flex-item > .info-box.info-box-sm > .info-box-content {
+	flex: 1 1 auto !important;
+	margin-left: 0 !important;
+	min-width: 0 !important;
+}
+
 table.border,
 table.noborder,
 table.liste,
