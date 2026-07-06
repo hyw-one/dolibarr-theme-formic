@@ -6002,6 +6002,7 @@ table.jPicker {
 		align-items: center;
 		background: var(--formora-surface-alt) !important;
 		border: 0 !important;
+		border-bottom: 1px solid var(--formora-line) !important;
 		border-radius: var(--formora-radius) var(--formora-radius) 0 0 !important;
 		box-sizing: border-box !important;
 		display: flex !important;
@@ -6081,6 +6082,16 @@ table.jPicker {
 		margin-bottom: 0 !important;
 		max-width: none !important;
 		min-width: 100% !important;
+	}
+
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .div-table-responsive > table.liste > tbody > tr.liste_titre_filter:first-child > :is(td, th),
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .div-table-responsive-no-min > table.liste > tbody > tr.liste_titre_filter:first-child > :is(td, th) {
+		border-top: 0 !important;
+	}
+
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .div-table-responsive > table.liste > tbody > tr.liste_titre_filter + tr.liste_titre > :is(td, th),
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .div-table-responsive-no-min > table.liste > tbody > tr.liste_titre_filter + tr.liste_titre > :is(td, th) {
+		border-top: 1px solid var(--formora-line) !important;
 	}
 
 	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .div-table-responsive > table.liste > :is(tbody, tfoot):last-child > tr:last-child > :is(td, th),
