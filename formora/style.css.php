@@ -5988,7 +5988,10 @@ table.jPicker {
 		}
 
 		body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche {
-			max-width: calc(100vw - <?php echo $leftmenuwidth + 47; ?>px) !important;
+			margin-left: 12px;
+			margin-right: 12px;
+			max-width: calc(100% - 24px) !important;
+			width: auto;
 		}
 
 		body#mainbody:is(.page-list_det, .page-task_time):not(.bodylogin) #id-right {
@@ -5997,7 +6000,10 @@ table.jPicker {
 		}
 
 		body#mainbody:is(.page-list_det, .page-task_time):not(.bodylogin) #id-right .fiche {
-			max-width: calc(100vw - <?php echo $leftmenuwidth + 47; ?>px) !important;
+			margin-left: 12px;
+			margin-right: 12px;
+			max-width: calc(100% - 24px) !important;
+			width: auto;
 		}
 	}
 
