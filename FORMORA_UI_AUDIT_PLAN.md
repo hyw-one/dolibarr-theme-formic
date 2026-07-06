@@ -4,7 +4,7 @@ Date: 2026-07-06
 
 Scope: Dolibarr 23 Formora theme layout audit after the current list-page redesign work. The audit covered regular back-office pages, POS-related pages, list pages, card/create forms, statistics pages, accounting pages, light mode, dark mode, mobile, tablet, and desktop widths.
 
-Status: Audit plan with first two remediations completed.
+Status: Audit plan with first three remediations completed.
 
 Latest remediation update:
 
@@ -13,6 +13,8 @@ Latest remediation update:
 - Regression smoke covered 34 list/POS-related combinations, including mobile `390x844`, tablet `768x1024`, desktop `1440x900`, and POS partner list `1435x920`.
 - The P1 mobile card/create form overflow was fixed in `formora/style.css.php`.
 - Verified 42 card/create combinations and 36 list/POS regression combinations across mobile, tablet, desktop, light mode, and dark mode.
+- The P1 special list-like desktop overflow was fixed for order lines and project task time pages.
+- Verified 12 special-page combinations and 50 card/list regression combinations after the change.
 
 ## 1. Audit Method
 
@@ -201,6 +203,8 @@ Validation:
 - POS iframe third-party create.
 
 ### P1 - Special Desktop List-Like Pages Overflow
+
+Status: Fixed and verified on 2026-07-06.
 
 Affected pages:
 
