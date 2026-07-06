@@ -2077,26 +2077,83 @@ textarea:focus,
 	color: var(--formora-muted) !important;
 }
 
-body#mainbody.bodyforlist:not(.poslist):not(.bodylogin):not(.mod-product) #id-right .fiche form#searchFormList > table.table-fiche-title :is(.paginationafterarrows, .titre_right) a.btnTitle.btnTitlePlus {
+body#mainbody.bodyforlist:not(.poslist):not(.bodylogin):not(.mod-product) #id-right .fiche form#searchFormList > table.table-fiche-title .paginationafterarrows a.btnTitle {
+	--formora-title-action-icon-size: 21px;
+	--formora-title-action-size: 38px;
+	align-items: center !important;
+	background: transparent !important;
+	border: 0 !important;
+	border-radius: var(--formora-radius-sm) !important;
+	box-shadow: inset 0 0 0 1px transparent !important;
+	box-sizing: border-box !important;
+	color: var(--formora-muted) !important;
+	display: inline-flex !important;
+	height: var(--formora-title-action-size) !important;
+	justify-content: center !important;
+	line-height: 1 !important;
+	margin: 0 !important;
+	min-height: var(--formora-title-action-size) !important;
+	min-width: var(--formora-title-action-size) !important;
+	padding: 0 !important;
+	text-align: center !important;
+	text-decoration: none !important;
 	transition: background-color 0.14s ease, box-shadow 0.14s ease, color 0.14s ease;
+	width: var(--formora-title-action-size) !important;
 }
 
-body#mainbody.bodyforlist:not(.poslist):not(.bodylogin):not(.mod-product) #id-right .fiche form#searchFormList > table.table-fiche-title :is(.paginationafterarrows, .titre_right) a.btnTitle.btnTitlePlus:hover,
-body#mainbody.bodyforlist:not(.poslist):not(.bodylogin):not(.mod-product) #id-right .fiche form#searchFormList > table.table-fiche-title :is(.paginationafterarrows, .titre_right) a.btnTitle.btnTitlePlus:focus {
+body#mainbody.bodyforlist:not(.poslist):not(.bodylogin):not(.mod-product) #id-right .fiche form#searchFormList > table.table-fiche-title .paginationafterarrows {
+	gap: 6px;
+}
+
+body#mainbody.bodyforlist:not(.poslist):not(.bodylogin):not(.mod-product) #id-right .fiche form#searchFormList > table.table-fiche-title .paginationafterarrows .button-title-separator {
+	display: none !important;
+}
+
+body#mainbody.bodyforlist:not(.poslist):not(.bodylogin):not(.mod-product) #id-right .fiche form#searchFormList > table.table-fiche-title .paginationafterarrows a.btnTitlePlus {
+	margin-left: 8px !important;
+}
+
+body#mainbody.bodyforlist:not(.poslist):not(.bodylogin):not(.mod-product) #id-right .fiche form#searchFormList > table.table-fiche-title .paginationafterarrows a.btnTitle :is(.btnTitle-icon, span) {
+	color: inherit !important;
+	font-size: var(--formora-title-action-icon-size) !important;
+	line-height: 1 !important;
+	margin: 0 !important;
+}
+
+body#mainbody.bodyforlist:not(.poslist):not(.bodylogin):not(.mod-product) #id-right .fiche form#searchFormList > table.table-fiche-title .paginationafterarrows a.btnTitle span::before {
+	font-size: 1em !important;
+	line-height: 1 !important;
+}
+
+body#mainbody.bodyforlist:not(.poslist):not(.bodylogin):not(.mod-product) #id-right .fiche form#searchFormList > table.table-fiche-title .paginationafterarrows a.btnTitle:hover,
+body#mainbody.bodyforlist:not(.poslist):not(.bodylogin):not(.mod-product) #id-right .fiche form#searchFormList > table.table-fiche-title .paginationafterarrows a.btnTitle:focus {
 	background: var(--formora-neutral-hover-bg) !important;
 	box-shadow: inset 0 0 0 1px var(--formora-line-soft) !important;
 	color: var(--formora-accent-hover) !important;
 	text-decoration: none !important;
 }
 
-body#mainbody.bodyforlist:not(.poslist):not(.bodylogin):not(.mod-product) #id-right .fiche form#searchFormList > table.table-fiche-title :is(.paginationafterarrows, .titre_right) a.btnTitle.btnTitlePlus:hover :is(.btnTitle-icon, span),
-body#mainbody.bodyforlist:not(.poslist):not(.bodylogin):not(.mod-product) #id-right .fiche form#searchFormList > table.table-fiche-title :is(.paginationafterarrows, .titre_right) a.btnTitle.btnTitlePlus:focus :is(.btnTitle-icon, span) {
-	color: inherit !important;
+body#mainbody.bodyforlist:not(.poslist):not(.bodylogin):not(.mod-product) #id-right .fiche form#searchFormList > table.table-fiche-title .paginationafterarrows a.btnTitle.btnTitleSelected,
+body#mainbody.bodyforlist:not(.poslist):not(.bodylogin):not(.mod-product) #id-right .fiche form#searchFormList > table.table-fiche-title .paginationafterarrows a.btnTitle.btnTitleSelected:hover,
+body#mainbody.bodyforlist:not(.poslist):not(.bodylogin):not(.mod-product) #id-right .fiche form#searchFormList > table.table-fiche-title .paginationafterarrows a.btnTitle.btnTitleSelected:focus {
+	background: var(--formora-neutral-hover-bg) !important;
+	box-shadow: inset 0 0 0 1px var(--formora-line) !important;
+	color: var(--formora-accent-hover) !important;
 }
 
-body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > table.table-fiche-title :is(.paginationafterarrows, .titre_right) a.btnTitle.btnTitlePlus:hover span::before,
-body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > table.table-fiche-title :is(.paginationafterarrows, .titre_right) a.btnTitle.btnTitlePlus:focus span::before {
-	font-size: 1em;
+@media only screen and (max-width: 767px) {
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin):not(.mod-product) #id-right .fiche form#searchFormList > table.table-fiche-title .paginationafterarrows a.btnTitle {
+		--formora-title-action-icon-size: 20px;
+		--formora-title-action-size: 34px;
+	}
+
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin):not(.mod-product) #id-right .fiche form#searchFormList > table.table-fiche-title .paginationafterarrows {
+		gap: 4px;
+	}
+
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin):not(.mod-product) #id-right .fiche form#searchFormList > table.table-fiche-title .paginationafterarrows a.btnTitlePlus {
+		margin-left: 6px !important;
+	}
 }
 
 #mainbody .box-flex-container.kanban .box-flex-item.info-box-module,
