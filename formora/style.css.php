@@ -4839,7 +4839,7 @@ table.jPicker {
 		background-image: none !important;
 		border-radius: 0 !important;
 		margin-left: 6px !important;
-		min-width: 52px !important;
+		min-width: max-content !important;
 		width: auto !important;
 	}
 
@@ -4853,13 +4853,14 @@ table.jPicker {
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
+		max-width: none !important;
 		min-height: 46px;
 		min-width: 52px;
 		overflow: visible !important;
-		padding: 3px 0 !important;
+		padding: 3px 8px !important;
 		position: relative;
 		transition: background-color 0.14s ease, border-color 0.14s ease, color 0.14s ease;
-		width: auto !important;
+		width: max-content !important;
 	}
 
 	body#mainbody #id-top :is(li.tmenu, li.tmenusel) div.tmenucenter:has(> a.tmenulabel[href]) {
@@ -4872,9 +4873,9 @@ table.jPicker {
 		display: flex !important;
 		justify-content: center;
 		min-height: 18px;
-		padding: 0 8px !important;
+		padding: 0 !important;
 		position: relative;
-		width: 100% !important;
+		width: auto !important;
 	}
 
 	body#mainbody #id-top :is(li.tmenu, li.tmenusel) div.tmenucenter > a.tmenuimage {
@@ -6428,6 +6429,17 @@ table.jPicker {
 		line-height: normal !important;
 	}
 
+	body#mainbody .login_block.usedropdown #topmenu-login-dropdown > a.dropdown-toggle,
+	body#mainbody .login_block.usedropdown #topmenu-login-dropdown > a.dropdown-toggle:hover,
+	body#mainbody .login_block.usedropdown #topmenu-login-dropdown > a.dropdown-toggle:focus,
+	body#mainbody .login_block.usedropdown #topmenu-login-dropdown > a.dropdown-toggle:active,
+	body#mainbody .login_block.usedropdown #topmenu-login-dropdown > a.dropdown-toggle :is(.atoplogin, .atoploginusername, #dropdown-icon-down, #dropdown-icon-up),
+	body#mainbody .login_block.usedropdown #topmenu-login-dropdown > a.dropdown-toggle:hover :is(.atoplogin, .atoploginusername, #dropdown-icon-down, #dropdown-icon-up),
+	body#mainbody .login_block.usedropdown #topmenu-login-dropdown > a.dropdown-toggle:focus :is(.atoplogin, .atoploginusername, #dropdown-icon-down, #dropdown-icon-up),
+	body#mainbody .login_block.usedropdown #topmenu-login-dropdown > a.dropdown-toggle:active :is(.atoplogin, .atoploginusername, #dropdown-icon-down, #dropdown-icon-up) {
+		text-decoration: none !important;
+	}
+
 	/* Final action/menu dropdown override: menu rows must not inherit primary button fills. */
 	body#mainbody .dropdown-holder.open > .dropdown-content,
 	body#mainbody .tabsAction .dropdown.open > .dropdown-menu,
@@ -7602,12 +7614,12 @@ table.jPicker {
 			}
 
 			body#mainbody:not(.bodytakepos):not(.bodylogin) #id-top :is(li.tmenu, li.tmenusel) {
-				flex: 0 0 48px !important;
+				flex: 0 0 auto !important;
 				float: none !important;
 				height: 60px !important;
 				margin-left: 4px !important;
-				min-width: 48px !important;
-				width: 48px !important;
+				min-width: max-content !important;
+				width: auto !important;
 			}
 
 			body#mainbody:not(.bodytakepos):not(.bodylogin) #id-top :is(li.tmenu:not(.menuhider), li.tmenusel:not(.menuhider)) {
@@ -7615,23 +7627,28 @@ table.jPicker {
 			}
 
 			body#mainbody:not(.bodytakepos):not(.bodylogin) #id-top :is(li.tmenu, li.tmenusel) div.tmenucenter {
-				flex-direction: row !important;
+				flex-direction: column !important;
 				height: 54px !important;
+				max-width: none !important;
 				min-height: 54px !important;
-				min-width: 44px !important;
-				overflow: hidden !important;
-				padding: 3px 0 !important;
-				width: 44px !important;
+				min-width: 52px !important;
+				overflow: visible !important;
+				padding: 3px 8px !important;
+				width: max-content !important;
 			}
 
 			body#mainbody:not(.bodytakepos):not(.bodylogin) #id-top :is(li.tmenu, li.tmenusel) div.tmenucenter > a.tmenuimage {
-				height: 44px !important;
-				min-height: 44px !important;
-				width: 44px !important;
+				height: 25px !important;
+				min-height: 25px !important;
+				min-width: 44px !important;
+				width: 100% !important;
 			}
 
 			body#mainbody:not(.bodytakepos):not(.bodylogin) #id-top :is(li.tmenu, li.tmenusel) div.tmenucenter > a.tmenulabel {
-				display: none !important;
+				display: flex !important;
+				min-height: 18px !important;
+				white-space: nowrap !important;
+				width: auto !important;
 			}
 
 			body#mainbody:not(.bodytakepos):not(.bodylogin) .login_block.usedropdown {
