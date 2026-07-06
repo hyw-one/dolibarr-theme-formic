@@ -5,6 +5,7 @@
 	var chartRefreshTimer = null;
 	var takeposUrlRefreshTimer = null;
 	var topMenuScrollTimer = null;
+	var topMenuCenterTimer = null;
 
 	function parseRgb(color) {
 		var value = String(color || '').trim();
@@ -261,9 +262,17 @@
 		});
 	}
 
+	function safeApplyChartTheme() {
+		try {
+			applyChartTheme();
+		} catch (e) {
+			// Chart.js defaults can be proxied by older Dolibarr builds; do not block the rest of the theme script.
+		}
+	}
+
 	function scheduleChartTheme() {
 		clearTimeout(chartRefreshTimer);
-		chartRefreshTimer = setTimeout(applyChartTheme, 0);
+		chartRefreshTimer = setTimeout(safeApplyChartTheme, 0);
 	}
 
 	function applyAceTheme() {
@@ -417,6 +426,22 @@
 		return !window.matchMedia || window.matchMedia('(max-width: 1180px)').matches;
 	}
 
+	function cancelTopMenuAutoCenter(event) {
+		var menu = event && event.currentTarget ? event.currentTarget : document.getElementById('tmenu_tooltip');
+		if (menu) {
+			menu.__formoraTopMenuUserInteracted = true;
+		}
+		clearTimeout(topMenuCenterTimer);
+	}
+
+	function handleTopMenuScroll(event) {
+		var menu = event && event.currentTarget ? event.currentTarget : null;
+		scheduleTopMenuScrollState();
+		if (menu && !menu.__formoraSuppressUserScroll) {
+			cancelTopMenuAutoCenter(event);
+		}
+	}
+
 	function updateTopMenuScrollState() {
 		var body = document.body;
 		var menu = document.getElementById('tmenu_tooltip');
@@ -427,7 +452,11 @@
 		}
 
 		if (!menu.__formoraTmenuScrollBound) {
-			menu.addEventListener('scroll', scheduleTopMenuScrollState, { passive: true });
+			menu.addEventListener('scroll', handleTopMenuScroll, { passive: true });
+			menu.addEventListener('wheel', cancelTopMenuAutoCenter, { passive: true });
+			menu.addEventListener('touchstart', cancelTopMenuAutoCenter, { passive: true });
+			menu.addEventListener('pointerdown', cancelTopMenuAutoCenter);
+			menu.addEventListener('keydown', cancelTopMenuAutoCenter);
 			menu.__formoraTmenuScrollBound = true;
 		}
 
@@ -443,34 +472,114 @@
 		topMenuScrollTimer = setTimeout(updateTopMenuScrollState, 0);
 	}
 
-	applyChartTheme();
+	function centerSelectedTopMenuItem() {
+		var body = document.body;
+		var menu = document.getElementById('tmenu_tooltip');
+
+		if (!body || !menu || body.classList.contains('bodytakepos') || body.classList.contains('bodylogin') || !isTopMenuMobileLayout()) {
+			return;
+		}
+
+		var selected = menu.querySelector('li.tmenusel:not(.menuhider)');
+		if (!selected) {
+			return;
+		}
+
+		var maxScroll = Math.max(0, menu.scrollWidth - menu.clientWidth);
+		if (maxScroll <= 1) {
+			return;
+		}
+
+		var hider = menu.querySelector('li.menuhider');
+		var hiderWidth = 0;
+		if (hider) {
+			var hiderStyle = window.getComputedStyle(hider);
+			if (hiderStyle.display !== 'none' && hiderStyle.visibility !== 'hidden') {
+				hiderWidth = Math.round(hider.getBoundingClientRect().width);
+			}
+		}
+
+		var visibleWidth = Math.max(1, menu.clientWidth - hiderWidth);
+		var selectedCenter = selected.offsetLeft + (selected.offsetWidth / 2);
+		var desiredScrollLeft = selectedCenter - hiderWidth - (visibleWidth / 2);
+		var nextScrollLeft = Math.max(0, Math.min(maxScroll, Math.round(desiredScrollLeft)));
+		var centerKey = [
+			selected.id || selected.textContent,
+			menu.clientWidth,
+			menu.scrollWidth,
+			hiderWidth,
+			window.innerWidth
+		].join('|');
+
+		if (menu.__formoraSelectedCenteredKey === centerKey && typeof menu.__formoraAutoCenteredScrollLeft === 'number' && Math.abs(menu.scrollLeft - menu.__formoraAutoCenteredScrollLeft) > 1) {
+			menu.__formoraTopMenuUserInteracted = true;
+			return;
+		}
+
+		if (menu.__formoraTopMenuUserInteracted) {
+			return;
+		}
+
+		if (menu.__formoraSelectedCenteredKey === centerKey && Math.abs(menu.scrollLeft - nextScrollLeft) <= 1) {
+			return;
+		}
+
+		clearTimeout(menu.__formoraSuppressUserScrollTimer);
+		menu.__formoraSuppressUserScroll = true;
+		menu.scrollLeft = nextScrollLeft;
+		menu.__formoraSuppressUserScrollTimer = setTimeout(function () {
+			menu.__formoraSuppressUserScroll = false;
+		}, 120);
+		menu.__formoraSelectedCenteredKey = centerKey;
+		menu.__formoraAutoCenteredScrollLeft = nextScrollLeft;
+		updateTopMenuScrollState();
+	}
+
+	function scheduleTopMenuSelectedCenter() {
+		clearTimeout(topMenuCenterTimer);
+		topMenuCenterTimer = setTimeout(centerSelectedTopMenuItem, 0);
+	}
+
+	safeApplyChartTheme();
 	applyAceTheme();
 	refreshTakeposIframeUrls();
 	updateTopMenuScrollState();
+	centerSelectedTopMenuItem();
 
 	if (document.readyState === 'loading') {
 		document.addEventListener('DOMContentLoaded', scheduleAceTheme);
 		document.addEventListener('DOMContentLoaded', scheduleChartTheme);
 		document.addEventListener('DOMContentLoaded', scheduleTakeposThemeUrls);
 		document.addEventListener('DOMContentLoaded', scheduleTopMenuScrollState);
+		document.addEventListener('DOMContentLoaded', scheduleTopMenuSelectedCenter);
 	} else {
 		scheduleAceTheme();
 		scheduleChartTheme();
 		scheduleTakeposThemeUrls();
 		scheduleTopMenuScrollState();
+		scheduleTopMenuSelectedCenter();
 	}
 
 	window.addEventListener('load', scheduleAceTheme);
 	window.addEventListener('load', scheduleChartTheme);
 	window.addEventListener('load', scheduleTakeposThemeUrls);
 	window.addEventListener('load', scheduleTopMenuScrollState);
-	window.addEventListener('resize', scheduleTopMenuScrollState);
-	window.addEventListener('orientationchange', scheduleTopMenuScrollState);
+	window.addEventListener('load', scheduleTopMenuSelectedCenter);
+	window.addEventListener('resize', function () {
+		scheduleTopMenuScrollState();
+		scheduleTopMenuSelectedCenter();
+	});
+	window.addEventListener('orientationchange', function () {
+		scheduleTopMenuScrollState();
+		scheduleTopMenuSelectedCenter();
+	});
 	setTimeout(scheduleAceTheme, 300);
 	setTimeout(scheduleAceTheme, 1000);
 	setTimeout(scheduleTakeposThemeUrls, 300);
 	setTimeout(scheduleTopMenuScrollState, 300);
 	setTimeout(scheduleTopMenuScrollState, 1000);
+	setTimeout(scheduleTopMenuSelectedCenter, 300);
+	setTimeout(scheduleTopMenuSelectedCenter, 1000);
 
 	if (window.MutationObserver) {
 		new MutationObserver(function () {
