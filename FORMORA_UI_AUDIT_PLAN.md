@@ -1,321 +1,437 @@
-# Formora UI Audit And Remediation Plan
+# Formora UI Layout Audit And Remediation Plan
 
-Date: 2026-07-05
+Date: 2026-07-06
 
-Scope: Dolibarr 23 Formora theme UI/frontend audit for light mode, dark mode, POS, regular back-office pages, modals, iframe dialogs, CKEditor, CSS editor, Select2, Colorbox, jQuery UI, toast, menus, tables, forms, buttons, badges, and icons.
+Scope: Dolibarr 23 Formora theme layout audit after the current list-page redesign work. The audit covered regular back-office pages, POS-related pages, list pages, card/create forms, statistics pages, accounting pages, light mode, dark mode, mobile, tablet, and desktop widths.
 
-Status: Audit only. No theme code has been changed as part of this plan.
+Status: Audit plan with first remediation completed.
 
-## 1. Overall Conclusion
+Latest remediation update:
 
-The current Formora theme has several user-visible UI issues that are not limited to isolated screenshots.
+- The P0 Formora-only list filter overflow was fixed in `formora/style.css.php`.
+- Verified no page-level horizontal overflow on the affected third-party and contact list pages in light and dark mode.
+- Regression smoke covered 34 list/POS-related combinations, including mobile `390x844`, tablet `768x1024`, desktop `1440x900`, and POS partner list `1435x920`.
 
-- Regular back-office mobile and narrow layouts are not correctly adapted. The desktop top navigation wraps into multiple rows and exposes the username/avatar area inside the menu grid.
-- Several list pages have clipped table/filter/action content on mobile. Page-level `scrollWidth` can look normal while inner table content is already inaccessible.
-- POS dark-mode Colorbox iframe dialogs do not consistently inherit dark-mode/theme parameters, producing dark shells with light iframe content.
-- The served CSS does not fully match the current main-branch source for at least one recent mass-action rule.
-- There are remaining high-risk CSS selectors, mode-boundary risks, and small but real code/config issues.
+## 1. Audit Method
 
-## 2. P0/P1 Required Fixes
+The browser audit visited 283 internal Dolibarr page templates collected from visible menus, left menus, title buttons, and several manual high-risk entries.
 
-| Priority | Area / URL | Affected Modes | Problem | Likely Cause | Recommended Fix Direction | Regression Risk |
-| --- | --- | --- | --- | --- | --- | --- |
-| P1 | All regular back-office pages, especially `/societe/list.php?leftmenu=thirdparties&mainmenu=companies` | Mobile, narrow desktop, light, dark | At 390px the desktop top menu expands into many rows. The `admin` username, avatar, and dropdown arrow are shown inside the menu block. The header consumes about 178px of vertical space. | `#id-top`, `#tmenu_tooltip`, and `li.tmenu` still use desktop layout rules on small screens. User menu height rules remain active. | Add mobile-specific top-nav rules scoped to `body#mainbody:not(.bodytakepos) #id-top`, `#tmenu_tooltip`, `#id-top li.tmenu`, `.login_block.usedropdown`, and the login/quick-add dropdown toggles. | High. Must verify desktop top menu, user dropdown, quick add, active menu state, and icon alignment. |
-| P1 | Regular back-office pages at 820-1180px | Narrow desktop, embedded browser | Top menu already wraps into two rows around 820/900px. At 1030/1180px, left menu plus wide content creates horizontal overflow. | No clear tablet/narrow-desktop breakpoint strategy. | Add intermediate breakpoint behavior instead of relying only on very small mobile rules. | Medium-high. May affect normal desktop navigation density. |
-| P1 | `/product/list.php`, `/societe/list.php`, `/compta/facture/list.php`, `/compta/bank/list.php` | Mobile list pages, light, dark | Tables, filter rows, title action areas, and some inputs extend far beyond the visible viewport. Some pages hide this as internal clipping rather than document-level horizontal scroll. | Desktop table widths and filter controls are preserved inside constrained containers. | Provide intentional horizontal scrolling or responsive list layout for `.bodyforlist #id-right .fiche`, `.bodyforlist table.liste`, `.liste_titre_filter`, and `.table-fiche-title`. | High. Do not globally override `table`, `input`, or `.select2`. |
-| P1 | `/product/list.php?mainmenu=products` | Regular list pages | Mass-action Select2 remains visible when no row is selected, even though the local source contains a rule intended to hide it. | Served CSS does not include the current local bodyforlist mass-action rule, suggesting deployment/cache/path/conditional-output mismatch. | First verify the runtime theme file and generated CSS output. Then fix selector/cascade if still needed. | High. CSS fixes cannot be trusted until source/runtime mismatch is understood. |
-| P1 | POS Colorbox iframe dialogs: customer list, invoice list, payment | POS dark mode, iframe dialogs | Colorbox shell is dark, but iframe content can load light because iframe URLs omit `theme=formora`, `THEME_DARKMODEENABLED=2`, and cache reset parameters. | POS dialog iframe URLs do not propagate theme/mode parameters. | Update POS dialog URL generation or theme parameter propagation. Verify both parent page and iframe document. | Medium-high. Could affect POS navigation, permissions, and cache behavior. |
-| P1 | `/takepos/index.php?idmenu=65&mainmenu=takepos&leftmenu=` | POS mobile | Cart/user/topbar controls can sit outside the visible 390px viewport. | POS topbar remains desktop-horizontal on mobile. | Add POS-specific mobile topbar behavior scoped to `.bodytakepos`, separate from regular back-office rules. | High. POS desktop cashier workflow must not regress. |
+Each page was checked in six combinations:
 
-## 3. P2/P3 Optimization Issues
+- Light mode: `THEME_DARKMODEENABLED=0`
+- Dark mode: `THEME_DARKMODEENABLED=2`
+- Mobile: `390x844`
+- Tablet: `768x1024`
+- Desktop: `1440x900`
 
-| Priority | Area | Problem | Recommended Fix Direction |
-| --- | --- | --- | --- |
-| P2 | Mobile quick-add dropdown | Dropdown is slightly left-clipped and too tall, with weak scroll affordance. | Scope mobile positioning/max-height to `#topmenu-quickadd-dropdown`. |
-| P2 | Mobile user dropdown | Menu does not strongly overflow, but it is attached below the broken multi-row header and feels visually misplaced. | Fix together with the mobile top-nav redesign. |
-| P2 | Product list mobile title/action row | Title controls and action buttons compress or overflow at 390px. | Add responsive wrapping/stacking for list title action areas only. |
-| P2 | CKEditor config | `['Source']` is immediately followed by `['SpecialChar']`, so the toolbar item is not configured as intended. | Fix the missing comma in `formora/ckeditor/config.js`. |
-| P2 | Theme PHP config | `rbg(245,130,46)` typo remains. | Correct to `rgb(245,130,46)` in `formora/global.inc.php`. |
-| P3 | Repository hygiene | `.DS_Store` exists in the worktree. | Remove and ensure ignore rules cover it. |
+Total checks: 1698.
 
-## 4. Page-Based Findings
+Clean checks: 1590.
 
-### Dashboard
+Flagged checks: 108.
 
-- URL: `/index.php?mainmenu=home&leftmenu=home`
-- Issue: The same mobile/narrow top-nav wrapping behavior appears here.
-- Severity: P1.
-- Fix direction: Covered by the regular back-office top-nav mobile/narrow breakpoint fix.
+Browser/navigation errors: 0.
 
-### Products / Services
+The audit checked for:
 
-- URLs:
-  - `/product/index.php?mainmenu=products&leftmenu=`
-  - `/product/list.php?mainmenu=products`
-- Issues:
-  - Mobile list layout can produce page-level or internal horizontal overflow.
-  - New/action controls can be offscreen at narrower widths.
-  - Mass-action Select2 visibility does not match intended no-selection behavior.
-- Severity: P1 for mass-action/runtime mismatch, P1/P2 for responsive layout.
+- Page-level horizontal overflow.
+- Visible controls outside the viewport.
+- Main content or `.fiche` being abnormally narrow.
+- List tables not being contained by an internal scroll container.
+- POS iframe/list pages reserving a hidden sidebar width.
+- Duplicate sidebar separator lines.
+- Mobile top menu scroll-state classes missing.
 
-### Third Parties
+## 2. Executive Summary
 
-- URL: `/societe/list.php?leftmenu=thirdparties&mainmenu=companies`
-- Issues:
-  - This page reproduces the screenshot problem: full desktop top menu wraps into multiple rows on mobile and exposes `admin` in the header grid.
-  - List table/filter row remains far wider than the viewport.
-- Severity: P1.
+The whole system is not broadly broken, but there are real layout issues in several families of pages.
 
-### Bank Accounts
+Two issues are high priority because they are caused by the current Formora list-page work and do not reproduce in Eldy:
 
-- URL: `/compta/bank/list.php?mainmenu=bank&leftmenu=&search_status=opened`
-- Issues:
-  - Mobile table/filter controls extend outside the viewport.
-  - At least one filter input can be positioned beyond visible bounds.
-- Severity: P1/P2 depending on target mobile support level.
+- Third-party list pages overflow at tablet width because a Select2 filter keeps a 300px width.
+- Contact list pages overflow at desktop width because a Select2 filter keeps a 500px minimum width.
 
-### Invoices
+Several other issues also exist, but Eldy already has the same underlying layout behavior. Formora still should adapt them later, but they are not evidence that the current list-page redesign alone broke the whole system.
 
-- URL: `/compta/facture/list.php`
-- Issues:
-  - Mobile list tables are too wide and can be clipped inside containers.
-  - POS-source invoice list inside iframe inherits the POS iframe mode problem when opened from POS.
-- Severity: P1.
+No audit flags were found for:
 
-### User Card
+- POS partner list becoming narrow again.
+- Sidebar double separator lines.
+- Missing mobile top-menu scroll hint state.
+- Ordinary invoice/order/proposal list tables escaping their intended internal scroll area.
 
-- URL: `/user/card.php?id=1`
-- Issues:
-  - Mobile header problem persists.
-  - History/action tables are not fully responsive.
-- Severity: P2.
+## 3. Findings By Root Cause
 
-### Theme CSS Editor
+### P0 - Formora List Filter Overflow
 
-- URL: `/admin/ihm.php?mode=css&mainmenu=home&leftmenu=setup`
-- Issues:
-  - Mobile/narrow top-nav problem persists.
-  - Editor-specific dark-mode cursor/line-number contrast should be rechecked after nav fixes.
-- Severity: P2.
+Status: Fixed and verified on 2026-07-06.
 
-### CKEditor Test Page
+Affected pages:
 
-- URL: `/admin/fckeditor.php?theme=formora`
-- Issues:
-  - Mobile/narrow top-nav problem persists.
-  - Toolbar configuration has a syntax-valid but semantically wrong item boundary.
-- Severity: P2.
+- `/societe/list.php?mainmenu=companies&leftmenu=thirdparties`
+- `/societe/list.php?contextpage=thirdpartylist`
+- `/societe/list.php?mode=common&contextpage=thirdpartylist`
+- `/societe/list.php?mode=kanban&contextpage=thirdpartylist`
 
-### POS Main Interface
+Affected widths:
 
-- URL: `/takepos/index.php?idmenu=65&mainmenu=takepos&leftmenu=`
-- Issues:
-  - Desktop POS is comparatively stable.
-  - Mobile POS topbar/cart/user controls can be outside the visible viewport.
-  - Dialog iframe URLs do not consistently inherit theme/dark-mode parameters.
-- Severity: P1.
+- Tablet `768px`
 
-## 5. Component-Based Findings
+Affected modes:
 
-### Top Navigation
+- Light and dark
 
-- Regular back-office top navigation is the highest-risk component.
-- Desktop-style menu items wrap into multiple rows at mobile and narrow widths.
-- Username/avatar dropdown remains visible in the wrong layout context.
-- Active, hover, and icon styling need regression checks after any breakpoint changes.
+Observed result:
 
-### Left Menu
+- Document width becomes `831px` on a `768px` viewport.
+- First offending visible element is a Select2 container with width `300px`, positioned from about `530.9px` to `830.9px`.
 
-- Interacts badly with wide content at narrow desktop widths.
-- Must be tested with both short and long menus after the top-nav fix.
+Eldy comparison:
 
-### Tables
+- Eldy does not overflow on the same page and viewport.
 
-- List tables preserve desktop width and can be clipped by parent containers.
-- Internal overflow must be tested, not only `document.documentElement.scrollWidth`.
-- Filters, checkboxes, sort arrows, badges, pagination, and empty states need mobile verification.
+Likely cause:
 
-### Forms
+- The current `.liste_titre_bydiv` responsive rules cap `max-width`, but do not fully defeat Dolibarr/Select2 `min-width` classes inside flex items.
 
-- Filter inputs can extend out of view in mobile list pages.
-- Date picker and disabled/readonly states still require targeted runtime verification.
+Fix direction:
 
-### Select2
+- Scope the fix to list filter bands only:
+  - `body#mainbody.bodyforlist #id-right .fiche form#searchFormList > .liste_titre_bydiv`
+  - `.divsearchfield`
+  - `.select2-container`
+  - visible filter inputs/selects/textareas
+- Ensure filter flex items can shrink with `min-width: 0`.
+- Convert fixed/min-width Select2 controls to `width: 100%` inside their filter cell while preserving useful minimums on wider desktop.
+- Do not apply a global `.select2-container` override.
 
-- Mass-action Select2 remains visible in a no-selection state in the current runtime.
-- Hidden native selects appear to be offscreen without causing document scroll, but should remain part of regression checks.
-- Do not globally override `.select2`.
+Validation:
 
-### Buttons
+- Recheck the third-party list at `390`, `768`, `1024`, `1280`, and `1440`.
+- Verify both common and kanban URLs.
+- Verify light and dark modes.
 
-- List title action buttons can be offscreen in narrow layouts.
-- POS large buttons need separate mobile rules from regular `.button` or `.butAction` styles.
+### P0 - Contact List Desktop Select2 Overflow
 
-### Icons
+Status: Fixed and verified on 2026-07-06.
 
-- No sampled FontAwesome/mask icon became a square during the latest check.
-- Top-nav icon sizing and color inheritance must be retested after mobile layout changes.
+Affected pages:
 
-### Dropdowns
+- `/contact/list.php?leftmenu=contacts&type=c`
+- `/contact/list.php?leftmenu=contacts&type=f`
+- `/contact/list.php?leftmenu=contacts&type=o`
+- `/contact/list.php?leftmenu=contacts&type=p`
 
-- User dropdown is visually tied to the broken top header.
-- Quick-add dropdown can be clipped and too tall on mobile.
+Affected widths:
 
-### Modal / Colorbox / iframe
+- Desktop `1440px`
 
-- POS iframe dialogs are the most important mode-consistency problem.
-- Parent Colorbox and iframe document must be checked independently.
+Affected modes:
 
-### CKEditor
+- Light and dark
 
-- Toolbar config has a concrete issue.
-- Dialogs, tabs, inputs, selects, and toolbar dropdowns still need manual runtime verification.
+Observed result:
 
-### CSS Editor
+- Document width becomes `1539px` to `1634px` on a `1440px` viewport.
+- First offending visible element is `.select2-container.minwidth500`.
 
-- Needs focused verification for ACE/editor contrast, cursor visibility, toolbar alignment, and line-number colors.
+Eldy comparison:
 
-### POS
+- Eldy does not overflow on the same page and viewport.
 
-- Mobile topbar and iframe dialogs require priority fixes.
-- Desktop grid/category/product behavior should be preserved.
+Likely cause:
 
-## 6. High-Risk CSS Selectors / Areas
+- Same root cause as the third-party list issue, but with `minwidth500` instead of 300px.
 
-- `body#mainbody #id-top`
-- `body#mainbody #id-top li.tmenu`
-- `body#mainbody #id-top li.tmenusel`
-- `body#mainbody #id-top div.tmenucenter`
-- `.login_block.usedropdown`
-- `#topmenu-login-dropdown`
-- `#topmenu-quickadd-dropdown`
-- `body#mainbody.bodyforlist:has(.checkforselect)`
-- `.bodyforlist table.liste`
-- `.bodyforlist .liste_titre_filter`
-- `.bodyforlist .table-fiche-title`
-- `.bodytakepos` topbar/cart/customer/user controls
+Fix direction:
 
-Avoid broad fixes such as global `button`, `.fa`, `.select2`, `table`, `input`, or blanket `overflow-x: hidden`.
+- Fix together with the P0 list filter overflow.
+- The rule must specifically allow oversized Select2 filters to shrink inside the list filter band.
+- Confirm that desktop contact list filters remain usable and readable after shrinking.
 
-## 7. Recommended Fix Order
+Validation:
 
-1. Verify why served CSS does not include the current local bodyforlist mass-action rule.
-2. Fix regular back-office mobile/narrow top navigation, including the username/avatar area.
-3. Fix POS iframe URL theme/dark-mode propagation.
-4. Fix mobile list/table/filter/action responsive behavior.
-5. Fix POS mobile topbar/cart/user overflow.
-6. Fix quick-add and user dropdown mobile positioning/scrolling.
-7. Fix CKEditor toolbar config, `rbg` typo, and repository cleanup.
+- Recheck all four contact list type variants at desktop `1440px`.
+- Also check tablet `768px` and mobile `390px` to avoid moving the problem to smaller widths.
 
-## 8. Required Regression Matrix
+## 4. Eldy-Existing Issues To Adapt Later
 
-### Viewports
+These issues also reproduce in Eldy. They are still real UX problems, but they should be handled after the Formora-only regressions above.
 
-- 390px
-- 768px
-- 820px
-- 900px
-- 1030px
-- 1180px
-- 1280px
-- 1440px
+### P1 - Mobile Card/Create Forms Overflow
 
-### Modes
+Affected families:
+
+- Third-party create: `/societe/card.php?action=create`
+- POS third-party create: `/societe/card.php?action=create&type=t&contextpage=poslist&optioncss=print&place=0`
+- Product/service create: `/product/card.php?action=create&type=0` and `type=1`
+- Bank account create: `/compta/bank/card.php?action=create`
+- Supplier order create: `/fourn/commande/card.php?action=create`
+- Warehouse create: `/product/stock/card.php?action=create`
+
+Observed examples at `390px`:
+
+- Third-party create: document width about `551px`.
+- Product create: document width about `457px`.
+- Bank account create: document width about `408px`.
+- Supplier order create: document width about `461px`.
+- Warehouse create: document width about `479px`.
+
+Likely cause:
+
+- Dolibarr card forms use table-based field layouts (`table.border`, `tableforfieldcreate`, `centpercent`) and fixed/min-width form controls.
+
+Fix direction:
+
+- Create a separate mobile card-form adaptation layer.
+- Scope to non-list card pages, not `bodyforlist`.
+- At small widths, let table rows become stacked label/control blocks where safe.
+- Reduce or override field/control minimum widths inside card form tables only.
+- Avoid changing invoice/order line item tables until they are tested separately.
+
+Validation:
+
+- Mobile `390px` and tablet `768px`.
+- Light and dark.
+- Third-party, product, supplier order, bank account, warehouse.
+- POS iframe third-party create.
+
+### P1 - Special Desktop List-Like Pages Overflow
+
+Affected pages:
+
+- `/commande/list_det.php?leftmenu=orders`
+- `/projet/tasks/time.php?leftmenu=tasks`
+
+Observed at `1440px`:
+
+- Order lines document width about `1702px`.
+- Project task time document width about `1605px`.
+- `#id-right` and `.fiche` themselves extend past the viewport.
+
+Eldy comparison:
+
+- Eldy also overflows on these pages.
+
+Likely cause:
+
+- These pages are list-like but do not carry the same `bodyforlist` class and therefore do not receive the current list containment rules.
+
+Fix direction:
+
+- Add a second, carefully scoped containment rule for known list-like pages:
+  - `.page-list_det`
+  - `.page-task_time`
+  - Or other stable body classes found during implementation.
+- Do not blindly target every `.div-table-responsive`.
+- Preserve internal horizontal scroll for wide operational tables.
+
+Validation:
+
+- Desktop `1440px`, tablet `768px`, mobile `390px`.
+- Order lines and project task time pages.
+- Light and dark.
+
+### P2 - Mobile Statistics Pages Slight Overflow
+
+Affected families:
+
+- Proposal statistics.
+- Supplier proposal statistics.
+- Customer invoice statistics.
+- Supplier invoice statistics.
+- Order statistics.
+- Supplier order statistics.
+- Expense report statistics.
+- Field service statistics.
+- Project statistics.
+- Task statistics.
+
+Observed at `390px`:
+
+- Most pages report document width about `395px`.
+
+Likely cause:
+
+- Small fixed-width chart/table/stat containers.
+
+Fix direction:
+
+- Treat as low-risk polish after list and card issues.
+- Add a narrow-screen stats wrapper constraint or internal scroll where needed.
+
+Validation:
+
+- Mobile `390px`.
+- Light and dark.
+
+### P2 - Accounting Journal Pages Overflow
+
+Affected pages:
+
+- `/accountancy/journal/bankjournal.php`
+- `/accountancy/journal/expensereportsjournal.php`
+- `/accountancy/journal/purchasesjournal.php`
+- `/accountancy/journal/sellsjournal.php`
+- `/accountancy/journal/variousjournal.php`
+
+Observed:
+
+- Mobile journal pages range roughly `436px` to `451px`.
+- `variousjournal` is much wider, around `1073px`, and also overflows tablet.
+
+Eldy comparison:
+
+- Eldy also overflows on `variousjournal`.
+
+Fix direction:
+
+- Handle as a dedicated accounting form/table adaptation.
+- Do not fold this into the generic card-form fix until the table structure is inspected.
+
+Validation:
+
+- Mobile and tablet.
+- Light and dark.
+
+### P2 - Margin Page Form Overflow
+
+Affected page:
+
+- `/margin/index.php?mainmenu=billing&leftmenu=&idmenu=84`
+
+Observed:
+
+- Mobile document width about `514px`.
+- Tablet document width about `793px` on `768px`.
+
+Likely cause:
+
+- Form table and Select2 controls.
+
+Fix direction:
+
+- Revisit after the generic list filter and card-form fixes.
+- It may be covered by the card/form adaptation if selectors are scoped well.
+
+## 5. Non-Issues Confirmed In This Audit
+
+### POS Partner List
+
+The POS partner list did not reproduce the previous narrow-table bug after the latest fix.
+
+Checked behavior:
+
+- POS context list no longer reserves the hidden left sidebar width.
+- `#id-right` uses the available iframe width.
+- No POS context sidebar-visible flags were raised.
+
+### Sidebar Separator
+
+No double-sidebar-border flags were found across the matrix.
+
+Current desired behavior:
+
+- `.side-nav` draws the sidebar separator.
+- `#id-container::before` does not also draw the same right border.
+
+### Mobile Top Menu Scroll Hint
+
+No missing top-menu scroll-state flags were found.
+
+Expected classes:
+
+- `formora-tmenu-is-scrollable`
+- `formora-tmenu-can-scroll-left`
+- `formora-tmenu-can-scroll-right`
+
+### Regular Invoice/Order/Proposal Lists
+
+Ordinary invoice, order, and proposal list pages did not reproduce the original full-width list overflow after the current redesign.
+
+Remaining list problems are narrower and mostly tied to oversized filter controls.
+
+## 6. Recommended Fix Order
+
+1. Fix Formora-only list filter Select2 overflow.
+   - Targets third-party list tablet and contact list desktop.
+   - This should be the next code change.
+
+2. Re-run the reduced regression matrix.
+   - Third-party list.
+   - Contact list type variants.
+   - Invoice/order/proposal list smoke tests.
+   - POS partner list.
+
+3. Fix list-like pages not covered by `bodyforlist`.
+   - `commande/list_det.php`
+   - `projet/tasks/time.php`
+
+4. Design and implement mobile card/create form adaptation.
+   - Third-party, product, bank account, supplier order, warehouse.
+   - Include POS third-party create iframe.
+
+5. Fix accounting journal and margin pages.
+
+6. Polish statistics pages mobile overflow.
+
+## 7. Regression Matrix For The Next Fix
+
+### Required Viewports
+
+- `390x844`
+- `768x1024`
+- `1024x768`
+- `1280x900`
+- `1440x900`
+
+### Required Modes
 
 - Light: `THEME_DARKMODEENABLED=0`
 - Dark: `THEME_DARKMODEENABLED=2`
-- Always add `dol_resetcache=1&dol_nocache=1`
+- Always add `theme=formora&dol_resetcache=1&dol_nocache=1`
 
-### Pages
+### Required Pages
 
-- `/index.php?mainmenu=home&leftmenu=home`
-- `/product/index.php?mainmenu=products&leftmenu=`
-- `/product/list.php?mainmenu=products`
 - `/societe/list.php?leftmenu=thirdparties&mainmenu=companies`
-- `/compta/bank/list.php?mainmenu=bank&leftmenu=&search_status=opened`
-- `/compta/facture/list.php`
-- `/user/card.php?id=1`
-- `/admin/ihm.php?mode=css&mainmenu=home&leftmenu=setup`
-- `/admin/fckeditor.php?theme=formora`
-- `/takepos/index.php?idmenu=65&mainmenu=takepos&leftmenu=`
+- `/societe/list.php?contextpage=thirdpartylist`
+- `/societe/list.php?mode=common&contextpage=thirdpartylist`
+- `/societe/list.php?mode=kanban&contextpage=thirdpartylist`
+- `/contact/list.php?leftmenu=contacts&type=c`
+- `/contact/list.php?leftmenu=contacts&type=f`
+- `/contact/list.php?leftmenu=contacts&type=o`
+- `/contact/list.php?leftmenu=contacts&type=p`
+- `/compta/facture/list.php?leftmenu=customers_bills&mainmenu=billing`
+- `/commande/list.php?leftmenu=orders&mainmenu=commercial`
+- `/comm/propal/list.php?leftmenu=propals&mainmenu=commercial`
+- `/societe/list.php?type=t&contextpage=poslist&nomassaction=1&place=0`
 
-### States
+### Pass Criteria
 
-- Initial viewport
-- Hover
-- Focus
-- Active/click
-- User dropdown open
-- Quick-add dropdown open
-- Select2 open
-- Mass action unchecked and checked
-- Table row hover
-- Form field focus
-- Colorbox open
-- iframe document loaded
-- POS customer list
-- POS invoice list
-- POS payment dialog
+- `document.documentElement.scrollWidth <= innerWidth + 2` unless the page intentionally scrolls internally.
+- Visible filter controls must remain inside `.liste_titre_bydiv`.
+- Table overflow must be inside `.div-table-responsive`, not on the whole page.
+- POS context pages must not show or reserve `.side-nav` / `#id-left` width.
+- No duplicate sidebar separator.
+- Mobile top menu scroll hint classes still toggle correctly.
 
-### Technical Checks
+## 8. Implementation Guardrails
 
-- `document.documentElement.scrollWidth > document.documentElement.clientWidth`
-- `document.body.scrollWidth > document.body.clientWidth`
-- Inner table/container bounding boxes versus viewport
-- Icon `::before` content/display/size/color/mask styles
-- Hover before/after bounding boxes
-- Hidden Select2/native select positions
-- Dark-mode computed background/color/border-color
-- Parent modal and iframe document styles independently
+- Do not use global `overflow-x: hidden` to hide real layout problems.
+- Do not globally override `.select2-container`, `table`, `input`, or `textarea`.
+- Keep list fixes scoped to `body.bodyforlist form#searchFormList`.
+- Keep card/create fixes separate from list fixes.
+- Keep POS context fixes scoped to POS markers such as `contextpage=poslist`.
+- Compare against Eldy before treating a page as a Formora regression.
+- Run both light and dark checks for every fix.
 
-## 9. Mandatory UI Fix Verification Gate
+## 9. Current Worktree Note
 
-This section is mandatory for every Formora UI/theme fix before commit. It was added after a regression where a selected-fields dropdown fix targeted the wrong class (`ul.ulselectedfields.open`) while the real Dolibarr runtime menu used `ul.selectedfieldsleft.open`, leaving dark-mode colors and clipping unfixed on BOM/list pages.
+At the time of this plan, the only modified theme file is:
 
-Do not mark a UI fix complete, and do not commit it, unless all applicable checks below have been executed against the synced test environment.
+- `formora/style.css.php`
 
-### Required Runtime Proof
+Static checks from the audit session:
 
-- Reproduce the exact page, viewport, mode, and interaction state that exposed the issue.
-- Open the real menu, dropdown, modal, iframe, Select2 panel, hover state, focus state, or selected state. Static CSS inspection alone is not enough.
-- Capture the actual runtime DOM identity of the target element: tag, id, class list, and relevant parent chain.
-- Verify proposed selectors with `element.matches()` or equivalent direct selector matching on the actual target element.
-- Read computed style on the actual target element after the fix, including `background-color`, `color`, `border-color`, `box-shadow`, `z-index`, `display`, `position`, `overflow`, `width`, and `height` as applicable.
-- Inspect parent overflow/clipping chain from the target element up to `body`, especially `table.liste`, `.div-table-responsive`, Colorbox containers, iframe bodies, and POS wrappers.
-- Check both document-level horizontal overflow values: `document.documentElement.scrollWidth > clientWidth` and `document.body.scrollWidth > clientWidth`.
-- Check target and ancestor bounding boxes against the viewport and relevant scroll containers.
-- For hover/focus issues, verify the actual hover/focus target and compare computed styles before and after the state.
-
-### Required Regression Scope
-
-- Sync the local theme to the Dolibarr test environment before runtime verification.
-- Re-test the exact original URL and state after syncing.
-- Re-test at least one same-component page that uses a different Dolibarr DOM variant. For example, selected-fields dropdowns must be checked on both a standard list such as `/societe/list.php` and another module list such as `/bom/bom_list.php`.
-- Re-test both light and dark modes when the fix touches color, shadows, borders, backgrounds, icon color, or contrast.
-- Re-test mobile and desktop widths when the fix touches overflow, clipping, menus, table/list wrappers, pagination, title areas, or POS layout.
-- Re-test parent and iframe documents separately for Colorbox/iframe fixes.
-
-### Prohibited Shortcuts
-
-- Do not treat "the CSS rule exists in generated CSS" as proof that a component is fixed.
-- Do not treat CSS output order as proof unless the selector is shown to match the runtime element.
-- Do not submit a UI fix based only on grep, curl, DOM source, or an unopened hidden element.
-- Do not use a broad global selector to compensate for an unverified component selector.
-- Do not call a state verified if automation failed to open or hover it. Say it is unverified and continue with a better runtime strategy.
-
-### Commit Gate
-
-Every UI fix commit summary should include:
-
-- URL(s), mode(s), viewport(s), and interaction state(s) verified.
-- Actual target selector and confirmation that it matched the runtime element.
-- Key computed style values before/after or after-fix values.
-- Overflow/clipping result.
-- Same-component regression page(s).
-
-## 10. Current Unknowns
-
-- Toast success/warning/error/info states still need stable runtime triggers.
-- jQuery UI date picker needs a concrete date field page to trigger and inspect.
-- CKEditor dialogs need manual opening of link/image/table dialogs.
-- The served-CSS mismatch for the mass-action rule must be diagnosed before trusting any further CSS-only conclusion.
+- `php -l formora/style.css.php`: passed.
+- `git diff --check`: passed.
