@@ -2228,6 +2228,55 @@ body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#se
 	min-width: 0 !important;
 }
 
+body#mainbody.mod-product.bodyforlist:not(.bodylogin) #id-right .fiche form#searchFormList .box-flex-container.kanban > .box-flex-item > .info-box.info-box-sm > .info-box-content > .info-box-status.amount {
+	max-width: calc(100% - 182px) !important;
+	overflow: hidden !important;
+	right: 58px !important;
+	text-align: right !important;
+	text-overflow: ellipsis !important;
+	white-space: nowrap !important;
+	z-index: 1;
+}
+
+body#mainbody.mod-product.bodyforlist:not(.bodylogin) #id-right .fiche form#searchFormList .box-flex-container.kanban > .box-flex-item > .info-box.info-box-sm > .info-box-content > .info-box-status.opacitymedium:not(.amount) {
+	display: inline-block !important;
+	position: static !important;
+}
+
+body#mainbody.mod-product.bodyforlist:not(.bodylogin) #id-right .fiche form#searchFormList .box-flex-container.kanban > .box-flex-item > .info-box.info-box-sm > .info-box-content > .info-box-status:not(.amount):not(.opacitymedium) {
+	z-index: 2;
+}
+
+#mainbody .box-flex-container.kanban > .box-flex-item.info-box-module {
+	background: transparent !important;
+	border: 0 !important;
+	box-shadow: none !important;
+	overflow: visible !important;
+}
+
+#mainbody .box-flex-container.kanban > .box-flex-item.info-box-module > .info-box.info-box-sm.info-box-module {
+	align-items: stretch !important;
+	display: flex !important;
+	height: auto !important;
+	margin-bottom: 0 !important;
+	min-height: 80px !important;
+}
+
+#mainbody .box-flex-container.kanban > .box-flex-item.info-box-module > .info-box.info-box-sm.info-box-module > .info-box-icon {
+	align-self: stretch !important;
+	flex: 0 0 80px !important;
+	float: none !important;
+	height: auto !important;
+	min-height: 0 !important;
+	width: 80px !important;
+}
+
+#mainbody .box-flex-container.kanban > .box-flex-item.info-box-module > .info-box.info-box-sm.info-box-module > .info-box-content {
+	flex: 1 1 auto !important;
+	margin-left: 0 !important;
+	min-width: 0 !important;
+}
+
 table.border,
 table.noborder,
 table.liste,
