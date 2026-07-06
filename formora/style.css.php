@@ -8193,99 +8193,6 @@ table.jPicker {
 				min-width: 0 !important;
 			}
 
-			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form table.border:not(.liste):not(.table-fiche-title) {
-				box-sizing: border-box !important;
-				display: block !important;
-				max-width: 100% !important;
-				min-width: 0 !important;
-				overflow: hidden !important;
-				padding-left: 8px !important;
-				padding-right: 8px !important;
-				width: 100% !important;
-			}
-
-			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form table.border:not(.liste):not(.table-fiche-title) > :is(tbody, thead, tfoot) {
-				box-sizing: border-box !important;
-				display: block !important;
-				max-width: 100% !important;
-				min-width: 0 !important;
-				width: 100% !important;
-			}
-
-				body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form table.border:not(.liste):not(.table-fiche-title) > :is(tbody, thead, tfoot) > tr {
-					box-sizing: border-box !important;
-					display: flex !important;
-					flex-wrap: wrap;
-					gap: 4px 0;
-					height: auto !important;
-					margin-bottom: 4px !important;
-					max-width: 100% !important;
-					min-height: 0 !important;
-					min-width: 0 !important;
-					width: 100% !important;
-				}
-
-				body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form table.border:not(.liste):not(.table-fiche-title) > :is(tbody, thead, tfoot) > tr > :is(td, th) {
-					box-sizing: border-box !important;
-					display: block !important;
-					flex: 1 1 100%;
-					height: auto !important;
-					max-width: 100% !important;
-					min-height: 0 !important;
-					min-width: 0 !important;
-					padding-left: 0 !important;
-					padding-right: 0 !important;
-					width: 100% !important;
-				}
-
-			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form table.border:not(.liste):not(.table-fiche-title) > :is(tbody, thead, tfoot) > tr > :is(td, th):first-child:not([colspan]) {
-				color: var(--formora-muted) !important;
-				font-weight: 650;
-				padding-bottom: 2px !important;
-			}
-
-			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form table.border:not(.liste):not(.table-fiche-title) :is(.minwidth50, .minwidth75, .minwidth100, .minwidth125, .minwidth150, .minwidth200, .minwidth250, .minwidth300, .minwidth400, .minwidth500, .maxwidth100, .maxwidth150, .maxwidth200, .maxwidth250, .maxwidth300, .maxwidth400, .maxwidth500, .widthcentpercentminusx) {
-				max-width: 100% !important;
-				min-width: 0 !important;
-			}
-
-				body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form table.border:not(.liste):not(.table-fiche-title) :is(input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"]):not([type="image"]):not([type="submit"]):not([type="button"]), textarea, select, .select2-container, .select2-selection, .select2-selection__rendered, .select2-search--inline, .select2-search__field, div.urllink) {
-					box-sizing: border-box !important;
-					max-width: 100% !important;
-					min-width: 0 !important;
-					width: 100% !important;
-				}
-
-				body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form table.border:not(.liste):not(.table-fiche-title) :is(td, th) .nowraponall {
-					align-items: center !important;
-					display: flex !important;
-					flex-wrap: wrap !important;
-					gap: 6px !important;
-					max-width: 100% !important;
-					white-space: normal !important;
-					width: 100% !important;
-				}
-
-				body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form table.border:not(.liste):not(.table-fiche-title) :is(td, th) .nowraponall select {
-					flex: 0 1 auto !important;
-					max-width: 90px !important;
-					min-width: 0 !important;
-					width: auto !important;
-				}
-
-				body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form table.border:not(.liste):not(.table-fiche-title) :is(td, th) .nowraponall input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"]):not([type="image"]):not([type="submit"]):not([type="button"]) {
-					flex: 1 1 126px !important;
-					max-width: 160px !important;
-					width: auto !important;
-				}
-
-			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form table.border:not(.liste):not(.table-fiche-title) :is(td, th) > :is(table.nobordernopadding, table.noborder, table.border:not(.liste)) {
-				box-sizing: border-box !important;
-				max-width: 100% !important;
-				min-width: 0 !important;
-				width: 100% !important;
-			}
-
 			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche .tabBar,
 			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche .tabBar :is(.fichecenter, .fichethirdleft, .fichetwothirdright) {
 				box-sizing: border-box !important;
@@ -8294,11 +8201,149 @@ table.jPicker {
 				overflow-x: hidden !important;
 			}
 
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche .tabBar:has(table.border:not(.liste):not(.table-fiche-title)) {
+				-webkit-overflow-scrolling: touch;
+				overflow-x: auto !important;
+				scrollbar-color: var(--formora-line) transparent;
+				scrollbar-width: thin;
+			}
+
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche .tabBar:has(table.border:not(.liste):not(.table-fiche-title))::-webkit-scrollbar {
+				height: 8px;
+			}
+
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche .tabBar:has(table.border:not(.liste):not(.table-fiche-title))::-webkit-scrollbar-thumb {
+				background: var(--formora-line);
+				background-clip: content-box;
+				border: 2px solid transparent;
+				border-radius: 999px;
+			}
+
 			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche .tabBar :is(table.border.centpercent, table.noborder.centpercent):not(.liste):not(.table-fiche-title) {
 				box-sizing: border-box !important;
 				max-width: 100% !important;
 				min-width: 0 !important;
 				width: 100% !important;
+			}
+
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche .tabBar table.border:not(.liste):not(.table-fiche-title) {
+				max-width: none !important;
+			}
+
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form .tabBar > table.border:not(.liste):not(.table-fiche-title) {
+				box-sizing: border-box !important;
+				display: block !important;
+				max-width: 100% !important;
+				min-width: 0 !important;
+				overflow: visible !important;
+				width: 100% !important;
+			}
+
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form > table.border:not(.liste):not(.table-fiche-title) {
+				box-sizing: border-box !important;
+				display: block !important;
+				max-width: 100% !important;
+				min-width: 0 !important;
+				overflow: visible !important;
+				width: 100% !important;
+			}
+
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form .tabBar > table.border:not(.liste):not(.table-fiche-title) > :is(tbody, thead, tfoot) {
+				box-sizing: border-box !important;
+				display: block !important;
+				max-width: 100% !important;
+				min-width: 0 !important;
+				width: 100% !important;
+			}
+
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form > table.border:not(.liste):not(.table-fiche-title) > :is(tbody, thead, tfoot) {
+				box-sizing: border-box !important;
+				display: block !important;
+				max-width: 100% !important;
+				min-width: 0 !important;
+				width: 100% !important;
+			}
+
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form .tabBar > table.border:not(.liste):not(.table-fiche-title) > :is(tbody, thead, tfoot) > tr {
+				align-items: stretch !important;
+				box-sizing: border-box !important;
+				display: flex !important;
+				flex-direction: column !important;
+				gap: 6px !important;
+				height: auto !important;
+				margin: 0 !important;
+				max-width: 100% !important;
+				min-height: 0 !important;
+				min-width: 0 !important;
+				padding: 10px !important;
+				width: 100% !important;
+			}
+
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form > table.border:not(.liste):not(.table-fiche-title) > :is(tbody, thead, tfoot) > tr {
+				align-items: stretch !important;
+				box-sizing: border-box !important;
+				display: flex !important;
+				flex-direction: column !important;
+				gap: 6px !important;
+				height: auto !important;
+				margin: 0 !important;
+				max-width: 100% !important;
+				min-height: 0 !important;
+				min-width: 0 !important;
+				padding: 10px !important;
+				width: 100% !important;
+			}
+
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form .tabBar > table.border:not(.liste):not(.table-fiche-title) > :is(tbody, thead, tfoot) > tr[style*="display: none"],
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form .tabBar > table.border:not(.liste):not(.table-fiche-title) > :is(tbody, thead, tfoot) > tr[style*="display:none"],
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form .tabBar > table.border:not(.liste):not(.table-fiche-title) > :is(tbody, thead, tfoot) > tr.hidden,
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form .tabBar > table.border:not(.liste):not(.table-fiche-title) > :is(tbody, thead, tfoot) > tr:not(:has(> :is(td, th))),
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form > table.border:not(.liste):not(.table-fiche-title) > :is(tbody, thead, tfoot) > tr[style*="display: none"],
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form > table.border:not(.liste):not(.table-fiche-title) > :is(tbody, thead, tfoot) > tr[style*="display:none"],
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form > table.border:not(.liste):not(.table-fiche-title) > :is(tbody, thead, tfoot) > tr.hidden,
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form > table.border:not(.liste):not(.table-fiche-title) > :is(tbody, thead, tfoot) > tr:not(:has(> :is(td, th))) {
+				display: none !important;
+			}
+
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form .tabBar > table.border:not(.liste):not(.table-fiche-title) > :is(tbody, thead, tfoot) > tr > :is(td, th) {
+				box-sizing: border-box !important;
+				display: block !important;
+				height: auto !important;
+				max-width: 100% !important;
+				min-height: 0 !important;
+				min-width: 0 !important;
+				padding: 0 !important;
+				width: 100% !important;
+			}
+
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form > table.border:not(.liste):not(.table-fiche-title) > :is(tbody, thead, tfoot) > tr > :is(td, th) {
+				box-sizing: border-box !important;
+				display: block !important;
+				height: auto !important;
+				max-width: 100% !important;
+				min-height: 0 !important;
+				min-width: 0 !important;
+				padding: 0 !important;
+				width: 100% !important;
+			}
+
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form .tabBar > table.border:not(.liste):not(.table-fiche-title) > :is(tbody, thead, tfoot) > tr > :is(td, th):empty {
+				display: none !important;
+			}
+
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form > table.border:not(.liste):not(.table-fiche-title) > :is(tbody, thead, tfoot) > tr > :is(td, th):empty {
+				display: none !important;
+			}
+
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form .tabBar > table.border:not(.liste):not(.table-fiche-title) > :is(tbody, thead, tfoot) > tr > :is(td, th):first-child,
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form > table.border:not(.liste):not(.table-fiche-title) > :is(tbody, thead, tfoot) > tr > :is(td, th):first-child {
+				font-weight: 650;
+				line-height: 1.25;
+			}
+
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form .tabBar > table.border:not(.liste):not(.table-fiche-title) > :is(tbody, thead, tfoot) > tr > :is(td, th) :is(input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"]):not([type="image"]):not([type="submit"]):not([type="button"]), textarea, select, .select2-container, .select2-selection, .select2-selection__rendered, div.urllink),
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form > table.border:not(.liste):not(.table-fiche-title) > :is(tbody, thead, tfoot) > tr > :is(td, th) :is(input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"]):not([type="image"]):not([type="submit"]):not([type="button"]), textarea, select, .select2-container, .select2-selection, .select2-selection__rendered, div.urllink) {
+				max-width: 100% !important;
 			}
 
 			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche .tabBar :is(img, canvas, svg) {
