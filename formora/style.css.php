@@ -6004,6 +6004,11 @@ table.jPicker {
 		min-width: 100% !important;
 	}
 
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .div-table-responsive > table.liste > :is(tbody, tfoot):last-child > tr:last-child > :is(td, th),
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .div-table-responsive-no-min > table.liste > :is(tbody, tfoot):last-child > tr:last-child > :is(td, th) {
+		border-bottom: 0 !important;
+	}
+
 	body#mainbody:is(.page-list_det, .page-task_time):not(.bodylogin) #id-right,
 	body#mainbody:is(.page-list_det, .page-task_time):not(.bodylogin) #id-right .fiche,
 	body#mainbody:is(.page-list_det, .page-task_time):not(.bodylogin) #id-right .fiche form#searchFormList {
