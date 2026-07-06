@@ -4,7 +4,7 @@ Date: 2026-07-06
 
 Scope: Dolibarr 23 Formora theme layout audit after the current list-page redesign work. The audit covered regular back-office pages, POS-related pages, list pages, card/create forms, statistics pages, accounting pages, light mode, dark mode, mobile, tablet, and desktop widths.
 
-Status: Audit plan with first three remediations completed.
+Status: Known normal-page remediations completed.
 
 Latest remediation update:
 
@@ -15,6 +15,10 @@ Latest remediation update:
 - Verified 42 card/create combinations and 36 list/POS regression combinations across mobile, tablet, desktop, light mode, and dark mode.
 - The P1 special list-like desktop overflow was fixed for order lines and project task time pages.
 - Verified 12 special-page combinations and 50 card/list regression combinations after the change.
+- The P2 mobile statistics overflow was fixed for the valid statistics pages available in the test data.
+- The accounting journal menu entries were rechecked; valid journal URLs with `id_journal` no longer overflow after the earlier form/list fixes.
+- The remaining margin-page overflow was traced to responsive top-menu spillover and fixed by containing the top bar at narrow widths.
+- Final responsive regression covered 120 combinations across lists, card forms, statistics pages, accounting journals, margin, and desktop smoke checks with no page-level overflow.
 
 ## 1. Audit Method
 
@@ -242,6 +246,8 @@ Validation:
 
 ### P2 - Mobile Statistics Pages Slight Overflow
 
+Status: Fixed and verified on 2026-07-06.
+
 Affected families:
 
 - Proposal statistics.
@@ -270,10 +276,13 @@ Fix direction:
 
 Validation:
 
-- Mobile `390px`.
-- Light and dark.
+- Verified mobile `390px`, tablet `768px`, and desktop `1435px`.
+- Verified light and dark.
+- Regression checked ordinary lists, POS partner list, card/create forms, special list-like pages, and margin.
 
 ### P2 - Accounting Journal Pages Overflow
+
+Status: Valid journal menu entries verified on 2026-07-06. No additional Formora code change was required.
 
 Affected pages:
 
@@ -287,6 +296,8 @@ Observed:
 
 - Mobile journal pages range roughly `436px` to `451px`.
 - `variousjournal` is much wider, around `1073px`, and also overflows tablet.
+- The wide `variousjournal` case is the raw URL without `id_journal`; it renders a Dolibarr technical error page with diagnostic text before the normal page shell.
+- The actual menu URL with `id_journal=5` was verified without page-level overflow.
 
 Eldy comparison:
 
@@ -294,15 +305,17 @@ Eldy comparison:
 
 Fix direction:
 
-- Handle as a dedicated accounting form/table adaptation.
-- Do not fold this into the generic card-form fix until the table structure is inspected.
+- No dedicated accounting CSS was added for valid journal pages.
+- Do not treat the raw missing-`id_journal` technical error page as a business layout regression.
 
 Validation:
 
-- Mobile and tablet.
-- Light and dark.
+- Verified valid journal URLs for bank, expense report, purchase, sales, and various journals.
+- Verified mobile `390px`, tablet `768px`, desktop `1435px`, light and dark.
 
 ### P2 - Margin Page Form Overflow
+
+Status: Fixed and verified on 2026-07-06.
 
 Affected page:
 
@@ -315,12 +328,18 @@ Observed:
 
 Likely cause:
 
-- Form table and Select2 controls.
+- Responsive top-menu spillover created a narrow page-level overflow on this page.
+- The page content table itself is contained by its responsive table wrapper after the previous fixes.
 
 Fix direction:
 
-- Revisit after the generic list filter and card-form fixes.
-- It may be covered by the card/form adaptation if selectors are scoped well.
+- Contain the responsive top bar at narrow widths while preserving the scrollable top-menu strip.
+- Verify the right-side user dropdown still opens inside the viewport.
+
+Validation:
+
+- Verified mobile `390px`, tablet `768px`, desktop `1435px`, light and dark.
+- Verified the user dropdown opens on mobile and tablet without page-level overflow.
 
 ## 5. Non-Issues Confirmed In This Audit
 
@@ -357,31 +376,30 @@ Expected classes:
 
 Ordinary invoice, order, and proposal list pages did not reproduce the original full-width list overflow after the current redesign.
 
-Remaining list problems are narrower and mostly tied to oversized filter controls.
+No remaining normal business-page overflow from the original audit is currently open.
 
 ## 6. Recommended Fix Order
 
-1. Fix Formora-only list filter Select2 overflow.
+1. Fix Formora-only list filter Select2 overflow. Completed.
    - Targets third-party list tablet and contact list desktop.
-   - This should be the next code change.
 
-2. Re-run the reduced regression matrix.
+2. Re-run the reduced regression matrix. Completed.
    - Third-party list.
    - Contact list type variants.
    - Invoice/order/proposal list smoke tests.
    - POS partner list.
 
-3. Fix list-like pages not covered by `bodyforlist`.
+3. Fix list-like pages not covered by `bodyforlist`. Completed.
    - `commande/list_det.php`
    - `projet/tasks/time.php`
 
-4. Design and implement mobile card/create form adaptation.
+4. Design and implement mobile card/create form adaptation. Completed.
    - Third-party, product, bank account, supplier order, warehouse.
    - Include POS third-party create iframe.
 
-5. Fix accounting journal and margin pages.
+5. Fix accounting journal and margin pages. Completed for valid journal URLs and margin.
 
-6. Polish statistics pages mobile overflow.
+6. Polish statistics pages mobile overflow. Completed.
 
 ## 7. Regression Matrix For The Next Fix
 
