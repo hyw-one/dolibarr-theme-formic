@@ -2081,10 +2081,10 @@ body#mainbody.bodyforlist:not(.poslist):not(.bodylogin):not(.mod-product) #id-ri
 	--formora-title-action-icon-size: 21px;
 	--formora-title-action-size: 38px;
 	align-items: center !important;
-	background: transparent !important;
+	background: var(--formora-neutral-bg) !important;
 	border: 0 !important;
 	border-radius: var(--formora-radius-sm) !important;
-	box-shadow: inset 0 0 0 1px transparent !important;
+	box-shadow: inset 0 0 0 1px var(--formora-line-soft) !important;
 	box-sizing: border-box !important;
 	color: var(--formora-muted) !important;
 	display: inline-flex !important;
@@ -7804,6 +7804,32 @@ table.jPicker {
 				min-height: 18px !important;
 				white-space: nowrap !important;
 				width: auto !important;
+			}
+
+			body#mainbody:not(.bodytakepos):not(.bodylogin) #id-top li.menuhider div.tmenucenter {
+				align-items: center !important;
+				flex-direction: row !important;
+				height: 60px !important;
+				justify-content: center !important;
+				margin-bottom: 0 !important;
+				margin-top: 0 !important;
+				min-height: 60px !important;
+				min-width: 44px !important;
+				padding: 0 8px !important;
+			}
+
+			body#mainbody:not(.bodytakepos):not(.bodylogin) #id-top li.menuhider div.tmenucenter > a.tmenuimage {
+				align-items: center !important;
+				display: flex !important;
+				height: 60px !important;
+				justify-content: center !important;
+				min-height: 60px !important;
+				min-width: 28px !important;
+				width: 28px !important;
+			}
+
+			body#mainbody:not(.bodytakepos):not(.bodylogin) #id-top li.menuhider div.tmenucenter > a.tmenulabel {
+				display: none !important;
 			}
 
 			body#mainbody:not(.bodytakepos):not(.bodylogin) .login_block.usedropdown {
