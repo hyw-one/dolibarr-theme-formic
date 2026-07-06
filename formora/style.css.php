@@ -6141,27 +6141,28 @@ table.jPicker {
 		}
 	}
 
-	@media only screen and (max-width: 900px) {
-		body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > table.table-fiche-title > tbody > :is(tr.toptitle, tr.titre) {
-			gap: 8px 10px;
-		}
+		@media only screen and (max-width: 900px) {
+			body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > table.table-fiche-title > tbody > :is(tr.toptitle, tr.titre) {
+				gap: 8px 10px;
+			}
 
-		body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > table.table-fiche-title .col-title {
-			flex: 1 1 calc(100% - 54px);
-		}
+			body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > table.table-fiche-title .col-title {
+				flex: 1 1 220px;
+			}
 
-		body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > table.table-fiche-title :is(.col-right, .col-center) {
-			flex: 1 1 100%;
-			margin-left: 0;
-			text-align: start;
-		}
+			body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > table.table-fiche-title :is(.col-right, .col-center) {
+				flex: 0 1 auto;
+				margin-left: auto;
+				text-align: end;
+			}
 
-		body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > table.table-fiche-title .pagination,
-		body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > table.table-fiche-title .pagination ul {
-			justify-content: flex-start;
-			width: 100% !important;
+			body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > table.table-fiche-title .pagination,
+			body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > table.table-fiche-title .pagination ul {
+				justify-content: flex-end;
+				max-width: 100% !important;
+				width: auto !important;
+			}
 		}
-	}
 
 	@media only screen and (max-width: 480px) {
 		body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .liste_titre_bydiv {
