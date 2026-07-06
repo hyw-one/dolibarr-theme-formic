@@ -618,16 +618,29 @@ body#mainbody .login_block.usedropdown #topmenu-login-dropdown > a.dropdown-togg
 body#mainbody .login_block.usedropdown #topmenu-login-dropdown > a.dropdown-toggle:hover,
 body#mainbody .login_block.usedropdown #topmenu-login-dropdown > a.dropdown-toggle:focus,
 body#mainbody .login_block.usedropdown #topmenu-login-dropdown > a.dropdown-toggle:active,
+body#mainbody .login_block.usedropdown #topmenu-login-dropdown:hover > a.dropdown-toggle,
+body#mainbody .login_block.usedropdown #topmenu-login-dropdown.open > a.dropdown-toggle,
+body#mainbody .login_block.usedropdown #topmenu-login-dropdown.show > a.dropdown-toggle,
 body#mainbody .login_block.usedropdown #topmenu-login-dropdown > a.dropdown-toggle::after,
 body#mainbody .login_block.usedropdown #topmenu-login-dropdown > a.dropdown-toggle:hover::after,
 body#mainbody .login_block.usedropdown #topmenu-login-dropdown > a.dropdown-toggle:focus::after,
 body#mainbody .login_block.usedropdown #topmenu-login-dropdown > a.dropdown-toggle:active::after,
+body#mainbody .login_block.usedropdown #topmenu-login-dropdown:hover > a.dropdown-toggle::after,
+body#mainbody .login_block.usedropdown #topmenu-login-dropdown.open > a.dropdown-toggle::after,
+body#mainbody .login_block.usedropdown #topmenu-login-dropdown.show > a.dropdown-toggle::after,
 body#mainbody .login_block.usedropdown #topmenu-login-dropdown > a.dropdown-toggle :is(.atoplogin, .atoploginusername, #dropdown-icon-down, #dropdown-icon-up),
 body#mainbody .login_block.usedropdown #topmenu-login-dropdown > a.dropdown-toggle:hover :is(.atoplogin, .atoploginusername, #dropdown-icon-down, #dropdown-icon-up),
 body#mainbody .login_block.usedropdown #topmenu-login-dropdown > a.dropdown-toggle:focus :is(.atoplogin, .atoploginusername, #dropdown-icon-down, #dropdown-icon-up),
-body#mainbody .login_block.usedropdown #topmenu-login-dropdown > a.dropdown-toggle:active :is(.atoplogin, .atoploginusername, #dropdown-icon-down, #dropdown-icon-up) {
+body#mainbody .login_block.usedropdown #topmenu-login-dropdown > a.dropdown-toggle:active :is(.atoplogin, .atoploginusername, #dropdown-icon-down, #dropdown-icon-up),
+body#mainbody .login_block.usedropdown #topmenu-login-dropdown:hover > a.dropdown-toggle :is(.atoplogin, .atoploginusername, #dropdown-icon-down, #dropdown-icon-up),
+body#mainbody .login_block.usedropdown #topmenu-login-dropdown.open > a.dropdown-toggle :is(.atoplogin, .atoploginusername, #dropdown-icon-down, #dropdown-icon-up),
+body#mainbody .login_block.usedropdown #topmenu-login-dropdown.show > a.dropdown-toggle :is(.atoplogin, .atoploginusername, #dropdown-icon-down, #dropdown-icon-up) {
+	border-bottom: 0 !important;
+	box-shadow: none !important;
 	text-decoration: none !important;
+	text-decoration-color: transparent !important;
 	text-decoration-line: none !important;
+	text-decoration-thickness: 0 !important;
 }
 
 #mainbody .imgforviewmode,
@@ -6449,16 +6462,29 @@ table.jPicker {
 	body#mainbody .login_block.usedropdown #topmenu-login-dropdown > a.dropdown-toggle:hover,
 	body#mainbody .login_block.usedropdown #topmenu-login-dropdown > a.dropdown-toggle:focus,
 	body#mainbody .login_block.usedropdown #topmenu-login-dropdown > a.dropdown-toggle:active,
+	body#mainbody .login_block.usedropdown #topmenu-login-dropdown:hover > a.dropdown-toggle,
+	body#mainbody .login_block.usedropdown #topmenu-login-dropdown.open > a.dropdown-toggle,
+	body#mainbody .login_block.usedropdown #topmenu-login-dropdown.show > a.dropdown-toggle,
 	body#mainbody .login_block.usedropdown #topmenu-login-dropdown > a.dropdown-toggle::after,
 	body#mainbody .login_block.usedropdown #topmenu-login-dropdown > a.dropdown-toggle:hover::after,
 	body#mainbody .login_block.usedropdown #topmenu-login-dropdown > a.dropdown-toggle:focus::after,
 	body#mainbody .login_block.usedropdown #topmenu-login-dropdown > a.dropdown-toggle:active::after,
+	body#mainbody .login_block.usedropdown #topmenu-login-dropdown:hover > a.dropdown-toggle::after,
+	body#mainbody .login_block.usedropdown #topmenu-login-dropdown.open > a.dropdown-toggle::after,
+	body#mainbody .login_block.usedropdown #topmenu-login-dropdown.show > a.dropdown-toggle::after,
 	body#mainbody .login_block.usedropdown #topmenu-login-dropdown > a.dropdown-toggle :is(.atoplogin, .atoploginusername, #dropdown-icon-down, #dropdown-icon-up),
 	body#mainbody .login_block.usedropdown #topmenu-login-dropdown > a.dropdown-toggle:hover :is(.atoplogin, .atoploginusername, #dropdown-icon-down, #dropdown-icon-up),
 	body#mainbody .login_block.usedropdown #topmenu-login-dropdown > a.dropdown-toggle:focus :is(.atoplogin, .atoploginusername, #dropdown-icon-down, #dropdown-icon-up),
-	body#mainbody .login_block.usedropdown #topmenu-login-dropdown > a.dropdown-toggle:active :is(.atoplogin, .atoploginusername, #dropdown-icon-down, #dropdown-icon-up) {
+	body#mainbody .login_block.usedropdown #topmenu-login-dropdown > a.dropdown-toggle:active :is(.atoplogin, .atoploginusername, #dropdown-icon-down, #dropdown-icon-up),
+	body#mainbody .login_block.usedropdown #topmenu-login-dropdown:hover > a.dropdown-toggle :is(.atoplogin, .atoploginusername, #dropdown-icon-down, #dropdown-icon-up),
+	body#mainbody .login_block.usedropdown #topmenu-login-dropdown.open > a.dropdown-toggle :is(.atoplogin, .atoploginusername, #dropdown-icon-down, #dropdown-icon-up),
+	body#mainbody .login_block.usedropdown #topmenu-login-dropdown.show > a.dropdown-toggle :is(.atoplogin, .atoploginusername, #dropdown-icon-down, #dropdown-icon-up) {
+		border-bottom: 0 !important;
+		box-shadow: none !important;
 		text-decoration: none !important;
+		text-decoration-color: transparent !important;
 		text-decoration-line: none !important;
+		text-decoration-thickness: 0 !important;
 	}
 
 	/* Final action/menu dropdown override: menu rows must not inherit primary button fills. */
@@ -8037,11 +8063,42 @@ table.jPicker {
 	body#mainbody input[type="button"][style*="display: none"]:not(#formora-inline-hidden),
 	body#mainbody input[type="button"][style*="display:none"]:not(#formora-inline-hidden),
 	body#mainbody input[style*="display: none"]:not(#formora-inline-hidden),
-	body#mainbody input[style*="display:none"]:not(#formora-inline-hidden) {
-		display: none !important;
-	}
+		body#mainbody input[style*="display:none"]:not(#formora-inline-hidden) {
+			display: none !important;
+		}
 
-<?php
+		body#mainbody #topmenu-login-dropdown,
+		body#mainbody #topmenu-login-dropdown:hover,
+		body#mainbody #topmenu-login-dropdown.open,
+		body#mainbody #topmenu-login-dropdown.show,
+		body#mainbody #topmenu-login-dropdown > a,
+		body#mainbody #topmenu-login-dropdown > a:hover,
+		body#mainbody #topmenu-login-dropdown > a:focus,
+		body#mainbody #topmenu-login-dropdown > a:active,
+		body#mainbody #topmenu-login-dropdown:hover > a,
+		body#mainbody #topmenu-login-dropdown.open > a,
+		body#mainbody #topmenu-login-dropdown.show > a,
+		body#mainbody #topmenu-login-dropdown > a::after,
+		body#mainbody #topmenu-login-dropdown > a:hover::after,
+		body#mainbody #topmenu-login-dropdown > a:focus::after,
+		body#mainbody #topmenu-login-dropdown > a:active::after,
+		body#mainbody #topmenu-login-dropdown:hover > a::after,
+		body#mainbody #topmenu-login-dropdown.open > a::after,
+		body#mainbody #topmenu-login-dropdown.show > a::after,
+		body#mainbody #topmenu-login-dropdown > a *,
+		body#mainbody #topmenu-login-dropdown > a:hover *,
+		body#mainbody #topmenu-login-dropdown:hover > a *,
+		body#mainbody #topmenu-login-dropdown.open > a *,
+		body#mainbody #topmenu-login-dropdown.show > a * {
+			border-bottom: 0 !important;
+			box-shadow: none !important;
+			text-decoration: none !important;
+			text-decoration-color: transparent !important;
+			text-decoration-line: none !important;
+			text-decoration-thickness: 0 !important;
+		}
+
+	<?php
 
 if (is_object($db)) {
 	$db->close();
