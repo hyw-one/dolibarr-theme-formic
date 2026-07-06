@@ -5974,6 +5974,13 @@ table.jPicker {
 		min-width: 100% !important;
 	}
 
+	body#mainbody:is(.page-list_det, .page-task_time):not(.bodylogin) #id-right,
+	body#mainbody:is(.page-list_det, .page-task_time):not(.bodylogin) #id-right .fiche,
+	body#mainbody:is(.page-list_det, .page-task_time):not(.bodylogin) #id-right .fiche form#searchFormList {
+		box-sizing: border-box !important;
+		min-width: 0 !important;
+	}
+
 	@media only screen and (min-width: 930px) {
 		body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right {
 			max-width: calc(100vw - <?php echo $leftmenuwidth + 21; ?>px) !important;
@@ -5981,6 +5988,15 @@ table.jPicker {
 		}
 
 		body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche {
+			max-width: calc(100vw - <?php echo $leftmenuwidth + 47; ?>px) !important;
+		}
+
+		body#mainbody:is(.page-list_det, .page-task_time):not(.bodylogin) #id-right {
+			max-width: calc(100vw - <?php echo $leftmenuwidth + 21; ?>px) !important;
+			width: calc(100vw - <?php echo $leftmenuwidth + 21; ?>px) !important;
+		}
+
+		body#mainbody:is(.page-list_det, .page-task_time):not(.bodylogin) #id-right .fiche {
 			max-width: calc(100vw - <?php echo $leftmenuwidth + 47; ?>px) !important;
 		}
 	}
@@ -5992,6 +6008,15 @@ table.jPicker {
 		}
 
 		body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche {
+			max-width: calc(100vw - 27px) !important;
+		}
+
+		body#mainbody:is(.page-list_det, .page-task_time):not(.bodylogin) #id-right {
+			max-width: 100vw !important;
+			width: 100% !important;
+		}
+
+		body#mainbody:is(.page-list_det, .page-task_time):not(.bodylogin) #id-right .fiche {
 			max-width: calc(100vw - 27px) !important;
 		}
 	}
