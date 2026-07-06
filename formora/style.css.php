@@ -7710,6 +7710,79 @@ table.jPicker {
 		}
 
 		@media only screen and (max-width: 767px) {
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right,
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche,
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form {
+				box-sizing: border-box !important;
+				max-width: 100% !important;
+				min-width: 0 !important;
+			}
+
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form table.border:not(.liste):not(.table-fiche-title) {
+				box-sizing: border-box !important;
+				display: block !important;
+				max-width: 100% !important;
+				min-width: 0 !important;
+				overflow: hidden !important;
+				padding-left: 8px !important;
+				padding-right: 8px !important;
+				width: 100% !important;
+			}
+
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form table.border:not(.liste):not(.table-fiche-title) > :is(tbody, thead, tfoot) {
+				box-sizing: border-box !important;
+				display: block !important;
+				max-width: 100% !important;
+				min-width: 0 !important;
+				width: 100% !important;
+			}
+
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form table.border:not(.liste):not(.table-fiche-title) > :is(tbody, thead, tfoot) > tr {
+				box-sizing: border-box !important;
+				display: flex !important;
+				flex-wrap: wrap;
+				gap: 4px 0;
+				max-width: 100% !important;
+				min-width: 0 !important;
+				width: 100% !important;
+			}
+
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form table.border:not(.liste):not(.table-fiche-title) > :is(tbody, thead, tfoot) > tr > :is(td, th) {
+				box-sizing: border-box !important;
+				display: block !important;
+				flex: 1 1 100%;
+				max-width: 100% !important;
+				min-width: 0 !important;
+				padding-left: 0 !important;
+				padding-right: 0 !important;
+				width: 100% !important;
+			}
+
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form table.border:not(.liste):not(.table-fiche-title) > :is(tbody, thead, tfoot) > tr > :is(td, th):first-child:not([colspan]) {
+				color: var(--formora-muted) !important;
+				font-weight: 650;
+				padding-bottom: 2px !important;
+			}
+
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form table.border:not(.liste):not(.table-fiche-title) :is(.minwidth50, .minwidth75, .minwidth100, .minwidth125, .minwidth150, .minwidth200, .minwidth250, .minwidth300, .minwidth400, .minwidth500, .maxwidth100, .maxwidth150, .maxwidth200, .maxwidth250, .maxwidth300, .maxwidth400, .maxwidth500, .widthcentpercentminusx) {
+				max-width: 100% !important;
+				min-width: 0 !important;
+			}
+
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form table.border:not(.liste):not(.table-fiche-title) :is(input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"]):not([type="image"]):not([type="submit"]):not([type="button"]), textarea, select, .select2-container, .select2-selection, .select2-selection__rendered, .select2-search--inline, .select2-search__field, div.urllink) {
+				box-sizing: border-box !important;
+				max-width: 100% !important;
+				min-width: 0 !important;
+				width: 100% !important;
+			}
+
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form table.border:not(.liste):not(.table-fiche-title) :is(td, th) > :is(table.nobordernopadding, table.noborder, table.border:not(.liste)) {
+				box-sizing: border-box !important;
+				max-width: 100% !important;
+				min-width: 0 !important;
+				width: 100% !important;
+			}
+
 			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche :is(.boxhalfleft, .boxhalfright, .fichehalfleft, .fichehalfright) > .box.divboxtable.boxdraggable:has(> table.boxtable) {
 				-webkit-overflow-scrolling: touch;
 				box-sizing: border-box !important;

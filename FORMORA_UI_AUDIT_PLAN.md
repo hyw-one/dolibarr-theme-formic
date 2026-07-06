@@ -4,13 +4,15 @@ Date: 2026-07-06
 
 Scope: Dolibarr 23 Formora theme layout audit after the current list-page redesign work. The audit covered regular back-office pages, POS-related pages, list pages, card/create forms, statistics pages, accounting pages, light mode, dark mode, mobile, tablet, and desktop widths.
 
-Status: Audit plan with first remediation completed.
+Status: Audit plan with first two remediations completed.
 
 Latest remediation update:
 
 - The P0 Formora-only list filter overflow was fixed in `formora/style.css.php`.
 - Verified no page-level horizontal overflow on the affected third-party and contact list pages in light and dark mode.
 - Regression smoke covered 34 list/POS-related combinations, including mobile `390x844`, tablet `768x1024`, desktop `1440x900`, and POS partner list `1435x920`.
+- The P1 mobile card/create form overflow was fixed in `formora/style.css.php`.
+- Verified 42 card/create combinations and 36 list/POS regression combinations across mobile, tablet, desktop, light mode, and dark mode.
 
 ## 1. Audit Method
 
@@ -159,6 +161,8 @@ Validation:
 These issues also reproduce in Eldy. They are still real UX problems, but they should be handled after the Formora-only regressions above.
 
 ### P1 - Mobile Card/Create Forms Overflow
+
+Status: Fixed and verified on 2026-07-06.
 
 Affected families:
 
