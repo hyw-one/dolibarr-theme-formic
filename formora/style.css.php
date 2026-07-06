@@ -1809,7 +1809,7 @@ input:focus:not(.noborderfocus):not(.inputsearch_dropdownselectedfields):not(.bu
 select:focus,
 textarea:focus,
 .select2-container--open [aria-expanded="false"].select2-selection--single,
-.select2-container--focus span.selection span.select2-selection:not(.noborderfocus):not(.massactionselect) {
+.select2-container--focus span.selection span.select2-selection:not(.noborderfocus) {
 	border-color: var(--formora-accent) !important;
 	box-shadow: 0 0 0 2px rgba(9, 105, 218, 0.14);
 }
@@ -3132,7 +3132,7 @@ input:focus:not(.noborderfocus):not(.inputsearch_dropdownselectedfields):not(.bu
 select:focus,
 textarea:focus,
 .select2-container--open [aria-expanded="false"].select2-selection--single,
-.select2-container--focus span.selection span.select2-selection:not(.noborderfocus):not(.massactionselect) {
+.select2-container--focus span.selection span.select2-selection:not(.noborderfocus) {
 	border-color: var(--formora-accent) !important;
 	box-shadow: 0 0 0 2px var(--formora-focus-ring) !important;
 }
@@ -4980,62 +4980,6 @@ table.jPicker {
 			min-height: calc(100vh - 80px);
 		}
 
-		body#mainbody.bodyforlist:not(.poslist) #id-right .fiche {
-			box-sizing: border-box !important;
-			max-width: calc(100vw - <?php echo $leftmenuwidth + 103; ?>px) !important;
-			min-width: 0 !important;
-		}
-
-		body#mainbody.bodyforlist:not(.poslist) #id-right .fiche :is(form#searchFormList, table.table-fiche-title, .liste_titre_bydiv, .div-table-responsive, .div-table-responsive-no-min) {
-			box-sizing: border-box !important;
-			max-width: 100% !important;
-			min-width: 0 !important;
-			width: 100% !important;
-		}
-
-		body#mainbody.bodyforlist:not(.poslist) #id-right .fiche :is(.div-table-responsive, .div-table-responsive-no-min) {
-			-webkit-overflow-scrolling: touch;
-			overflow-x: auto !important;
-			scrollbar-color: var(--formora-line) transparent;
-			scrollbar-width: thin;
-		}
-
-		body#mainbody.bodyforlist:not(.poslist) #id-right .fiche :is(.div-table-responsive, .div-table-responsive-no-min) > table.liste {
-			max-width: none !important;
-			min-width: 100% !important;
-		}
-
-		@media only screen and (max-width: 929px) {
-			body#mainbody.bodyforlist.sidebar-collapse:not(.poslist) #id-right .fiche {
-				max-width: calc(100vw - 27px) !important;
-			}
-		}
-
-		body#mainbody.bodyforlist:not(.poslist) #id-right .fiche form#searchFormList:has(> .liste_titre_bydiv + .div-table-responsive) {
-			-webkit-overflow-scrolling: touch;
-			overflow-x: auto !important;
-			scrollbar-color: var(--formora-line) transparent;
-			scrollbar-width: thin;
-			--formora-list-track-width: max-content;
-		}
-
-		body#mainbody.bodyforlist:not(.poslist) #id-right .fiche form#searchFormList:has(> .liste_titre_bydiv + .div-table-responsive) > table.table-fiche-title {
-			left: 0;
-			position: sticky;
-			z-index: 2;
-		}
-
-		body#mainbody.bodyforlist:not(.poslist) #id-right .fiche form#searchFormList:has(> .liste_titre_bydiv + .div-table-responsive) > .liste_titre_bydiv,
-		body#mainbody.bodyforlist:not(.poslist) #id-right .fiche form#searchFormList:has(> .liste_titre_bydiv + .div-table-responsive) > .div-table-responsive {
-			max-width: none !important;
-			min-width: 100% !important;
-			width: var(--formora-list-track-width) !important;
-		}
-
-		body#mainbody.bodyforlist:not(.poslist) #id-right .fiche form#searchFormList:has(> .liste_titre_bydiv + .div-table-responsive) > .div-table-responsive {
-			overflow-x: visible !important;
-		}
-
 		body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche :is(.boxhalfleft, .boxhalfright, .fichehalfleft, .fichehalfright) > .box.divboxtable.boxdraggable:has(> table.boxtable) {
 			-webkit-overflow-scrolling: touch;
 			box-sizing: border-box !important;
@@ -5190,6 +5134,10 @@ table.jPicker {
 		border-bottom: 1px solid var(--formora-line-soft) !important;
 		margin-bottom: 16px !important;
 		padding-bottom: 8px !important;
+	}
+
+	body#mainbody.bodyforlist #id-right .fiche form#searchFormList > table.table-fiche-title {
+		border-bottom: 0 !important;
 	}
 
 	body#mainbody table.table-fiche-title tr,
@@ -5509,7 +5457,7 @@ table.jPicker {
 	body#mainbody textarea:focus,
 	body#mainbody select:focus,
 	body#mainbody .select2-container--open [aria-expanded="false"].select2-selection--single,
-	body#mainbody .select2-container--focus span.selection span.select2-selection:not(.noborderfocus):not(.massactionselect),
+	body#mainbody .select2-container--focus span.selection span.select2-selection:not(.noborderfocus),
 	body.bodylogin input:focus {
 		border-color: var(--formora-accent) !important;
 		box-shadow: 0 0 0 3px var(--formora-focus-ring) !important;
@@ -5795,6 +5743,11 @@ table.jPicker {
 		white-space: nowrap;
 	}
 
+	body#mainbody input[style*="display: none"],
+	body#mainbody input[style*="display:none"] {
+		display: none !important;
+	}
+
 	body#mainbody div.tabsAction,
 	body#mainbody div.tabsActionNoBottom {
 		align-items: center;
@@ -5821,10 +5774,6 @@ table.jPicker {
 		margin-bottom: 0 !important;
 		margin-left: 0 !important;
 		margin-right: 0 !important;
-	}
-
-	body#mainbody input[name="confirmmassactioninvisible"] {
-		display: none !important;
 	}
 
 	body#mainbody .butAction:focus,
@@ -6258,105 +6207,9 @@ table.jPicker {
 		color: inherit !important;
 	}
 
-	body#mainbody input[name="confirmmassactioninvisible"],
-	body#mainbody input[name="confirmmassaction"].hideobject:not([style*="display: inline"]) {
-		display: none !important;
-		height: 0 !important;
-		left: -10000px !important;
-		min-height: 0 !important;
-		min-width: 0 !important;
-		opacity: 0 !important;
-		padding: 0 !important;
-		position: absolute !important;
-		top: auto !important;
-		visibility: hidden !important;
-		width: 0 !important;
-	}
-
-	body#mainbody.bodyforlist:has(.checkforselect) .select2-container:has(#select2-massaction-container) {
-		display: none !important;
-		height: 0 !important;
-		left: -10000px !important;
-		min-height: 0 !important;
-		min-width: 0 !important;
-		opacity: 0 !important;
-		padding: 0 !important;
-		position: absolute !important;
-		top: auto !important;
-		visibility: hidden !important;
-		width: 0 !important;
-	}
-
-	body#mainbody.bodyforlist:not(.poslist):not(:has(.checkforselect)):has(#massaction) #id-right .fiche table.table-fiche-title .col-center:has(#massaction),
-	body#mainbody.bodyforlist:not(.poslist):not(:has(.checkforselect)):has(#massaction) #id-right .fiche table.table-fiche-title .col-center:has(#massaction) > div,
-	body#mainbody.bodyforlist:not(.poslist):not(:has(.checkforselect)):has(#massaction) #id-right .fiche table.table-fiche-title .select2-container:has(#select2-massaction-container),
-	body#mainbody.bodyforlist:not(.poslist):not(:has(.checkforselect)):has(#massaction) #id-right .fiche table.table-fiche-title input[name="confirmmassaction"] {
-		display: none !important;
-		height: 0 !important;
-		margin: 0 !important;
-		max-width: 0 !important;
-		min-height: 0 !important;
-		min-width: 0 !important;
-		opacity: 0 !important;
-		padding: 0 !important;
-		visibility: hidden !important;
-		width: 0 !important;
-	}
-
-	body#mainbody.bodyforlist:has(.checkforselect:checked) .select2-container:has(#select2-massaction-container) {
-		display: inline-block !important;
-		height: auto !important;
-		left: auto !important;
-		min-height: var(--formora-control-height) !important;
-		opacity: 1 !important;
-		padding: 0 !important;
-		position: static !important;
-		top: auto !important;
-		visibility: visible !important;
-		width: 260px !important;
-	}
-
-	body#mainbody .select2-container:has(#select2-massaction-container) {
-		width: 260px !important;
-	}
-
-	body#mainbody .select2-container:has(#select2-massaction-container) .select2-selection__rendered {
-		overflow: hidden !important;
-		text-overflow: ellipsis !important;
-		white-space: nowrap !important;
-	}
-
-	body#mainbody .select2-container:has(#select2-massaction-container) .select2-selection__rendered :is(.pictofixedwidth, img, .fa, .fas, .far, .fab) {
-		display: none !important;
-	}
-
 	body#mainbody.poslist #id-container::before {
 		content: none !important;
 		display: none !important;
-	}
-
-	body#mainbody.poslist #massaction,
-	body#mainbody.poslist .select2-container:has(#select2-massaction-container),
-	body#mainbody.poslist input[name="confirmmassaction"],
-	body#mainbody.poslist input[name="confirmmassactioninvisible"] {
-		border: 0 !important;
-		display: none !important;
-		height: 0 !important;
-		left: -10000px !important;
-		margin: 0 !important;
-		min-height: 0 !important;
-		min-width: 0 !important;
-		opacity: 0 !important;
-		padding: 0 !important;
-		position: absolute !important;
-		top: auto !important;
-		visibility: hidden !important;
-		width: 0 !important;
-	}
-
-	body#mainbody.poslist .toptitle .col-center:has(#massaction) {
-		padding: 0 !important;
-		width: 0 !important;
 	}
 
 	body#mainbody.poslist :is(#id-left, .side-nav) {
@@ -7514,160 +7367,7 @@ table.jPicker {
 
 		}
 
-		@media only screen and (min-width: 768px) and (max-width: 1180px) {
-			body#mainbody.bodyforlist:not(.poslist) #id-right .fiche table.table-fiche-title {
-				align-items: center !important;
-				column-gap: 0 !important;
-				display: grid !important;
-				grid-template-columns: 44px minmax(0, 1fr) minmax(0, auto) !important;
-				row-gap: 8px !important;
-			}
-
-			body#mainbody.bodyforlist:not(.poslist) #id-right .fiche table.table-fiche-title > :is(tbody, thead, tfoot),
-			body#mainbody.bodyforlist:not(.poslist) #id-right .fiche table.table-fiche-title > :is(tbody, thead, tfoot) > tr {
-				display: contents !important;
-			}
-
-			body#mainbody.bodyforlist:not(.poslist) #id-right .fiche table.table-fiche-title .col-picto {
-				grid-column: 1 !important;
-				grid-row: 1 !important;
-				width: 42px !important;
-			}
-
-			body#mainbody.bodyforlist:not(.poslist) #id-right .fiche table.table-fiche-title .col-title {
-				grid-column: 2 !important;
-				grid-row: 1 !important;
-				min-width: 0 !important;
-				overflow-wrap: anywhere !important;
-				width: auto !important;
-			}
-
-			body#mainbody.bodyforlist:not(.poslist) #id-right .fiche table.table-fiche-title .col-right {
-				box-sizing: border-box !important;
-				grid-column: 3 !important;
-				grid-row: 1 !important;
-				justify-self: end !important;
-				max-width: 360px !important;
-				min-width: 0 !important;
-				width: auto !important;
-			}
-
-			body#mainbody.bodyforlist:not(.poslist):not(:has(.checkforselect:checked)) #id-right .fiche table.table-fiche-title .col-center:has(#massaction) {
-				display: none !important;
-				height: 0 !important;
-				padding: 0 !important;
-				width: 0 !important;
-			}
-
-			body#mainbody.bodyforlist:not(.poslist):has(.checkforselect:checked) #id-right .fiche table.table-fiche-title .col-center:has(#massaction) {
-				align-items: center !important;
-				box-sizing: border-box !important;
-				display: flex !important;
-				flex-wrap: wrap !important;
-				gap: 8px !important;
-				grid-column: 1 / -1 !important;
-				grid-row: 2 !important;
-				justify-content: center !important;
-				max-width: 100% !important;
-				min-width: 0 !important;
-				padding-left: 0 !important;
-				padding-right: 0 !important;
-				width: 100% !important;
-			}
-
-			body#mainbody.bodyforlist:not(.poslist):has(.checkforselect:checked) #id-right .fiche table.table-fiche-title .col-center:has(#massaction) .select2-container:has(#select2-massaction-container) {
-				max-width: calc(100% - 108px) !important;
-				width: 260px !important;
-			}
-		}
-
 		@media only screen and (max-width: 767px) {
-			body#mainbody.bodyforlist:not(.poslist) #id-right .fiche {
-				max-width: none !important;
-			}
-
-			body#mainbody.bodyforlist:not(.poslist):has(.checkforselect:checked) #id-right .fiche table.table-fiche-title .col-right {
-				display: none !important;
-				min-width: 0 !important;
-				padding: 0 !important;
-				width: 0 !important;
-			}
-
-			body#mainbody.bodyforlist:not(.poslist):has(.checkforselect:checked) #id-right .fiche table.table-fiche-title .col-center:has(#massaction) {
-				max-width: 184px !important;
-				width: 184px !important;
-			}
-
-			body#mainbody.bodyforlist:not(.poslist):has(.checkforselect:checked) #id-right .fiche table.table-fiche-title .col-center:has(#massaction) > div {
-				max-width: 184px !important;
-				min-width: 0 !important;
-				width: 184px !important;
-			}
-
-			body#mainbody.bodyforlist:not(.poslist):has(.checkforselect:checked) #id-right .fiche table.table-fiche-title .select2-container:has(#select2-massaction-container) {
-				max-width: 184px !important;
-				width: 184px !important;
-			}
-
-			body#mainbody.bodyforlist:not(.poslist) > .select2-container.limit.select2-container--open {
-				max-width: 75px !important;
-				width: 75px !important;
-			}
-
-			body#mainbody.bodyforlist:not(.poslist) > .select2-container.limit.select2-container--open .select2-dropdown {
-				box-sizing: border-box !important;
-				max-width: 75px !important;
-				min-width: 75px !important;
-				padding-left: 0 !important;
-				padding-right: 0 !important;
-				width: 75px !important;
-			}
-
-			body#mainbody.bodyforlist:not(.poslist) > .select2-container.limit.select2-container--open .select2-search--dropdown {
-				display: none !important;
-			}
-
-			body#mainbody.bodyforlist:not(.poslist) > .select2-container.limit.select2-container--open .select2-results__options,
-			body#mainbody.bodyforlist:not(.poslist) > .select2-container.limit.select2-container--open .select2-results__option {
-				box-sizing: border-box !important;
-				max-width: 100% !important;
-				width: 100% !important;
-			}
-
-			table.table-fiche-title .titre,
-			table.table-fiche-title div.titre,
-			table.table-fiche-title td.col-title {
-				word-break: keep-all;
-				overflow-wrap: normal;
-			}
-
-			body#mainbody.bodyforlist #id-right .fiche .div-table-responsive {
-				-webkit-overflow-scrolling: touch;
-				border-bottom: 1px solid var(--formora-line-soft) !important;
-				box-sizing: border-box !important;
-				max-width: 100% !important;
-				overflow-x: auto !important;
-				padding-bottom: 6px !important;
-				scrollbar-color: var(--formora-line) transparent;
-				scrollbar-width: thin;
-			}
-
-			body#mainbody.bodyforlist #id-right .fiche .div-table-responsive::-webkit-scrollbar {
-				height: 8px;
-			}
-
-			body#mainbody.bodyforlist #id-right .fiche .div-table-responsive::-webkit-scrollbar-thumb {
-				background: var(--formora-line);
-				border: 2px solid transparent;
-				border-radius: 999px;
-				background-clip: content-box;
-			}
-
-			body#mainbody.bodyforlist #id-right .fiche .div-table-responsive > table.liste {
-				max-width: none !important;
-				min-width: 100% !important;
-			}
-
 			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche :is(.boxhalfleft, .boxhalfright, .fichehalfleft, .fichehalfright) > .box.divboxtable.boxdraggable:has(> table.boxtable) {
 				-webkit-overflow-scrolling: touch;
 				box-sizing: border-box !important;
@@ -7825,6 +7525,15 @@ table.jPicker {
 				width: min(300px, calc(100vw - 12px)) !important;
 			}
 		}
+
+	body#mainbody input[type="submit"][style*="display: none"]:not(#formora-inline-hidden),
+	body#mainbody input[type="submit"][style*="display:none"]:not(#formora-inline-hidden),
+	body#mainbody input[type="button"][style*="display: none"]:not(#formora-inline-hidden),
+	body#mainbody input[type="button"][style*="display:none"]:not(#formora-inline-hidden),
+	body#mainbody input[style*="display: none"]:not(#formora-inline-hidden),
+	body#mainbody input[style*="display:none"]:not(#formora-inline-hidden) {
+		display: none !important;
+	}
 
 <?php
 
