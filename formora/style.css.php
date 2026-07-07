@@ -2560,6 +2560,56 @@ div.jnotify-background,
 	padding: 12px 14px;
 }
 
+body#mainbody .select2-container--default .select2-results__option--highlighted[aria-selected] .prospect-back,
+body#mainbody .select2-container--default .select2-results__option--highlighted .prospect-back,
+body#mainbody .select2-container--default .select2-results__option:hover .prospect-back,
+body#mainbody .select2-dropdown .select2-results__option--highlighted .prospect-back,
+body#mainbody .select2-results .select2-highlighted .prospect-back {
+	background: #a7c5b0 !important;
+	color: #fff !important;
+}
+
+body#mainbody .select2-container--default .select2-results__option--highlighted[aria-selected] .customer-back,
+body#mainbody .select2-container--default .select2-results__option--highlighted .customer-back,
+body#mainbody .select2-container--default .select2-results__option:hover .customer-back,
+body#mainbody .select2-dropdown .select2-results__option--highlighted .customer-back,
+body#mainbody .select2-results .select2-highlighted .customer-back {
+	background: #55955d !important;
+	color: #fff !important;
+}
+
+body#mainbody .select2-container--default .select2-results__option--highlighted[aria-selected] .vendor-back,
+body#mainbody .select2-container--default .select2-results__option--highlighted .vendor-back,
+body#mainbody .select2-container--default .select2-results__option:hover .vendor-back,
+body#mainbody .select2-dropdown .select2-results__option--highlighted .vendor-back,
+body#mainbody .select2-results .select2-highlighted .vendor-back {
+	background: #599caf !important;
+	color: #fff !important;
+}
+
+body#mainbody .select2-container--default .select2-results__option--highlighted[aria-selected] .user-back,
+body#mainbody .select2-container--default .select2-results__option--highlighted .user-back,
+body#mainbody .select2-container--default .select2-results__option:hover .user-back,
+body#mainbody .select2-dropdown .select2-results__option--highlighted .user-back,
+body#mainbody .select2-results .select2-highlighted .user-back {
+	background: #79633f !important;
+	color: #fff !important;
+}
+
+body#mainbody .select2-container--default .select2-results__option--highlighted[aria-selected] .member-company-back,
+body#mainbody .select2-container--default .select2-results__option--highlighted .member-company-back,
+body#mainbody .select2-container--default .select2-results__option:hover .member-company-back,
+body#mainbody .select2-results .select2-highlighted .member-company-back,
+body#mainbody .select2-dropdown .select2-results__option--highlighted .member-company-back,
+body#mainbody .select2-container--default .select2-results__option--highlighted[aria-selected] .member-individual-back,
+body#mainbody .select2-container--default .select2-results__option--highlighted .member-individual-back,
+body#mainbody .select2-container--default .select2-results__option:hover .member-individual-back,
+body#mainbody .select2-dropdown .select2-results__option--highlighted .member-individual-back,
+body#mainbody .select2-results .select2-highlighted .member-individual-back {
+	background: #e4e4e4 !important;
+	color: #666 !important;
+}
+
 <?php
 if (getDolGlobalInt('THEME_DARKMODEENABLED')) {
 	print "/* Formora dark skin layer */\n";
@@ -4287,6 +4337,61 @@ body#mainbody .cke_dialog_close_button:focus {
 
 .member-company-back,
 .member-individual-back {
+	background: rgba(169, 179, 192, 0.14) !important;
+	border-color: rgba(169, 179, 192, 0.28) !important;
+	color: #c8d0d9 !important;
+}
+
+body#mainbody .select2-container--default .select2-results__option--highlighted[aria-selected] .prospect-back,
+body#mainbody .select2-container--default .select2-results__option--highlighted .prospect-back,
+body#mainbody .select2-container--default .select2-results__option:hover .prospect-back,
+body#mainbody .select2-dropdown .select2-results__option--highlighted .prospect-back,
+body#mainbody .select2-results .select2-highlighted .prospect-back {
+	background: rgba(61, 180, 111, 0.18) !important;
+	border-color: rgba(61, 180, 111, 0.34) !important;
+	color: #9df0b4 !important;
+}
+
+body#mainbody .select2-container--default .select2-results__option--highlighted[aria-selected] .customer-back,
+body#mainbody .select2-container--default .select2-results__option--highlighted .customer-back,
+body#mainbody .select2-container--default .select2-results__option:hover .customer-back,
+body#mainbody .select2-dropdown .select2-results__option--highlighted .customer-back,
+body#mainbody .select2-results .select2-highlighted .customer-back {
+	background: rgba(61, 180, 111, 0.28) !important;
+	border-color: rgba(61, 180, 111, 0.42) !important;
+	color: #b7f7c7 !important;
+}
+
+body#mainbody .select2-container--default .select2-results__option--highlighted[aria-selected] .vendor-back,
+body#mainbody .select2-container--default .select2-results__option--highlighted .vendor-back,
+body#mainbody .select2-container--default .select2-results__option:hover .vendor-back,
+body#mainbody .select2-dropdown .select2-results__option--highlighted .vendor-back,
+body#mainbody .select2-results .select2-highlighted .vendor-back {
+	background: rgba(78, 163, 255, 0.2) !important;
+	border-color: rgba(78, 163, 255, 0.38) !important;
+	color: var(--formora-accent-hover) !important;
+}
+
+body#mainbody .select2-container--default .select2-results__option--highlighted[aria-selected] .user-back,
+body#mainbody .select2-container--default .select2-results__option--highlighted .user-back,
+body#mainbody .select2-container--default .select2-results__option:hover .user-back,
+body#mainbody .select2-dropdown .select2-results__option--highlighted .user-back,
+body#mainbody .select2-results .select2-highlighted .user-back {
+	background: rgba(214, 164, 62, 0.18) !important;
+	border-color: rgba(214, 164, 62, 0.34) !important;
+	color: #ffd38a !important;
+}
+
+body#mainbody .select2-container--default .select2-results__option--highlighted[aria-selected] .member-company-back,
+body#mainbody .select2-container--default .select2-results__option--highlighted .member-company-back,
+body#mainbody .select2-container--default .select2-results__option:hover .member-company-back,
+body#mainbody .select2-results .select2-highlighted .member-company-back,
+body#mainbody .select2-dropdown .select2-results__option--highlighted .member-company-back,
+body#mainbody .select2-container--default .select2-results__option--highlighted[aria-selected] .member-individual-back,
+body#mainbody .select2-container--default .select2-results__option--highlighted .member-individual-back,
+body#mainbody .select2-container--default .select2-results__option:hover .member-individual-back,
+body#mainbody .select2-dropdown .select2-results__option--highlighted .member-individual-back,
+body#mainbody .select2-results .select2-highlighted .member-individual-back {
 	background: rgba(169, 179, 192, 0.14) !important;
 	border-color: rgba(169, 179, 192, 0.28) !important;
 	color: #c8d0d9 !important;
@@ -6174,38 +6279,6 @@ body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right :is(
 	body#mainbody .select2-container--default .select2-results__option:hover span:not(.flag-sprite):not([class*="flag"]):not(.fi):not([class^="fi-"]):not([class*=" fi-"]):not(.prospect-back):not(.customer-back):not(.vendor-back):not(.user-back):not(.member-company-back):not(.member-individual-back):not(.nonature-back) {
 		background: transparent !important;
 		color: inherit !important;
-	}
-
-	body#mainbody .select2-container--default .select2-results__option--highlighted[aria-selected] .prospect-back,
-	body#mainbody .select2-container--default .select2-results__option:hover .prospect-back,
-	body#mainbody .select2-dropdown .select2-results .select2-highlighted .prospect-back {
-		background: rgba(61, 180, 111, 0.18) !important;
-		border-color: rgba(61, 180, 111, 0.34) !important;
-		color: #9df0b4 !important;
-	}
-
-	body#mainbody .select2-container--default .select2-results__option--highlighted[aria-selected] .customer-back,
-	body#mainbody .select2-container--default .select2-results__option:hover .customer-back,
-	body#mainbody .select2-dropdown .select2-results .select2-highlighted .customer-back {
-		background: rgba(61, 180, 111, 0.28) !important;
-		border-color: rgba(61, 180, 111, 0.42) !important;
-		color: #b7f7c7 !important;
-	}
-
-	body#mainbody .select2-container--default .select2-results__option--highlighted[aria-selected] .vendor-back,
-	body#mainbody .select2-container--default .select2-results__option:hover .vendor-back,
-	body#mainbody .select2-dropdown .select2-results .select2-highlighted .vendor-back {
-		background: rgba(78, 163, 255, 0.2) !important;
-		border-color: rgba(78, 163, 255, 0.38) !important;
-		color: var(--formora-accent-hover) !important;
-	}
-
-	body#mainbody .select2-container--default .select2-results__option--highlighted[aria-selected] .user-back,
-	body#mainbody .select2-container--default .select2-results__option:hover .user-back,
-	body#mainbody .select2-dropdown .select2-results .select2-highlighted .user-back {
-		background: rgba(214, 164, 62, 0.18) !important;
-		border-color: rgba(214, 164, 62, 0.34) !important;
-		color: #ffd38a !important;
 	}
 
 	body#mainbody .select2-results .select2-highlighted,
