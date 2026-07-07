@@ -55,6 +55,32 @@ Home -> Setup -> Display -> Skin and colors
 
 Select `formora`, then save the setting.
 
+## Theme JavaScript
+
+Formora includes `formora.js` for interactive theme behavior, including mobile top-menu centering, scroll state classes, dark-mode widget fixes, editor adjustments, and TakePOS iframe theme propagation.
+
+Dolibarr only loads a theme JavaScript file when the hidden global constant is enabled:
+
+```text
+ALLOW_THEME_JS = 1
+```
+
+In production, open:
+
+```text
+Home -> Setup -> Other setup
+```
+
+Add or enable `ALLOW_THEME_JS` with value `1`, then clear Dolibarr's cache and refresh the page.
+
+After setup, a normal Formora page should include a script like:
+
+```html
+<script src="/theme/formora/formora.js?layout=classic&version=23.0.0"></script>
+```
+
+If this script is missing, Formora's CSS may still load, but the interactive behaviors will not run.
+
 For temporary testing, you can force the theme through URL parameters:
 
 ```text
