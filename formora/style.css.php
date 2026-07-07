@@ -509,7 +509,6 @@ require __DIR__.'/global.inc.php';
 	--formora-shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.05), 0 8px 24px rgba(0, 0, 0, 0.06);
 	--formora-shadow-elevated: 0 16px 42px rgba(0, 0, 0, 0.16);
 	--formora-shadow-menu: 0 10px 28px rgba(0, 0, 0, 0.14);
-	--formora-tmenu-scroll-hint: rgba(29, 29, 31, 0.34);
 	--formora-elevated: #ffffff;
 	--formora-table-header: #eef1f5;
 	--colorbacktitle1: #eef1f5;
@@ -532,6 +531,8 @@ require __DIR__.'/global.inc.php';
 	--formora-symbol-info: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 17a7 7 0 1 0 0-14 7 7 0 0 0 0 14Zm0-7.6v4.1M10 6.6h.1' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E");
 	--formora-symbol-warning: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 3.2 17 16H3L10 3.2Zm0 4.9v3.8M10 14.5h.1' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
 	--formora-symbol-check: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m4 10.4 4 4L16.2 6' fill='none' stroke='black' stroke-width='2.1' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	--formora-symbol-square: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Crect x='4' y='4' width='12' height='12' rx='2.5' fill='none' stroke='black' stroke-width='1.7'/%3E%3C/svg%3E");
+	--formora-symbol-plus-square: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Crect x='4' y='4' width='12' height='12' rx='2.5' fill='none' stroke='black' stroke-width='1.6'/%3E%3Cpath d='M10 7.3v5.4M7.3 10h5.4' stroke='black' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E");
 	--formora-symbol-print: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M6 7V3.8h8V7M6 14.2H4.7a1.9 1.9 0 0 1-1.9-1.9V9.1A2.1 2.1 0 0 1 4.9 7h10.2a2.1 2.1 0 0 1 2.1 2.1v3.2a1.9 1.9 0 0 1-1.9 1.9H14M6 12h8v4.4H6z' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
 	--formora-symbol-expand: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M7.8 4H4v3.8M12.2 4H16v3.8M7.8 16H4v-3.8M12.2 16H16v-3.8M4.4 4.4l4.5 4.5M15.6 4.4l-4.5 4.5M4.4 15.6l4.5-4.5M15.6 15.6l-4.5-4.5' fill='none' stroke='black' stroke-width='1.65' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
 	--formora-symbol-keyboard: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M4.2 5h11.6a1.7 1.7 0 0 1 1.7 1.7v6.6a1.7 1.7 0 0 1-1.7 1.7H4.2a1.7 1.7 0 0 1-1.7-1.7V6.7A1.7 1.7 0 0 1 4.2 5Zm1.5 3.2h.1m3 0h.1m3 0h.1m3 0h.1M5.7 11h.1m3 0h5.5' fill='none' stroke='black' stroke-width='1.65' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
@@ -1220,8 +1221,22 @@ body#mainbody :is(.fa-code-branch)::before {
 	--formora-symbol-mask: var(--formora-symbol-project);
 }
 
-body#mainbody :is(.fa-square, .fa-check-square, .fa-plus-square)::before {
+body#mainbody :is(.fa-check-square)::before {
 	--formora-symbol-mask: var(--formora-symbol-check);
+}
+
+/*
+ * fa-square (empty checkbox, e.g. "not the default template, click to make
+ * it so") was mapped to the same checkmark glyph as fa-check-square (the
+ * actual checked/"is default" state), making the two indistinguishable --
+ * an unchecked box always looked exactly like a checked one.
+ */
+body#mainbody :is(.fa-square)::before {
+	--formora-symbol-mask: var(--formora-symbol-square);
+}
+
+body#mainbody :is(.fa-plus-square)::before {
+	--formora-symbol-mask: var(--formora-symbol-plus-square);
 }
 
 #mainbody :is(.pictotitle.widthpictotitle, .widthpictotitle.pictotitle)[class*="fa-"],
@@ -2651,7 +2666,6 @@ if (getDolGlobalInt('THEME_DARKMODEENABLED')) {
 	--formora-refused-bg: #202124;
 	--formora-focus-ring: rgba(10, 132, 255, 0.32);
 	--formora-focus-outline: #78b7ff;
-	--formora-tmenu-scroll-hint: rgba(245, 245, 247, 0.36);
 	--formora-status-success-bg: rgba(48, 209, 88, 0.16);
 	--formora-status-success-border: rgba(48, 209, 88, 0.32);
 	--formora-status-success-text: #30d158;
@@ -7518,36 +7532,6 @@ body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right :is(
 		}
 	}
 
-	body#mainbody.bodyforlist:not(.bodylogin):has(form#searchFormList input[name="contextpage"][value="poslist"]) #id-container::before {
-		content: none !important;
-		display: none !important;
-	}
-
-	body#mainbody.bodyforlist:not(.bodylogin):has(form#searchFormList input[name="contextpage"][value="poslist"]) #id-container > .side-nav,
-	body#mainbody.bodyforlist:not(.bodylogin):has(form#searchFormList input[name="contextpage"][value="poslist"]) #id-left {
-		border: 0 !important;
-		display: none !important;
-		min-width: 0 !important;
-		padding: 0 !important;
-		width: 0 !important;
-	}
-
-	body#mainbody.bodyforlist:not(.bodylogin):has(form#searchFormList input[name="contextpage"][value="poslist"]) #id-right {
-		display: block !important;
-		left: auto !important;
-		max-width: 100vw !important;
-		padding-left: 0 !important;
-		padding-right: 0 !important;
-		width: 100vw !important;
-	}
-
-	body#mainbody.bodyforlist:not(.bodylogin):has(form#searchFormList input[name="contextpage"][value="poslist"]) #id-right .fiche {
-		margin-left: 12px !important;
-		margin-right: 12px !important;
-		max-width: calc(100vw - 24px) !important;
-		width: calc(100vw - 24px) !important;
-	}
-
 		body#mainbody div.tabsAction,
 		body#mainbody div.tabsActionNoBottom {
 			align-items: center;
@@ -8144,22 +8128,6 @@ body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right :is(
 		border: 0 !important;
 		box-shadow: none !important;
 		color: inherit !important;
-	}
-
-	body#mainbody.poslist #id-container::before {
-		content: none !important;
-		display: none !important;
-	}
-
-	body#mainbody.poslist :is(#id-left, .side-nav) {
-		display: none !important;
-		min-height: 0 !important;
-		width: 0 !important;
-	}
-
-	body#mainbody.poslist #id-right {
-		display: block !important;
-		width: 100% !important;
 	}
 
 	/* Shared TakePOS structure keeps POS aligned with Formora in both light and dark palettes. */
@@ -9145,58 +9113,8 @@ body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right :is(
 				overflow-y: hidden !important;
 				padding-right: 0 !important;
 				scroll-padding-left: 48px;
-				scrollbar-width: none;
 				white-space: nowrap !important;
 				width: 100% !important;
-			}
-
-			body#mainbody:not(.bodytakepos):not(.bodylogin) #tmenu_tooltip::-webkit-scrollbar {
-				display: none;
-			}
-
-			body#mainbody.formora-tmenu-is-scrollable:not(.bodytakepos):not(.bodylogin) #id-top::before,
-			body#mainbody.formora-tmenu-is-scrollable:not(.bodytakepos):not(.bodylogin) #id-top::after {
-				background: var(--formora-surface);
-				content: "";
-				height: 60px;
-				opacity: 0;
-				pointer-events: none;
-				position: absolute;
-				top: 0;
-				transition: opacity 0.16s ease;
-				width: 30px;
-				z-index: 20;
-			}
-
-			body#mainbody.formora-tmenu-is-scrollable:not(.bodytakepos):not(.bodylogin) #id-top::before {
-				left: 48px;
-				-webkit-mask-image: linear-gradient(90deg, #000 0%, rgba(0, 0, 0, 0.72) 42%, transparent 100%);
-				mask-image: linear-gradient(90deg, #000 0%, rgba(0, 0, 0, 0.72) 42%, transparent 100%);
-			}
-
-			body#mainbody.formora-tmenu-is-scrollable:not(.bodytakepos):not(.bodylogin) #id-top::after {
-				right: 0;
-				-webkit-mask-image: linear-gradient(270deg, #000 0%, rgba(0, 0, 0, 0.72) 42%, transparent 100%);
-				mask-image: linear-gradient(270deg, #000 0%, rgba(0, 0, 0, 0.72) 42%, transparent 100%);
-			}
-
-			body#mainbody.formora-tmenu-can-scroll-left:not(.bodytakepos):not(.bodylogin) #id-top::before,
-			body#mainbody.formora-tmenu-can-scroll-right:not(.bodytakepos):not(.bodylogin) #id-top::after {
-				opacity: 1;
-			}
-
-			body#mainbody.formora-tmenu-can-scroll-right:not(.formora-tmenu-can-scroll-left):not(.bodytakepos):not(.bodylogin) #tmenu_tooltip {
-				box-shadow: inset -20px 0 18px -16px var(--formora-tmenu-scroll-hint) !important;
-			}
-
-			body#mainbody.formora-tmenu-can-scroll-left:not(.formora-tmenu-can-scroll-right):not(.bodytakepos):not(.bodylogin) #tmenu_tooltip {
-				box-shadow: inset 20px 0 18px -16px var(--formora-tmenu-scroll-hint) !important;
-			}
-
-			body#mainbody.formora-tmenu-can-scroll-left.formora-tmenu-can-scroll-right:not(.bodytakepos):not(.bodylogin) #tmenu_tooltip {
-				box-shadow:
-					inset 20px 0 18px -16px var(--formora-tmenu-scroll-hint),
-					inset -20px 0 18px -16px var(--formora-tmenu-scroll-hint) !important;
 			}
 
 			body#mainbody:not(.bodytakepos):not(.bodylogin) #id-top :is(.tmenudiv, ul.tmenu) {
@@ -10117,22 +10035,144 @@ body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right :is(
 				width: 42px !important;
 			}
 
-			body#mainbody.mod-expedition.page-list a.btnTitle.btnTitlePlus[href*="/expedition/card.php?action=create2"],
-			body#mainbody.mod-reception.page-list a.btnTitle.btnTitlePlus[href*="/reception/card.php?action=create2"] {
-				display: none !important;
-			}
-
-			body#mainbody.bodyforlist.mod-expedition.page-list:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > table.table-fiche-title .paginationafterarrows a.btnTitle.btnTitlePlus[href*="/expedition/card.php?action=create2"],
-			body#mainbody.bodyforlist.mod-reception.page-list:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > table.table-fiche-title .paginationafterarrows a.btnTitle.btnTitlePlus[href*="/reception/card.php?action=create2"] {
-				display: none !important;
-			}
-
-			body#mainbody#mainbody.bodyforlist.mod-expedition.page-list:not(.poslist):not(.bodylogin) #id-right#id-right .fiche form[action*="/expedition/list.php"] > table.table-fiche-title .paginationafterarrows a.btnTitle.btnTitlePlus[href*="/expedition/card.php?action=create2"],
-			body#mainbody#mainbody.bodyforlist.mod-reception.page-list:not(.poslist):not(.bodylogin) #id-right#id-right .fiche form[action*="/reception/list.php"] > table.table-fiche-title .paginationafterarrows a.btnTitle.btnTitlePlus[href*="/reception/card.php?action=create2"] {
-				display: none !important;
-			}
-
 		<?php
+
+/*
+ * Universal table/box border reset.
+ *
+ * Dolibarr renders "table-like" boxes through two parallel systems that share
+ * the same modifier class names: real <table>/<tr>/<td> elements, and a
+ * div-based system (<div class="tagtable">, .tagtr, .tagtd) used by many core
+ * helper functions. Chasing every specific class combination Dolibarr happens
+ * to emit (table.border, table.noborder.centpercent, .tagtable.tableforcontact,
+ * table.nobordernopadding, ...) is a losing game: new combinations keep
+ * appearing. So instead of an allowlist of "known table variants to strip",
+ * this is a denylist: no outer box border/shadow on any table variant by
+ * default, but a subtle horizontal line between rows is kept (row dividers
+ * are wanted, only the 4-side box around the whole table is not). A short,
+ * explicit opt-out covers the few grids that need full cell borders to stay
+ * readable (month calendar, the legacy jPicker color picker). Placed last so
+ * it wins any specificity ties against the older, narrower per-class rules
+ * above via source order.
+ */
+?>
+#id-right :is(table, .tagtable):not(.cal_month):not(.cal_pannel):not(.jPicker) {
+	border: 0 !important;
+	box-shadow: none !important;
+}
+
+#id-right :is(tr, .tagtr):not(.cal_month *):not(.cal_pannel *):not(.jPicker *) {
+	border: 0 !important;
+	box-shadow: none !important;
+}
+
+#id-right :is(td, th, .tagtd):not(.cal_month *):not(.cal_pannel *):not(.jPicker *):not(.nobordernopadding *) {
+	border-style: solid !important;
+	border-width: 0 0 1px 0 !important;
+	border-color: var(--formora-line-soft) !important;
+	box-shadow: none !important;
+}
+
+/*
+ * A divider belongs between rows, not after the last one: without this, the
+ * last row's own border-bottom still draws a trailing line under the whole
+ * table, which reads as a "closing" edge (framing, just like the box border
+ * this was all meant to remove).
+ */
+#id-right :is(table, .tagtable):not(.cal_month):not(.cal_pannel):not(.jPicker) > :is(tbody, thead, tfoot):last-child > :is(tr, .tagtr):last-child > :is(td, th, .tagtd),
+#id-right :is(table, .tagtable):not(.cal_month):not(.cal_pannel):not(.jPicker) > :is(tr, .tagtr):last-child > :is(td, th, .tagtd) {
+	border-bottom: 0 !important;
+}
+
+/*
+ * Consecutive info-table blocks (tableforfield/border/tagtable/liste) need a
+ * gap between them, or one block's bottom edge touches the next block's top
+ * edge directly and that seam reads as a border line -- this, not a leftover
+ * border, is what caused some of the "line is still there" reports. An
+ * existing rule already added this margin, but only inside a split-column
+ * layout and only above a desktop width breakpoint. Apply it unconditionally
+ * so stacked blocks always have breathing room, in any layout, at any width.
+ *
+ * margin-top matters too: .underbanner (the header separator under a
+ * record's photo/title/status) is deliberately collapsed to height:0 with no
+ * margin of its own elsewhere, so without a margin-top here the first block
+ * right after it touches that separator line directly. Normal block-flow
+ * margin collapsing keeps this from doubling up the gap between two
+ * consecutive blocks (each contributes the same 12px, so they collapse into
+ * one 12px gap, not 24px).
+ */
+#id-right :is(.fiche, .fichecenter, .fichehalfleft, .fichehalfright, .fichethirdleft, .fichetwothirdright, .tabBar) > :is(table, .tagtable) {
+	margin-top: 12px !important;
+	margin-bottom: 12px !important;
+}
+
+/*
+ * .nobordernopadding is Dolibarr's own convention for inline layout-helper
+ * tables nested inside a single cell (e.g. a label plus its edit-pencil
+ * icon side by side). Its name already says it wants no border; giving its
+ * inner cells the row-divider line too produced a doubled line under fields
+ * that have an edit icon. Zero it out explicitly, including nested tables.
+ */
+#id-right .nobordernopadding,
+#id-right .nobordernopadding :is(table, tr, td, th, .tagtable, .tagtr, .tagtd) {
+	border: 0 !important;
+	box-shadow: none !important;
+}
+
+/*
+ * Dolibarr prints a decorative <hr class="tdhrthin"> divider inside its own
+ * tr.oddeven row (e.g. contrat/card.php, at the end of a contract line's
+ * price table) to mark where one line's info ends. Since it reuses the
+ * .oddeven class real data rows use for zebra striping, it also picked up
+ * the row-hover highlight meant for interactive lines, even though it has
+ * nothing clickable in it. Keep it visually static.
+ */
+body#mainbody tr.oddeven:has(> td.tdhrthin):hover,
+body#mainbody tr.oddeven:has(> td.tdhrthin):hover td {
+	background: transparent !important;
+}
+
+/*
+ * #id-top's border-bottom spans the full header width, but .login_block
+ * (the quick-add/bookmark/tools/user icons on the right) is an absolutely
+ * positioned box with its own opaque background sitting exactly over that
+ * bottom edge, painting over the line for the width it covers. Give it the
+ * same border so the line reads as continuous across the whole header.
+ *
+ * Both boxes are content-box, and #id-top is already 59px content + its
+ * own 1px border = 60px total. .login_block.usedropdown has an existing
+ * height:60px rule (written for a border-less box, 60px total). Adding a
+ * border here without also dropping 1px off the height would make it
+ * 60+1=61px total -- one pixel taller than #id-top, which is exactly what
+ * made the line look like it stepped/broke instead of lining up.
+ */
+body#mainbody .login_block.usedropdown,
+#id-top .login_block,
+#id-top .inline-block.login_block {
+	border-bottom: 1px solid var(--formora-line-soft) !important;
+}
+
+body#mainbody .login_block.usedropdown {
+	height: 59px !important;
+}
+
+/*
+ * formora already has a matching fixed-height rule for
+ * #topmenu-quickadd-dropdown and #topmenu-login-dropdown (both explicitly
+ * set to height:60px so their icon centers on the header), but
+ * #topmenu-bookmark-dropdown (the "star") was left out, so it only took its
+ * content's natural height and sat a couple pixels lower than its
+ * neighbors. Give it the exact same treatment.
+ */
+body#mainbody .login_block.usedropdown #topmenu-bookmark-dropdown,
+body#mainbody .login_block.usedropdown #topmenu-bookmark-dropdown > a.dropdown-toggle {
+	align-items: center !important;
+	display: inline-flex !important;
+	height: 60px !important;
+	line-height: normal !important;
+}
+
+<?php
 
 if (is_object($db)) {
 	$db->close();
