@@ -3,9 +3,6 @@
 
 	var aceRefreshTimer = null;
 	var chartRefreshTimer = null;
-	var takeposUrlRefreshTimer = null;
-	var topMenuScrollTimer = null;
-	var topMenuCenterTimer = null;
 
 	function parseRgb(color) {
 		var value = String(color || '').trim();
@@ -82,11 +79,25 @@
 			return;
 		}
 
+		// Chart.js's own scriptable-options resolver can throw (recursively,
+		// "Maximum call stack size exceeded") if a chart is still mid-way
+		// through its own initial-render animation when we touch its options;
+		// isolating each chart keeps one bad instance from aborting the rest,
+		// and a later retry (see scheduleChartTheme) picks it up once that
+		// chart's animation has settled.
+		function safeCallback(chart) {
+			try {
+				callback(chart);
+			} catch (e) {
+				// Swallow and retry on the next scheduled pass.
+			}
+		}
+
 		if (typeof window.Chart.getChart === 'function') {
 			document.querySelectorAll('canvas').forEach(function (canvas) {
 				var chart = window.Chart.getChart(canvas);
 				if (chart) {
-					callback(chart);
+					safeCallback(chart);
 				}
 			});
 			return;
@@ -96,7 +107,7 @@
 			Object.keys(window.Chart.instances).forEach(function (key) {
 				var chart = window.Chart.instances[key];
 				if (chart) {
-					callback(chart);
+					safeCallback(chart);
 				}
 			});
 		}
@@ -112,13 +123,25 @@
 			return;
 		}
 
-		if (window.Chart.defaults) {
+		if (!window.Chart.defaults) {
+			return;
+		}
+
+		// Each block below touches a separate part of Chart.js's defaults and
+		// can independently hit the same recursive resolver bug eachChart()
+		// guards against (see its comment). Isolate them so one failing
+		// assignment doesn't skip the others.
+		try {
 			if (window.Chart.defaults.elements && window.Chart.defaults.elements.arc) {
 				window.Chart.defaults.elements.arc.borderColor = colors.graphStroke;
 				window.Chart.defaults.elements.arc.hoverBorderColor = colors.graphStroke;
 				window.Chart.defaults.elements.arc.borderWidth = 2;
 			}
+		} catch (e) {
+			// Retried on the next scheduled pass.
+		}
 
+		try {
 			if (window.Chart.defaults.datasets) {
 				['doughnut', 'pie', 'polarArea'].forEach(function (type) {
 					window.Chart.defaults.datasets[type] = window.Chart.defaults.datasets[type] || {};
@@ -127,7 +150,11 @@
 					window.Chart.defaults.datasets[type].borderWidth = 2;
 				});
 			}
+		} catch (e) {
+			// Retried on the next scheduled pass.
+		}
 
+		try {
 			if ('color' in window.Chart.defaults) {
 				window.Chart.defaults.color = colors.text;
 			}
@@ -135,6 +162,8 @@
 			if (window.Chart.defaults.global) {
 				window.Chart.defaults.global.defaultFontColor = colors.text;
 			}
+		} catch (e) {
+			// Retried on the next scheduled pass.
 		}
 	}
 
@@ -187,13 +216,27 @@
 		var OriginalChart = window.Chart;
 		var PatchedChart = new Proxy(OriginalChart, {
 			construct: function (target, args) {
-				applyPieConfig(args[1], currentColors());
+				// applyPieConfig only touches the plain pre-construction config
+				// object here, so it shouldn't be able to hit Chart.js's own
+				// live-instance resolver recursion, but the actual
+				// construction must never be skipped because of a theming
+				// failure -- guard it anyway so a chart still gets created
+				// even if precoloring its config throws.
+				try {
+					applyPieConfig(args[1], currentColors());
+				} catch (e) {
+					// Retried via applyChartInstance() below / the next scheduled pass.
+				}
 				var chart = Reflect.construct(target, args);
 				applyChartInstance(chart);
 				return chart;
 			},
 			apply: function (target, thisArg, args) {
-				applyPieConfig(args[1], currentColors());
+				try {
+					applyPieConfig(args[1], currentColors());
+				} catch (e) {
+					// Retried via applyChartInstance() below / the next scheduled pass.
+				}
 				var chart = Reflect.apply(target, thisArg, args);
 				applyChartInstance(chart);
 				return chart;
@@ -216,35 +259,61 @@
 			return;
 		}
 
-		if (chart.options) {
-			chart.options.elements = chart.options.elements || {};
-			chart.options.elements.arc = chart.options.elements.arc || {};
-			var arcBorderColor = chart.options.elements.arc.borderColor;
-			promoteTransparentFills(chart.options.elements.arc.backgroundColor, arcBorderColor);
-			chart.options.elements.arc.borderColor = colors.graphStroke;
-			chart.options.elements.arc.hoverBorderColor = colors.graphStroke;
-			chart.options.elements.arc.borderWidth = 2;
+		// See the comment on the chart.update() call below: any of these
+		// property writes can hit the same Chart.js recursive-resolver bug
+		// if the chart is still animating in, so each independent chunk of
+		// work is isolated rather than letting one failure skip the rest.
+		var arcBorderColor;
+		try {
+			if (chart.options) {
+				chart.options.elements = chart.options.elements || {};
+				chart.options.elements.arc = chart.options.elements.arc || {};
+				arcBorderColor = chart.options.elements.arc.borderColor;
+				promoteTransparentFills(chart.options.elements.arc.backgroundColor, arcBorderColor);
+				chart.options.elements.arc.borderColor = colors.graphStroke;
+				chart.options.elements.arc.hoverBorderColor = colors.graphStroke;
+				chart.options.elements.arc.borderWidth = 2;
 
-			if (chart.options.plugins && chart.options.plugins.legend && chart.options.plugins.legend.labels) {
-				chart.options.plugins.legend.labels.color = colors.text;
-			}
+				if (chart.options.plugins && chart.options.plugins.legend && chart.options.plugins.legend.labels) {
+					chart.options.plugins.legend.labels.color = colors.text;
+				}
 
-			if (chart.options.legend && chart.options.legend.labels) {
-				chart.options.legend.labels.fontColor = colors.text;
+				if (chart.options.legend && chart.options.legend.labels) {
+					chart.options.legend.labels.fontColor = colors.text;
+				}
 			}
+		} catch (e) {
+			// Retried on the next scheduled pass.
 		}
 
-		if (chart.data && chart.data.datasets) {
-			chart.data.datasets.forEach(function (dataset) {
-				promoteTransparentFills(dataset.backgroundColor, dataset.borderColor || arcBorderColor);
-				dataset.borderColor = colors.graphStroke;
-				dataset.hoverBorderColor = colors.graphStroke;
-				dataset.borderWidth = 2;
-			});
+		try {
+			if (chart.data && chart.data.datasets) {
+				chart.data.datasets.forEach(function (dataset) {
+					promoteTransparentFills(dataset.backgroundColor, dataset.borderColor || arcBorderColor);
+					dataset.borderColor = colors.graphStroke;
+					dataset.hoverBorderColor = colors.graphStroke;
+					dataset.borderWidth = 2;
+				});
+			}
+		} catch (e) {
+			// Retried on the next scheduled pass.
 		}
 
 		if (typeof chart.update === 'function') {
-			chart.update();
+			try {
+				// This is the single most crash-prone line: Chart.js resolves
+				// scriptable/indexable options lazily, and forcing an update
+				// while the chart's own initial-render animation is still
+				// resolving the same option tree can recurse into "Maximum
+				// call stack size exceeded". The color values above are
+				// already written to the chart's options either way, so a
+				// caught failure here just skips this one forced repaint --
+				// Chart.js's own next real redraw (or our own retry once the
+				// animation has settled) still picks up the new colors.
+				chart.update();
+			} catch (e) {
+				// Retried on the next scheduled pass.
+			}
 		}
 	}
 
@@ -304,289 +373,26 @@
 		aceRefreshTimer = setTimeout(applyAceTheme, 0);
 	}
 
-	function isTakeposPage() {
-		return !!(document.body && document.body.classList.contains('bodytakepos'));
-	}
-
-	function inheritedThemeParams() {
-		var source = new URLSearchParams(window.location.search);
-		var colors = currentColors();
-		var params = {
-			theme: source.get('theme') || 'formora'
-		};
-
-		if (source.has('THEME_DARKMODEENABLED')) {
-			params.THEME_DARKMODEENABLED = source.get('THEME_DARKMODEENABLED');
-		} else if (colors.dark) {
-			params.THEME_DARKMODEENABLED = '2';
-		}
-
-		['dol_resetcache', 'dol_nocache'].forEach(function (name) {
-			if (source.has(name)) {
-				params[name] = source.get(name);
-			}
-		});
-
-		return params;
-	}
-
-	function shouldPatchTakeposUrl(url) {
-		return url.origin === window.location.origin && (
-			url.pathname.indexOf('/takepos/') !== -1 ||
-			url.pathname.indexOf('/societe/') !== -1 ||
-			url.pathname.indexOf('/contact/') !== -1 ||
-			url.pathname.indexOf('/compta/facture/') !== -1 ||
-			url.pathname.indexOf('/compta/cashcontrol/') !== -1
-		);
-	}
-
-	function appendTakeposThemeParams(href) {
-		if (!href || typeof href !== 'string' || href.charAt(0) === '#') {
-			return href;
-		}
-
-		try {
-			var url = new URL(href, window.location.href);
-			if (!shouldPatchTakeposUrl(url)) {
-				return href;
-			}
-
-			var params = inheritedThemeParams();
-			Object.keys(params).forEach(function (name) {
-				if (!url.searchParams.has(name)) {
-					url.searchParams.set(name, params[name]);
-				}
-			});
-
-			return url.href;
-		} catch (e) {
-			return href;
-		}
-	}
-
-	function patchTakeposColorbox() {
-		if (!isTakeposPage() || !window.jQuery || !window.jQuery.colorbox || window.jQuery.colorbox.__formoraThemePatch) {
-			return;
-		}
-
-		var $ = window.jQuery;
-		var originalColorbox = $.colorbox;
-		var patchedColorbox = function (settings) {
-			if (settings && typeof settings === 'object' && settings.iframe && settings.href) {
-				settings.href = appendTakeposThemeParams(settings.href);
-			}
-			return originalColorbox.apply(this, arguments);
-		};
-
-		Object.keys(originalColorbox).forEach(function (key) {
-			patchedColorbox[key] = originalColorbox[key];
-		});
-		patchedColorbox.__formoraThemePatch = true;
-		patchedColorbox.__formoraOriginal = originalColorbox;
-
-		$.colorbox = patchedColorbox;
-		if ($.fn && $.fn.colorbox === originalColorbox) {
-			$.fn.colorbox = patchedColorbox;
-		}
-	}
-
-	function refreshTakeposIframeUrls() {
-		if (!isTakeposPage()) {
-			return;
-		}
-
-		patchTakeposColorbox();
-		document.querySelectorAll('iframe.cboxIframe, #cboxLoadedContent iframe').forEach(function (iframe) {
-			var src = iframe.getAttribute('src');
-			var patchedSrc = appendTakeposThemeParams(src);
-			if (patchedSrc && patchedSrc !== src) {
-				iframe.setAttribute('src', patchedSrc);
-			}
-		});
-	}
-
-	function scheduleTakeposThemeUrls() {
-		clearTimeout(takeposUrlRefreshTimer);
-		takeposUrlRefreshTimer = setTimeout(refreshTakeposIframeUrls, 0);
-	}
-
-	function clearTopMenuScrollState() {
-		if (!document.body) {
-			return;
-		}
-
-		document.body.classList.remove(
-			'formora-tmenu-is-scrollable',
-			'formora-tmenu-can-scroll-left',
-			'formora-tmenu-can-scroll-right'
-		);
-	}
-
-	function isTopMenuMobileLayout() {
-		return !window.matchMedia || window.matchMedia('(max-width: 1180px)').matches;
-	}
-
-	function cancelTopMenuAutoCenter(event) {
-		var menu = event && event.currentTarget ? event.currentTarget : document.getElementById('tmenu_tooltip');
-		if (menu) {
-			menu.__formoraTopMenuUserInteracted = true;
-		}
-		clearTimeout(topMenuCenterTimer);
-	}
-
-	function handleTopMenuScroll(event) {
-		var menu = event && event.currentTarget ? event.currentTarget : null;
-		scheduleTopMenuScrollState();
-		if (menu && !menu.__formoraSuppressUserScroll) {
-			cancelTopMenuAutoCenter(event);
-		}
-	}
-
-	function updateTopMenuScrollState() {
-		var body = document.body;
-		var menu = document.getElementById('tmenu_tooltip');
-
-		if (!body || !menu || body.classList.contains('bodytakepos') || body.classList.contains('bodylogin') || !isTopMenuMobileLayout()) {
-			clearTopMenuScrollState();
-			return;
-		}
-
-		if (!menu.__formoraTmenuScrollBound) {
-			menu.addEventListener('scroll', handleTopMenuScroll, { passive: true });
-			menu.addEventListener('wheel', cancelTopMenuAutoCenter, { passive: true });
-			menu.addEventListener('touchstart', cancelTopMenuAutoCenter, { passive: true });
-			menu.addEventListener('pointerdown', cancelTopMenuAutoCenter);
-			menu.addEventListener('keydown', cancelTopMenuAutoCenter);
-			menu.__formoraTmenuScrollBound = true;
-		}
-
-		var maxScroll = Math.max(0, menu.scrollWidth - menu.clientWidth);
-		var isScrollable = maxScroll > 1;
-		body.classList.toggle('formora-tmenu-is-scrollable', isScrollable);
-		body.classList.toggle('formora-tmenu-can-scroll-left', isScrollable && menu.scrollLeft > 1);
-		body.classList.toggle('formora-tmenu-can-scroll-right', isScrollable && menu.scrollLeft < maxScroll - 1);
-	}
-
-	function scheduleTopMenuScrollState() {
-		clearTimeout(topMenuScrollTimer);
-		topMenuScrollTimer = setTimeout(updateTopMenuScrollState, 0);
-	}
-
-	function centerSelectedTopMenuItem() {
-		var body = document.body;
-		var menu = document.getElementById('tmenu_tooltip');
-
-		if (!body || !menu || body.classList.contains('bodytakepos') || body.classList.contains('bodylogin') || !isTopMenuMobileLayout()) {
-			return;
-		}
-
-		var selected = menu.querySelector('li.tmenusel:not(.menuhider)');
-		if (!selected) {
-			return;
-		}
-
-		var maxScroll = Math.max(0, menu.scrollWidth - menu.clientWidth);
-		if (maxScroll <= 1) {
-			return;
-		}
-
-		var hider = menu.querySelector('li.menuhider');
-		var hiderWidth = 0;
-		if (hider) {
-			var hiderStyle = window.getComputedStyle(hider);
-			if (hiderStyle.display !== 'none' && hiderStyle.visibility !== 'hidden') {
-				hiderWidth = Math.round(hider.getBoundingClientRect().width);
-			}
-		}
-
-		var visibleWidth = Math.max(1, menu.clientWidth - hiderWidth);
-		var selectedCenter = selected.offsetLeft + (selected.offsetWidth / 2);
-		var desiredScrollLeft = selectedCenter - hiderWidth - (visibleWidth / 2);
-		var nextScrollLeft = Math.max(0, Math.min(maxScroll, Math.round(desiredScrollLeft)));
-		var centerKey = [
-			selected.id || selected.textContent,
-			menu.clientWidth,
-			menu.scrollWidth,
-			hiderWidth,
-			window.innerWidth
-		].join('|');
-
-		if (menu.__formoraSelectedCenteredKey === centerKey && typeof menu.__formoraAutoCenteredScrollLeft === 'number' && Math.abs(menu.scrollLeft - menu.__formoraAutoCenteredScrollLeft) > 1) {
-			menu.__formoraTopMenuUserInteracted = true;
-			return;
-		}
-
-		if (menu.__formoraTopMenuUserInteracted) {
-			return;
-		}
-
-		if (menu.__formoraSelectedCenteredKey === centerKey && Math.abs(menu.scrollLeft - nextScrollLeft) <= 1) {
-			return;
-		}
-
-		clearTimeout(menu.__formoraSuppressUserScrollTimer);
-		menu.__formoraSuppressUserScroll = true;
-		menu.scrollLeft = nextScrollLeft;
-		menu.__formoraSuppressUserScrollTimer = setTimeout(function () {
-			menu.__formoraSuppressUserScroll = false;
-		}, 120);
-		menu.__formoraSelectedCenteredKey = centerKey;
-		menu.__formoraAutoCenteredScrollLeft = nextScrollLeft;
-		updateTopMenuScrollState();
-	}
-
-	function scheduleTopMenuSelectedCenter() {
-		clearTimeout(topMenuCenterTimer);
-		topMenuCenterTimer = setTimeout(centerSelectedTopMenuItem, 0);
-	}
-
 	safeApplyChartTheme();
 	applyAceTheme();
-	refreshTakeposIframeUrls();
-	updateTopMenuScrollState();
-	centerSelectedTopMenuItem();
 
 	if (document.readyState === 'loading') {
 		document.addEventListener('DOMContentLoaded', scheduleAceTheme);
 		document.addEventListener('DOMContentLoaded', scheduleChartTheme);
-		document.addEventListener('DOMContentLoaded', scheduleTakeposThemeUrls);
-		document.addEventListener('DOMContentLoaded', scheduleTopMenuScrollState);
-		document.addEventListener('DOMContentLoaded', scheduleTopMenuSelectedCenter);
 	} else {
 		scheduleAceTheme();
 		scheduleChartTheme();
-		scheduleTakeposThemeUrls();
-		scheduleTopMenuScrollState();
-		scheduleTopMenuSelectedCenter();
 	}
 
 	window.addEventListener('load', scheduleAceTheme);
 	window.addEventListener('load', scheduleChartTheme);
-	window.addEventListener('load', scheduleTakeposThemeUrls);
-	window.addEventListener('load', scheduleTopMenuScrollState);
-	window.addEventListener('load', scheduleTopMenuSelectedCenter);
-	window.addEventListener('resize', function () {
-		scheduleTopMenuScrollState();
-		scheduleTopMenuSelectedCenter();
-	});
-	window.addEventListener('orientationchange', function () {
-		scheduleTopMenuScrollState();
-		scheduleTopMenuSelectedCenter();
-	});
 	setTimeout(scheduleAceTheme, 300);
 	setTimeout(scheduleAceTheme, 1000);
-	setTimeout(scheduleTakeposThemeUrls, 300);
-	setTimeout(scheduleTopMenuScrollState, 300);
-	setTimeout(scheduleTopMenuScrollState, 1000);
-	setTimeout(scheduleTopMenuSelectedCenter, 300);
-	setTimeout(scheduleTopMenuSelectedCenter, 1000);
 
 	if (window.MutationObserver) {
 		new MutationObserver(function () {
 			scheduleAceTheme();
 			scheduleChartTheme();
-			scheduleTakeposThemeUrls();
-			scheduleTopMenuScrollState();
 		}).observe(document.documentElement, {
 			childList: true,
 			subtree: true
