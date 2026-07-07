@@ -2082,7 +2082,7 @@ textarea:focus,
 	color: var(--formora-muted) !important;
 }
 
-body#mainbody.bodyforlist:not(.poslist):not(.bodylogin):not(.mod-product) #id-right .fiche form#searchFormList > table.table-fiche-title .paginationafterarrows a.btnTitle {
+body#mainbody.bodyforlist:not(.poslist):not(.bodylogin):not(.mod-product) :is(#id-right .fiche > table.table-fiche-title, #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > table.table-fiche-title) .paginationafterarrows a.btnTitle {
 	--formora-title-action-icon-size: 21px;
 	--formora-title-action-size: 38px;
 	align-items: center !important;
@@ -2106,57 +2106,57 @@ body#mainbody.bodyforlist:not(.poslist):not(.bodylogin):not(.mod-product) #id-ri
 	width: var(--formora-title-action-size) !important;
 }
 
-body#mainbody.bodyforlist:not(.poslist):not(.bodylogin):not(.mod-product) #id-right .fiche form#searchFormList > table.table-fiche-title .paginationafterarrows {
+body#mainbody.bodyforlist:not(.poslist):not(.bodylogin):not(.mod-product) :is(#id-right .fiche > table.table-fiche-title, #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > table.table-fiche-title) .paginationafterarrows {
 	gap: 6px;
 }
 
-body#mainbody.bodyforlist:not(.poslist):not(.bodylogin):not(.mod-product) #id-right .fiche form#searchFormList > table.table-fiche-title .paginationafterarrows .button-title-separator {
+body#mainbody.bodyforlist:not(.poslist):not(.bodylogin):not(.mod-product) :is(#id-right .fiche > table.table-fiche-title, #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > table.table-fiche-title) .paginationafterarrows .button-title-separator {
 	display: none !important;
 }
 
-body#mainbody.bodyforlist:not(.poslist):not(.bodylogin):not(.mod-product) #id-right .fiche form#searchFormList > table.table-fiche-title .paginationafterarrows a.btnTitlePlus {
+body#mainbody.bodyforlist:not(.poslist):not(.bodylogin):not(.mod-product) :is(#id-right .fiche > table.table-fiche-title, #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > table.table-fiche-title) .paginationafterarrows a.btnTitlePlus {
 	margin-left: 8px !important;
 }
 
-body#mainbody.bodyforlist:not(.poslist):not(.bodylogin):not(.mod-product) #id-right .fiche form#searchFormList > table.table-fiche-title .paginationafterarrows a.btnTitle :is(.btnTitle-icon, span) {
+body#mainbody.bodyforlist:not(.poslist):not(.bodylogin):not(.mod-product) :is(#id-right .fiche > table.table-fiche-title, #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > table.table-fiche-title) .paginationafterarrows a.btnTitle :is(.btnTitle-icon, span) {
 	color: inherit !important;
 	font-size: var(--formora-title-action-icon-size) !important;
 	line-height: 1 !important;
 	margin: 0 !important;
 }
 
-body#mainbody.bodyforlist:not(.poslist):not(.bodylogin):not(.mod-product) #id-right .fiche form#searchFormList > table.table-fiche-title .paginationafterarrows a.btnTitle span::before {
+body#mainbody.bodyforlist:not(.poslist):not(.bodylogin):not(.mod-product) :is(#id-right .fiche > table.table-fiche-title, #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > table.table-fiche-title) .paginationafterarrows a.btnTitle span::before {
 	font-size: 1em !important;
 	line-height: 1 !important;
 }
 
-body#mainbody.bodyforlist:not(.poslist):not(.bodylogin):not(.mod-product) #id-right .fiche form#searchFormList > table.table-fiche-title .paginationafterarrows a.btnTitle:hover,
-body#mainbody.bodyforlist:not(.poslist):not(.bodylogin):not(.mod-product) #id-right .fiche form#searchFormList > table.table-fiche-title .paginationafterarrows a.btnTitle:focus {
+body#mainbody.bodyforlist:not(.poslist):not(.bodylogin):not(.mod-product) :is(#id-right .fiche > table.table-fiche-title, #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > table.table-fiche-title) .paginationafterarrows a.btnTitle:hover,
+body#mainbody.bodyforlist:not(.poslist):not(.bodylogin):not(.mod-product) :is(#id-right .fiche > table.table-fiche-title, #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > table.table-fiche-title) .paginationafterarrows a.btnTitle:focus {
 	background: var(--formora-neutral-hover-bg) !important;
 	box-shadow: inset 0 0 0 1px var(--formora-line-soft) !important;
 	color: var(--formora-accent-hover) !important;
 	text-decoration: none !important;
 }
 
-body#mainbody.bodyforlist:not(.poslist):not(.bodylogin):not(.mod-product) #id-right .fiche form#searchFormList > table.table-fiche-title .paginationafterarrows a.btnTitle.btnTitleSelected,
-body#mainbody.bodyforlist:not(.poslist):not(.bodylogin):not(.mod-product) #id-right .fiche form#searchFormList > table.table-fiche-title .paginationafterarrows a.btnTitle.btnTitleSelected:hover,
-body#mainbody.bodyforlist:not(.poslist):not(.bodylogin):not(.mod-product) #id-right .fiche form#searchFormList > table.table-fiche-title .paginationafterarrows a.btnTitle.btnTitleSelected:focus {
+body#mainbody.bodyforlist:not(.poslist):not(.bodylogin):not(.mod-product) :is(#id-right .fiche > table.table-fiche-title, #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > table.table-fiche-title) .paginationafterarrows a.btnTitle.btnTitleSelected,
+body#mainbody.bodyforlist:not(.poslist):not(.bodylogin):not(.mod-product) :is(#id-right .fiche > table.table-fiche-title, #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > table.table-fiche-title) .paginationafterarrows a.btnTitle.btnTitleSelected:hover,
+body#mainbody.bodyforlist:not(.poslist):not(.bodylogin):not(.mod-product) :is(#id-right .fiche > table.table-fiche-title, #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > table.table-fiche-title) .paginationafterarrows a.btnTitle.btnTitleSelected:focus {
 	background: var(--formora-neutral-hover-bg) !important;
 	box-shadow: inset 0 0 0 1px var(--formora-line) !important;
 	color: var(--formora-accent-hover) !important;
 }
 
 @media only screen and (max-width: 767px) {
-	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin):not(.mod-product) #id-right .fiche form#searchFormList > table.table-fiche-title .paginationafterarrows a.btnTitle {
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin):not(.mod-product) :is(#id-right .fiche > table.table-fiche-title, #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > table.table-fiche-title) .paginationafterarrows a.btnTitle {
 		--formora-title-action-icon-size: 20px;
 		--formora-title-action-size: 34px;
 	}
 
-	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin):not(.mod-product) #id-right .fiche form#searchFormList > table.table-fiche-title .paginationafterarrows {
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin):not(.mod-product) :is(#id-right .fiche > table.table-fiche-title, #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > table.table-fiche-title) .paginationafterarrows {
 		gap: 4px;
 	}
 
-	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin):not(.mod-product) #id-right .fiche form#searchFormList > table.table-fiche-title .paginationafterarrows a.btnTitlePlus {
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin):not(.mod-product) :is(#id-right .fiche > table.table-fiche-title, #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > table.table-fiche-title) .paginationafterarrows a.btnTitlePlus {
 		margin-left: 6px !important;
 	}
 }
@@ -2191,14 +2191,14 @@ body#mainbody.bodyforlist:not(.poslist):not(.bodylogin):not(.mod-product) #id-ri
 	z-index: 1;
 }
 
-body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList .box-flex-container.kanban > .box-flex-item {
+body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) .box-flex-container.kanban > .box-flex-item {
 	background: transparent !important;
 	border: 0 !important;
 	box-shadow: none !important;
 	overflow: visible !important;
 }
 
-body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList .box-flex-container.kanban > .box-flex-item > .info-box.info-box-sm {
+body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) .box-flex-container.kanban > .box-flex-item > .info-box.info-box-sm {
 	align-items: stretch !important;
 	display: flex !important;
 	height: auto !important;
@@ -2206,7 +2206,7 @@ body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#se
 	min-height: 80px !important;
 }
 
-body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList .box-flex-container.kanban > .box-flex-item > .info-box.info-box-sm > .info-box-icon {
+body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) .box-flex-container.kanban > .box-flex-item > .info-box.info-box-sm > .info-box-icon {
 	align-self: stretch !important;
 	flex: 0 0 80px !important;
 	float: none !important;
@@ -2215,13 +2215,13 @@ body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#se
 	width: 80px !important;
 }
 
-body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList .box-flex-container.kanban > .box-flex-item > .info-box.info-box-sm > .info-box-content {
+body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) .box-flex-container.kanban > .box-flex-item > .info-box.info-box-sm > .info-box-content {
 	flex: 1 1 auto !important;
 	margin-left: 0 !important;
 	min-width: 0 !important;
 }
 
-body#mainbody.mod-product.bodyforlist:not(.bodylogin) #id-right .fiche form#searchFormList .box-flex-container.kanban > .box-flex-item > .info-box.info-box-sm > .info-box-content > .info-box-status.amount {
+body#mainbody.mod-product.bodyforlist:not(.bodylogin) #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) .box-flex-container.kanban > .box-flex-item > .info-box.info-box-sm > .info-box-content > .info-box-status.amount {
 	max-width: calc(100% - 182px) !important;
 	overflow: hidden !important;
 	right: 58px !important;
@@ -2231,17 +2231,17 @@ body#mainbody.mod-product.bodyforlist:not(.bodylogin) #id-right .fiche form#sear
 	z-index: 1;
 }
 
-body#mainbody.mod-product.bodyforlist:not(.bodylogin) #id-right .fiche form#searchFormList .box-flex-container.kanban > .box-flex-item > .info-box.info-box-sm > .info-box-content > .info-box-status.opacitymedium:not(.amount) {
+body#mainbody.mod-product.bodyforlist:not(.bodylogin) #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) .box-flex-container.kanban > .box-flex-item > .info-box.info-box-sm > .info-box-content > .info-box-status.opacitymedium:not(.amount) {
 	display: inline-block !important;
 	position: static !important;
 }
 
-body#mainbody.mod-product.bodyforlist:not(.bodylogin) #id-right .fiche form#searchFormList .box-flex-container.kanban > .box-flex-item > .info-box.info-box-sm > .info-box-content > .info-box-status:not(.amount):not(.opacitymedium) {
+body#mainbody.mod-product.bodyforlist:not(.bodylogin) #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) .box-flex-container.kanban > .box-flex-item > .info-box.info-box-sm > .info-box-content > .info-box-status:not(.amount):not(.opacitymedium) {
 	z-index: 2;
 }
 
 @media only screen and (max-width: 1024px) {
-	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList :is(.div-table-responsive, .div-table-responsive-no-min):has(.box-flex-container.kanban) {
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) :is(.div-table-responsive, .div-table-responsive-no-min):has(.box-flex-container.kanban) {
 		-webkit-overflow-scrolling: touch;
 		height: auto !important;
 		max-height: none !important;
@@ -2254,21 +2254,21 @@ body#mainbody.mod-product.bodyforlist:not(.bodylogin) #id-right .fiche form#sear
 		scrollbar-width: thin;
 	}
 
-	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList :is(.div-table-responsive, .div-table-responsive-no-min):has(.box-flex-container.kanban)::-webkit-scrollbar {
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) :is(.div-table-responsive, .div-table-responsive-no-min):has(.box-flex-container.kanban)::-webkit-scrollbar {
 		height: 8px;
 	}
 
-	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList :is(.div-table-responsive, .div-table-responsive-no-min):has(.box-flex-container.kanban)::-webkit-scrollbar-thumb {
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) :is(.div-table-responsive, .div-table-responsive-no-min):has(.box-flex-container.kanban)::-webkit-scrollbar-thumb {
 		background: var(--formora-line);
 		background-clip: content-box;
 		border: 2px solid transparent;
 		border-radius: 999px;
 	}
 
-	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList :is(.div-table-responsive, .div-table-responsive-no-min):has(.box-flex-container.kanban) > table.liste,
-	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList :is(.div-table-responsive, .div-table-responsive-no-min):has(.box-flex-container.kanban) > table.liste > tbody,
-	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList :is(.div-table-responsive, .div-table-responsive-no-min):has(.box-flex-container.kanban) > table.liste > tbody > tr.trkanban,
-	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList :is(.div-table-responsive, .div-table-responsive-no-min):has(.box-flex-container.kanban) > table.liste > tbody > tr.trkanban > td {
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) :is(.div-table-responsive, .div-table-responsive-no-min):has(.box-flex-container.kanban) > table.liste,
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) :is(.div-table-responsive, .div-table-responsive-no-min):has(.box-flex-container.kanban) > table.liste > tbody,
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) :is(.div-table-responsive, .div-table-responsive-no-min):has(.box-flex-container.kanban) > table.liste > tbody > tr.trkanban,
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) :is(.div-table-responsive, .div-table-responsive-no-min):has(.box-flex-container.kanban) > table.liste > tbody > tr.trkanban > td {
 		background: transparent !important;
 		border: 0 !important;
 		box-sizing: border-box !important;
@@ -2282,7 +2282,7 @@ body#mainbody.mod-product.bodyforlist:not(.bodylogin) #id-right .fiche form#sear
 		width: 980px !important;
 	}
 
-	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList .box-flex-container.kanban {
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) .box-flex-container.kanban {
 		align-items: stretch !important;
 		background: var(--formora-surface-alt) !important;
 		border-radius: 0 0 var(--formora-radius) var(--formora-radius) !important;
@@ -2298,7 +2298,7 @@ body#mainbody.mod-product.bodyforlist:not(.bodylogin) #id-right .fiche form#sear
 		width: 980px !important;
 	}
 
-	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList .box-flex-container.kanban > .box-flex-item {
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) .box-flex-container.kanban > .box-flex-item {
 		box-sizing: border-box !important;
 		flex: 0 0 calc((980px - 44px) / 3) !important;
 		margin: 0 !important;
@@ -2307,7 +2307,7 @@ body#mainbody.mod-product.bodyforlist:not(.bodylogin) #id-right .fiche form#sear
 		width: calc((980px - 44px) / 3) !important;
 	}
 
-	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList .box-flex-container.kanban > .box-flex-item > .info-box.info-box-sm {
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) .box-flex-container.kanban > .box-flex-item > .info-box.info-box-sm {
 		box-sizing: border-box !important;
 		width: 100% !important;
 	}
@@ -5534,7 +5534,7 @@ table.jPicker {
 		padding-bottom: 8px !important;
 	}
 
-	body#mainbody.bodyforlist #id-right .fiche form#searchFormList > table.table-fiche-title {
+	body#mainbody.bodyforlist :is(#id-right .fiche > table.table-fiche-title, #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > table.table-fiche-title) {
 		border-bottom: 0 !important;
 	}
 
@@ -6439,18 +6439,18 @@ body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right :is(
 	/* Formora list pages: keep Dolibarr behavior, but contain layout and make controls responsive. */
 	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right,
 	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche,
-	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList {
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) {
 		box-sizing: border-box !important;
 		min-width: 0 !important;
 	}
 
-	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList {
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) {
 		max-width: 100% !important;
 		overflow: visible !important;
 		width: 100% !important;
 	}
 
-	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > table.table-fiche-title {
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) :is(#id-right .fiche > table.table-fiche-title, #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > table.table-fiche-title) {
 		background: transparent !important;
 		box-sizing: border-box !important;
 		display: block !important;
@@ -6462,7 +6462,7 @@ body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right :is(
 		width: 100% !important;
 	}
 
-	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > table.table-fiche-title > tbody {
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) :is(#id-right .fiche > table.table-fiche-title, #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > table.table-fiche-title) > tbody {
 		box-sizing: border-box !important;
 		display: block !important;
 		height: auto !important;
@@ -6470,7 +6470,7 @@ body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right :is(
 		width: 100% !important;
 	}
 
-	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > table.table-fiche-title > tbody > :is(tr.toptitle, tr.titre) {
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) :is(#id-right .fiche > table.table-fiche-title, #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > table.table-fiche-title) > tbody > :is(tr.toptitle, tr.titre) {
 		align-items: center;
 		box-sizing: border-box !important;
 		display: flex !important;
@@ -6481,7 +6481,7 @@ body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right :is(
 		width: 100% !important;
 	}
 
-	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > table.table-fiche-title > tbody > :is(tr.toptitle, tr.titre) > :is(td, th) {
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) :is(#id-right .fiche > table.table-fiche-title, #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > table.table-fiche-title) > tbody > :is(tr.toptitle, tr.titre) > :is(td, th) {
 		box-sizing: border-box !important;
 		display: block !important;
 		height: auto !important;
@@ -6490,20 +6490,20 @@ body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right :is(
 		width: auto !important;
 	}
 
-	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > table.table-fiche-title :is(.col-picto, .widthpictotitle) {
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) :is(#id-right .fiche > table.table-fiche-title, #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > table.table-fiche-title) :is(.col-picto, .widthpictotitle) {
 		flex: 0 0 auto;
 	}
 
-	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > table.table-fiche-title .col-title {
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) :is(#id-right .fiche > table.table-fiche-title, #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > table.table-fiche-title) .col-title {
 		flex: 1 1 220px;
 	}
 
-	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > table.table-fiche-title .col-title .titre {
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) :is(#id-right .fiche > table.table-fiche-title, #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > table.table-fiche-title) .col-title .titre {
 		max-width: 100%;
 		white-space: normal;
 	}
 
-	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > table.table-fiche-title :is(.col-right, .col-center) {
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) :is(#id-right .fiche > table.table-fiche-title, #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > table.table-fiche-title) :is(.col-right, .col-center) {
 		flex: 0 1 auto;
 		margin-left: auto;
 		max-width: 100%;
@@ -6511,7 +6511,7 @@ body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right :is(
 		text-align: end;
 	}
 
-	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > table.table-fiche-title .pagination {
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) :is(#id-right .fiche > table.table-fiche-title, #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > table.table-fiche-title) .pagination {
 		align-items: center;
 		display: flex !important;
 		float: none !important;
@@ -6522,7 +6522,7 @@ body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right :is(
 		width: auto !important;
 	}
 
-	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > table.table-fiche-title .pagination ul {
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) :is(#id-right .fiche > table.table-fiche-title, #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > table.table-fiche-title) .pagination ul {
 		align-items: center;
 		display: inline-flex !important;
 		flex-wrap: wrap;
@@ -6533,8 +6533,8 @@ body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right :is(
 		width: auto !important;
 	}
 
-	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > table.table-fiche-title .pagination ul > li,
-	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > table.table-fiche-title .pagination ul > li.paginationafterarrows {
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) :is(#id-right .fiche > table.table-fiche-title, #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > table.table-fiche-title) .pagination ul > li,
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) :is(#id-right .fiche > table.table-fiche-title, #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > table.table-fiche-title) .pagination ul > li.paginationafterarrows {
 		align-items: center;
 		display: flex !important;
 		flex: 0 0 auto;
@@ -6545,22 +6545,22 @@ body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right :is(
 		width: auto !important;
 	}
 
-	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > table.table-fiche-title .pagination :is(a.btnTitle, span.btnTitle, input, .select2-container) {
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) :is(#id-right .fiche > table.table-fiche-title, #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > table.table-fiche-title) .pagination :is(a.btnTitle, span.btnTitle, input, .select2-container) {
 		flex: 0 0 auto;
 		max-width: 100% !important;
 	}
 
-	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList #massaction,
-	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList input.massactionconfirmed {
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) #massaction,
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) input.massactionconfirmed {
 		margin: 0 !important;
 	}
 
-	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList select.massactionselect[style*="display: none"] + .select2-container,
-	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList select.massactionselect.hideobject:not([style*="display: inline"]):not([style*="display: block"]) + .select2-container {
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) select.massactionselect[style*="display: none"] + .select2-container,
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) select.massactionselect.hideobject:not([style*="display: inline"]):not([style*="display: block"]) + .select2-container {
 		display: none !important;
 	}
 
-	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .liste_titre_bydiv {
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > .liste_titre_bydiv {
 		align-items: center;
 		background: var(--formora-surface-alt) !important;
 		border: 0 !important;
@@ -6578,7 +6578,7 @@ body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right :is(
 		width: 100% !important;
 	}
 
-	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .liste_titre_bydiv .divsearchfield {
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > .liste_titre_bydiv .divsearchfield {
 		align-items: center;
 		box-sizing: border-box !important;
 		display: flex !important;
@@ -6589,18 +6589,18 @@ body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right :is(
 		padding: 0 !important;
 	}
 
-	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .liste_titre_bydiv :is(input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"]), select, textarea, .select2-container) {
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > .liste_titre_bydiv :is(input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"]), select, textarea, .select2-container) {
 		box-sizing: border-box !important;
 		max-width: 100% !important;
 	}
 
-	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .liste_titre_bydiv .divsearchfield > :is(input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"]), select, textarea, .select2-container) {
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > .liste_titre_bydiv .divsearchfield > :is(input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"]), select, textarea, .select2-container) {
 		flex: 1 1 120px !important;
 		min-width: 0 !important;
 		width: auto !important;
 	}
 
-	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .liste_titre_bydiv .divsearchfield > :is(span, div):has(> .select2-container) {
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > .liste_titre_bydiv .divsearchfield > :is(span, div):has(> .select2-container) {
 		box-sizing: border-box !important;
 		flex: 1 1 120px !important;
 		max-width: 100% !important;
@@ -6608,24 +6608,24 @@ body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right :is(
 		width: auto !important;
 	}
 
-	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .liste_titre_bydiv .divsearchfield .select2-container {
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > .liste_titre_bydiv .divsearchfield .select2-container {
 		min-width: 0 !important;
 		max-width: 100% !important;
 	}
 
-	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .liste_titre_bydiv .divsearchfield > :is(span, div):has(> .select2-container) > .select2-container {
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > .liste_titre_bydiv .divsearchfield > :is(span, div):has(> .select2-container) > .select2-container {
 		width: 100% !important;
 	}
 
-	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .liste_titre_bydiv .divsearchfield .select2-container :is(.select2-selection, .select2-selection__rendered, .select2-search--inline, .select2-search__field) {
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > .liste_titre_bydiv .divsearchfield .select2-container :is(.select2-selection, .select2-selection__rendered, .select2-search--inline, .select2-search__field) {
 		box-sizing: border-box !important;
 		max-width: 100% !important;
 		min-width: 0 !important;
 		width: 100% !important;
 	}
 
-	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .div-table-responsive,
-	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .div-table-responsive-no-min {
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > .div-table-responsive,
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > .div-table-responsive-no-min {
 		-webkit-overflow-scrolling: touch;
 		background: transparent !important;
 		border-radius: var(--formora-radius) !important;
@@ -6638,8 +6638,8 @@ body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right :is(
 		width: 100% !important;
 	}
 
-		body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .div-table-responsive > table.liste,
-		body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .div-table-responsive-no-min > table.liste {
+		body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > .div-table-responsive > table.liste,
+		body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > .div-table-responsive-no-min > table.liste {
 			border: 0 !important;
 			border-radius: var(--formora-radius) !important;
 			margin-bottom: 0 !important;
@@ -6647,73 +6647,73 @@ body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right :is(
 			min-width: 100% !important;
 		}
 
-		body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .div-table-responsive > table.liste > tbody > tr.liste_titre_filter:first-child > :is(td, th),
-		body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .div-table-responsive-no-min > table.liste > tbody > tr.liste_titre_filter:first-child > :is(td, th) {
+		body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > .div-table-responsive > table.liste > tbody > tr.liste_titre_filter:first-child > :is(td, th),
+		body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > .div-table-responsive-no-min > table.liste > tbody > tr.liste_titre_filter:first-child > :is(td, th) {
 			border-top: 0 !important;
 		}
 
-		body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .div-table-responsive > table.liste > tbody > tr.liste_titre_filter:first-child > :is(td, th):first-child,
-		body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .div-table-responsive-no-min > table.liste > tbody > tr.liste_titre_filter:first-child > :is(td, th):first-child {
+		body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > .div-table-responsive > table.liste > tbody > tr.liste_titre_filter:first-child > :is(td, th):first-child,
+		body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > .div-table-responsive-no-min > table.liste > tbody > tr.liste_titre_filter:first-child > :is(td, th):first-child {
 			border-top-left-radius: var(--formora-radius) !important;
 		}
 
-		body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .div-table-responsive > table.liste > tbody > tr.liste_titre_filter:first-child > :is(td, th):last-child,
-		body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .div-table-responsive-no-min > table.liste > tbody > tr.liste_titre_filter:first-child > :is(td, th):last-child {
+		body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > .div-table-responsive > table.liste > tbody > tr.liste_titre_filter:first-child > :is(td, th):last-child,
+		body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > .div-table-responsive-no-min > table.liste > tbody > tr.liste_titre_filter:first-child > :is(td, th):last-child {
 			border-top-right-radius: var(--formora-radius) !important;
 		}
 
-	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .liste_titre_bydiv + :is(.div-table-responsive, .div-table-responsive-no-min),
-	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .liste_titre_bydiv + :is(.div-table-responsive, .div-table-responsive-no-min) > table.liste {
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > .liste_titre_bydiv + :is(.div-table-responsive, .div-table-responsive-no-min),
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > .liste_titre_bydiv + :is(.div-table-responsive, .div-table-responsive-no-min) > table.liste {
 		border-radius: 0 0 var(--formora-radius) var(--formora-radius) !important;
 	}
 
-	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .liste_titre_bydiv + :is(.div-table-responsive, .div-table-responsive-no-min) > table.liste > :is(thead, tbody):first-child > tr:first-child > :is(td, th),
-	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .liste_titre_bydiv + :is(.div-table-responsive, .div-table-responsive-no-min) > table.liste > tbody > tr.liste_titre_filter:first-child > :is(td, th) {
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > .liste_titre_bydiv + :is(.div-table-responsive, .div-table-responsive-no-min) > table.liste > :is(thead, tbody):first-child > tr:first-child > :is(td, th),
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > .liste_titre_bydiv + :is(.div-table-responsive, .div-table-responsive-no-min) > table.liste > tbody > tr.liste_titre_filter:first-child > :is(td, th) {
 		border-top-left-radius: 0 !important;
 		border-top-right-radius: 0 !important;
 	}
 
-	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .div-table-responsive > table.liste > tbody > tr.liste_titre_filter > :is(td, th),
-	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .div-table-responsive-no-min > table.liste > tbody > tr.liste_titre_filter > :is(td, th) {
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > .div-table-responsive > table.liste > tbody > tr.liste_titre_filter > :is(td, th),
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > .div-table-responsive-no-min > table.liste > tbody > tr.liste_titre_filter > :is(td, th) {
 		padding-bottom: 8px !important;
 		padding-top: 8px !important;
 	}
 
-	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .div-table-responsive > table.liste > tbody > tr.liste_titre_filter .nowrapfordate,
-	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .div-table-responsive-no-min > table.liste > tbody > tr.liste_titre_filter .nowrapfordate {
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > .div-table-responsive > table.liste > tbody > tr.liste_titre_filter .nowrapfordate,
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > .div-table-responsive-no-min > table.liste > tbody > tr.liste_titre_filter .nowrapfordate {
 		align-items: flex-start;
 		display: inline-flex !important;
 		flex-direction: column;
 		gap: 0;
 	}
 
-	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .div-table-responsive > table.liste > tbody > tr.liste_titre_filter .nowrapfordate > .divfordateinput,
-	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .div-table-responsive-no-min > table.liste > tbody > tr.liste_titre_filter .nowrapfordate > .divfordateinput {
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > .div-table-responsive > table.liste > tbody > tr.liste_titre_filter .nowrapfordate > .divfordateinput,
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > .div-table-responsive-no-min > table.liste > tbody > tr.liste_titre_filter .nowrapfordate > .divfordateinput {
 		align-items: center;
 		display: inline-flex !important;
 		gap: 4px;
 	}
 
-	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .div-table-responsive > table.liste > tbody > tr.liste_titre_filter .nowrapfordate:has(> .divfordateinput > input[id$="_end"]),
-	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .div-table-responsive-no-min > table.liste > tbody > tr.liste_titre_filter .nowrapfordate:has(> .divfordateinput > input[id$="_end"]) {
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > .div-table-responsive > table.liste > tbody > tr.liste_titre_filter .nowrapfordate:has(> .divfordateinput > input[id$="_end"]),
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > .div-table-responsive-no-min > table.liste > tbody > tr.liste_titre_filter .nowrapfordate:has(> .divfordateinput > input[id$="_end"]) {
 		margin-top: 0 !important;
 	}
 
-		body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .div-table-responsive > table.liste > tbody > tr.liste_titre_filter + tr.liste_titre > :is(td, th),
-		body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .div-table-responsive-no-min > table.liste > tbody > tr.liste_titre_filter + tr.liste_titre > :is(td, th) {
+		body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > .div-table-responsive > table.liste > tbody > tr.liste_titre_filter + tr.liste_titre > :is(td, th),
+		body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > .div-table-responsive-no-min > table.liste > tbody > tr.liste_titre_filter + tr.liste_titre > :is(td, th) {
 			border-top: 1px solid var(--formora-line) !important;
 			border-top-left-radius: 0 !important;
 			border-top-right-radius: 0 !important;
 		}
 
-	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .div-table-responsive > table.liste > :is(tbody, tfoot):last-child > tr:last-child > :is(td, th),
-	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .div-table-responsive-no-min > table.liste > :is(tbody, tfoot):last-child > tr:last-child > :is(td, th) {
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > .div-table-responsive > table.liste > :is(tbody, tfoot):last-child > tr:last-child > :is(td, th),
+	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > .div-table-responsive-no-min > table.liste > :is(tbody, tfoot):last-child > tr:last-child > :is(td, th) {
 		border-bottom: 0 !important;
 	}
 
 	body#mainbody:is(.page-list_det, .page-task_time):not(.bodylogin) #id-right,
 	body#mainbody:is(.page-list_det, .page-task_time):not(.bodylogin) #id-right .fiche,
-	body#mainbody:is(.page-list_det, .page-task_time):not(.bodylogin) #id-right .fiche form#searchFormList {
+	body#mainbody:is(.page-list_det, .page-task_time):not(.bodylogin) #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) {
 		box-sizing: border-box !important;
 		min-width: 0 !important;
 	}
@@ -6765,22 +6765,22 @@ body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right :is(
 	}
 
 		@media only screen and (max-width: 900px) {
-			body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > table.table-fiche-title > tbody > :is(tr.toptitle, tr.titre) {
+			body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) :is(#id-right .fiche > table.table-fiche-title, #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > table.table-fiche-title) > tbody > :is(tr.toptitle, tr.titre) {
 				gap: 8px 10px;
 			}
 
-			body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > table.table-fiche-title .col-title {
+			body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) :is(#id-right .fiche > table.table-fiche-title, #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > table.table-fiche-title) .col-title {
 				flex: 1 1 220px;
 			}
 
-			body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > table.table-fiche-title :is(.col-right, .col-center) {
+			body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) :is(#id-right .fiche > table.table-fiche-title, #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > table.table-fiche-title) :is(.col-right, .col-center) {
 				flex: 0 1 auto;
 				margin-left: auto;
 				text-align: end;
 			}
 
-			body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > table.table-fiche-title .pagination,
-			body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > table.table-fiche-title .pagination ul {
+			body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) :is(#id-right .fiche > table.table-fiche-title, #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > table.table-fiche-title) .pagination,
+			body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) :is(#id-right .fiche > table.table-fiche-title, #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > table.table-fiche-title) .pagination ul {
 				justify-content: flex-end;
 				max-width: 100% !important;
 				width: auto !important;
@@ -6788,17 +6788,17 @@ body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right :is(
 		}
 
 	@media only screen and (max-width: 480px) {
-		body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .liste_titre_bydiv {
+		body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > .liste_titre_bydiv {
 			gap: 7px;
 			padding: 8px !important;
 		}
 
-		body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .liste_titre_bydiv .divsearchfield {
+		body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > .liste_titre_bydiv .divsearchfield {
 			flex-basis: 100%;
 		}
 
-		body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .div-table-responsive > table.liste > tbody > tr.liste_titre_filter > :is(td, th),
-		body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form#searchFormList > .div-table-responsive-no-min > table.liste > tbody > tr.liste_titre_filter > :is(td, th) {
+		body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > .div-table-responsive > table.liste > tbody > tr.liste_titre_filter > :is(td, th),
+		body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > .div-table-responsive-no-min > table.liste > tbody > tr.liste_titre_filter > :is(td, th) {
 			padding-bottom: 6px !important;
 			padding-top: 6px !important;
 		}
