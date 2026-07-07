@@ -82,7 +82,7 @@ if (getDolGlobalString('MAIN_APPLICATION_TITLE')) {
 $manifest->short_name = $manifest->name;
 
 
-$manifest->theme_color = getDolGlobalString('MAIN_MANIFEST_APPLI_THEME_COLOR', '#0969da');
+$manifest->theme_color = getDolGlobalString('MAIN_MANIFEST_APPLI_THEME_COLOR', getDolGlobalString('THEME_ELDY_TOPMENU_BACK1', '#0969da'));
 if (!preg_match('/#[a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9]$/', $manifest->theme_color)) {
 	include_once DOL_DOCUMENT_ROOT.'/core/lib/functions2.lib.php';
 	$manifest->theme_color = '#'.colorArrayToHex(colorStringToArray($manifest->theme_color));

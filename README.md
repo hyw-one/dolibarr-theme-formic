@@ -57,7 +57,7 @@ Select `formora`, then save the setting.
 
 ## Theme JavaScript
 
-Formora includes `formora.js` for interactive theme behavior, including mobile top-menu centering, scroll state classes, dark-mode widget fixes, editor adjustments, and TakePOS iframe theme propagation.
+Formora includes `formora.js`, scoped to color-only adjustments for widgets that CSS cannot reach: Chart.js pie/doughnut/polar-area colors and the ACE editor's dark theme switch. The top menu, left menu, and all other layout behavior are left to Dolibarr/Eldy's own markup and native scripts.
 
 Dolibarr only loads a theme JavaScript file when the hidden global constant is enabled:
 
