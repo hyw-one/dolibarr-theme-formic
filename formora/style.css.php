@@ -2097,7 +2097,7 @@ textarea:focus,
 	color: var(--formora-muted) !important;
 }
 
-body#mainbody.bodyforlist:not(.poslist):not(.bodylogin):not(.mod-product) :is(#id-right .fiche > table.table-fiche-title, #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > table.table-fiche-title) .paginationafterarrows a.btnTitle {
+body#mainbody:not(.poslist):not(.bodylogin):not(.mod-product.page-list) :is(#id-right .fiche > table.table-fiche-title, #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > table.table-fiche-title) .paginationafterarrows a.btnTitle {
 	--formora-title-action-icon-size: 21px;
 	--formora-title-action-size: 38px;
 	align-items: center !important;
@@ -2121,58 +2121,145 @@ body#mainbody.bodyforlist:not(.poslist):not(.bodylogin):not(.mod-product) :is(#i
 	width: var(--formora-title-action-size) !important;
 }
 
-body#mainbody.bodyforlist:not(.poslist):not(.bodylogin):not(.mod-product) :is(#id-right .fiche > table.table-fiche-title, #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > table.table-fiche-title) .paginationafterarrows {
+body#mainbody:not(.poslist):not(.bodylogin):not(.mod-product.page-list) :is(#id-right .fiche > table.table-fiche-title, #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > table.table-fiche-title) .paginationafterarrows {
+	align-items: center !important;
+	display: inline-flex !important;
 	gap: 6px;
 }
 
-body#mainbody.bodyforlist:not(.poslist):not(.bodylogin):not(.mod-product) :is(#id-right .fiche > table.table-fiche-title, #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > table.table-fiche-title) .paginationafterarrows .button-title-separator {
+body#mainbody:not(.poslist):not(.bodylogin):not(.mod-product.page-list) :is(#id-right .fiche > table.table-fiche-title, #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > table.table-fiche-title) .paginationafterarrows .button-title-separator {
 	display: none !important;
 }
 
-body#mainbody.bodyforlist:not(.poslist):not(.bodylogin):not(.mod-product) :is(#id-right .fiche > table.table-fiche-title, #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > table.table-fiche-title) .paginationafterarrows a.btnTitlePlus {
+body#mainbody:not(.poslist):not(.bodylogin):not(.mod-product.page-list) :is(#id-right .fiche > table.table-fiche-title, #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > table.table-fiche-title) .paginationafterarrows a.btnTitlePlus {
 	margin-left: 8px !important;
 }
 
-body#mainbody.bodyforlist:not(.poslist):not(.bodylogin):not(.mod-product) :is(#id-right .fiche > table.table-fiche-title, #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > table.table-fiche-title) .paginationafterarrows a.btnTitle :is(.btnTitle-icon, span) {
+body#mainbody:not(.poslist):not(.bodylogin):not(.mod-product.page-list) :is(#id-right .fiche > table.table-fiche-title, #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > table.table-fiche-title) .paginationafterarrows a.btnTitle :is(.btnTitle-icon, span) {
 	color: inherit !important;
 	font-size: var(--formora-title-action-icon-size) !important;
 	line-height: 1 !important;
 	margin: 0 !important;
 }
 
-body#mainbody.bodyforlist:not(.poslist):not(.bodylogin):not(.mod-product) :is(#id-right .fiche > table.table-fiche-title, #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > table.table-fiche-title) .paginationafterarrows a.btnTitle span::before {
+body#mainbody:not(.poslist):not(.bodylogin):not(.mod-product.page-list) :is(#id-right .fiche > table.table-fiche-title, #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > table.table-fiche-title) .paginationafterarrows a.btnTitle span::before {
 	font-size: 1em !important;
 	line-height: 1 !important;
 }
 
-body#mainbody.bodyforlist:not(.poslist):not(.bodylogin):not(.mod-product) :is(#id-right .fiche > table.table-fiche-title, #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > table.table-fiche-title) .paginationafterarrows a.btnTitle:hover,
-body#mainbody.bodyforlist:not(.poslist):not(.bodylogin):not(.mod-product) :is(#id-right .fiche > table.table-fiche-title, #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > table.table-fiche-title) .paginationafterarrows a.btnTitle:focus {
+body#mainbody:not(.poslist):not(.bodylogin):not(.mod-product.page-list) :is(#id-right .fiche > table.table-fiche-title, #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > table.table-fiche-title) .paginationafterarrows a.btnTitle:hover,
+body#mainbody:not(.poslist):not(.bodylogin):not(.mod-product.page-list) :is(#id-right .fiche > table.table-fiche-title, #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > table.table-fiche-title) .paginationafterarrows a.btnTitle:focus {
 	background: var(--formora-neutral-hover-bg) !important;
 	box-shadow: inset 0 0 0 1px var(--formora-line-soft) !important;
 	color: var(--formora-accent-hover) !important;
 	text-decoration: none !important;
 }
 
-body#mainbody.bodyforlist:not(.poslist):not(.bodylogin):not(.mod-product) :is(#id-right .fiche > table.table-fiche-title, #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > table.table-fiche-title) .paginationafterarrows a.btnTitle.btnTitleSelected,
-body#mainbody.bodyforlist:not(.poslist):not(.bodylogin):not(.mod-product) :is(#id-right .fiche > table.table-fiche-title, #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > table.table-fiche-title) .paginationafterarrows a.btnTitle.btnTitleSelected:hover,
-body#mainbody.bodyforlist:not(.poslist):not(.bodylogin):not(.mod-product) :is(#id-right .fiche > table.table-fiche-title, #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > table.table-fiche-title) .paginationafterarrows a.btnTitle.btnTitleSelected:focus {
+body#mainbody:not(.poslist):not(.bodylogin):not(.mod-product.page-list) :is(#id-right .fiche > table.table-fiche-title, #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > table.table-fiche-title) .paginationafterarrows a.btnTitle.btnTitleSelected,
+body#mainbody:not(.poslist):not(.bodylogin):not(.mod-product.page-list) :is(#id-right .fiche > table.table-fiche-title, #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > table.table-fiche-title) .paginationafterarrows a.btnTitle.btnTitleSelected:hover,
+body#mainbody:not(.poslist):not(.bodylogin):not(.mod-product.page-list) :is(#id-right .fiche > table.table-fiche-title, #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > table.table-fiche-title) .paginationafterarrows a.btnTitle.btnTitleSelected:focus {
 	background: var(--formora-neutral-hover-bg) !important;
 	box-shadow: inset 0 0 0 1px var(--formora-line) !important;
 	color: var(--formora-accent-hover) !important;
 }
 
 @media only screen and (max-width: 767px) {
-	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin):not(.mod-product) :is(#id-right .fiche > table.table-fiche-title, #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > table.table-fiche-title) .paginationafterarrows a.btnTitle {
+	body#mainbody:not(.poslist):not(.bodylogin):not(.mod-product.page-list) :is(#id-right .fiche > table.table-fiche-title, #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > table.table-fiche-title) .paginationafterarrows a.btnTitle {
 		--formora-title-action-icon-size: 20px;
 		--formora-title-action-size: 34px;
 	}
 
-	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin):not(.mod-product) :is(#id-right .fiche > table.table-fiche-title, #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > table.table-fiche-title) .paginationafterarrows {
+	body#mainbody:not(.poslist):not(.bodylogin):not(.mod-product.page-list) :is(#id-right .fiche > table.table-fiche-title, #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > table.table-fiche-title) .paginationafterarrows {
 		gap: 4px;
 	}
 
-	body#mainbody.bodyforlist:not(.poslist):not(.bodylogin):not(.mod-product) :is(#id-right .fiche > table.table-fiche-title, #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > table.table-fiche-title) .paginationafterarrows a.btnTitlePlus {
+	body#mainbody:not(.poslist):not(.bodylogin):not(.mod-product.page-list) :is(#id-right .fiche > table.table-fiche-title, #id-right .fiche form:is(#searchFormList, :has(> table.table-fiche-title), :has(> .liste_titre_bydiv), :has(> .div-table-responsive), :has(> .div-table-responsive-no-min), :has(> table.liste)) > table.table-fiche-title) .paginationafterarrows a.btnTitlePlus {
 		margin-left: 6px !important;
+	}
+}
+
+/*
+ * Several card.php pages (order, invoice, contract, quote, shipment, thirdparty,
+ * user, product, project, ticket) embed a compact "last N events" preview
+ * further down the page via FormActions::showactions($morehtmlcenter), which
+ * prints its ShowAsConversation/SeeAll buttons into load_fiche_titre()'s
+ * td.col-center -- a different markup shape than the .paginationafterarrows
+ * used by the full agenda.php tab, so the rules above never match it and it
+ * was falling back to the plain unstyled a.btnTitle look with zero gap.
+ * Some pages (order) put the buttons directly in td.col-center, others
+ * (invoice, contract, thirdparty, user, product...) wrap them in an inner
+ * div.nowraponall first, so the flex/gap needs to apply to whichever of the
+ * two is the actual direct parent of the buttons.
+ */
+#id-right .fiche table.table-fiche-title td.col-center,
+#id-right .fiche table.table-fiche-title td.col-center > .nowraponall {
+	align-items: center !important;
+	display: flex !important;
+	gap: 6px;
+	justify-content: center !important;
+}
+
+#id-right .fiche table.table-fiche-title td.col-center a.btnTitle {
+	--formora-title-action-icon-size: 21px;
+	--formora-title-action-size: 38px;
+	align-items: center !important;
+	background: var(--formora-neutral-bg) !important;
+	border: 0 !important;
+	border-radius: var(--formora-radius-sm) !important;
+	box-shadow: inset 0 0 0 1px var(--formora-line-soft) !important;
+	box-sizing: border-box !important;
+	color: var(--formora-muted) !important;
+	display: inline-flex !important;
+	height: var(--formora-title-action-size) !important;
+	justify-content: center !important;
+	line-height: 1 !important;
+	margin: 0 !important;
+	min-height: var(--formora-title-action-size) !important;
+	min-width: var(--formora-title-action-size) !important;
+	padding: 0 !important;
+	text-align: center !important;
+	text-decoration: none !important;
+	transition: background-color 0.14s ease, box-shadow 0.14s ease, color 0.14s ease;
+	width: var(--formora-title-action-size) !important;
+}
+
+#id-right .fiche table.table-fiche-title td.col-center a.btnTitle :is(.btnTitle-icon, span) {
+	color: inherit !important;
+	font-size: var(--formora-title-action-icon-size) !important;
+	line-height: 1 !important;
+	margin: 0 !important;
+}
+
+#id-right .fiche table.table-fiche-title td.col-center a.btnTitle span::before {
+	font-size: 1em !important;
+	line-height: 1 !important;
+}
+
+#id-right .fiche table.table-fiche-title td.col-center a.btnTitle:hover,
+#id-right .fiche table.table-fiche-title td.col-center a.btnTitle:focus {
+	background: var(--formora-neutral-hover-bg) !important;
+	box-shadow: inset 0 0 0 1px var(--formora-line-soft) !important;
+	color: var(--formora-accent-hover) !important;
+	text-decoration: none !important;
+}
+
+#id-right .fiche table.table-fiche-title td.col-center a.btnTitle.btnTitleSelected,
+#id-right .fiche table.table-fiche-title td.col-center a.btnTitle.btnTitleSelected:hover,
+#id-right .fiche table.table-fiche-title td.col-center a.btnTitle.btnTitleSelected:focus {
+	background: var(--formora-neutral-hover-bg) !important;
+	box-shadow: inset 0 0 0 1px var(--formora-line) !important;
+	color: var(--formora-accent-hover) !important;
+}
+
+@media only screen and (max-width: 767px) {
+	#id-right .fiche table.table-fiche-title td.col-center a.btnTitle {
+		--formora-title-action-icon-size: 20px;
+		--formora-title-action-size: 34px;
+	}
+
+	#id-right .fiche table.table-fiche-title td.col-center,
+	#id-right .fiche table.table-fiche-title td.col-center > .nowraponall {
+		gap: 4px;
 	}
 }
 
@@ -2737,6 +2824,104 @@ body,
 #mainbody {
 	background: var(--formora-bg) !important;
 	color: var(--formora-text);
+}
+
+/*
+ * div.photoref/img.photoref (the object photo/placeholder frame shown next
+ * to a record's reference) relies on Eldy's own box-shadow(1px 1px 8px
+ * rgba(0,0,0,0.2)) to read as a framed box -- a black shadow that is all
+ * but invisible against a dark background. Swap it for a crisp 1px outline
+ * drawn via box-shadow's spread trick (0 blur, so it reads as a clean line
+ * rather than a hazy glow) instead of Eldy's soft drop shadow, using the
+ * same border color already used for card/table edges elsewhere.
+ */
+div.photoref,
+img.photoref {
+	box-shadow: 0 0 0 1px var(--formora-line-soft) !important;
+}
+
+/*
+ * timeline.inc.php ships unchanged from Eldy/AdminLTE and has never had a
+ * dark-mode pass: every card, divider, icon bubble, and button is hardcoded
+ * to light colors (#fff card, #444 text, #ddd borders), so the "actions on
+ * <object>" panel renders as an unreadable white block on a dark page.
+ * Reuse the existing --formora-* surface/line tokens rather than new ones so
+ * it matches the rest of the dark skin. The saturated status colors
+ * (timeline-icon-todo/in-progress/done, timeline-badge-date) are left alone
+ * since they already read fine on any background.
+ */
+.timeline:before {
+	background: var(--formora-line-soft) !important;
+}
+
+.timeline > li > .timeline-item {
+	background: var(--formora-surface) !important;
+	border-color: var(--formora-line) !important;
+	color: var(--formora-text) !important;
+}
+
+.timeline > li.timeline-code-ticket_msg_private > .timeline-item,
+.timeline > li.timeline-code-ticket_msg_private_sentbymail > .timeline-item {
+	background: var(--formora-toast-warning-bg) !important;
+	border-color: var(--formora-toast-warning-border) !important;
+}
+
+.timeline > li > .timeline-item > .timeline-header {
+	border-bottom-color: var(--formora-line-soft) !important;
+	color: var(--formora-text) !important;
+}
+
+.timeline > li > .timeline-item > .timeline-footer {
+	border-top-color: var(--formora-line-soft) !important;
+}
+
+.timeline > li.timeline-code-ticket_msg_private > .timeline-item > .timeline-header,
+.timeline > li.timeline-code-ticket_msg_private > .timeline-item > .timeline-footer,
+.timeline > li.timeline-code-ticket_msg_private_sentbymail > .timeline-item > .timeline-header,
+.timeline > li.timeline-code-ticket_msg_private_sentbymail > .timeline-item > .timeline-footer {
+	border-color: var(--formora-toast-warning-border) !important;
+}
+
+a.timeline-btn:link,
+a.timeline-btn:visited,
+a.timeline-btn:hover,
+a.timeline-btn:active {
+	background-color: var(--formora-neutral-bg) !important;
+	border-color: var(--formora-line) !important;
+	color: var(--formora-text) !important;
+}
+
+a.timeline-btn:hover {
+	background-color: var(--formora-neutral-hover-bg) !important;
+	border-color: var(--formora-line) !important;
+	color: var(--formora-text) !important;
+}
+
+.timeline > li > .fa,
+.timeline > li > .fas,
+.timeline > li > .glyphicon,
+.timeline > li > .ion {
+	background: var(--formora-neutral-bg) !important;
+	color: var(--formora-icon-default) !important;
+}
+
+.timeline > .time-label > span {
+	background-color: var(--formora-surface) !important;
+	color: var(--formora-text) !important;
+}
+
+.timeline-inverse > li > .timeline-item {
+	background: var(--formora-surface-alt) !important;
+	border-color: var(--formora-line) !important;
+}
+
+.timeline-inverse > li > .timeline-item > .timeline-header {
+	border-bottom-color: var(--formora-line) !important;
+}
+
+.timeline-icon-not-applicble {
+	background-color: var(--formora-neutral-bg) !important;
+	color: var(--formora-muted) !important;
 }
 
 body#mainbody :is(.opacitymediumbycolor, .optiongrey) {
@@ -7289,7 +7474,7 @@ body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right :is(
 			width: auto !important;
 		}
 
-		body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin):not(.mod-product) #id-right .fiche form:has(> .liste_titre_bydiv + :is(.div-table-responsive, .div-table-responsive-no-min) > table.liste) > table.table-fiche-title .paginationafterarrows a.btnTitle {
+		body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin):not(.mod-product.page-list) #id-right .fiche form:has(> .liste_titre_bydiv + :is(.div-table-responsive, .div-table-responsive-no-min) > table.liste) > table.table-fiche-title .paginationafterarrows a.btnTitle {
 			--formora-title-action-icon-size: 21px;
 			--formora-title-action-size: 38px;
 			align-items: center !important;
@@ -7313,29 +7498,29 @@ body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right :is(
 			width: var(--formora-title-action-size) !important;
 		}
 
-		body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin):not(.mod-product) #id-right .fiche form:has(> .liste_titre_bydiv + :is(.div-table-responsive, .div-table-responsive-no-min) > table.liste) > table.table-fiche-title .paginationafterarrows .button-title-separator {
+		body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin):not(.mod-product.page-list) #id-right .fiche form:has(> .liste_titre_bydiv + :is(.div-table-responsive, .div-table-responsive-no-min) > table.liste) > table.table-fiche-title .paginationafterarrows .button-title-separator {
 			display: none !important;
 		}
 
-		body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin):not(.mod-product) #id-right .fiche form:has(> .liste_titre_bydiv + :is(.div-table-responsive, .div-table-responsive-no-min) > table.liste) > table.table-fiche-title .paginationafterarrows a.btnTitlePlus {
+		body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin):not(.mod-product.page-list) #id-right .fiche form:has(> .liste_titre_bydiv + :is(.div-table-responsive, .div-table-responsive-no-min) > table.liste) > table.table-fiche-title .paginationafterarrows a.btnTitlePlus {
 			margin-left: 8px !important;
 		}
 
-		body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin):not(.mod-product) #id-right .fiche form:has(> .liste_titre_bydiv + :is(.div-table-responsive, .div-table-responsive-no-min) > table.liste) > table.table-fiche-title .paginationafterarrows a.btnTitle :is(.btnTitle-icon, span) {
+		body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin):not(.mod-product.page-list) #id-right .fiche form:has(> .liste_titre_bydiv + :is(.div-table-responsive, .div-table-responsive-no-min) > table.liste) > table.table-fiche-title .paginationafterarrows a.btnTitle :is(.btnTitle-icon, span) {
 			color: inherit !important;
 			font-size: var(--formora-title-action-icon-size) !important;
 			line-height: 1 !important;
 			margin: 0 !important;
 		}
 
-		body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin):not(.mod-product) #id-right .fiche form:has(> .liste_titre_bydiv + :is(.div-table-responsive, .div-table-responsive-no-min) > table.liste) > table.table-fiche-title .paginationafterarrows a.btnTitle span::before {
+		body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin):not(.mod-product.page-list) #id-right .fiche form:has(> .liste_titre_bydiv + :is(.div-table-responsive, .div-table-responsive-no-min) > table.liste) > table.table-fiche-title .paginationafterarrows a.btnTitle span::before {
 			font-size: 1em !important;
 			line-height: 1 !important;
 		}
 
-		body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin):not(.mod-product) #id-right .fiche form:has(> .liste_titre_bydiv + :is(.div-table-responsive, .div-table-responsive-no-min) > table.liste) > table.table-fiche-title .paginationafterarrows a.btnTitle:hover,
-		body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin):not(.mod-product) #id-right .fiche form:has(> .liste_titre_bydiv + :is(.div-table-responsive, .div-table-responsive-no-min) > table.liste) > table.table-fiche-title .paginationafterarrows a.btnTitle:focus,
-		body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin):not(.mod-product) #id-right .fiche form:has(> .liste_titre_bydiv + :is(.div-table-responsive, .div-table-responsive-no-min) > table.liste) > table.table-fiche-title .paginationafterarrows a.btnTitle.btnTitleSelected {
+		body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin):not(.mod-product.page-list) #id-right .fiche form:has(> .liste_titre_bydiv + :is(.div-table-responsive, .div-table-responsive-no-min) > table.liste) > table.table-fiche-title .paginationafterarrows a.btnTitle:hover,
+		body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin):not(.mod-product.page-list) #id-right .fiche form:has(> .liste_titre_bydiv + :is(.div-table-responsive, .div-table-responsive-no-min) > table.liste) > table.table-fiche-title .paginationafterarrows a.btnTitle:focus,
+		body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin):not(.mod-product.page-list) #id-right .fiche form:has(> .liste_titre_bydiv + :is(.div-table-responsive, .div-table-responsive-no-min) > table.liste) > table.table-fiche-title .paginationafterarrows a.btnTitle.btnTitleSelected {
 			background: var(--formora-neutral-hover-bg) !important;
 			box-shadow: inset 0 0 0 1px var(--formora-line-soft) !important;
 			color: var(--formora-accent-hover) !important;
@@ -7425,16 +7610,16 @@ body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right :is(
 		}
 
 		@media only screen and (max-width: 767px) {
-			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin):not(.mod-product) #id-right .fiche form:has(> .liste_titre_bydiv + :is(.div-table-responsive, .div-table-responsive-no-min) > table.liste) > table.table-fiche-title .paginationafterarrows a.btnTitle {
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin):not(.mod-product.page-list) #id-right .fiche form:has(> .liste_titre_bydiv + :is(.div-table-responsive, .div-table-responsive-no-min) > table.liste) > table.table-fiche-title .paginationafterarrows a.btnTitle {
 				--formora-title-action-icon-size: 20px;
 				--formora-title-action-size: 34px;
 			}
 
-			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin):not(.mod-product) #id-right .fiche form:has(> .liste_titre_bydiv + :is(.div-table-responsive, .div-table-responsive-no-min) > table.liste) > table.table-fiche-title .paginationafterarrows {
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin):not(.mod-product.page-list) #id-right .fiche form:has(> .liste_titre_bydiv + :is(.div-table-responsive, .div-table-responsive-no-min) > table.liste) > table.table-fiche-title .paginationafterarrows {
 				gap: 4px;
 			}
 
-			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin):not(.mod-product) #id-right .fiche form:has(> .liste_titre_bydiv + :is(.div-table-responsive, .div-table-responsive-no-min) > table.liste) > table.table-fiche-title .paginationafterarrows a.btnTitlePlus {
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin):not(.mod-product.page-list) #id-right .fiche form:has(> .liste_titre_bydiv + :is(.div-table-responsive, .div-table-responsive-no-min) > table.liste) > table.table-fiche-title .paginationafterarrows a.btnTitlePlus {
 				margin-left: 6px !important;
 			}
 		}
