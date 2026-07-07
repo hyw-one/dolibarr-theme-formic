@@ -488,6 +488,7 @@ require __DIR__.'/global.inc.php';
 	--formora-icon-default: #5f6368;
 	--formora-icon-muted: #86868b;
 	--formora-icon-accent: #0071e3;
+	--formora-avatar-ring: rgba(66, 72, 81, 0.45);
 	--formora-icon-date: #57606a;
 	--formora-icon-danger: #d70015;
 	--formora-icon-warning: #b26a00;
@@ -2604,6 +2605,7 @@ if (getDolGlobalInt('THEME_DARKMODEENABLED')) {
 	--formora-icon-default: #a1a1a6;
 	--formora-icon-muted: #8e8e93;
 	--formora-icon-accent: #64b5ff;
+	--formora-avatar-ring: rgba(245, 245, 247, 0.34);
 	--formora-icon-date: #a1a1a6;
 	--formora-icon-danger: #ff6961;
 	--formora-icon-warning: #ffd60a;
@@ -7718,12 +7720,6 @@ body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right :is(
 		mask: var(--formora-symbol-address-book) center / contain no-repeat;
 	}
 
-	:is(body#mainbody, body.bodytakepos) .login_block_user .dropdown-user-image {
-		background: var(--formora-surface-alt) !important;
-		border: 1px solid var(--formora-line) !important;
-		box-shadow: none !important;
-	}
-
 	body.bodytakepos .topnav input[type="text"],
 	body:not(#mainbody) input.takepospay,
 	body:not(#mainbody) textarea.takepospay,
@@ -8414,11 +8410,15 @@ body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right :is(
 	?>
 
 		@media only screen and (max-width: 1180px) {
+			body#mainbody:not(.bodytakepos):not(.bodylogin) {
+				--formora-mobile-side-bottom-gap: max(12px, env(safe-area-inset-bottom, 0px));
+			}
+
 			body#mainbody:not(.bodytakepos):not(.bodylogin) #id-top {
 				box-sizing: border-box !important;
 				height: 60px !important;
 				min-height: 60px !important;
-				overflow: hidden !important;
+				overflow: visible !important;
 				position: relative !important;
 			}
 
@@ -8426,14 +8426,14 @@ body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right :is(
 				box-sizing: border-box !important;
 				height: 60px !important;
 				min-height: 60px !important;
-				max-width: calc(100% - 116px) !important;
+				max-width: 100% !important;
 				overflow-x: auto !important;
 				overflow-y: hidden !important;
 				padding-right: 0 !important;
 				scroll-padding-left: 48px;
 				scrollbar-width: none;
 				white-space: nowrap !important;
-				width: calc(100% - 116px) !important;
+				width: 100% !important;
 			}
 
 			body#mainbody:not(.bodytakepos):not(.bodylogin) #tmenu_tooltip::-webkit-scrollbar {
@@ -8461,7 +8461,7 @@ body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right :is(
 			}
 
 			body#mainbody.formora-tmenu-is-scrollable:not(.bodytakepos):not(.bodylogin) #id-top::after {
-				right: 116px;
+				right: 0;
 				-webkit-mask-image: linear-gradient(270deg, #000 0%, rgba(0, 0, 0, 0.72) 42%, transparent 100%);
 				mask-image: linear-gradient(270deg, #000 0%, rgba(0, 0, 0, 0.72) 42%, transparent 100%);
 			}
@@ -8572,83 +8572,171 @@ body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right :is(
 				display: none !important;
 			}
 
-			body#mainbody:not(.bodytakepos):not(.bodylogin) .login_block.usedropdown {
-				background: var(--formora-surface) !important;
-				border-left: 1px solid var(--formora-line-soft) !important;
-				box-sizing: border-box !important;
-				height: 60px !important;
-				left: auto !important;
-				max-width: 116px !important;
-				min-width: 0 !important;
-				padding-left: 4px !important;
-				position: absolute !important;
-				right: 0 !important;
-				top: 0 !important;
-				width: auto !important;
-				z-index: 30 !important;
-			}
-
-			body#mainbody:not(.bodytakepos):not(.bodylogin) .login_block.usedropdown .login_block_other {
+			body#mainbody.sidebar-collapse:not(.bodytakepos):not(.bodylogin) .login_block.usedropdown {
 				display: none !important;
 			}
 
-			body#mainbody:not(.bodytakepos):not(.bodylogin) .login_block.usedropdown > :is(.login_block_tools, .login_block_user) {
+			body#mainbody:not(.sidebar-collapse):not(.bodytakepos):not(.bodylogin) .login_block.usedropdown {
+				align-items: center !important;
+				background: var(--formora-surface-alt) !important;
+				border-bottom: 1px solid var(--formora-line-soft) !important;
+				border-left: 0 !important;
+				border-right: 1px solid var(--formora-line-soft) !important;
+				box-sizing: border-box !important;
+				display: flex !important;
+				gap: 14px !important;
+				height: 76px !important;
+				justify-content: center !important;
+				left: 0 !important;
+				max-width: <?php echo $leftmenuwidth + 20; ?>px !important;
+				min-width: <?php echo $leftmenuwidth + 20; ?>px !important;
+				overflow: visible !important;
+				padding: 10px 12px !important;
+				position: absolute !important;
+				right: auto !important;
+				text-align: center !important;
+				top: 60px !important;
+				width: <?php echo $leftmenuwidth + 20; ?>px !important;
+				z-index: 205 !important;
+			}
+
+			body#mainbody:not(.sidebar-collapse):not(.bodytakepos):not(.bodylogin) .side-nav {
+				padding-top: 84px !important;
+			}
+
+			body#mainbody:not(.sidebar-collapse):not(.bodytakepos):not(.bodylogin) .login_block.usedropdown > :is(.login_block_tools, .login_block_user, .login_block_other) {
+				align-items: center !important;
+				clear: none !important;
+				display: flex !important;
+				flex: 0 0 auto !important;
+				height: 44px !important;
+				line-height: unset !important;
+				margin: 0 !important;
+				min-width: 0 !important;
+				width: auto !important;
+			}
+
+			body#mainbody:not(.sidebar-collapse):not(.bodytakepos):not(.bodylogin) .login_block.usedropdown .login_block_tools > .inline-block.nowrap,
+			body#mainbody:not(.sidebar-collapse):not(.bodytakepos):not(.bodylogin) .login_block.usedropdown .login_block_other > .inline-block {
 				align-items: center !important;
 				display: flex !important;
-				height: 60px !important;
+				gap: 14px !important;
+				height: 44px !important;
+				line-height: unset !important;
 				min-width: 0 !important;
 			}
 
-			body#mainbody:not(.bodytakepos):not(.bodylogin) .login_block.usedropdown #topmenu-quickadd-dropdown,
-			body#mainbody:not(.bodytakepos):not(.bodylogin) .login_block.usedropdown #topmenu-quickadd-dropdown > a.dropdown-toggle,
-			body#mainbody:not(.bodytakepos):not(.bodylogin) .login_block.usedropdown #topmenu-login-dropdown > a.dropdown-toggle {
-				height: 60px !important;
-				min-width: 38px !important;
+			body#mainbody:not(.sidebar-collapse):not(.bodytakepos):not(.bodylogin) .login_block.usedropdown .login_block_user {
+				min-width: 0 !important;
+				width: auto !important;
 			}
 
-			body#mainbody:not(.bodytakepos):not(.bodylogin) .login_block.usedropdown :is(.atoploginusername, .login_block_elem_name .hidden-xs) {
+			body#mainbody:not(.sidebar-collapse):not(.bodytakepos):not(.bodylogin) .login_block.usedropdown div.login_block_other {
+				margin-right: unset !important;
+			}
+
+			body#mainbody:not(.sidebar-collapse):not(.bodytakepos):not(.bodylogin) .login_block.usedropdown .login_block_other .login_block_elem:has(.aversion) {
 				display: none !important;
 			}
 
-			body#mainbody:not(.bodytakepos):not(.bodylogin) .login_block.usedropdown .login_block_elem_name,
-			body#mainbody:not(.bodytakepos):not(.bodylogin) .login_block.usedropdown #topmenu-login-dropdown {
+			body#mainbody:not(.sidebar-collapse):not(.bodytakepos):not(.bodylogin) .login_block.usedropdown :is(#topmenu-global-search-dropdown, #topmenu-quickadd-dropdown, #topmenu-uploadfile-dropdown, #topmenu-bookmark-dropdown),
+			body#mainbody:not(.sidebar-collapse):not(.bodytakepos):not(.bodylogin) .login_block.usedropdown :is(#topmenu-global-search-dropdown, #topmenu-quickadd-dropdown, #topmenu-uploadfile-dropdown, #topmenu-bookmark-dropdown) > a.dropdown-toggle {
+				align-items: center !important;
+				display: flex !important;
+				height: 44px !important;
+				justify-content: center !important;
+				line-height: normal !important;
+				min-width: 0 !important;
+				padding: 0 !important;
+				width: 28px !important;
+			}
+
+			body#mainbody:not(.sidebar-collapse):not(.bodytakepos):not(.bodylogin) .login_block.usedropdown #topmenu-login-dropdown {
+				align-items: center !important;
+				display: flex !important;
+				flex: 0 0 auto !important;
+				height: 44px !important;
+				justify-content: center !important;
+				margin-right: 0 !important;
+				min-width: 0 !important;
+				padding: 0 !important;
+				position: relative !important;
+				width: auto !important;
+			}
+
+			body#mainbody:not(.sidebar-collapse):not(.bodytakepos):not(.bodylogin) .login_block.usedropdown #topmenu-login-dropdown > a.dropdown-toggle {
+				align-items: center !important;
+				background: transparent !important;
+				border: 0 !important;
+				border-radius: 0 !important;
+				box-sizing: border-box !important;
+				display: flex !important;
+				height: 44px !important;
+				justify-content: center !important;
+				line-height: normal !important;
+				min-width: 0 !important;
+				overflow: visible !important;
+				padding: 0 !important;
+				position: relative !important;
+				width: auto !important;
+			}
+
+			body#mainbody:not(.sidebar-collapse):not(.bodytakepos):not(.bodylogin) .login_block.usedropdown .login_block_elem {
+				align-items: center !important;
+				display: flex !important;
+				height: 44px !important;
+				justify-content: center !important;
+				padding: 0 !important;
+				width: 28px !important;
+			}
+
+			body#mainbody:not(.sidebar-collapse):not(.bodytakepos):not(.bodylogin) .login_block.usedropdown :is(.atoploginusername, .login_block_elem_name .hidden-xs) {
+				display: none !important;
+			}
+
+			body#mainbody:not(.sidebar-collapse):not(.bodytakepos):not(.bodylogin) .login_block.usedropdown .login_block_elem_name {
 				min-width: 0 !important;
 				padding-left: 0 !important;
 				padding-right: 0 !important;
+				width: auto !important;
 			}
 
-			body#mainbody:not(.bodytakepos):not(.bodylogin) :is(#topmenu-quickadd-dropdown, #topmenu-login-dropdown) > .dropdown-menu {
+			body#mainbody:not(.sidebar-collapse):not(.bodytakepos):not(.bodylogin) .login_block.usedropdown #topmenu-login-dropdown {
+				min-width: 0 !important;
+				width: auto !important;
+			}
+
+			body#mainbody:not(.sidebar-collapse):not(.bodytakepos):not(.bodylogin) .login_block.usedropdown :is(#topmenu-global-search-dropdown, #topmenu-quickadd-dropdown, #topmenu-uploadfile-dropdown, #topmenu-bookmark-dropdown, #topmenu-login-dropdown) > .dropdown-menu {
+				border-bottom: 1px solid var(--formora-line) !important;
 				bottom: auto !important;
-				left: auto !important;
-				max-height: calc(100vh - 72px) !important;
+				left: 6px !important;
+				max-height: calc(100vh - 132px) !important;
 				max-width: calc(100vw - 12px) !important;
 				overflow-x: hidden !important;
 				overflow-y: auto !important;
 				position: fixed !important;
-				right: 6px !important;
-				top: 60px !important;
+				right: auto !important;
+				top: 124px !important;
 				width: min(285px, calc(100vw - 12px)) !important;
+			}
+
+			body#mainbody:not(.sidebar-collapse):not(.bodytakepos):not(.bodylogin) .login_block.usedropdown #topmenu-global-search-dropdown > .dropdown-menu {
+				width: min(520px, calc(100vw - 12px)) !important;
 			}
 
 			body#mainbody:not(.bodytakepos):not(.bodylogin) .login_block_user .dropdown-menu .user-header {
 				align-items: center !important;
 				display: grid !important;
 				gap: 10px !important;
-				grid-template-columns: 48px minmax(0, 1fr) !important;
-				min-height: 82px !important;
+				grid-template-columns: 90px minmax(0, 1fr) !important;
+				min-height: 114px !important;
 				padding: 12px !important;
 				text-align: left !important;
 			}
 
 			body#mainbody:not(.bodytakepos):not(.bodylogin) .login_block_user .dropdown-menu .user-header > .dropdown-user-image {
-				border-radius: 50% !important;
-				box-sizing: border-box !important;
-				display: block !important;
 				grid-column: 1 !important;
-				height: 48px !important;
 				margin: 0 !important;
-				object-fit: cover !important;
-				width: 48px !important;
 			}
 
 			body#mainbody:not(.bodytakepos):not(.bodylogin) .login_block_user .dropdown-menu .user-header > p {
@@ -8665,10 +8753,15 @@ body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right :is(
 
 			body#mainbody:not(.bodytakepos):not(.bodylogin) .side-nav {
 				box-sizing: border-box !important;
+				height: auto !important;
+				max-height: calc(100vh - 60px - var(--formora-mobile-side-bottom-gap)) !important;
+				min-height: 0 !important;
 				width: <?php echo $leftmenuwidth + 20; ?>px !important;
-				min-height: calc(100vh - 60px) !important;
+				overflow-x: hidden !important;
+				overflow-y: auto !important;
+				overscroll-behavior: contain;
 				padding: 8px 0 0 !important;
-				border-bottom: 0 !important;
+				border-bottom: 1px solid var(--formora-line-soft) !important;
 			}
 
 			body#mainbody:not(.bodytakepos):not(.bodylogin) .side-nav #id-left {
@@ -8966,15 +9059,40 @@ body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right :is(
 			}
 
 			body#mainbody:not(.sidebar-collapse):not(.bodytakepos):not(.bodylogin) #id-container > .side-nav {
+				border-bottom: 1px solid var(--formora-line-soft) !important;
 				display: block !important;
 				float: none !important;
+				height: auto !important;
 				<?php print $left; ?>: 0 !important;
+				max-height: calc(100vh - 60px - var(--formora-mobile-side-bottom-gap)) !important;
 				max-width: <?php echo $leftmenuwidth + 20; ?>px !important;
+				min-height: 0 !important;
 				min-width: <?php echo $leftmenuwidth + 20; ?>px !important;
+				overflow-x: hidden !important;
+				overflow-y: auto !important;
+				overscroll-behavior: contain;
 				position: absolute !important;
 				top: 0 !important;
 				width: <?php echo $leftmenuwidth + 20; ?>px !important;
 				z-index: 200 !important;
+			}
+
+			@supports (height: 100svh) {
+				body#mainbody:not(.bodytakepos):not(.bodylogin) .side-nav,
+				body#mainbody:not(.sidebar-collapse):not(.bodytakepos):not(.bodylogin) #id-container > .side-nav {
+					max-height: calc(100svh - 60px - var(--formora-mobile-side-bottom-gap)) !important;
+				}
+			}
+
+			@supports (height: 100dvh) {
+				body#mainbody:not(.bodytakepos):not(.bodylogin) #id-container {
+					min-height: calc(100dvh - 60px) !important;
+				}
+
+				body#mainbody:not(.bodytakepos):not(.bodylogin) .side-nav,
+				body#mainbody:not(.sidebar-collapse):not(.bodytakepos):not(.bodylogin) #id-container > .side-nav {
+					max-height: calc(100dvh - 60px - var(--formora-mobile-side-bottom-gap)) !important;
+				}
 			}
 
 			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right,
@@ -9205,6 +9323,16 @@ body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right :is(
 			text-decoration-color: transparent !important;
 			text-decoration-line: none !important;
 			text-decoration-thickness: 0 !important;
+		}
+
+		body#mainbody .login_block.usedropdown :is(.userimg.atoplogin img.userphoto, .userimgatoplogin img.userphoto, .userimg.atoplogin span.userphoto, .userimgatoplogin span.userphoto, #topmenu-login-dropdown img.userphoto, #topmenu-login-dropdown img.photouserphoto) {
+			border: 1px solid var(--formora-avatar-ring) !important;
+			border-radius: 50% !important;
+			box-sizing: border-box !important;
+		}
+
+		:is(body#mainbody, body.bodytakepos) .login_block_user .dropdown-user-image {
+			border-color: var(--formora-avatar-ring) !important;
 		}
 
 	<?php
