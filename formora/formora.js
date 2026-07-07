@@ -79,11 +79,25 @@
 			return;
 		}
 
+		// Chart.js's own scriptable-options resolver can throw (recursively,
+		// "Maximum call stack size exceeded") if a chart is still mid-way
+		// through its own initial-render animation when we touch its options;
+		// isolating each chart keeps one bad instance from aborting the rest,
+		// and a later retry (see scheduleChartTheme) picks it up once that
+		// chart's animation has settled.
+		function safeCallback(chart) {
+			try {
+				callback(chart);
+			} catch (e) {
+				// Swallow and retry on the next scheduled pass.
+			}
+		}
+
 		if (typeof window.Chart.getChart === 'function') {
 			document.querySelectorAll('canvas').forEach(function (canvas) {
 				var chart = window.Chart.getChart(canvas);
 				if (chart) {
-					callback(chart);
+					safeCallback(chart);
 				}
 			});
 			return;
@@ -93,7 +107,7 @@
 			Object.keys(window.Chart.instances).forEach(function (key) {
 				var chart = window.Chart.instances[key];
 				if (chart) {
-					callback(chart);
+					safeCallback(chart);
 				}
 			});
 		}
@@ -109,13 +123,25 @@
 			return;
 		}
 
-		if (window.Chart.defaults) {
+		if (!window.Chart.defaults) {
+			return;
+		}
+
+		// Each block below touches a separate part of Chart.js's defaults and
+		// can independently hit the same recursive resolver bug eachChart()
+		// guards against (see its comment). Isolate them so one failing
+		// assignment doesn't skip the others.
+		try {
 			if (window.Chart.defaults.elements && window.Chart.defaults.elements.arc) {
 				window.Chart.defaults.elements.arc.borderColor = colors.graphStroke;
 				window.Chart.defaults.elements.arc.hoverBorderColor = colors.graphStroke;
 				window.Chart.defaults.elements.arc.borderWidth = 2;
 			}
+		} catch (e) {
+			// Retried on the next scheduled pass.
+		}
 
+		try {
 			if (window.Chart.defaults.datasets) {
 				['doughnut', 'pie', 'polarArea'].forEach(function (type) {
 					window.Chart.defaults.datasets[type] = window.Chart.defaults.datasets[type] || {};
@@ -124,7 +150,11 @@
 					window.Chart.defaults.datasets[type].borderWidth = 2;
 				});
 			}
+		} catch (e) {
+			// Retried on the next scheduled pass.
+		}
 
+		try {
 			if ('color' in window.Chart.defaults) {
 				window.Chart.defaults.color = colors.text;
 			}
@@ -132,6 +162,8 @@
 			if (window.Chart.defaults.global) {
 				window.Chart.defaults.global.defaultFontColor = colors.text;
 			}
+		} catch (e) {
+			// Retried on the next scheduled pass.
 		}
 	}
 
@@ -184,13 +216,27 @@
 		var OriginalChart = window.Chart;
 		var PatchedChart = new Proxy(OriginalChart, {
 			construct: function (target, args) {
-				applyPieConfig(args[1], currentColors());
+				// applyPieConfig only touches the plain pre-construction config
+				// object here, so it shouldn't be able to hit Chart.js's own
+				// live-instance resolver recursion, but the actual
+				// construction must never be skipped because of a theming
+				// failure -- guard it anyway so a chart still gets created
+				// even if precoloring its config throws.
+				try {
+					applyPieConfig(args[1], currentColors());
+				} catch (e) {
+					// Retried via applyChartInstance() below / the next scheduled pass.
+				}
 				var chart = Reflect.construct(target, args);
 				applyChartInstance(chart);
 				return chart;
 			},
 			apply: function (target, thisArg, args) {
-				applyPieConfig(args[1], currentColors());
+				try {
+					applyPieConfig(args[1], currentColors());
+				} catch (e) {
+					// Retried via applyChartInstance() below / the next scheduled pass.
+				}
 				var chart = Reflect.apply(target, thisArg, args);
 				applyChartInstance(chart);
 				return chart;
@@ -213,35 +259,61 @@
 			return;
 		}
 
-		if (chart.options) {
-			chart.options.elements = chart.options.elements || {};
-			chart.options.elements.arc = chart.options.elements.arc || {};
-			var arcBorderColor = chart.options.elements.arc.borderColor;
-			promoteTransparentFills(chart.options.elements.arc.backgroundColor, arcBorderColor);
-			chart.options.elements.arc.borderColor = colors.graphStroke;
-			chart.options.elements.arc.hoverBorderColor = colors.graphStroke;
-			chart.options.elements.arc.borderWidth = 2;
+		// See the comment on the chart.update() call below: any of these
+		// property writes can hit the same Chart.js recursive-resolver bug
+		// if the chart is still animating in, so each independent chunk of
+		// work is isolated rather than letting one failure skip the rest.
+		var arcBorderColor;
+		try {
+			if (chart.options) {
+				chart.options.elements = chart.options.elements || {};
+				chart.options.elements.arc = chart.options.elements.arc || {};
+				arcBorderColor = chart.options.elements.arc.borderColor;
+				promoteTransparentFills(chart.options.elements.arc.backgroundColor, arcBorderColor);
+				chart.options.elements.arc.borderColor = colors.graphStroke;
+				chart.options.elements.arc.hoverBorderColor = colors.graphStroke;
+				chart.options.elements.arc.borderWidth = 2;
 
-			if (chart.options.plugins && chart.options.plugins.legend && chart.options.plugins.legend.labels) {
-				chart.options.plugins.legend.labels.color = colors.text;
-			}
+				if (chart.options.plugins && chart.options.plugins.legend && chart.options.plugins.legend.labels) {
+					chart.options.plugins.legend.labels.color = colors.text;
+				}
 
-			if (chart.options.legend && chart.options.legend.labels) {
-				chart.options.legend.labels.fontColor = colors.text;
+				if (chart.options.legend && chart.options.legend.labels) {
+					chart.options.legend.labels.fontColor = colors.text;
+				}
 			}
+		} catch (e) {
+			// Retried on the next scheduled pass.
 		}
 
-		if (chart.data && chart.data.datasets) {
-			chart.data.datasets.forEach(function (dataset) {
-				promoteTransparentFills(dataset.backgroundColor, dataset.borderColor || arcBorderColor);
-				dataset.borderColor = colors.graphStroke;
-				dataset.hoverBorderColor = colors.graphStroke;
-				dataset.borderWidth = 2;
-			});
+		try {
+			if (chart.data && chart.data.datasets) {
+				chart.data.datasets.forEach(function (dataset) {
+					promoteTransparentFills(dataset.backgroundColor, dataset.borderColor || arcBorderColor);
+					dataset.borderColor = colors.graphStroke;
+					dataset.hoverBorderColor = colors.graphStroke;
+					dataset.borderWidth = 2;
+				});
+			}
+		} catch (e) {
+			// Retried on the next scheduled pass.
 		}
 
 		if (typeof chart.update === 'function') {
-			chart.update();
+			try {
+				// This is the single most crash-prone line: Chart.js resolves
+				// scriptable/indexable options lazily, and forcing an update
+				// while the chart's own initial-render animation is still
+				// resolving the same option tree can recurse into "Maximum
+				// call stack size exceeded". The color values above are
+				// already written to the chart's options either way, so a
+				// caught failure here just skips this one forced repaint --
+				// Chart.js's own next real redraw (or our own retry once the
+				// animation has settled) still picks up the new colors.
+				chart.update();
+			} catch (e) {
+				// Retried on the next scheduled pass.
+			}
 		}
 	}
 
