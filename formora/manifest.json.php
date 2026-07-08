@@ -60,6 +60,10 @@ require_once __DIR__.'/../../main.inc.php';
  * @var Conf $conf
  */
 
+if (GETPOSTISSET('THEME_DARKMODEENABLED')) {
+	$conf->global->THEME_DARKMODEENABLED = GETPOSTINT('THEME_DARKMODEENABLED');
+}
+
 top_httphead('text/json');
 // Important: Following code is to avoid page request by browser and PHP CPU at each Dolibarr page access.
 if (empty($dolibarr_nocache)) {
@@ -81,14 +85,20 @@ if (getDolGlobalString('MAIN_APPLICATION_TITLE')) {
 }
 $manifest->short_name = $manifest->name;
 
+$defaultThemeColor = getDolGlobalString('THEME_ELDY_TOPMENU_BACK1', '#0969da');
+$defaultBackgroundColor = '#ffffff';
+if (getDolGlobalInt('THEME_DARKMODEENABLED') == 2) {
+	$defaultThemeColor = '#1c1c1e';
+	$defaultBackgroundColor = '#1c1c1e';
+}
 
-$manifest->theme_color = getDolGlobalString('MAIN_MANIFEST_APPLI_THEME_COLOR', getDolGlobalString('THEME_ELDY_TOPMENU_BACK1', '#0969da'));
-if (!preg_match('/#[a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9]$/', $manifest->theme_color)) {
+$manifest->theme_color = getDolGlobalString('MAIN_MANIFEST_APPLI_THEME_COLOR', $defaultThemeColor);
+if (!preg_match('/^#[a-f0-9]{6}$/i', $manifest->theme_color)) {
 	include_once DOL_DOCUMENT_ROOT.'/core/lib/functions2.lib.php';
 	$manifest->theme_color = '#'.colorArrayToHex(colorStringToArray($manifest->theme_color));
 }
-$manifest->background_color = getDolGlobalString('MAIN_MANIFEST_APPLI_BG_COLOR', "#ffffff");
-if (!preg_match('/#[a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9]$/', $manifest->background_color)) {
+$manifest->background_color = getDolGlobalString('MAIN_MANIFEST_APPLI_BG_COLOR', $defaultBackgroundColor);
+if (!preg_match('/^#[a-f0-9]{6}$/i', $manifest->background_color)) {
 	include_once DOL_DOCUMENT_ROOT.'/core/lib/functions2.lib.php';
 	$manifest->background_color = '#'.colorArrayToHex(colorStringToArray($manifest->background_color));
 }
