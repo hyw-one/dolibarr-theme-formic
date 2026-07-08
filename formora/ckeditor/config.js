@@ -202,7 +202,6 @@ CKEDITOR.on('instanceReady', function(event) {
 	if (editor.readOnly) {
 	  var editable = editor.editable();
 	  editable.attachListener(editable, 'click', function(evt) {
-	    console.log("We click on a link in CKEditor in readonly mode");
 	    var target = evt.data.getTarget();
 	    var anchor = target.getAscendant('a', true);
 	    if (anchor) {
