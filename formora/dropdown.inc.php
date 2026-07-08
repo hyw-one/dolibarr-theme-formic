@@ -310,23 +310,6 @@ a.top-menu-dropdown-link {
 	max-height: calc(90vh - 200px) ;
 }
 
-
-.dropdown-body::-webkit-scrollbar {
-		width: 8px;
-	}
-.dropdown-body::-webkit-scrollbar-thumb {
-	-webkit-border-radius: 0;
-	border-radius: 0;
-	/* background: rgb(<?php echo $colorbackhmenu1 ?>); */
-	background: #aaa;
-}
-.dropdown-body::-webkit-scrollbar-track {
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-	-webkit-border-radius: 0;
-	border-radius: 0;
-}
-
-
 #topmenu-global-search-dropdown,
 #topmenu-quickadd-dropdown,
 #topmenu-bookmark-dropdown,
