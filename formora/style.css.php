@@ -1964,7 +1964,7 @@ table.noborder tr.liste_titre {
 tr.oddeven:hover:not(.nohover),
 tr.pair:hover:not(.nohover),
 tr.impair:hover:not(.nohover) {
-	background-color: #eef6ff;
+	background-color: var(--colorbacklinepairhover) !important;
 }
 
 input:not([type="image"]):not([type="checkbox"]):not([type="radio"]),
