@@ -61,7 +61,7 @@ $colorbacklineimpair1 = '255,255,255'; // line impair
 $colorbacklineimpair2 = '255,255,255'; // line impair
 $colorbacklinepair1 = '252,252,253'; // line pair
 $colorbacklinepair2 = '252,252,253'; // line pair
-$colorbacklinepairhover = '255,255,255'; // line hover (255,255,255 = no highlight, matches the system setting's own "use ffffff to disable" convention)
+$colorbacklinepairhover = '238,246,255'; // line hover
 $colorbacklinepairchecked = '238,246,255'; // line checked
 $colorbacklinebreak = '230,232,236'; // line break
 $colortexttitlenotab = '0,113,227';
