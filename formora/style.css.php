@@ -1961,9 +1961,9 @@ table.noborder tr.liste_titre {
 	color: var(--formora-text);
 }
 
-tr.oddeven:hover,
-tr.pair:hover,
-tr.impair:hover {
+tr.oddeven:hover:not(.nohover),
+tr.pair:hover:not(.nohover),
+tr.impair:hover:not(.nohover) {
 	background-color: #eef6ff;
 }
 
@@ -3153,15 +3153,15 @@ tr.pair,
 	color: inherit;
 }
 
-tr.oddeven:hover,
-tr.pair:hover,
-tr.impair:hover,
-.oddeven:hover,
-.pair:hover,
-.impair:hover,
-.tagtr.oddeven:hover,
-.tagtr.pair:hover,
-.tagtr.impair:hover {
+tr.oddeven:hover:not(.nohover),
+tr.pair:hover:not(.nohover),
+tr.impair:hover:not(.nohover),
+.oddeven:hover:not(.nohover),
+.pair:hover:not(.nohover),
+.impair:hover:not(.nohover),
+.tagtr.oddeven:hover:not(.nohover),
+.tagtr.pair:hover:not(.nohover),
+.tagtr.impair:hover:not(.nohover) {
 	background: var(--colorbacklinepairhover) !important;
 	background-color: var(--colorbacklinepairhover) !important;
 }
@@ -5720,9 +5720,9 @@ body#mainbody :is(div.tagtable.tableforfield, div.table-border.tableforfield) > 
 		box-shadow: none !important;
 	}
 
-	body#mainbody tr.oddeven:hover td,
-	body#mainbody tr.pair:hover td,
-	body#mainbody tr.impair:hover td,
+	body#mainbody tr.oddeven:hover:not(.nohover) td,
+	body#mainbody tr.pair:hover:not(.nohover) td,
+	body#mainbody tr.impair:hover:not(.nohover) td,
 	body#mainbody tr.highlight td {
 		background: var(--colorbacklinepairhover) !important;
 	}
