@@ -556,13 +556,24 @@
 		scheduleChartTheme();
 	}
 
+	function centerActiveTopMenu() {
+		var container = document.getElementById('tmenu_tooltip');
+		var active = container && container.querySelector('li.tmenusel');
+		if (!container || !active || container.scrollWidth <= container.clientWidth) {
+			return;
+		}
+		active.scrollIntoView({ block: 'nearest', inline: 'center' });
+	}
+
 	safeApplyChartTheme();
 	applyAceTheme();
 
 	if (document.readyState === 'loading') {
 		document.addEventListener('DOMContentLoaded', scheduleThemeRefresh);
+		document.addEventListener('DOMContentLoaded', centerActiveTopMenu);
 	} else {
 		scheduleThemeRefresh();
+		centerActiveTopMenu();
 	}
 
 	window.addEventListener('load', scheduleThemeRefresh);

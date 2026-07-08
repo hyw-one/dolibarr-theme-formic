@@ -5088,7 +5088,9 @@ body#mainbody #id-top {
 	body#mainbody #id-top :is(li.tmenu, li.tmenusel) div.tmenucenter > a.tmenulabel[href] {
 		align-items: flex-end;
 		box-sizing: border-box !important;
+		<?php if (!in_array(getDolGlobalInt('THEME_TOPMENU_DISABLE_IMAGE'), array(2, 3, 4), true)) { ?>
 		display: flex !important;
+		<?php } ?>
 		justify-content: center;
 		min-height: 18px;
 		padding: 0 !important;
@@ -5153,7 +5155,9 @@ body#mainbody #id-top li.tmenusel a.tmenulabel .mainmenuaspan {
 
 	body#mainbody #id-top a.tmenuimage :is(.fa, .fas, .far, .fab)[class*="fa-"]::before,
 	body#mainbody #id-top a.tmenuimage[class*="fa-"]::before {
+		<?php if (!getDolGlobalString('THEME_MENU_COLORLOGO')) { ?>
 		color: currentColor !important;
+		<?php } ?>
 		font-size: 22px !important;
 		height: 22px !important;
 		line-height: 22px !important;
@@ -5737,7 +5741,12 @@ body#mainbody :is(div.tagtable.tableforfield, div.table-border.tableforfield) > 
 	body#mainbody .select2-container--default .select2-selection--multiple,
 	body.bodylogin input:not([type="checkbox"]):not([type="radio"]):not([type="image"]):not([type="submit"]):not([type="button"]) {
 		background: var(--inputbackgroundcolor, var(--formora-surface)) !important;
+		<?php if (getDolGlobalString('THEME_SHOW_BORDER_ON_INPUT')) { ?>
 		border: 1px solid var(--inputbordercolor, var(--formora-line)) !important;
+		<?php } else { ?>
+		border: none !important;
+		border-bottom: 1px solid var(--inputbordercolor, var(--formora-line)) !important;
+		<?php } ?>
 		border-radius: var(--formora-radius-sm) !important;
 		box-shadow: none !important;
 		color: var(--formora-text) !important;
@@ -7855,6 +7864,7 @@ body:not(#mainbody) button.calcbutton3.poscolorblue {
 				overflow-y: hidden !important;
 				padding-right: 0 !important;
 				scroll-padding-left: 48px;
+				scroll-snap-type: x proximity;
 				white-space: nowrap !important;
 				width: 100% !important;
 			}
@@ -7882,6 +7892,7 @@ body:not(#mainbody) button.calcbutton3.poscolorblue {
 
 			body#mainbody:not(.bodytakepos):not(.bodylogin) #id-top :is(li.tmenu:not(.menuhider), li.tmenusel:not(.menuhider)) {
 				display: block !important;
+				scroll-snap-align: center;
 			}
 
 body#mainbody:not(.bodytakepos):not(.bodylogin) #id-top li.menuhider {
@@ -7960,6 +7971,8 @@ body#mainbody:not(.sidebar-collapse):not(.bodytakepos):not(.bodylogin) .login_bl
 				display: flex !important;
 				gap: 14px !important;
 				height: 76px !important;
+				max-height: 76px !important;
+				min-height: 76px !important;
 				justify-content: center !important;
 				left: 0 !important;
 				max-width: <?php echo $leftmenuwidth + 20; ?>px !important;
@@ -7984,6 +7997,7 @@ body#mainbody:not(.sidebar-collapse):not(.bodytakepos):not(.bodylogin) .login_bl
 				display: flex !important;
 				flex: 0 0 auto !important;
 				height: 44px !important;
+				max-height: 44px !important;
 				line-height: unset !important;
 				margin: 0 !important;
 				min-width: 0 !important;
@@ -8014,6 +8028,8 @@ body#mainbody:not(.sidebar-collapse):not(.bodytakepos):not(.bodylogin) .login_bl
 				align-items: center !important;
 				display: flex !important;
 				height: 44px !important;
+				max-height: 44px !important;
+				min-height: 44px !important;
 				justify-content: center !important;
 				line-height: normal !important;
 				min-width: 0 !important;
@@ -8046,6 +8062,8 @@ body#mainbody:not(.sidebar-collapse):not(.bodytakepos):not(.bodylogin) .login_bl
 				box-sizing: border-box !important;
 				display: flex !important;
 				height: 44px !important;
+				max-height: 44px !important;
+				min-height: 44px !important;
 				justify-content: center !important;
 				line-height: normal !important;
 				min-width: 0 !important;
@@ -8059,6 +8077,7 @@ body#mainbody:not(.sidebar-collapse):not(.bodytakepos):not(.bodylogin) .login_bl
 				align-items: center !important;
 				display: flex !important;
 				height: 44px !important;
+				max-height: 44px !important;
 				justify-content: center !important;
 				padding: 0 !important;
 				width: 28px !important;
@@ -8627,6 +8646,18 @@ body#mainbody:not(.sidebar-collapse):not(.bodytakepos):not(.bodylogin) .login_bl
 			min-height: 0 !important;
 			padding: 0 !important;
 			width: 0 !important;
+		}
+
+		/* The menuhider toggle's own icon lives in a .topmenuimage child that never carries
+		   the .menuhider class itself, so the blanket hide rule above catches it too. Restore it. */
+		body#mainbody #id-top li.menuhider .topmenuimage {
+			display: flex !important;
+			height: auto !important;
+			line-height: normal !important;
+			margin: 0 !important;
+			min-height: 0 !important;
+			padding: 0 !important;
+			width: auto !important;
 		}
 
 		body#mainbody #id-top :is(li.tmenu, li.tmenusel) div.tmenucenter > a.tmenuimage:not(.menuhider) .topmenuimage,
