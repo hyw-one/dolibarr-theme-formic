@@ -209,7 +209,7 @@ body[class*="colorblind-"] .progress-bar-red, body[class*="colorblind-"] .progre
 	background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
 }
 .progress-bar-consumed {
-	background-color: rgb(0, 0, 0, 0.15);
+	background-color: rgba(0, 0, 0, 0.15);
 }
 .progress-bar-consumed-late {
 	background-color: <?php echo colorAgressiveness($badgeDanger, -95, +70) ?>;
