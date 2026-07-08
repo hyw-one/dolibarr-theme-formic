@@ -43,7 +43,9 @@ if (!defined('NOTOKENRENEWAL')) {
 if (!defined('NOLOGIN')) {
 	define('NOLOGIN', 1); // File must be accessed by logon page so without login.
 }
-//if (!defined('NOREQUIREMENU'))   define('NOREQUIREMENU',1);  	// We load menu manager class (note that object loaded may have wrong content because NOLOGIN is set and some values depends on login)
+if (!defined('NOREQUIREMENU')) {
+	define('NOREQUIREMENU', 1);
+}
 if (!defined('NOREQUIREHTML')) {
 	define('NOREQUIREHTML', 1);
 }
@@ -100,6 +102,18 @@ session_cache_limiter('public');
 
 require_once __DIR__.'/../../main.inc.php'; // __DIR__ allow this script to be included in custom themes
 require_once DOL_DOCUMENT_ROOT.'/core/lib/functions2.lib.php';
+require_once __DIR__.'/formora_settings.inc.php';
+
+if (empty($conf->browser) || !is_object($conf->browser)) {
+	$conf->browser = new stdClass();
+}
+if (!isset($conf->browser->layout)) {
+	$conf->browser->layout = '';
+}
+if (!isset($conf->browser->name)) {
+	$conf->browser->name = '';
+}
+
 /**
  * @var Conf $conf
  * @var DoliDB $db
@@ -139,18 +153,46 @@ require_once DOL_DOCUMENT_ROOT.'/core/lib/functions2.lib.php';
  * @var string $toolTipFontColor
  * @var string $topMenuFontSize
  */
-// Load user to have $user->conf loaded (not done into main because of NOLOGIN constant defined)
-// and permission, so we can later calculate number of top menu ($nbtopmenuentries) according to user profile.
+// Load user and menu after session initialization, so the CSS endpoint can calculate menu widths
+// without triggering Dolibarr menu state warnings on anonymous stylesheet requests.
 if (empty($user->id) && !empty($_SESSION['dol_login'])) {
 	$user->fetch(0, $_SESSION['dol_login'], '', 1);
 	$user->loadRights();
-
-	// Reload menu now we have the good user (and we need the good menu to have ->showmenu('topnb') correct.
-	// @phan-suppress-next-line PhanRedefinedClassReference
-	$menumanager = new MenuManager($db, empty($user->socid) ? 0 : 1);
-	// @phan-suppress-next-line PhanRedefinedClassReference
-	$menumanager->loadMenu();
 }
+
+if (!isset($_SESSION['leftmenuopened'])) {
+	$_SESSION['leftmenuopened'] = '';
+}
+
+if (empty($user->socid)) {
+	$conf->standard_menu = getDolGlobalString('MAIN_MENU_STANDARD_FORCED', getDolGlobalString('MAIN_MENU_STANDARD', 'eldy_menu.php'));
+} else {
+	$conf->standard_menu = getDolGlobalString('MAIN_MENUFRONT_STANDARD_FORCED', getDolGlobalString('MAIN_MENUFRONT_STANDARD', 'eldy_menu.php'));
+}
+
+$file_menu = $conf->standard_menu;
+if (GETPOST('menu', 'alpha')) {
+	$file_menu = GETPOST('menu', 'alpha');
+}
+
+if (!class_exists('MenuManager')) {
+	$dirmenus = array_merge(array('/core/menus/'), (array) $conf->modules_parts['menus']);
+	foreach ($dirmenus as $dirmenu) {
+		dol_include_once($dirmenu.'standard/'.$file_menu);
+		if (class_exists('MenuManager')) {
+			break;
+		}
+	}
+	if (!class_exists('MenuManager')) {
+		$file_menu = 'eldy_menu.php';
+		include_once DOL_DOCUMENT_ROOT.'/core/menus/standard/'.$file_menu;
+	}
+}
+
+// @phan-suppress-next-line PhanRedefinedClassReference
+$menumanager = new MenuManager($db, empty($user->socid) ? 0 : 1);
+// @phan-suppress-next-line PhanRedefinedClassReference
+$menumanager->loadMenu();
 
 
 // Define css type
@@ -200,13 +242,32 @@ $dol_hide_leftmenu = $conf->dol_hide_leftmenu;
 $dol_optimize_smallscreen = $conf->dol_optimize_smallscreen;
 $dol_no_mouse_hover = $conf->dol_no_mouse_hover;
 
-//$conf->global->THEME_ELDY_ENABLE_PERSONALIZED=0;
-//$user->conf->THEME_ELDY_ENABLE_PERSONALIZED=0;
-//var_dump($user->conf->THEME_ELDY_RGB);
-
 $useboldtitle = getDolGlobalInt('THEME_ELDY_USEBOLDTITLE');
 $userborderontable = getDolGlobalInt('THEME_ELDY_USEBORDERONTABLE');
 $borderwidth = 1;
+
+$formoraEldySettings = array(
+	'THEME_ELDY_BACKBODY',
+	'THEME_ELDY_TOPMENU_BACK1',
+	'THEME_ELDY_VERMENU_BACK1',
+	'THEME_ELDY_BACKTITLE1',
+	'THEME_ELDY_TEXTTITLENOTAB',
+	'THEME_ELDY_TEXTTITLE',
+	'THEME_ELDY_TEXTTITLELINK',
+	'THEME_ELDY_LINEIMPAIR1',
+	'THEME_ELDY_LINEIMPAIR2',
+	'THEME_ELDY_LINEPAIR1',
+	'THEME_ELDY_LINEPAIR2',
+	'THEME_ELDY_USE_HOVER',
+	'THEME_ELDY_USE_CHECKED',
+	'THEME_ELDY_TEXTLINK',
+	'THEME_ELDY_BTNACTION',
+	'THEME_ELDY_TEXTBTNACTION',
+);
+$formoraEldyCustomized = array();
+foreach ($formoraEldySettings as $formoraEldySettingName) {
+	$formoraEldyCustomized[$formoraEldySettingName] = isset($conf->global->{$formoraEldySettingName}) && getDolGlobalString($formoraEldySettingName) !== '';
+}
 
 // Case of option always editable
 if (!isset($conf->global->THEME_ELDY_BACKBODY)) {
@@ -244,41 +305,22 @@ if (!isset($conf->global->THEME_ELDY_TEXTBTNACTION)) {
 }
 // Case of option editable only if option THEME_ELDY_ENABLE_PERSONALIZED is on
 if (!getDolGlobalString('THEME_ELDY_ENABLE_PERSONALIZED')) {
-	$conf->global->THEME_ELDY_BACKTABCARD1 = '255,255,255'; // card
-	$conf->global->THEME_ELDY_BACKTABACTIVE = '234,234,234';
-	$conf->global->THEME_ELDY_TEXT = '0,0,0';
-	$conf->global->THEME_ELDY_FONT_SIZE1 = $fontsize;
-	$conf->global->THEME_ELDY_FONT_SIZE2 = '0.75em';
+	if (!isset($conf->global->THEME_ELDY_BACKTABCARD1)) {
+		$conf->global->THEME_ELDY_BACKTABCARD1 = $colorbacktabcard1;
+	}
+	if (!isset($conf->global->THEME_ELDY_BACKTABACTIVE)) {
+		$conf->global->THEME_ELDY_BACKTABACTIVE = $colorbacktabactive;
+	}
+	if (!isset($conf->global->THEME_ELDY_TEXT)) {
+		$conf->global->THEME_ELDY_TEXT = $colortext;
+	}
+	if (!isset($conf->global->THEME_ELDY_FONT_SIZE1)) {
+		$conf->global->THEME_ELDY_FONT_SIZE1 = $fontsize;
+	}
+	if (!isset($conf->global->THEME_ELDY_FONT_SIZE2)) {
+		$conf->global->THEME_ELDY_FONT_SIZE2 = '0.75em';
+	}
 }
-
-// This theme deliberately keeps Eldy's layout code but freezes the Formora color set.
-$conf->global->THEME_ELDY_ENABLE_PERSONALIZED = 0;
-if (is_object($user)) {
-	$user->conf->THEME_ELDY_ENABLE_PERSONALIZED = 0;
-}
-$conf->global->THEME_ELDY_BACKBODY = $colorbackbody;
-$conf->global->THEME_ELDY_TOPMENU_BACK1 = $colorbackhmenu1;
-$conf->global->THEME_ELDY_VERMENU_BACK1 = $colorbackvmenu1;
-$conf->global->THEME_ELDY_TOPBORDER_TITLE1 = $colortopbordertitle1;
-$conf->global->THEME_ELDY_BACKTITLE1 = $colorbacktitle1;
-$conf->global->THEME_ELDY_BACKTABCARD1 = $colorbacktabcard1;
-$conf->global->THEME_ELDY_BACKTABACTIVE = $colorbacktabactive;
-$conf->global->THEME_ELDY_LINEIMPAIR1 = $colorbacklineimpair1;
-$conf->global->THEME_ELDY_LINEIMPAIR2 = $colorbacklineimpair2;
-$conf->global->THEME_ELDY_LINEPAIR1 = $colorbacklinepair1;
-$conf->global->THEME_ELDY_LINEPAIR2 = $colorbacklinepair2;
-$conf->global->THEME_ELDY_USE_HOVER = $colorbacklinepairhover;
-$conf->global->THEME_ELDY_USE_CHECKED = $colorbacklinepairchecked;
-$conf->global->THEME_ELDY_LINEBREAK = $colorbacklinebreak;
-$conf->global->THEME_ELDY_TEXTTITLENOTAB = $colortexttitlenotab;
-$conf->global->THEME_ELDY_TEXTTITLE = $colortexttitle;
-$conf->global->THEME_ELDY_TEXTTITLELINK = $colortexttitlelink;
-$conf->global->THEME_ELDY_TEXT = $colortext;
-$conf->global->THEME_ELDY_TEXTLINK = $colortextlink;
-$conf->global->THEME_ELDY_BTNACTION = $butactionbg;
-$conf->global->THEME_ELDY_TEXTBTNACTION = $textbutaction;
-$conf->global->THEME_ELDY_FONT_SIZE1 = $fontsize;
-$conf->global->THEME_ELDY_FONT_SIZE2 = $fontsizesmaller;
 
 // Case of option availables only if THEME_ELDY_ENABLE_PERSONALIZED is on
 $colorbackbody        = empty($user->conf->THEME_ELDY_ENABLE_PERSONALIZED) ? (!getDolGlobalString('THEME_ELDY_BACKBODY') ? $colorbackbody : $conf->global->THEME_ELDY_BACKBODY) : (empty($user->conf->THEME_ELDY_BACKBODY) ? $colorbackbody : $user->conf->THEME_ELDY_BACKBODY);
@@ -451,77 +493,64 @@ print '*/'."\n";
 require __DIR__.'/global.inc.php';
 
 $formoraTableRadius = max(0, (int) $borderradius);
+$formoraLight = formora_build_light_settings(array(
+	'body' => $colorbackbody,
+	'hmenu' => $colorbackhmenu1,
+	'vmenu' => $colorbackvmenu1,
+	'title_border' => $colortopbordertitle1,
+	'title_bg' => $colorbacktitle1,
+	'tab_card' => $colorbacktabcard1,
+	'tab_active' => $colorbacktabactive,
+	'row_odd' => $colorbacklineimpair1,
+	'row_even' => $colorbacklinepair1,
+	'row_hover' => $colorbacklinepairhover,
+	'row_checked' => $colorbacklinepairchecked,
+	'line_break' => $colorbacklinebreak,
+	'title_notab' => $colortexttitlenotab,
+	'title_text' => $colortexttitle,
+	'title_link' => $colortexttitlelink,
+	'text' => $colortext,
+	'textlink' => $colortextlink,
+	'button' => $butactionbg,
+	'button_text' => $textbutaction,
+	'radius' => $formoraTableRadius,
+));
+$formoraDark = formora_build_dark_settings($formoraLight, $formoraEldyCustomized);
+$formoraLightCssVariables = formora_build_css_variables($formoraLight, array(
+	'text_back_hmenu' => '#'.$colortextbackhmenu,
+	'text_back_vmenu' => '#'.$colortextbackvmenu,
+	'text_back_tab' => '#'.$colortextbacktab,
+	'tooltip_bg' => $toolTipBgColor,
+	'tooltip_text' => $toolTipFontColor,
+));
+$formoraDarkCssVariables = formora_build_css_variables($formoraDark, array(
+	'text_back_hmenu' => $formoraDark['text'],
+	'text_back_vmenu' => $formoraDark['text'],
+	'text_back_tab' => $formoraDark['text'],
+	'tooltip_bg' => 'rgba(28, 28, 30, 0.98)',
+	'tooltip_text' => $formoraDark['text'],
+	'infobox_action' => '#c98fb4',
+	'infobox_bank' => '#d8ca53',
+	'infobox_contract' => '#55d6c4',
+	'infobox_customer' => '#9bd56b',
+	'infobox_holiday' => '#e3b85a',
+	'infobox_member' => '#d3a66c',
+	'infobox_project' => '#aaa7ee',
+	'infobox_stock' => '#d7ce5e',
+	'infobox_supplier' => '#73c7df',
+));
 
 ?>
 
 /* Formora skin layer: visual polish over Eldy's native layout. */
 :root {
-	--formora-accent: #0071e3;
-	--formora-accent-hover: #005bb5;
-	--formora-accent-soft: rgba(0, 113, 227, 0.10);
-	--formora-accent-soft-hover: rgba(0, 113, 227, 0.16);
-	--formora-line: #c9cdd3;
-	--formora-line-soft: #e6e8ec;
-	--colortopbordertitle1: var(--formora-line);
-	--formora-bg: #f5f5f7;
-	--formora-surface: #ffffff;
-	--formora-surface-alt: #eef1f5;
-	--formora-shell: var(--formora-bg);
-	--formora-workspace: var(--formora-surface);
-	--colorbackvmenu1: var(--formora-shell);
-	--colorbackmobilemenu: var(--formora-shell);
-	--formora-text: #1d1d1f;
-	--formora-muted: #6e6e73;
-	--formora-danger: #d70015;
-	--formora-danger-bg: #fff1f1;
-	--formora-danger-hover-bg: #ffe1e4;
-	--formora-toast-success-bg: #f0fbf3;
-	--formora-toast-success-border: rgba(36, 138, 61, 0.28);
-	--formora-toast-success-text: #1a7f37;
-	--formora-toast-warning-bg: #fff8e6;
-	--formora-toast-warning-border: rgba(178, 106, 0, 0.32);
-	--formora-toast-warning-text: #9a6700;
-	--formora-toast-error-bg: #fff1f1;
-	--formora-toast-error-border: rgba(215, 0, 21, 0.32);
-	--formora-toast-error-text: #d70015;
-	--formora-neutral-bg: #fbfbfd;
-	--formora-neutral-hover-bg: #f2f2f4;
-	--formora-refused-bg: #f5f5f7;
-	--formora-focus-ring: rgba(0, 113, 227, 0.18);
-	--formora-focus-outline: #005bb5;
-	--formora-status-success-bg: #248a3d;
-	--formora-status-success-border: rgba(36, 138, 61, 0.16);
-	--formora-status-success-text: #ffffff;
-	--formora-icon-default: #5f6368;
-	--formora-icon-muted: #86868b;
-	--formora-icon-accent: #0071e3;
-	--formora-avatar-ring: rgba(31, 35, 40, 0.56);
-	--formora-icon-date: #57606a;
-	--formora-icon-danger: #d70015;
-	--formora-icon-warning: #b26a00;
-	--formora-icon-success: #248a3d;
-	--formora-infobox-action: #906080;
-	--formora-infobox-bank: #7a6d10;
-	--formora-infobox-contract: #238b7f;
-	--formora-infobox-customer: #65953d;
-	--formora-infobox-holiday: #755114;
-	--formora-infobox-member: #79633f;
-	--formora-infobox-project: #6c6aa8;
-	--formora-infobox-stock: #b0a53e;
-	--formora-infobox-supplier: #599caf;
-	--formora-radius-sm: 6px;
-	--formora-radius: 8px;
-	--formora-radius-lg: 12px;
-	--formora-table-radius: <?php echo $formoraTableRadius; ?>px;
-	--formora-control-height: 34px;
-	--formora-shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.05), 0 8px 24px rgba(0, 0, 0, 0.06);
-	--formora-shadow-elevated: 0 16px 42px rgba(0, 0, 0, 0.16);
-	--formora-shadow-menu: 0 10px 28px rgba(0, 0, 0, 0.14);
-	--formora-elevated: #ffffff;
-	--formora-table-header: #eef1f5;
-	--colorbacktitle1: #eef1f5;
-	--formora-switch-knob: #ffffff;
-	--infoboxmoduleenabledbgcolor: transparent;
+<?php
+foreach ($formoraLightCssVariables as $formoraCssName => $formoraCssValue) {
+	print "\t".$formoraCssName.': '.$formoraCssValue.";\n";
+}
+?>
+	--formora-topbar-height: <?php print $disableimages ? 28 : $heightmenu; ?>px;
+	--formora-topbar-control-height: <?php print $disableimages ? '24px' : 'calc(var(--formora-topbar-height) - 6px)'; ?>;
 	--formora-symbol-search: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M8.7 14.2a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11Zm4-1.5 4.1 4.1' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
 	--formora-symbol-refresh: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M16.2 7.2A6.4 6.4 0 0 0 4.1 5.4M3.6 3.1v3.9h3.9M3.8 12.8a6.4 6.4 0 0 0 12.1 1.8m.5 2.3v-3.9h-3.9' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
 	--formora-symbol-list: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5.5 5.2h11M5.5 10h11M5.5 14.8h11M2.8 5.2h.1M2.8 10h.1M2.8 14.8h.1' fill='none' stroke='black' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
@@ -601,11 +630,6 @@ $formoraTableRadius = max(0, (int) $borderradius);
 	--formora-symbol-bug: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M6.7 8.1h6.6v5.1a3.3 3.3 0 0 1-6.6 0V8.1Zm1.6 0V6.3a1.7 1.7 0 0 1 3.4 0v1.8M4 10h2.7M13.3 10H16M4.8 5.5l2.4 2M12.8 7.5l2.4-2M4.8 15l2.2-1.4M13 13.6l2.2 1.4' fill='none' stroke='black' stroke-width='1.65' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
 	--formora-symbol-vial: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M8 3.8h4M10 4v5.6l4.4 5.6a1.2 1.2 0 0 1-1 2H6.6a1.2 1.2 0 0 1-1-2L10 9.6M7.3 13.2h5.4' fill='none' stroke='black' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
 	--formora-symbol-archive: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M4 5h12v3H4V5Zm1.2 3v8h9.6V8M8.2 11h3.6' fill='none' stroke='black' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-	--inputbordercolor: rgba(201, 205, 211, 0.96);
-	--colorbackbody: var(--formora-workspace);
-	--colorboxstatsborder: #c9cdd3;
-	--colorboxiconbg: #f5f5f7;
-	--fieldrequiredcolor: #d70015;
 }
 
 body {
@@ -618,7 +642,7 @@ body {
 .bodylogin .butActionLogin:visited,
 .bodylogin .butActionLogin:hover,
 .bodylogin .butActionLogin:active {
-	color: var(--formora-text) !important;
+	color: var(--textbutaction) !important;
 }
 
 a:link,
@@ -656,6 +680,70 @@ body#mainbody .login_block.usedropdown #topmenu-login-dropdown.show > a.dropdown
 	text-decoration-color: transparent !important;
 	text-decoration-line: none !important;
 	text-decoration-thickness: 0 !important;
+}
+
+body#mainbody :is(.login_block, .inline-block.login_block, .login_block.usedropdown, .login_block_tools, .login_block_other, .login_block_user, .login_block_elem, #topmenu-login-dropdown, #topmenu-quickadd-dropdown, #topmenu-global-search-dropdown, #topmenu-bookmark-dropdown, #topmenu-uploadfile-dropdown),
+body#mainbody :is(.login_block, .inline-block.login_block, .login_block.usedropdown, .login_block_tools, .login_block_other, .login_block_user, .login_block_elem, #topmenu-login-dropdown, #topmenu-quickadd-dropdown, #topmenu-global-search-dropdown, #topmenu-bookmark-dropdown, #topmenu-uploadfile-dropdown) > a,
+body#mainbody :is(.login_block, .inline-block.login_block, .login_block.usedropdown, .login_block_tools, .login_block_other, .login_block_user, .login_block_elem, #topmenu-login-dropdown, #topmenu-quickadd-dropdown, #topmenu-global-search-dropdown, #topmenu-bookmark-dropdown, #topmenu-uploadfile-dropdown) > a:hover,
+body#mainbody :is(.login_block, .inline-block.login_block, .login_block.usedropdown, .login_block_tools, .login_block_other, .login_block_user, .login_block_elem, #topmenu-login-dropdown, #topmenu-quickadd-dropdown, #topmenu-global-search-dropdown, #topmenu-bookmark-dropdown, #topmenu-uploadfile-dropdown) > a:focus {
+	border-bottom: 0 !important;
+	box-shadow: none !important;
+}
+
+body#mainbody :is(.login_block, .inline-block.login_block, .login_block.usedropdown, .login_block_tools, .login_block_other, .login_block_user, .login_block_elem)::before,
+body#mainbody :is(.login_block, .inline-block.login_block, .login_block.usedropdown, .login_block_tools, .login_block_other, .login_block_user, .login_block_elem)::after {
+	border-bottom: 0 !important;
+	box-shadow: none !important;
+}
+
+body#mainbody .login_block.usedropdown {
+	align-items: center !important;
+	box-sizing: border-box !important;
+	display: flex !important;
+	height: var(--formora-topbar-height) !important;
+	justify-content: flex-end !important;
+	line-height: normal !important;
+	max-height: var(--formora-topbar-height) !important;
+	min-height: var(--formora-topbar-height) !important;
+	padding-bottom: 0 !important;
+	padding-top: 0 !important;
+	top: 0 !important;
+}
+
+body#mainbody .login_block.usedropdown > :is(.login_block_tools, .login_block_other, .login_block_user) {
+	align-items: center !important;
+	box-sizing: border-box !important;
+	display: flex !important;
+	height: 100% !important;
+	line-height: normal !important;
+	max-height: var(--formora-topbar-height) !important;
+	min-height: 0 !important;
+	padding-bottom: 0 !important;
+	padding-top: 0 !important;
+}
+
+body#mainbody .login_block.usedropdown :is(.atoplogin, .login_block_elem, .login_block_other > .inline-block) {
+	align-items: center !important;
+	box-sizing: border-box !important;
+	display: inline-flex !important;
+	line-height: normal !important;
+	max-height: var(--formora-topbar-height) !important;
+	padding-bottom: 0 !important;
+	padding-top: 0 !important;
+}
+
+body#mainbody .login_block.usedropdown #topmenu-quickadd-dropdown,
+body#mainbody .login_block.usedropdown #topmenu-quickadd-dropdown > a.dropdown-toggle,
+body#mainbody .login_block.usedropdown #topmenu-login-dropdown > a.dropdown-toggle {
+	align-items: center !important;
+	box-sizing: border-box !important;
+	display: inline-flex !important;
+	height: var(--formora-topbar-height) !important;
+	line-height: normal !important;
+	max-height: var(--formora-topbar-height) !important;
+	min-height: var(--formora-topbar-height) !important;
+	padding-bottom: 0 !important;
+	padding-top: 0 !important;
 }
 
 #mainbody .imgforviewmode,
@@ -1668,13 +1756,15 @@ body#mainbody .select2-hidden-accessible {
 	height: 24px;
 	justify-content: center;
 	line-height: 24px;
-	margin-bottom: 0;
+	margin: 0 !important;
+	padding: 0 !important;
 }
 
 #id-top a.tmenuimage[class*="fa-"]::before,
 #id-top a.tmenuimage :is(.fa, .fas, .far, .fab)[class*="fa-"]::before {
 	color: inherit !important;
 	height: 20px !important;
+	margin: 0 !important;
 	vertical-align: -0.16em;
 	width: 20px !important;
 }
@@ -1695,15 +1785,30 @@ body#mainbody .select2-hidden-accessible {
 }
 
 #id-top a.tmenulabel {
-	display: inline-block;
+	align-items: center;
+	display: flex;
+	justify-content: center;
 	line-height: 18px;
-	margin-top: 2px;
+	margin: 0 !important;
+	max-width: 100%;
+	min-height: 18px;
 	transform: translateY(0);
+}
+
+#id-top a.tmenulabel .mainmenuaspan {
+	display: block;
+	line-height: 18px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 
 #id-top li.tmenu,
 #id-top li.tmenusel {
+	align-items: center;
+	display: flex;
 	margin-left: 12px;
+	min-height: var(--formora-topbar-height);
 }
 
 #mainbody td.center > a > .fa-plus-circle {
@@ -1779,12 +1884,20 @@ body#mainbody .select2-hidden-accessible {
 
 #id-top li.tmenu div.tmenucenter,
 #id-top li.tmenusel div.tmenucenter {
+	align-items: center;
 	border: 1px solid transparent;
 	border-radius: 5px;
 	box-sizing: border-box;
-	height: calc(100% - 6px);
+	display: flex;
+	flex-direction: column;
+	height: var(--formora-topbar-control-height) !important;
+	justify-content: center;
+	line-height: normal;
 	margin-bottom: 3px;
 	margin-top: 3px;
+	min-height: var(--formora-topbar-control-height);
+	padding-bottom: 0 !important;
+	padding-top: 0 !important;
 }
 
 #id-top li.tmenusel div.tmenucenter,
@@ -1804,7 +1917,7 @@ body#mainbody .select2-hidden-accessible {
 
 #id-top li.tmenusel a.tmenulabel,
 #id-top li.tmenusel a.tmenulabel .mainmenuaspan {
-	color: var(--formora-accent) !important;
+	color: var(--colortextbackhmenu) !important;
 }
 
 #id-left {
@@ -1878,42 +1991,42 @@ textarea:focus,
 #mainbody input.button:not(.buttonDelete):not(.bordertransp):not(.buttonpayment):not(:disabled),
 #mainbody button.button:not(.buttonDelete):not(.bordertransp):not(.buttonpayment):not(:disabled),
 #mainbody a.button:not(.buttonDelete):not(.bordertransp):not(.buttonpayment) {
-	background: var(--formora-accent) !important;
+	background: var(--butactionbg) !important;
 	background-image: none !important;
-	border-color: var(--formora-accent) !important;
-	color: #fff !important;
+	border-color: var(--butactionbg) !important;
+	color: var(--textbutaction) !important;
 }
 
 #mainbody .butAction:not(.butActionDelete):not(.butActionRefused):hover,
 #mainbody input.button:not(.buttonDelete):not(.bordertransp):not(.buttonpayment):not(:disabled):hover,
 #mainbody button.button:not(.buttonDelete):not(.bordertransp):not(.buttonpayment):not(:disabled):hover,
 #mainbody a.button:not(.buttonDelete):not(.bordertransp):not(.buttonpayment):hover {
-	background: var(--formora-accent-hover) !important;
+	background: var(--formora-action-hover) !important;
 	background-image: none !important;
-	border-color: var(--formora-accent-hover) !important;
+	border-color: var(--formora-action-hover) !important;
 	box-shadow: none !important;
-	color: #fff !important;
+	color: var(--textbutaction) !important;
 }
 
 #mainbody input.button.buttongen:not(:disabled),
 #mainbody button.button.buttongen:not(:disabled),
 #mainbody input.buttongen:not(:disabled),
 #mainbody button.buttongen:not(:disabled) {
-	background: var(--formora-accent) !important;
+	background: var(--butactionbg) !important;
 	background-image: none !important;
-	border: 1px solid var(--formora-accent) !important;
-	color: #fff !important;
+	border: 1px solid var(--butactionbg) !important;
+	color: var(--textbutaction) !important;
 }
 
 #mainbody input.button.buttongen:not(:disabled):hover,
 #mainbody button.button.buttongen:not(:disabled):hover,
 #mainbody input.buttongen:not(:disabled):hover,
 #mainbody button.buttongen:not(:disabled):hover {
-	background: var(--formora-accent-hover) !important;
+	background: var(--formora-action-hover) !important;
 	background-image: none !important;
-	border-color: var(--formora-accent-hover) !important;
+	border-color: var(--formora-action-hover) !important;
 	box-shadow: none !important;
-	color: #fff !important;
+	color: var(--textbutaction) !important;
 }
 
 #mainbody .butActionDelete,
@@ -2352,97 +2465,11 @@ if (getDolGlobalInt('THEME_DARKMODEENABLED')) {
 ?>
 :root {
 	color-scheme: dark;
-	--formora-accent: #0a84ff;
-	--formora-accent-hover: #64b5ff;
-	--formora-accent-soft: rgba(10, 132, 255, 0.18);
-	--formora-line: #3a3a3c;
-	--formora-line-soft: #2c2c2e;
-	--formora-bg: #0f1012;
-	--formora-surface: #1c1c1e;
-	--formora-surface-alt: #242426;
-	--formora-text: #f5f5f7;
-	--formora-muted: #a1a1a6;
-	--formora-danger: #ff6961;
-	--formora-danger-bg: #3a1f22;
-	--formora-danger-hover-bg: #4a2428;
-	--formora-toast-success-bg: #173522;
-	--formora-toast-success-border: rgba(48, 209, 88, 0.36);
-	--formora-toast-success-text: #8ff0a4;
-	--formora-toast-warning-bg: #3a2f14;
-	--formora-toast-warning-border: rgba(255, 214, 10, 0.36);
-	--formora-toast-warning-text: #ffd60a;
-	--formora-toast-error-bg: #3a1f22;
-	--formora-toast-error-border: rgba(255, 105, 97, 0.42);
-	--formora-toast-error-text: #ff8a82;
-	--formora-neutral-bg: #202124;
-	--formora-neutral-hover-bg: #2c2c2e;
-	--formora-refused-bg: #202124;
-	--formora-focus-ring: rgba(10, 132, 255, 0.32);
-	--formora-focus-outline: #78b7ff;
-	--formora-status-success-bg: rgba(48, 209, 88, 0.16);
-	--formora-status-success-border: rgba(48, 209, 88, 0.32);
-	--formora-status-success-text: #30d158;
-	--formora-icon-default: #a1a1a6;
-	--formora-icon-muted: #8e8e93;
-	--formora-icon-accent: #64b5ff;
-	--formora-avatar-ring: rgba(245, 245, 247, 0.42);
-	--formora-icon-date: #a1a1a6;
-	--formora-icon-danger: #ff6961;
-	--formora-icon-warning: #ffd60a;
-	--formora-icon-success: #30d158;
-	--formora-accent-soft-hover: rgba(10, 132, 255, 0.28);
-	--formora-infobox-action: #c98fb4;
-	--formora-infobox-bank: #d8ca53;
-	--formora-infobox-contract: #55d6c4;
-	--formora-infobox-customer: #9bd56b;
-	--formora-infobox-holiday: #e3b85a;
-	--formora-infobox-member: #d3a66c;
-	--formora-infobox-project: #aaa7ee;
-	--formora-infobox-stock: #d7ce5e;
-	--formora-infobox-supplier: #73c7df;
-	--formora-switch-knob: #1c1f22;
-	--formora-shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.35), 0 8px 24px rgba(0, 0, 0, 0.28);
-	--formora-shadow-elevated: 0 18px 48px rgba(0, 0, 0, 0.48);
-	--formora-shadow-menu: 0 14px 34px rgba(0, 0, 0, 0.5);
-	--formora-elevated: #242426;
-	--formora-table-header: #242426;
-	--colorbackhmenu1: #1c1c1e;
-	--colorbackvmenu1: #151517;
-	--colorbacktitle1: #242426;
-	--colorbacktabcard1: #1c1c1e;
-	--colorbacktabactive: #242426;
-	--colorbacklineimpair1: #1c1c1e;
-	--colorbacklineimpair2: #1c1c1e;
-	--colorbacklinepair1: #1c1c1e;
-	--colorbacklinepair2: #202124;
-	--colorbacklinepairhover: #2b3340;
-	--colorbacklinepairchecked: #15395f;
-	--colorbacklinebreak: #2c2c2e;
-		--colorbackbody: var(--formora-workspace);
-		--colorbackmobilemenu: #151517;
-		--colorbackgrey: #202124;
-		--infoboxmoduleenabledbgcolor: transparent;
-		--colortexttitlenotab: #f5f5f7;
-		--colortexttitlenotab2: #f5f5f7;
-		--colortexttitle: rgba(245, 245, 247, 0.96);
-	--colortexttitlelink: rgba(10, 132, 255, 0.96);
-	--colortext: #f5f5f7;
-	--colortextlink: #0a84ff;
-	--colortextbackhmenu: #f5f5f7;
-	--colortextbackvmenu: #f5f5f7;
-	--colortopbordertitle1: #3a3a3c;
-	--inputbackgroundcolor: #202124;
-	--inputbackgroundcolordisabled: #151517;
-	--inputcolordisabled: #77777d;
-	--inputbordercolor: #3a3a3c;
-	--tooltipbgcolor: rgba(28, 28, 30, 0.98);
-	--tooltipfontcolor: #f5f5f7;
-	--oddevencolor: #f5f5f7;
-	--colorboxstatsborder: #3a3a3c;
-	--colorboxiconbg: #202124;
-	--fieldrequiredcolor: #ff6961;
-	--refidnocolor: #f5f5f7;
-	--tableforfieldcolor: #a1a1a6;
+<?php
+foreach ($formoraDarkCssVariables as $formoraCssName => $formoraCssValue) {
+	print "\t".$formoraCssName.': '.$formoraCssValue.";\n";
+}
+?>
 }
 
 html,
@@ -2589,14 +2616,14 @@ hr,
 #id-top,
 .login_block,
 .inline-block.login_block {
-	background: var(--formora-surface) !important;
+	background: var(--colorbackhmenu1) !important;
 	border-color: var(--formora-line-soft) !important;
-	color: var(--formora-text) !important;
+	color: var(--colortextbackhmenu) !important;
 }
 
 .tmenu,
 .tmenuimage {
-	background: var(--formora-surface) !important;
+	background: var(--colorbackhmenu1) !important;
 	border-color: var(--formora-line-soft) !important;
 }
 
@@ -2612,7 +2639,7 @@ hr,
 body#mainbody .login_block.usedropdown {
 	align-items: center !important;
 	display: flex !important;
-	height: 60px !important;
+	height: var(--formora-topbar-height) !important;
 	justify-content: flex-end !important;
 	line-height: normal !important;
 	top: 0 !important;
@@ -2635,14 +2662,14 @@ body#mainbody .login_block.usedropdown #topmenu-quickadd-dropdown,
 body#mainbody .login_block.usedropdown #topmenu-quickadd-dropdown > a.dropdown-toggle {
 	align-items: center !important;
 	display: inline-flex !important;
-	height: 60px !important;
+	height: var(--formora-topbar-height) !important;
 	line-height: normal !important;
 }
 
 body#mainbody .login_block.usedropdown #topmenu-login-dropdown > a.dropdown-toggle {
 	align-items: center !important;
 	display: inline-flex !important;
-	height: 60px !important;
+	height: var(--formora-topbar-height) !important;
 	line-height: normal !important;
 }
 
@@ -2662,7 +2689,7 @@ body#mainbody .login_block.usedropdown :is(.userimg.atoplogin span.userphoto, .u
 #id-top a.tmenulabel .mainmenuaspan,
 .login_block,
 .login_block > a {
-	color: var(--formora-text) !important;
+	color: var(--colortextbackhmenu) !important;
 }
 
 #id-top li.tmenu div.tmenucenter,
@@ -2692,7 +2719,7 @@ body#mainbody .login_block.usedropdown :is(.userimg.atoplogin span.userphoto, .u
 #id-top li.tmenusel a.tmenulabel .mainmenuaspan,
 #id-top li.tmenu:not(.nohover):hover a.tmenulabel,
 #id-top li.tmenu:not(.nohover):hover a.tmenulabel .mainmenuaspan {
-	color: var(--formora-accent-hover) !important;
+	color: var(--colortextbackhmenu) !important;
 }
 
 #id-left,
@@ -2993,7 +3020,10 @@ div.tabsElem a.tabunactive::before {
 .titre,
 .titre.inline-block,
 .table-fiche-title .titre,
-.table-fiche-title .col-title,
+.table-fiche-title .col-title {
+	color: var(--colortexttitlenotab) !important;
+}
+
 .refid,
 .refidno,
 .refidno a,
@@ -3069,9 +3099,9 @@ table.liste tr.liste_titre,
 div.liste_titre,
 div.liste_titre_bydiv,
 table.dataTable thead tr {
-	background: var(--formora-surface-alt) !important;
+	background: var(--colorbacktitle1) !important;
 	border-color: var(--formora-line) !important;
-	color: var(--formora-text) !important;
+	color: var(--colortexttitle) !important;
 }
 
 .liste_titre a,
@@ -3079,7 +3109,7 @@ table.dataTable thead tr {
 .liste_titre th a,
 tr.liste_titre th a,
 tr.liste_titre td a {
-	color: var(--formora-accent-hover) !important;
+	color: var(--colortexttitlelink) !important;
 }
 
 div.liste_titre_bydiv,
@@ -3088,20 +3118,39 @@ div.liste_titre_bydiv_nothingafter {
 }
 
 tr.oddeven,
-tr.pair,
 tr.impair,
 .oddeven,
-.pair,
 .impair,
 .tagtr.oddeven,
-.tagtr.pair,
 .tagtr.impair,
 .noborder > tbody > tr:nth-child(even):not(.liste_titre):not(.nooddeven):not(.liste_total),
-.liste > tbody > tr:nth-child(even):not(.liste_titre):not(.nooddeven):not(.liste_total),
+.liste > tbody > tr:nth-child(even):not(.liste_titre):not(.nooddeven):not(.liste_total) {
+	background: var(--colorbacklineimpair2) !important;
+	background-color: var(--colorbacklineimpair2) !important;
+	color: var(--oddevencolor) !important;
+}
+
+tr.pair,
+.pair,
+.tagtr.pair,
 .noborder > tbody > tr:nth-child(odd):not(.liste_titre):not(.nooddeven):not(.liste_total),
 .liste > tbody > tr:nth-child(odd):not(.liste_titre):not(.nooddeven):not(.liste_total) {
-	background: var(--formora-surface) !important;
-	color: var(--formora-text) !important;
+	background: var(--colorbacklinepair2) !important;
+	background-color: var(--colorbacklinepair2) !important;
+	color: var(--oddevencolor) !important;
+}
+
+#mainbody tr.oddeven > td:not(.liste_titre),
+#mainbody tr.pair > td:not(.liste_titre),
+#mainbody tr.impair > td:not(.liste_titre),
+#mainbody .tagtr.oddeven > .tagtd:not(.liste_titre),
+#mainbody .tagtr.pair > .tagtd:not(.liste_titre),
+#mainbody .tagtr.impair > .tagtd:not(.liste_titre),
+#mainbody .noborder > tbody > tr:not(.liste_titre):not(.nooddeven):not(.liste_total) > td:not(.liste_titre),
+#mainbody .liste > tbody > tr:not(.liste_titre):not(.nooddeven):not(.liste_total) > td:not(.liste_titre) {
+	background: inherit !important;
+	background-color: inherit !important;
+	color: inherit;
 }
 
 tr.oddeven:hover,
@@ -3113,7 +3162,8 @@ tr.impair:hover,
 .tagtr.oddeven:hover,
 .tagtr.pair:hover,
 .tagtr.impair:hover {
-	background: var(--formora-neutral-hover-bg) !important;
+	background: var(--colorbacklinepairhover) !important;
+	background-color: var(--colorbacklinepairhover) !important;
 }
 
 td,
@@ -3894,9 +3944,9 @@ body#mainbody .cke_dialog_close_button:focus {
 #mainbody button.button.buttongen:not(:disabled),
 #mainbody input.buttongen:not(:disabled),
 #mainbody button.buttongen:not(:disabled) {
-	background: var(--formora-accent-soft) !important;
-	border-color: rgba(78, 163, 255, 0.4) !important;
-	color: var(--formora-accent-hover) !important;
+	background: var(--butactionbg) !important;
+	border-color: var(--butactionbg) !important;
+	color: var(--textbutaction) !important;
 }
 
 #mainbody .butAction:not(.butActionDelete):not(.butActionRefused):hover,
@@ -3907,9 +3957,9 @@ body#mainbody .cke_dialog_close_button:focus {
 #mainbody button.button.buttongen:not(:disabled):hover,
 #mainbody input.buttongen:not(:disabled):hover,
 #mainbody button.buttongen:not(:disabled):hover {
-	background: rgba(78, 163, 255, 0.24) !important;
-	border-color: rgba(78, 163, 255, 0.55) !important;
-	color: var(--formora-accent-hover) !important;
+	background: var(--formora-action-hover) !important;
+	border-color: var(--formora-action-hover) !important;
+	color: var(--textbutaction) !important;
 }
 
 #mainbody .butActionDelete,
@@ -4995,11 +5045,11 @@ table.jPicker {
 		color: var(--formora-text) !important;
 	}
 
-	body#mainbody #id-top {
-		background: var(--formora-surface) !important;
-		border-bottom: 1px solid var(--formora-line-soft) !important;
-		box-shadow: 0 1px 0 rgba(0, 0, 0, 0.02) !important;
-	}
+body#mainbody #id-top {
+	background: var(--colorbackhmenu1) !important;
+	border-bottom: 1px solid var(--formora-line-soft) !important;
+	box-shadow: 0 1px 0 rgba(0, 0, 0, 0.02) !important;
+}
 
 	body#mainbody #id-top li.tmenu,
 	body#mainbody #id-top li.tmenusel {
@@ -5082,24 +5132,24 @@ table.jPicker {
 		border-color: var(--formora-line-soft) !important;
 	}
 
-	body#mainbody #id-top a.tmenuimage,
-	body#mainbody #id-top a.tmenulabel,
-	body#mainbody #id-top a.tmenulabel .mainmenuaspan {
-		color: var(--formora-muted) !important;
-		max-width: none !important;
-		overflow: visible !important;
-		text-overflow: clip !important;
+body#mainbody #id-top a.tmenuimage,
+body#mainbody #id-top a.tmenulabel,
+body#mainbody #id-top a.tmenulabel .mainmenuaspan {
+	color: var(--colortextbackhmenu) !important;
+	max-width: none !important;
+	overflow: visible !important;
+	text-overflow: clip !important;
 		white-space: nowrap !important;
 		width: auto !important;
 	}
 
 	body#mainbody #id-top li.tmenu:not(.nohover):hover a.tmenuimage,
-	body#mainbody #id-top li.tmenu:not(.nohover):hover a.tmenulabel,
-	body#mainbody #id-top li.tmenusel a.tmenuimage,
-	body#mainbody #id-top li.tmenusel a.tmenulabel,
-	body#mainbody #id-top li.tmenusel a.tmenulabel .mainmenuaspan {
-		color: var(--formora-text) !important;
-	}
+body#mainbody #id-top li.tmenu:not(.nohover):hover a.tmenulabel,
+body#mainbody #id-top li.tmenusel a.tmenuimage,
+body#mainbody #id-top li.tmenusel a.tmenulabel,
+body#mainbody #id-top li.tmenusel a.tmenulabel .mainmenuaspan {
+	color: var(--colortextbackhmenu) !important;
+}
 
 	body#mainbody #id-top a.tmenuimage :is(.fa, .fas, .far, .fab)[class*="fa-"]::before,
 	body#mainbody #id-top a.tmenuimage[class*="fa-"]::before {
@@ -5307,13 +5357,13 @@ table.jPicker {
 		padding-bottom: 8px !important;
 	}
 
-	body#mainbody table.table-fiche-title .titre,
-	body#mainbody table.table-fiche-title div.titre,
-		body#mainbody .titre {
-			color: var(--formora-text) !important;
-			font-weight: 650 !important;
-			letter-spacing: 0 !important;
-		}
+body#mainbody table.table-fiche-title .titre,
+body#mainbody table.table-fiche-title div.titre,
+	body#mainbody .titre {
+		color: var(--colortexttitlenotab) !important;
+		font-weight: 650 !important;
+		letter-spacing: 0 !important;
+	}
 
 		body#mainbody:has(#ecm-layout-west) .titre:first-letter,
 		body#mainbody:has(#ecm-layout-center) .titre:first-letter,
@@ -5509,9 +5559,9 @@ body#mainbody .tabBar :is(.tagtr, .tagtd) {
 		body#mainbody .liste_titre,
 		body#mainbody .liste_titre_sel,
 	body#mainbody .liste_titre_create {
-		background: var(--formora-table-header) !important;
+		background: var(--colorbacktitle1) !important;
 		border-color: var(--formora-line-soft) !important;
-			color: var(--formora-muted) !important;
+			color: var(--colortexttitle) !important;
 			font-weight: 650 !important;
 		}
 
@@ -5522,9 +5572,9 @@ body#mainbody .tabBar :is(.tagtr, .tagtd) {
 		}
 
 		body#mainbody :is(#ecm-layout-north, #ecm-layout-west, #ecm-layout-center) :is(.liste_titre, .liste_titre_sel, tr.liste_titre, tr.liste_titre_sel, table.liste th, table.noborder th, table.border th) {
-			background: var(--formora-table-header) !important;
+			background: var(--colorbacktitle1) !important;
 			border-color: var(--formora-line-soft) !important;
-			color: var(--formora-muted) !important;
+			color: var(--colortexttitle) !important;
 			font-weight: 650 !important;
 		}
 
@@ -5552,7 +5602,7 @@ body#mainbody .tabBar :is(.tagtr, .tagtd) {
 	body#mainbody tr.pair td,
 		body#mainbody tr.impair td {
 			border-color: var(--formora-line-soft) !important;
-			color: var(--formora-text) !important;
+			color: inherit !important;
 		}
 
 		body#mainbody table.border:not(.liste) > tbody > tr > td {
@@ -5585,6 +5635,39 @@ body#mainbody .tabBar :is(.tagtr, .tagtd) {
 	body#mainbody tr.pair,
 	body#mainbody tr.impair {
 		border-color: var(--formora-line-soft) !important;
+	}
+
+	body#mainbody tr.oddeven,
+	body#mainbody tr.impair,
+	body#mainbody .tagtr.oddeven,
+	body#mainbody .tagtr.impair,
+	body#mainbody table.liste > tbody > tr:nth-child(even):not(.liste_titre):not(.nooddeven):not(.liste_total),
+	body#mainbody table.noborder > tbody > tr:nth-child(even):not(.liste_titre):not(.nooddeven):not(.liste_total) {
+		background: var(--colorbacklineimpair2) !important;
+		background-color: var(--colorbacklineimpair2) !important;
+		color: var(--oddevencolor) !important;
+	}
+
+	body#mainbody tr.pair,
+	body#mainbody .tagtr.pair,
+	body#mainbody table.liste > tbody > tr:nth-child(odd):not(.liste_titre):not(.nooddeven):not(.liste_total),
+	body#mainbody table.noborder > tbody > tr:nth-child(odd):not(.liste_titre):not(.nooddeven):not(.liste_total) {
+		background: var(--colorbacklinepair2) !important;
+		background-color: var(--colorbacklinepair2) !important;
+		color: var(--oddevencolor) !important;
+	}
+
+	body#mainbody tr.oddeven > td:not(.liste_titre),
+	body#mainbody tr.pair > td:not(.liste_titre),
+	body#mainbody tr.impair > td:not(.liste_titre),
+	body#mainbody .tagtr.oddeven > .tagtd:not(.liste_titre),
+	body#mainbody .tagtr.pair > .tagtd:not(.liste_titre),
+	body#mainbody .tagtr.impair > .tagtd:not(.liste_titre),
+	body#mainbody table.liste > tbody > tr:not(.liste_titre):not(.nooddeven):not(.liste_total) > td:not(.liste_titre),
+	body#mainbody table.noborder > tbody > tr:not(.liste_titre):not(.nooddeven):not(.liste_total) > td:not(.liste_titre) {
+		background: inherit !important;
+		background-color: inherit !important;
+		color: inherit !important;
 	}
 
 body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche :is(.div-table-responsive, .div-table-responsive-no-min):has(> :is(table.liste.noborder, table.tagtable.liste.noborder, table.noborder.centpercent:not(.noshadow):not(.nomarginbottom):not(.cal_month):not(.cal_pannel), table.noborder.allwidth:not(.noshadow):not(.nomarginbottom), .tagtable.tableforcontact)) {
@@ -5637,13 +5720,13 @@ body#mainbody :is(div.tagtable.tableforfield, div.table-border.tableforfield) > 
 	body#mainbody tr.pair:hover td,
 	body#mainbody tr.impair:hover td,
 	body#mainbody tr.highlight td {
-		background: var(--formora-neutral-hover-bg) !important;
+		background: var(--colorbacklinepairhover) !important;
 	}
 
 	body#mainbody tr.rowselected td,
 	body#mainbody tr.selected td,
 	body#mainbody tr.oddeven.selected td {
-		background: var(--formora-accent-soft, rgba(0, 113, 227, 0.12)) !important;
+		background: var(--colorbacklinepairchecked) !important;
 		border-color: var(--formora-accent) !important;
 	}
 
@@ -6040,19 +6123,19 @@ body#mainbody :is(div.tagtable.tableforfield, div.table-border.tableforfield) > 
 
 	body#mainbody .butAction:not(.butActionDelete):not(.butActionRefused),
 	body#mainbody .butAction:not(.butActionDelete):not(.butActionRefused):link,
-	body#mainbody .butAction:not(.butActionDelete):not(.butActionRefused):visited,
-	body#mainbody .button:not(.buttonDelete):not(.buttonRefused):not(.button-delete):not(.buttonpayment):not(.bordertransp):not(:disabled),
-	body#mainbody input[type="submit"]:not(.buttonDelete):not(.buttonRefused):not(.buttonpayment):not(.bordertransp):not(:disabled),
-	body#mainbody input[type="button"]:not(.buttonDelete):not(.buttonRefused):not(.buttonpayment):not(.bordertransp):not(:disabled) {
-		align-items: center !important;
-		appearance: none;
-		background: var(--formora-accent) !important;
-		background-image: none !important;
-		border: 1px solid var(--formora-accent) !important;
-		border-radius: var(--formora-radius-sm) !important;
-		box-shadow: none !important;
-		box-sizing: border-box !important;
-		color: #fff !important;
+body#mainbody .butAction:not(.butActionDelete):not(.butActionRefused):visited,
+body#mainbody .button:not(.buttonDelete):not(.buttonRefused):not(.button-delete):not(.buttonpayment):not(.bordertransp):not(:disabled),
+body#mainbody input[type="submit"]:not(.buttonDelete):not(.buttonRefused):not(.buttonpayment):not(.bordertransp):not(:disabled),
+body#mainbody input[type="button"]:not(.buttonDelete):not(.buttonRefused):not(.buttonpayment):not(.bordertransp):not(:disabled) {
+	align-items: center !important;
+	appearance: none;
+	background: var(--butactionbg) !important;
+	background-image: none !important;
+	border: 1px solid var(--butactionbg) !important;
+	border-radius: var(--formora-radius-sm) !important;
+	box-shadow: none !important;
+	box-sizing: border-box !important;
+	color: var(--textbutaction) !important;
 		display: inline-flex !important;
 		font-weight: 600 !important;
 		height: auto !important;
@@ -6064,15 +6147,15 @@ body#mainbody :is(div.tagtable.tableforfield, div.table-border.tableforfield) > 
 	}
 
 	body#mainbody .butAction:not(.butActionDelete):not(.butActionRefused):hover,
-	body#mainbody .button:not(.buttonDelete):not(.buttonRefused):not(.button-delete):not(.buttonpayment):not(.bordertransp):not(:disabled):hover,
-	body#mainbody input[type="submit"]:not(.buttonDelete):not(.buttonRefused):not(.buttonpayment):not(.bordertransp):not(:disabled):hover,
-	body#mainbody input[type="button"]:not(.buttonDelete):not(.buttonRefused):not(.buttonpayment):not(.bordertransp):not(:disabled):hover {
-		background: var(--formora-accent-hover) !important;
-		border-color: var(--formora-accent-hover) !important;
-		box-shadow: none !important;
-		color: #fff !important;
-		text-decoration: none !important;
-	}
+body#mainbody .button:not(.buttonDelete):not(.buttonRefused):not(.button-delete):not(.buttonpayment):not(.bordertransp):not(:disabled):hover,
+body#mainbody input[type="submit"]:not(.buttonDelete):not(.buttonRefused):not(.buttonpayment):not(.bordertransp):not(:disabled):hover,
+body#mainbody input[type="button"]:not(.buttonDelete):not(.buttonRefused):not(.buttonpayment):not(.bordertransp):not(:disabled):hover {
+	background: var(--formora-action-hover) !important;
+	border-color: var(--formora-action-hover) !important;
+	box-shadow: none !important;
+	color: var(--textbutaction) !important;
+	text-decoration: none !important;
+}
 
 	<?php
 	if (getDolGlobalInt('THEME_DARKMODEENABLED')) {
@@ -6085,23 +6168,23 @@ body#mainbody :is(div.tagtable.tableforfield, div.table-border.tableforfield) > 
 	?>
 	body#mainbody .butAction:not(.butActionDelete):not(.butActionRefused),
 	body#mainbody .butAction:not(.butActionDelete):not(.butActionRefused):link,
-	body#mainbody .butAction:not(.butActionDelete):not(.butActionRefused):visited,
-	body#mainbody .button:not(.buttonDelete):not(.buttonRefused):not(.button-delete):not(.buttonpayment):not(.bordertransp):not(:disabled),
-	body#mainbody input[type="submit"]:not(.buttonDelete):not(.buttonRefused):not(.buttonpayment):not(.bordertransp):not(:disabled),
-	body#mainbody input[type="button"]:not(.buttonDelete):not(.buttonRefused):not(.buttonpayment):not(.bordertransp):not(:disabled) {
-		background: var(--formora-accent-soft) !important;
-		border-color: rgba(78, 163, 255, 0.4) !important;
-		color: var(--formora-accent) !important;
-	}
+body#mainbody .butAction:not(.butActionDelete):not(.butActionRefused):visited,
+body#mainbody .button:not(.buttonDelete):not(.buttonRefused):not(.button-delete):not(.buttonpayment):not(.bordertransp):not(:disabled),
+body#mainbody input[type="submit"]:not(.buttonDelete):not(.buttonRefused):not(.buttonpayment):not(.bordertransp):not(:disabled),
+body#mainbody input[type="button"]:not(.buttonDelete):not(.buttonRefused):not(.buttonpayment):not(.bordertransp):not(:disabled) {
+	background: var(--butactionbg) !important;
+	border-color: var(--butactionbg) !important;
+	color: var(--textbutaction) !important;
+}
 
 	body#mainbody .butAction:not(.butActionDelete):not(.butActionRefused):hover,
-	body#mainbody .button:not(.buttonDelete):not(.buttonRefused):not(.button-delete):not(.buttonpayment):not(.bordertransp):not(:disabled):hover,
-	body#mainbody input[type="submit"]:not(.buttonDelete):not(.buttonRefused):not(.buttonpayment):not(.bordertransp):not(:disabled):hover,
-	body#mainbody input[type="button"]:not(.buttonDelete):not(.buttonRefused):not(.buttonpayment):not(.bordertransp):not(:disabled):hover {
-		background: var(--formora-accent-soft-hover) !important;
-		border-color: var(--formora-accent) !important;
-		color: var(--formora-accent) !important;
-	}
+body#mainbody .button:not(.buttonDelete):not(.buttonRefused):not(.button-delete):not(.buttonpayment):not(.bordertransp):not(:disabled):hover,
+body#mainbody input[type="submit"]:not(.buttonDelete):not(.buttonRefused):not(.buttonpayment):not(.bordertransp):not(:disabled):hover,
+body#mainbody input[type="button"]:not(.buttonDelete):not(.buttonRefused):not(.buttonpayment):not(.bordertransp):not(:disabled):hover {
+	background: var(--formora-action-hover) !important;
+	border-color: var(--formora-action-hover) !important;
+	color: var(--textbutaction) !important;
+}
 	<?php
 		print "}\n";
 	}
@@ -6558,25 +6641,25 @@ body.bodylogin .login_table .tagtable {
 
 	body.bodylogin .butActionLogin,
 	body.bodylogin .butActionLogin:link,
-	body.bodylogin .butActionLogin:visited,
-	body.bodylogin .butActionLogin:hover,
-	body.bodylogin .butActionLogin:active {
-		background: var(--formora-surface-alt) !important;
-		border: 1px solid var(--formora-line) !important;
-		border-radius: var(--formora-radius-sm) !important;
-		box-shadow: none !important;
-		color: var(--formora-text) !important;
-		font-weight: 650 !important;
-		min-height: 44px;
-	}
+body.bodylogin .butActionLogin:visited,
+body.bodylogin .butActionLogin:hover,
+body.bodylogin .butActionLogin:active {
+	background: var(--butactionbg) !important;
+	border: 1px solid var(--butactionbg) !important;
+	border-radius: var(--formora-radius-sm) !important;
+	box-shadow: none !important;
+	color: var(--textbutaction) !important;
+	font-weight: 650 !important;
+	min-height: 44px;
+}
 
-	body.bodylogin .butActionLogin:hover,
-	body.bodylogin .butActionLogin:focus {
-		background: var(--formora-neutral-hover-bg) !important;
-		border-color: var(--formora-accent) !important;
-		box-shadow: 0 0 0 3px var(--formora-focus-ring) !important;
-		color: var(--formora-text) !important;
-	}
+body.bodylogin .butActionLogin:hover,
+body.bodylogin .butActionLogin:focus {
+	background: var(--formora-action-hover) !important;
+	border-color: var(--formora-action-hover) !important;
+	box-shadow: 0 0 0 3px var(--formora-focus-ring) !important;
+	color: var(--textbutaction) !important;
+}
 
 	body#mainbody .login_block.usedropdown {
 		align-items: center !important;
@@ -7168,28 +7251,28 @@ body.bodylogin .login_table .tagtable {
 		color: var(--formora-text) !important;
 	}
 
-	body.bodytakepos button.calcbutton2,
-	body:not(#mainbody) button.calcbutton2 {
-		background: var(--formora-accent) !important;
-		border-color: var(--formora-accent) !important;
-		color: #ffffff !important;
-	}
+body.bodytakepos button.calcbutton2,
+body:not(#mainbody) button.calcbutton2 {
+	background: var(--butactionbg) !important;
+	border-color: var(--butactionbg) !important;
+	color: var(--textbutaction) !important;
+}
 
-	body.bodytakepos button.calcbutton2.clicked,
-	body:not(#mainbody) button.calcbutton2.clicked {
-		background: var(--formora-accent-hover) !important;
-		border-color: var(--formora-accent-hover) !important;
-		color: #ffffff !important;
-	}
+body.bodytakepos button.calcbutton2.clicked,
+body:not(#mainbody) button.calcbutton2.clicked {
+	background: var(--formora-action-hover) !important;
+	border-color: var(--formora-action-hover) !important;
+	color: var(--textbutaction) !important;
+}
 
-	body.bodytakepos button.calcbutton.poscolorblue,
-	body.bodytakepos button.calcbutton3.poscolorblue,
-	body:not(#mainbody) button.calcbutton.poscolorblue,
-	body:not(#mainbody) button.calcbutton3.poscolorblue {
-		background: var(--formora-accent) !important;
-		border-color: var(--formora-accent) !important;
-		color: #ffffff !important;
-	}
+body.bodytakepos button.calcbutton.poscolorblue,
+body.bodytakepos button.calcbutton3.poscolorblue,
+body:not(#mainbody) button.calcbutton.poscolorblue,
+body:not(#mainbody) button.calcbutton3.poscolorblue {
+	background: var(--butactionbg) !important;
+	border-color: var(--butactionbg) !important;
+	color: var(--textbutaction) !important;
+}
 
 	body.bodytakepos button.calcbutton2.poscolordelete,
 	body.bodytakepos button.calcbutton3.poscolordelete,
@@ -7801,10 +7884,10 @@ body.bodylogin .login_table .tagtable {
 				display: block !important;
 			}
 
-			body#mainbody:not(.bodytakepos):not(.bodylogin) #id-top li.menuhider {
-				background: var(--formora-surface) !important;
-				box-shadow: 10px 0 14px -14px rgba(0, 0, 0, 0.5) !important;
-				left: 0 !important;
+body#mainbody:not(.bodytakepos):not(.bodylogin) #id-top li.menuhider {
+	background: var(--colorbackhmenu1) !important;
+	box-shadow: 10px 0 14px -14px rgba(0, 0, 0, 0.5) !important;
+	left: 0 !important;
 				position: sticky !important;
 				z-index: 35 !important;
 			}
@@ -7834,10 +7917,10 @@ body.bodylogin .login_table .tagtable {
 				width: auto !important;
 			}
 
-			body#mainbody:not(.bodytakepos):not(.bodylogin) #id-top li.menuhider div.tmenucenter {
-				align-items: center !important;
-				background: var(--formora-surface) !important;
-				border-right: 1px solid var(--formora-line-soft) !important;
+body#mainbody:not(.bodytakepos):not(.bodylogin) #id-top li.menuhider div.tmenucenter {
+	align-items: center !important;
+	background: var(--colorbackhmenu1) !important;
+	border-right: 1px solid var(--formora-line-soft) !important;
 				box-sizing: border-box !important;
 				flex-direction: row !important;
 				height: 60px !important;
@@ -7867,13 +7950,13 @@ body.bodylogin .login_table .tagtable {
 				display: none !important;
 			}
 
-			body#mainbody:not(.sidebar-collapse):not(.bodytakepos):not(.bodylogin) .login_block.usedropdown {
-				align-items: center !important;
-				background: var(--formora-surface-alt) !important;
-				border-bottom: 1px solid var(--formora-line-soft) !important;
-				border-left: 0 !important;
-				border-right: 1px solid var(--formora-line-soft) !important;
-				box-sizing: border-box !important;
+body#mainbody:not(.sidebar-collapse):not(.bodytakepos):not(.bodylogin) .login_block.usedropdown {
+	align-items: center !important;
+	background: var(--colorbackhmenu1) !important;
+	border-bottom: 0 !important;
+	border-left: 0 !important;
+	border-right: 1px solid var(--formora-line-soft) !important;
+	box-sizing: border-box !important;
 				display: flex !important;
 				gap: 14px !important;
 				height: 76px !important;
@@ -8524,6 +8607,162 @@ body.bodylogin .login_table .tagtable {
 			}
 		}
 
+		/* Keep Formora's top-menu layout bound to Dolibarr's native image/text mode setting. */
+		<?php $formoraTopMenuMode = getDolGlobalInt('THEME_TOPMENU_DISABLE_IMAGE'); ?>
+		<?php if ($formoraTopMenuMode === 1) { ?>
+		body#mainbody #id-top a.tmenuimage:not(.menuhider),
+		body#mainbody #id-top div.tmenuimage:not(.menuhider),
+		body#mainbody #id-top span.tmenuimage:not(.menuhider),
+		body#mainbody #id-top :is(li.tmenu, li.tmenusel) div.tmenucenter > a.tmenuimage:not(.menuhider),
+		body#mainbody #id-top :is(li.tmenu, li.tmenusel) div.tmenucenter > div.tmenuimage:not(.menuhider),
+		body#mainbody #id-top :is(li.tmenu, li.tmenusel) div.tmenucenter > span.tmenuimage:not(.menuhider),
+		body#mainbody:not(.bodytakepos):not(.bodylogin) #id-top :is(li.tmenu, li.tmenusel) div.tmenucenter > a.tmenuimage:not(.menuhider),
+		body#mainbody:not(.bodytakepos):not(.bodylogin) #id-top :is(li.tmenu, li.tmenusel) div.tmenucenter > div.tmenuimage:not(.menuhider),
+		body#mainbody:not(.bodytakepos):not(.bodylogin) #id-top :is(li.tmenu, li.tmenusel) div.tmenucenter > span.tmenuimage:not(.menuhider),
+		body#mainbody #id-top .topmenuimage:not(.menuhider) {
+			display: none !important;
+			height: 0 !important;
+			line-height: 0 !important;
+			margin: 0 !important;
+			min-height: 0 !important;
+			padding: 0 !important;
+			width: 0 !important;
+		}
+
+		body#mainbody #id-top :is(li.tmenu, li.tmenusel) div.tmenucenter > a.tmenuimage:not(.menuhider) .topmenuimage,
+		body#mainbody:not(.bodytakepos):not(.bodylogin) #id-top :is(li.tmenu, li.tmenusel) div.tmenucenter > a.tmenuimage:not(.menuhider) .topmenuimage {
+			display: none !important;
+			height: 0 !important;
+			line-height: 0 !important;
+			margin: 0 !important;
+			min-height: 0 !important;
+			padding: 0 !important;
+			width: 0 !important;
+		}
+
+		body#mainbody #id-top li.tmenu div.tmenucenter,
+		body#mainbody #id-top li.tmenusel div.tmenucenter {
+			align-items: center !important;
+			display: flex !important;
+			flex-direction: row !important;
+			height: var(--formora-topbar-control-height) !important;
+			justify-content: center !important;
+			line-height: 16px !important;
+			margin-bottom: 2px !important;
+			margin-top: 2px !important;
+			min-width: 0 !important;
+			min-height: var(--formora-topbar-control-height) !important;
+			padding: 0 10px !important;
+			width: auto !important;
+		}
+
+		body#mainbody #id-top a.tmenulabel:not(.menuhider),
+		body#mainbody #id-top a.tmenulabel:not(.menuhider) .mainmenuaspan {
+			align-items: center !important;
+			display: flex !important;
+			height: var(--formora-topbar-control-height) !important;
+			justify-content: center !important;
+			line-height: 16px !important;
+			min-height: var(--formora-topbar-control-height) !important;
+			padding: 0 !important;
+			white-space: nowrap !important;
+		}
+		<?php } ?>
+
+		<?php if (in_array($formoraTopMenuMode, array(2, 3, 4), true)) { ?>
+		body#mainbody #id-top a.tmenulabel:not(.menuhider),
+		body#mainbody #id-top a.tmenulabel:not(.menuhider) .mainmenuaspan,
+		body#mainbody #id-top :is(li.tmenu, li.tmenusel) div.tmenucenter > a.tmenulabel:not(.menuhider),
+		body#mainbody #id-top :is(li.tmenu, li.tmenusel) div.tmenucenter > a.tmenulabel:not(.menuhider) .mainmenuaspan,
+		body#mainbody:not(.bodytakepos):not(.bodylogin) #id-top :is(li.tmenu, li.tmenusel) div.tmenucenter > a.tmenulabel:not(.menuhider),
+		body#mainbody:not(.bodytakepos):not(.bodylogin) #id-top :is(li.tmenu, li.tmenusel) div.tmenucenter > a.tmenulabel:not(.menuhider) .mainmenuaspan {
+			display: none !important;
+			height: 0 !important;
+			line-height: 0 !important;
+			margin: 0 !important;
+			min-height: 0 !important;
+			padding: 0 !important;
+			width: 0 !important;
+		}
+
+		body#mainbody #id-top a.tmenuimage:not(.menuhider),
+		body#mainbody #id-top div.tmenuimage:not(.menuhider),
+		body#mainbody #id-top span.tmenuimage:not(.menuhider) {
+			align-items: center !important;
+			display: flex !important;
+			height: 100% !important;
+			justify-content: center !important;
+			line-height: 1 !important;
+			margin: 0 !important;
+			min-height: var(--formora-topbar-control-height) !important;
+			padding: 0 !important;
+		}
+
+		body#mainbody #id-top :is(a, div, span).tmenuimage:not(.menuhider)::before {
+			margin: 0 !important;
+			vertical-align: 0 !important;
+		}
+		<?php } ?>
+
+		<?php if ($formoraTopMenuMode === 2) { ?>
+		body#mainbody #id-top ul.tmenu:hover a.tmenulabel:not(.menuhider),
+		body#mainbody #id-top ul.tmenu:hover a.tmenulabel:not(.menuhider) .mainmenuaspan {
+			align-items: center !important;
+			display: flex !important;
+			justify-content: center !important;
+		}
+		<?php } ?>
+
+		<?php if ($formoraTopMenuMode === 3) { ?>
+		body#mainbody #id-top li.tmenu:hover a.tmenulabel:not(.menuhider),
+		body#mainbody #id-top li.tmenusel:hover a.tmenulabel:not(.menuhider),
+		body#mainbody #id-top li.tmenu:hover a.tmenulabel:not(.menuhider) .mainmenuaspan,
+		body#mainbody #id-top li.tmenusel:hover a.tmenulabel:not(.menuhider) .mainmenuaspan {
+			align-items: center !important;
+			display: flex !important;
+			justify-content: center !important;
+		}
+
+		body#mainbody #id-top li.tmenu:hover :is(a, div, span).tmenuimage:not(.menuhider),
+		body#mainbody #id-top li.tmenusel:hover :is(a, div, span).tmenuimage:not(.menuhider),
+		body#mainbody #id-top li.tmenu:hover :is(a, div, span).tmenuimage:not(.menuhider)::before,
+		body#mainbody #id-top li.tmenusel:hover :is(a, div, span).tmenuimage:not(.menuhider)::before {
+			margin-top: 0 !important;
+			}
+			<?php } ?>
+
+			<?php if ($formoraTopMenuMode === 4) { ?>
+			body#mainbody #id-top li.tmenu div.tmenucenter,
+			body#mainbody #id-top li.tmenusel div.tmenucenter {
+				align-items: center !important;
+				display: flex !important;
+				flex-direction: row !important;
+				height: var(--formora-topbar-control-height) !important;
+				justify-content: center !important;
+				min-height: var(--formora-topbar-control-height) !important;
+				padding-bottom: 0 !important;
+				padding-top: 0 !important;
+			}
+
+			body#mainbody #id-top a.tmenuimage:not(.menuhider),
+			body#mainbody #id-top div.tmenuimage:not(.menuhider),
+			body#mainbody #id-top span.tmenuimage:not(.menuhider),
+			body#mainbody #id-top :is(li.tmenu, li.tmenusel) div.tmenucenter > a.tmenuimage:not(.menuhider),
+			body#mainbody #id-top :is(li.tmenu, li.tmenusel) div.tmenucenter > div.tmenuimage:not(.menuhider),
+			body#mainbody #id-top :is(li.tmenu, li.tmenusel) div.tmenucenter > span.tmenuimage:not(.menuhider),
+			body#mainbody:not(.bodytakepos):not(.bodylogin) #id-top :is(li.tmenu, li.tmenusel) div.tmenucenter > a.tmenuimage:not(.menuhider),
+			body#mainbody:not(.bodytakepos):not(.bodylogin) #id-top :is(li.tmenu, li.tmenusel) div.tmenucenter > div.tmenuimage:not(.menuhider),
+			body#mainbody:not(.bodytakepos):not(.bodylogin) #id-top :is(li.tmenu, li.tmenusel) div.tmenucenter > span.tmenuimage:not(.menuhider) {
+				align-items: center !important;
+				display: flex !important;
+				height: var(--formora-topbar-control-height) !important;
+				justify-content: center !important;
+				min-height: var(--formora-topbar-control-height) !important;
+				padding: 0 !important;
+				width: auto !important;
+			}
+			<?php } ?>
+
 	body#mainbody :is(a.btnTitle, .btnTitle, .butAction, .butActionDelete, .button, .buttonDelete, button:not(:disabled), input.button:not(:disabled), input[type="button"]:not(:disabled), input[type="submit"]:not(:disabled)):focus-visible,
 	body#mainbody #id-top :is(a.tmenuimage, a.tmenulabel, .dropdown-toggle, .button-top-menu-dropdown):focus-visible,
 	body#mainbody #id-left :is(a, button, [tabindex]):focus-visible,
@@ -8676,43 +8915,42 @@ body#mainbody tr.oddeven:has(> td.tdhrthin):hover td {
 }
 
 /*
- * #id-top's border-bottom spans the full header width, but .login_block
- * (the quick-add/bookmark/tools/user icons on the right) is an absolutely
- * positioned box with its own opaque background sitting exactly over that
- * bottom edge, painting over the line for the width it covers. Give it the
- * same border so the line reads as continuous across the whole header.
- *
- * Both boxes are content-box, and #id-top is already 59px content + its
- * own 1px border = 60px total. .login_block.usedropdown has an existing
- * height:60px rule (written for a border-less box, 60px total). Adding a
- * border here without also dropping 1px off the height would make it
- * 60+1=61px total -- one pixel taller than #id-top, which is exactly what
- * made the line look like it stepped/broke instead of lining up.
+ * Let #id-top own the header divider. The login/tool block is positioned over
+ * the right side of the top bar; giving it a local bottom border creates a
+ * separate visible segment whenever the top-menu height changes.
  */
 body#mainbody .login_block.usedropdown,
 #id-top .login_block,
 #id-top .inline-block.login_block {
-	border-bottom: 1px solid var(--formora-line-soft) !important;
+	border-bottom: 0 !important;
+	box-shadow: none !important;
 }
 
 body#mainbody .login_block.usedropdown {
-	height: 59px !important;
+	box-sizing: border-box !important;
+	height: var(--formora-topbar-height) !important;
+	max-height: var(--formora-topbar-height) !important;
+	min-height: var(--formora-topbar-height) !important;
+	padding-bottom: 0 !important;
+	padding-top: 0 !important;
 }
 
 /*
- * formora already has a matching fixed-height rule for
- * #topmenu-quickadd-dropdown and #topmenu-login-dropdown (both explicitly
- * set to height:60px so their icon centers on the header), but
- * #topmenu-bookmark-dropdown (the "star") was left out, so it only took its
- * content's natural height and sat a couple pixels lower than its
- * neighbors. Give it the exact same treatment.
+ * Keep the bookmark star on the same height contract as quick-add/login.
+ * The actual value is mode-aware through --formora-topbar-height, so text-only
+ * top menus stay compact while icon/text modes keep their full-height buttons.
  */
 body#mainbody .login_block.usedropdown #topmenu-bookmark-dropdown,
 body#mainbody .login_block.usedropdown #topmenu-bookmark-dropdown > a.dropdown-toggle {
 	align-items: center !important;
+	box-sizing: border-box !important;
 	display: inline-flex !important;
-	height: 60px !important;
+	height: var(--formora-topbar-height) !important;
 	line-height: normal !important;
+	max-height: var(--formora-topbar-height) !important;
+	min-height: var(--formora-topbar-height) !important;
+	padding-bottom: 0 !important;
+	padding-top: 0 !important;
 }
 
 <?php

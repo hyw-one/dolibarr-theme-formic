@@ -45,37 +45,37 @@ if (!defined('ISLOADEDBYSTEELSHEET')) {	// File is run after an include of a php
 	}
 }
 
-$theme_bgcolor = array(hexdec('F6'), hexdec('F8'), hexdec('FA'));
-$theme_bgcoloronglet = array(hexdec('F6'), hexdec('F8'), hexdec('FA'));
+$theme_bgcolor = array(255, 255, 255);
+$theme_bgcoloronglet = array(hexdec('EE'), hexdec('F1'), hexdec('F5'));
 
 // Colors
-$colorbackbody = '246,248,250';
+$colorbackbody = '255,255,255';
 $colorbackhmenu1 = '255,255,255'; // topmenu
 //$colorbackvmenu1 = '250,250,250'; // vmenu
-$colorbackvmenu1 = '255,255,255'; // vmenu
-$colortopbordertitle1 = '208,215,222'; // top border of title
-$colorbacktitle1 = '246,248,250'; // title of tables,list
+$colorbackvmenu1 = '245,245,247'; // vmenu
+$colortopbordertitle1 = '201,205,211'; // top border of title
+$colorbacktitle1 = '238,241,245'; // title of tables,list
 $colorbacktabcard1 = '255,255,255'; // card
-$colorbacktabactive = '246,248,250';
+$colorbacktabactive = '238,241,245';
 $colorbacklineimpair1 = '255,255,255'; // line impair
 $colorbacklineimpair2 = '255,255,255'; // line impair
 $colorbacklinepair1 = '252,252,253'; // line pair
 $colorbacklinepair2 = '252,252,253'; // line pair
 $colorbacklinepairhover = '238,246,255'; // line hover
 $colorbacklinepairchecked = '238,246,255'; // line checked
-$colorbacklinebreak = '246,248,250'; // line break
-$colortexttitlenotab = '9,105,218';
-$colortexttitlenotab2 = '9,105,218';
+$colorbacklinebreak = '230,232,236'; // line break
+$colortexttitlenotab = '0,113,227';
+$colortexttitlenotab2 = '0,113,227';
 $colortexttitle = '31,35,40';
-$colortexttitlelink = '9,105,218';
+$colortexttitlelink = '0,113,227';
 $colortext = '31,35,40';
-$colortextlink = '9,105,218';
+$colortextlink = '0,113,227';
 $fontsize = '0.94em';
 $fontsizesmaller = '0.75em';
 $topMenuFontSize = '1.1em';
 $toolTipBgColor = 'rgba(255, 255, 255, 0.96)';
 $toolTipFontColor = '#333';
-$butactionbg = '9,105,218';
+$butactionbg = '0,113,227';
 $textbutaction = '255, 255, 255';
 
 // text color
