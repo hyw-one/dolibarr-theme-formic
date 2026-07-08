@@ -9796,6 +9796,27 @@ body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right :is(
 				line-height: 1.25;
 			}
 
+			/*
+			 * Each row here is flex-column stacked (label on top, value below),
+			 * but the row-divider border-bottom from the universal reset lands
+			 * on every td, not just the row. Stacked vertically that turns into
+			 * two visible lines per field -- one splitting the label from its
+			 * own value, one at the real field-to-field boundary -- both reading
+			 * as the same weight, so the form looks chopped into twice as many
+			 * rows as it has fields. Keep the divider only on the last cell
+			 * (the true end of the field) and add breathing room above it so it
+			 * doesn't sit flush against the input/select box.
+			 */
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form .tabBar > table.border:not(.liste):not(.table-fiche-title) > :is(tbody, thead, tfoot) > tr > :is(td, th):not(:last-child),
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form > table.border:not(.liste):not(.table-fiche-title) > :is(tbody, thead, tfoot) > tr > :is(td, th):not(:last-child) {
+				border-bottom: 0 !important;
+			}
+
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form .tabBar > table.border:not(.liste):not(.table-fiche-title) > :is(tbody, thead, tfoot) > tr > :is(td, th):last-child,
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form > table.border:not(.liste):not(.table-fiche-title) > :is(tbody, thead, tfoot) > tr > :is(td, th):last-child {
+				padding-bottom: 8px !important;
+			}
+
 			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form .tabBar > table.border:not(.liste):not(.table-fiche-title) > :is(tbody, thead, tfoot) > tr > :is(td, th) :is(input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"]):not([type="image"]):not([type="submit"]):not([type="button"]), textarea, select, .select2-container, .select2-selection, .select2-selection__rendered, div.urllink),
 			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form > table.border:not(.liste):not(.table-fiche-title) > :is(tbody, thead, tfoot) > tr > :is(td, th) :is(input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"]):not([type="image"]):not([type="submit"]):not([type="button"]), textarea, select, .select2-container, .select2-selection, .select2-selection__rendered, div.urllink) {
 				max-width: 100% !important;
