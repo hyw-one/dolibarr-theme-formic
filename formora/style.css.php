@@ -1961,9 +1961,13 @@ table.noborder tr.liste_titre {
 	color: var(--formora-text);
 }
 
-tr.oddeven:hover:not(.nohover),
-tr.pair:hover:not(.nohover),
-tr.impair:hover:not(.nohover) {
+body#mainbody tr.oddeven:hover:not(.nohover),
+body#mainbody tr.pair:hover:not(.nohover),
+body#mainbody tr.impair:hover:not(.nohover),
+body#mainbody table.liste > tbody > tr:hover:nth-child(even):not(.liste_titre):not(.nooddeven):not(.liste_total):not(.nohover),
+body#mainbody table.liste > tbody > tr:hover:nth-child(odd):not(.liste_titre):not(.nooddeven):not(.liste_total):not(.nohover),
+body#mainbody table.noborder > tbody > tr:hover:nth-child(even):not(.liste_titre):not(.nooddeven):not(.liste_total):not(.nohover),
+body#mainbody table.noborder > tbody > tr:hover:nth-child(odd):not(.liste_titre):not(.nooddeven):not(.liste_total):not(.nohover) {
 	background-color: var(--colorbacklinepairhover) !important;
 }
 
@@ -3153,15 +3157,19 @@ tr.pair,
 	color: inherit;
 }
 
-tr.oddeven:hover:not(.nohover),
-tr.pair:hover:not(.nohover),
-tr.impair:hover:not(.nohover),
-.oddeven:hover:not(.nohover),
-.pair:hover:not(.nohover),
-.impair:hover:not(.nohover),
-.tagtr.oddeven:hover:not(.nohover),
-.tagtr.pair:hover:not(.nohover),
-.tagtr.impair:hover:not(.nohover) {
+body#mainbody tr.oddeven:hover:not(.nohover),
+body#mainbody tr.pair:hover:not(.nohover),
+body#mainbody tr.impair:hover:not(.nohover),
+body#mainbody .oddeven:hover:not(.nohover),
+body#mainbody .pair:hover:not(.nohover),
+body#mainbody .impair:hover:not(.nohover),
+body#mainbody .tagtr.oddeven:hover:not(.nohover),
+body#mainbody .tagtr.pair:hover:not(.nohover),
+body#mainbody .tagtr.impair:hover:not(.nohover),
+body#mainbody table.liste > tbody > tr:hover:nth-child(even):not(.liste_titre):not(.nooddeven):not(.liste_total):not(.nohover),
+body#mainbody table.liste > tbody > tr:hover:nth-child(odd):not(.liste_titre):not(.nooddeven):not(.liste_total):not(.nohover),
+body#mainbody table.noborder > tbody > tr:hover:nth-child(even):not(.liste_titre):not(.nooddeven):not(.liste_total):not(.nohover),
+body#mainbody table.noborder > tbody > tr:hover:nth-child(odd):not(.liste_titre):not(.nooddeven):not(.liste_total):not(.nohover) {
 	background: var(--colorbacklinepairhover) !important;
 	background-color: var(--colorbacklinepairhover) !important;
 }
