@@ -8170,7 +8170,8 @@ body#mainbody:not(.sidebar-collapse):not(.bodytakepos):not(.bodylogin) .login_bl
 				display: none !important;
 			}
 
-			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right {
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right,
+			body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right {
 				box-sizing: border-box !important;
 				left: auto !important;
 				max-width: 100vw !important;
@@ -8181,7 +8182,9 @@ body#mainbody:not(.sidebar-collapse):not(.bodytakepos):not(.bodylogin) .login_bl
 			}
 
 			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche,
-			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right div.fiche {
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right div.fiche,
+			body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche,
+			body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right div.fiche {
 				box-sizing: border-box !important;
 				margin-left: 13px;
 				margin-right: 14px;
@@ -8193,7 +8196,9 @@ body#mainbody:not(.sidebar-collapse):not(.bodytakepos):not(.bodylogin) .login_bl
 
 		@media only screen and (min-width: <?php echo $formoraMenuExpandedMinWidth; ?>px) {
 			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche,
-			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right div.fiche {
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right div.fiche,
+			body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche,
+			body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right div.fiche {
 				box-sizing: border-box !important;
 				margin-left: 12px;
 				margin-right: 12px;
@@ -8203,8 +8208,9 @@ body#mainbody:not(.sidebar-collapse):not(.bodytakepos):not(.bodylogin) .login_bl
 			}
 		}
 
-		@media only screen and (min-width: <?php echo $formoraMenuExpandedMinWidth; ?>px) and (max-width: 1279px) {
-			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right {
+		@media only screen and (min-width: <?php echo $formoraMenuExpandedMinWidth; ?>px) {
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right,
+			body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right {
 				box-sizing: border-box !important;
 				max-width: calc(100vw - <?php echo $leftmenuwidth + 21; ?>px) !important;
 				min-width: 0 !important;
@@ -8215,7 +8221,10 @@ body#mainbody:not(.sidebar-collapse):not(.bodytakepos):not(.bodylogin) .login_bl
 		@media only screen and (max-width: 767px) {
 			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right,
 			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche,
-			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form {
+			body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche form,
+			body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right,
+			body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche,
+			body#mainbody.bodyforlist:not(.poslist):not(.bodylogin) #id-right .fiche form {
 				box-sizing: border-box !important;
 				max-width: 100% !important;
 				min-width: 0 !important;
