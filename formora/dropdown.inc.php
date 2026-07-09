@@ -236,7 +236,7 @@ div#topmenu-global-search-dropdown, div#topmenu-bookmark-dropdown, div#topmenu-q
 	<?php if (!$disableimages) { ?>
 		line-height: 46px;
 	<?php } else { ?>
-		margin-top: -2px;
+		margin-top: 0;
 	<?php } ?>
 }
 a.top-menu-dropdown-link {
