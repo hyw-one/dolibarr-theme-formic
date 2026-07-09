@@ -41,8 +41,8 @@ if (!defined('ISLOADEDBYSTEELSHEET')) {
 .progress {
 	height: 20px;
 	overflow: hidden;
-	background-color: var(--formora-neutral-bg, rgba(128, 128, 128, 0.1));
-	border-radius: var(--formora-radius-full, 9999px);
+	background-color: var(--formic-neutral-bg, rgba(128, 128, 128, 0.1));
+	border-radius: var(--formic-radius-full, 9999px);
 	box-shadow: none;
 }
 
@@ -58,7 +58,7 @@ if (!defined('ISLOADEDBYSTEELSHEET')) {
 	line-height: 20px;
 	color: #fff;
 	text-align: center;
-	background-color: var(--formora-accent, #1677ff);
+	background-color: var(--formic-accent, #1677ff);
 	box-shadow: none;
 	-webkit-transition: width .6s ease;
 	-o-transition: width .6s ease;
@@ -79,7 +79,7 @@ if (!defined('ISLOADEDBYSTEELSHEET')) {
 .progress > .progress-bar,
 .progress .progress-bar,
 .progress > .progress-bar .progress-bar {
-	border-radius: var(--formora-radius-full, 9999px);
+	border-radius: var(--formic-radius-full, 9999px);
 }
 /* size variation */
 .progress.sm,
@@ -90,7 +90,7 @@ if (!defined('ISLOADEDBYSTEELSHEET')) {
 .progress-sm,
 .progress.sm .progress-bar,
 .progress-sm .progress-bar {
-	border-radius: var(--formora-radius-full, 9999px);
+	border-radius: var(--formic-radius-full, 9999px);
 }
 .progress.xs,
 .progress-xs {
@@ -100,7 +100,7 @@ if (!defined('ISLOADEDBYSTEELSHEET')) {
 .progress-xs,
 .progress.xs .progress-bar,
 .progress-xs .progress-bar {
-	border-radius: var(--formora-radius-full, 9999px);
+	border-radius: var(--formic-radius-full, 9999px);
 }
 .progress.xxs,
 .progress-xxs {
@@ -110,7 +110,7 @@ if (!defined('ISLOADEDBYSTEELSHEET')) {
 .progress-xxs,
 .progress.xxs .progress-bar,
 .progress-xxs .progress-bar {
-	border-radius: var(--formora-radius-full, 9999px);
+	border-radius: var(--formic-radius-full, 9999px);
 }
 
 
@@ -154,7 +154,7 @@ if (!defined('ISLOADEDBYSTEELSHEET')) {
 }
 .progress-bar-light-blue,
 .progress-bar-primary {
-	background-color: var(--formora-accent);
+	background-color: var(--formic-accent);
 }
 .progress-striped .progress-bar-light-blue,
 .progress-striped .progress-bar-primary {
@@ -179,7 +179,7 @@ body[class*="colorblind-"] .progress-bar-red, body[class*="colorblind-"] .progre
 
 .progress-bar-aqua,
 .progress-bar-info {
-	background-color: var(--formora-accent);
+	background-color: var(--formic-accent);
 }
 .progress-striped .progress-bar-aqua,
 .progress-striped .progress-bar-info {

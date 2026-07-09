@@ -19,7 +19,7 @@
  */
 
 /**
- *		\file       htdocs/theme/formora/global.inc.php
+ *		\file       htdocs/theme/formic/global.inc.php
  *		\brief      File for CSS style sheet Eldy. Called by styles.css.php.
  */
 if (!defined('ISLOADEDBYSTEELSHEET')) {
@@ -912,14 +912,14 @@ table.tableforfield .buttonDelete:not(.bordertransp):not(.buttonpayment) {
 	text-align: center;
 	cursor: pointer;
 	text-decoration: none !important;
-	background-color: var(--formora-action, #1677ff);
+	background-color: var(--formic-action, #1677ff);
 	background-image: none;
-	border: 1px solid var(--formora-action, #1677ff);
-	border-radius: var(--formora-radius, 6px);
+	border: 1px solid var(--formic-action, #1677ff);
+	border-radius: var(--formic-radius, 6px);
 
 	font-weight: 400;
 	text-transform: none;
-	color: var(--formora-action-text, #ffffff);
+	color: var(--formic-action-text, #ffffff);
 	transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 .valuefield .button, .valuefieldcreate .button, .refidno .button:not(.smallpaddingimp) {
@@ -930,11 +930,11 @@ table.tableforfield .buttonDelete:not(.bordertransp):not(.buttonpayment) {
 }
 .button:focus, .buttonDelete:focus  {
 	outline: none;
-	box-shadow: 0 0 0 2px var(--formora-focus-ring, rgba(22, 119, 255, 0.18));
+	box-shadow: 0 0 0 2px var(--formic-focus-ring, rgba(22, 119, 255, 0.18));
 }
 .button:hover:not(.nohover), .buttonDelete:hover:not(.nohover)   {
-	background-color: var(--formora-action-hover, #4096ff);
-	border-color: var(--formora-action-hover, #4096ff);
+	background-color: var(--formic-action-hover, #4096ff);
+	border-color: var(--formic-action-hover, #4096ff);
 	box-shadow: none;
 }
 .button:disabled, .buttonDelete:disabled, .button.disabled, .buttonDelete.disabled {
@@ -5661,14 +5661,14 @@ img.boxhandle, img.boxclose {
  *   Ok, Warning, Error
  */
 
-.ok      { color: var(--formora-toast-success-text, #114466); }
-.warning { color: var(--formora-toast-warning-text, #887711) !important; }
-.error   { color: var(--formora-toast-error-text, #660000) !important; font-weight: bold; }
-.green   { color: var(--formora-toast-success-text, #118822) !important; }
-.neutral { color: var(--formora-muted, #444) !important; }
+.ok      { color: var(--formic-toast-success-text, #114466); }
+.warning { color: var(--formic-toast-warning-text, #887711) !important; }
+.error   { color: var(--formic-toast-error-text, #660000) !important; font-weight: bold; }
+.green   { color: var(--formic-toast-success-text, #118822) !important; }
+.neutral { color: var(--formic-muted, #444) !important; }
 
 div.ok {
-	color: var(--formora-toast-success-text, #114466);
+	color: var(--formic-toast-success-text, #114466);
 }
 
 div.info, div.warning, div.error, div.green, div.neutral {
@@ -5678,7 +5678,7 @@ div.info, div.warning, div.error, div.green, div.neutral {
 	padding-right: 4px;
 	padding-bottom: 16px;
 	margin: 1em 0em 1em 0em;
-	border-radius: var(--formora-radius-sm, 5px);
+	border-radius: var(--formic-radius-sm, 5px);
 }
 
 div.info::before, div.warning::before, div.error::before, div.green::before, div.neutral::before {
@@ -5692,23 +5692,23 @@ div.info::before, div.warning::before, div.error::before, div.green::before, div
 
 div.info::before {
 	content: "\f05a";
-	color: var(--formora-accent, #558);
+	color: var(--formic-accent, #558);
 }
 div.warning::before {
 	content: "\f071";
-	color: var(--formora-toast-warning-text, #887711);
+	color: var(--formic-toast-warning-text, #887711);
 }
 div.error::before {
 	content: "\f057";
-	color: var(--formora-toast-error-text, #660000);
+	color: var(--formic-toast-error-text, #660000);
 }
 div.green::before {
 	content: "\f058";
-	color: var(--formora-toast-success-text, #118822);
+	color: var(--formic-toast-success-text, #118822);
 }
 div.neutral::before {
 	content: "\f05a";
-	color: var(--formora-muted, #444);
+	color: var(--formic-muted, #444);
 }
 
 div.fiche div.info, div.fiche div.warning, div.fiche div.neutral {
@@ -5717,31 +5717,31 @@ div.fiche div.info, div.fiche div.warning, div.fiche div.neutral {
 
 /* Neutral message */
 div.neutral {
-	border-<?php print $left; ?>: solid 5px var(--formora-line, #aaa);
-	background: var(--formora-neutral-bg, #f8f8f8);
+	border-<?php print $left; ?>: solid 5px var(--formic-line, #aaa);
+	background: var(--formic-neutral-bg, #f8f8f8);
 }
 
 /* Info message */
 div.info {
-	border-<?php print $left; ?>: solid 5px var(--formora-accent, #87cfd2);
-	background: var(--formora-accent-soft, #eff8fc);
-	color: var(--formora-text, #558);
+	border-<?php print $left; ?>: solid 5px var(--formic-accent, #87cfd2);
+	background: var(--formic-accent-soft, #eff8fc);
+	color: var(--formic-text, #558);
 }
 
 /* Ok message */
 div.green div.greenborder, section.green, section.greenborder {
-	border-<?php print $left; ?>: solid 5px var(--formora-toast-success-border, #118822);
+	border-<?php print $left; ?>: solid 5px var(--formic-toast-success-border, #118822);
 }
 div.green, section.green {
-	background: var(--formora-toast-success-bg, #e3f0e3);
+	background: var(--formic-toast-success-bg, #e3f0e3);
 }
 
 /* Warning message */
 div.warning, div.warningborder, section.warning, section.warningborder {
-	border-<?php print $left; ?>: solid 5px var(--formora-toast-warning-border, #f2cf87);
+	border-<?php print $left; ?>: solid 5px var(--formic-toast-warning-border, #f2cf87);
 }
 div.warning, section.warning {
-	background: var(--formora-toast-warning-bg, #fcf8e3);
+	background: var(--formic-toast-warning-bg, #fcf8e3);
 }
 div.warning a, div.info a, div.error a {
 	color: var(--colortextlink);
@@ -5749,8 +5749,8 @@ div.warning a, div.info a, div.error a {
 
 /* Error message */
 div.error {
-	border-<?php print $left; ?>: solid 5px var(--formora-toast-error-border, #f28787);
-	background: var(--formora-toast-error-bg, #EFCFCF);
+	border-<?php print $left; ?>: solid 5px var(--formic-toast-error-border, #f28787);
+	background: var(--formic-toast-error-bg, #EFCFCF);
 }
 
 
@@ -6052,8 +6052,8 @@ button.ui-button-icon-only.ui-dialog-titlebar-close {
 	z-index:1006 !important; /* To always be over the dialog box */
 }
 .ui-dialog.ui-widget.ui-widget-content {
-	border: 1px solid var(--formora-line, #e0e0e0);
-	border-radius: var(--formora-radius-lg, 8px);
+	border: 1px solid var(--formic-line, #e0e0e0);
+	border-radius: var(--formic-radius-lg, 8px);
 }
 .ui-dialog {
 	padding-left: 5px;
@@ -6065,11 +6065,11 @@ button.ui-button-icon-only.ui-dialog-titlebar-close {
 	padding: 8px !important;
 	background: unset;
 	border: unset;
-	border-bottom: 1px solid var(--formora-line-soft, #AAA);
+	border-bottom: 1px solid var(--formic-line-soft, #AAA);
 	margin-bottom: 12px;
 }
 .ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-buttons.ui-draggable {
-	box-shadow: var(--formora-shadow-elevated, 0 12px 32px rgba(0, 0, 0, 0.16));
+	box-shadow: var(--formic-shadow-elevated, 0 12px 32px rgba(0, 0, 0, 0.16));
 }
 
 .ui-dialog .ui-dialog-buttonpane {
@@ -6197,10 +6197,10 @@ html .ui-datepicker-calendar .ui-button.ui-state-disabled:hover, html .ui-button
 
 div#ui-datepicker-div {
 	width: 300px;
-	background: var(--formora-surface, #fff);
-	box-shadow: var(--formora-shadow-menu, 0 6px 16px rgba(0, 0, 0, 0.12));
-	border: 1px solid var(--formora-line, #d9d9d9);
-	border-radius: var(--formora-radius-lg, 8px);
+	background: var(--formic-surface, #fff);
+	box-shadow: var(--formic-shadow-menu, 0 6px 16px rgba(0, 0, 0, 0.12));
+	border: 1px solid var(--formic-line, #d9d9d9);
+	border-radius: var(--formic-radius-lg, 8px);
 	padding-left: 5px;
 	padding-right: 5px;
 	padding-top: 5px;
@@ -6249,8 +6249,8 @@ select.ui-datepicker-year {
 table.dp {
 	width: 180px;
 	background-color: var(--inputbackgroundcolor);
-	border: solid 1px var(--formora-line, #d9d9d9);
-	border-radius: var(--formora-radius-lg, 8px);
+	border: solid 1px var(--formic-line, #d9d9d9);
+	border-radius: var(--formic-radius-lg, 8px);
 	padding: 0px;
 	border-spacing: 0px;
 	border-collapse: collapse;
@@ -6896,8 +6896,8 @@ a.cke_dialog_ui_button
 {
 	font-family: <?php print $fontlist ?> !important;
 	background-image: none !important;
-	border: 1px solid var(--formora-line, #C0C0C0) !important;
-	border-radius: var(--formora-radius, 6px) !important;
+	border: 1px solid var(--formic-line, #C0C0C0) !important;
+	border-radius: var(--formic-radius, 6px) !important;
 	box-shadow: none !important;
 }
 .cke_dialog_ui_hbox_first {

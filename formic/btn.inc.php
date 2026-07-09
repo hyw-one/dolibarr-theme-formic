@@ -20,36 +20,36 @@ if (!defined('ISLOADEDBYSTEELSHEET')) {
 }
 
 /**
- * Formora deliberately lets Eldy own button structure and spacing.
- * This file only layers Formora color variables over Eldy's btn.inc.php.
+ * Formic deliberately lets Eldy own button structure and spacing.
+ * This file only layers Formic color variables over Eldy's btn.inc.php.
  *
  * @var string $butactionbg
  * @var string $colortextlink
  * @var string $textbutaction
  */
 
-$formoraEldyBtnFile = DOL_DOCUMENT_ROOT.'/theme/eldy/btn.inc.php';
-if (is_readable($formoraEldyBtnFile)) {
-	require $formoraEldyBtnFile;
+$formicEldyBtnFile = DOL_DOCUMENT_ROOT.'/theme/eldy/btn.inc.php';
+if (is_readable($formicEldyBtnFile)) {
+	require $formicEldyBtnFile;
 }
 ?>
 
 /* IDE Hack <style type="text/css"> */
 
-/* Formora button color layer. Eldy keeps btnTitle sizing, border, background and hover structure. */
+/* Formic button color layer. Eldy keeps btnTitle sizing, border, background and hover structure. */
 :root {
 	--btncolortext: rgb(<?php print $colortextlink; ?>);
-	--btncolorbg: var(--formora-surface, #fbfbfb);
+	--btncolorbg: var(--formic-surface, #fbfbfb);
 	--btncolorborderhover: none;
 	--btncolorborder: #FFF;
-	--butactiondeletebg: var(--formora-danger-bg, rgb(234,228,225));
+	--butactiondeletebg: var(--formic-danger-bg, rgb(234,228,225));
 	--butactionbg: rgb(<?php print $butactionbg; ?>);
 	--textbutaction: rgb(<?php print $textbutaction; ?>);
 }
 
 <?php
 if (getDolGlobalString('THEME_DARKMODEENABLED')) {
-	print "/* Formora dark-mode button colors. */\n";
+	print "/* Formic dark-mode button colors. */\n";
 	if (getDolGlobalInt('THEME_DARKMODEENABLED') != 2) {
 		print "@media (prefers-color-scheme: dark) {";
 	} else {
@@ -57,26 +57,26 @@ if (getDolGlobalString('THEME_DARKMODEENABLED')) {
 	}
 ?>
 	:root {
-		--btncolortext: var(--formora-text, #edf2f7);
-		--btncolorbg: var(--formora-surface, #1c1f22);
-		--btncolorborderhover: var(--formora-accent, #4ea3ff);
-		--btncolorborder: var(--formora-line, #3a4048);
-		--butactiondeletebg: var(--formora-danger-bg, #3a1f24);
-		--butactionbg: var(--formora-accent-soft, rgba(78, 163, 255, 0.16));
-		--textbutaction: var(--formora-accent-hover, #78b7ff);
+		--btncolortext: var(--formic-text, #edf2f7);
+		--btncolorbg: var(--formic-surface, #1c1f22);
+		--btncolorborderhover: var(--formic-accent, #4ea3ff);
+		--btncolorborder: var(--formic-line, #3a4048);
+		--butactiondeletebg: var(--formic-danger-bg, #3a1f24);
+		--butactionbg: var(--formic-accent-soft, rgba(78, 163, 255, 0.16));
+		--textbutaction: var(--formic-accent-hover, #78b7ff);
 	}
 
 	.btnTitle.refused,
 	a.btnTitle.refused,
 	.btnTitle.refused:hover,
 	a.btnTitle.refused:hover {
-		color: var(--formora-muted, #a9b3c0) !important;
+		color: var(--formic-muted, #a9b3c0) !important;
 	}
 
 	a.btnTitle.btnTitleSelected,
 	.btnTitle:hover,
 	a.btnTitle:hover {
-		border-color: var(--formora-line, #3a4048) !important;
+		border-color: var(--formic-line, #3a4048) !important;
 	}
 
 	.butActionDelete,
@@ -85,7 +85,7 @@ if (getDolGlobalString('THEME_DARKMODEENABLED')) {
 	.butActionDelete:hover,
 	.butActionDelete:active,
 	.buttonDelete {
-		color: var(--formora-danger, #ff8b8b) !important;
+		color: var(--formic-danger, #ff8b8b) !important;
 	}
 <?php
 	print "}";

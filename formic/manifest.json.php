@@ -22,7 +22,7 @@
  */
 
 /**
- *		\file       htdocs/theme/formora/manifest.json.php
+ *		\file       htdocs/theme/formic/manifest.json.php
  *		\brief      File for The Web App (PWA)
  */
 

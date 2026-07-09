@@ -83,17 +83,17 @@ if (!defined('ISLOADEDBYSTEELSHEET')) {
 	line-height: 20px;
 	color: #fff;
 	text-align: center;
-	background-color: var(--formora-accent, #337ab7);
+	background-color: var(--formic-accent, #337ab7);
 	box-shadow: none;
 	-webkit-transition: width .6s ease;
 	-o-transition: width .6s ease;
 	transition: width .6s ease;
 }
 .info-box-icon {
-	border-top-left-radius: var(--formora-radius, 6px);
+	border-top-left-radius: var(--formic-radius, 6px);
 	border-top-right-radius: 0;
 	border-bottom-right-radius: 0;
-	border-bottom-left-radius: var(--formora-radius, 6px);
+	border-bottom-left-radius: var(--formic-radius, 6px);
 	display: block;
 	overflow: hidden;
 	float: left;

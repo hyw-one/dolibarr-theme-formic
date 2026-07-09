@@ -9,10 +9,10 @@ if (!defined('ISLOADEDBYSTEELSHEET')) {
 	display: flex;
 	justify-content: space-between;
 	padding: 10px;
-	background: var(--formora-surface-alt, #f5f5f5);
-	border: 1px solid var(--formora-line, #d3d3d3);
-	border-radius: var(--formora-radius-sm, 5px);
-	color: var(--formora-text, inherit);
+	background: var(--formic-surface-alt, #f5f5f5);
+	border: 1px solid var(--formic-line, #d3d3d3);
+	border-radius: var(--formic-radius-sm, 5px);
+	color: var(--formic-text, inherit);
 	margin-bottom: 15px;
   }
 
@@ -20,10 +20,10 @@ if (!defined('ISLOADEDBYSTEELSHEET')) {
 	text-align: center;
 	padding: 10px;
 	margin: 4px 5px;
-	background: var(--formora-surface, var(--colorbackgrey));
-	border: 1px solid var(--formora-line-soft, transparent);
-	border-radius: var(--formora-radius-sm, 5px);
-	color: var(--formora-text, inherit);
+	background: var(--formic-surface, var(--colorbackgrey));
+	border: 1px solid var(--formic-line-soft, transparent);
+	border-radius: var(--formic-radius-sm, 5px);
+	color: var(--formic-text, inherit);
 	cursor: pointer;
 	height: 60px;
 	width: 60px;
@@ -37,21 +37,21 @@ if (!defined('ISLOADEDBYSTEELSHEET')) {
 	background: var(--butactionbg);
 	color: var(--textbutaction);
 	border-color: transparent;
-	border-radius: var(--formora-radius, 8px);
+	border-radius: var(--formic-radius, 8px);
 	border-collapse: collapse;
   }
 
   .template-option[data-template="ai"] {
-	background: var(--formora-toast-success-bg, #c5f7c5);
-	border-color: var(--formora-toast-success-border, var(--formora-line-soft, transparent));
-	color: var(--formora-toast-success-text, var(--formora-text, inherit));
+	background: var(--formic-toast-success-bg, #c5f7c5);
+	border-color: var(--formic-toast-success-border, var(--formic-line-soft, transparent));
+	color: var(--formic-toast-success-text, var(--formic-text, inherit));
   }
 
   .template-option[data-template="ai"]:hover {
 	font-weight: bold;
 	background: var(--butactionbg);
 	color: var(--textbutaction);
-	border-radius: var(--formora-radius, 8px);
+	border-radius: var(--formic-radius, 8px);
 	border-collapse: collapse;
 	border: none;
   }
@@ -60,7 +60,7 @@ if (!defined('ISLOADEDBYSTEELSHEET')) {
 	font-weight: bold;
 	background: var(--butactionbg);
 	color: var(--textbutaction);
-	border-radius: var(--formora-radius, 8px);
+	border-radius: var(--formic-radius, 8px);
 	border-collapse: collapse;
 	border: none;
 }
@@ -70,10 +70,10 @@ if (!defined('ISLOADEDBYSTEELSHEET')) {
 	max-width: 80%; */
 	height: auto;
 	padding: 10px;
-	background: var(--formora-surface, transparent);
-	border: 1px solid var(--formora-line, #d3d3d3);
-	border-radius: var(--formora-radius-sm, 5px);
-	color: var(--formora-text, inherit);
+	background: var(--formic-surface, transparent);
+	border: 1px solid var(--formic-line, #d3d3d3);
+	border-radius: var(--formic-radius-sm, 5px);
+	color: var(--formic-text, inherit);
 	margin-bottom: 10px;
 	margin-top: 10px;
 	width: fit-content;
@@ -86,7 +86,7 @@ if (!defined('ISLOADEDBYSTEELSHEET')) {
 	max-height: 80px;
 	margin: 0 5px;
 	padding-top: 5px;
-	border-radius: var(--formora-radius-sm, 5px);
+	border-radius: var(--formic-radius-sm, 5px);
 
 }
 
@@ -110,5 +110,5 @@ if (!defined('ISLOADEDBYSTEELSHEET')) {
   width: 80%;
   max-height: 80px;
   margin: 0 5px;
-  border-radius: var(--formora-radius-sm, 7px);
+  border-radius: var(--formic-radius-sm, 7px);
 }
