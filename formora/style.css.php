@@ -7054,7 +7054,7 @@ body.bodylogin .butActionLogin:focus {
 		justify-content: center !important;
 	}
 
-	body.bodytakepos .topnav-left a span {
+	body.bodytakepos .topnav-left a span:not(.hideonsmartphone) {
 		align-items: center;
 		display: inline-flex;
 		white-space: nowrap;
@@ -7261,6 +7261,91 @@ body.bodylogin .butActionLogin:focus {
 		padding: 0 14px !important;
 	}
 
+	/*
+	 * The unconditional min-width:240px above wins over core's own
+	 * max-width tiers (250/150/90px at 1024/767/- - see pos.css.php) since
+	 * CSS resolves a min/max conflict in min-width's favor. Below 767px
+	 * that forces the search box to stay >=240px wide regardless of
+	 * viewport, crowding out the terminal label and the icons next to it.
+	 * Same two-row split as the <=480px tier below (which wins over this
+	 * one at narrower widths, appearing later in the file), just with a
+	 * bit more breathing room since there's more width to spend here.
+	 */
+	@media only screen and (max-width: 767px) {
+		body.bodytakepos .topnav {
+			flex-wrap: wrap !important;
+			gap: 0 !important;
+			height: auto !important;
+			min-height: 128px !important;
+			overflow: visible !important;
+			padding: 0 4px !important;
+		}
+
+		body.bodytakepos .header {
+			height: auto !important;
+			min-height: 128px !important;
+		}
+
+		body.bodytakepos .topnav-left {
+			flex: 0 0 100% !important;
+			gap: 4px !important;
+			height: 64px !important;
+			min-width: 0 !important;
+			order: 1 !important;
+			overflow-x: auto !important;
+			overflow-y: hidden !important;
+			width: 100% !important;
+		}
+
+		body.bodytakepos .topnav-right {
+			flex: 0 0 100% !important;
+			height: 64px !important;
+			justify-content: flex-end !important;
+			margin-left: 0 !important;
+			min-width: 0 !important;
+			order: 2 !important;
+			width: 100% !important;
+		}
+
+		body.bodytakepos #customerandsales {
+			flex: 0 0 auto !important;
+			max-width: 200px !important;
+			overflow: hidden !important;
+		}
+
+		body.bodytakepos #customer {
+			box-sizing: border-box !important;
+			max-width: 200px !important;
+			min-width: 0 !important;
+			overflow: hidden !important;
+			text-overflow: ellipsis !important;
+			white-space: nowrap !important;
+		}
+
+		body.bodytakepos #shoppingcart {
+			flex: 0 0 auto !important;
+			overflow: hidden !important;
+		}
+
+		body.bodytakepos #shoppingcart > a:first-child {
+			max-width: 140px !important;
+			overflow: hidden !important;
+			text-overflow: ellipsis !important;
+			white-space: nowrap !important;
+		}
+
+		body.bodytakepos .topnav input[type="text"] {
+			flex: 1 1 auto !important;
+			max-width: none !important;
+			min-width: 0 !important;
+			width: auto !important;
+		}
+
+		body.bodytakepos #topmenu-login-dropdown > .dropdown-menu {
+			top: 128px !important;
+		}
+	}
+
 	body.bodytakepos .topnav input[type="text"]:focus,
 	body:not(#mainbody) input.takepospay:focus,
 	body:not(#mainbody) textarea.takepospay:focus,
@@ -7345,6 +7430,21 @@ body.bodylogin .butActionLogin:focus {
 		background: var(--formora-surface) !important;
 		border-color: var(--formora-line-soft) !important;
 		color: var(--formora-text) !important;
+	}
+
+	/*
+	 * Core's own mobile layout (pos.css.php, max-width:767px) switches
+	 * .div1/.div2/.div3 to full-width stacked columns and unsets their
+	 * height/min-height, since the calculator no longer shares a fixed-
+	 * height row with the receipt/product panes. But .calcbutton/2/3 still
+	 * size themselves as height:calc(25% - 2px) of that now-auto-height
+	 * parent, which collapses them down to ~30px - too short to comfortably
+	 * tap. Give them an explicit floor in this same tier.
+	 */
+	@media only screen and (max-width: 767px) {
+		body.bodytakepos :is(button.calcbutton, button.calcbutton2, button.calcbutton3) {
+			min-height: 48px !important;
+		}
 	}
 
 body.bodytakepos button.calcbutton2,
@@ -7529,7 +7629,7 @@ body:not(#mainbody) button.calcbutton3.poscolorblue {
 		justify-content: center !important;
 	}
 
-	body.bodytakepos .topnav-left a span {
+	body.bodytakepos .topnav-left a span:not(.hideonsmartphone) {
 		align-items: center;
 		display: inline-flex;
 		white-space: nowrap;
@@ -7582,6 +7682,91 @@ body:not(#mainbody) button.calcbutton3.poscolorblue {
 		max-width: 360px !important;
 		min-width: 240px;
 		padding: 0 14px !important;
+	}
+
+	/*
+	 * The unconditional min-width:240px above wins over core's own
+	 * max-width tiers (250/150/90px at 1024/767/- - see pos.css.php) since
+	 * CSS resolves a min/max conflict in min-width's favor. Below 767px
+	 * that forces the search box to stay >=240px wide regardless of
+	 * viewport, crowding out the terminal label and the icons next to it.
+	 * Same two-row split as the <=480px tier below (which wins over this
+	 * one at narrower widths, appearing later in the file), just with a
+	 * bit more breathing room since there's more width to spend here.
+	 */
+	@media only screen and (max-width: 767px) {
+		body.bodytakepos .topnav {
+			flex-wrap: wrap !important;
+			gap: 0 !important;
+			height: auto !important;
+			min-height: 128px !important;
+			overflow: visible !important;
+			padding: 0 4px !important;
+		}
+
+		body.bodytakepos .header {
+			height: auto !important;
+			min-height: 128px !important;
+		}
+
+		body.bodytakepos .topnav-left {
+			flex: 0 0 100% !important;
+			gap: 4px !important;
+			height: 64px !important;
+			min-width: 0 !important;
+			order: 1 !important;
+			overflow-x: auto !important;
+			overflow-y: hidden !important;
+			width: 100% !important;
+		}
+
+		body.bodytakepos .topnav-right {
+			flex: 0 0 100% !important;
+			height: 64px !important;
+			justify-content: flex-end !important;
+			margin-left: 0 !important;
+			min-width: 0 !important;
+			order: 2 !important;
+			width: 100% !important;
+		}
+
+		body.bodytakepos #customerandsales {
+			flex: 0 0 auto !important;
+			max-width: 200px !important;
+			overflow: hidden !important;
+		}
+
+		body.bodytakepos #customer {
+			box-sizing: border-box !important;
+			max-width: 200px !important;
+			min-width: 0 !important;
+			overflow: hidden !important;
+			text-overflow: ellipsis !important;
+			white-space: nowrap !important;
+		}
+
+		body.bodytakepos #shoppingcart {
+			flex: 0 0 auto !important;
+			overflow: hidden !important;
+		}
+
+		body.bodytakepos #shoppingcart > a:first-child {
+			max-width: 140px !important;
+			overflow: hidden !important;
+			text-overflow: ellipsis !important;
+			white-space: nowrap !important;
+		}
+
+		body.bodytakepos .topnav input[type="text"] {
+			flex: 1 1 auto !important;
+			max-width: none !important;
+			min-width: 0 !important;
+			width: auto !important;
+		}
+
+		body.bodytakepos #topmenu-login-dropdown > .dropdown-menu {
+			top: 128px !important;
+		}
 	}
 
 	body.bodytakepos .topnav input[type="text"]:focus,
@@ -7639,6 +7824,12 @@ body:not(#mainbody) button.calcbutton3.poscolorblue {
 	body:not(#mainbody) button.calcbutton3 {
 		background: var(--formora-elevated) !important;
 		color: var(--formora-text) !important;
+	}
+
+	@media only screen and (max-width: 767px) {
+		body.bodytakepos :is(button.calcbutton, button.calcbutton2, button.calcbutton3) {
+			min-height: 48px !important;
+		}
 	}
 
 	body.bodytakepos button.calcbutton2,
@@ -8577,23 +8768,49 @@ body#mainbody:not(.sidebar-collapse):not(.bodytakepos):not(.bodylogin) .login_bl
 		}
 
 		@media only screen and (max-width: 480px) {
+			/*
+			 * Below 480px there just isn't room for the terminal/currency
+			 * icons, customer, shopping cart, search box AND the icon
+			 * cluster on one line even with hideonsmartphone text hidden -
+			 * squeezing them all into fixed widths left customer/cart
+			 * reduced to slivers. Wrap the bar into two full-width rows
+			 * instead: terminal/currency/customer/cart on row 1, search +
+			 * icons on row 2. Verified the .container below still lays out
+			 * correctly under the taller (128px) header.
+			 */
 			body.bodytakepos .topnav {
+				flex-wrap: wrap !important;
 				gap: 0 !important;
-				overflow-x: hidden !important;
+				height: auto !important;
+				min-height: 128px !important;
+				overflow: visible !important;
 				padding: 0 4px !important;
 			}
 
+			body.bodytakepos .header {
+				height: auto !important;
+				min-height: 128px !important;
+			}
+
 			body.bodytakepos .topnav-left {
-				flex: 1 1 auto !important;
+				flex: 0 0 100% !important;
 				gap: 4px !important;
+				height: 64px !important;
 				min-width: 0 !important;
-				overflow: hidden !important;
+				order: 1 !important;
+				overflow-x: auto !important;
+				overflow-y: hidden !important;
+				width: 100% !important;
 			}
 
 			body.bodytakepos .topnav-right {
-				flex: 0 0 auto !important;
-				margin-left: 4px !important;
+				flex: 0 0 100% !important;
+				height: 64px !important;
+				justify-content: flex-end !important;
+				margin-left: 0 !important;
 				min-width: 0 !important;
+				order: 2 !important;
+				width: 100% !important;
 			}
 
 			body.bodytakepos .topnav-left > :is(#customerandsales, #shoppingcart),
@@ -8606,30 +8823,26 @@ body#mainbody:not(.sidebar-collapse):not(.bodytakepos):not(.bodylogin) .login_bl
 			}
 
 			body.bodytakepos #customerandsales {
-				flex: 0 0 86px !important;
-				max-width: 86px !important;
+				flex: 0 0 auto !important;
+				max-width: 150px !important;
 				overflow: hidden !important;
-				width: 86px !important;
 			}
 
 			body.bodytakepos #customer {
 				box-sizing: border-box !important;
-				max-width: 86px !important;
+				max-width: 150px !important;
 				min-width: 0 !important;
 				overflow: hidden !important;
 				padding-left: 8px !important;
 				padding-right: 8px !important;
 				text-overflow: ellipsis !important;
 				white-space: nowrap !important;
-				width: 86px !important;
 			}
 
 			body.bodytakepos #shoppingcart {
-				flex: 0 0 94px !important;
+				flex: 0 0 auto !important;
 				gap: 4px !important;
-				max-width: 94px !important;
 				overflow: hidden !important;
-				width: 94px !important;
 			}
 
 			body.bodytakepos #customerandsales > a,
@@ -8642,15 +8855,10 @@ body#mainbody:not(.sidebar-collapse):not(.bodytakepos):not(.bodylogin) .login_bl
 			}
 
 			body.bodytakepos #shoppingcart > a:first-child {
-				max-width: 58px !important;
+				max-width: 110px !important;
 				overflow: hidden !important;
 				text-overflow: ellipsis !important;
 				white-space: nowrap !important;
-				width: 58px !important;
-			}
-
-			body.bodytakepos #shoppingcart > a:last-child {
-				width: 32px !important;
 			}
 
 			body.bodytakepos .topnav .login_block_other.takepos {
@@ -8659,8 +8867,9 @@ body#mainbody:not(.sidebar-collapse):not(.bodytakepos):not(.bodylogin) .login_bl
 
 			body.bodytakepos .topnav input#search {
 				box-sizing: border-box !important;
-				min-width: 78px !important;
-				width: 78px !important;
+				flex: 1 1 auto !important;
+				min-width: 0 !important;
+				width: auto !important;
 			}
 
 			body.bodytakepos .topnav .login_block_other.takepos > a {
@@ -8686,13 +8895,13 @@ body#mainbody:not(.sidebar-collapse):not(.bodytakepos):not(.bodylogin) .login_bl
 			body.bodytakepos #topmenu-login-dropdown > .dropdown-menu {
 				bottom: auto !important;
 				left: auto !important;
-				max-height: calc(100vh - 76px) !important;
+				max-height: calc(100vh - 140px) !important;
 				max-width: calc(100vw - 12px) !important;
 				overflow-x: hidden !important;
 				overflow-y: auto !important;
 				position: fixed !important;
 				right: 6px !important;
-				top: 64px !important;
+				top: 128px !important;
 				width: min(300px, calc(100vw - 12px)) !important;
 			}
 		}
