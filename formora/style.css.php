@@ -8018,8 +8018,17 @@ body#mainbody:not(.sidebar-collapse):not(.bodytakepos):not(.bodylogin) .login_bl
 				width: 28px !important;
 			}
 
+			/*
+			 * This icon row is capped at a fixed 260px (leftmenuwidth+20, to
+			 * align with the sidebar column below it). The version number is
+			 * the one item without a fixed icon-sized width, and pushes the
+			 * row ~17px over that budget, spilling icons past both edges.
+			 * Dropping it here (core's own .hideonsmartphone only kicks in
+			 * below 768px, well past where this row already overflows) is
+			 * enough to fit everything else without crowding.
+			 */
 			body#mainbody:not(.sidebar-collapse):not(.bodytakepos):not(.bodylogin) .login_block.usedropdown .login_block_other .login_block_elem:has(.aversion) {
-				width: auto !important;
+				display: none !important;
 			}
 
 			body#mainbody:not(.sidebar-collapse):not(.bodytakepos):not(.bodylogin) .login_block.usedropdown #topmenu-login-dropdown {
