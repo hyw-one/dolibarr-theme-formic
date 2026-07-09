@@ -4451,13 +4451,18 @@ body#mainbody .select2-results .select2-highlighted .member-individual-back {
 }
 
 .badge-status,
-.badge:not(.badge-primary):not(.badge-secondary):not(.badge-success):not(.badge-danger):not(.badge-warning):not(.badge-info),
 .status,
 .statusref,
 .statusrefsupplier,
 .statusdoc,
 .badge.badge-status {
 	border-color: color-mix(in srgb, var(--formora-accent) 35%, transparent) !important;
+	border-width: 1px !important;
+	box-shadow: none !important;
+}
+
+.badge:not(.badge-primary):not(.badge-secondary):not(.badge-success):not(.badge-danger):not(.badge-warning):not(.badge-info):not([class*="badge-status"]) {
+	border-color: var(--formora-line-soft) !important;
 	border-width: 1px !important;
 	box-shadow: none !important;
 }
@@ -6480,8 +6485,14 @@ body#mainbody input[type="button"]:not(.buttonDelete):not(.buttonRefused):not(.b
 	body#mainbody .badge-status,
 	body#mainbody .badgeneutral,
 	body#mainbody span.badgeneutral {
-		border: 1px solid var(--formora-line-soft) !important;
+		border-style: solid !important;
+		border-width: 1px !important;
 		border-radius: var(--formora-radius-full) !important;
+	}
+
+	body#mainbody .badgeneutral,
+	body#mainbody span.badgeneutral {
+		border-color: var(--formora-line-soft) !important;
 	}
 
 	body#mainbody .badge-dot.badge-status {
