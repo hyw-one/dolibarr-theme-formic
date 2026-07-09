@@ -83,17 +83,17 @@ if (!defined('ISLOADEDBYSTEELSHEET')) {
 	line-height: 20px;
 	color: #fff;
 	text-align: center;
-	background-color: #337ab7;
-	box-shadow: inset 0 -1px 0 rgba(0,0,0,.15);
+	background-color: var(--formora-accent, #337ab7);
+	box-shadow: none;
 	-webkit-transition: width .6s ease;
 	-o-transition: width .6s ease;
 	transition: width .6s ease;
 }
 .info-box-icon {
-	border-top-left-radius: 2px;
+	border-top-left-radius: var(--formora-radius, 6px);
 	border-top-right-radius: 0;
 	border-bottom-right-radius: 0;
-	border-bottom-left-radius: 2px;
+	border-bottom-left-radius: var(--formora-radius, 6px);
 	display: block;
 	overflow: hidden;
 	float: left;
@@ -269,6 +269,10 @@ a.info-box-text-a i.fa.fa-exclamation-triangle, span.badge i.fa.fa-exclamation-t
 	margin-left: 80px;
 	height: 88px;   /* 96 - margins of .info-box-sm .info-box-content */
 }
+.info-box-sm .info-box-number {
+	/* Fixed-height .info-box-sm-content has no room for the larger Statistic-scale number. */
+	font-size: 18px;
+}
 .info-box-sm .info-box-module-enabled {
 	/* background: linear-gradient(0.35turn, #fff, #fff, #f6faf8, #e4efe8) */
 	background: var(--infoboxmoduleenabledbgcolor);
@@ -279,8 +283,9 @@ a.info-box-text-a i.fa.fa-exclamation-triangle, span.badge i.fa.fa-exclamation-t
 
 .info-box-number {
 	display: block;
-	font-weight: bold;
-	font-size: 18px;
+	font-weight: 600;
+	font-size: 26px;
+	line-height: 1.2;
 }
 .progress-description,
 .info-box-text,

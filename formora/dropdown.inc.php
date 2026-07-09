@@ -48,80 +48,108 @@ button.dropdown-item.global-search-item {
 	display: block;
 }
 
+/*
+ * Fade + slide entrance for dropdown panels. The show/hide mechanism itself
+ * (JS toggling the .open class, which flips display:none<->block above) is
+ * untouched - @starting-style only adds an animated transition on top of it.
+ * Browsers without @starting-style/discrete-transition support simply keep
+ * today's instant display:none<->block jump (safe, no regression).
+ */
+.open>.dropdown-search,
+.open>.dropdown-bookmark,
+.open>.dropdown-quickadd,
+.open>.dropdown-menu {
+	opacity: 1;
+	transform: translateY(0) scale(1);
+}
+
+@starting-style {
+	.open>.dropdown-search,
+	.open>.dropdown-bookmark,
+	.open>.dropdown-quickadd,
+	.open>.dropdown-menu {
+		opacity: 0;
+		transform: translateY(-6px) scale(0.98);
+	}
+}
+
 #topmenu-bookmark-dropdown .dropdown-menu {
 	min-width: <?php echo $WIDTHMENUDROPDOWN; ?>px;
 	max-width: <?php echo $WIDTHMENUDROPDOWN; ?>px;
 	width: <?php echo $WIDTHMENUDROPDOWN; ?>px;
-	border-bottom-left-radius: 6px;
-	border-bottom-right-radius: 6px;
+	border-bottom-left-radius: var(--formora-radius-lg);
+	border-bottom-right-radius: var(--formora-radius-lg);
 }
 
 
 .dropdown-search {
-	border-color: #eee;
-
 	position: absolute;
 	top: 100%;
 	left: 0;
 	z-index: 1000;
 	display: none;
+	opacity: 0;
+	transform: translateY(-6px) scale(0.98);
+	transform-origin: top;
+	transition: opacity 0.16s ease, transform 0.16s ease, display 0.16s allow-discrete;
 	float: left;
 	min-width: 160px;
 	margin: 2px 0 0;
 	font-size: 14px;
 	text-align: left;
 	list-style: none;
-	background-color: #fff;
+	background-color: var(--formora-surface);
 	-webkit-background-clip: padding-box;
 	background-clip: padding-box;
-	border: 1px solid #ccc;
-	border: 1px solid rgba(0,0,0,.15);
-	border-radius: 4px;
-	box-shadow: 0 6px 12px rgba(0,0,0,.175);
+	border: 1px solid var(--formora-line);
+	border-radius: var(--formora-radius-lg);
+	box-shadow: var(--formora-shadow-menu);
 }
 .dropdown-bookmark {
-	border-color: #eee;
-
 	position: absolute;
 	top: 100%;
 	left: 0;
 	z-index: 1000;
 	display: none;
+	opacity: 0;
+	transform: translateY(-6px) scale(0.98);
+	transform-origin: top;
+	transition: opacity 0.16s ease, transform 0.16s ease, display 0.16s allow-discrete;
 	float: left;
 	min-width: 160px;
 	margin: 2px 0 0;
 	font-size: 14px;
 	text-align: left;
 	list-style: none;
-	background-color: #fff;
+	background-color: var(--formora-surface);
 	-webkit-background-clip: padding-box;
 	background-clip: padding-box;
-	border: 1px solid #ccc;
-	border: 1px solid rgba(0,0,0,.15);
-	border-radius: 4px;
-	box-shadow: 0 6px 12px rgba(0,0,0,.175);
+	border: 1px solid var(--formora-line);
+	border-radius: var(--formora-radius-lg);
+	box-shadow: var(--formora-shadow-menu);
 }
 .dropdown-quickadd {
-	border-color: #eee;
-
 	position: absolute;
 	top: 100%;
 	left: 0;
 	z-index: 1000;
 	display: none;
+	opacity: 0;
+	transform: translateY(-6px) scale(0.98);
+	transform-origin: top;
+	transition: opacity 0.16s ease, transform 0.16s ease, display 0.16s allow-discrete;
 	float: left;
 	min-width: 240px;
 	margin: 2px 0 0;
 	font-size: 14px;
 	text-align: left;
 	list-style: none;
-	background-color: #fff;
+	background-color: var(--formora-surface);
 	-webkit-background-clip: padding-box;
 	background-clip: padding-box;
-	border: 1px solid #ccc;
-	border: 1px solid rgba(0,0,0,.15);
-	border-radius: 4px;
-	box-shadow: 0 6px 12px rgba(0,0,0,.175);
+	border: 1px solid var(--formora-line);
+	border-radius: var(--formora-radius-lg);
+	box-shadow: var(--formora-shadow-menu);
 }
 .dropdown-menu {
 	position: absolute;
@@ -129,18 +157,22 @@ button.dropdown-item.global-search-item {
 	left: 0;
 	z-index: 1000;
 	display: none;
+	opacity: 0;
+	transform: translateY(-6px) scale(0.98);
+	transform-origin: top;
+	transition: opacity 0.16s ease, transform 0.16s ease, display 0.16s allow-discrete;
 	float: left;
 	min-width: 160px;
 	margin: 2px 0 0 !important;
 	font-size: 14px;
 	text-align: <?php echo $left; ?>;
 	list-style: none;
-	background-color: #fff;
+	background-color: var(--formora-surface);
 	-webkit-background-clip: padding-box;
 	background-clip: padding-box;
-	border: 1px solid rgba(128, 128, 128, .15);
-	border-radius: 4px !important;
-	box-shadow: 0 6px 12px rgba(0,0,0,.175);
+	border: 1px solid var(--formora-line);
+	border-radius: var(--formora-radius-lg) !important;
+	box-shadow: var(--formora-shadow-menu);
 }
 
 
@@ -197,11 +229,11 @@ div#topmenu-global-search-dropdown a::after, div#topmenu-quickadd-dropdown a::af
 	line-height:1.3em;
 }
 .tmenu .dropdown-menu, .login_block  .dropdown-menu .user-body {
-	border-bottom-right-radius: 4px;
-	border-bottom-left-radius: 4px;
+	border-bottom-right-radius: var(--formora-radius-lg);
+	border-bottom-left-radius: var(--formora-radius-lg);
 }
 .user-body {
-	color: #333;
+	color: var(--formora-text);
 }
 .side-nav-vert .user-menu .dropdown-menu, .topnav .user-menu .dropdown-menu {
 	border-top-right-radius: 0;
@@ -209,7 +241,7 @@ div#topmenu-global-search-dropdown a::after, div#topmenu-quickadd-dropdown a::af
 	padding: 0 0 0 0;
 	/* border-top-width: 0; */
 	width: <?php echo $WIDTHMENUDROPDOWN; ?>px;
-	border-radius: 6px;
+	border-radius: var(--formora-radius-lg);
 }
 .topnav .user-menu .dropdown-menu {
 	top: 50px;
@@ -257,12 +289,10 @@ a.top-menu-dropdown-link {
 }
 
 .dropdown-menu > .user-header{
-	/* background: var(--colorbackhmenu1);
-	color: var(--colortextbackhmenu); */
-	background: #f9f9f9;
-	color: #000;
-	border-top-left-radius: 6px;
-	border-top-right-radius: 6px;
+	background: var(--formora-surface-alt);
+	color: var(--formora-text);
+	border-top-left-radius: var(--formora-radius-lg);
+	border-top-right-radius: var(--formora-radius-lg);
 }
 
 .dropdown-menu .dropdown-header{
@@ -270,11 +300,11 @@ a.top-menu-dropdown-link {
 }
 
 .dropdown-menu > .user-footer {
-	border-top: 1px solid #f0f0f0;
-	background-color: #f9f9f9;
+	border-top: 1px solid var(--formora-line-soft);
+	background-color: var(--formora-surface-alt);
 	padding: 10px;
-	border-bottom-left-radius: 6px;
-	border-bottom-right-radius: 6px;
+	border-bottom-left-radius: var(--formora-radius-lg);
+	border-bottom-right-radius: var(--formora-radius-lg);
 }
 
 .user-footer:after {
@@ -282,8 +312,8 @@ a.top-menu-dropdown-link {
 }
 
 .dropdown-menu > .bookmark-footer {
-	border-top: 1px solid #f0f0f0;
-	background-color: #f9f9f9;
+	border-top: 1px solid var(--formora-line-soft);
+	background-color: var(--formora-surface-alt);
 	padding: 10px;
 	text-align: start;
 }
@@ -291,11 +321,11 @@ a.top-menu-dropdown-link {
 
 .dropdown-menu > .user-body, .dropdown-body {
 	padding: 15px;
-	border-bottom: 1px solid #f4f4f4;
-	border-top: 1px solid #f0f0f0;
+	border-bottom: 1px solid var(--formora-line-soft);
+	border-top: 1px solid var(--formora-line-soft);
 	white-space: normal;
-	border-bottom-left-radius: 6px;
-	border-bottom-right-radius: 6px;
+	border-bottom-left-radius: var(--formora-radius-lg);
+	border-bottom-right-radius: var(--formora-radius-lg);
 }
 
 .dropdown-menu > .bookmark-body, .dropdown-body {
@@ -324,7 +354,7 @@ a.top-menu-dropdown-link {
 #topmenuloginmoreinfo-btn, #topmenulogincompanyinfo-btn {
 	display: block;
 	text-align: start;
-	color:#666;
+	color: var(--formora-muted);
 	cursor: pointer;
 }
 
@@ -357,15 +387,15 @@ a.dropdown-item {
 	user-select: none;
 	background-image: none;
 	border: 1px solid transparent;
-	border-radius: 3px;
+	border-radius: var(--formora-radius);
 }
 
 .user-footer .button-top-menu-dropdown {
-	color: #666666;
+	color: var(--formora-muted);
 	box-shadow: none;
 	border-width: 1px;
-	background-color: #f4f4f4;
-	border-color: #ddd;
+	background-color: var(--formora-neutral-bg);
+	border-color: var(--formora-line);
 }
 
 .dropdown-menu a.top-menu-dropdown-link {
@@ -551,7 +581,7 @@ div.quickaddblock:focus {
 }
 .dropdown-content .butAction {
 	background: none;
-	color: #333 !important;
+	color: var(--formora-text) !important;
 }
 .dropdown-content a:is(.butAction,.butActionDelete,.butActionRefused) {
 	display: flex;
@@ -567,12 +597,12 @@ div.quickaddblock:focus {
 
 .dropdown-content .butActionDelete{
 	background-color: transparent !important;
-	color: #633 !important;
+	color: var(--formora-danger) !important;
 }
 .dropdown-content .butActionDelete:hover {
 	box-shadow: none;
 	background-color: var(--butactiondeletebg) !important;
-	color: #633 !important;
+	color: var(--formora-danger) !important;
 	text-decoration: none;
 }
 
