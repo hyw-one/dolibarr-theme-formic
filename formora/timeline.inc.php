@@ -30,11 +30,10 @@ if (!defined('ISLOADEDBYSTEELSHEET')) {
 	position: absolute;
 	top: 0;
 	bottom: 0;
-	width: 4px;
-	background: #ddd;
+	width: 2px;
+	background: var(--formora-line-soft, #ddd);
 	left: 25px;
 	margin: 0;
-	border-radius: 2px;
 }
 .timeline > li {
 	position: relative;
@@ -50,12 +49,12 @@ if (!defined('ISLOADEDBYSTEELSHEET')) {
 	clear: both;
 }
 .timeline > li > .timeline-item {
-	box-shadow:  0 1px 3px rgba(0, 0, 0, 0.1);
-	border:1px solid #d2d2d2;
-	border-radius: 3px;
+	box-shadow: var(--formora-shadow-soft, 0 1px 3px rgba(0, 0, 0, 0.1));
+	border: 1px solid var(--formora-line, #d2d2d2);
+	border-radius: var(--formora-radius-lg, 8px);
 	margin-top: 0;
-	background: #fff;
-	color: #444;
+	background: var(--formora-surface, #fff);
+	color: var(--formora-text, #444);
 	margin-left: 50px;
 	margin-right: 0px;
 	padding: 0;
@@ -64,8 +63,8 @@ if (!defined('ISLOADEDBYSTEELSHEET')) {
 
 .timeline > li.timeline-code-ticket_msg_private  > .timeline-item,
 .timeline > li.timeline-code-ticket_msg_private_sentbymail > .timeline-item {
-		background: #fffbe5;
-		border-color: #d0cfc0;
+		background: var(--formora-toast-warning-bg, #fffbe5);
+		border-color: var(--formora-toast-warning-border, #d0cfc0);
 }
 
 
@@ -93,7 +92,7 @@ a.timeline-btn:active
 	display: inline-block;
 	margin-bottom: 0;
 	font-weight: 400;
-	border-radius: 0;
+	border-radius: var(--formora-radius-sm, 4px);
 	box-shadow: none;
 	padding: 1px 5px;
 	font-size: 12px;
@@ -106,23 +105,23 @@ a.timeline-btn:active
 	user-select: none;
 	background-image: none;
 	text-decoration: none;
-	background-color: #f4f4f4;
-	color: #444;
-	border: 1px solid #ddd;
+	background-color: var(--formora-neutral-bg, #f4f4f4);
+	color: var(--formora-text, #444);
+	border: 1px solid var(--formora-line, #ddd);
 }
 
 a.timeline-btn:hover
 {
-	background-color: #e7e7e7;
-	color: #333;
-	border-color: #adadad;
+	background-color: var(--formora-neutral-hover-bg, #e7e7e7);
+	color: var(--formora-accent, #333);
+	border-color: var(--formora-accent, #adadad);
 }
 
 
 .timeline > li > .timeline-item > .timeline-header {
 	margin: 0;
-	color: #333;
-	border-bottom: 1px solid #f4f4f4;
+	color: var(--formora-text, #333);
+	border-bottom: 1px solid var(--formora-line-soft, #f4f4f4);
 	padding: 10px;
 	font-size: 1em;
 	font-weight: normal;
@@ -130,11 +129,11 @@ a.timeline-btn:hover
 }
 
 .timeline > li > .timeline-item > .timeline-footer {
-	border-top: 1px solid #f4f4f4;
+	border-top: 1px solid var(--formora-line-soft, #f4f4f4);
 }
 
 .timeline > li.timeline-code-ticket_msg_private  > .timeline-item > .timeline-header, .timeline > li.timeline-code-ticket_msg_private  > .timeline-item > .timeline-footer {
-	border-color: #ecebda;
+	border-color: var(--formora-toast-warning-border, #ecebda);
 }
 
 .timeline > li > .timeline-item > .timeline-header > a {
@@ -153,8 +152,8 @@ a.timeline-btn:hover
 	font-size: 1em;
 	line-height: 30px;
 	position: absolute;
-	color: #666;
-	background: #d2d6de;
+	color: var(--formora-muted, #666);
+	background: var(--formora-neutral-bg, #d2d6de);
 	border-radius: 50%;
 	text-align: center;
 	left: 12px;
@@ -162,18 +161,20 @@ a.timeline-btn:hover
 }
 .timeline > .time-label > span {
 	font-weight: 600;
-	padding: 5px;
+	padding: 5px 10px;
 	display: inline-block;
-	background-color: #fff;
-	border-radius: 4px;
+	background-color: var(--formora-neutral-bg, #fff);
+	color: var(--formora-text, #444);
+	border: 1px solid var(--formora-line-soft, transparent);
+	border-radius: var(--formora-radius-full, 9999px);
 }
 .timeline-inverse > li > .timeline-item {
-	background: #f0f0f0;
-	border: 1px solid #ddd;
+	background: var(--formora-neutral-bg, #f0f0f0);
+	border: 1px solid var(--formora-line, #ddd);
 	box-shadow: none;
 }
 .timeline-inverse > li > .timeline-item > .timeline-header {
-	border-bottom-color: #ddd;
+	border-bottom-color: var(--formora-line, #ddd);
 }
 
 .timeline-icon-todo,
@@ -183,24 +184,24 @@ a.timeline-btn:hover
 }
 
 .timeline-icon-not-applicble{
-	color: #000;
-	background-color: #f7f7f7;
+	color: var(--formora-text, #000);
+	background-color: var(--formora-neutral-bg, #f7f7f7);
 }
 
 .timeline-icon-todo{
-	background-color: #dd4b39 !important;
+	background-color: var(--formora-muted, #dd4b39) !important;
 }
 
 .timeline-icon-in-progress{
-	background-color: #00c0ef !important;
+	background-color: var(--formora-accent, #00c0ef) !important;
 }
 .timeline-icon-done{
-	background-color: #00a65a !important;
+	background-color: var(--formora-icon-success, #00a65a) !important;
 }
 
 
 .timeline-badge-date{
-	background-color: #0073b7 !important;
+	background-color: var(--formora-accent, #0073b7) !important;
 	color: #fff !important;
 }
 

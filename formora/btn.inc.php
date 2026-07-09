@@ -39,10 +39,10 @@ if (is_readable($formoraEldyBtnFile)) {
 /* Formora button color layer. Eldy keeps btnTitle sizing, border, background and hover structure. */
 :root {
 	--btncolortext: rgb(<?php print $colortextlink; ?>);
-	--btncolorbg: #fbfbfb;
+	--btncolorbg: var(--formora-surface, #fbfbfb);
 	--btncolorborderhover: none;
 	--btncolorborder: #FFF;
-	--butactiondeletebg: rgb(234,228,225);
+	--butactiondeletebg: var(--formora-danger-bg, rgb(234,228,225));
 	--butactionbg: rgb(<?php print $butactionbg; ?>);
 	--textbutaction: rgb(<?php print $textbutaction; ?>);
 }
