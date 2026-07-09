@@ -5117,7 +5117,7 @@ table.jPicker {
 
 body#mainbody #id-top {
 	background: var(--colorbackhmenu1) !important;
-	border-bottom: 1px solid var(--formora-line-soft) !important;
+	border-bottom: 1px solid var(--formora-line) !important;
 	box-shadow: 0 1px 0 rgba(0, 0, 0, 0.02) !important;
 }
 
@@ -7836,6 +7836,18 @@ body:not(#mainbody) button.calcbutton3.poscolorblue {
 			}
 
 			body#mainbody:not(.bodytakepos):not(.bodylogin) #tmenu_tooltip {
+				/*
+				 * #tmenu_tooltip is the horizontal-scroll wrapper around
+				 * ul.tmenu, not an actual tooltip. Its generic ".tmenu"
+				 * class rule gives it an opaque background matching #id-top
+				 * (needed so scrolled-past menu items don't show through),
+				 * but since it's a child painted after #id-top's own
+				 * border-bottom, that opaque fill hides the border for the
+				 * entire menu row except where li.menuhider's own sticky
+				 * z-index pokes above it. Give this wrapper the same
+				 * border-bottom directly so the line is visible again.
+				 */
+				border-bottom: 1px solid var(--formora-line) !important;
 				box-sizing: border-box !important;
 				height: 60px !important;
 				min-height: 60px !important;
@@ -7877,7 +7889,6 @@ body:not(#mainbody) button.calcbutton3.poscolorblue {
 
 body#mainbody:not(.bodytakepos):not(.bodylogin) #id-top li.menuhider {
 	background: var(--colorbackhmenu1) !important;
-	box-shadow: 10px 0 14px -14px rgba(0, 0, 0, 0.5) !important;
 	display: block !important;
 	left: 0 !important;
 				position: sticky !important;
@@ -7912,7 +7923,8 @@ body#mainbody:not(.bodytakepos):not(.bodylogin) #id-top li.menuhider {
 body#mainbody:not(.bodytakepos):not(.bodylogin) #id-top li.menuhider div.tmenucenter {
 	align-items: center !important;
 	background: var(--colorbackhmenu1) !important;
-	border-right: 1px solid var(--formora-line-soft) !important;
+				border-bottom: 1px solid var(--formora-line) !important;
+				border-radius: 0 !important;
 				box-sizing: border-box !important;
 				flex-direction: row !important;
 				height: 60px !important;
