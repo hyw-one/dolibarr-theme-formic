@@ -5597,6 +5597,17 @@ body#mainbody .tabBar :is(.tagtr, .tagtd) {
 		position: relative;
 	}
 
+	body#mainbody .info-box .info-box-content {
+		/*
+		 * Core's own padding is "5px 5px 5px 14px" - a narrow 5px right side
+		 * meant for the old layout where values rarely reached the edge.
+		 * Now that .info-box-line right-aligns every value flush to its own
+		 * edge, that narrow padding left numbers/badges crowding the card
+		 * border. Match it to the left side instead.
+		 */
+		padding: 5px 14px !important;
+	}
+
 	body#mainbody .info-box > .info-box-icon {
 		border-radius: 0 !important;
 		box-sizing: border-box !important;
