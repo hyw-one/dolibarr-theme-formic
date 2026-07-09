@@ -12,8 +12,8 @@ div.ui-tooltip.mytooltip-hover-tooltip {
 	color: #fff;
 	border: none;
 	padding: 6px 10px;
-	border-radius: var(--formora-radius);
-	box-shadow: var(--formora-shadow-menu);
+	border-radius: var(--formic-radius);
+	box-shadow: var(--formic-shadow-menu);
 	margin: 2px;
 	font-stretch: condensed;
 	line-height: 1.6em;

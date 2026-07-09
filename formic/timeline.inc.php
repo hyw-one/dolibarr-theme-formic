@@ -31,7 +31,7 @@ if (!defined('ISLOADEDBYSTEELSHEET')) {
 	top: 0;
 	bottom: 0;
 	width: 2px;
-	background: var(--formora-line-soft, #ddd);
+	background: var(--formic-line-soft, #ddd);
 	left: 25px;
 	margin: 0;
 }
@@ -49,12 +49,12 @@ if (!defined('ISLOADEDBYSTEELSHEET')) {
 	clear: both;
 }
 .timeline > li > .timeline-item {
-	box-shadow: var(--formora-shadow-soft, 0 1px 3px rgba(0, 0, 0, 0.1));
-	border: 1px solid var(--formora-line, #d2d2d2);
-	border-radius: var(--formora-radius-lg, 8px);
+	box-shadow: var(--formic-shadow-soft, 0 1px 3px rgba(0, 0, 0, 0.1));
+	border: 1px solid var(--formic-line, #d2d2d2);
+	border-radius: var(--formic-radius-lg, 8px);
 	margin-top: 0;
-	background: var(--formora-surface, #fff);
-	color: var(--formora-text, #444);
+	background: var(--formic-surface, #fff);
+	color: var(--formic-text, #444);
 	margin-left: 50px;
 	margin-right: 0px;
 	padding: 0;
@@ -63,8 +63,8 @@ if (!defined('ISLOADEDBYSTEELSHEET')) {
 
 .timeline > li.timeline-code-ticket_msg_private  > .timeline-item,
 .timeline > li.timeline-code-ticket_msg_private_sentbymail > .timeline-item {
-		background: var(--formora-toast-warning-bg, #fffbe5);
-		border-color: var(--formora-toast-warning-border, #d0cfc0);
+		background: var(--formic-toast-warning-bg, #fffbe5);
+		border-color: var(--formic-toast-warning-border, #d0cfc0);
 }
 
 
@@ -92,7 +92,7 @@ a.timeline-btn:active
 	display: inline-block;
 	margin-bottom: 0;
 	font-weight: 400;
-	border-radius: var(--formora-radius-sm, 4px);
+	border-radius: var(--formic-radius-sm, 4px);
 	box-shadow: none;
 	padding: 1px 5px;
 	font-size: 12px;
@@ -105,23 +105,23 @@ a.timeline-btn:active
 	user-select: none;
 	background-image: none;
 	text-decoration: none;
-	background-color: var(--formora-neutral-bg, #f4f4f4);
-	color: var(--formora-text, #444);
-	border: 1px solid var(--formora-line, #ddd);
+	background-color: var(--formic-neutral-bg, #f4f4f4);
+	color: var(--formic-text, #444);
+	border: 1px solid var(--formic-line, #ddd);
 }
 
 a.timeline-btn:hover
 {
-	background-color: var(--formora-neutral-hover-bg, #e7e7e7);
-	color: var(--formora-accent, #333);
-	border-color: var(--formora-accent, #adadad);
+	background-color: var(--formic-neutral-hover-bg, #e7e7e7);
+	color: var(--formic-accent, #333);
+	border-color: var(--formic-accent, #adadad);
 }
 
 
 .timeline > li > .timeline-item > .timeline-header {
 	margin: 0;
-	color: var(--formora-text, #333);
-	border-bottom: 1px solid var(--formora-line-soft, #f4f4f4);
+	color: var(--formic-text, #333);
+	border-bottom: 1px solid var(--formic-line-soft, #f4f4f4);
 	padding: 10px;
 	font-size: 1em;
 	font-weight: normal;
@@ -129,11 +129,11 @@ a.timeline-btn:hover
 }
 
 .timeline > li > .timeline-item > .timeline-footer {
-	border-top: 1px solid var(--formora-line-soft, #f4f4f4);
+	border-top: 1px solid var(--formic-line-soft, #f4f4f4);
 }
 
 .timeline > li.timeline-code-ticket_msg_private  > .timeline-item > .timeline-header, .timeline > li.timeline-code-ticket_msg_private  > .timeline-item > .timeline-footer {
-	border-color: var(--formora-toast-warning-border, #ecebda);
+	border-color: var(--formic-toast-warning-border, #ecebda);
 }
 
 .timeline > li > .timeline-item > .timeline-header > a {
@@ -152,8 +152,8 @@ a.timeline-btn:hover
 	font-size: 1em;
 	line-height: 30px;
 	position: absolute;
-	color: var(--formora-muted, #666);
-	background: var(--formora-neutral-bg, #d2d6de);
+	color: var(--formic-muted, #666);
+	background: var(--formic-neutral-bg, #d2d6de);
 	border-radius: 50%;
 	text-align: center;
 	left: 12px;
@@ -163,18 +163,18 @@ a.timeline-btn:hover
 	font-weight: 600;
 	padding: 5px 10px;
 	display: inline-block;
-	background-color: var(--formora-neutral-bg, #fff);
-	color: var(--formora-text, #444);
-	border: 1px solid var(--formora-line-soft, transparent);
-	border-radius: var(--formora-radius-full, 9999px);
+	background-color: var(--formic-neutral-bg, #fff);
+	color: var(--formic-text, #444);
+	border: 1px solid var(--formic-line-soft, transparent);
+	border-radius: var(--formic-radius-full, 9999px);
 }
 .timeline-inverse > li > .timeline-item {
-	background: var(--formora-neutral-bg, #f0f0f0);
-	border: 1px solid var(--formora-line, #ddd);
+	background: var(--formic-neutral-bg, #f0f0f0);
+	border: 1px solid var(--formic-line, #ddd);
 	box-shadow: none;
 }
 .timeline-inverse > li > .timeline-item > .timeline-header {
-	border-bottom-color: var(--formora-line, #ddd);
+	border-bottom-color: var(--formic-line, #ddd);
 }
 
 .timeline-icon-todo,
@@ -184,24 +184,24 @@ a.timeline-btn:hover
 }
 
 .timeline-icon-not-applicble{
-	color: var(--formora-text, #000);
-	background-color: var(--formora-neutral-bg, #f7f7f7);
+	color: var(--formic-text, #000);
+	background-color: var(--formic-neutral-bg, #f7f7f7);
 }
 
 .timeline-icon-todo{
-	background-color: var(--formora-muted, #dd4b39) !important;
+	background-color: var(--formic-muted, #dd4b39) !important;
 }
 
 .timeline-icon-in-progress{
-	background-color: var(--formora-accent, #00c0ef) !important;
+	background-color: var(--formic-accent, #00c0ef) !important;
 }
 .timeline-icon-done{
-	background-color: var(--formora-icon-success, #00a65a) !important;
+	background-color: var(--formic-icon-success, #00a65a) !important;
 }
 
 
 .timeline-badge-date{
-	background-color: var(--formora-accent, #0073b7) !important;
+	background-color: var(--formic-accent, #0073b7) !important;
 	color: #fff !important;
 }
 

@@ -77,8 +77,8 @@ button.dropdown-item.global-search-item {
 	min-width: <?php echo $WIDTHMENUDROPDOWN; ?>px;
 	max-width: <?php echo $WIDTHMENUDROPDOWN; ?>px;
 	width: <?php echo $WIDTHMENUDROPDOWN; ?>px;
-	border-bottom-left-radius: var(--formora-radius-lg);
-	border-bottom-right-radius: var(--formora-radius-lg);
+	border-bottom-left-radius: var(--formic-radius-lg);
+	border-bottom-right-radius: var(--formic-radius-lg);
 }
 
 
@@ -98,12 +98,12 @@ button.dropdown-item.global-search-item {
 	font-size: 14px;
 	text-align: left;
 	list-style: none;
-	background-color: var(--formora-surface);
+	background-color: var(--formic-surface);
 	-webkit-background-clip: padding-box;
 	background-clip: padding-box;
-	border: 1px solid var(--formora-line);
-	border-radius: var(--formora-radius-lg);
-	box-shadow: var(--formora-shadow-menu);
+	border: 1px solid var(--formic-line);
+	border-radius: var(--formic-radius-lg);
+	box-shadow: var(--formic-shadow-menu);
 }
 .dropdown-bookmark {
 	position: absolute;
@@ -121,12 +121,12 @@ button.dropdown-item.global-search-item {
 	font-size: 14px;
 	text-align: left;
 	list-style: none;
-	background-color: var(--formora-surface);
+	background-color: var(--formic-surface);
 	-webkit-background-clip: padding-box;
 	background-clip: padding-box;
-	border: 1px solid var(--formora-line);
-	border-radius: var(--formora-radius-lg);
-	box-shadow: var(--formora-shadow-menu);
+	border: 1px solid var(--formic-line);
+	border-radius: var(--formic-radius-lg);
+	box-shadow: var(--formic-shadow-menu);
 }
 .dropdown-quickadd {
 	position: absolute;
@@ -144,12 +144,12 @@ button.dropdown-item.global-search-item {
 	font-size: 14px;
 	text-align: left;
 	list-style: none;
-	background-color: var(--formora-surface);
+	background-color: var(--formic-surface);
 	-webkit-background-clip: padding-box;
 	background-clip: padding-box;
-	border: 1px solid var(--formora-line);
-	border-radius: var(--formora-radius-lg);
-	box-shadow: var(--formora-shadow-menu);
+	border: 1px solid var(--formic-line);
+	border-radius: var(--formic-radius-lg);
+	box-shadow: var(--formic-shadow-menu);
 }
 .dropdown-menu {
 	position: absolute;
@@ -167,12 +167,12 @@ button.dropdown-item.global-search-item {
 	font-size: 14px;
 	text-align: <?php echo $left; ?>;
 	list-style: none;
-	background-color: var(--formora-surface);
+	background-color: var(--formic-surface);
 	-webkit-background-clip: padding-box;
 	background-clip: padding-box;
-	border: 1px solid var(--formora-line);
-	border-radius: var(--formora-radius-lg) !important;
-	box-shadow: var(--formora-shadow-menu);
+	border: 1px solid var(--formic-line);
+	border-radius: var(--formic-radius-lg) !important;
+	box-shadow: var(--formic-shadow-menu);
 }
 
 
@@ -229,11 +229,11 @@ div#topmenu-global-search-dropdown a::after, div#topmenu-quickadd-dropdown a::af
 	line-height:1.3em;
 }
 .tmenu .dropdown-menu, .login_block  .dropdown-menu .user-body {
-	border-bottom-right-radius: var(--formora-radius-lg);
-	border-bottom-left-radius: var(--formora-radius-lg);
+	border-bottom-right-radius: var(--formic-radius-lg);
+	border-bottom-left-radius: var(--formic-radius-lg);
 }
 .user-body {
-	color: var(--formora-text);
+	color: var(--formic-text);
 }
 .side-nav-vert .user-menu .dropdown-menu, .topnav .user-menu .dropdown-menu {
 	border-top-right-radius: 0;
@@ -241,7 +241,7 @@ div#topmenu-global-search-dropdown a::after, div#topmenu-quickadd-dropdown a::af
 	padding: 0 0 0 0;
 	/* border-top-width: 0; */
 	width: <?php echo $WIDTHMENUDROPDOWN; ?>px;
-	border-radius: var(--formora-radius-lg);
+	border-radius: var(--formic-radius-lg);
 }
 .topnav .user-menu .dropdown-menu {
 	top: 50px;
@@ -289,10 +289,10 @@ a.top-menu-dropdown-link {
 }
 
 .dropdown-menu > .user-header{
-	background: var(--formora-surface-alt);
-	color: var(--formora-text);
-	border-top-left-radius: var(--formora-radius-lg);
-	border-top-right-radius: var(--formora-radius-lg);
+	background: var(--formic-surface-alt);
+	color: var(--formic-text);
+	border-top-left-radius: var(--formic-radius-lg);
+	border-top-right-radius: var(--formic-radius-lg);
 }
 
 .dropdown-menu .dropdown-header{
@@ -300,11 +300,11 @@ a.top-menu-dropdown-link {
 }
 
 .dropdown-menu > .user-footer {
-	border-top: 1px solid var(--formora-line-soft);
-	background-color: var(--formora-surface-alt);
+	border-top: 1px solid var(--formic-line-soft);
+	background-color: var(--formic-surface-alt);
 	padding: 10px;
-	border-bottom-left-radius: var(--formora-radius-lg);
-	border-bottom-right-radius: var(--formora-radius-lg);
+	border-bottom-left-radius: var(--formic-radius-lg);
+	border-bottom-right-radius: var(--formic-radius-lg);
 }
 
 .user-footer:after {
@@ -312,8 +312,8 @@ a.top-menu-dropdown-link {
 }
 
 .dropdown-menu > .bookmark-footer {
-	border-top: 1px solid var(--formora-line-soft);
-	background-color: var(--formora-surface-alt);
+	border-top: 1px solid var(--formic-line-soft);
+	background-color: var(--formic-surface-alt);
 	padding: 10px;
 	text-align: start;
 }
@@ -321,11 +321,11 @@ a.top-menu-dropdown-link {
 
 .dropdown-menu > .user-body, .dropdown-body {
 	padding: 15px;
-	border-bottom: 1px solid var(--formora-line-soft);
-	border-top: 1px solid var(--formora-line-soft);
+	border-bottom: 1px solid var(--formic-line-soft);
+	border-top: 1px solid var(--formic-line-soft);
 	white-space: normal;
-	border-bottom-left-radius: var(--formora-radius-lg);
-	border-bottom-right-radius: var(--formora-radius-lg);
+	border-bottom-left-radius: var(--formic-radius-lg);
+	border-bottom-right-radius: var(--formic-radius-lg);
 }
 
 .dropdown-menu > .bookmark-body, .dropdown-body {
@@ -354,7 +354,7 @@ a.top-menu-dropdown-link {
 #topmenuloginmoreinfo-btn, #topmenulogincompanyinfo-btn {
 	display: block;
 	text-align: start;
-	color: var(--formora-muted);
+	color: var(--formic-muted);
 	cursor: pointer;
 }
 
@@ -387,15 +387,15 @@ a.dropdown-item {
 	user-select: none;
 	background-image: none;
 	border: 1px solid transparent;
-	border-radius: var(--formora-radius);
+	border-radius: var(--formic-radius);
 }
 
 .user-footer .button-top-menu-dropdown {
-	color: var(--formora-muted);
+	color: var(--formic-muted);
 	box-shadow: none;
 	border-width: 1px;
-	background-color: var(--formora-neutral-bg);
-	border-color: var(--formora-line);
+	background-color: var(--formic-neutral-bg);
+	border-color: var(--formic-line);
 }
 
 .dropdown-menu a.top-menu-dropdown-link {
@@ -581,7 +581,7 @@ div.quickaddblock:focus {
 }
 .dropdown-content .butAction {
 	background: none;
-	color: var(--formora-text) !important;
+	color: var(--formic-text) !important;
 }
 .dropdown-content a:is(.butAction,.butActionDelete,.butActionRefused) {
 	display: flex;
@@ -597,12 +597,12 @@ div.quickaddblock:focus {
 
 .dropdown-content .butActionDelete{
 	background-color: transparent !important;
-	color: var(--formora-danger) !important;
+	color: var(--formic-danger) !important;
 }
 .dropdown-content .butActionDelete:hover {
 	box-shadow: none;
 	background-color: var(--butactiondeletebg) !important;
-	color: var(--formora-danger) !important;
+	color: var(--formic-danger) !important;
 	text-decoration: none;
 }
 

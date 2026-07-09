@@ -373,7 +373,7 @@
 		var colors = currentColors();
 		configureChartDefaults(colors);
 
-		if (!window.Chart || window.Chart.__formoraDarkPatch) {
+		if (!window.Chart || window.Chart.__formicDarkPatch) {
 			return;
 		}
 
@@ -392,8 +392,8 @@
 		});
 
 		try {
-			PatchedChart.__formoraDarkPatch = true;
-			PatchedChart.__formoraOriginal = OriginalChart;
+			PatchedChart.__formicDarkPatch = true;
+			PatchedChart.__formicOriginal = OriginalChart;
 		} catch (e) {
 			// Some Chart.js builds expose read-only statics; the proxy still works.
 		}
@@ -498,7 +498,7 @@
 		if (!window.ace || typeof window.ace.edit !== 'function') {
 			if (!colors.dark) {
 				editors.forEach(function (element) {
-					element.classList.remove('formora-ace-dark');
+					element.classList.remove('formic-ace-dark');
 				});
 			}
 			return;
@@ -507,7 +507,7 @@
 		if (!colors.dark) {
 			editors.forEach(function (element) {
 				if (!element.id) {
-					element.classList.remove('formora-ace-dark');
+					element.classList.remove('formic-ace-dark');
 					return;
 				}
 
@@ -517,10 +517,10 @@
 						editor.setTheme(aceThemeState.get(element));
 						aceThemeState.delete(element);
 					}
-					element.classList.remove('formora-ace-dark');
+					element.classList.remove('formic-ace-dark');
 				} catch (e) {
 					// ACE may already be detached; removing the helper class is still safe.
-					element.classList.remove('formora-ace-dark');
+					element.classList.remove('formic-ace-dark');
 				}
 			});
 			return;
@@ -539,7 +539,7 @@
 				if (editor && typeof editor.setTheme === 'function' && editor.getTheme && editor.getTheme() !== 'ace/theme/one_dark') {
 					editor.setTheme('ace/theme/one_dark');
 				}
-				element.classList.add('formora-ace-dark');
+				element.classList.add('formic-ace-dark');
 			} catch (e) {
 				// ACE may still be initializing; the scheduled retry will pick it up.
 			}
