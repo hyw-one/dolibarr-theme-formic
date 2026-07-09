@@ -8105,6 +8105,16 @@ body#mainbody:not(.sidebar-collapse):not(.bodytakepos):not(.bodylogin) .login_bl
 			}
 
 			body#mainbody:not(.bodytakepos):not(.bodylogin) .login_block_user .dropdown-menu .user-header > .dropdown-user-image {
+				/*
+				 * Eldy's own REDUC3 breakpoint (global.inc.php, width computed from
+				 * $nbtopmenuentries, independent of Formora's 1180px mobile-chrome
+				 * cutoff and often narrower than it) sets ".dropdown-user-image
+				 * { display: none; }" to save space in its original text-only
+				 * user-header. Formora's card layout below still reserves a 90px
+				 * grid column for this image, so cancel that hide here or the
+				 * photo silently disappears while the empty column stays.
+				 */
+				display: block !important;
 				grid-column: 1 !important;
 				margin: 0 !important;
 			}
@@ -8374,7 +8384,16 @@ body#mainbody:not(.sidebar-collapse):not(.bodytakepos):not(.bodylogin) .login_bl
 			}
 		}
 
-		@media only screen and (max-width: 1024px) {
+		/*
+		 * This must match the 1180px breakpoint above (style.css.php:7825)
+		 * that switches the top bar into mobile chrome and makes
+		 * li.menuhider (the hamburger) visible. It used to be a separate,
+		 * narrower 1024px here, leaving a live 1025-1180px gap where the
+		 * hamburger showed (top-bar rule fired) but the pinned sidebar was
+		 * still laid out normally (this rule hadn't fired yet) - both
+		 * visible at once, which is the reported bug.
+		 */
+		@media only screen and (max-width: 1180px) {
 			body#mainbody:not(.bodytakepos):not(.bodylogin) #id-top li.menuhider {
 				display: block !important;
 				flex: 0 0 auto !important;
@@ -8462,7 +8481,23 @@ body#mainbody:not(.sidebar-collapse):not(.bodytakepos):not(.bodylogin) .login_bl
 			body#mainbody:is(.page-list_det, .page-task_time):not(.bodylogin) #id-right,
 			body#mainbody.classforhorizontalscrolloftabs:not(.bodytakepos):not(.bodylogin) #id-right {
 				box-sizing: border-box !important;
-				display: block !important;
+				/*
+				 * "flow-root", not "block": #id-right is normally a table-cell
+				 * (global.inc.php), which implicitly contains floated children
+				 * (a table-cell is always its own block-formatting context) -
+				 * that's how the dashboard's two-column boxes (.twocolumns >
+				 * .fichehalfleft/.fichehalfright, still float-based here since
+				 * Eldy only un-floats them at max-width:1024px, narrower than
+				 * this 1180px tier) get their real rendered height counted.
+				 * Switching to plain "block" for the mobile-chrome layout drops
+				 * that containment, so .twocolumns collapses to 0px height and
+				 * everything below the first viewport-height's worth of content
+				 * renders on the page's own (grey) background instead of
+				 * #id-right's white one. "flow-root" keeps the block-level
+				 * sizing/positioning this rule wants while restoring float
+				 * containment.
+				 */
+				display: flow-root !important;
 				left: auto !important;
 				max-width: 100vw !important;
 				min-width: 0 !important;
