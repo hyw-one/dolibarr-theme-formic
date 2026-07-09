@@ -22,7 +22,7 @@
  */
 
 /**
- *	\file       htdocs/theme/formora/theme_vars.inc.php
+ *	\file       htdocs/theme/formic/theme_vars.inc.php
  *	\brief      File to declare variables of CSS style sheet
  *  \ingroup    core
  *

@@ -44,7 +44,7 @@ if (!defined('ISLOADEDBYSTEELSHEET')) {
 	text-align: center;
 	white-space: nowrap;
 	vertical-align: baseline;
-	border-radius: var(--formora-radius-sm);
+	border-radius: var(--formic-radius-sm);
 	transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 	border-width: 1px;
 	border-style: solid;
@@ -56,7 +56,7 @@ if (!defined('ISLOADEDBYSTEELSHEET')) {
 	padding: 3px;
 	padding-left: 5px;
 	padding-right: 5px;
-	border-radius: var(--formora-radius-sm);
+	border-radius: var(--formic-radius-sm);
 }
 
 .badge-status {
@@ -79,14 +79,14 @@ if (!defined('ISLOADEDBYSTEELSHEET')) {
 .tabs .badge {
 	padding-right: .5em;
 	padding-left: .5em;
-	border-radius: var(--formora-radius-sm);
+	border-radius: var(--formic-radius-sm);
 }
 
 .badge-pill{
 	/* Use the .badge-pill modifier class to make badges more rounded (with a larger border-radius and additional horizontal padding). */
 	padding-right: .8em;
 	padding-left: 0.8em;
-	border-radius: var(--formora-radius-full);
+	border-radius: var(--formic-radius-full);
 }
 
 .badge-dot {
@@ -107,9 +107,9 @@ a.badge:focus, a.badge:hover {
 
 span.badgeneutral {
 	padding: 2px 7px 2px 7px;
-	background-color: var(--formora-neutral-bg);
-	color: var(--formora-muted);
-	border-radius: var(--formora-radius-full);
+	background-color: var(--formic-neutral-bg);
+	color: var(--formic-muted);
+	border-radius: var(--formic-radius-full);
 	white-space: nowrap;
 }
 
@@ -117,7 +117,7 @@ span.badgeneutral {
 /* PRIMARY */
 .badge-primary{
 	color: <?php print $badgePrimary; ?> !important;
-	background-color: var(--formora-accent-soft);
+	background-color: var(--formic-accent-soft);
 	border-color: <?php print colorHexToRgb($badgePrimary, 0.32); ?>;
 }
 a.badge-primary.focus, a.badge-primary:focus {
@@ -132,7 +132,7 @@ a.badge-primary:focus, a.badge-primary:hover {
 /* SECONDARY */
 .badge-secondary, .tabs .badge {
 	color: <?php print $badgeSecondary; ?> !important;
-	background-color: var(--formora-neutral-bg);
+	background-color: var(--formic-neutral-bg);
 	border-color: <?php print colorHexToRgb($badgeSecondary, 0.28); ?>;
 }
 a.badge-secondary.focus, a.badge-secondary:focus {
@@ -147,8 +147,8 @@ a.badge-secondary:focus, a.badge-secondary:hover {
 /* SUCCESS */
 .badge-success {
 	color: <?php print $badgeSuccess; ?> !important;
-	background-color: var(--formora-toast-success-bg);
-	border-color: var(--formora-toast-success-border);
+	background-color: var(--formic-toast-success-bg);
+	border-color: var(--formic-toast-success-border);
 }
 a.badge-success.focus, a.badge-success:focus {
 	outline: 0;
@@ -162,8 +162,8 @@ a.badge-success:focus, a.badge-success:hover {
 /* DANGER */
 .badge-danger {
 	color: <?php print $badgeDanger; ?> !important;
-	background-color: var(--formora-toast-error-bg);
-	border-color: var(--formora-toast-error-border);
+	background-color: var(--formic-toast-error-bg);
+	border-color: var(--formic-toast-error-border);
 }
 a.badge-danger.focus, a.badge-danger:focus {
 	outline: 0;
@@ -177,8 +177,8 @@ a.badge-danger:focus, a.badge-danger:hover {
 /* WARNING */
 .badge-warning {
 	color: <?php print $badgeWarning; ?> !important;
-	background-color: var(--formora-toast-warning-bg);
-	border-color: var(--formora-toast-warning-border);
+	background-color: var(--formic-toast-warning-bg);
+	border-color: var(--formic-toast-warning-border);
 }
 a.badge-warning.focus, a.badge-warning:focus {
 	outline: 0;
@@ -205,7 +205,7 @@ body[class*="colorblind-"] a.badge-warning:focus, a.badge-warning:hover {
 /* INFO */
 .badge-info {
 	color: <?php print $badgeInfo; ?> !important;
-	background-color: var(--formora-accent-soft);
+	background-color: var(--formic-accent-soft);
 	border-color: <?php print colorHexToRgb($badgeInfo, 0.32); ?>;
 }
 a.badge-info.focus, a.badge-info:focus {
@@ -219,7 +219,7 @@ a.badge-info:focus, a.badge-info:hover {
 
 /* LIGHT */
 .badge-light {
-	color: var(--formora-text) !important;
+	color: var(--formic-text) !important;
 	background-color: <?php print $badgeLight; ?>;
 }
 a.badge-light.focus, a.badge-light:focus {
@@ -227,7 +227,7 @@ a.badge-light.focus, a.badge-light:focus {
 	box-shadow: 0 0 0 0.2rem <?php print colorHexToRgb($badgeLight, 0.5); ?>;
 }
 a.badge-light:focus, a.badge-light:hover {
-	color: var(--formora-text) !important;
+	color: var(--formic-text) !important;
 	background-color: <?php print colorDarker($badgeLight, 10); ?>;
 }
 

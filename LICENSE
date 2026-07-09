@@ -1,20 +1,32 @@
-Formora license declaration
+Formic license declaration
+===========================
 
-Formora is an Eldy-based theme for Dolibarr ERP/CRM.
+Formic is an Eldy-based theme for Dolibarr ERP/CRM. This repository contains
+the theme package: stylesheets, PHP include fragments, a small runtime script,
+and image assets inherited from Dolibarr's bundled Eldy theme.
 
-This project is free software; you can redistribute it and/or modify it
-under the terms of the GNU General Public License as published by the
-Free Software Foundation; either version 3 of the License, or (at your
-option) any later version.
+Formic is free software: you can redistribute it and/or modify it under the
+terms of the GNU General Public License as published by the Free Software
+Foundation, either version 3 of the License, or (at your option) any later
+version.
 
-This project is distributed in the hope that it will be useful, but
-WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
-or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License
-for more details.
+Formic is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
+A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 
-You should have received a copy of the GNU General Public License along
-with this project. If not, see <https://www.gnu.org/licenses/>.
+You should have received a copy of the GNU General Public License along with
+this program. If not, see <https://www.gnu.org/licenses/>.
 
-This repository contains files derived from Dolibarr/Eldy theme sources.
-Individual source files may include additional copyright notices from
-their original authors. Those notices remain applicable.
+Derived work
+------------
+
+This repository contains files derived from Dolibarr's Eldy theme
+(https://github.com/Dolibarr/dolibarr), copyright their respective authors and
+licensed under the GNU General Public License, version 3 or later. Individual
+source files retain their original copyright headers where applicable; those
+notices remain in effect alongside this declaration.
+
+No other third-party code is bundled in this repository. Runtime libraries the
+theme integrates with at the CSS/JS level (CKEditor, Chart.js, ACE, jQuery,
+select2, Font Awesome, and others) are provided by Dolibarr core at
+installation time and are not part of this package.
