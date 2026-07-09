@@ -7835,6 +7835,19 @@ body:not(#mainbody) button.calcbutton3.poscolorblue {
 				position: relative !important;
 			}
 
+			/*
+			 * .menulogocontainer's own height (global.inc.php) drops to 18px
+			 * in text-only mode ($disableimages), sized for that mode's much
+			 * shorter ~28px topbar. This tier keeps the topbar a fixed 60px
+			 * regardless of mode, so text-only mode was left with a tiny logo
+			 * floating in a row sized for the full icon+label layout. Pin it
+			 * back to the icon-mode size here.
+			 */
+			body#mainbody:not(.bodytakepos):not(.bodylogin) #id-top .menulogocontainer {
+				height: 35px !important;
+				margin: 6px 9px 6px 11px !important;
+			}
+
 			body#mainbody:not(.bodytakepos):not(.bodylogin) #tmenu_tooltip {
 				/*
 				 * #tmenu_tooltip is the horizontal-scroll wrapper around
