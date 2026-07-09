@@ -75,7 +75,6 @@ $leftmenuwidth = 240;
  * @var string $fontsize
  * @var int $heightmenu
  * @var string $heightrow
- * @var string $img_button
  * @var string $left
  * @var string $maxwidthloginblock
  * @var int $minwidthtmenu
@@ -136,7 +135,6 @@ $leftmenuwidth = 240;
 @phan-var-force string $fontsize
 @phan-var-force int $heightmenu
 @phan-var-force string $heightrow
-@phan-var-force string $img_button
 @phan-var-force string $left
 @phan-var-force string $maxwidthloginblock
 @phan-var-force int $minwidthtmenu
@@ -907,21 +905,22 @@ table.tableforfield .buttonDelete:not(.bordertransp):not(.buttonpayment) {
 	margin-right: 5px;
 	font-family: <?php print $fontlist ?>;
 	display: inline-block;
-	padding: 8px 15px;
+	padding: 4px 15px;
 	min-width: 90px;
+	height: 32px;
+	box-sizing: border-box;
 	text-align: center;
 	cursor: pointer;
 	text-decoration: none !important;
-	background-color: #f5f5f5;
-	background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
-	background-repeat: repeat-x;
-	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-	border: 1px solid #aaa;
-	border-radius: 4px;
+	background-color: var(--formora-action, #1677ff);
+	background-image: none;
+	border: 1px solid var(--formora-action, #1677ff);
+	border-radius: var(--formora-radius, 6px);
 
-	font-weight: bold;
-	text-transform: uppercase;
-	color: #444;
+	font-weight: 400;
+	text-transform: none;
+	color: var(--formora-action-text, #ffffff);
+	transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 .valuefield .button, .valuefieldcreate .button, .refidno .button:not(.smallpaddingimp) {
 	margin-top: 0 !important;
@@ -930,11 +929,13 @@ table.tableforfield .buttonDelete:not(.bordertransp):not(.buttonpayment) {
 	padding: 5px !important;
 }
 .button:focus, .buttonDelete:focus  {
-	box-shadow: 0px 0px 5px 1px rgba(0, 0, 60, 0.2), 0px 0px 0px rgba(60,60,60,0.1);
+	outline: none;
+	box-shadow: 0 0 0 2px var(--formora-focus-ring, rgba(22, 119, 255, 0.18));
 }
 .button:hover:not(.nohover), .buttonDelete:hover:not(.nohover)   {
-	/* warning: having a larger shadow has side effect when button is completely on left of a table */
-	box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.2), 0px 0px 0px rgba(60,60,60,0.1);
+	background-color: var(--formora-action-hover, #4096ff);
+	border-color: var(--formora-action-hover, #4096ff);
+	box-shadow: none;
 }
 .button:disabled, .buttonDelete:disabled, .button.disabled, .buttonDelete.disabled {
 	opacity: 0.4;
@@ -2776,8 +2777,8 @@ div.vmenu, td.vmenu {
 
 
 div.fiche {
-	margin-<?php print $left; ?>: <?php print(GETPOST('optioncss', 'aZ09') == 'print' ? 6 : (empty($conf->dol_optimize_smallscreen) ? '44' : '6')); ?>px;
-	margin-<?php print $right; ?>: <?php print(GETPOST('optioncss', 'aZ09') == 'print' ? 6 : (empty($conf->dol_optimize_smallscreen) ? '38' : '6')); ?>px;
+	margin-<?php print $left; ?>: <?php print(GETPOST('optioncss', 'aZ09') == 'print' ? 6 : (empty($conf->dol_optimize_smallscreen) ? '40' : '6')); ?>px;
+	margin-<?php print $right; ?>: <?php print(GETPOST('optioncss', 'aZ09') == 'print' ? 6 : (empty($conf->dol_optimize_smallscreen) ? '40' : '6')); ?>px;
 	<?php if (!empty($dol_hide_topmenu) || GETPOST('dol_openinpopup', 'aZ09')) {
 		print 'margin-top: 12px;'."\n";
 	} ?>
@@ -4295,10 +4296,6 @@ a.tab:link, a.tab:visited, a.tab:hover, a.tab#active {
 }
 a.tab:hover
 {
-	/*
-	background: var(--colorbacktabcard1), 0.5)  url(<?php echo dol_buildpath($path.'/theme/'.$theme.'/img/nav-overlay3.png', 1); ?>) 50% 0 repeat-x;
-	color: var(--colortextbacktab);
-	*/
 	text-decoration: underline;
 }
 a.tabimage {
@@ -5664,57 +5661,87 @@ img.boxhandle, img.boxclose {
  *   Ok, Warning, Error
  */
 
-.ok      { color: #114466; }
-.warning { color: #887711 !important; }
-.error   { color: #660000 !important; font-weight: bold; }
-.green   { color: #118822 !important; }
-.neutral { color: #444 !important; }
+.ok      { color: var(--formora-toast-success-text, #114466); }
+.warning { color: var(--formora-toast-warning-text, #887711) !important; }
+.error   { color: var(--formora-toast-error-text, #660000) !important; font-weight: bold; }
+.green   { color: var(--formora-toast-success-text, #118822) !important; }
+.neutral { color: var(--formora-muted, #444) !important; }
 
 div.ok {
-	color: #114466;
+	color: var(--formora-toast-success-text, #114466);
 }
 
 div.info, div.warning, div.error, div.green, div.neutral {
+	position: relative;
 	padding-top: 16px;
-	padding-left: 10px;
+	padding-left: 40px;
 	padding-right: 4px;
 	padding-bottom: 16px;
 	margin: 1em 0em 1em 0em;
-	border-radius: 5px;
+	border-radius: var(--formora-radius-sm, 5px);
+}
+
+div.info::before, div.warning::before, div.error::before, div.green::before, div.neutral::before {
+	font-family: "<?php echo getDolGlobalString('MAIN_FONTAWESOME_FAMILY', 'Font Awesome 5 Free'); ?>";
+	font-weight: 900;
+	position: absolute;
+	<?php print $left; ?>: 14px;
+	top: 15px;
+	font-size: 1.1em;
+}
+
+div.info::before {
+	content: "\f05a";
+	color: var(--formora-accent, #558);
+}
+div.warning::before {
+	content: "\f071";
+	color: var(--formora-toast-warning-text, #887711);
+}
+div.error::before {
+	content: "\f057";
+	color: var(--formora-toast-error-text, #660000);
+}
+div.green::before {
+	content: "\f058";
+	color: var(--formora-toast-success-text, #118822);
+}
+div.neutral::before {
+	content: "\f05a";
+	color: var(--formora-muted, #444);
 }
 
 div.fiche div.info, div.fiche div.warning, div.fiche div.neutral {
-	box-shadow: 1px 1px 6px #d4d4d4;
 	margin: 1em 0em 1.2em 0em;
 }
 
 /* Neutral message */
 div.neutral {
-	border-<?php print $left; ?>: solid 5px #aaa;
-	background: #f8f8f8;
+	border-<?php print $left; ?>: solid 5px var(--formora-line, #aaa);
+	background: var(--formora-neutral-bg, #f8f8f8);
 }
 
 /* Info message */
 div.info {
-	border-<?php print $left; ?>: solid 5px #87cfd2;
-	background: #eff8fc;
-	color: #558;
+	border-<?php print $left; ?>: solid 5px var(--formora-accent, #87cfd2);
+	background: var(--formora-accent-soft, #eff8fc);
+	color: var(--formora-text, #558);
 }
 
 /* Ok message */
 div.green div.greenborder, section.green, section.greenborder {
-	border-<?php print $left; ?>: solid 5px #118822;
+	border-<?php print $left; ?>: solid 5px var(--formora-toast-success-border, #118822);
 }
 div.green, section.green {
-	background: #e3f0e3;
+	background: var(--formora-toast-success-bg, #e3f0e3);
 }
 
 /* Warning message */
 div.warning, div.warningborder, section.warning, section.warningborder {
-	border-<?php print $left; ?>: solid 5px #f2cf87;
+	border-<?php print $left; ?>: solid 5px var(--formora-toast-warning-border, #f2cf87);
 }
 div.warning, section.warning {
-	background: #fcf8e3;
+	background: var(--formora-toast-warning-bg, #fcf8e3);
 }
 div.warning a, div.info a, div.error a {
 	color: var(--colortextlink);
@@ -5722,8 +5749,8 @@ div.warning a, div.info a, div.error a {
 
 /* Error message */
 div.error {
-	border-<?php print $left; ?>: solid 5px #f28787;
-	background: #EFCFCF;
+	border-<?php print $left; ?>: solid 5px var(--formora-toast-error-border, #f28787);
+	background: var(--formora-toast-error-bg, #EFCFCF);
 }
 
 
@@ -6025,8 +6052,8 @@ button.ui-button-icon-only.ui-dialog-titlebar-close {
 	z-index:1006 !important; /* To always be over the dialog box */
 }
 .ui-dialog.ui-widget.ui-widget-content {
-	border: 1px solid #e0e0e0;
-	border-radius: 6px;
+	border: 1px solid var(--formora-line, #e0e0e0);
+	border-radius: var(--formora-radius-lg, 8px);
 }
 .ui-dialog {
 	padding-left: 5px;
@@ -6038,11 +6065,11 @@ button.ui-button-icon-only.ui-dialog-titlebar-close {
 	padding: 8px !important;
 	background: unset;
 	border: unset;
-	border-bottom: 1px solid #AAA;
+	border-bottom: 1px solid var(--formora-line-soft, #AAA);
 	margin-bottom: 12px;
 }
 .ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-buttons.ui-draggable {
-	box-shadow: 5px 5px 20px #AAA;
+	box-shadow: var(--formora-shadow-elevated, 0 12px 32px rgba(0, 0, 0, 0.16));
 }
 
 .ui-dialog .ui-dialog-buttonpane {
@@ -6170,8 +6197,10 @@ html .ui-datepicker-calendar .ui-button.ui-state-disabled:hover, html .ui-button
 
 div#ui-datepicker-div {
 	width: 300px;
-	box-shadow: 2px 5px 15px #aaa;
-	border: unset;
+	background: var(--formora-surface, #fff);
+	box-shadow: var(--formora-shadow-menu, 0 6px 16px rgba(0, 0, 0, 0.12));
+	border: 1px solid var(--formora-line, #d9d9d9);
+	border-radius: var(--formora-radius-lg, 8px);
 	padding-left: 5px;
 	padding-right: 5px;
 	padding-top: 5px;
@@ -6220,10 +6249,8 @@ select.ui-datepicker-year {
 table.dp {
 	width: 180px;
 	background-color: var(--inputbackgroundcolor);
-	border-top: solid 2px #DDDDDD;
-	border-<?php print $left; ?>: solid 2px #DDDDDD;
-	border-<?php print $right; ?>: solid 1px #222222;
-	border-bottom: solid 1px #222222;
+	border: solid 1px var(--formora-line, #d9d9d9);
+	border-radius: var(--formora-radius-lg, 8px);
 	padding: 0px;
 	border-spacing: 0px;
 	border-collapse: collapse;
@@ -6868,11 +6895,10 @@ span.cke_skin_kama { padding: 0 !important; }*/
 a.cke_dialog_ui_button
 {
 	font-family: <?php print $fontlist ?> !important;
-	background-image: url(<?php echo $img_button ?>) !important;
-	background-position: bottom !important;
-	border: 1px solid #C0C0C0 !important;
-	border-radius:0px 5px 0px 5px !important;
-	box-shadow: 3px 3px 4px #DDD !important;
+	background-image: none !important;
+	border: 1px solid var(--formora-line, #C0C0C0) !important;
+	border-radius: var(--formora-radius, 6px) !important;
+	box-shadow: none !important;
 }
 .cke_dialog_ui_hbox_first {
 	vertical-align: middle !important;

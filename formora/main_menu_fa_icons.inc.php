@@ -82,23 +82,23 @@ div.mainmenu.generic4::before {
 
 .fa-phone, .fa-mobile-alt, .fa-fax {
 	opacity: 0.7;
-	color: #440;
+	color: var(--formora-icon-default, #440);
 }
 .fa-at, .fa-external-link-alt, .fa-share-alt {
 	opacity: 0.7;
-	color: #304;
+	color: var(--formora-icon-default, #304);
 }
 .fa-trash {
-	color: #666;
+	color: var(--formora-icon-muted, #666);
 }
 .fa-trash:hover:before {
-	color: #800;
+	color: var(--formora-danger, #800);
 }
 .fa-play {
-	color: #444;
+	color: var(--formora-icon-default, #444);
 }
 .fa-link, .fa-unlink {
-	color: #555;
+	color: var(--formora-icon-default, #555);
 }
 .fa-project-diagram:before {
 	font-size: 0.9em;
