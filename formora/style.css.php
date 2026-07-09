@@ -7906,6 +7906,7 @@ body:not(#mainbody) button.calcbutton3.poscolorblue {
 body#mainbody:not(.bodytakepos):not(.bodylogin) #id-top li.menuhider {
 	background: var(--colorbackhmenu1) !important;
 	box-shadow: 10px 0 14px -14px rgba(0, 0, 0, 0.5) !important;
+	display: block !important;
 	left: 0 !important;
 				position: sticky !important;
 				z-index: 35 !important;
