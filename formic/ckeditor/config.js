@@ -5,22 +5,22 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 
 CKEDITOR.editorConfig = function( config )
 {
-	var formoraIsDarkMode = function() {
+	var formicIsDarkMode = function() {
 		try {
 			return /\bdark\b/.test(window.getComputedStyle(document.documentElement).colorScheme || '');
 		} catch (e) {
 			return false;
 		}
 	};
-	var formoraDarkMode = formoraIsDarkMode();
-	var formoraConfigUrl = '';
+	var formicDarkMode = formicIsDarkMode();
+	var formicConfigUrl = '';
 	try {
-		formoraConfigUrl = config.customConfig || (typeof ckeditorConfig !== 'undefined' ? ckeditorConfig : '');
+		formicConfigUrl = config.customConfig || (typeof ckeditorConfig !== 'undefined' ? ckeditorConfig : '');
 	} catch (e) {
-		formoraConfigUrl = '';
+		formicConfigUrl = '';
 	}
-	var formoraConfigBase = formoraConfigUrl ? formoraConfigUrl.split('?')[0].replace(/\/config\.js$/, '/') : '/theme/formora/ckeditor/';
-	var formoraDarkContentsCss = formoraConfigBase + 'dark-contents.css';
+	var formicConfigBase = formicConfigUrl ? formicConfigUrl.split('?')[0].replace(/\/config\.js$/, '/') : '/theme/formic/ckeditor/';
+	var formicDarkContentsCss = formicConfigBase + 'dark-contents.css';
 
 	// Define changes to default configuration here.
 	// http://docs.cksource.com/CKEditor_3.x/Developers_Guide
@@ -44,16 +44,16 @@ CKEDITOR.editorConfig = function( config )
 	//config.contentsLanguage = 'fr';
 	config.fullPage = false;	// Not a full html page string, just part of it
 	config.dialog_backgroundCoverColor = 'rgb(255, 254, 253)';
-	if (formoraDarkMode) {
+	if (formicDarkMode) {
 		config.dialog_backgroundCoverColor = 'rgb(0, 0, 0)';
-		var formoraContentsCss = config.contentsCss || CKEDITOR.getUrl('contents.css');
-		if (!CKEDITOR.tools.isArray(formoraContentsCss)) {
-			formoraContentsCss = [formoraContentsCss];
+		var formicContentsCss = config.contentsCss || CKEDITOR.getUrl('contents.css');
+		if (!CKEDITOR.tools.isArray(formicContentsCss)) {
+			formicContentsCss = [formicContentsCss];
 		}
-		if (formoraContentsCss.indexOf(formoraDarkContentsCss) === -1) {
-			formoraContentsCss.push(formoraDarkContentsCss);
+		if (formicContentsCss.indexOf(formicDarkContentsCss) === -1) {
+			formicContentsCss.push(formicDarkContentsCss);
 		}
-		config.contentsCss = formoraContentsCss;
+		config.contentsCss = formicContentsCss;
 	}
 	//config.contentsCss = '/css/mysitestyles.css';
 	config.image_previewText=' ';	// Must no be empty
@@ -152,14 +152,14 @@ CKEDITOR.on('instanceReady', function(event) {
 		} catch (e) {
 			configUrl = '';
 		}
-		var configBase = configUrl ? configUrl.split('?')[0].replace(/\/config\.js$/, '/') : '/theme/formora/ckeditor/';
+		var configBase = configUrl ? configUrl.split('?')[0].replace(/\/config\.js$/, '/') : '/theme/formic/ckeditor/';
 		var darkContentsCss = configBase + 'dark-contents.css';
 		var installDarkContents = function(doc) {
 			if (!doc || !doc.documentElement) return;
-			doc.documentElement.className += doc.documentElement.className.indexOf('formora-ckeditor-dark') === -1 ? ' formora-ckeditor-dark' : '';
-			if (!doc.getElementById('formora-ckeditor-dark-contents')) {
+			doc.documentElement.className += doc.documentElement.className.indexOf('formic-ckeditor-dark') === -1 ? ' formic-ckeditor-dark' : '';
+			if (!doc.getElementById('formic-ckeditor-dark-contents')) {
 				var link = doc.createElement('link');
-				link.id = 'formora-ckeditor-dark-contents';
+				link.id = 'formic-ckeditor-dark-contents';
 				link.rel = 'stylesheet';
 				link.type = 'text/css';
 				link.href = darkContentsCss;
@@ -182,7 +182,7 @@ CKEDITOR.on('instanceReady', function(event) {
 			}
 		};
 
-		editor.container.addClass('formora-ckeditor-dark');
+		editor.container.addClass('formic-ckeditor-dark');
 		if (editor.document && editor.document.$) {
 			installDarkContents(editor.document.$);
 		}
@@ -194,9 +194,9 @@ CKEDITOR.on('instanceReady', function(event) {
 		refreshDarkFrames();
 		setTimeout(refreshDarkFrames, 100);
 		setTimeout(refreshDarkFrames, 500);
-		if (window.MutationObserver && !window.formoraCkeditorDarkFrameObserver) {
-			window.formoraCkeditorDarkFrameObserver = new MutationObserver(refreshDarkFrames);
-			window.formoraCkeditorDarkFrameObserver.observe(document.body, { childList: true, subtree: true });
+		if (window.MutationObserver && !window.formicCkeditorDarkFrameObserver) {
+			window.formicCkeditorDarkFrameObserver = new MutationObserver(refreshDarkFrames);
+			window.formicCkeditorDarkFrameObserver.observe(document.body, { childList: true, subtree: true });
 		}
 	}
 	if (editor.readOnly) {

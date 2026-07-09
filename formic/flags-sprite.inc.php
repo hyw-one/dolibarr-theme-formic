@@ -18,7 +18,7 @@
  */
 
 /**
- *		\file       htdocs/theme/formora/flag-sprite.inc.php
+ *		\file       htdocs/theme/formic/flag-sprite.inc.php
  *		\brief      File for CSS style sheet Eldy
  */
 if (!defined('ISLOADEDBYSTEELSHEET')) {
