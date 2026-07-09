@@ -1842,23 +1842,24 @@ body#mainbody .select2-hidden-accessible {
 	margin-left: 6px;
 }
 
-#mainbody .info-box .info-box-line:has(.badge) {
+#mainbody .info-box .info-box-line {
 	align-items: center;
 	display: flex;
 	gap: 6px;
+	justify-content: space-between;
 	line-height: 24px;
 	min-height: 24px;
 	overflow: visible !important;
 }
 
-#mainbody .info-box .info-box-line:has(.badge) > .inline-block {
+#mainbody .info-box .info-box-line > .inline-block {
 	align-items: center;
 	display: inline-flex;
 	min-height: 24px;
 	overflow: visible !important;
 }
 
-#mainbody .info-box .info-box-line:has(.badge) .badge {
+#mainbody .info-box .info-box-line .badge {
 	align-items: center;
 	box-sizing: border-box;
 	display: inline-flex !important;
@@ -4450,7 +4451,7 @@ body#mainbody .select2-results .select2-highlighted .member-individual-back {
 }
 
 .badge-status,
-.badge,
+.badge:not(.badge-primary):not(.badge-secondary):not(.badge-success):not(.badge-danger):not(.badge-warning):not(.badge-info),
 .status,
 .statusref,
 .statusrefsupplier,
