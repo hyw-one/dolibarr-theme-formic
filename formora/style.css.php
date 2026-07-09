@@ -6302,31 +6302,15 @@ body#mainbody input[type="button"]:not(.buttonDelete):not(.buttonRefused):not(.b
 		color: #fff !important;
 	}
 
-	<?php
-	if (getDolGlobalInt('THEME_DARKMODEENABLED')) {
-		if (getDolGlobalInt('THEME_DARKMODEENABLED') != 2) {
-			print "@media (prefers-color-scheme: dark) {";
-		} else {
-			print "@media not print {";
-		}
-	?>
-	body#mainbody .butActionDelete,
-	body#mainbody .butActionDelete:link,
-	body#mainbody .butActionDelete:visited {
-		background: var(--formora-danger-bg) !important;
-		border-color: color-mix(in srgb, var(--formora-danger) 40%, transparent) !important;
-		color: var(--formora-danger) !important;
-	}
-
-	body#mainbody .butActionDelete:hover {
-		background: var(--formora-danger-hover-bg) !important;
-		border-color: var(--formora-danger) !important;
-		color: var(--formora-danger) !important;
-	}
-	<?php
-		print "}\n";
-	}
-	?>
+	/*
+	 * Dark mode used to switch .butActionDelete from a solid fill to an
+	 * outline/tinted "ghost button" here - inconsistent with every other
+	 * button in the same action bar (which all stay solid in dark mode) and
+	 * not how Ant Design behaves (a button's type/weight stays the same
+	 * across themes; only the color tokens change). Removed: the solid-fill
+	 * rule above already uses var(--formora-danger)/var(--formora-danger-hover),
+	 * which resolve to the correct dark-mode-adjusted red on their own.
+	 */
 
 	body#mainbody .butActionRefused,
 	body#mainbody .butActionRefused:link,
