@@ -230,13 +230,12 @@ if (getDolGlobalString('MAIN_OVERWRITE_THEME_RES')) {
 //$fontlist='helvetica, verdana, arial, sans-serif';
 //$fontlist='"open sans", "Helvetica Neue", Helvetica, Arial, sans-serif';
 
-$fontlist = 'arial,tahoma,verdana,helvetica';
+$fontlist = '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif';
 if (getDolGlobalString('THEME_FONT_FAMILY')) {
 	$fontlist = getDolGlobalString('THEME_FONT_FAMILY').', '.$fontlist;
 }
 
 $img_head = '';
-$img_button = dol_buildpath($path.'/theme/'.$theme.'/img/button_bg.png', 1);
 $dol_hide_topmenu = $conf->dol_hide_topmenu;
 $dol_hide_leftmenu = $conf->dol_hide_leftmenu;
 $dol_optimize_smallscreen = $conf->dol_optimize_smallscreen;
@@ -767,7 +766,7 @@ body#mainbody .login_block.usedropdown #topmenu-login-dropdown > a.dropdown-togg
 #mainbody img.ui-datepicker-trigger,
 #mainbody img[src$="/object_calendarday.png"] {
 	background: transparent !important;
-	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect x='2.5' y='3.5' width='11' height='10' rx='1.5' fill='none' stroke='%230969da' stroke-width='1.5'/%3E%3Cpath d='M5 2v3M11 2v3M3 6.5h10' stroke='%230969da' stroke-width='1.5' stroke-linecap='round'/%3E%3Cpath d='M5 8.5h2v2H5zM9 8.5h2v2H9z' fill='%230969da' opacity='.86'/%3E%3C/svg%3E") !important;
+	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect x='2.5' y='3.5' width='11' height='10' rx='1.5' fill='none' stroke='%231677ff' stroke-width='1.5'/%3E%3Cpath d='M5 2v3M11 2v3M3 6.5h10' stroke='%231677ff' stroke-width='1.5' stroke-linecap='round'/%3E%3Cpath d='M5 8.5h2v2H5zM9 8.5h2v2H9z' fill='%231677ff' opacity='.86'/%3E%3C/svg%3E") !important;
 	filter: none !important;
 	height: 14px !important;
 	object-fit: contain !important;
@@ -787,7 +786,7 @@ body#mainbody .login_block.usedropdown #topmenu-login-dropdown > a.dropdown-togg
 }
 
 #mainbody img[src$="/refresh.png"] {
-	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M16.2 7.2A6.4 6.4 0 0 0 4.1 5.4M3.6 3.1v3.9h3.9M3.8 12.8a6.4 6.4 0 0 0 12.1 1.8m.5 2.3v-3.9h-3.9' fill='none' stroke='%230969da' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M16.2 7.2A6.4 6.4 0 0 0 4.1 5.4M3.6 3.1v3.9h3.9M3.8 12.8a6.4 6.4 0 0 0 12.1 1.8m.5 2.3v-3.9h-3.9' fill='none' stroke='%231677ff' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
 }
 
 #mainbody img[src$="/edit.png"],
@@ -802,7 +801,7 @@ body#mainbody .login_block.usedropdown #topmenu-login-dropdown > a.dropdown-togg
 
 #mainbody img[src$="/edit_add.png"],
 #mainbody img[src$="/addfile.png"] {
-	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 3.4v13.2M3.4 10h13.2' fill='none' stroke='%230969da' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E") !important;
+	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 3.4v13.2M3.4 10h13.2' fill='none' stroke='%231677ff' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E") !important;
 }
 
 #mainbody img[src$="/sort_asc.png"],
@@ -821,7 +820,7 @@ body#mainbody .login_block.usedropdown #topmenu-login-dropdown > a.dropdown-togg
 }
 
 #mainbody img[src$="/rightarrow.png"] {
-	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M4 5v4.5a3.5 3.5 0 0 0 3.5 3.5H16m0 0-3-3m3 3-3 3' fill='none' stroke='%230969da' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M4 5v4.5a3.5 3.5 0 0 0 3.5 3.5H16m0 0-3-3m3 3-3 3' fill='none' stroke='%231677ff' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
 }
 
 #mainbody img[src$="/search.png"],
@@ -1525,7 +1524,7 @@ body#mainbody :is(.fa-toggle-on, .fa-toggle-off) {
 
 body#mainbody :is(.fa-toggle-on, .fa-toggle-off)::before {
 	background-color: currentColor !important;
-	border-radius: 999px;
+	border-radius: var(--formora-radius-full);
 	content: "" !important;
 	display: block;
 	height: 100%;
@@ -1539,7 +1538,7 @@ body#mainbody :is(.fa-toggle-on, .fa-toggle-off)::before {
 
 body#mainbody :is(.fa-toggle-on, .fa-toggle-off)::after {
 	background: var(--formora-switch-knob);
-	border-radius: 999px;
+	border-radius: var(--formora-radius-full);
 	box-shadow: 0 1px 2px rgba(31, 35, 40, 0.22);
 	content: "";
 	display: block;
@@ -1695,7 +1694,7 @@ body.bodytakepos .topnav .fab {
 #mainbody .cke_combo_off a.cke_combo_button:hover,
 #mainbody .cke_combo_off a.cke_combo_button:focus,
 #mainbody .cke_combo_off a.cke_combo_button:active {
-	background: rgba(0, 113, 227, 0.08) !important;
+	background: var(--formora-accent-soft) !important;
 	border-color: var(--formora-line) !important;
 }
 
@@ -1843,23 +1842,24 @@ body#mainbody .select2-hidden-accessible {
 	margin-left: 6px;
 }
 
-#mainbody .info-box .info-box-line:has(.badge) {
+#mainbody .info-box .info-box-line {
 	align-items: center;
 	display: flex;
 	gap: 6px;
+	justify-content: space-between;
 	line-height: 24px;
 	min-height: 24px;
 	overflow: visible !important;
 }
 
-#mainbody .info-box .info-box-line:has(.badge) > .inline-block {
+#mainbody .info-box .info-box-line > .inline-block {
 	align-items: center;
 	display: inline-flex;
 	min-height: 24px;
 	overflow: visible !important;
 }
 
-#mainbody .info-box .info-box-line:has(.badge) .badge {
+#mainbody .info-box .info-box-line .badge {
 	align-items: center;
 	box-sizing: border-box;
 	display: inline-flex !important;
@@ -1945,12 +1945,12 @@ body#mainbody .select2-hidden-accessible {
 a.tab#active,
 a.tab#unactive {
 	border: 0 !important;
-	border-bottom: 3px solid transparent !important;
+	border-bottom: 2px solid transparent !important;
 }
 
 .tabactive,
 a.tab#active {
-	border-bottom-color: var(--colortextbackhmenu) !important;
+	border-bottom-color: var(--formora-accent) !important;
 }
 
 .liste_titre,
@@ -1986,7 +1986,7 @@ textarea:focus,
 .select2-container--open [aria-expanded="false"].select2-selection--single,
 .select2-container--focus span.selection span.select2-selection:not(.noborderfocus) {
 	border-color: var(--formora-accent) !important;
-	box-shadow: 0 0 0 2px rgba(9, 105, 218, 0.14);
+	box-shadow: 0 0 0 2px var(--formora-focus-ring);
 }
 
 #mainbody .butAction:not(.butActionDelete):not(.butActionRefused),
@@ -2048,9 +2048,9 @@ textarea:focus,
 
 #mainbody .butActionDelete:hover,
 #mainbody .buttonDelete:hover:not(:disabled) {
-	background: #a40e26 !important;
+	background: var(--formora-danger-hover) !important;
 	background-image: none !important;
-	border-color: #a40e26 !important;
+	border-color: var(--formora-danger-hover) !important;
 	color: #fff !important;
 	box-shadow: none !important;
 }
@@ -2134,8 +2134,8 @@ textarea:focus,
 #mainbody .dropdown-content .butActionDelete:hover,
 #mainbody .dropdown-content .butActionDelete:focus {
 	background: var(--formora-danger-bg) !important;
-	border-bottom-color: #ff8182 !important;
-	color: #a40e26 !important;
+	border-bottom-color: var(--formora-danger) !important;
+	color: var(--formora-danger-hover) !important;
 	text-decoration: none !important;
 }
 
@@ -2211,7 +2211,7 @@ textarea:focus,
 .butActionDelete,
 .select2-selection,
 .dropdown-toggle {
-	border-radius: 5px;
+	border-radius: var(--formora-radius);
 }
 
 #mainbody a.btnTitle,
@@ -2295,7 +2295,7 @@ body#mainbody.mod-admin.page-modules #id-right .fiche .div-table-responsive > ta
 .statusref,
 .statusrefsupplier,
 .statusdoc {
-	border-radius: 999px;
+	border-radius: var(--formora-radius-full);
 }
 
 .badge.badge-status,
@@ -2497,90 +2497,6 @@ img.photoref {
 	box-shadow: 0 0 0 1px var(--formora-line-soft) !important;
 }
 
-/*
- * timeline.inc.php ships unchanged from Eldy/AdminLTE and has never had a
- * dark-mode pass: every card, divider, icon bubble, and button is hardcoded
- * to light colors (#fff card, #444 text, #ddd borders), so the "actions on
- * <object>" panel renders as an unreadable white block on a dark page.
- * Reuse the existing --formora-* surface/line tokens rather than new ones so
- * it matches the rest of the dark skin. The saturated status colors
- * (timeline-icon-todo/in-progress/done, timeline-badge-date) are left alone
- * since they already read fine on any background.
- */
-.timeline:before {
-	background: var(--formora-line-soft) !important;
-}
-
-.timeline > li > .timeline-item {
-	background: var(--formora-surface) !important;
-	border-color: var(--formora-line) !important;
-	color: var(--formora-text) !important;
-}
-
-.timeline > li.timeline-code-ticket_msg_private > .timeline-item,
-.timeline > li.timeline-code-ticket_msg_private_sentbymail > .timeline-item {
-	background: var(--formora-toast-warning-bg) !important;
-	border-color: var(--formora-toast-warning-border) !important;
-}
-
-.timeline > li > .timeline-item > .timeline-header {
-	border-bottom-color: var(--formora-line-soft) !important;
-	color: var(--formora-text) !important;
-}
-
-.timeline > li > .timeline-item > .timeline-footer {
-	border-top-color: var(--formora-line-soft) !important;
-}
-
-.timeline > li.timeline-code-ticket_msg_private > .timeline-item > .timeline-header,
-.timeline > li.timeline-code-ticket_msg_private > .timeline-item > .timeline-footer,
-.timeline > li.timeline-code-ticket_msg_private_sentbymail > .timeline-item > .timeline-header,
-.timeline > li.timeline-code-ticket_msg_private_sentbymail > .timeline-item > .timeline-footer {
-	border-color: var(--formora-toast-warning-border) !important;
-}
-
-a.timeline-btn:link,
-a.timeline-btn:visited,
-a.timeline-btn:hover,
-a.timeline-btn:active {
-	background-color: var(--formora-neutral-bg) !important;
-	border-color: var(--formora-line) !important;
-	color: var(--formora-text) !important;
-}
-
-a.timeline-btn:hover {
-	background-color: var(--formora-neutral-hover-bg) !important;
-	border-color: var(--formora-line) !important;
-	color: var(--formora-text) !important;
-}
-
-.timeline > li > .fa,
-.timeline > li > .fas,
-.timeline > li > .glyphicon,
-.timeline > li > .ion {
-	background: var(--formora-neutral-bg) !important;
-	color: var(--formora-icon-default) !important;
-}
-
-.timeline > .time-label > span {
-	background-color: var(--formora-surface) !important;
-	color: var(--formora-text) !important;
-}
-
-.timeline-inverse > li > .timeline-item {
-	background: var(--formora-surface-alt) !important;
-	border-color: var(--formora-line) !important;
-}
-
-.timeline-inverse > li > .timeline-item > .timeline-header {
-	border-bottom-color: var(--formora-line) !important;
-}
-
-.timeline-icon-not-applicble {
-	background-color: var(--formora-neutral-bg) !important;
-	color: var(--formora-muted) !important;
-}
-
 body#mainbody :is(.opacitymediumbycolor, .optiongrey) {
 	color: var(--formora-muted) !important;
 	opacity: 1 !important;
@@ -2705,8 +2621,8 @@ body#mainbody .login_block.usedropdown :is(.userimg.atoplogin span.userphoto, .u
 
 #id-top li.tmenusel div.tmenucenter,
 #id-top li.tmenu:not(.nohover):hover div.tmenucenter {
-	background: rgba(78, 163, 255, 0.11) !important;
-	border-color: rgba(78, 163, 255, 0.22) !important;
+	background: color-mix(in srgb, var(--formora-accent) 11%, transparent) !important;
+	border-color: color-mix(in srgb, var(--formora-accent) 22%, transparent) !important;
 	box-shadow: none !important;
 }
 
@@ -2737,18 +2653,6 @@ body#mainbody .login_block.usedropdown :is(.userimg.atoplogin span.userphoto, .u
 .menu_titre {
 	background: var(--colorbackvmenu1) !important;
 	border-color: var(--formora-line-soft) !important;
-	color: var(--formora-text) !important;
-}
-
-#id-container {
-	background: var(--formora-shell) !important;
-	color: var(--formora-text) !important;
-}
-
-#id-right,
-#id-right .fiche,
-#id-right div.fiche {
-	background: var(--formora-workspace) !important;
 	color: var(--formora-text) !important;
 }
 
@@ -2855,7 +2759,8 @@ body#mainbody .login_block.usedropdown :is(.userimg.atoplogin span.userphoto, .u
 }
 
 .ui-dialog {
-	box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55) !important;
+	box-shadow: var(--formora-shadow-elevated) !important;
+	border-radius: var(--formora-radius-lg) !important;
 }
 
 .info-box-sm .info-box-module-enabled {
@@ -2998,7 +2903,7 @@ div.ui-tooltip.mytooltip-hover-tooltip {
 .tabs .tabsElem a {
 	background: transparent !important;
 	border: 0 !important;
-	border-bottom: 3px solid transparent !important;
+	border-bottom: 2px solid transparent !important;
 	color: var(--formora-muted) !important;
 	box-shadow: none !important;
 }
@@ -3293,8 +3198,8 @@ table.jPicker {
 #mainbody table.cal_month .cal_today_peruser,
 #mainbody table.cal_month .cal_today_peruser_peruserleft,
 #mainbody table.cal_month .cal_today_peruser_impair {
-	background: rgba(78, 163, 255, 0.12) !important;
-	border-color: rgba(78, 163, 255, 0.38) !important;
+	background: color-mix(in srgb, var(--formora-accent) 12%, transparent) !important;
+	border-color: color-mix(in srgb, var(--formora-accent) 38%, transparent) !important;
 	color: var(--formora-text) !important;
 }
 
@@ -3463,7 +3368,7 @@ body#mainbody .ace_multiselect .ace_selection.ace_start {
 
 body#mainbody .ace_marker-layer .ace_selected-word {
 	background: rgba(10, 132, 255, 0.18) !important;
-	border: 1px solid rgba(78, 163, 255, 0.42) !important;
+	border: 1px solid color-mix(in srgb, var(--formora-accent) 42%, transparent) !important;
 }
 
 body#mainbody .ace_marker-layer .ace_bracket {
@@ -3728,7 +3633,7 @@ body#mainbody .cke_combo_off a.cke_combo_button:hover,
 body#mainbody .cke_combo_off a.cke_combo_button:focus,
 body#mainbody .cke_combo_off a.cke_combo_button:active {
 	background: var(--formora-accent-soft) !important;
-	border-color: rgba(78, 163, 255, 0.42) !important;
+	border-color: color-mix(in srgb, var(--formora-accent) 42%, transparent) !important;
 	color: var(--formora-accent-hover) !important;
 }
 
@@ -3830,7 +3735,7 @@ body#mainbody .cke_dialog_tab:hover,
 body#mainbody .cke_dialog_tab:focus {
 	background: transparent !important;
 	border: 0 !important;
-	border-bottom: 3px solid transparent !important;
+	border-bottom: 2px solid transparent !important;
 	box-shadow: none !important;
 	color: var(--formora-muted) !important;
 	text-shadow: none !important;
@@ -3879,7 +3784,7 @@ body#mainbody .cke_dialog textarea,
 body#mainbody .cke_dialog select {
 	background: var(--inputbackgroundcolor) !important;
 	border: 1px solid var(--inputbordercolor) !important;
-	border-radius: var(--formora-radius-sm) !important;
+	border-radius: var(--formora-radius) !important;
 	box-shadow: none !important;
 	color: var(--formora-text) !important;
 	color-scheme: dark;
@@ -3905,7 +3810,7 @@ body#mainbody .cke_dialog a.cke_dialog_ui_button:active {
 	background: var(--formora-neutral-bg) !important;
 	background-image: none !important;
 	border: 1px solid var(--formora-line) !important;
-	border-radius: var(--formora-radius-sm) !important;
+	border-radius: var(--formora-radius) !important;
 	box-shadow: none !important;
 	color: var(--formora-text) !important;
 	text-shadow: none !important;
@@ -3922,7 +3827,7 @@ body#mainbody .cke_dialog a.cke_dialog_ui_button_ok,
 body#mainbody .cke_dialog a.cke_dialog_ui_button_ok:hover,
 body#mainbody .cke_dialog a.cke_dialog_ui_button_ok:focus {
 	background: var(--formora-accent-soft) !important;
-	border-color: rgba(78, 163, 255, 0.42) !important;
+	border-color: color-mix(in srgb, var(--formora-accent) 42%, transparent) !important;
 	color: var(--formora-accent-hover) !important;
 }
 
@@ -4089,8 +3994,8 @@ body#mainbody .cke_dialog_close_button:focus {
 }
 
 .vendor-back {
-	background: rgba(78, 163, 255, 0.2) !important;
-	border-color: rgba(78, 163, 255, 0.38) !important;
+	background: color-mix(in srgb, var(--formora-accent) 20%, transparent) !important;
+	border-color: color-mix(in srgb, var(--formora-accent) 38%, transparent) !important;
 	color: var(--formora-accent-hover) !important;
 }
 
@@ -4132,8 +4037,8 @@ body#mainbody .select2-container--default .select2-results__option--highlighted 
 body#mainbody .select2-container--default .select2-results__option:hover .vendor-back,
 body#mainbody .select2-dropdown .select2-results__option--highlighted .vendor-back,
 body#mainbody .select2-results .select2-highlighted .vendor-back {
-	background: rgba(78, 163, 255, 0.2) !important;
-	border-color: rgba(78, 163, 255, 0.38) !important;
+	background: color-mix(in srgb, var(--formora-accent) 20%, transparent) !important;
+	border-color: color-mix(in srgb, var(--formora-accent) 38%, transparent) !important;
 	color: var(--formora-accent-hover) !important;
 }
 
@@ -4394,7 +4299,7 @@ body#mainbody .select2-results .select2-highlighted .member-individual-back {
 #mainbody .websitebar .button.bordertransp:hover,
 #mainbody .websitebar .button.bordertransp:focus {
 	background: var(--formora-neutral-hover-bg) !important;
-	border-color: rgba(78, 163, 255, 0.45) !important;
+	border-color: color-mix(in srgb, var(--formora-accent) 45%, transparent) !important;
 	color: var(--formora-accent-hover) !important;
 }
 
@@ -4428,72 +4333,6 @@ body#mainbody .select2-results .select2-highlighted .member-individual-back {
 
 #mainbody .index_date,
 #mainbody .index_sondage {
-	color: var(--formora-text) !important;
-}
-
-body.bodytakepos {
-	background: var(--formora-bg) !important;
-	color: var(--formora-text) !important;
-}
-
-body.bodytakepos .topnav {
-	background: var(--formora-surface) !important;
-	border-bottom: 1px solid var(--formora-line) !important;
-}
-
-body.bodytakepos .topnav a,
-body.bodytakepos .topnav .fa,
-body.bodytakepos .topnav .fas,
-body.bodytakepos .topnav .far,
-body.bodytakepos .topnav .fab {
-	color: var(--formora-text) !important;
-}
-
-body.bodytakepos .topnav .fa,
-body.bodytakepos .topnav .fas,
-body.bodytakepos .topnav .far,
-body.bodytakepos .topnav .fab {
-	color: inherit !important;
-}
-
-body.bodytakepos .topnav-left a:hover:not(.nohover),
-body.bodytakepos .topnav .login_block_other a:hover:not(.nohover) {
-	background: var(--formora-neutral-hover-bg) !important;
-	color: var(--formora-accent-hover) !important;
-}
-
-body.bodytakepos .modal-content {
-	background: var(--formora-surface) !important;
-	border: 1px solid var(--formora-line) !important;
-	box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45) !important;
-	color: var(--formora-text) !important;
-}
-
-body.bodytakepos .wrapper,
-body.bodytakepos .wrapper2 {
-	background: var(--formora-surface) !important;
-	border: 1px solid var(--formora-line) !important;
-	box-shadow: none !important;
-	color: var(--formora-text) !important;
-}
-
-body.bodytakepos .wrapper.divempty,
-body.bodytakepos .wrapper2.divempty {
-	background: var(--formora-surface-alt) !important;
-	border-color: var(--formora-line-soft) !important;
-}
-
-body.bodytakepos .description,
-body.bodytakepos .catwatermark {
-	background: rgba(21, 23, 25, 0.72) !important;
-	color: var(--formora-text) !important;
-}
-
-body.bodytakepos input,
-body.bodytakepos select,
-body.bodytakepos textarea {
-	background: var(--inputbackgroundcolor) !important;
-	border-color: var(--inputbordercolor) !important;
 	color: var(--formora-text) !important;
 }
 
@@ -4612,13 +4451,13 @@ body.bodytakepos textarea {
 }
 
 .badge-status,
-.badge,
+.badge:not(.badge-primary):not(.badge-secondary):not(.badge-success):not(.badge-danger):not(.badge-warning):not(.badge-info),
 .status,
 .statusref,
 .statusrefsupplier,
 .statusdoc,
 .badge.badge-status {
-	border-color: rgba(78, 163, 255, 0.35) !important;
+	border-color: color-mix(in srgb, var(--formora-accent) 35%, transparent) !important;
 	border-width: 1px !important;
 	box-shadow: none !important;
 }
@@ -4635,7 +4474,7 @@ span.badgeneutral {
 .statusref,
 .statusrefsupplier,
 .statusdoc {
-	background: rgba(78, 163, 255, 0.12) !important;
+	background: color-mix(in srgb, var(--formora-accent) 12%, transparent) !important;
 	color: var(--formora-accent-hover) !important;
 }
 
@@ -4740,9 +4579,9 @@ div.statusrefsupplier:has(.badge-status) {
 div.statusref.statusrefbis,
 div.statusdoc.statusrefbis,
 div.statusrefsupplier.statusrefbis {
-	background: rgba(78, 163, 255, 0.08) !important;
-	border: 1px solid rgba(78, 163, 255, 0.18) !important;
-	border-radius: 999px !important;
+	background: color-mix(in srgb, var(--formora-accent) 8%, transparent) !important;
+	border: 1px solid color-mix(in srgb, var(--formora-accent) 18%, transparent) !important;
+	border-radius: var(--formora-radius-full) !important;
 	color: var(--formora-muted) !important;
 	padding: 2px 9px !important;
 }
@@ -4843,7 +4682,7 @@ div#ui-datepicker-div,
 .ui-datepicker.ui-widget.ui-widget-content {
 	background: var(--formora-surface-alt) !important;
 	border-color: var(--formora-line) !important;
-	box-shadow: 0 2px 14px rgba(0, 0, 0, 0.55) !important;
+	box-shadow: var(--formora-shadow-menu) !important;
 }
 
 .ui-state-hover,
@@ -4865,7 +4704,7 @@ div#ui-datepicker-div,
 .ui-dialog .ui-dialog-titlebar-close.ui-state-hover,
 .ui-dialog .ui-dialog-titlebar-close.ui-state-focus {
 	background: var(--formora-neutral-hover-bg) !important;
-	border-color: rgba(78, 163, 255, 0.45) !important;
+	border-color: color-mix(in srgb, var(--formora-accent) 45%, transparent) !important;
 	color: var(--formora-accent-hover) !important;
 }
 
@@ -4891,7 +4730,7 @@ div#ui-datepicker-div,
 .ui-dialog .ui-dialog-buttonpane .ui-button.ui-state-hover,
 .ui-dialog .ui-dialog-buttonpane .ui-button.ui-state-focus {
 	background: var(--formora-neutral-hover-bg) !important;
-	border-color: rgba(78, 163, 255, 0.45) !important;
+	border-color: color-mix(in srgb, var(--formora-accent) 45%, transparent) !important;
 	color: var(--formora-accent-hover) !important;
 }
 
@@ -4902,7 +4741,7 @@ div#ui-datepicker-div,
 
 .ui-widget-overlay.ui-front,
 .ui-widget-overlay {
-	background: rgba(0, 0, 0, 0.58) !important;
+	background: rgba(0, 0, 0, 0.45) !important;
 	opacity: 1 !important;
 }
 
@@ -4924,10 +4763,13 @@ div.pagination .disabled a {
 	color: var(--formora-muted) !important;
 }
 
-.warning,
-.error,
-.ok,
-.info,
+/*
+ * .error/.warning/.ok/.info/.neutral are handled by the color-coded,
+ * token-driven rules in global.inc.php (they resolve correctly in dark mode
+ * via CSS variables already). Only the .messageXXX family below (used by
+ * login/system messages) has no other styling source and needs a dark-mode
+ * definition here.
+ */
 .messagedebug,
 .messagewarning,
 .messageerr,
@@ -4936,35 +4778,25 @@ div.pagination .disabled a {
 	color: var(--formora-text) !important;
 }
 
-.messageerr,
-.error {
+.messageerr {
 	background: var(--formora-danger-bg) !important;
 	border-color: rgba(255, 139, 139, 0.3) !important;
 	border-left-color: #ff8b8b !important;
 	color: #ffb4b4 !important;
 }
 
-.messageok,
-.ok {
+.messageok {
 	background: rgba(61, 180, 111, 0.14) !important;
 	border-color: rgba(61, 180, 111, 0.28) !important;
 	border-left-color: #3db46f !important;
 	color: #83e5a1 !important;
 }
 
-.warning,
 .messagewarning {
 	background: rgba(214, 164, 62, 0.16) !important;
 	border-color: rgba(214, 164, 62, 0.3) !important;
 	border-left-color: #d6a43e !important;
 	color: #ffd38a !important;
-}
-
-.info {
-	background: var(--formora-accent-soft) !important;
-	border-color: rgba(78, 163, 255, 0.28) !important;
-	border-left-color: var(--formora-accent) !important;
-	color: var(--formora-accent-hover) !important;
 }
 
 img,
@@ -4991,9 +4823,6 @@ img[src*="modulepart=apercu"] {
 	background: #ffffff !important;
 }
 
-div.fiche div.info,
-div.fiche div.warning,
-div.fiche div.neutral,
 .firstcolumn table.noborder,
 .secondcolumn table.noborder,
 .shadow,
@@ -5005,6 +4834,240 @@ table.jPicker {
 	print "}\n";
 	}
 	?>
+
+	/*
+	 * TakePOS (body.bodytakepos) styling. This must NOT live inside the
+	 * THEME_DARKMODEENABLED-gated block above (that block only ever prints
+	 * when dark mode is enabled, and gets wrapped in
+	 * @media (prefers-color-scheme: dark) on top of that) - these rules were
+	 * previously misplaced there, so they silently did nothing in light mode
+	 * (the "Select terminal"/"Set currency" navy header + khaki button bug).
+	 */
+	body.bodytakepos {
+		background: var(--formora-bg) !important;
+		color: var(--formora-text) !important;
+	}
+
+	body.bodytakepos .topnav {
+		background: var(--formora-surface) !important;
+		border-bottom: 1px solid var(--formora-line) !important;
+	}
+
+	body.bodytakepos .topnav a,
+	body.bodytakepos .topnav .fa,
+	body.bodytakepos .topnav .fas,
+	body.bodytakepos .topnav .far,
+	body.bodytakepos .topnav .fab {
+		color: var(--formora-text) !important;
+	}
+
+	body.bodytakepos .topnav .fa,
+	body.bodytakepos .topnav .fas,
+	body.bodytakepos .topnav .far,
+	body.bodytakepos .topnav .fab {
+		color: inherit !important;
+	}
+
+	body.bodytakepos .topnav-left a:hover:not(.nohover),
+	body.bodytakepos .topnav .login_block_other a:hover:not(.nohover) {
+		background: var(--formora-neutral-hover-bg) !important;
+		color: var(--formora-accent-hover) !important;
+	}
+
+	body.bodytakepos .modal-content {
+		background: var(--formora-surface) !important;
+		border: 1px solid var(--formora-line) !important;
+		border-radius: var(--formora-radius) !important;
+		box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45) !important;
+		color: var(--formora-text) !important;
+		overflow: hidden;
+	}
+
+	body.bodytakepos .modal {
+		background: rgba(0, 0, 0, 0.45) !important;
+	}
+
+	body.bodytakepos .modal-header {
+		background: var(--formora-elevated) !important;
+		border-bottom: 1px solid var(--formora-line-soft) !important;
+		color: var(--formora-text) !important;
+	}
+
+	body.bodytakepos .modal-body {
+		background: var(--formora-surface) !important;
+		color: var(--formora-text) !important;
+	}
+
+	body.bodytakepos .close {
+		color: var(--formora-muted) !important;
+	}
+
+	body.bodytakepos .close:hover,
+	body.bodytakepos .close:focus {
+		color: var(--formora-text) !important;
+	}
+
+	/*
+	 * TakePOS's colorbox popups (customer/contact/invoice-history/etc, all opened
+	 * via $.colorbox({iframe:true, ...}) in takepos/index.php) render outside
+	 * #mainbody (colorbox appends #colorbox directly to <body>), so these need
+	 * their own rules rather than inheriting the #mainbody-scoped styling.
+	 */
+	body.bodytakepos #cboxOverlay {
+		background: #000000 !important;
+		opacity: 0.78 !important;
+	}
+
+	body.bodytakepos #colorbox {
+		outline: 0 !important;
+	}
+
+	/*
+	 * Conservative approach (matching eldy, which doesn't theme colorbox at
+	 * all - it just leaves the plugin's default square 9-slice sprite frame
+	 * showing as-is): don't fight colorbox's 9-slice border structure with a
+	 * modern rounded/shadowed card. Just recolor the 8 fixed-size frame
+	 * pieces to match the theme instead of the plugin's default sprite
+	 * image, keeping their original square, tiled-together layout.
+	 */
+	body.bodytakepos :is(#cboxTopLeft, #cboxTopCenter, #cboxTopRight, #cboxMiddleLeft, #cboxMiddleRight, #cboxBottomLeft, #cboxBottomCenter, #cboxBottomRight) {
+		background: var(--formora-surface) !important;
+	}
+
+	/*
+	 * --formora-bg is the shell/sidebar token (light: near-white, but dark:
+	 * the signature navy #001529) - using it here made the dark card nearly
+	 * indistinguishable from the black overlay behind it (no visible card
+	 * boundary). --formora-surface is the correct "content card" token
+	 * (white in light mode, a lighter neutral gray in dark mode) that reads
+	 * as a distinct card against the overlay in both modes.
+	 */
+	body.bodytakepos :is(#cboxContent, #cboxLoadedContent, .cboxIframe) {
+		background: var(--formora-surface) !important;
+		color: var(--formora-text) !important;
+	}
+
+	body.bodytakepos #cboxContent {
+		border-color: var(--formora-line) !important;
+		/* Colorbox's default skin needs this to stay visible: #cboxTitle/
+		   #cboxCurrent (bottom:-25px) and #cboxPrevious/#cboxNext/
+		   #cboxSlideshow/#cboxClose (bottom:-29px) are its children,
+		   absolutely positioned BELOW its own box - hiding overflow here
+		   would clip that whole row (the missing close button bug). */
+		overflow: visible !important;
+	}
+
+	body.bodytakepos #cboxTitle,
+	body.bodytakepos #cboxCurrent {
+		color: var(--formora-text) !important;
+	}
+
+	body.bodytakepos #cboxError {
+		background: var(--formora-surface) !important;
+		border-color: var(--formora-line) !important;
+		color: var(--formora-text) !important;
+	}
+
+	/*
+	 * These are real <button> elements (colorbox creates them via
+	 * document.createElement('button')). Some browsers paint a native
+	 * button chrome (background/border) under -webkit-appearance unless
+	 * explicitly reset, which can show as a pale box behind the sprite icon
+	 * regardless of :active state - reset appearance/background/border here
+	 * so only the sprite icon itself is visible.
+	 */
+	body.bodytakepos :is(#cboxPrevious, #cboxNext, #cboxSlideshow, #cboxClose) {
+		appearance: none !important;
+		-webkit-appearance: none !important;
+		background-color: transparent !important;
+		border: 0 !important;
+	}
+
+	body.bodytakepos :is(#cboxPrevious, #cboxNext, #cboxSlideshow, #cboxClose):active {
+		background-color: transparent !important;
+	}
+
+	body.bodytakepos .block,
+	body:not(#mainbody) .block {
+		background: var(--formora-elevated) !important;
+		border: 1px solid var(--formora-line-soft) !important;
+		color: var(--formora-text) !important;
+	}
+
+	body.bodytakepos .wrapper,
+	body.bodytakepos .wrapper2 {
+		background: var(--formora-surface) !important;
+		border: 1px solid var(--formora-line) !important;
+		box-shadow: none !important;
+		color: var(--formora-text) !important;
+	}
+
+	body.bodytakepos .wrapper.divempty,
+	body.bodytakepos .wrapper2.divempty {
+		background: var(--formora-surface-alt) !important;
+		border-color: var(--formora-line-soft) !important;
+	}
+
+	/*
+	 * Core's default .description is a bottom-of-tile gradient scrim (fades
+	 * from transparent to near-opaque so the product name stays readable over
+	 * any product photo) - it must stay a gradient, not a flat fill, and it
+	 * must track light/dark mode via --formora-workspace (color-mix so it
+	 * works without a dedicated dark-mode duplicate rule).
+	 */
+	body.bodytakepos div.description {
+		background: linear-gradient(to bottom, color-mix(in srgb, var(--formora-workspace) 0%, transparent), color-mix(in srgb, var(--formora-workspace) 78%, transparent), color-mix(in srgb, var(--formora-workspace) 98%, transparent)) !important;
+		color: var(--formora-text) !important;
+	}
+
+	body.bodytakepos .catwatermark {
+		background: var(--formora-neutral-bg) !important;
+		color: var(--formora-muted) !important;
+	}
+
+	body.bodytakepos input,
+	body.bodytakepos select,
+	body.bodytakepos textarea {
+		background: var(--inputbackgroundcolor) !important;
+		border-color: var(--inputbordercolor) !important;
+		color: var(--formora-text) !important;
+	}
+
+	body.bodytakepos .div4 .tab-category.active {
+		background: var(--formora-accent-soft) !important;
+		border-color: var(--formora-accent) !important;
+		color: var(--formora-accent-hover) !important;
+	}
+
+	body.bodytakepos .productprice {
+		background: var(--formora-accent-soft) !important;
+		color: var(--formora-accent-hover) !important;
+	}
+
+	body.bodytakepos table.postablelines,
+	body:not(#mainbody) table.postablelines {
+		background: var(--formora-surface) !important;
+		color: var(--formora-text) !important;
+	}
+
+	body.bodytakepos table.postablelines :is(th, td),
+	body:not(#mainbody) table.postablelines :is(th, td) {
+		border-color: var(--formora-line-soft) !important;
+		color: var(--formora-text) !important;
+	}
+
+	body.bodytakepos .posinvoiceline td,
+	body:not(#mainbody) .posinvoiceline td {
+		background: var(--formora-elevated) !important;
+	}
+
+	body.bodytakepos tr.selected,
+	body.bodytakepos tr.selected td,
+	body:not(#mainbody) tr.selected,
+	body:not(#mainbody) tr.selected td {
+		background: var(--formora-accent-soft) !important;
+		color: var(--formora-text) !important;
+	}
 
 	/* Formora Apple-inspired refresh layer: shared component rules for light and dark palettes. */
 	body#mainbody,
@@ -5055,7 +5118,7 @@ table.jPicker {
 
 body#mainbody #id-top {
 	background: var(--colorbackhmenu1) !important;
-	border-bottom: 1px solid var(--formora-line-soft) !important;
+	border-bottom: 1px solid var(--formora-line) !important;
 	box-shadow: 0 1px 0 rgba(0, 0, 0, 0.02) !important;
 }
 
@@ -5136,10 +5199,14 @@ body#mainbody #id-top {
 		box-shadow: none !important;
 	}
 
-	body#mainbody #id-top li.tmenu:not(.nohover):hover div.tmenucenter,
-	body#mainbody #id-top li.tmenusel div.tmenucenter {
+	body#mainbody #id-top li.tmenu:not(.nohover):hover div.tmenucenter {
 		background: var(--formora-neutral-hover-bg) !important;
 		border-color: var(--formora-line-soft) !important;
+	}
+
+	body#mainbody #id-top li.tmenusel div.tmenucenter {
+		background: var(--formora-accent-soft) !important;
+		border-color: transparent !important;
 	}
 
 body#mainbody #id-top a.tmenuimage,
@@ -5154,11 +5221,14 @@ body#mainbody #id-top a.tmenulabel .mainmenuaspan {
 	}
 
 	body#mainbody #id-top li.tmenu:not(.nohover):hover a.tmenuimage,
-body#mainbody #id-top li.tmenu:not(.nohover):hover a.tmenulabel,
+body#mainbody #id-top li.tmenu:not(.nohover):hover a.tmenulabel {
+	color: var(--colortextbackhmenu) !important;
+}
+
 body#mainbody #id-top li.tmenusel a.tmenuimage,
 body#mainbody #id-top li.tmenusel a.tmenulabel,
 body#mainbody #id-top li.tmenusel a.tmenulabel .mainmenuaspan {
-	color: var(--colortextbackhmenu) !important;
+	color: var(--formora-accent) !important;
 }
 
 	body#mainbody #id-top a.tmenuimage :is(.fa, .fas, .far, .fab)[class*="fa-"]::before,
@@ -5399,10 +5469,6 @@ body#mainbody table.table-fiche-title div.titre,
 	body#mainbody .box,
 	body#mainbody .boxtable,
 	body#mainbody .box-flex-item,
-	body#mainbody div.fiche div.info,
-	body#mainbody div.fiche div.warning,
-	body#mainbody div.fiche div.error,
-	body#mainbody div.fiche div.neutral,
 	body#mainbody table.noborder,
 	body#mainbody table.formdoc,
 	body#mainbody table.border,
@@ -5412,6 +5478,19 @@ body#mainbody table.table-fiche-title div.titre,
 		border-color: var(--formora-line-soft) !important;
 		box-shadow: none !important;
 		color: var(--formora-text) !important;
+	}
+
+	/*
+	 * Alert banners (.info/.warning/.error/.neutral) intentionally excluded from
+	 * the flat-card reset above: they are color-coded status messages (like an
+	 * Ant Design Alert), not generic content cards. See the color-coded rules in
+	 * global.inc.php:5660-5724 and the dark-mode equivalents below.
+	 */
+	body#mainbody div.fiche div.info,
+	body#mainbody div.fiche div.warning,
+	body#mainbody div.fiche div.error,
+	body#mainbody div.fiche div.neutral {
+		box-shadow: var(--formora-shadow-soft) !important;
 	}
 
 	body#mainbody .fichecenter,
@@ -5424,7 +5503,7 @@ body#mainbody table.table-fiche-title div.titre,
 	}
 
 	body#mainbody :is(.fichehalfleft, .fichehalfright, .fichethirdleft, .fichetwothirdright) > :is(table.noborder, table.border, table.tableforfield, .div-table-responsive, .div-table-responsive-no-min) {
-		margin-bottom: 12px !important;
+		margin-bottom: 16px !important;
 	}
 
 body#mainbody .tabBar {
@@ -5516,6 +5595,17 @@ body#mainbody .tabBar :is(.tagtr, .tagtd) {
 		box-sizing: border-box !important;
 		overflow: hidden !important;
 		position: relative;
+	}
+
+	body#mainbody .info-box .info-box-content {
+		/*
+		 * Core's own padding is "5px 5px 5px 14px" - a narrow 5px right side
+		 * meant for the old layout where values rarely reached the edge.
+		 * Now that .info-box-line right-aligns every value flush to its own
+		 * edge, that narrow padding left numbers/badges crowding the card
+		 * border. Match it to the left side instead.
+		 */
+		padding: 5px 14px !important;
 	}
 
 	body#mainbody .info-box > .info-box-icon {
@@ -5694,7 +5784,7 @@ body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fic
 }
 
 body#mainbody:not(.bodyforlist):not(.bodytakepos):not(.bodylogin) #id-right .fiche :is(.div-table-responsive, .div-table-responsive-no-min) > :is(table.liste.noborder, table.tagtable.liste.noborder, table.noborder.centpercent:not(.noshadow):not(.nomarginbottom):not(.cal_month):not(.cal_pannel), table.noborder.allwidth:not(.noshadow):not(.nomarginbottom), .tagtable.tableforcontact) {
-	margin-bottom: 12px !important;
+	margin-bottom: 16px !important;
 	max-width: none !important;
 	min-width: 100% !important;
 }
@@ -5755,7 +5845,7 @@ body#mainbody :is(div.tagtable.tableforfield, div.table-border.tableforfield) > 
 		border: none !important;
 		border-bottom: 1px solid var(--inputbordercolor, var(--formora-line)) !important;
 		<?php } ?>
-		border-radius: var(--formora-radius-sm) !important;
+		border-radius: var(--formora-radius) !important;
 		box-shadow: none !important;
 		color: var(--formora-text) !important;
 		min-height: var(--formora-control-height);
@@ -5926,7 +6016,7 @@ body#mainbody :is(div.tagtable.tableforfield, div.table-border.tableforfield) > 
 		align-items: center;
 		background: var(--inputbackgroundcolor, var(--formora-surface)) !important;
 		border: 1px solid var(--inputbordercolor, var(--formora-line)) !important;
-		border-radius: var(--formora-radius-sm) !important;
+		border-radius: var(--formora-radius) !important;
 		box-shadow: none !important;
 		box-sizing: border-box !important;
 		color: var(--formora-text) !important;
@@ -5945,7 +6035,7 @@ body#mainbody :is(div.tagtable.tableforfield, div.table-border.tableforfield) > 
 		align-items: center;
 		background: transparent !important;
 		border: 0 !important;
-		border-radius: var(--formora-radius-sm) !important;
+		border-radius: var(--formora-radius) !important;
 		box-shadow: none !important;
 		box-sizing: border-box !important;
 		color: var(--formora-text) !important;
@@ -5989,7 +6079,7 @@ body#mainbody :is(div.tagtable.tableforfield, div.table-border.tableforfield) > 
 		align-items: center;
 		background: var(--formora-neutral-bg) !important;
 		border: 1px solid var(--formora-line-soft) !important;
-		border-radius: 999px !important;
+		border-radius: var(--formora-radius-full) !important;
 		box-sizing: border-box !important;
 		color: var(--formora-text) !important;
 		display: inline-flex !important;
@@ -6028,7 +6118,7 @@ body#mainbody :is(div.tagtable.tableforfield, div.table-border.tableforfield) > 
 		align-items: center;
 		background: var(--formora-accent-soft) !important;
 		border: 1px solid var(--formora-accent) !important;
-		border-radius: 999px !important;
+		border-radius: var(--formora-radius-full) !important;
 		box-shadow: none !important;
 		box-sizing: border-box !important;
 		color: var(--formora-accent-hover) !important;
@@ -6047,7 +6137,7 @@ body#mainbody :is(div.tagtable.tableforfield, div.table-border.tableforfield) > 
 		align-items: center;
 		background: var(--formora-neutral-bg) !important;
 		border: 1px solid var(--formora-line) !important;
-		border-radius: 999px !important;
+		border-radius: var(--formora-radius-full) !important;
 		box-shadow: none !important;
 		box-sizing: border-box !important;
 		color: var(--formora-muted) !important;
@@ -6149,7 +6239,7 @@ body#mainbody input[type="button"]:not(.buttonDelete):not(.buttonRefused):not(.b
 	background: var(--butactionbg) !important;
 	background-image: none !important;
 	border: 1px solid var(--butactionbg) !important;
-	border-radius: var(--formora-radius-sm) !important;
+	border-radius: var(--formora-radius) !important;
 	box-shadow: none !important;
 	box-sizing: border-box !important;
 	color: var(--textbutaction) !important;
@@ -6158,7 +6248,7 @@ body#mainbody input[type="button"]:not(.buttonDelete):not(.buttonRefused):not(.b
 		height: auto !important;
 		justify-content: center !important;
 		line-height: 1.15 !important;
-		min-height: 34px !important;
+		min-height: var(--formora-control-height) !important;
 		padding: 7px 12px !important;
 		vertical-align: middle !important;
 	}
@@ -6213,42 +6303,26 @@ body#mainbody input[type="button"]:not(.buttonDelete):not(.buttonRefused):not(.b
 		background: var(--formora-danger) !important;
 		background-image: none !important;
 		border: 1px solid var(--formora-danger) !important;
-		border-radius: var(--formora-radius-sm) !important;
+		border-radius: var(--formora-radius) !important;
 		box-shadow: none !important;
 		color: #fff !important;
 	}
 
 	body#mainbody .butActionDelete:hover {
-		background: #a40e26 !important;
-		border-color: #a40e26 !important;
+		background: var(--formora-danger-hover) !important;
+		border-color: var(--formora-danger-hover) !important;
 		color: #fff !important;
 	}
 
-	<?php
-	if (getDolGlobalInt('THEME_DARKMODEENABLED')) {
-		if (getDolGlobalInt('THEME_DARKMODEENABLED') != 2) {
-			print "@media (prefers-color-scheme: dark) {";
-		} else {
-			print "@media not print {";
-		}
-	?>
-	body#mainbody .butActionDelete,
-	body#mainbody .butActionDelete:link,
-	body#mainbody .butActionDelete:visited {
-		background: var(--formora-danger-bg) !important;
-		border-color: rgba(255, 69, 58, 0.4) !important;
-		color: var(--formora-danger) !important;
-	}
-
-	body#mainbody .butActionDelete:hover {
-		background: var(--formora-danger-hover-bg) !important;
-		border-color: var(--formora-danger) !important;
-		color: var(--formora-danger) !important;
-	}
-	<?php
-		print "}\n";
-	}
-	?>
+	/*
+	 * Dark mode used to switch .butActionDelete from a solid fill to an
+	 * outline/tinted "ghost button" here - inconsistent with every other
+	 * button in the same action bar (which all stay solid in dark mode) and
+	 * not how Ant Design behaves (a button's type/weight stays the same
+	 * across themes; only the color tokens change). Removed: the solid-fill
+	 * rule above already uses var(--formora-danger)/var(--formora-danger-hover),
+	 * which resolve to the correct dark-mode-adjusted red on their own.
+	 */
 
 	body#mainbody .butActionRefused,
 	body#mainbody .butActionRefused:link,
@@ -6257,7 +6331,7 @@ body#mainbody input[type="button"]:not(.buttonDelete):not(.buttonRefused):not(.b
 		background: var(--formora-refused-bg) !important;
 		background-image: none !important;
 		border: 1px solid var(--formora-line-soft) !important;
-		border-radius: var(--formora-radius-sm) !important;
+		border-radius: var(--formora-radius) !important;
 		box-shadow: none !important;
 		color: var(--formora-muted) !important;
 		cursor: not-allowed !important;
@@ -6280,7 +6354,7 @@ body#mainbody input[type="button"]:not(.buttonDelete):not(.buttonRefused):not(.b
 		height: auto !important;
 		justify-content: center !important;
 		line-height: 1.15 !important;
-		min-height: 34px !important;
+		min-height: var(--formora-control-height) !important;
 		padding: 7px 12px !important;
 		vertical-align: middle !important;
 		white-space: nowrap;
@@ -6391,7 +6465,6 @@ body#mainbody input[type="button"]:not(.buttonDelete):not(.buttonRefused):not(.b
 	body#mainbody .badgeneutral,
 	body#mainbody span.badgeneutral {
 		align-items: center;
-		border-radius: 999px !important;
 		display: inline-flex;
 		font-weight: 650 !important;
 		gap: 4px;
@@ -6400,10 +6473,15 @@ body#mainbody input[type="button"]:not(.buttonDelete):not(.buttonRefused):not(.b
 		vertical-align: middle;
 	}
 
+	body#mainbody .badge {
+		border-radius: var(--formora-radius-sm) !important;
+	}
+
 	body#mainbody .badge-status,
 	body#mainbody .badgeneutral,
 	body#mainbody span.badgeneutral {
 		border: 1px solid var(--formora-line-soft) !important;
+		border-radius: var(--formora-radius-full) !important;
 	}
 
 	body#mainbody .badge-dot.badge-status {
@@ -6479,18 +6557,18 @@ body#mainbody input[type="button"]:not(.buttonDelete):not(.buttonRefused):not(.b
 
 	body#mainbody .ui-widget-overlay,
 	body#mainbody .modal-backdrop {
-		background: rgba(0, 0, 0, 0.38) !important;
+		background: rgba(0, 0, 0, 0.45) !important;
 	}
 
 	body#mainbody .ui-tooltip,
 	body#mainbody .tooltip,
 	body#mainbody .tooltipster-base,
 	body#mainbody .tooltipster-box {
-		background: var(--tooltipbgcolor, var(--formora-elevated)) !important;
-		border: 1px solid var(--formora-line) !important;
-		border-radius: var(--formora-radius-sm) !important;
+		background: rgba(0, 0, 0, 0.85) !important;
+		border: none !important;
+		border-radius: var(--formora-radius) !important;
 		box-shadow: var(--formora-shadow-menu) !important;
-		color: var(--tooltipfontcolor, var(--formora-text)) !important;
+		color: #fff !important;
 	}
 
 	body#mainbody div.ui-tooltip.mytooltip,
@@ -6663,7 +6741,7 @@ body.bodylogin .butActionLogin:hover,
 body.bodylogin .butActionLogin:active {
 	background: var(--butactionbg) !important;
 	border: 1px solid var(--butactionbg) !important;
-	border-radius: var(--formora-radius-sm) !important;
+	border-radius: var(--formora-radius) !important;
 	box-shadow: none !important;
 	color: var(--textbutaction) !important;
 	font-weight: 650 !important;
@@ -6976,7 +7054,7 @@ body.bodylogin .butActionLogin:focus {
 		justify-content: center !important;
 	}
 
-	body.bodytakepos .topnav-left a span {
+	body.bodytakepos .topnav-left a span:not(.hideonsmartphone) {
 		align-items: center;
 		display: inline-flex;
 		white-space: nowrap;
@@ -7109,7 +7187,7 @@ body.bodylogin .butActionLogin:focus {
 		align-items: center !important;
 		background: var(--formora-surface) !important;
 		border: 1px solid var(--formora-line-soft) !important;
-		border-radius: var(--formora-radius-sm) !important;
+		border-radius: var(--formora-radius) !important;
 		box-shadow: none !important;
 		box-sizing: border-box !important;
 		color: var(--formora-accent) !important;
@@ -7117,7 +7195,7 @@ body.bodylogin .butActionLogin:focus {
 		font-weight: 600 !important;
 		gap: 7px;
 		justify-content: center !important;
-		min-height: 34px;
+		min-height: var(--formora-control-height);
 		padding: 7px 12px !important;
 	}
 
@@ -7167,7 +7245,7 @@ body.bodylogin .butActionLogin:focus {
 	body:not(#mainbody) select.takepospay {
 		background: var(--formora-surface-alt) !important;
 		border: 1px solid var(--formora-line) !important;
-		border-radius: var(--formora-radius-sm) !important;
+		border-radius: var(--formora-radius) !important;
 		color: var(--formora-text) !important;
 	}
 
@@ -7181,6 +7259,91 @@ body.bodylogin .butActionLogin:focus {
 		max-width: 360px !important;
 		min-width: 240px;
 		padding: 0 14px !important;
+	}
+
+	/*
+	 * The unconditional min-width:240px above wins over core's own
+	 * max-width tiers (250/150/90px at 1024/767/- - see pos.css.php) since
+	 * CSS resolves a min/max conflict in min-width's favor. Below 767px
+	 * that forces the search box to stay >=240px wide regardless of
+	 * viewport, crowding out the terminal label and the icons next to it.
+	 * Same two-row split as the <=480px tier below (which wins over this
+	 * one at narrower widths, appearing later in the file), just with a
+	 * bit more breathing room since there's more width to spend here.
+	 */
+	@media only screen and (max-width: 767px) {
+		body.bodytakepos .topnav {
+			flex-wrap: wrap !important;
+			gap: 0 !important;
+			height: auto !important;
+			min-height: 128px !important;
+			overflow: visible !important;
+			padding: 0 4px !important;
+		}
+
+		body.bodytakepos .header {
+			height: auto !important;
+			min-height: 128px !important;
+		}
+
+		body.bodytakepos .topnav-left {
+			flex: 0 0 100% !important;
+			gap: 4px !important;
+			height: 64px !important;
+			min-width: 0 !important;
+			order: 1 !important;
+			overflow-x: auto !important;
+			overflow-y: hidden !important;
+			width: 100% !important;
+		}
+
+		body.bodytakepos .topnav-right {
+			flex: 0 0 100% !important;
+			height: 64px !important;
+			justify-content: flex-end !important;
+			margin-left: 0 !important;
+			min-width: 0 !important;
+			order: 2 !important;
+			width: 100% !important;
+		}
+
+		body.bodytakepos #customerandsales {
+			flex: 0 0 auto !important;
+			max-width: 200px !important;
+			overflow: hidden !important;
+		}
+
+		body.bodytakepos #customer {
+			box-sizing: border-box !important;
+			max-width: 200px !important;
+			min-width: 0 !important;
+			overflow: hidden !important;
+			text-overflow: ellipsis !important;
+			white-space: nowrap !important;
+		}
+
+		body.bodytakepos #shoppingcart {
+			flex: 0 0 auto !important;
+			overflow: hidden !important;
+		}
+
+		body.bodytakepos #shoppingcart > a:first-child {
+			max-width: 140px !important;
+			overflow: hidden !important;
+			text-overflow: ellipsis !important;
+			white-space: nowrap !important;
+		}
+
+		body.bodytakepos .topnav input[type="text"] {
+			flex: 1 1 auto !important;
+			max-width: none !important;
+			min-width: 0 !important;
+			width: auto !important;
+		}
+
+		body.bodytakepos #topmenu-login-dropdown > .dropdown-menu {
+			top: 128px !important;
+		}
 	}
 
 	body.bodytakepos .topnav input[type="text"]:focus,
@@ -7227,7 +7390,8 @@ body.bodylogin .butActionLogin:focus {
 		color: var(--formora-text) !important;
 	}
 
-	body.bodytakepos :is(div.wrapper, div.wrapper2, .tab-category):hover {
+	body.bodytakepos :is(div.wrapper, div.wrapper2):not(.divempty):hover,
+	body.bodytakepos .tab-category:hover {
 		background: var(--formora-elevated) !important;
 		border-color: var(--formora-line) !important;
 	}
@@ -7266,6 +7430,21 @@ body.bodylogin .butActionLogin:focus {
 		background: var(--formora-surface) !important;
 		border-color: var(--formora-line-soft) !important;
 		color: var(--formora-text) !important;
+	}
+
+	/*
+	 * Core's own mobile layout (pos.css.php, max-width:767px) switches
+	 * .div1/.div2/.div3 to full-width stacked columns and unsets their
+	 * height/min-height, since the calculator no longer shares a fixed-
+	 * height row with the receipt/product panes. But .calcbutton/2/3 still
+	 * size themselves as height:calc(25% - 2px) of that now-auto-height
+	 * parent, which collapses them down to ~30px - too short to comfortably
+	 * tap. Give them an explicit floor in this same tier.
+	 */
+	@media only screen and (max-width: 767px) {
+		body.bodytakepos :is(button.calcbutton, button.calcbutton2, button.calcbutton3) {
+			min-height: 48px !important;
+		}
 	}
 
 body.bodytakepos button.calcbutton2,
@@ -7450,7 +7629,7 @@ body:not(#mainbody) button.calcbutton3.poscolorblue {
 		justify-content: center !important;
 	}
 
-	body.bodytakepos .topnav-left a span {
+	body.bodytakepos .topnav-left a span:not(.hideonsmartphone) {
 		align-items: center;
 		display: inline-flex;
 		white-space: nowrap;
@@ -7489,7 +7668,7 @@ body:not(#mainbody) button.calcbutton3.poscolorblue {
 	body:not(#mainbody) select.takepospay {
 		background: var(--formora-surface-alt) !important;
 		border: 1px solid var(--formora-line) !important;
-		border-radius: var(--formora-radius-sm) !important;
+		border-radius: var(--formora-radius) !important;
 		color: var(--formora-text) !important;
 	}
 
@@ -7503,6 +7682,91 @@ body:not(#mainbody) button.calcbutton3.poscolorblue {
 		max-width: 360px !important;
 		min-width: 240px;
 		padding: 0 14px !important;
+	}
+
+	/*
+	 * The unconditional min-width:240px above wins over core's own
+	 * max-width tiers (250/150/90px at 1024/767/- - see pos.css.php) since
+	 * CSS resolves a min/max conflict in min-width's favor. Below 767px
+	 * that forces the search box to stay >=240px wide regardless of
+	 * viewport, crowding out the terminal label and the icons next to it.
+	 * Same two-row split as the <=480px tier below (which wins over this
+	 * one at narrower widths, appearing later in the file), just with a
+	 * bit more breathing room since there's more width to spend here.
+	 */
+	@media only screen and (max-width: 767px) {
+		body.bodytakepos .topnav {
+			flex-wrap: wrap !important;
+			gap: 0 !important;
+			height: auto !important;
+			min-height: 128px !important;
+			overflow: visible !important;
+			padding: 0 4px !important;
+		}
+
+		body.bodytakepos .header {
+			height: auto !important;
+			min-height: 128px !important;
+		}
+
+		body.bodytakepos .topnav-left {
+			flex: 0 0 100% !important;
+			gap: 4px !important;
+			height: 64px !important;
+			min-width: 0 !important;
+			order: 1 !important;
+			overflow-x: auto !important;
+			overflow-y: hidden !important;
+			width: 100% !important;
+		}
+
+		body.bodytakepos .topnav-right {
+			flex: 0 0 100% !important;
+			height: 64px !important;
+			justify-content: flex-end !important;
+			margin-left: 0 !important;
+			min-width: 0 !important;
+			order: 2 !important;
+			width: 100% !important;
+		}
+
+		body.bodytakepos #customerandsales {
+			flex: 0 0 auto !important;
+			max-width: 200px !important;
+			overflow: hidden !important;
+		}
+
+		body.bodytakepos #customer {
+			box-sizing: border-box !important;
+			max-width: 200px !important;
+			min-width: 0 !important;
+			overflow: hidden !important;
+			text-overflow: ellipsis !important;
+			white-space: nowrap !important;
+		}
+
+		body.bodytakepos #shoppingcart {
+			flex: 0 0 auto !important;
+			overflow: hidden !important;
+		}
+
+		body.bodytakepos #shoppingcart > a:first-child {
+			max-width: 140px !important;
+			overflow: hidden !important;
+			text-overflow: ellipsis !important;
+			white-space: nowrap !important;
+		}
+
+		body.bodytakepos .topnav input[type="text"] {
+			flex: 1 1 auto !important;
+			max-width: none !important;
+			min-width: 0 !important;
+			width: auto !important;
+		}
+
+		body.bodytakepos #topmenu-login-dropdown > .dropdown-menu {
+			top: 128px !important;
+		}
 	}
 
 	body.bodytakepos .topnav input[type="text"]:focus,
@@ -7521,56 +7785,16 @@ body:not(#mainbody) button.calcbutton3.poscolorblue {
 		color: var(--formora-text) !important;
 	}
 
-	body.bodytakepos :is(div.wrapper, div.wrapper2, .tab-category):hover {
+	body.bodytakepos :is(div.wrapper, div.wrapper2):not(.divempty):hover,
+	body.bodytakepos .tab-category:hover {
 		background: var(--formora-elevated) !important;
 		border-color: #4c5057 !important;
-	}
-
-	body.bodytakepos .div4 .tab-category.active {
-		background: var(--formora-accent-soft) !important;
-		border-color: var(--formora-accent) !important;
-		color: var(--formora-accent-hover) !important;
-	}
-
-	body.bodytakepos div.description {
-		background: linear-gradient(to bottom, rgba(28, 28, 30, 0), rgba(28, 28, 30, 0.78), rgba(28, 28, 30, 0.98)) !important;
-		color: var(--formora-text) !important;
 	}
 
 	body.bodytakepos .catwatermark {
 		background: var(--formora-elevated) !important;
 		color: var(--formora-text) !important;
 		opacity: 0.72 !important;
-	}
-
-	body.bodytakepos .productprice {
-		background: var(--formora-accent-soft) !important;
-		color: var(--formora-accent-hover) !important;
-	}
-
-	body.bodytakepos table.postablelines,
-	body:not(#mainbody) table.postablelines {
-		background: var(--formora-surface) !important;
-		color: var(--formora-text) !important;
-	}
-
-	body.bodytakepos table.postablelines :is(th, td),
-	body:not(#mainbody) table.postablelines :is(th, td) {
-		border-color: var(--formora-line-soft) !important;
-		color: var(--formora-text) !important;
-	}
-
-	body.bodytakepos .posinvoiceline td,
-	body:not(#mainbody) .posinvoiceline td {
-		background: var(--formora-elevated) !important;
-	}
-
-	body.bodytakepos tr.selected,
-	body.bodytakepos tr.selected td,
-	body:not(#mainbody) tr.selected,
-	body:not(#mainbody) tr.selected td {
-		background: var(--formora-accent-soft) !important;
-		color: var(--formora-text) !important;
 	}
 
 	body.bodytakepos button,
@@ -7602,10 +7826,16 @@ body:not(#mainbody) button.calcbutton3.poscolorblue {
 		color: var(--formora-text) !important;
 	}
 
+	@media only screen and (max-width: 767px) {
+		body.bodytakepos :is(button.calcbutton, button.calcbutton2, button.calcbutton3) {
+			min-height: 48px !important;
+		}
+	}
+
 	body.bodytakepos button.calcbutton2,
 	body:not(#mainbody) button.calcbutton2 {
 		background: #17314f !important;
-		border-color: rgba(78, 163, 255, 0.32) !important;
+		border-color: color-mix(in srgb, var(--formora-accent) 32%, transparent) !important;
 		color: #f5f5f7 !important;
 	}
 
@@ -7643,8 +7873,8 @@ body:not(#mainbody) button.calcbutton3.poscolorblue {
 	body.bodytakepos button.calcbutton3.poscolordelete,
 	body:not(#mainbody) button.calcbutton2.poscolordelete,
 	body:not(#mainbody) button.calcbutton3.poscolordelete {
-		background: rgba(255, 69, 58, 0.18) !important;
-		border-color: rgba(255, 69, 58, 0.36) !important;
+		background: color-mix(in srgb, var(--formora-danger) 18%, transparent) !important;
+		border-color: color-mix(in srgb, var(--formora-danger) 36%, transparent) !important;
 		color: var(--formora-danger) !important;
 	}
 
@@ -7670,7 +7900,7 @@ body:not(#mainbody) button.calcbutton3.poscolorblue {
 	body.bodytakepos button.calcbutton2:hover,
 	body:not(#mainbody) button.calcbutton2:hover {
 		background: #204a78 !important;
-		border-color: rgba(78, 163, 255, 0.58) !important;
+		border-color: color-mix(in srgb, var(--formora-accent) 58%, transparent) !important;
 		color: #ffffff !important;
 	}
 
@@ -7718,9 +7948,9 @@ body:not(#mainbody) button.calcbutton3.poscolorblue {
 	body.bodytakepos button.calcbutton3.poscolordelete:active,
 	body:not(#mainbody) button.calcbutton2.poscolordelete:active,
 	body:not(#mainbody) button.calcbutton3.poscolordelete:active {
-		background: rgba(255, 69, 58, 0.26) !important;
-		border-color: rgba(255, 69, 58, 0.52) !important;
-		color: #ff8a82 !important;
+		background: color-mix(in srgb, var(--formora-danger) 26%, transparent) !important;
+		border-color: color-mix(in srgb, var(--formora-danger) 52%, transparent) !important;
+		color: color-mix(in srgb, var(--formora-danger) 80%, white) !important;
 	}
 
 	body.bodytakepos button.item_value,
@@ -7765,85 +7995,30 @@ body:not(#mainbody) button.calcbutton3.poscolorblue {
 		color: var(--formora-status-success-text) !important;
 	}
 
-	body.bodytakepos .modal {
-		background: rgba(0, 0, 0, 0.68) !important;
-	}
-
+	/* Larger, more dramatic modal shadow in dark mode; everything else about
+	   .modal/.modal-content/.modal-header/.modal-body/.close/.block/colorbox
+	   lives in the always-on "TakePOS styling" block above (right before the
+	   "Formora Apple-inspired refresh layer" comment) so it applies in light
+	   mode too (it used to be defined only in this dark-only block, so light
+	   mode fell back to Dolibarr core's hardcoded navy header / khaki button /
+	   square corners - that was the actual bug). */
 	body.bodytakepos .modal-content {
-		background: var(--formora-surface) !important;
-		border: 1px solid var(--formora-line) !important;
-		border-radius: var(--formora-radius) !important;
 		box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45) !important;
-		color: var(--formora-text) !important;
-		overflow: hidden;
 	}
 
-	body.bodytakepos .modal-header {
-		background: var(--formora-elevated) !important;
-		border-bottom: 1px solid var(--formora-line-soft) !important;
-		color: var(--formora-text) !important;
-	}
-
-	body.bodytakepos .modal-body {
-		background: var(--formora-surface) !important;
-		color: var(--formora-text) !important;
-	}
-
-	body.bodytakepos .close {
-		color: var(--formora-muted) !important;
-	}
-
-	body.bodytakepos .close:hover,
-	body.bodytakepos .close:focus {
-		color: var(--formora-text) !important;
-	}
-
-	body.bodytakepos .block,
-	body:not(#mainbody) .block {
-		background: var(--formora-elevated) !important;
-		border: 1px solid var(--formora-line-soft) !important;
-		color: var(--formora-text) !important;
-	}
-
-	body.bodytakepos #cboxOverlay {
-		background: #000000 !important;
-		opacity: 0.78 !important;
-	}
-
-	body.bodytakepos #colorbox {
-		outline: 0 !important;
-	}
-
-	body.bodytakepos :is(#cboxTopLeft, #cboxTopCenter, #cboxTopRight, #cboxMiddleLeft, #cboxMiddleRight, #cboxBottomLeft, #cboxBottomCenter, #cboxBottomRight) {
-		background: var(--formora-surface) !important;
-	}
-
-	body.bodytakepos :is(#cboxContent, #cboxLoadedContent, .cboxIframe) {
-		background: var(--formora-bg) !important;
-		color: var(--formora-text) !important;
-	}
-
-	body.bodytakepos #cboxContent {
-		border: 1px solid var(--formora-line) !important;
-		border-radius: var(--formora-radius) !important;
-		box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5) !important;
-		overflow: hidden !important;
-	}
-
-	body.bodytakepos #cboxTitle,
-	body.bodytakepos #cboxCurrent {
-		color: var(--formora-text) !important;
-	}
-
-	body.bodytakepos #cboxError {
-		background: var(--formora-surface) !important;
-		border-color: var(--formora-line) !important;
-		color: var(--formora-text) !important;
-	}
-
-	body.bodytakepos :is(#cboxPrevious, #cboxNext, #cboxSlideshow, #cboxClose):active {
-		background-color: transparent !important;
-		color: inherit !important;
+	/*
+	 * #cboxPrevious/#cboxNext/#cboxSlideshow/#cboxClose render a fixed dark
+	 * icon from an image sprite (takepos/css/images/controls.png), not a font
+	 * glyph, so `color` can't fix it. Once the surrounding chrome (above) goes
+	 * dark, that dark-on-dark icon disappears (this is the missing
+	 * bottom-right close button) - invert it so it reads as light-on-dark,
+	 * same technique already used for .cke_dialog_close_button.
+	 */
+	body.bodytakepos :is(#cboxPrevious, #cboxNext, #cboxSlideshow, #cboxClose) {
+		/* Simple invert only - brightness/contrast on top of it was likely
+		   over-amplifying the sprite icon's semi-transparent antialiased
+		   edge pixels into a visible pale halo/box around the icon. */
+		filter: invert(1);
 	}
 	<?php
 		print "}\n";
@@ -7863,7 +8038,32 @@ body:not(#mainbody) button.calcbutton3.poscolorblue {
 				position: relative !important;
 			}
 
+			/*
+			 * .menulogocontainer's own height (global.inc.php) drops to 18px
+			 * in text-only mode ($disableimages), sized for that mode's much
+			 * shorter ~28px topbar. This tier keeps the topbar a fixed 60px
+			 * regardless of mode, so text-only mode was left with a tiny logo
+			 * floating in a row sized for the full icon+label layout. Pin it
+			 * back to the icon-mode size here.
+			 */
+			body#mainbody:not(.bodytakepos):not(.bodylogin) #id-top .menulogocontainer {
+				height: 35px !important;
+				margin: 6px 9px 6px 11px !important;
+			}
+
 			body#mainbody:not(.bodytakepos):not(.bodylogin) #tmenu_tooltip {
+				/*
+				 * #tmenu_tooltip is the horizontal-scroll wrapper around
+				 * ul.tmenu, not an actual tooltip. Its generic ".tmenu"
+				 * class rule gives it an opaque background matching #id-top
+				 * (needed so scrolled-past menu items don't show through),
+				 * but since it's a child painted after #id-top's own
+				 * border-bottom, that opaque fill hides the border for the
+				 * entire menu row except where li.menuhider's own sticky
+				 * z-index pokes above it. Give this wrapper the same
+				 * border-bottom directly so the line is visible again.
+				 */
+				border-bottom: 1px solid var(--formora-line) !important;
 				box-sizing: border-box !important;
 				height: 60px !important;
 				min-height: 60px !important;
@@ -7905,7 +8105,6 @@ body:not(#mainbody) button.calcbutton3.poscolorblue {
 
 body#mainbody:not(.bodytakepos):not(.bodylogin) #id-top li.menuhider {
 	background: var(--colorbackhmenu1) !important;
-	box-shadow: 10px 0 14px -14px rgba(0, 0, 0, 0.5) !important;
 	display: block !important;
 	left: 0 !important;
 				position: sticky !important;
@@ -7940,7 +8139,8 @@ body#mainbody:not(.bodytakepos):not(.bodylogin) #id-top li.menuhider {
 body#mainbody:not(.bodytakepos):not(.bodylogin) #id-top li.menuhider div.tmenucenter {
 	align-items: center !important;
 	background: var(--colorbackhmenu1) !important;
-	border-right: 1px solid var(--formora-line-soft) !important;
+				border-bottom: 1px solid var(--formora-line) !important;
+				border-radius: 0 !important;
 				box-sizing: border-box !important;
 				flex-direction: row !important;
 				height: 60px !important;
@@ -8046,8 +8246,17 @@ body#mainbody:not(.sidebar-collapse):not(.bodytakepos):not(.bodylogin) .login_bl
 				width: 28px !important;
 			}
 
+			/*
+			 * This icon row is capped at a fixed 260px (leftmenuwidth+20, to
+			 * align with the sidebar column below it). The version number is
+			 * the one item without a fixed icon-sized width, and pushes the
+			 * row ~17px over that budget, spilling icons past both edges.
+			 * Dropping it here (core's own .hideonsmartphone only kicks in
+			 * below 768px, well past where this row already overflows) is
+			 * enough to fit everything else without crowding.
+			 */
 			body#mainbody:not(.sidebar-collapse):not(.bodytakepos):not(.bodylogin) .login_block.usedropdown .login_block_other .login_block_elem:has(.aversion) {
-				width: auto !important;
+				display: none !important;
 			}
 
 			body#mainbody:not(.sidebar-collapse):not(.bodytakepos):not(.bodylogin) .login_block.usedropdown #topmenu-login-dropdown {
@@ -8133,6 +8342,16 @@ body#mainbody:not(.sidebar-collapse):not(.bodytakepos):not(.bodylogin) .login_bl
 			}
 
 			body#mainbody:not(.bodytakepos):not(.bodylogin) .login_block_user .dropdown-menu .user-header > .dropdown-user-image {
+				/*
+				 * Eldy's own REDUC3 breakpoint (global.inc.php, width computed from
+				 * $nbtopmenuentries, independent of Formora's 1180px mobile-chrome
+				 * cutoff and often narrower than it) sets ".dropdown-user-image
+				 * { display: none; }" to save space in its original text-only
+				 * user-header. Formora's card layout below still reserves a 90px
+				 * grid column for this image, so cancel that hide here or the
+				 * photo silently disappears while the empty column stays.
+				 */
+				display: block !important;
 				grid-column: 1 !important;
 				margin: 0 !important;
 			}
@@ -8402,7 +8621,16 @@ body#mainbody:not(.sidebar-collapse):not(.bodytakepos):not(.bodylogin) .login_bl
 			}
 		}
 
-		@media only screen and (max-width: 1024px) {
+		/*
+		 * This must match the 1180px breakpoint above (style.css.php:7825)
+		 * that switches the top bar into mobile chrome and makes
+		 * li.menuhider (the hamburger) visible. It used to be a separate,
+		 * narrower 1024px here, leaving a live 1025-1180px gap where the
+		 * hamburger showed (top-bar rule fired) but the pinned sidebar was
+		 * still laid out normally (this rule hadn't fired yet) - both
+		 * visible at once, which is the reported bug.
+		 */
+		@media only screen and (max-width: 1180px) {
 			body#mainbody:not(.bodytakepos):not(.bodylogin) #id-top li.menuhider {
 				display: block !important;
 				flex: 0 0 auto !important;
@@ -8490,7 +8718,23 @@ body#mainbody:not(.sidebar-collapse):not(.bodytakepos):not(.bodylogin) .login_bl
 			body#mainbody:is(.page-list_det, .page-task_time):not(.bodylogin) #id-right,
 			body#mainbody.classforhorizontalscrolloftabs:not(.bodytakepos):not(.bodylogin) #id-right {
 				box-sizing: border-box !important;
-				display: block !important;
+				/*
+				 * "flow-root", not "block": #id-right is normally a table-cell
+				 * (global.inc.php), which implicitly contains floated children
+				 * (a table-cell is always its own block-formatting context) -
+				 * that's how the dashboard's two-column boxes (.twocolumns >
+				 * .fichehalfleft/.fichehalfright, still float-based here since
+				 * Eldy only un-floats them at max-width:1024px, narrower than
+				 * this 1180px tier) get their real rendered height counted.
+				 * Switching to plain "block" for the mobile-chrome layout drops
+				 * that containment, so .twocolumns collapses to 0px height and
+				 * everything below the first viewport-height's worth of content
+				 * renders on the page's own (grey) background instead of
+				 * #id-right's white one. "flow-root" keeps the block-level
+				 * sizing/positioning this rule wants while restoring float
+				 * containment.
+				 */
+				display: flow-root !important;
 				left: auto !important;
 				max-width: 100vw !important;
 				min-width: 0 !important;
@@ -8524,23 +8768,49 @@ body#mainbody:not(.sidebar-collapse):not(.bodytakepos):not(.bodylogin) .login_bl
 		}
 
 		@media only screen and (max-width: 480px) {
+			/*
+			 * Below 480px there just isn't room for the terminal/currency
+			 * icons, customer, shopping cart, search box AND the icon
+			 * cluster on one line even with hideonsmartphone text hidden -
+			 * squeezing them all into fixed widths left customer/cart
+			 * reduced to slivers. Wrap the bar into two full-width rows
+			 * instead: terminal/currency/customer/cart on row 1, search +
+			 * icons on row 2. Verified the .container below still lays out
+			 * correctly under the taller (128px) header.
+			 */
 			body.bodytakepos .topnav {
+				flex-wrap: wrap !important;
 				gap: 0 !important;
-				overflow-x: hidden !important;
+				height: auto !important;
+				min-height: 128px !important;
+				overflow: visible !important;
 				padding: 0 4px !important;
 			}
 
+			body.bodytakepos .header {
+				height: auto !important;
+				min-height: 128px !important;
+			}
+
 			body.bodytakepos .topnav-left {
-				flex: 1 1 auto !important;
+				flex: 0 0 100% !important;
 				gap: 4px !important;
+				height: 64px !important;
 				min-width: 0 !important;
-				overflow: hidden !important;
+				order: 1 !important;
+				overflow-x: auto !important;
+				overflow-y: hidden !important;
+				width: 100% !important;
 			}
 
 			body.bodytakepos .topnav-right {
-				flex: 0 0 auto !important;
-				margin-left: 4px !important;
+				flex: 0 0 100% !important;
+				height: 64px !important;
+				justify-content: flex-end !important;
+				margin-left: 0 !important;
 				min-width: 0 !important;
+				order: 2 !important;
+				width: 100% !important;
 			}
 
 			body.bodytakepos .topnav-left > :is(#customerandsales, #shoppingcart),
@@ -8553,30 +8823,26 @@ body#mainbody:not(.sidebar-collapse):not(.bodytakepos):not(.bodylogin) .login_bl
 			}
 
 			body.bodytakepos #customerandsales {
-				flex: 0 0 86px !important;
-				max-width: 86px !important;
+				flex: 0 0 auto !important;
+				max-width: 150px !important;
 				overflow: hidden !important;
-				width: 86px !important;
 			}
 
 			body.bodytakepos #customer {
 				box-sizing: border-box !important;
-				max-width: 86px !important;
+				max-width: 150px !important;
 				min-width: 0 !important;
 				overflow: hidden !important;
 				padding-left: 8px !important;
 				padding-right: 8px !important;
 				text-overflow: ellipsis !important;
 				white-space: nowrap !important;
-				width: 86px !important;
 			}
 
 			body.bodytakepos #shoppingcart {
-				flex: 0 0 94px !important;
+				flex: 0 0 auto !important;
 				gap: 4px !important;
-				max-width: 94px !important;
 				overflow: hidden !important;
-				width: 94px !important;
 			}
 
 			body.bodytakepos #customerandsales > a,
@@ -8589,15 +8855,10 @@ body#mainbody:not(.sidebar-collapse):not(.bodytakepos):not(.bodylogin) .login_bl
 			}
 
 			body.bodytakepos #shoppingcart > a:first-child {
-				max-width: 58px !important;
+				max-width: 110px !important;
 				overflow: hidden !important;
 				text-overflow: ellipsis !important;
 				white-space: nowrap !important;
-				width: 58px !important;
-			}
-
-			body.bodytakepos #shoppingcart > a:last-child {
-				width: 32px !important;
 			}
 
 			body.bodytakepos .topnav .login_block_other.takepos {
@@ -8606,8 +8867,9 @@ body#mainbody:not(.sidebar-collapse):not(.bodytakepos):not(.bodylogin) .login_bl
 
 			body.bodytakepos .topnav input#search {
 				box-sizing: border-box !important;
-				min-width: 78px !important;
-				width: 78px !important;
+				flex: 1 1 auto !important;
+				min-width: 0 !important;
+				width: auto !important;
 			}
 
 			body.bodytakepos .topnav .login_block_other.takepos > a {
@@ -8633,13 +8895,13 @@ body#mainbody:not(.sidebar-collapse):not(.bodytakepos):not(.bodylogin) .login_bl
 			body.bodytakepos #topmenu-login-dropdown > .dropdown-menu {
 				bottom: auto !important;
 				left: auto !important;
-				max-height: calc(100vh - 76px) !important;
+				max-height: calc(100vh - 140px) !important;
 				max-width: calc(100vw - 12px) !important;
 				overflow-x: hidden !important;
 				overflow-y: auto !important;
 				position: fixed !important;
 				right: 6px !important;
-				top: 64px !important;
+				top: 128px !important;
 				width: min(300px, calc(100vw - 12px)) !important;
 			}
 		}

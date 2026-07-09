@@ -85,11 +85,11 @@ if (getDolGlobalString('MAIN_APPLICATION_TITLE')) {
 }
 $manifest->short_name = $manifest->name;
 
-$defaultThemeColor = getDolGlobalString('THEME_ELDY_TOPMENU_BACK1', '#0969da');
+$defaultThemeColor = getDolGlobalString('THEME_ELDY_TOPMENU_BACK1', '#1677ff');
 $defaultBackgroundColor = '#ffffff';
 if (getDolGlobalInt('THEME_DARKMODEENABLED') == 2) {
-	$defaultThemeColor = '#1c1c1e';
-	$defaultBackgroundColor = '#1c1c1e';
+	$defaultThemeColor = '#141414';
+	$defaultBackgroundColor = '#141414';
 }
 
 $manifest->theme_color = getDolGlobalString('MAIN_MANIFEST_APPLI_THEME_COLOR', $defaultThemeColor);

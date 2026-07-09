@@ -44,9 +44,9 @@ if (!defined('ISLOADEDBYSTEELSHEET')) {
 	text-align: center;
 	white-space: nowrap;
 	vertical-align: baseline;
-	border-radius: .25rem;
+	border-radius: var(--formora-radius-sm);
 	transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-	border-width: 2px;
+	border-width: 1px;
 	border-style: solid;
 	border-color: rgba(255,255,255,0);
 	box-sizing: border-box;
@@ -56,7 +56,7 @@ if (!defined('ISLOADEDBYSTEELSHEET')) {
 	padding: 3px;
 	padding-left: 5px;
 	padding-right: 5px;
-	border-radius: 5px;
+	border-radius: var(--formora-radius-sm);
 }
 
 .badge-status {
@@ -79,14 +79,14 @@ if (!defined('ISLOADEDBYSTEELSHEET')) {
 .tabs .badge {
 	padding-right: .5em;
 	padding-left: .5em;
-	border-radius: 0.25rem;
+	border-radius: var(--formora-radius-sm);
 }
 
 .badge-pill{
 	/* Use the .badge-pill modifier class to make badges more rounded (with a larger border-radius and additional horizontal padding). */
 	padding-right: .8em;
 	padding-left: 0.8em;
-	border-radius: 0.5rem;
+	border-radius: var(--formora-radius-full);
 }
 
 .badge-dot {
@@ -107,17 +107,18 @@ a.badge:focus, a.badge:hover {
 
 span.badgeneutral {
 	padding: 2px 7px 2px 7px;
-	background-color: #e4e4e4;
-	color: #666;
-	border-radius: 10px;
+	background-color: var(--formora-neutral-bg);
+	color: var(--formora-muted);
+	border-radius: var(--formora-radius-full);
 	white-space: nowrap;
 }
 
 
 /* PRIMARY */
 .badge-primary{
-	color: #fff !important;
-	background-color: <?php print $badgePrimary; ?>;
+	color: <?php print $badgePrimary; ?> !important;
+	background-color: var(--formora-accent-soft);
+	border-color: <?php print colorHexToRgb($badgePrimary, 0.32); ?>;
 }
 a.badge-primary.focus, a.badge-primary:focus {
 	outline: 0;
@@ -125,13 +126,14 @@ a.badge-primary.focus, a.badge-primary:focus {
 }
 a.badge-primary:focus, a.badge-primary:hover {
 	color: #fff !important;
-	background-color: <?php print colorDarker($badgePrimary, 10); ?>;
+	background-color: <?php print $badgePrimary; ?>;
 }
 
 /* SECONDARY */
 .badge-secondary, .tabs .badge {
-	color: #fff !important;
-	background-color: <?php print $badgeSecondary; ?>;
+	color: <?php print $badgeSecondary; ?> !important;
+	background-color: var(--formora-neutral-bg);
+	border-color: <?php print colorHexToRgb($badgeSecondary, 0.28); ?>;
 }
 a.badge-secondary.focus, a.badge-secondary:focus {
 	outline: 0;
@@ -139,13 +141,14 @@ a.badge-secondary.focus, a.badge-secondary:focus {
 }
 a.badge-secondary:focus, a.badge-secondary:hover {
 	color: #fff !important;
-	background-color: <?php print colorDarker($badgeSecondary, 10); ?>;
+	background-color: <?php print $badgeSecondary; ?>;
 }
 
 /* SUCCESS */
 .badge-success {
-	color: #fff !important;
-	background-color: <?php print $badgeSuccess; ?>;
+	color: <?php print $badgeSuccess; ?> !important;
+	background-color: var(--formora-toast-success-bg);
+	border-color: var(--formora-toast-success-border);
 }
 a.badge-success.focus, a.badge-success:focus {
 	outline: 0;
@@ -153,13 +156,14 @@ a.badge-success.focus, a.badge-success:focus {
 }
 a.badge-success:focus, a.badge-success:hover {
 	color: #fff !important;
-	background-color: <?php print colorDarker($badgeSuccess, 10); ?>;
+	background-color: <?php print $badgeSuccess; ?>;
 }
 
 /* DANGER */
 .badge-danger {
-	color: #fff !important;
-	background-color: <?php print $badgeDanger; ?>;
+	color: <?php print $badgeDanger; ?> !important;
+	background-color: var(--formora-toast-error-bg);
+	border-color: var(--formora-toast-error-border);
 }
 a.badge-danger.focus, a.badge-danger:focus {
 	outline: 0;
@@ -167,13 +171,14 @@ a.badge-danger.focus, a.badge-danger:focus {
 }
 a.badge-danger:focus, a.badge-danger:hover {
 	color: #fff !important;
-	background-color: <?php print colorDarker($badgeDanger, 10); ?>;
+	background-color: <?php print $badgeDanger; ?>;
 }
 
 /* WARNING */
 .badge-warning {
-	color: #fff !important;
-	background-color: <?php print $badgeWarning; ?>;
+	color: <?php print $badgeWarning; ?> !important;
+	background-color: var(--formora-toast-warning-bg);
+	border-color: var(--formora-toast-warning-border);
 }
 a.badge-warning.focus, a.badge-warning:focus {
 	outline: 0;
@@ -181,12 +186,14 @@ a.badge-warning.focus, a.badge-warning:focus {
 }
 a.badge-warning:focus, a.badge-warning:hover {
 	color: #212529 !important;
-	background-color: <?php print colorDarker($badgeWarning, 10); ?>;
+	background-color: <?php print $badgeWarning; ?>;
 }
 
 /* WARNING colorblind */
 body[class*="colorblind-"] .badge-warning {
 	  background-color: <?php print $colorblind_deuteranopes_badgeWarning; ?>;
+	  border-color: transparent;
+	  color: #212529 !important;
   }
 body[class*="colorblind-"] a.badge-warning.focus,body[class^="colorblind-"] a.badge-warning:focus {
 	box-shadow: 0 0 0 0.2rem <?php print colorHexToRgb($colorblind_deuteranopes_badgeWarning, 0.5); ?>;
@@ -197,8 +204,9 @@ body[class*="colorblind-"] a.badge-warning:focus, a.badge-warning:hover {
 
 /* INFO */
 .badge-info {
-	color: #fff !important;
-	background-color: <?php print $badgeInfo; ?>;
+	color: <?php print $badgeInfo; ?> !important;
+	background-color: var(--formora-accent-soft);
+	border-color: <?php print colorHexToRgb($badgeInfo, 0.32); ?>;
 }
 a.badge-info.focus, a.badge-info:focus {
 	outline: 0;
@@ -206,12 +214,12 @@ a.badge-info.focus, a.badge-info:focus {
 }
 a.badge-info:focus, a.badge-info:hover {
 	color: #fff !important;
-	background-color: <?php print colorDarker($badgeInfo, 10); ?>;
+	background-color: <?php print $badgeInfo; ?>;
 }
 
 /* LIGHT */
 .badge-light {
-	color: #212529 !important;
+	color: var(--formora-text) !important;
 	background-color: <?php print $badgeLight; ?>;
 }
 a.badge-light.focus, a.badge-light:focus {
@@ -219,7 +227,7 @@ a.badge-light.focus, a.badge-light:focus {
 	box-shadow: 0 0 0 0.2rem <?php print colorHexToRgb($badgeLight, 0.5); ?>;
 }
 a.badge-light:focus, a.badge-light:hover {
-	color: #212529 !important;
+	color: var(--formora-text) !important;
 	background-color: <?php print colorDarker($badgeLight, 10); ?>;
 }
 
