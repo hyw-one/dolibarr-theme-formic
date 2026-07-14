@@ -503,3 +503,30 @@ curl -I "http://127.0.0.1:18090/theme/formic/style.css.php?theme=formic&dol_noca
 本主题衍生自 Dolibarr/Eldy 的主题文件，遵循继承的源码文件头中所使用的许可协议：GNU General Public License, version 3 or later（GPL v3 或更高版本）。
 
 项目层面的许可声明见 [LICENSE](LICENSE)。部分源码文件可能还带有各自的版权声明。
+
+## 中文测试环境与界面截图
+
+以下截图来自本地 Dolibarr 23.0.0 测试环境：
+
+- 语言：`zh_CN`
+- 主题：`Formic`
+- 示例公司：`Formic 示例科技有限公司`
+- 访问地址：`http://127.0.0.1:18091`
+
+截图文件位于 [`docs/screenshots/`](docs/screenshots/)，用于快速查看主题在不同 Dolibarr 页面和移动端宽度下的实际效果。
+
+| 编号 | 页面 | 截图 |
+| --- | --- | --- |
+| 01 | 中文后台看板（浅色） | <img src="docs/screenshots/01-dashboard-light.jpg" alt="中文后台看板" width="560"> |
+| 02 | 主题与显示设置 | <img src="docs/screenshots/02-theme-settings.jpg" alt="主题与显示设置" width="560"> |
+| 03 | 合作方列表 | <img src="docs/screenshots/03-third-party-list.jpg" alt="合作方列表" width="560"> |
+| 04 | 产品与服务列表 | <img src="docs/screenshots/04-product-list.jpg" alt="产品与服务列表" width="560"> |
+| 05 | 项目列表 | <img src="docs/screenshots/05-project-list.jpg" alt="项目列表" width="560"> |
+| 06 | 商务看板 | <img src="docs/screenshots/06-commercial.jpg" alt="商务看板" width="560"> |
+| 07 | 结算与付款 | <img src="docs/screenshots/07-billing.jpg" alt="结算与付款" width="560"> |
+| 08 | 日程管理 | <img src="docs/screenshots/08-agenda.jpg" alt="日程管理" width="560"> |
+| 09 | 服务工单 | <img src="docs/screenshots/09-ticket.jpg" alt="服务工单" width="560"> |
+| 10 | CSS 编辑器 | <img src="docs/screenshots/10-css-editor.jpg" alt="CSS 编辑器" width="560"> |
+| 11 | 公司设置 | <img src="docs/screenshots/11-company-settings.jpg" alt="公司设置" width="560"> |
+| 12 | 模块与应用设置 | <img src="docs/screenshots/12-module-settings.jpg" alt="模块与应用设置" width="560"> |
+| 13 | 移动端宽度下的中文看板 | <img src="docs/screenshots/13-mobile-dashboard.jpg" alt="移动端中文看板" width="560"> |
