@@ -2219,6 +2219,32 @@ textarea:focus,
 	color: var(--formic-muted) !important;
 }
 
+/* Keep the product/service list quick-create actions compact and aligned. */
+body#mainbody .paginationafterarrows > a.btnTitle.btnTitlePlus[href*="/product/card.php"] {
+	align-items: center;
+	display: inline-flex;
+	gap: 6px;
+	justify-content: center;
+	line-height: 20px;
+	padding: 6px 8px;
+	vertical-align: middle;
+}
+
+body#mainbody .paginationafterarrows > a.btnTitle.btnTitlePlus[href*="/product/card.php"] > .btnTitle-icon {
+	flex: 0 0 16px;
+	height: 16px !important;
+	line-height: 16px !important;
+	margin: 0 !important;
+	width: 16px !important;
+}
+
+body#mainbody .paginationafterarrows > a.btnTitle.btnTitlePlus[href*="/product/card.php"] > .btnTitle-label {
+	display: inline-block;
+	line-height: 20px;
+	margin: 0 !important;
+	vertical-align: middle;
+}
+
 .paginationafterarrows a.btnTitlePlus:hover span:before,
 .titre_right a.btnTitlePlus:hover span:before {
 	font-size: unset !important;
@@ -4839,6 +4865,20 @@ table.jPicker {
 	print "}\n";
 	}
 	?>
+
+	/* Keep the top-menu user popover footer actions at the same height. */
+body#mainbody #topmenu-login-dropdown .user-footer > :is(.pull-left, .pull-right) > .button-top-menu-dropdown {
+	align-items: center !important;
+	box-sizing: border-box !important;
+	display: inline-flex !important;
+	height: 36px !important;
+	justify-content: center !important;
+	line-height: 20px !important;
+	margin-bottom: 0 !important;
+	margin-top: 0 !important;
+	min-height: 36px !important;
+	vertical-align: middle !important;
+}
 
 	/*
 	 * TakePOS (body.bodytakepos) styling. This must NOT live inside the
@@ -8310,6 +8350,16 @@ body#mainbody:not(.sidebar-collapse):not(.bodytakepos):not(.bodylogin) .login_bl
 				justify-content: center !important;
 				padding: 0 !important;
 				width: 28px !important;
+			}
+
+			/* The compact sidebar help link contains two inline icons. Keep them on one line. */
+			body#mainbody:not(.sidebar-collapse):not(.bodytakepos):not(.bodylogin) .login_block.usedropdown .login_block_elem:has(> a.help) {
+				min-width: 42px !important;
+				width: 42px !important;
+			}
+
+			body#mainbody:not(.sidebar-collapse):not(.bodytakepos):not(.bodylogin) .login_block.usedropdown .login_block_elem:has(> a.help) > a.help {
+				white-space: nowrap !important;
 			}
 
 			body#mainbody:not(.sidebar-collapse):not(.bodytakepos):not(.bodylogin) .login_block.usedropdown .login_block_elem_name {

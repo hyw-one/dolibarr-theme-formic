@@ -457,7 +457,6 @@ a.dropdown-item {
 	background: rgb(<?php echo $colorbackhmenu1 ?>);
 }
 
-
 /*
  * SELECT FIELDS
  */
