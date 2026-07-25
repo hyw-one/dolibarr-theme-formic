@@ -2333,14 +2333,6 @@ body#mainbody.mod-admin.page-modules #id-right .fiche .div-table-responsive > ta
 	padding: 3px 8px 2px !important;
 }
 
-.badge-status.badge-status6[data-status-element="facture"][data-status="2"],
-.badge-status.badge-status6[data-status-element="invoice_supplier"][data-status="2"],
-.badge-status.badge-status6[data-status-element="commande"][data-status="3"] {
-	background: var(--formic-status-success-bg) !important;
-	border-color: var(--formic-status-success-border) !important;
-	color: var(--formic-status-success-text) !important;
-}
-
 /* Some embedded linked-object tables render the status badge in label-less (tooltip-only) mode; without any text a badge with pill padding collapses into a thin flat bar instead of reading as a status dot. */
 .badge:empty,
 .badge-status:empty,
@@ -4550,14 +4542,6 @@ span.badge-status4b {
 	color: #83e5a1 !important;
 }
 
-.badge-status.badge-status6[data-status-element="facture"][data-status="2"],
-.badge-status.badge-status6[data-status-element="invoice_supplier"][data-status="2"],
-.badge-status.badge-status6[data-status-element="commande"][data-status="3"] {
-	background: var(--formic-status-success-bg) !important;
-	border-color: var(--formic-status-success-border) !important;
-	color: var(--formic-status-success-text) !important;
-}
-
 .badge-status.badge-status8,
 .badge-status.badge-status10,
 .badge-status8,
@@ -6565,10 +6549,7 @@ body#mainbody input[type="button"]:not(.buttonDelete):not(.buttonRefused):not(.b
 	body#mainbody .badge-dot.badge-status4,
 	body#mainbody .badge-dot.badge-status4b,
 	body#mainbody .badge-dot.badge-status7,
-	body#mainbody .badge-dot.badge-status11,
-	body#mainbody .badge-dot.badge-status6[data-status-element="facture"][data-status="2"],
-	body#mainbody .badge-dot.badge-status6[data-status-element="invoice_supplier"][data-status="2"],
-	body#mainbody .badge-dot.badge-status6[data-status-element="commande"][data-status="3"] {
+	body#mainbody .badge-dot.badge-status11 {
 		background: rgba(48, 209, 88, 0.32) !important;
 		border: 1px solid rgba(48, 209, 88, 0.48) !important;
 	}
