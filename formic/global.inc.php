@@ -875,9 +875,9 @@ input#onlinepaymenturl, input#directdownloadlink {
 
 
 .formconsumeproduce {
-	border-left: solid 5px #666;
-	background: #efefef;
-	/* background: #f3f3f3; */
+	border-left: solid 5px var(--formic-line);
+	background: var(--formic-surface-alt);
+	color: var(--formic-text);
 
 	padding: 20px 0px 20px 0px;
 	border-radius: 8px;
