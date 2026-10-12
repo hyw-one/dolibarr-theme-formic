@@ -18,7 +18,7 @@ table rows may run longer); messages are in English, quoted Chinese UI
 text excepted. Merge commits are `chore(merge): merge pull request #N
 from <branch>` or `chore(merge): merge branch '<name>'`. Reverts are
 `revert: <original subject>` and keep `This reverts commit <hash>.`
-No message carries a `Co-Authored-By: Claude ...` trailer.
+No message carries a Co-Authored-By trailer for Claude, Codex or Copilot.
 """
 import os
 import re
@@ -79,8 +79,8 @@ def problems(msg, is_merge):
             out.append("add a body: what changed and what users or maintainers now see")
     if cjk_heavy(subj) or (body and cjk_heavy("\n".join(body))):
         out.append("write the message in English (quoted Chinese UI text may stay)")
-    if any(re.match(r"^\s*co-authored-by:\s*claude\b", l, re.I) for l in rest):
-        out.append("leave out the Co-Authored-By: Claude trailer")
+    if any(re.match(r"^\s*co-authored-by:\s*(claude|codex|copilot)\b", l, re.I) for l in rest):
+        out.append("leave out the Co-Authored-By trailer for Claude, Codex or Copilot")
     wide = [i + 2 for i, l in enumerate(rest) if len(l) > WIDTH and not long_ok(l)]
     if wide:
         out.append(f"wrap the body at {WIDTH} columns (line {', '.join(map(str, wide[:5]))})")
