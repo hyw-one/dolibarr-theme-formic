@@ -1,0 +1,18 @@
+name: Commit messages
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  commit-messages:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.sha }}
+      - name: Check commit messages
+        run: python3 .githooks/commit-msg --range "${{ github.event.pull_request.base.sha }}..${{ github.event.pull_request.head.sha }}"

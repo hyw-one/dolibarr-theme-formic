@@ -1,0 +1,130 @@
+#!/usr/bin/env python3
+"""Commit message check (Conventional Commits, the iForm standard).
+
+Enable once per clone:
+
+    git config core.hooksPath .githooks
+
+As a hook git passes the message file. CI checks a range instead:
+
+    .githooks/commit-msg --range origin/main..HEAD
+
+Rules: `type(scope): summary` with type in feat, fix, docs, style,
+refactor, perf, test, build, ci, chore, revert; scope one lowercase word
+or hyphenated word; summary starts lowercase, no trailing period; the
+subject is at most 72 characters; blank line after the subject; every
+non-merge commit has a body wrapped at 72 columns (URLs, code, paths and
+table rows may run longer); messages are in English, quoted Chinese UI
+text excepted. Merge commits are `chore(merge): merge pull request #N
+from <branch>` or `chore(merge): merge branch '<name>'`. Reverts are
+`revert: <original subject>` and keep `This reverts commit <hash>.`
+"""
+import os
+import re
+import subprocess
+import sys
+
+TYPES = ("feat", "fix", "docs", "style", "refactor", "perf", "test", "build", "ci", "chore", "revert")
+HDR = re.compile(r"^(?P<type>[a-z]+)(?:\((?P<scope>[^)]*)\))?(?P<bang>!)?: (?P<desc>.+)$")
+SCOPE = re.compile(r"[a-z0-9]+(-[a-z0-9]+)*")
+CJK = re.compile(r"[㐀-鿿豈-﫿　-〿＀-￯]")
+TRAILER = re.compile(r"^[A-Z][A-Za-z0-9-]*: \S")
+WIDTH = 72
+
+
+def cjk_heavy(text):
+    return len(CJK.findall(text)) > len(re.findall(r"[A-Za-z]", text))
+
+
+def long_ok(line):
+    s = line.strip()
+    return (" " not in s or re.search(r"https?://", s) or line.startswith("    ") or "`" in s
+            or s.startswith("|") or TRAILER.match(line))
+
+
+def problems(msg, is_merge):
+    lines = msg.strip("\n").split("\n")
+    subj, rest = lines[0], lines[1:]
+    if re.match(r"^(fixup|squash|amend)! ", subj):
+        return []
+    out = []
+    if rest and rest[0].strip():
+        out.append("leave a blank line after the subject")
+    body = [l for l in rest if l.strip() and not TRAILER.match(l)]
+    if is_merge:
+        if not re.match(r"^chore\(merge\): merge \S", subj):
+            out.append("a merge is `chore(merge): merge pull request #N from <branch>` "
+                       "or `chore(merge): merge branch '<name>'`")
+    else:
+        m = HDR.match(subj)
+        if not m:
+            out.append("the subject is `type(scope): summary`")
+        else:
+            if m["type"] not in TYPES:
+                out.append("type is one of " + ", ".join(TYPES))
+            if m["scope"] is not None and not SCOPE.fullmatch(m["scope"]):
+                out.append("scope is one lowercase word or hyphenated word")
+            if m["type"] == "chore" and m["scope"] == "merge":
+                out.append("chore(merge) is only for merge commits")
+            if re.match(r"^[A-Z][a-z]", m["desc"]):
+                out.append("the summary starts lowercase")
+            if m["desc"].endswith((".", "。")):
+                out.append("no period at the end of the subject")
+            if m["type"] == "revert" and "This reverts commit" not in msg:
+                out.append("a revert keeps `This reverts commit <hash>.` in the body")
+        if len(subj) > WIDTH:
+            out.append(f"the subject is {len(subj)} characters; keep it to {WIDTH}")
+        if not body:
+            out.append("add a body: what changed and what users or maintainers now see")
+    if cjk_heavy(subj) or (body and cjk_heavy("\n".join(body))):
+        out.append("write the message in English (quoted Chinese UI text may stay)")
+    wide = [i + 2 for i, l in enumerate(rest) if len(l) > WIDTH and not long_ok(l)]
+    if wide:
+        out.append(f"wrap the body at {WIDTH} columns (line {', '.join(map(str, wide[:5]))})")
+    return out
+
+
+def strip_comments(text):
+    cut = re.search(r"^# -+ >8 -+$", text, re.M)
+    if cut:
+        text = text[:cut.start()]
+    return "\n".join(l for l in text.split("\n") if not l.startswith("#")).strip("\n")
+
+
+def main(argv):
+    if len(argv) == 3 and argv[1] == "--range":
+        log = subprocess.run(["git", "log", "--format=%H%x1f%P%x1f%B%x1e", argv[2]],
+                             capture_output=True, text=True, check=True).stdout
+        bad = 0
+        for rec in log.split("\x1e"):
+            rec = rec.strip("\n")
+            if not rec:
+                continue
+            h, parents, msg = rec.split("\x1f", 2)
+            found = problems(msg, len(parents.split()) > 1)
+            if found:
+                bad += 1
+                print(f"{h[:9]} {msg.splitlines()[0]}")
+                for p in found:
+                    print(f"    - {p}")
+        if bad:
+            print(f"\n{bad} commit message(s) do not follow the standard; see .githooks/commit-msg.")
+        return 1 if bad else 0
+    if len(argv) != 2:
+        print(__doc__)
+        return 2
+    msg = strip_comments(open(argv[1], encoding="utf-8").read())
+    git_dir = subprocess.run(["git", "rev-parse", "--git-dir"], capture_output=True, text=True).stdout.strip()
+    is_merge = os.path.exists(os.path.join(git_dir, "MERGE_HEAD"))
+    found = problems(msg, is_merge)
+    if found:
+        sys.stderr.write("commit message does not follow the standard:\n")
+        for p in found:
+            sys.stderr.write(f"  - {p}\n")
+        sys.stderr.write("(see .githooks/commit-msg; the message is kept in .git/COMMIT_EDITMSG)\n")
+        return 1
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main(sys.argv))
